@@ -29,6 +29,10 @@ namespace CyberSource.Client
     /// </summary>
     public partial class ApiClient
     {
+        public static int HttpResponseStatusCode { get; private set; }
+        public static IList<Parameter> HttpResponseHeaders { get; private set; }
+        public static string HttpResponseData { get; private set; }
+
         private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
         {
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
@@ -118,10 +122,18 @@ namespace CyberSource.Client
             foreach(var param in pathParams)
                 request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
 
-            // add header parameter, if any
+                // add header parameter, if any
                 // 1. passed to this function
                 foreach (var param in headerParams)
-                    request.AddHeader(param.Key, param.Value);
+                {
+                    if (param.Key == "Authorization")
+                    {
+                        request.AddParameter("Authorization", string.Format("Bearer " + param.Value),
+                            ParameterType.HttpHeader);
+                    }
+                    else
+                        request.AddHeader(param.Key, param.Value);
+                }
 
                 // 2. set in the defaultHeaders of configuration   
                 if (postBody == null)
@@ -134,7 +146,15 @@ namespace CyberSource.Client
                 }         
 
                 foreach (var param in Configuration.DefaultHeader)
-                    request.AddHeader(param.Key, param.Value);
+                {
+                    if (param.Key == "Authorization")
+                    {
+                        request.AddParameter("Authorization", string.Format("Bearer " + param.Value),
+                            ParameterType.HttpHeader);
+                    }
+                    else
+                        request.AddHeader(param.Key, param.Value);
+                }
 
             // add query parameter, if any
             foreach (var param in queryParams)
@@ -198,6 +218,22 @@ namespace CyberSource.Client
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
+
+            HttpResponseStatusCode = (int)response.StatusCode;
+            HttpResponseHeaders = response.Headers;
+            HttpResponseData = response.Content;
+
+            Console.WriteLine($"\n");
+            Console.WriteLine($"HTTP RESPONSE STATUS CODE: {HttpResponseStatusCode}");
+
+            Console.WriteLine($"\n");
+            Console.WriteLine("HTTP RESPONSE HEADERS:-");
+
+            foreach (var header in HttpResponseHeaders)
+            {
+                Console.WriteLine(header);
+            }
+            Console.WriteLine($"\n");
 
             return (Object) response;
         }
