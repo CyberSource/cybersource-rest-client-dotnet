@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/cybersource-rest-client-dotnet/v14
+/cybersource-rest-client-dotnet.csproj.user
+/bin
+/obj
