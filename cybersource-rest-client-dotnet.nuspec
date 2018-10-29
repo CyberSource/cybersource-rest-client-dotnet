@@ -12,6 +12,6 @@
     <releaseNotes>First Release.</releaseNotes>
   </metadata>
   <files>
-    <file src="cybersource-rest-client-dotnet\bin\Release\cybersource-rest-client-dotnet.dll" target="lib\cybersource-rest-client-dotnet.dll"/>
+    <file src="bin\Release\cybersource-rest-client-dotnet.dll" target="lib\cybersource-rest-client-dotnet.dll"/>
   </files>
 </package>
