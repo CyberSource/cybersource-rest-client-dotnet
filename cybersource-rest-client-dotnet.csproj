@@ -38,8 +38,9 @@ OpenAPI spec version: 0.0.1
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AuthenticationSdk">
-      <HintPath>..\..\..\CyberSource_Authentication_SDK_dotNet\src\References\AuthenticationSdk\AuthenticationSdk\bin\Debug\AuthenticationSdk.dll</HintPath>
+    <Reference Include="AuthenticationSdk, Version=0.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CyberSource.Authentication.0.0.0.1\lib\AuthenticationSdk.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -318,7 +319,9 @@ OpenAPI spec version: 0.0.1
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,3 +10,6 @@
 /obj/Debug/cybersource-rest-client-dotnet.dll
 /obj/Debug/cybersource-rest-client-dotnet.pdb
 /obj/Debug/cybersource-rest-client-dotnet.csprojResolveAssemblyReference.cache
+/bin/Debug
+/obj/Debug
+/packages/CyberSource.Authentication.0.0.0.1
