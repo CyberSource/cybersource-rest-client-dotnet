@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/cybersource-rest-client-dotnet/v14
+/cybersource-rest-client-dotnet.csproj.user
+/bin/Debug/cybersource-rest-client-dotnet.dll
+/bin/Debug/cybersource-rest-client-dotnet.pdb
+/obj/Debug/cybersource-rest-client-dotnet.csproj.FileListAbsolute.txt
+/obj/Debug/cybersource-rest-client-dotnet.dll
+/obj/Debug/cybersource-rest-client-dotnet.pdb
+/obj/Debug/cybersource-rest-client-dotnet.csprojResolveAssemblyReference.cache
+/bin/Debug
+/obj/Debug
+/packages/CyberSource.Authentication.0.0.0.1
+/bin/Release
+/obj/Release

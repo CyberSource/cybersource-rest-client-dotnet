@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CyberSource.Rest.Client</id>
+    <version>0.0.0.1</version>
+    <title>CyberSource.Rest.Client</title>
+    <authors>CyberSource Corporation</authors>
+    <owners>CyberSource</owners>
+    <projectUrl>https://github.com/CyberSource/cybersource-rest-client-dotnet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Use this client SDK to Call CyberSource REST API's. This SDK includes generates both HTTP Signature and JWT headers (including authentication headers) for the API requests.</description>
+    <releaseNotes>First Release.</releaseNotes>
+  </metadata>
+  <files>
+    <file src="bin\Release\cybersource-rest-client-dotnet.dll" target="lib\cybersource-rest-client-dotnet.dll"/>
+  </files>
+</package>
