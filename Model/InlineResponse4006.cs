@@ -10,17 +10,12 @@
 
 using System;
 using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -31,28 +26,92 @@ namespace CyberSource.Model
     public partial class InlineResponse4006 :  IEquatable<InlineResponse4006>, IValidatableObject
     {
         /// <summary>
+        /// The reason of the status. 
+        /// </summary>
+        /// <value>The reason of the status. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ReasonEnum
+        {
+            
+            /// <summary>
+            /// Enum MISSINGFIELD for "MISSING_FIELD"
+            /// </summary>
+            [EnumMember(Value = "MISSING_FIELD")]
+            MISSINGFIELD,
+            
+            /// <summary>
+            /// Enum INVALIDDATA for "INVALID_DATA"
+            /// </summary>
+            [EnumMember(Value = "INVALID_DATA")]
+            INVALIDDATA,
+            
+            /// <summary>
+            /// Enum DUPLICATEREQUEST for "DUPLICATE_REQUEST"
+            /// </summary>
+            [EnumMember(Value = "DUPLICATE_REQUEST")]
+            DUPLICATEREQUEST,
+            
+            /// <summary>
+            /// Enum INVALIDMERCHANTCONFIGURATION for "INVALID_MERCHANT_CONFIGURATION"
+            /// </summary>
+            [EnumMember(Value = "INVALID_MERCHANT_CONFIGURATION")]
+            INVALIDMERCHANTCONFIGURATION,
+            
+            /// <summary>
+            /// Enum INVALIDAMOUNT for "INVALID_AMOUNT"
+            /// </summary>
+            [EnumMember(Value = "INVALID_AMOUNT")]
+            INVALIDAMOUNT,
+            
+            /// <summary>
+            /// Enum DEBITCARDUSEAGEEXCEEDDLIMIT for "DEBIT_CARD_USEAGE_EXCEEDD_LIMIT"
+            /// </summary>
+            [EnumMember(Value = "DEBIT_CARD_USEAGE_EXCEEDD_LIMIT")]
+            DEBITCARDUSEAGEEXCEEDDLIMIT
+        }
+
+        /// <summary>
+        /// The reason of the status. 
+        /// </summary>
+        /// <value>The reason of the status. </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public ReasonEnum? Reason { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4006" /> class.
         /// </summary>
-        /// <param name="Type">Type.</param>
-        /// <param name="Message">The detailed message related to the type stated above..</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        /// <param name="Status">The status of the submitted transaction..</param>
+        /// <param name="Reason">The reason of the status. .</param>
+        /// <param name="Message">The detail message related to the status and reason listed above. Possible value is:    - Your aggregator or acquirer is not accepting transactions from you at this time.   - Your aggregator or acquirer is not accepting this transaction.   - CyberSource declined the request because the credit card has expired. You might also receive this value if     the expiration date you provided does not match the date the issuing bank has on file.   - The bank declined the transaction.   - The merchant reference number for this authorization request matches the merchant reference number of     another authorization request that you sent within the past 15 minutes. Resend the request with a unique     merchant reference number.   - The credit card number did not pass CyberSource basic checks.   - Data provided is not consistent with the request. For example, you requested a product with negative cost.   - The request is missing a required field. .</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse4006(string Type = default(string), string Message = default(string), InstrumentidentifiersDetails Details = default(InstrumentidentifiersDetails))
+        public InlineResponse4006(string SubmitTimeUtc = default(string), string Status = default(string), ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string), List<InlineResponse201ErrorInformationDetails> Details = default(List<InlineResponse201ErrorInformationDetails>))
         {
-            this.Type = Type;
+            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Status = Status;
+            this.Reason = Reason;
             this.Message = Message;
             this.Details = Details;
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
         /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
+        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
+        public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The detailed message related to the type stated above.
+        /// The status of the submitted transaction.
         /// </summary>
-        /// <value>The detailed message related to the type stated above.</value>
+        /// <value>The status of the submitted transaction.</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
+
+
+        /// <summary>
+        /// The detail message related to the status and reason listed above. Possible value is:    - Your aggregator or acquirer is not accepting transactions from you at this time.   - Your aggregator or acquirer is not accepting this transaction.   - CyberSource declined the request because the credit card has expired. You might also receive this value if     the expiration date you provided does not match the date the issuing bank has on file.   - The bank declined the transaction.   - The merchant reference number for this authorization request matches the merchant reference number of     another authorization request that you sent within the past 15 minutes. Resend the request with a unique     merchant reference number.   - The credit card number did not pass CyberSource basic checks.   - Data provided is not consistent with the request. For example, you requested a product with negative cost.   - The request is missing a required field. 
+        /// </summary>
+        /// <value>The detail message related to the status and reason listed above. Possible value is:    - Your aggregator or acquirer is not accepting transactions from you at this time.   - Your aggregator or acquirer is not accepting this transaction.   - CyberSource declined the request because the credit card has expired. You might also receive this value if     the expiration date you provided does not match the date the issuing bank has on file.   - The bank declined the transaction.   - The merchant reference number for this authorization request matches the merchant reference number of     another authorization request that you sent within the past 15 minutes. Resend the request with a unique     merchant reference number.   - The credit card number did not pass CyberSource basic checks.   - Data provided is not consistent with the request. For example, you requested a product with negative cost.   - The request is missing a required field. </value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 
@@ -60,7 +119,7 @@ namespace CyberSource.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="details", EmitDefaultValue=false)]
-        public InstrumentidentifiersDetails Details { get; set; }
+        public List<InlineResponse201ErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,7 +129,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4006 {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
@@ -110,9 +171,19 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
+                    this.SubmitTimeUtc != null &&
+                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                ) && 
+                (
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
+                ) && 
+                (
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -122,7 +193,7 @@ namespace CyberSource.Model
                 (
                     this.Details == other.Details ||
                     this.Details != null &&
-                    this.Details.Equals(other.Details)
+                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -137,8 +208,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.SubmitTimeUtc != null)
+                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Reason != null)
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
                 if (this.Details != null)

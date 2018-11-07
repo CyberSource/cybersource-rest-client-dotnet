@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * CyberSource Flex API
  *
  * Simple PAN tokenization service
@@ -9,18 +9,11 @@
  */
 
 using System;
-using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -33,16 +26,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse201PaymentInformationCard" /> class.
         /// </summary>
-        /// <param name="Suffix">Last four digits of the cardholderâ€™s account number. This field is returned only for tokenized transactions. You can use this value on the receipt that you give to the cardholder. .</param>
+        /// <param name="Suffix">Last four digits of the cardholder’s account number. This field is returned only for tokenized transactions. You can use this value on the receipt that you give to the cardholder. .</param>
         public InlineResponse201PaymentInformationCard(string Suffix = default(string))
         {
             this.Suffix = Suffix;
         }
         
         /// <summary>
-        /// Last four digits of the cardholderâ€™s account number. This field is returned only for tokenized transactions. You can use this value on the receipt that you give to the cardholder. 
+        /// Last four digits of the cardholder’s account number. This field is returned only for tokenized transactions. You can use this value on the receipt that you give to the cardholder. 
         /// </summary>
-        /// <value>Last four digits of the cardholderâ€™s account number. This field is returned only for tokenized transactions. You can use this value on the receipt that you give to the cardholder. </value>
+        /// <value>Last four digits of the cardholder’s account number. This field is returned only for tokenized transactions. You can use this value on the receipt that you give to the cardholder. </value>
         [DataMember(Name="suffix", EmitDefaultValue=false)]
         public string Suffix { get; set; }
 

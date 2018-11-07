@@ -9,18 +9,11 @@
  */
 
 using System;
-using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -40,7 +33,7 @@ namespace CyberSource.Model
         /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
-        public OctCreatePaymentRequest(InlineResponse201ClientReferenceInformation ClientReferenceInformation = default(InlineResponse201ClientReferenceInformation), V2payoutsOrderInformation OrderInformation = default(V2payoutsOrderInformation), V2payoutsMerchantInformation MerchantInformation = default(V2payoutsMerchantInformation), V2payoutsRecipientInformation RecipientInformation = default(V2payoutsRecipientInformation), V2payoutsSenderInformation SenderInformation = default(V2payoutsSenderInformation), V2payoutsProcessingInformation ProcessingInformation = default(V2payoutsProcessingInformation), V2payoutsPaymentInformation PaymentInformation = default(V2payoutsPaymentInformation))
+        public OctCreatePaymentRequest(InlineResponse201ClientReferenceInformation ClientReferenceInformation = default(InlineResponse201ClientReferenceInformation), Ptsv2payoutsOrderInformation OrderInformation = default(Ptsv2payoutsOrderInformation), Ptsv2payoutsMerchantInformation MerchantInformation = default(Ptsv2payoutsMerchantInformation), Ptsv2payoutsRecipientInformation RecipientInformation = default(Ptsv2payoutsRecipientInformation), Ptsv2payoutsSenderInformation SenderInformation = default(Ptsv2payoutsSenderInformation), Ptsv2payoutsProcessingInformation ProcessingInformation = default(Ptsv2payoutsProcessingInformation), Ptsv2payoutsPaymentInformation PaymentInformation = default(Ptsv2payoutsPaymentInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
@@ -61,37 +54,37 @@ namespace CyberSource.Model
         /// Gets or Sets OrderInformation
         /// </summary>
         [DataMember(Name="orderInformation", EmitDefaultValue=false)]
-        public V2payoutsOrderInformation OrderInformation { get; set; }
+        public Ptsv2payoutsOrderInformation OrderInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInformation
         /// </summary>
         [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
-        public V2payoutsMerchantInformation MerchantInformation { get; set; }
+        public Ptsv2payoutsMerchantInformation MerchantInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets RecipientInformation
         /// </summary>
         [DataMember(Name="recipientInformation", EmitDefaultValue=false)]
-        public V2payoutsRecipientInformation RecipientInformation { get; set; }
+        public Ptsv2payoutsRecipientInformation RecipientInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets SenderInformation
         /// </summary>
         [DataMember(Name="senderInformation", EmitDefaultValue=false)]
-        public V2payoutsSenderInformation SenderInformation { get; set; }
+        public Ptsv2payoutsSenderInformation SenderInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation
         /// </summary>
         [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public V2payoutsProcessingInformation ProcessingInformation { get; set; }
+        public Ptsv2payoutsProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentInformation
         /// </summary>
         [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
-        public V2payoutsPaymentInformation PaymentInformation { get; set; }
+        public Ptsv2payoutsPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

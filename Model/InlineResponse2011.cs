@@ -9,18 +9,12 @@
  */
 
 using System;
-using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -64,7 +58,7 @@ namespace CyberSource.Model
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="AuthorizationInformation">AuthorizationInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        public InlineResponse2011(InlineResponse201EmbeddedCaptureLinks Links = default(InlineResponse201EmbeddedCaptureLinks), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string ReconciliationId = default(string), InlineResponse201ClientReferenceInformation ClientReferenceInformation = default(InlineResponse201ClientReferenceInformation), InlineResponse2011ReversalAmountDetails ReversalAmountDetails = default(InlineResponse2011ReversalAmountDetails), InlineResponse2011ProcessorInformation ProcessorInformation = default(InlineResponse2011ProcessorInformation), InlineResponse2011AuthorizationInformation AuthorizationInformation = default(InlineResponse2011AuthorizationInformation), V2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(V2paymentsidreversalsPointOfSaleInformation))
+        public InlineResponse2011(InlineResponse2011Links Links = default(InlineResponse2011Links), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string ReconciliationId = default(string), InlineResponse201ClientReferenceInformation ClientReferenceInformation = default(InlineResponse201ClientReferenceInformation), InlineResponse2011ReversalAmountDetails ReversalAmountDetails = default(InlineResponse2011ReversalAmountDetails), InlineResponse2011ProcessorInformation ProcessorInformation = default(InlineResponse2011ProcessorInformation), InlineResponse2011AuthorizationInformation AuthorizationInformation = default(InlineResponse2011AuthorizationInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -82,7 +76,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public InlineResponse201EmbeddedCaptureLinks Links { get; set; }
+        public InlineResponse2011Links Links { get; set; }
 
         /// <summary>
         /// An unique identification number assigned by CyberSource to identify the submitted request.
@@ -134,7 +128,7 @@ namespace CyberSource.Model
         /// Gets or Sets PointOfSaleInformation
         /// </summary>
         [DataMember(Name="pointOfSaleInformation", EmitDefaultValue=false)]
-        public V2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation { get; set; }
+        public Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

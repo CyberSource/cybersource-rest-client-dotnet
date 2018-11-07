@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * CyberSource Flex API
  *
  * Simple PAN tokenization service
@@ -9,18 +9,11 @@
  */
 
 using System;
-using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -39,7 +32,7 @@ namespace CyberSource.Model
         /// <param name="AssuranceLevel">Confidence level of the tokenization. This value is assigned by the token service provider.  &#x60;Note&#x60; This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**. .</param>
         /// <param name="ExpirationMonth">Two-digit month in which the payment network token expires. &#x60;Format: MM&#x60;. Possible values: 01 through 12. .</param>
         /// <param name="ExpirationYear">Four-digit year in which the payment network token expires. &#x60;Format: YYYY&#x60;. .</param>
-        /// <param name="RequestorId">Value that identifies your business and indicates that the cardholderâ€™s account number is tokenized. This value is assigned by the token service provider and is unique within the token service providerâ€™s database.  &#x60;Note&#x60; This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**. .</param>
+        /// <param name="RequestorId">Value that identifies your business and indicates that the cardholder’s account number is tokenized. This value is assigned by the token service provider and is unique within the token service provider’s database.  &#x60;Note&#x60; This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**. .</param>
         public InlineResponse201PaymentInformationTokenizedCard(string Prefix = default(string), string Suffix = default(string), string Type = default(string), string AssuranceLevel = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string RequestorId = default(string))
         {
             this.Prefix = Prefix;
@@ -94,9 +87,9 @@ namespace CyberSource.Model
         public string ExpirationYear { get; set; }
 
         /// <summary>
-        /// Value that identifies your business and indicates that the cardholderâ€™s account number is tokenized. This value is assigned by the token service provider and is unique within the token service providerâ€™s database.  &#x60;Note&#x60; This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**. 
+        /// Value that identifies your business and indicates that the cardholder’s account number is tokenized. This value is assigned by the token service provider and is unique within the token service provider’s database.  &#x60;Note&#x60; This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**. 
         /// </summary>
-        /// <value>Value that identifies your business and indicates that the cardholderâ€™s account number is tokenized. This value is assigned by the token service provider and is unique within the token service providerâ€™s database.  &#x60;Note&#x60; This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**. </value>
+        /// <value>Value that identifies your business and indicates that the cardholder’s account number is tokenized. This value is assigned by the token service provider and is unique within the token service provider’s database.  &#x60;Note&#x60; This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**. </value>
         [DataMember(Name="requestorId", EmitDefaultValue=false)]
         public string RequestorId { get; set; }
 

@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * CyberSource Flex API
  *
  * Simple PAN tokenization service
@@ -9,18 +9,11 @@
  */
 
 using System;
-using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -33,16 +26,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse201ProcessorInformationElectronicVerificationResults" /> class.
         /// </summary>
-        /// <param name="Code">Mapped Electronic Verification response code for the customerâ€™s name. .</param>
-        /// <param name="CodeRaw">Raw Electronic Verification response code from the processor for the customerâ€™s last name.</param>
-        /// <param name="Email">Mapped Electronic Verification response code for the customerâ€™s email address. .</param>
-        /// <param name="EmailRaw">Raw Electronic Verification response code from the processor for the customerâ€™s email address..</param>
-        /// <param name="PhoneNumber">Mapped Electronic Verification response code for the customerâ€™s phone number. .</param>
-        /// <param name="PhoneNumberRaw">Raw Electronic Verification response code from the processor for the customerâ€™s phone number..</param>
-        /// <param name="PostalCode">Mapped Electronic Verification response code for the customerâ€™s postal code. .</param>
-        /// <param name="PostalCodeRaw">Raw Electronic Verification response code from the processor for the customerâ€™s postal code..</param>
-        /// <param name="Street">Mapped Electronic Verification response code for the customerâ€™s street address. .</param>
-        /// <param name="StreetRaw">Raw Electronic Verification response code from the processor for the customerâ€™s street address..</param>
+        /// <param name="Code">Mapped Electronic Verification response code for the customer’s name. .</param>
+        /// <param name="CodeRaw">Raw Electronic Verification response code from the processor for the customer’s last name.</param>
+        /// <param name="Email">Mapped Electronic Verification response code for the customer’s email address. .</param>
+        /// <param name="EmailRaw">Raw Electronic Verification response code from the processor for the customer’s email address..</param>
+        /// <param name="PhoneNumber">Mapped Electronic Verification response code for the customer’s phone number. .</param>
+        /// <param name="PhoneNumberRaw">Raw Electronic Verification response code from the processor for the customer’s phone number..</param>
+        /// <param name="PostalCode">Mapped Electronic Verification response code for the customer’s postal code. .</param>
+        /// <param name="PostalCodeRaw">Raw Electronic Verification response code from the processor for the customer’s postal code..</param>
+        /// <param name="Street">Mapped Electronic Verification response code for the customer’s street address. .</param>
+        /// <param name="StreetRaw">Raw Electronic Verification response code from the processor for the customer’s street address..</param>
         /// <param name="Name">TODO .</param>
         /// <param name="NameRaw">TODO.</param>
         public InlineResponse201ProcessorInformationElectronicVerificationResults(string Code = default(string), string CodeRaw = default(string), string Email = default(string), string EmailRaw = default(string), string PhoneNumber = default(string), string PhoneNumberRaw = default(string), string PostalCode = default(string), string PostalCodeRaw = default(string), string Street = default(string), string StreetRaw = default(string), string Name = default(string), string NameRaw = default(string))
@@ -62,72 +55,72 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Mapped Electronic Verification response code for the customerâ€™s name. 
+        /// Mapped Electronic Verification response code for the customer’s name. 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customerâ€™s name. </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s name. </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Raw Electronic Verification response code from the processor for the customerâ€™s last name
+        /// Raw Electronic Verification response code from the processor for the customer’s last name
         /// </summary>
-        /// <value>Raw Electronic Verification response code from the processor for the customerâ€™s last name</value>
+        /// <value>Raw Electronic Verification response code from the processor for the customer’s last name</value>
         [DataMember(Name="codeRaw", EmitDefaultValue=false)]
         public string CodeRaw { get; set; }
 
         /// <summary>
-        /// Mapped Electronic Verification response code for the customerâ€™s email address. 
+        /// Mapped Electronic Verification response code for the customer’s email address. 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customerâ€™s email address. </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s email address. </value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Raw Electronic Verification response code from the processor for the customerâ€™s email address.
+        /// Raw Electronic Verification response code from the processor for the customer’s email address.
         /// </summary>
-        /// <value>Raw Electronic Verification response code from the processor for the customerâ€™s email address.</value>
+        /// <value>Raw Electronic Verification response code from the processor for the customer’s email address.</value>
         [DataMember(Name="emailRaw", EmitDefaultValue=false)]
         public string EmailRaw { get; set; }
 
         /// <summary>
-        /// Mapped Electronic Verification response code for the customerâ€™s phone number. 
+        /// Mapped Electronic Verification response code for the customer’s phone number. 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customerâ€™s phone number. </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s phone number. </value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Raw Electronic Verification response code from the processor for the customerâ€™s phone number.
+        /// Raw Electronic Verification response code from the processor for the customer’s phone number.
         /// </summary>
-        /// <value>Raw Electronic Verification response code from the processor for the customerâ€™s phone number.</value>
+        /// <value>Raw Electronic Verification response code from the processor for the customer’s phone number.</value>
         [DataMember(Name="phoneNumberRaw", EmitDefaultValue=false)]
         public string PhoneNumberRaw { get; set; }
 
         /// <summary>
-        /// Mapped Electronic Verification response code for the customerâ€™s postal code. 
+        /// Mapped Electronic Verification response code for the customer’s postal code. 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customerâ€™s postal code. </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s postal code. </value>
         [DataMember(Name="postalCode", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Raw Electronic Verification response code from the processor for the customerâ€™s postal code.
+        /// Raw Electronic Verification response code from the processor for the customer’s postal code.
         /// </summary>
-        /// <value>Raw Electronic Verification response code from the processor for the customerâ€™s postal code.</value>
+        /// <value>Raw Electronic Verification response code from the processor for the customer’s postal code.</value>
         [DataMember(Name="postalCodeRaw", EmitDefaultValue=false)]
         public string PostalCodeRaw { get; set; }
 
         /// <summary>
-        /// Mapped Electronic Verification response code for the customerâ€™s street address. 
+        /// Mapped Electronic Verification response code for the customer’s street address. 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customerâ€™s street address. </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s street address. </value>
         [DataMember(Name="street", EmitDefaultValue=false)]
         public string Street { get; set; }
 
         /// <summary>
-        /// Raw Electronic Verification response code from the processor for the customerâ€™s street address.
+        /// Raw Electronic Verification response code from the processor for the customer’s street address.
         /// </summary>
-        /// <value>Raw Electronic Verification response code from the processor for the customerâ€™s street address.</value>
+        /// <value>Raw Electronic Verification response code from the processor for the customer’s street address.</value>
         [DataMember(Name="streetRaw", EmitDefaultValue=false)]
         public string StreetRaw { get; set; }
 

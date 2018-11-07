@@ -13,7 +13,6 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace CyberSource.Client
 {
@@ -36,6 +35,7 @@ namespace CyberSource.Client
         /// <param name="dateTimeFormat">DateTime format string</param>
         /// <param name="timeout">HTTP connection timeout (in milliseconds)</param>
         /// <param name="userAgent">HTTP user agent</param>
+        /// <param name="merchConfigDictObj">Dictiory Object for Merchant Config</param>
         public Configuration(ApiClient apiClient = null,
                              Dictionary<String, String> defaultHeader = null,
                              string username = null,
@@ -44,9 +44,10 @@ namespace CyberSource.Client
                              Dictionary<String, String> apiKey = null,
                              Dictionary<String, String> apiKeyPrefix = null,
                              string tempFolderPath = null,
-                             string dateTimeFormat = null,
+                             string dateTimeFormat = null,                             
                              int timeout = 100000,
-                             string userAgent = "Swagger-Codegen/1.0.0/csharp"
+                             string userAgent = "Swagger-Codegen/1.0.0/csharp",
+                             IReadOnlyDictionary<string, string> merchConfigDictObj = null
                             )
         {
             setApiClientUsingDefault(apiClient);
@@ -66,6 +67,7 @@ namespace CyberSource.Client
             TempFolderPath = tempFolderPath;
             DateTimeFormat = dateTimeFormat;
             Timeout = timeout;
+            MerchantConfigDictionaryObj = merchConfigDictObj;
         }
 
         /// <summary>
@@ -190,6 +192,12 @@ namespace CyberSource.Client
         {
             ApiKeyPrefix[key] = value;
         }
+
+        /// <summary>
+        /// Gets or sets the Merchant Config Dictionary Object (key/value pairs).
+        /// </summary>
+        /// <value>Merchant Config Dictionary Object</value>
+        public IReadOnlyDictionary<string, string> MerchantConfigDictionaryObj { get; set; }
 
         /// <summary>
         /// Gets or sets the HTTP user agent.

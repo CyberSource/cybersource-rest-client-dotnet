@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * CyberSource Flex API
  *
  * Simple PAN tokenization service
@@ -9,18 +9,11 @@
  */
 
 using System;
-using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -35,12 +28,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="ApprovalCode">Authorization code. Returned only when the processor returns this value. .</param>
         /// <param name="TransactionId">Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this  value. .</param>
-        /// <param name="NetworkTransactionId">TBD.</param>
-        /// <param name="ProviderTransactionId">TBD.</param>
+        /// <param name="NetworkTransactionId">Description of this field is not available..</param>
+        /// <param name="ProviderTransactionId">Description of this field is not available..</param>
         /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  Important Do not use this field to evaluate the result of the authorization. .</param>
         /// <param name="ResponseCodeSource">Used by Visa only and contains the response source/reason code that identifies the source of the response decision. .</param>
         /// <param name="ResponseDetails">This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. .</param>
-        /// <param name="ResponseCategoryCode">Processor-defined response category code. The associated detail error code is in the auth_auth_response field or the auth_reversal_auth_ response field depending on which service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latinoâ€”processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 .</param>
+        /// <param name="ResponseCategoryCode">Processor-defined response category code. The associated detail error code is in the auth_auth_response field or the auth_reversal_auth_ response field depending on which service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 .</param>
         /// <param name="ForwardedAcquirerCode">Name of the Japanese acquirer that processed the transaction. Returned only for CCS (CAFIS) and JCN Gateway. Please contact the CyberSource Japan Support Group for more information. .</param>
         /// <param name="Avs">Avs.</param>
         /// <param name="CardVerification">CardVerification.</param>
@@ -49,9 +42,9 @@ namespace CyberSource.Model
         /// <param name="Customer">Customer.</param>
         /// <param name="ConsumerAuthenticationResponse">ConsumerAuthenticationResponse.</param>
         /// <param name="Issuer">Issuer.</param>
-        /// <param name="SystemTraceAuditNumber">This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customerâ€™s receipt. .</param>
+        /// <param name="SystemTraceAuditNumber">This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customer’s receipt. .</param>
         /// <param name="PaymentAccountReferenceNumber">Visa-generated reference number that identifies a card-present transaction for which youprovided one of the following:   - Visa primary account number (PAN)  - Visa-generated token for a PAN  This reference number serves as a link to the cardholder account and to all transactions for that account. .</param>
-        /// <param name="TransactionIntegrityCode">Transaction integrity classification provided by Mastercard. This value specifies Mastercardâ€™s evaluation of the transactionâ€™s safety and security. This field is returned only for **CyberSource through VisaNet**.  For card-present transactions, possible values:   - **A1**: EMV or token in a secure, trusted environment  - **B1**: EMV or chip equivalent  - **C1**: Magnetic stripe  - **E1**: Key entered  - **U0**: Unclassified  For card-not-present transactions, possible values:   - **A2**: Digital transactions  - **B2**: Authenticated checkout  - **C2**: Transaction validation  - **D2**: Enhanced data  - **E2**: Generic messaging  - **U0**: Unclassified  For information about these values, contact Mastercard or your acquirer. .</param>
+        /// <param name="TransactionIntegrityCode">Transaction integrity classification provided by Mastercard. This value specifies Mastercard’s evaluation of the transaction’s safety and security. This field is returned only for **CyberSource through VisaNet**.  For card-present transactions, possible values:   - **A1**: EMV or token in a secure, trusted environment  - **B1**: EMV or chip equivalent  - **C1**: Magnetic stripe  - **E1**: Key entered  - **U0**: Unclassified  For card-not-present transactions, possible values:   - **A2**: Digital transactions  - **B2**: Authenticated checkout  - **C2**: Transaction validation  - **D2**: Enhanced data  - **E2**: Generic messaging  - **U0**: Unclassified  For information about these values, contact Mastercard or your acquirer. .</param>
         /// <param name="AmexVerbalAuthReferenceNumber">Referral response number for a verbal authorization with FDMS Nashville when using an American Express card. Give this number to American Express when you call them for the verbal authorization. .</param>
         /// <param name="SalesSlipNumber">Transaction identifier that CyberSource generates. You have the option of printing the sales slip number on the receipt.  This field is supported only for **JCN Gateway**. .</param>
         /// <param name="MasterCardServiceCode">Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service .</param>
@@ -102,16 +95,16 @@ namespace CyberSource.Model
         public string TransactionId { get; set; }
 
         /// <summary>
-        /// TBD
+        /// Description of this field is not available.
         /// </summary>
-        /// <value>TBD</value>
+        /// <value>Description of this field is not available.</value>
         [DataMember(Name="networkTransactionId", EmitDefaultValue=false)]
         public string NetworkTransactionId { get; set; }
 
         /// <summary>
-        /// TBD
+        /// Description of this field is not available.
         /// </summary>
-        /// <value>TBD</value>
+        /// <value>Description of this field is not available.</value>
         [DataMember(Name="providerTransactionId", EmitDefaultValue=false)]
         public string ProviderTransactionId { get; set; }
 
@@ -137,9 +130,9 @@ namespace CyberSource.Model
         public string ResponseDetails { get; set; }
 
         /// <summary>
-        /// Processor-defined response category code. The associated detail error code is in the auth_auth_response field or the auth_reversal_auth_ response field depending on which service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latinoâ€”processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 
+        /// Processor-defined response category code. The associated detail error code is in the auth_auth_response field or the auth_reversal_auth_ response field depending on which service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 
         /// </summary>
-        /// <value>Processor-defined response category code. The associated detail error code is in the auth_auth_response field or the auth_reversal_auth_ response field depending on which service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latinoâ€”processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 </value>
+        /// <value>Processor-defined response category code. The associated detail error code is in the auth_auth_response field or the auth_reversal_auth_ response field depending on which service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 </value>
         [DataMember(Name="responseCategoryCode", EmitDefaultValue=false)]
         public string ResponseCategoryCode { get; set; }
 
@@ -193,9 +186,9 @@ namespace CyberSource.Model
         public InlineResponse201ProcessorInformationIssuer Issuer { get; set; }
 
         /// <summary>
-        /// This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customerâ€™s receipt. 
+        /// This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customer’s receipt. 
         /// </summary>
-        /// <value>This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customerâ€™s receipt. </value>
+        /// <value>This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customer’s receipt. </value>
         [DataMember(Name="systemTraceAuditNumber", EmitDefaultValue=false)]
         public string SystemTraceAuditNumber { get; set; }
 
@@ -207,9 +200,9 @@ namespace CyberSource.Model
         public string PaymentAccountReferenceNumber { get; set; }
 
         /// <summary>
-        /// Transaction integrity classification provided by Mastercard. This value specifies Mastercardâ€™s evaluation of the transactionâ€™s safety and security. This field is returned only for **CyberSource through VisaNet**.  For card-present transactions, possible values:   - **A1**: EMV or token in a secure, trusted environment  - **B1**: EMV or chip equivalent  - **C1**: Magnetic stripe  - **E1**: Key entered  - **U0**: Unclassified  For card-not-present transactions, possible values:   - **A2**: Digital transactions  - **B2**: Authenticated checkout  - **C2**: Transaction validation  - **D2**: Enhanced data  - **E2**: Generic messaging  - **U0**: Unclassified  For information about these values, contact Mastercard or your acquirer. 
+        /// Transaction integrity classification provided by Mastercard. This value specifies Mastercard’s evaluation of the transaction’s safety and security. This field is returned only for **CyberSource through VisaNet**.  For card-present transactions, possible values:   - **A1**: EMV or token in a secure, trusted environment  - **B1**: EMV or chip equivalent  - **C1**: Magnetic stripe  - **E1**: Key entered  - **U0**: Unclassified  For card-not-present transactions, possible values:   - **A2**: Digital transactions  - **B2**: Authenticated checkout  - **C2**: Transaction validation  - **D2**: Enhanced data  - **E2**: Generic messaging  - **U0**: Unclassified  For information about these values, contact Mastercard or your acquirer. 
         /// </summary>
-        /// <value>Transaction integrity classification provided by Mastercard. This value specifies Mastercardâ€™s evaluation of the transactionâ€™s safety and security. This field is returned only for **CyberSource through VisaNet**.  For card-present transactions, possible values:   - **A1**: EMV or token in a secure, trusted environment  - **B1**: EMV or chip equivalent  - **C1**: Magnetic stripe  - **E1**: Key entered  - **U0**: Unclassified  For card-not-present transactions, possible values:   - **A2**: Digital transactions  - **B2**: Authenticated checkout  - **C2**: Transaction validation  - **D2**: Enhanced data  - **E2**: Generic messaging  - **U0**: Unclassified  For information about these values, contact Mastercard or your acquirer. </value>
+        /// <value>Transaction integrity classification provided by Mastercard. This value specifies Mastercard’s evaluation of the transaction’s safety and security. This field is returned only for **CyberSource through VisaNet**.  For card-present transactions, possible values:   - **A1**: EMV or token in a secure, trusted environment  - **B1**: EMV or chip equivalent  - **C1**: Magnetic stripe  - **E1**: Key entered  - **U0**: Unclassified  For card-not-present transactions, possible values:   - **A2**: Digital transactions  - **B2**: Authenticated checkout  - **C2**: Transaction validation  - **D2**: Enhanced data  - **E2**: Generic messaging  - **U0**: Unclassified  For information about these values, contact Mastercard or your acquirer. </value>
         [DataMember(Name="transactionIntegrityCode", EmitDefaultValue=false)]
         public string TransactionIntegrityCode { get; set; }
 

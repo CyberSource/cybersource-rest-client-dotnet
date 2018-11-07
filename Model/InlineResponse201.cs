@@ -9,18 +9,12 @@
  */
 
 using System;
-using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -73,7 +67,6 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InlineResponse201" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
-        /// <param name="Embedded">Embedded.</param>
         /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request..</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
         /// <param name="Status">The status of the submitted transaction..</param>
@@ -84,10 +77,9 @@ namespace CyberSource.Model
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        public InlineResponse201(InlineResponse201Links Links = default(InlineResponse201Links), InlineResponse201Embedded Embedded = default(InlineResponse201Embedded), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string ReconciliationId = default(string), InlineResponse201ErrorInformation ErrorInformation = default(InlineResponse201ErrorInformation), InlineResponse201ClientReferenceInformation ClientReferenceInformation = default(InlineResponse201ClientReferenceInformation), InlineResponse201ProcessorInformation ProcessorInformation = default(InlineResponse201ProcessorInformation), InlineResponse201PaymentInformation PaymentInformation = default(InlineResponse201PaymentInformation), InlineResponse201OrderInformation OrderInformation = default(InlineResponse201OrderInformation), InlineResponse201PointOfSaleInformation PointOfSaleInformation = default(InlineResponse201PointOfSaleInformation))
+        public InlineResponse201(InlineResponse201Links Links = default(InlineResponse201Links), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string ReconciliationId = default(string), InlineResponse201ErrorInformation ErrorInformation = default(InlineResponse201ErrorInformation), InlineResponse201ClientReferenceInformation ClientReferenceInformation = default(InlineResponse201ClientReferenceInformation), InlineResponse201ProcessorInformation ProcessorInformation = default(InlineResponse201ProcessorInformation), InlineResponse201PaymentInformation PaymentInformation = default(InlineResponse201PaymentInformation), InlineResponse201OrderInformation OrderInformation = default(InlineResponse201OrderInformation), InlineResponse201PointOfSaleInformation PointOfSaleInformation = default(InlineResponse201PointOfSaleInformation))
         {
             this.Links = Links;
-            this.Embedded = Embedded;
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
@@ -105,12 +97,6 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
         public InlineResponse201Links Links { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Embedded
-        /// </summary>
-        [DataMember(Name="_embedded", EmitDefaultValue=false)]
-        public InlineResponse201Embedded Embedded { get; set; }
 
         /// <summary>
         /// An unique identification number assigned by CyberSource to identify the submitted request.
@@ -179,7 +165,6 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class InlineResponse201 {\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -230,11 +215,6 @@ namespace CyberSource.Model
                     this.Links == other.Links ||
                     this.Links != null &&
                     this.Links.Equals(other.Links)
-                ) && 
-                (
-                    this.Embedded == other.Embedded ||
-                    this.Embedded != null &&
-                    this.Embedded.Equals(other.Embedded)
                 ) && 
                 (
                     this.Id == other.Id ||
@@ -301,8 +281,6 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Links != null)
                     hash = hash * 59 + this.Links.GetHashCode();
-                if (this.Embedded != null)
-                    hash = hash * 59 + this.Embedded.GetHashCode();
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
                 if (this.SubmitTimeUtc != null)

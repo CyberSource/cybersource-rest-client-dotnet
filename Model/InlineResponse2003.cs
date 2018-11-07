@@ -10,17 +10,11 @@
 
 using System;
 using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -31,94 +25,20 @@ namespace CyberSource.Model
     public partial class InlineResponse2003 :  IEquatable<InlineResponse2003>, IValidatableObject
     {
         /// <summary>
-        /// The status of the submitted transaction.
-        /// </summary>
-        /// <value>The status of the submitted transaction.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum REVERSED for "REVERSED"
-            /// </summary>
-            [EnumMember(Value = "REVERSED")]
-            REVERSED
-        }
-
-        /// <summary>
-        /// The status of the submitted transaction.
-        /// </summary>
-        /// <value>The status of the submitted transaction.</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2003" /> class.
         /// </summary>
-        /// <param name="Links">Links.</param>
-        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request..</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="Status">The status of the submitted transaction..</param>
-        /// <param name="ReconciliationId">The reconciliation id for the submitted transaction. This value is not returned for all processors. .</param>
-        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
-        /// <param name="ProcessorInformation">ProcessorInformation.</param>
-        /// <param name="ReversalAmountDetails">ReversalAmountDetails.</param>
-        public InlineResponse2003(InlineResponse201EmbeddedCaptureLinks Links = default(InlineResponse201EmbeddedCaptureLinks), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string ReconciliationId = default(string), InlineResponse201ClientReferenceInformation ClientReferenceInformation = default(InlineResponse201ClientReferenceInformation), InlineResponse2011ProcessorInformation ProcessorInformation = default(InlineResponse2011ProcessorInformation), InlineResponse2011ReversalAmountDetails ReversalAmountDetails = default(InlineResponse2011ReversalAmountDetails))
+        /// <param name="NotificationOfChanges">List of Notification Of Change Info values.</param>
+        public InlineResponse2003(List<InlineResponse2003NotificationOfChanges> NotificationOfChanges = default(List<InlineResponse2003NotificationOfChanges>))
         {
-            this.Links = Links;
-            this.Id = Id;
-            this.SubmitTimeUtc = SubmitTimeUtc;
-            this.Status = Status;
-            this.ReconciliationId = ReconciliationId;
-            this.ClientReferenceInformation = ClientReferenceInformation;
-            this.ProcessorInformation = ProcessorInformation;
-            this.ReversalAmountDetails = ReversalAmountDetails;
+            this.NotificationOfChanges = NotificationOfChanges;
         }
         
         /// <summary>
-        /// Gets or Sets Links
+        /// List of Notification Of Change Info values
         /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public InlineResponse201EmbeddedCaptureLinks Links { get; set; }
-
-        /// <summary>
-        /// An unique identification number assigned by CyberSource to identify the submitted request.
-        /// </summary>
-        /// <value>An unique identification number assigned by CyberSource to identify the submitted request.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
-        /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
-        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
-
-
-        /// <summary>
-        /// The reconciliation id for the submitted transaction. This value is not returned for all processors. 
-        /// </summary>
-        /// <value>The reconciliation id for the submitted transaction. This value is not returned for all processors. </value>
-        [DataMember(Name="reconciliationId", EmitDefaultValue=false)]
-        public string ReconciliationId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ClientReferenceInformation
-        /// </summary>
-        [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public InlineResponse201ClientReferenceInformation ClientReferenceInformation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProcessorInformation
-        /// </summary>
-        [DataMember(Name="processorInformation", EmitDefaultValue=false)]
-        public InlineResponse2011ProcessorInformation ProcessorInformation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ReversalAmountDetails
-        /// </summary>
-        [DataMember(Name="reversalAmountDetails", EmitDefaultValue=false)]
-        public InlineResponse2011ReversalAmountDetails ReversalAmountDetails { get; set; }
+        /// <value>List of Notification Of Change Info values</value>
+        [DataMember(Name="notificationOfChanges", EmitDefaultValue=false)]
+        public List<InlineResponse2003NotificationOfChanges> NotificationOfChanges { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -128,14 +48,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2003 {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
-            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
-            sb.Append("  ReversalAmountDetails: ").Append(ReversalAmountDetails).Append("\n");
+            sb.Append("  NotificationOfChanges: ").Append(NotificationOfChanges).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,44 +86,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Links == other.Links ||
-                    this.Links != null &&
-                    this.Links.Equals(other.Links)
-                ) && 
-                (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
-                ) && 
-                (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
-                ) && 
-                (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
-                ) && 
-                (
-                    this.ReconciliationId == other.ReconciliationId ||
-                    this.ReconciliationId != null &&
-                    this.ReconciliationId.Equals(other.ReconciliationId)
-                ) && 
-                (
-                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
-                    this.ClientReferenceInformation != null &&
-                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
-                ) && 
-                (
-                    this.ProcessorInformation == other.ProcessorInformation ||
-                    this.ProcessorInformation != null &&
-                    this.ProcessorInformation.Equals(other.ProcessorInformation)
-                ) && 
-                (
-                    this.ReversalAmountDetails == other.ReversalAmountDetails ||
-                    this.ReversalAmountDetails != null &&
-                    this.ReversalAmountDetails.Equals(other.ReversalAmountDetails)
+                    this.NotificationOfChanges == other.NotificationOfChanges ||
+                    this.NotificationOfChanges != null &&
+                    this.NotificationOfChanges.SequenceEqual(other.NotificationOfChanges)
                 );
         }
 
@@ -225,22 +103,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Links != null)
-                    hash = hash * 59 + this.Links.GetHashCode();
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                if (this.ReconciliationId != null)
-                    hash = hash * 59 + this.ReconciliationId.GetHashCode();
-                if (this.ClientReferenceInformation != null)
-                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
-                if (this.ProcessorInformation != null)
-                    hash = hash * 59 + this.ProcessorInformation.GetHashCode();
-                if (this.ReversalAmountDetails != null)
-                    hash = hash * 59 + this.ReversalAmountDetails.GetHashCode();
+                if (this.NotificationOfChanges != null)
+                    hash = hash * 59 + this.NotificationOfChanges.GetHashCode();
                 return hash;
             }
         }
@@ -252,18 +116,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (string) maxLength
-            if(this.Id != null && this.Id.Length > 26)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 26.", new [] { "Id" });
-            }
-
-            // ReconciliationId (string) maxLength
-            if(this.ReconciliationId != null && this.ReconciliationId.Length > 60)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationId, length must be less than 60.", new [] { "ReconciliationId" });
-            }
-
             yield break;
         }
     }

@@ -9,18 +9,12 @@
  */
 
 using System;
-using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -86,7 +80,7 @@ namespace CyberSource.Model
         /// <param name="BankAccount">BankAccount.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="Metadata">Metadata.</param>
-        public Body(InstrumentidentifiersLinks Links = default(InstrumentidentifiersLinks), InstrumentidentifiersCard Card = default(InstrumentidentifiersCard), InstrumentidentifiersBankAccount BankAccount = default(InstrumentidentifiersBankAccount), InstrumentidentifiersProcessingInformation ProcessingInformation = default(InstrumentidentifiersProcessingInformation), InstrumentidentifiersMetadata Metadata = default(InstrumentidentifiersMetadata))
+        public Body(Tmsv1instrumentidentifiersLinks Links = default(Tmsv1instrumentidentifiersLinks), Tmsv1instrumentidentifiersCard Card = default(Tmsv1instrumentidentifiersCard), Tmsv1instrumentidentifiersBankAccount BankAccount = default(Tmsv1instrumentidentifiersBankAccount), Tmsv1instrumentidentifiersProcessingInformation ProcessingInformation = default(Tmsv1instrumentidentifiersProcessingInformation), Tmsv1instrumentidentifiersMetadata Metadata = default(Tmsv1instrumentidentifiersMetadata))
         {
             this.Links = Links;
             this.Card = Card;
@@ -99,7 +93,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public InstrumentidentifiersLinks Links { get; set; }
+        public Tmsv1instrumentidentifiersLinks Links { get; set; }
 
         /// <summary>
         /// Unique identification number assigned by CyberSource to the submitted request.
@@ -114,25 +108,25 @@ namespace CyberSource.Model
         /// Gets or Sets Card
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
-        public InstrumentidentifiersCard Card { get; set; }
+        public Tmsv1instrumentidentifiersCard Card { get; set; }
 
         /// <summary>
         /// Gets or Sets BankAccount
         /// </summary>
         [DataMember(Name="bankAccount", EmitDefaultValue=false)]
-        public InstrumentidentifiersBankAccount BankAccount { get; set; }
+        public Tmsv1instrumentidentifiersBankAccount BankAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation
         /// </summary>
         [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public InstrumentidentifiersProcessingInformation ProcessingInformation { get; set; }
+        public Tmsv1instrumentidentifiersProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
-        public InstrumentidentifiersMetadata Metadata { get; set; }
+        public Tmsv1instrumentidentifiersMetadata Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

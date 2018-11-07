@@ -9,18 +9,12 @@
  */
 
 using System;
-using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -60,7 +54,7 @@ namespace CyberSource.Model
         /// <param name="Status">The status of the submitted transaction..</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="VoidAmountDetails">VoidAmountDetails.</param>
-        public InlineResponse2015(InlineResponse201EmbeddedCaptureLinks Links = default(InlineResponse201EmbeddedCaptureLinks), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), InlineResponse201ClientReferenceInformation ClientReferenceInformation = default(InlineResponse201ClientReferenceInformation), InlineResponse2015VoidAmountDetails VoidAmountDetails = default(InlineResponse2015VoidAmountDetails))
+        public InlineResponse2015(InlineResponse2011Links Links = default(InlineResponse2011Links), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), InlineResponse201ClientReferenceInformation ClientReferenceInformation = default(InlineResponse201ClientReferenceInformation), InlineResponse2015VoidAmountDetails VoidAmountDetails = default(InlineResponse2015VoidAmountDetails))
         {
             this.Links = Links;
             this.Id = Id;
@@ -74,7 +68,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public InlineResponse201EmbeddedCaptureLinks Links { get; set; }
+        public InlineResponse2011Links Links { get; set; }
 
         /// <summary>
         /// An unique identification number assigned by CyberSource to identify the submitted request.

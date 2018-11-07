@@ -11,12 +11,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Text.RegularExpressions;
 using System.IO;
-using System.Web;
 using System.Linq;
-using System.Net;
 using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
@@ -28,11 +25,7 @@ namespace CyberSource.Client
     /// API client is mainly responsible for making the HTTP call to the API backend.
     /// </summary>
     public partial class ApiClient
-    {
-        public static int HttpResponseStatusCode { get; private set; }
-        public static IList<Parameter> HttpResponseHeaders { get; private set; }
-        public static string HttpResponseData { get; private set; }
-
+    {       
         private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
         {
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
@@ -83,7 +76,7 @@ namespace CyberSource.Client
         /// <param name="basePath">The base path.</param>
         public ApiClient(String basePath = "https://api.cybersource.com")
         {
-           if (String.IsNullOrEmpty(basePath))
+            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
 
             RestClient = new RestClient(basePath);
@@ -116,56 +109,77 @@ namespace CyberSource.Client
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
             String contentType)
         {
+            //var request = new RestRequest(path, method);
             var request = new RestRequest(path, method);
-
+                        
             // add path parameter, if any
-            foreach(var param in pathParams)
+            foreach (var param in pathParams)
                 request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
 
-                // add header parameter, if any
-                // 1. passed to this function
-                foreach (var param in headerParams)
+            // add header parameter, if any
+            // 1. passed to this function
+            foreach (var param in headerParams)
+            {
+                if (param.Key == "Authorization")
                 {
-                    if (param.Key == "Authorization")
-                    {
-                        request.AddParameter("Authorization", string.Format("Bearer " + param.Value),
-                            ParameterType.HttpHeader);
-                    }
-                    else
-                        request.AddHeader(param.Key, param.Value);
+                    request.AddParameter("Authorization", string.Format("Bearer " + param.Value),
+                        ParameterType.HttpHeader);
                 }
+                else
+                    request.AddHeader(param.Key, param.Value);
+            }
 
-                // 2. set in the defaultHeaders of configuration   
-                if (postBody == null)
+            //2.set in the defaultHeaders of configuration
+
+            // Change to path(Request Target) to be sent to Authentication SDK
+            // Include Query Params in the Request target
+            var firstQueryParam = true;
+            foreach (var param in queryParams)
+            {
+                var key = param.Key;
+                var val = param.Value;
+
+                if (!firstQueryParam)
                 {
-                    CallAuthHdrs(method.ToString(), path);
+                    path = path + "&" + key + "=" + val;
                 }
                 else
                 {
-                    CallAuthHdrs(method.ToString(), path, postBody.ToString());
-                }         
-
-                foreach (var param in Configuration.DefaultHeader)
-                {
-                    if (param.Key == "Authorization")
-                    {
-                        request.AddParameter("Authorization", string.Format("Bearer " + param.Value),
-                            ParameterType.HttpHeader);
-                    }
-                    else
-                        request.AddHeader(param.Key, param.Value);
+                    path = path + "?" + key + "=" + val;
+                    firstQueryParam = false;
                 }
+            }
+
+            if (postBody == null)
+            {
+                CallAuthHdrs(method.ToString(), path);                
+            }
+            else
+            {
+                CallAuthHdrs(method.ToString(), path, postBody.ToString());
+            }
+
+            foreach (var param in Configuration.DefaultHeader)
+            {
+                if (param.Key == "Authorization")
+                {
+                    request.AddParameter("Authorization", string.Format("Bearer " + param.Value),
+                        ParameterType.HttpHeader);
+                }
+                else
+                    request.AddHeader(param.Key, param.Value);
+            }
 
             // add query parameter, if any
             foreach (var param in queryParams)
                 request.AddQueryParameter(param.Key, param.Value);
 
             // add form parameter, if any
-            foreach(var param in formParams)
+            foreach (var param in formParams)
                 request.AddParameter(param.Key, param.Value);
 
             // add file parameter, if any
-            foreach(var param in fileParams)
+            foreach (var param in fileParams)
             {
                 request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);
             }
@@ -219,23 +233,23 @@ namespace CyberSource.Client
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
 
-            HttpResponseStatusCode = (int)response.StatusCode;
-            HttpResponseHeaders = response.Headers;
-            HttpResponseData = response.Content;
+            var httpResponseStatusCode = (int)response.StatusCode;
+            var httpResponseHeaders = response.Headers;
+            //var httpResponseData = response.Content;
 
             Console.WriteLine($"\n");
-            Console.WriteLine($"HTTP RESPONSE STATUS CODE: {HttpResponseStatusCode}");
+            Console.WriteLine($"HTTP RESPONSE STATUS CODE: {httpResponseStatusCode}");
 
             Console.WriteLine($"\n");
             Console.WriteLine("HTTP RESPONSE HEADERS:-");
 
-            foreach (var header in HttpResponseHeaders)
+            foreach (var header in httpResponseHeaders)
             {
                 Console.WriteLine(header);
             }
             Console.WriteLine($"\n");
 
-            return (Object) response;
+            return (Object)response;
         }
         /// <summary>
         /// Makes the asynchronous HTTP request.
@@ -303,13 +317,13 @@ namespace CyberSource.Client
                 // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
                 // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
                 // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTime)obj).ToString (Configuration.DateTimeFormat);
+                return ((DateTime)obj).ToString(Configuration.DateTimeFormat);
             else if (obj is DateTimeOffset)
                 // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
                 // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
                 // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
                 // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTimeOffset)obj).ToString (Configuration.DateTimeFormat);
+                return ((DateTimeOffset)obj).ToString(Configuration.DateTimeFormat);
             else if (obj is IList)
             {
                 var flattenedString = new StringBuilder();
@@ -322,7 +336,7 @@ namespace CyberSource.Client
                 return flattenedString.ToString();
             }
             else
-                return Convert.ToString (obj);
+                return Convert.ToString(obj);
         }
 
         /// <summary>
@@ -364,7 +378,7 @@ namespace CyberSource.Client
 
             if (type.Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
             {
-                return DateTime.Parse(response.Content,  null, System.Globalization.DateTimeStyles.RoundtripKind);
+                return DateTime.Parse(response.Content, null, System.Globalization.DateTimeStyles.RoundtripKind);
             }
 
             if (type == typeof(String) || type.Name.StartsWith("System.Nullable")) // return primitive type
@@ -466,7 +480,7 @@ namespace CyberSource.Client
         /// <returns>Byte array</returns>
         public static byte[] ReadAsBytes(Stream input)
         {
-            byte[] buffer = new byte[16*1024];
+            byte[] buffer = new byte[16 * 1024];
             using (MemoryStream ms = new MemoryStream())
             {
                 int read;
@@ -532,17 +546,18 @@ namespace CyberSource.Client
             }
         }
 
-		/// Calling the authentication headers
+        /// Calling the authentication headers
         /// 
         public void CallAuthHdrs(string requestType, string requestTarget, string requestJsonData = null)
         {
-            var merchantConfig = new MerchantConfig()
-            {
-                RequestType = requestType,
-                RequestTarget = requestTarget,
-                RequestJsonData = requestJsonData
-            };
+            var merchantConfig = Configuration.MerchantConfigDictionaryObj != null
+                ? new MerchantConfig(Configuration.MerchantConfigDictionaryObj)
+                : new MerchantConfig();
 
+            merchantConfig.RequestType = requestType;
+            merchantConfig.RequestTarget = requestTarget;
+            merchantConfig.RequestJsonData = requestJsonData;
+            
             var authorize = new Authorize(merchantConfig);
 
             //these are the Request Headers to be sent along with the HTTP Request
@@ -563,7 +578,7 @@ namespace CyberSource.Client
                 authenticationHeaders.Add("Host", httpSign.HostName);
                 authenticationHeaders.Add("Signature", httpSign.SignatureParam);
 
-                if (merchantConfig.IsPostRequest || merchantConfig.IsPutRequest)
+                if (merchantConfig.IsPostRequest || merchantConfig.IsPutRequest || merchantConfig.IsPatchRequest)
                     authenticationHeaders.Add("Digest", httpSign.Digest);
             }
 
@@ -573,42 +588,5 @@ namespace CyberSource.Client
             RestClient = new RestClient("https://" + merchantConfig.HostName);
             //Configuration = new Configuration(apiClient, authenticationHeaders);
         }
-
-		public Configuration CallAuthenticationHeader(MerchantConfig merchantConfig)
-        {
-            var authorize = new Authorize(merchantConfig);
-
-            //these are the Request Headers to be sent along with the HTTP Request
-            var authenticationHeaders = new Dictionary<string, string>();
-
-            if (merchantConfig.IsJwtTokenAuthType)
-            {
-                //generate token and set JWT token headers
-                var jwtToken = authorize.GetToken();
-                authenticationHeaders.Add("Authorization", jwtToken.BearerToken);
-            }
-            else if (merchantConfig.IsHttpSignAuthType)
-            {
-                //generate signature and set HTTP Signature headers
-                var httpSign = authorize.GetSignature();
-                authenticationHeaders.Add("v-c-merchant-id", httpSign.MerchantId);
-                authenticationHeaders.Add("Date", httpSign.GmtDateTime);
-                authenticationHeaders.Add("Host", httpSign.HostName);
-                authenticationHeaders.Add("Signature", httpSign.SignatureParam);
-
-                if (merchantConfig.IsPostRequest || merchantConfig.IsPutRequest)
-                    authenticationHeaders.Add("Digest", httpSign.Digest);
-            }
-
-            //create ApiClient by passsing the basepath i.e. our HostName
-            // var apiClient = new ApiClient("https://" + merchantConfig.HostName + "/pts");
-            var apiClient = new ApiClient("https://" + merchantConfig.HostName);
-
-            //create configuration (of Swagger) object by passing Api Client and Http Headers
-            var configurationObj = new Configuration(apiClient, authenticationHeaders);
-
-            return configurationObj;
-        }
-		
     }
 }

@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * CyberSource Flex API
  *
  * Simple PAN tokenization service
@@ -10,7 +10,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -31,9 +30,9 @@ namespace CyberSource.Api
         /// Generate a one-time use public key and key ID to encrypt the card number in the follow-on Tokenize Card request. The key used to encrypt the card number on the cardholder’s device or browser is valid for 15 minutes and must be used to verify the signature in the response message. CyberSource recommends creating a new key for each order. Generating a key is an authenticated request initiated from your servers, prior to requesting to tokenize the card data from your customer’s device or browser.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>InlineResponse200</returns>
-        InlineResponse200 GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest);
+        InlineResponse200 GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest = null);
 
         /// <summary>
         /// Generate Key
@@ -42,9 +41,9 @@ namespace CyberSource.Api
         /// Generate a one-time use public key and key ID to encrypt the card number in the follow-on Tokenize Card request. The key used to encrypt the card number on the cardholder’s device or browser is valid for 15 minutes and must be used to verify the signature in the response message. CyberSource recommends creating a new key for each order. Generating a key is an authenticated request initiated from your servers, prior to requesting to tokenize the card data from your customer’s device or browser.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest);
+        ApiResponse<InlineResponse200> GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -54,9 +53,9 @@ namespace CyberSource.Api
         /// Generate a one-time use public key and key ID to encrypt the card number in the follow-on Tokenize Card request. The key used to encrypt the card number on the cardholder’s device or browser is valid for 15 minutes and must be used to verify the signature in the response message. CyberSource recommends creating a new key for each order. Generating a key is an authenticated request initiated from your servers, prior to requesting to tokenize the card data from your customer’s device or browser.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest);
+        System.Threading.Tasks.Task<InlineResponse200> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest = null);
 
         /// <summary>
         /// Generate Key
@@ -65,9 +64,9 @@ namespace CyberSource.Api
         /// Generate a one-time use public key and key ID to encrypt the card number in the follow-on Tokenize Card request. The key used to encrypt the card number on the cardholder’s device or browser is valid for 15 minutes and must be used to verify the signature in the response message. CyberSource recommends creating a new key for each order. Generating a key is an authenticated request initiated from your servers, prior to requesting to tokenize the card data from your customer’s device or browser.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null);
         #endregion Asynchronous Operations
     }
 
@@ -184,9 +183,9 @@ namespace CyberSource.Api
         /// Generate Key Generate a one-time use public key and key ID to encrypt the card number in the follow-on Tokenize Card request. The key used to encrypt the card number on the cardholder’s device or browser is valid for 15 minutes and must be used to verify the signature in the response message. CyberSource recommends creating a new key for each order. Generating a key is an authenticated request initiated from your servers, prior to requesting to tokenize the card data from your customer’s device or browser.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>InlineResponse200</returns>
-        public InlineResponse200 GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest)
+        public InlineResponse200 GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
              ApiResponse<InlineResponse200> localVarResponse = GeneratePublicKeyWithHttpInfo(generatePublicKeyRequest);
              return localVarResponse.Data;
@@ -196,15 +195,12 @@ namespace CyberSource.Api
         /// Generate Key Generate a one-time use public key and key ID to encrypt the card number in the follow-on Tokenize Card request. The key used to encrypt the card number on the cardholder’s device or browser is valid for 15 minutes and must be used to verify the signature in the response message. CyberSource recommends creating a new key for each order. Generating a key is an authenticated request initiated from your servers, prior to requesting to tokenize the card data from your customer’s device or browser.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest)
+        public ApiResponse< InlineResponse200 > GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
-            // verify the required parameter 'generatePublicKeyRequest' is set
-            if (generatePublicKeyRequest == null)
-                throw new ApiException(400, "Missing required parameter 'generatePublicKeyRequest' when calling KeyGenerationApi->GeneratePublicKey");
 
-            var localVarPath = $"/flex/v1/keys";
+            var localVarPath = $"/flex/v1/keys/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -214,12 +210,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
+                "application/json"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -257,9 +254,9 @@ namespace CyberSource.Api
         /// Generate Key Generate a one-time use public key and key ID to encrypt the card number in the follow-on Tokenize Card request. The key used to encrypt the card number on the cardholder’s device or browser is valid for 15 minutes and must be used to verify the signature in the response message. CyberSource recommends creating a new key for each order. Generating a key is an authenticated request initiated from your servers, prior to requesting to tokenize the card data from your customer’s device or browser.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest)
+        public async System.Threading.Tasks.Task<InlineResponse200> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
              ApiResponse<InlineResponse200> localVarResponse = await GeneratePublicKeyAsyncWithHttpInfo(generatePublicKeyRequest);
              return localVarResponse.Data;
@@ -270,15 +267,12 @@ namespace CyberSource.Api
         /// Generate Key Generate a one-time use public key and key ID to encrypt the card number in the follow-on Tokenize Card request. The key used to encrypt the card number on the cardholder’s device or browser is valid for 15 minutes and must be used to verify the signature in the response message. CyberSource recommends creating a new key for each order. Generating a key is an authenticated request initiated from your servers, prior to requesting to tokenize the card data from your customer’s device or browser.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
-            // verify the required parameter 'generatePublicKeyRequest' is set
-            if (generatePublicKeyRequest == null)
-                throw new ApiException(400, "Missing required parameter 'generatePublicKeyRequest' when calling KeyGenerationApi->GeneratePublicKey");
 
-            var localVarPath = $"/payments/flex/v1/keys/";
+            var localVarPath = $"/flex/v1/keys/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -288,12 +282,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
+                "application/json"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)

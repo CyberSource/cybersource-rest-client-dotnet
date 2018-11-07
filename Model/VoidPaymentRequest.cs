@@ -9,18 +9,11 @@
  */
 
 using System;
-using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -34,7 +27,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="VoidPaymentRequest" /> class.
         /// </summary>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
-        public VoidPaymentRequest(V2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(V2paymentsidreversalsClientReferenceInformation))
+        public VoidPaymentRequest(Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsidreversalsClientReferenceInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
         }
@@ -43,7 +36,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public V2paymentsidreversalsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

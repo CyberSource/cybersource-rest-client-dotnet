@@ -10,17 +10,11 @@
 
 using System;
 using System.Linq;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -31,108 +25,19 @@ namespace CyberSource.Model
     public partial class InlineResponse2007 :  IEquatable<InlineResponse2007>, IValidatableObject
     {
         /// <summary>
-        /// Describes type of token. For example: customer, paymentInstrument or instrumentIdentifier.
-        /// </summary>
-        /// <value>Describes type of token. For example: customer, paymentInstrument or instrumentIdentifier.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ObjectEnum
-        {
-            
-            /// <summary>
-            /// Enum InstrumentIdentifier for "instrumentIdentifier"
-            /// </summary>
-            [EnumMember(Value = "instrumentIdentifier")]
-            InstrumentIdentifier
-        }
-
-        /// <summary>
-        /// Current state of the token.
-        /// </summary>
-        /// <value>Current state of the token.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StateEnum
-        {
-            
-            /// <summary>
-            /// Enum ACTIVE for "ACTIVE"
-            /// </summary>
-            [EnumMember(Value = "ACTIVE")]
-            ACTIVE,
-            
-            /// <summary>
-            /// Enum CLOSED for "CLOSED"
-            /// </summary>
-            [EnumMember(Value = "CLOSED")]
-            CLOSED
-        }
-
-        /// <summary>
-        /// Describes type of token. For example: customer, paymentInstrument or instrumentIdentifier.
-        /// </summary>
-        /// <value>Describes type of token. For example: customer, paymentInstrument or instrumentIdentifier.</value>
-        [DataMember(Name="object", EmitDefaultValue=false)]
-        public ObjectEnum? _Object { get; set; }
-        /// <summary>
-        /// Current state of the token.
-        /// </summary>
-        /// <value>Current state of the token.</value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
-        public StateEnum? State { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2007" /> class.
         /// </summary>
-        /// <param name="Links">Links.</param>
-        /// <param name="Card">Card.</param>
-        /// <param name="BankAccount">BankAccount.</param>
-        /// <param name="ProcessingInformation">ProcessingInformation.</param>
-        /// <param name="Metadata">Metadata.</param>
-        public InlineResponse2007(InstrumentidentifiersLinks Links = default(InstrumentidentifiersLinks), InstrumentidentifiersCard Card = default(InstrumentidentifiersCard), InstrumentidentifiersBankAccount BankAccount = default(InstrumentidentifiersBankAccount), InstrumentidentifiersProcessingInformation ProcessingInformation = default(InstrumentidentifiersProcessingInformation), InstrumentidentifiersMetadata Metadata = default(InstrumentidentifiersMetadata))
+        /// <param name="Reports">Reports.</param>
+        public InlineResponse2007(List<InlineResponse2007Reports> Reports = default(List<InlineResponse2007Reports>))
         {
-            this.Links = Links;
-            this.Card = Card;
-            this.BankAccount = BankAccount;
-            this.ProcessingInformation = ProcessingInformation;
-            this.Metadata = Metadata;
+            this.Reports = Reports;
         }
         
         /// <summary>
-        /// Gets or Sets Links
+        /// Gets or Sets Reports
         /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public InstrumentidentifiersLinks Links { get; set; }
-
-        /// <summary>
-        /// Unique identification number assigned by CyberSource to the submitted request.
-        /// </summary>
-        /// <value>Unique identification number assigned by CyberSource to the submitted request.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; private set; }
-
-
-
-        /// <summary>
-        /// Gets or Sets Card
-        /// </summary>
-        [DataMember(Name="card", EmitDefaultValue=false)]
-        public InstrumentidentifiersCard Card { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BankAccount
-        /// </summary>
-        [DataMember(Name="bankAccount", EmitDefaultValue=false)]
-        public InstrumentidentifiersBankAccount BankAccount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProcessingInformation
-        /// </summary>
-        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public InstrumentidentifiersProcessingInformation ProcessingInformation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Metadata
-        /// </summary>
-        [DataMember(Name="metadata", EmitDefaultValue=false)]
-        public InstrumentidentifiersMetadata Metadata { get; set; }
+        [DataMember(Name="reports", EmitDefaultValue=false)]
+        public List<InlineResponse2007Reports> Reports { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -142,14 +47,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2007 {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  _Object: ").Append(_Object).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
-            sb.Append("  Card: ").Append(Card).Append("\n");
-            sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
-            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  Reports: ").Append(Reports).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -187,44 +85,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Links == other.Links ||
-                    this.Links != null &&
-                    this.Links.Equals(other.Links)
-                ) && 
-                (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
-                ) && 
-                (
-                    this._Object == other._Object ||
-                    this._Object != null &&
-                    this._Object.Equals(other._Object)
-                ) && 
-                (
-                    this.State == other.State ||
-                    this.State != null &&
-                    this.State.Equals(other.State)
-                ) && 
-                (
-                    this.Card == other.Card ||
-                    this.Card != null &&
-                    this.Card.Equals(other.Card)
-                ) && 
-                (
-                    this.BankAccount == other.BankAccount ||
-                    this.BankAccount != null &&
-                    this.BankAccount.Equals(other.BankAccount)
-                ) && 
-                (
-                    this.ProcessingInformation == other.ProcessingInformation ||
-                    this.ProcessingInformation != null &&
-                    this.ProcessingInformation.Equals(other.ProcessingInformation)
-                ) && 
-                (
-                    this.Metadata == other.Metadata ||
-                    this.Metadata != null &&
-                    this.Metadata.Equals(other.Metadata)
+                    this.Reports == other.Reports ||
+                    this.Reports != null &&
+                    this.Reports.SequenceEqual(other.Reports)
                 );
         }
 
@@ -239,22 +102,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Links != null)
-                    hash = hash * 59 + this.Links.GetHashCode();
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
-                if (this._Object != null)
-                    hash = hash * 59 + this._Object.GetHashCode();
-                if (this.State != null)
-                    hash = hash * 59 + this.State.GetHashCode();
-                if (this.Card != null)
-                    hash = hash * 59 + this.Card.GetHashCode();
-                if (this.BankAccount != null)
-                    hash = hash * 59 + this.BankAccount.GetHashCode();
-                if (this.ProcessingInformation != null)
-                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
-                if (this.Metadata != null)
-                    hash = hash * 59 + this.Metadata.GetHashCode();
+                if (this.Reports != null)
+                    hash = hash * 59 + this.Reports.GetHashCode();
                 return hash;
             }
         }
