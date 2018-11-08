@@ -1,4 +1,4 @@
-# CyberSource - the C# library for the CyberSource Flex API
+# CyberSource - the C# client library for the CyberSource REST APIs
 
 Simple PAN tokenization service
 
@@ -27,6 +27,7 @@ The DLLs included in the package may not be the latest version. We recommend usi
 ```
 Install-Package RestSharp
 Install-Package Newtonsoft.Json
+Install-Package CyberSource.Authentication
 ```
 
 NOTE: RestSharp versions greater than 105.1.0 have a bug which causes file uploads to fail. See [RestSharp#742](https://github.com/restsharp/RestSharp/issues/742)
