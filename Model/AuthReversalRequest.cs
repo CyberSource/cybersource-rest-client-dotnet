@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        public AuthReversalRequest(V2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(V2paymentsidreversalsClientReferenceInformation), V2paymentsidreversalsReversalInformation ReversalInformation = default(V2paymentsidreversalsReversalInformation), V2paymentsidreversalsProcessingInformation ProcessingInformation = default(V2paymentsidreversalsProcessingInformation), V2paymentsidreversalsOrderInformation OrderInformation = default(V2paymentsidreversalsOrderInformation), V2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(V2paymentsidreversalsPointOfSaleInformation))
+        public AuthReversalRequest(Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsidreversalsClientReferenceInformation), Ptsv2paymentsidreversalsReversalInformation ReversalInformation = default(Ptsv2paymentsidreversalsReversalInformation), Ptsv2paymentsidreversalsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidreversalsProcessingInformation), Ptsv2paymentsidreversalsOrderInformation OrderInformation = default(Ptsv2paymentsidreversalsOrderInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ReversalInformation = ReversalInformation;
@@ -51,31 +51,31 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public V2paymentsidreversalsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ReversalInformation
         /// </summary>
         [DataMember(Name="reversalInformation", EmitDefaultValue=false)]
-        public V2paymentsidreversalsReversalInformation ReversalInformation { get; set; }
+        public Ptsv2paymentsidreversalsReversalInformation ReversalInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation
         /// </summary>
         [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public V2paymentsidreversalsProcessingInformation ProcessingInformation { get; set; }
+        public Ptsv2paymentsidreversalsProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation
         /// </summary>
         [DataMember(Name="orderInformation", EmitDefaultValue=false)]
-        public V2paymentsidreversalsOrderInformation OrderInformation { get; set; }
+        public Ptsv2paymentsidreversalsOrderInformation OrderInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets PointOfSaleInformation
         /// </summary>
         [DataMember(Name="pointOfSaleInformation", EmitDefaultValue=false)]
-        public V2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation { get; set; }
+        public Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="KeyId">Unique identifier for the generated token. Used in the subsequent Tokenize Card request from your customer’s device or browser..</param>
         /// <param name="Der">Der.</param>
         /// <param name="Jwk">Jwk.</param>
-        public KeyResult(string KeyId = default(string), InlineResponse200Der Der = default(InlineResponse200Der), InlineResponse200Jwk Jwk = default(InlineResponse200Jwk))
+        public KeyResult(string KeyId = default(string), FlexV1KeysPost200ResponseDer Der = default(FlexV1KeysPost200ResponseDer), FlexV1KeysPost200ResponseJwk Jwk = default(FlexV1KeysPost200ResponseJwk))
         {
             this.KeyId = KeyId;
             this.Der = Der;
@@ -54,13 +54,13 @@ namespace CyberSource.Model
         /// Gets or Sets Der
         /// </summary>
         [DataMember(Name="der", EmitDefaultValue=false)]
-        public InlineResponse200Der Der { get; set; }
+        public FlexV1KeysPost200ResponseDer Der { get; set; }
 
         /// <summary>
         /// Gets or Sets Jwk
         /// </summary>
         [DataMember(Name="jwk", EmitDefaultValue=false)]
-        public InlineResponse200Jwk Jwk { get; set; }
+        public FlexV1KeysPost200ResponseJwk Jwk { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

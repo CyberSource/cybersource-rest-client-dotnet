@@ -1,0 +1,211 @@
+# CyberSource.Api.ReportsApi
+
+All URIs are relative to *https://apitest.cybersource.com*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**CreateReport**](ReportsApi.md#createreport) | **POST** /reporting/v3/reports | Create Adhoc Report
+[**GetReportByReportId**](ReportsApi.md#getreportbyreportid) | **GET** /reporting/v3/reports/{reportId} | Get Report based on reportId
+[**SearchReports**](ReportsApi.md#searchreports) | **GET** /reporting/v3/reports | Retrieve available reports
+
+
+<a name="createreport"></a>
+# **CreateReport**
+> void CreateReport (RequestBody1 requestBody)
+
+Create Adhoc Report
+
+Create one time report
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class CreateReportExample
+    {
+        public void main()
+        {
+            var apiInstance = new ReportsApi();
+            var requestBody = new RequestBody1(); // RequestBody1 | Report subscription request payload
+
+            try
+            {
+                // Create Adhoc Report
+                apiInstance.CreateReport(requestBody);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ReportsApi.CreateReport: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestBody** | [**RequestBody1**](RequestBody1.md)| Report subscription request payload | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/hal+json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getreportbyreportid"></a>
+# **GetReportByReportId**
+> ReportingV3ReportsIdGet200Response GetReportByReportId (string reportId, string organizationId = null)
+
+Get Report based on reportId
+
+ReportId is mandatory input
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class GetReportByReportIdExample
+    {
+        public void main()
+        {
+            var apiInstance = new ReportsApi();
+            var reportId = reportId_example;  // string | Valid Report Id
+            var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
+
+            try
+            {
+                // Get Report based on reportId
+                ReportingV3ReportsIdGet200Response result = apiInstance.GetReportByReportId(reportId, organizationId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ReportsApi.GetReportByReportId: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reportId** | **string**| Valid Report Id | 
+ **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
+
+### Return type
+
+[**ReportingV3ReportsIdGet200Response**](ReportingV3ReportsIdGet200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/hal+json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="searchreports"></a>
+# **SearchReports**
+> ReportingV3ReportsGet200Response SearchReports (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
+
+Retrieve available reports
+
+Retrieve list of available reports
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class SearchReportsExample
+    {
+        public void main()
+        {
+            var apiInstance = new ReportsApi();
+            var startTime = 2013-10-20T19:20:30+01:00;  // DateTime? | Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd'T'HH:mm:ssXXX 
+            var endTime = 2013-10-20T19:20:30+01:00;  // DateTime? | Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd'T'HH:mm:ssXXX 
+            var timeQueryType = timeQueryType_example;  // string | Specify time you woud like to search
+            var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
+            var reportMimeType = reportMimeType_example;  // string | Valid Report Format (optional) 
+            var reportFrequency = reportFrequency_example;  // string | Valid Report Frequency (optional) 
+            var reportName = reportName_example;  // string | Valid Report Name (optional) 
+            var reportDefinitionId = 56;  // int? | Valid Report Definition Id (optional) 
+            var reportStatus = reportStatus_example;  // string | Valid Report Status (optional) 
+
+            try
+            {
+                // Retrieve available reports
+                ReportingV3ReportsGet200Response result = apiInstance.SearchReports(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ReportsApi.SearchReports: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startTime** | **DateTime?**| Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX  | 
+ **endTime** | **DateTime?**| Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX  | 
+ **timeQueryType** | **string**| Specify time you woud like to search | 
+ **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
+ **reportMimeType** | **string**| Valid Report Format | [optional] 
+ **reportFrequency** | **string**| Valid Report Frequency | [optional] 
+ **reportName** | **string**| Valid Report Name | [optional] 
+ **reportDefinitionId** | **int?**| Valid Report Definition Id | [optional] 
+ **reportStatus** | **string**| Valid Report Status | [optional] 
+
+### Return type
+
+[**ReportingV3ReportsGet200Response**](ReportingV3ReportsGet200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/hal+json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

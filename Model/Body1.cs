@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Body1" /> class.
         /// </summary>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
-        public Body1(InstrumentidentifiersProcessingInformation ProcessingInformation = default(InstrumentidentifiersProcessingInformation))
+        public Body1(Tmsv1instrumentidentifiersProcessingInformation ProcessingInformation = default(Tmsv1instrumentidentifiersProcessingInformation))
         {
             this.ProcessingInformation = ProcessingInformation;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets ProcessingInformation
         /// </summary>
         [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public InstrumentidentifiersProcessingInformation ProcessingInformation { get; set; }
+        public Tmsv1instrumentidentifiersProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

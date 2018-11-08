@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="KeyId">Unique identifier for the generated token. This is obtained from the Generate Key request. See the [Java Script and Java examples] (http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Flex/Key/html) on how to import the key and encrypt using the imported key..</param>
         /// <param name="CardInfo">CardInfo.</param>
-        public TokenizeRequest(string KeyId = default(string), Paymentsflexv1tokensCardInfo CardInfo = default(Paymentsflexv1tokensCardInfo))
+        public TokenizeRequest(string KeyId = default(string), Flexv1tokensCardInfo CardInfo = default(Flexv1tokensCardInfo))
         {
             this.KeyId = KeyId;
             this.CardInfo = CardInfo;
@@ -52,7 +52,7 @@ namespace CyberSource.Model
         /// Gets or Sets CardInfo
         /// </summary>
         [DataMember(Name="cardInfo", EmitDefaultValue=false)]
-        public Paymentsflexv1tokensCardInfo CardInfo { get; set; }
+        public Flexv1tokensCardInfo CardInfo { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
