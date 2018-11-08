@@ -25,7 +25,7 @@ namespace CyberSource.Client
     /// API client is mainly responsible for making the HTTP call to the API backend.
     /// </summary>
     public partial class ApiClient
-    {       
+    {
         private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
         {
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
@@ -111,7 +111,7 @@ namespace CyberSource.Client
         {
             //var request = new RestRequest(path, method);
             var request = new RestRequest(path, method);
-                        
+
             // add path parameter, if any
             foreach (var param in pathParams)
                 request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
@@ -152,7 +152,7 @@ namespace CyberSource.Client
 
             if (postBody == null)
             {
-                CallAuthHdrs(method.ToString(), path);                
+                CallAuthHdrs(method.ToString(), path);
             }
             else
             {
@@ -557,7 +557,7 @@ namespace CyberSource.Client
             merchantConfig.RequestType = requestType;
             merchantConfig.RequestTarget = requestTarget;
             merchantConfig.RequestJsonData = requestJsonData;
-            
+
             var authorize = new Authorize(merchantConfig);
 
             //these are the Request Headers to be sent along with the HTTP Request

@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -31,8 +32,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
-        /// <returns>InlineResponse2014</returns>
-        InlineResponse2014 CreateCredit (CreateCreditRequest createCreditRequest);
+        /// <returns>PtsV2CreditsPost201Response</returns>
+        PtsV2CreditsPost201Response CreateCredit (CreateCreditRequest createCreditRequest);
 
         /// <summary>
         /// Process a Credit
@@ -42,8 +43,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2014</returns>
-        ApiResponse<InlineResponse2014> CreateCreditWithHttpInfo (CreateCreditRequest createCreditRequest);
+        /// <returns>ApiResponse of PtsV2CreditsPost201Response</returns>
+        ApiResponse<PtsV2CreditsPost201Response> CreateCreditWithHttpInfo (CreateCreditRequest createCreditRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -54,8 +55,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
-        /// <returns>Task of InlineResponse2014</returns>
-        System.Threading.Tasks.Task<InlineResponse2014> CreateCreditAsync (CreateCreditRequest createCreditRequest);
+        /// <returns>Task of PtsV2CreditsPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2CreditsPost201Response> CreateCreditAsync (CreateCreditRequest createCreditRequest);
 
         /// <summary>
         /// Process a Credit
@@ -65,8 +66,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> CreateCreditAsyncWithHttpInfo (CreateCreditRequest createCreditRequest);
+        /// <returns>Task of ApiResponse (PtsV2CreditsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2CreditsPost201Response>> CreateCreditAsyncWithHttpInfo (CreateCreditRequest createCreditRequest);
         #endregion Asynchronous Operations
     }
 
@@ -184,10 +185,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
-        /// <returns>InlineResponse2014</returns>
-        public InlineResponse2014 CreateCredit (CreateCreditRequest createCreditRequest)
+        /// <returns>PtsV2CreditsPost201Response</returns>
+        public PtsV2CreditsPost201Response CreateCredit (CreateCreditRequest createCreditRequest)
         {
-             ApiResponse<InlineResponse2014> localVarResponse = CreateCreditWithHttpInfo(createCreditRequest);
+             ApiResponse<PtsV2CreditsPost201Response> localVarResponse = CreateCreditWithHttpInfo(createCreditRequest);
              return localVarResponse.Data;
         }
 
@@ -196,14 +197,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2014</returns>
-        public ApiResponse< InlineResponse2014 > CreateCreditWithHttpInfo (CreateCreditRequest createCreditRequest)
+        /// <returns>ApiResponse of PtsV2CreditsPost201Response</returns>
+        public ApiResponse< PtsV2CreditsPost201Response > CreateCreditWithHttpInfo (CreateCreditRequest createCreditRequest)
         {
             // verify the required parameter 'createCreditRequest' is set
             if (createCreditRequest == null)
                 throw new ApiException(400, "Missing required parameter 'createCreditRequest' when calling CreditApi->CreateCredit");
 
-            var localVarPath = $"/pts/v2/credits/";
+            var localVarPath = "/pts/v2/credits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -219,7 +220,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -248,9 +249,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
+            return new ApiResponse<PtsV2CreditsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014)));
+                (PtsV2CreditsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response)));
         }
 
         /// <summary>
@@ -258,10 +259,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
-        /// <returns>Task of InlineResponse2014</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2014> CreateCreditAsync (CreateCreditRequest createCreditRequest)
+        /// <returns>Task of PtsV2CreditsPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2CreditsPost201Response> CreateCreditAsync (CreateCreditRequest createCreditRequest)
         {
-             ApiResponse<InlineResponse2014> localVarResponse = await CreateCreditAsyncWithHttpInfo(createCreditRequest);
+             ApiResponse<PtsV2CreditsPost201Response> localVarResponse = await CreateCreditAsyncWithHttpInfo(createCreditRequest);
              return localVarResponse.Data;
 
         }
@@ -271,14 +272,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> CreateCreditAsyncWithHttpInfo (CreateCreditRequest createCreditRequest)
+        /// <returns>Task of ApiResponse (PtsV2CreditsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2CreditsPost201Response>> CreateCreditAsyncWithHttpInfo (CreateCreditRequest createCreditRequest)
         {
             // verify the required parameter 'createCreditRequest' is set
             if (createCreditRequest == null)
                 throw new ApiException(400, "Missing required parameter 'createCreditRequest' when calling CreditApi->CreateCredit");
 
-            var localVarPath = $"/pts/v2/credits/";
+            var localVarPath = "/pts/v2/credits/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -294,7 +295,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -323,9 +324,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
+            return new ApiResponse<PtsV2CreditsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014)));
+                (PtsV2CreditsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response)));
         }
 
     }

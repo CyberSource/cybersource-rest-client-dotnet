@@ -10,9 +10,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
+using CyberSource.Model;
 
 namespace CyberSource.Api
 {
@@ -216,7 +218,13 @@ namespace CyberSource.Api
             if (reportName == null)
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
 
-            var localVarPath = $"/reporting/v3/report-downloads";            
+            var localVarPath = $"/reporting/v3/report-downloads/?reportDate={reportDate}&reportName={reportName}";
+
+            if (!string.IsNullOrEmpty(organizationId))
+            {
+                localVarPath += $"&organizationId={organizationId}";
+            }
+
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -239,9 +247,9 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate)); // query parameter
-            if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
+            //if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            //if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate)); // query parameter
+            //if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
 
 
             // make the HTTP request
@@ -293,7 +301,7 @@ namespace CyberSource.Api
             if (reportName == null)
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
 
-            var localVarPath = $"/reporting/v3/report-downloads";
+            var localVarPath = "/reporting/v3/report-downloads";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);

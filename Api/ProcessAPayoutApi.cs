@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -32,7 +33,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns></returns>
-        void OctCreatePayment (OctCreatePaymentRequest octCreatePaymentRequest);
+        void OctCreatePayment (PtsV2PayoutsPostResponse octCreatePaymentRequest);
 
         /// <summary>
         /// Process a Payout
@@ -43,7 +44,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> OctCreatePaymentWithHttpInfo (OctCreatePaymentRequest octCreatePaymentRequest);
+        ApiResponse<Object> OctCreatePaymentWithHttpInfo (PtsV2PayoutsPostResponse octCreatePaymentRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -55,7 +56,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task OctCreatePaymentAsync (OctCreatePaymentRequest octCreatePaymentRequest);
+        System.Threading.Tasks.Task OctCreatePaymentAsync (PtsV2PayoutsPostResponse octCreatePaymentRequest);
 
         /// <summary>
         /// Process a Payout
@@ -66,7 +67,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> OctCreatePaymentAsyncWithHttpInfo (OctCreatePaymentRequest octCreatePaymentRequest);
+        System.Threading.Tasks.Task<ApiResponse<Object>> OctCreatePaymentAsyncWithHttpInfo (PtsV2PayoutsPostResponse octCreatePaymentRequest);
         #endregion Asynchronous Operations
     }
 
@@ -185,7 +186,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns></returns>
-        public void OctCreatePayment (OctCreatePaymentRequest octCreatePaymentRequest)
+        public void OctCreatePayment (PtsV2PayoutsPostResponse octCreatePaymentRequest)
         {
              OctCreatePaymentWithHttpInfo(octCreatePaymentRequest);
         }
@@ -196,13 +197,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> OctCreatePaymentWithHttpInfo (OctCreatePaymentRequest octCreatePaymentRequest)
+        public ApiResponse<Object> OctCreatePaymentWithHttpInfo (PtsV2PayoutsPostResponse octCreatePaymentRequest)
         {
             // verify the required parameter 'octCreatePaymentRequest' is set
             if (octCreatePaymentRequest == null)
                 throw new ApiException(400, "Missing required parameter 'octCreatePaymentRequest' when calling ProcessAPayoutApi->OctCreatePayment");
 
-            var localVarPath = $"/pts/v2/payouts/";
+            var localVarPath = "/pts/v2/payouts";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -218,7 +219,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -258,7 +259,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task OctCreatePaymentAsync (OctCreatePaymentRequest octCreatePaymentRequest)
+        public async System.Threading.Tasks.Task OctCreatePaymentAsync (PtsV2PayoutsPostResponse octCreatePaymentRequest)
         {
              await OctCreatePaymentAsyncWithHttpInfo(octCreatePaymentRequest);
 
@@ -270,13 +271,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> OctCreatePaymentAsyncWithHttpInfo (OctCreatePaymentRequest octCreatePaymentRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> OctCreatePaymentAsyncWithHttpInfo (PtsV2PayoutsPostResponse octCreatePaymentRequest)
         {
             // verify the required parameter 'octCreatePaymentRequest' is set
             if (octCreatePaymentRequest == null)
                 throw new ApiException(400, "Missing required parameter 'octCreatePaymentRequest' when calling ProcessAPayoutApi->OctCreatePayment");
 
-            var localVarPath = $"/pts/v2/payouts/";
+            var localVarPath = "/pts/v2/payouts/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -292,7 +293,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)

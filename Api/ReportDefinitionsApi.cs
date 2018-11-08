@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -32,8 +33,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 GetResourceInfoByReportDefinition (string reportDefinitionName, string organizationId = null);
+        /// <returns>ReportingV3ReportDefinitionsNameGet200Response</returns>
+        ReportingV3ReportDefinitionsNameGet200Response GetResourceInfoByReportDefinition (string reportDefinitionName, string organizationId = null);
 
         /// <summary>
         /// Get a single report definition information
@@ -44,8 +45,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> GetResourceInfoByReportDefinitionWithHttpInfo (string reportDefinitionName, string organizationId = null);
+        /// <returns>ApiResponse of ReportingV3ReportDefinitionsNameGet200Response</returns>
+        ApiResponse<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionWithHttpInfo (string reportDefinitionName, string organizationId = null);
         /// <summary>
         /// Get reporting resource information
         /// </summary>
@@ -54,8 +55,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 GetResourceV2Info (string organizationId = null);
+        /// <returns>ReportingV3ReportDefinitionsGet200Response</returns>
+        ReportingV3ReportDefinitionsGet200Response GetResourceV2Info (string organizationId = null);
 
         /// <summary>
         /// Get reporting resource information
@@ -65,8 +66,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> GetResourceV2InfoWithHttpInfo (string organizationId = null);
+        /// <returns>ApiResponse of ReportingV3ReportDefinitionsGet200Response</returns>
+        ApiResponse<ReportingV3ReportDefinitionsGet200Response> GetResourceV2InfoWithHttpInfo (string organizationId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -78,8 +79,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> GetResourceInfoByReportDefinitionAsync (string reportDefinitionName, string organizationId = null);
+        /// <returns>Task of ReportingV3ReportDefinitionsNameGet200Response</returns>
+        System.Threading.Tasks.Task<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionAsync (string reportDefinitionName, string organizationId = null);
 
         /// <summary>
         /// Get a single report definition information
@@ -90,8 +91,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetResourceInfoByReportDefinitionAsyncWithHttpInfo (string reportDefinitionName, string organizationId = null);
+        /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsNameGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>> GetResourceInfoByReportDefinitionAsyncWithHttpInfo (string reportDefinitionName, string organizationId = null);
         /// <summary>
         /// Get reporting resource information
         /// </summary>
@@ -100,8 +101,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> GetResourceV2InfoAsync (string organizationId = null);
+        /// <returns>Task of ReportingV3ReportDefinitionsGet200Response</returns>
+        System.Threading.Tasks.Task<ReportingV3ReportDefinitionsGet200Response> GetResourceV2InfoAsync (string organizationId = null);
 
         /// <summary>
         /// Get reporting resource information
@@ -111,8 +112,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetResourceV2InfoAsyncWithHttpInfo (string organizationId = null);
+        /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsGet200Response>> GetResourceV2InfoAsyncWithHttpInfo (string organizationId = null);
         #endregion Asynchronous Operations
     }
 
@@ -231,10 +232,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 GetResourceInfoByReportDefinition (string reportDefinitionName, string organizationId = null)
+        /// <returns>ReportingV3ReportDefinitionsNameGet200Response</returns>
+        public ReportingV3ReportDefinitionsNameGet200Response GetResourceInfoByReportDefinition (string reportDefinitionName, string organizationId = null)
         {
-             ApiResponse<InlineResponse2005> localVarResponse = GetResourceInfoByReportDefinitionWithHttpInfo(reportDefinitionName, organizationId);
+             ApiResponse<ReportingV3ReportDefinitionsNameGet200Response> localVarResponse = GetResourceInfoByReportDefinitionWithHttpInfo(reportDefinitionName, organizationId);
              return localVarResponse.Data;
         }
 
@@ -244,8 +245,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse< InlineResponse2005 > GetResourceInfoByReportDefinitionWithHttpInfo (string reportDefinitionName, string organizationId = null)
+        /// <returns>ApiResponse of ReportingV3ReportDefinitionsNameGet200Response</returns>
+        public ApiResponse< ReportingV3ReportDefinitionsNameGet200Response > GetResourceInfoByReportDefinitionWithHttpInfo (string reportDefinitionName, string organizationId = null)
         {
             // verify the required parameter 'reportDefinitionName' is set
             if (reportDefinitionName == null)
@@ -290,9 +291,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
+                (ReportingV3ReportDefinitionsNameGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportDefinitionsNameGet200Response)));
         }
 
         /// <summary>
@@ -301,10 +302,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> GetResourceInfoByReportDefinitionAsync (string reportDefinitionName, string organizationId = null)
+        /// <returns>Task of ReportingV3ReportDefinitionsNameGet200Response</returns>
+        public async System.Threading.Tasks.Task<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionAsync (string reportDefinitionName, string organizationId = null)
         {
-             ApiResponse<InlineResponse2005> localVarResponse = await GetResourceInfoByReportDefinitionAsyncWithHttpInfo(reportDefinitionName, organizationId);
+             ApiResponse<ReportingV3ReportDefinitionsNameGet200Response> localVarResponse = await GetResourceInfoByReportDefinitionAsyncWithHttpInfo(reportDefinitionName, organizationId);
              return localVarResponse.Data;
 
         }
@@ -315,14 +316,14 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetResourceInfoByReportDefinitionAsyncWithHttpInfo (string reportDefinitionName, string organizationId = null)
+        /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsNameGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>> GetResourceInfoByReportDefinitionAsyncWithHttpInfo (string reportDefinitionName, string organizationId = null)
         {
             // verify the required parameter 'reportDefinitionName' is set
             if (reportDefinitionName == null)
                 throw new ApiException(400, "Missing required parameter 'reportDefinitionName' when calling ReportDefinitionsApi->GetResourceInfoByReportDefinition");
 
-            var localVarPath = $"/reporting/v3/report-definitions/{reportDefinitionName}";
+            var localVarPath = "/reporting/v3/report-definitions/{reportDefinitionName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -361,9 +362,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
+                (ReportingV3ReportDefinitionsNameGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportDefinitionsNameGet200Response)));
         }
 
         /// <summary>
@@ -371,10 +372,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 GetResourceV2Info (string organizationId = null)
+        /// <returns>ReportingV3ReportDefinitionsGet200Response</returns>
+        public ReportingV3ReportDefinitionsGet200Response GetResourceV2Info (string organizationId = null)
         {
-             ApiResponse<InlineResponse2004> localVarResponse = GetResourceV2InfoWithHttpInfo(organizationId);
+             ApiResponse<ReportingV3ReportDefinitionsGet200Response> localVarResponse = GetResourceV2InfoWithHttpInfo(organizationId);
              return localVarResponse.Data;
         }
 
@@ -383,11 +384,11 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse< InlineResponse2004 > GetResourceV2InfoWithHttpInfo (string organizationId = null)
+        /// <returns>ApiResponse of ReportingV3ReportDefinitionsGet200Response</returns>
+        public ApiResponse< ReportingV3ReportDefinitionsGet200Response > GetResourceV2InfoWithHttpInfo (string organizationId = null)
         {
 
-            var localVarPath = $"/reporting/v3/report-definitions";
+            var localVarPath = "/reporting/v3/report-definitions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -425,9 +426,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportDefinitionsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004)));
+                (ReportingV3ReportDefinitionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportDefinitionsGet200Response)));
         }
 
         /// <summary>
@@ -435,10 +436,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> GetResourceV2InfoAsync (string organizationId = null)
+        /// <returns>Task of ReportingV3ReportDefinitionsGet200Response</returns>
+        public async System.Threading.Tasks.Task<ReportingV3ReportDefinitionsGet200Response> GetResourceV2InfoAsync (string organizationId = null)
         {
-             ApiResponse<InlineResponse2004> localVarResponse = await GetResourceV2InfoAsyncWithHttpInfo(organizationId);
+             ApiResponse<ReportingV3ReportDefinitionsGet200Response> localVarResponse = await GetResourceV2InfoAsyncWithHttpInfo(organizationId);
              return localVarResponse.Data;
 
         }
@@ -448,11 +449,11 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetResourceV2InfoAsyncWithHttpInfo (string organizationId = null)
+        /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsGet200Response>> GetResourceV2InfoAsyncWithHttpInfo (string organizationId = null)
         {
 
-            var localVarPath = $"/reporting/v3/report-definitions";
+            var localVarPath = "/reporting/v3/report-definitions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -490,9 +491,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportDefinitionsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004)));
+                (ReportingV3ReportDefinitionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportDefinitionsGet200Response)));
         }
 
     }

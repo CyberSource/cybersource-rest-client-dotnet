@@ -1,4 +1,4 @@
-﻿/* 
+/* 
  * CyberSource Flex API
  *
  * Simple PAN tokenization service
@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -31,8 +32,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 Tokenize (TokenizeRequest tokenizeRequest = null);
+        /// <returns>FlexV1TokensPost200Response</returns>
+        FlexV1TokensPost200Response Tokenize (TokenizeRequest tokenizeRequest = null);
 
         /// <summary>
         /// Flex Tokenize card
@@ -42,8 +43,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> TokenizeWithHttpInfo (TokenizeRequest tokenizeRequest = null);
+        /// <returns>ApiResponse of FlexV1TokensPost200Response</returns>
+        ApiResponse<FlexV1TokensPost200Response> TokenizeWithHttpInfo (TokenizeRequest tokenizeRequest = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -54,8 +55,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> TokenizeAsync (TokenizeRequest tokenizeRequest = null);
+        /// <returns>Task of FlexV1TokensPost200Response</returns>
+        System.Threading.Tasks.Task<FlexV1TokensPost200Response> TokenizeAsync (TokenizeRequest tokenizeRequest = null);
 
         /// <summary>
         /// Flex Tokenize card
@@ -65,8 +66,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> TokenizeAsyncWithHttpInfo (TokenizeRequest tokenizeRequest = null);
+        /// <returns>Task of ApiResponse (FlexV1TokensPost200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FlexV1TokensPost200Response>> TokenizeAsyncWithHttpInfo (TokenizeRequest tokenizeRequest = null);
         #endregion Asynchronous Operations
     }
 
@@ -184,10 +185,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 Tokenize (TokenizeRequest tokenizeRequest = null)
+        /// <returns>FlexV1TokensPost200Response</returns>
+        public FlexV1TokensPost200Response Tokenize (TokenizeRequest tokenizeRequest = null)
         {
-             ApiResponse<InlineResponse2001> localVarResponse = TokenizeWithHttpInfo(tokenizeRequest);
+             ApiResponse<FlexV1TokensPost200Response> localVarResponse = TokenizeWithHttpInfo(tokenizeRequest);
              return localVarResponse.Data;
         }
 
@@ -196,11 +197,11 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse< InlineResponse2001 > TokenizeWithHttpInfo (TokenizeRequest tokenizeRequest = null)
+        /// <returns>ApiResponse of FlexV1TokensPost200Response</returns>
+        public ApiResponse< FlexV1TokensPost200Response > TokenizeWithHttpInfo (TokenizeRequest tokenizeRequest = null)
         {
 
-            var localVarPath = $"/flex/v1/tokens/";
+            var localVarPath = "/flex/v1/tokens/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -245,9 +246,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<FlexV1TokensPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
+                (FlexV1TokensPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(FlexV1TokensPost200Response)));
         }
 
         /// <summary>
@@ -255,10 +256,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> TokenizeAsync (TokenizeRequest tokenizeRequest = null)
+        /// <returns>Task of FlexV1TokensPost200Response</returns>
+        public async System.Threading.Tasks.Task<FlexV1TokensPost200Response> TokenizeAsync (TokenizeRequest tokenizeRequest = null)
         {
-             ApiResponse<InlineResponse2001> localVarResponse = await TokenizeAsyncWithHttpInfo(tokenizeRequest);
+             ApiResponse<FlexV1TokensPost200Response> localVarResponse = await TokenizeAsyncWithHttpInfo(tokenizeRequest);
              return localVarResponse.Data;
 
         }
@@ -268,11 +269,11 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> TokenizeAsyncWithHttpInfo (TokenizeRequest tokenizeRequest = null)
+        /// <returns>Task of ApiResponse (FlexV1TokensPost200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FlexV1TokensPost200Response>> TokenizeAsyncWithHttpInfo (TokenizeRequest tokenizeRequest = null)
         {
 
-            var localVarPath = $"/flex/v1/tokens/";
+            var localVarPath = "/flex/v1/tokens/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -317,9 +318,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<FlexV1TokensPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
+                (FlexV1TokensPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(FlexV1TokensPost200Response)));
         }
 
     }

@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -31,8 +32,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
-        /// <returns>InlineResponse201</returns>
-        InlineResponse201 CreatePayment (CreatePaymentRequest createPaymentRequest);
+        /// <returns>PtsV2PaymentsPost201Response</returns>
+        PtsV2PaymentsPost201Response CreatePayment (CreatePaymentRequest createPaymentRequest);
 
         /// <summary>
         /// Process a Payment
@@ -42,8 +43,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        ApiResponse<InlineResponse201> CreatePaymentWithHttpInfo (CreatePaymentRequest createPaymentRequest);
+        /// <returns>ApiResponse of PtsV2PaymentsPost201Response</returns>
+        ApiResponse<PtsV2PaymentsPost201Response> CreatePaymentWithHttpInfo (CreatePaymentRequest createPaymentRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -54,8 +55,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
-        /// <returns>Task of InlineResponse201</returns>
-        System.Threading.Tasks.Task<InlineResponse201> CreatePaymentAsync (CreatePaymentRequest createPaymentRequest);
+        /// <returns>Task of PtsV2PaymentsPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsPost201Response> CreatePaymentAsync (CreatePaymentRequest createPaymentRequest);
 
         /// <summary>
         /// Process a Payment
@@ -65,8 +66,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreatePaymentAsyncWithHttpInfo (CreatePaymentRequest createPaymentRequest);
+        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response>> CreatePaymentAsyncWithHttpInfo (CreatePaymentRequest createPaymentRequest);
         #endregion Asynchronous Operations
     }
 
@@ -184,10 +185,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
-        /// <returns>InlineResponse201</returns>
-        public InlineResponse201 CreatePayment (CreatePaymentRequest createPaymentRequest)
+        /// <returns>PtsV2PaymentsPost201Response</returns>
+        public PtsV2PaymentsPost201Response CreatePayment (CreatePaymentRequest createPaymentRequest)
         {
-             ApiResponse<InlineResponse201> localVarResponse = CreatePaymentWithHttpInfo(createPaymentRequest);
+             ApiResponse<PtsV2PaymentsPost201Response> localVarResponse = CreatePaymentWithHttpInfo(createPaymentRequest);
              return localVarResponse.Data;
         }
 
@@ -196,14 +197,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        public ApiResponse< InlineResponse201 > CreatePaymentWithHttpInfo (CreatePaymentRequest createPaymentRequest)
+        /// <returns>ApiResponse of PtsV2PaymentsPost201Response</returns>
+        public ApiResponse< PtsV2PaymentsPost201Response > CreatePaymentWithHttpInfo (CreatePaymentRequest createPaymentRequest)
         {
             // verify the required parameter 'createPaymentRequest' is set
             if (createPaymentRequest == null)
                 throw new ApiException(400, "Missing required parameter 'createPaymentRequest' when calling PaymentsApi->CreatePayment");
 
-            var localVarPath = $"/pts/v2/payments/";
+            var localVarPath = $"/pts/v2/payments";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -219,7 +220,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -248,9 +249,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse201>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse201) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201)));
+                (PtsV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response)));
         }
 
         /// <summary>
@@ -258,10 +259,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
-        /// <returns>Task of InlineResponse201</returns>
-        public async System.Threading.Tasks.Task<InlineResponse201> CreatePaymentAsync (CreatePaymentRequest createPaymentRequest)
+        /// <returns>Task of PtsV2PaymentsPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsPost201Response> CreatePaymentAsync (CreatePaymentRequest createPaymentRequest)
         {
-             ApiResponse<InlineResponse201> localVarResponse = await CreatePaymentAsyncWithHttpInfo(createPaymentRequest);
+             ApiResponse<PtsV2PaymentsPost201Response> localVarResponse = await CreatePaymentAsyncWithHttpInfo(createPaymentRequest);
              return localVarResponse.Data;
 
         }
@@ -271,14 +272,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreatePaymentAsyncWithHttpInfo (CreatePaymentRequest createPaymentRequest)
+        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response>> CreatePaymentAsyncWithHttpInfo (CreatePaymentRequest createPaymentRequest)
         {
             // verify the required parameter 'createPaymentRequest' is set
             if (createPaymentRequest == null)
                 throw new ApiException(400, "Missing required parameter 'createPaymentRequest' when calling PaymentsApi->CreatePayment");
 
-            var localVarPath = $"/pts/v2/payments/";
+            var localVarPath = "/pts/v2/payments/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -294,7 +295,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -323,9 +324,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse201>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse201) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201)));
+                (PtsV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response)));
         }
 
     }

@@ -13,11 +13,14 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -72,7 +75,7 @@ namespace CyberSource.Model
         /// <param name="ReportFilters">ReportFilters.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
         /// <param name="SelectedMerchantGroupName">SelectedMerchantGroupName.</param>
-        public RequestBody(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), string ReportFrequency = default(string), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), InlineResponse2006ReportPreferences ReportPreferences = default(InlineResponse2006ReportPreferences), string SelectedMerchantGroupName = default(string))
+        public RequestBody(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), string ReportFrequency = default(string), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), ReportingV3ReportSubscriptionsGet200ResponseReportPreferences ReportPreferences = default(ReportingV3ReportSubscriptionsGet200ResponseReportPreferences), string SelectedMerchantGroupName = default(string))
         {
             // to ensure "ReportDefinitionName" is required (not null)
             if (ReportDefinitionName == null)
@@ -171,7 +174,7 @@ namespace CyberSource.Model
         /// Gets or Sets ReportPreferences
         /// </summary>
         [DataMember(Name="reportPreferences", EmitDefaultValue=false)]
-        public InlineResponse2006ReportPreferences ReportPreferences { get; set; }
+        public ReportingV3ReportSubscriptionsGet200ResponseReportPreferences ReportPreferences { get; set; }
 
         /// <summary>
         /// Gets or Sets SelectedMerchantGroupName

@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -32,8 +33,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
-        /// <returns>InlineResponse2013</returns>
-        InlineResponse2013 RefundCapture (RefundCaptureRequest refundCaptureRequest, string id);
+        /// <returns>PtsV2PaymentsRefundPost201Response</returns>
+        PtsV2PaymentsRefundPost201Response RefundCapture (RefundCaptureRequest refundCaptureRequest, string id);
 
         /// <summary>
         /// Refund a Capture
@@ -44,8 +45,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
-        /// <returns>ApiResponse of InlineResponse2013</returns>
-        ApiResponse<InlineResponse2013> RefundCaptureWithHttpInfo (RefundCaptureRequest refundCaptureRequest, string id);
+        /// <returns>ApiResponse of PtsV2PaymentsRefundPost201Response</returns>
+        ApiResponse<PtsV2PaymentsRefundPost201Response> RefundCaptureWithHttpInfo (RefundCaptureRequest refundCaptureRequest, string id);
         /// <summary>
         /// Refund a Payment
         /// </summary>
@@ -55,8 +56,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>InlineResponse2013</returns>
-        InlineResponse2013 RefundPayment (RefundPaymentRequest refundPaymentRequest, string id);
+        /// <returns>PtsV2PaymentsRefundPost201Response</returns>
+        PtsV2PaymentsRefundPost201Response RefundPayment (RefundPaymentRequest refundPaymentRequest, string id);
 
         /// <summary>
         /// Refund a Payment
@@ -67,8 +68,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>ApiResponse of InlineResponse2013</returns>
-        ApiResponse<InlineResponse2013> RefundPaymentWithHttpInfo (RefundPaymentRequest refundPaymentRequest, string id);
+        /// <returns>ApiResponse of PtsV2PaymentsRefundPost201Response</returns>
+        ApiResponse<PtsV2PaymentsRefundPost201Response> RefundPaymentWithHttpInfo (RefundPaymentRequest refundPaymentRequest, string id);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -80,8 +81,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
-        /// <returns>Task of InlineResponse2013</returns>
-        System.Threading.Tasks.Task<InlineResponse2013> RefundCaptureAsync (RefundCaptureRequest refundCaptureRequest, string id);
+        /// <returns>Task of PtsV2PaymentsRefundPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsRefundPost201Response> RefundCaptureAsync (RefundCaptureRequest refundCaptureRequest, string id);
 
         /// <summary>
         /// Refund a Capture
@@ -92,8 +93,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> RefundCaptureAsyncWithHttpInfo (RefundCaptureRequest refundCaptureRequest, string id);
+        /// <returns>Task of ApiResponse (PtsV2PaymentsRefundPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundCaptureAsyncWithHttpInfo (RefundCaptureRequest refundCaptureRequest, string id);
         /// <summary>
         /// Refund a Payment
         /// </summary>
@@ -103,8 +104,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>Task of InlineResponse2013</returns>
-        System.Threading.Tasks.Task<InlineResponse2013> RefundPaymentAsync (RefundPaymentRequest refundPaymentRequest, string id);
+        /// <returns>Task of PtsV2PaymentsRefundPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsRefundPost201Response> RefundPaymentAsync (RefundPaymentRequest refundPaymentRequest, string id);
 
         /// <summary>
         /// Refund a Payment
@@ -115,8 +116,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> RefundPaymentAsyncWithHttpInfo (RefundPaymentRequest refundPaymentRequest, string id);
+        /// <returns>Task of ApiResponse (PtsV2PaymentsRefundPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundPaymentAsyncWithHttpInfo (RefundPaymentRequest refundPaymentRequest, string id);
         #endregion Asynchronous Operations
     }
 
@@ -235,10 +236,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
-        /// <returns>InlineResponse2013</returns>
-        public InlineResponse2013 RefundCapture (RefundCaptureRequest refundCaptureRequest, string id)
+        /// <returns>PtsV2PaymentsRefundPost201Response</returns>
+        public PtsV2PaymentsRefundPost201Response RefundCapture (RefundCaptureRequest refundCaptureRequest, string id)
         {
-             ApiResponse<InlineResponse2013> localVarResponse = RefundCaptureWithHttpInfo(refundCaptureRequest, id);
+             ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = RefundCaptureWithHttpInfo(refundCaptureRequest, id);
              return localVarResponse.Data;
         }
 
@@ -248,8 +249,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
-        /// <returns>ApiResponse of InlineResponse2013</returns>
-        public ApiResponse< InlineResponse2013 > RefundCaptureWithHttpInfo (RefundCaptureRequest refundCaptureRequest, string id)
+        /// <returns>ApiResponse of PtsV2PaymentsRefundPost201Response</returns>
+        public ApiResponse< PtsV2PaymentsRefundPost201Response > RefundCaptureWithHttpInfo (RefundCaptureRequest refundCaptureRequest, string id)
         {
             // verify the required parameter 'refundCaptureRequest' is set
             if (refundCaptureRequest == null)
@@ -274,7 +275,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -304,9 +305,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsRefundPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response)));
         }
 
         /// <summary>
@@ -315,10 +316,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
-        /// <returns>Task of InlineResponse2013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2013> RefundCaptureAsync (RefundCaptureRequest refundCaptureRequest, string id)
+        /// <returns>Task of PtsV2PaymentsRefundPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsRefundPost201Response> RefundCaptureAsync (RefundCaptureRequest refundCaptureRequest, string id)
         {
-             ApiResponse<InlineResponse2013> localVarResponse = await RefundCaptureAsyncWithHttpInfo(refundCaptureRequest, id);
+             ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = await RefundCaptureAsyncWithHttpInfo(refundCaptureRequest, id);
              return localVarResponse.Data;
 
         }
@@ -329,8 +330,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> RefundCaptureAsyncWithHttpInfo (RefundCaptureRequest refundCaptureRequest, string id)
+        /// <returns>Task of ApiResponse (PtsV2PaymentsRefundPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundCaptureAsyncWithHttpInfo (RefundCaptureRequest refundCaptureRequest, string id)
         {
             // verify the required parameter 'refundCaptureRequest' is set
             if (refundCaptureRequest == null)
@@ -339,7 +340,7 @@ namespace CyberSource.Api
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling RefundApi->RefundCapture");
 
-            var localVarPath = $"/pts/v2/captures/{id}/refunds";
+            var localVarPath = "/pts/v2/captures/{id}/refunds";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -355,7 +356,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -385,9 +386,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsRefundPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response)));
         }
 
         /// <summary>
@@ -396,10 +397,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>InlineResponse2013</returns>
-        public InlineResponse2013 RefundPayment (RefundPaymentRequest refundPaymentRequest, string id)
+        /// <returns>PtsV2PaymentsRefundPost201Response</returns>
+        public PtsV2PaymentsRefundPost201Response RefundPayment (RefundPaymentRequest refundPaymentRequest, string id)
         {
-             ApiResponse<InlineResponse2013> localVarResponse = RefundPaymentWithHttpInfo(refundPaymentRequest, id);
+             ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = RefundPaymentWithHttpInfo(refundPaymentRequest, id);
              return localVarResponse.Data;
         }
 
@@ -409,8 +410,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>ApiResponse of InlineResponse2013</returns>
-        public ApiResponse< InlineResponse2013 > RefundPaymentWithHttpInfo (RefundPaymentRequest refundPaymentRequest, string id)
+        /// <returns>ApiResponse of PtsV2PaymentsRefundPost201Response</returns>
+        public ApiResponse< PtsV2PaymentsRefundPost201Response > RefundPaymentWithHttpInfo (RefundPaymentRequest refundPaymentRequest, string id)
         {
             // verify the required parameter 'refundPaymentRequest' is set
             if (refundPaymentRequest == null)
@@ -435,7 +436,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -465,9 +466,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsRefundPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response)));
         }
 
         /// <summary>
@@ -476,10 +477,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>Task of InlineResponse2013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2013> RefundPaymentAsync (RefundPaymentRequest refundPaymentRequest, string id)
+        /// <returns>Task of PtsV2PaymentsRefundPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsRefundPost201Response> RefundPaymentAsync (RefundPaymentRequest refundPaymentRequest, string id)
         {
-             ApiResponse<InlineResponse2013> localVarResponse = await RefundPaymentAsyncWithHttpInfo(refundPaymentRequest, id);
+             ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = await RefundPaymentAsyncWithHttpInfo(refundPaymentRequest, id);
              return localVarResponse.Data;
 
         }
@@ -490,8 +491,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> RefundPaymentAsyncWithHttpInfo (RefundPaymentRequest refundPaymentRequest, string id)
+        /// <returns>Task of ApiResponse (PtsV2PaymentsRefundPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundPaymentAsyncWithHttpInfo (RefundPaymentRequest refundPaymentRequest, string id)
         {
             // verify the required parameter 'refundPaymentRequest' is set
             if (refundPaymentRequest == null)
@@ -500,7 +501,7 @@ namespace CyberSource.Api
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling RefundApi->RefundPayment");
 
-            var localVarPath = $"/pts/v2/payments/{id}/refunds";
+            var localVarPath = "/pts/v2/payments/{id}/refunds";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -516,7 +517,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -546,9 +547,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsRefundPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013)));
+                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response)));
         }
 
     }

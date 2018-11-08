@@ -44,7 +44,7 @@ namespace CyberSource.Client
                              Dictionary<String, String> apiKey = null,
                              Dictionary<String, String> apiKeyPrefix = null,
                              string tempFolderPath = null,
-                             string dateTimeFormat = null,                             
+                             string dateTimeFormat = null,
                              int timeout = 100000,
                              string userAgent = "Swagger-Codegen/1.0.0/csharp",
                              IReadOnlyDictionary<string, string> merchConfigDictObj = null
@@ -96,7 +96,7 @@ namespace CyberSource.Client
         /// </summary>
         public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response) =>
         {
-            int status = (int) response.StatusCode;
+            int status = (int)response.StatusCode;
             if (status >= 400) return new ApiException(status, String.Format("Error calling {0}: {1}", methodName, response.Content), response.Content);
             if (status == 0) return new ApiException(status, String.Format("Error calling {0}: {1}", methodName, response.ErrorMessage), response.ErrorMessage);
             return null;
@@ -128,7 +128,7 @@ namespace CyberSource.Client
         /// </summary>
         /// <param name="apiClient">An instance of ApiClient.</param>
         /// <returns></returns>
-        public void setApiClientUsingDefault (ApiClient apiClient = null)
+        public void setApiClientUsingDefault(ApiClient apiClient = null)
         {
             if (apiClient == null)
             {
@@ -240,12 +240,12 @@ namespace CyberSource.Client
         /// </summary>
         /// <param name="apiKeyIdentifier">API key identifier (authentication scheme).</param>
         /// <returns>API key with prefix.</returns>
-        public string GetApiKeyWithPrefix (string apiKeyIdentifier)
+        public string GetApiKeyWithPrefix(string apiKeyIdentifier)
         {
             var apiKeyValue = "";
-            ApiKey.TryGetValue (apiKeyIdentifier, out apiKeyValue);
+            ApiKey.TryGetValue(apiKeyIdentifier, out apiKeyValue);
             var apiKeyPrefix = "";
-            if (ApiKeyPrefix.TryGetValue (apiKeyIdentifier, out apiKeyPrefix))
+            if (ApiKeyPrefix.TryGetValue(apiKeyIdentifier, out apiKeyPrefix))
                 return apiKeyPrefix + " " + apiKeyValue;
             else
                 return apiKeyValue;
@@ -285,7 +285,7 @@ namespace CyberSource.Client
                 if (value[value.Length - 1] == Path.DirectorySeparatorChar)
                     _tempFolderPath = value;
                 else
-                    _tempFolderPath = value  + Path.DirectorySeparatorChar;
+                    _tempFolderPath = value + Path.DirectorySeparatorChar;
             }
         }
 
@@ -332,7 +332,7 @@ namespace CyberSource.Client
             report += "    .NET Framework Version: " + Assembly
                      .GetExecutingAssembly()
                      .GetReferencedAssemblies()
-                     .Where(x => x.Name == "System.Core").First().Version.ToString()  + "\n";
+                     .Where(x => x.Name == "System.Core").First().Version.ToString() + "\n";
             report += "    Version of the API: 0.0.1\n";
             report += "    SDK Package Version: 1.0.0\n";
 

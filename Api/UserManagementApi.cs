@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -34,8 +35,8 @@ namespace CyberSource.Api
         /// <param name="userName">User ID of the user you want to get details on. (optional)</param>
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
-        /// <returns>InlineResponse20013</returns>
-        InlineResponse20013 GetUsers (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
+        /// <returns>UmsV1UsersGet200Response</returns>
+        UmsV1UsersGet200Response GetUsers (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
 
         /// <summary>
         /// Get user based on organization Id, username, permission and role
@@ -48,8 +49,8 @@ namespace CyberSource.Api
         /// <param name="userName">User ID of the user you want to get details on. (optional)</param>
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20013</returns>
-        ApiResponse<InlineResponse20013> GetUsersWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
+        /// <returns>ApiResponse of UmsV1UsersGet200Response</returns>
+        ApiResponse<UmsV1UsersGet200Response> GetUsersWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -63,8 +64,8 @@ namespace CyberSource.Api
         /// <param name="userName">User ID of the user you want to get details on. (optional)</param>
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
-        /// <returns>Task of InlineResponse20013</returns>
-        System.Threading.Tasks.Task<InlineResponse20013> GetUsersAsync (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
+        /// <returns>Task of UmsV1UsersGet200Response</returns>
+        System.Threading.Tasks.Task<UmsV1UsersGet200Response> GetUsersAsync (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
 
         /// <summary>
         /// Get user based on organization Id, username, permission and role
@@ -77,8 +78,8 @@ namespace CyberSource.Api
         /// <param name="userName">User ID of the user you want to get details on. (optional)</param>
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetUsersAsyncWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
+        /// <returns>Task of ApiResponse (UmsV1UsersGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UmsV1UsersGet200Response>> GetUsersAsyncWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
         #endregion Asynchronous Operations
     }
 
@@ -199,10 +200,10 @@ namespace CyberSource.Api
         /// <param name="userName">User ID of the user you want to get details on. (optional)</param>
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
-        /// <returns>InlineResponse20013</returns>
-        public InlineResponse20013 GetUsers (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
+        /// <returns>UmsV1UsersGet200Response</returns>
+        public UmsV1UsersGet200Response GetUsers (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
         {
-             ApiResponse<InlineResponse20013> localVarResponse = GetUsersWithHttpInfo(organizationId, userName, permissionId, roleId);
+             ApiResponse<UmsV1UsersGet200Response> localVarResponse = GetUsersWithHttpInfo(organizationId, userName, permissionId, roleId);
              return localVarResponse.Data;
         }
 
@@ -214,11 +215,11 @@ namespace CyberSource.Api
         /// <param name="userName">User ID of the user you want to get details on. (optional)</param>
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20013</returns>
-        public ApiResponse< InlineResponse20013 > GetUsersWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
+        /// <returns>ApiResponse of UmsV1UsersGet200Response</returns>
+        public ApiResponse< UmsV1UsersGet200Response > GetUsersWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
         {
 
-            var localVarPath = $"/ums/v1/users";
+            var localVarPath = "/ums/v1/users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -234,7 +235,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -259,9 +260,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20013>(localVarStatusCode,
+            return new ApiResponse<UmsV1UsersGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20013)));
+                (UmsV1UsersGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UmsV1UsersGet200Response)));
         }
 
         /// <summary>
@@ -272,10 +273,10 @@ namespace CyberSource.Api
         /// <param name="userName">User ID of the user you want to get details on. (optional)</param>
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
-        /// <returns>Task of InlineResponse20013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20013> GetUsersAsync (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
+        /// <returns>Task of UmsV1UsersGet200Response</returns>
+        public async System.Threading.Tasks.Task<UmsV1UsersGet200Response> GetUsersAsync (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
         {
-             ApiResponse<InlineResponse20013> localVarResponse = await GetUsersAsyncWithHttpInfo(organizationId, userName, permissionId, roleId);
+             ApiResponse<UmsV1UsersGet200Response> localVarResponse = await GetUsersAsyncWithHttpInfo(organizationId, userName, permissionId, roleId);
              return localVarResponse.Data;
 
         }
@@ -288,11 +289,11 @@ namespace CyberSource.Api
         /// <param name="userName">User ID of the user you want to get details on. (optional)</param>
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetUsersAsyncWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
+        /// <returns>Task of ApiResponse (UmsV1UsersGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UmsV1UsersGet200Response>> GetUsersAsyncWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
         {
 
-            var localVarPath = $"/ums/v1/users";
+            var localVarPath = "/ums/v1/users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -308,7 +309,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -333,9 +334,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20013>(localVarStatusCode,
+            return new ApiResponse<UmsV1UsersGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20013)));
+                (UmsV1UsersGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UmsV1UsersGet200Response)));
         }
 
     }

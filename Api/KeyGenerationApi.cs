@@ -1,4 +1,4 @@
-﻿/* 
+/* 
  * CyberSource Flex API
  *
  * Simple PAN tokenization service
@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -31,8 +32,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest = null);
+        /// <returns>FlexV1KeysPost200Response</returns>
+        FlexV1KeysPost200Response GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest = null);
 
         /// <summary>
         /// Generate Key
@@ -42,8 +43,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null);
+        /// <returns>ApiResponse of FlexV1KeysPost200Response</returns>
+        ApiResponse<FlexV1KeysPost200Response> GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -54,8 +55,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest = null);
+        /// <returns>Task of FlexV1KeysPost200Response</returns>
+        System.Threading.Tasks.Task<FlexV1KeysPost200Response> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest = null);
 
         /// <summary>
         /// Generate Key
@@ -65,8 +66,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null);
+        /// <returns>Task of ApiResponse (FlexV1KeysPost200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null);
         #endregion Asynchronous Operations
     }
 
@@ -184,10 +185,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        public InlineResponse200 GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest = null)
+        /// <returns>FlexV1KeysPost200Response</returns>
+        public FlexV1KeysPost200Response GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
-             ApiResponse<InlineResponse200> localVarResponse = GeneratePublicKeyWithHttpInfo(generatePublicKeyRequest);
+             ApiResponse<FlexV1KeysPost200Response> localVarResponse = GeneratePublicKeyWithHttpInfo(generatePublicKeyRequest);
              return localVarResponse.Data;
         }
 
@@ -196,11 +197,11 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null)
+        /// <returns>ApiResponse of FlexV1KeysPost200Response</returns>
+        public ApiResponse< FlexV1KeysPost200Response > GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
 
-            var localVarPath = $"/flex/v1/keys/";
+            var localVarPath = "/flex/v1/keys/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -245,9 +246,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<FlexV1KeysPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
+                (FlexV1KeysPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(FlexV1KeysPost200Response)));
         }
 
         /// <summary>
@@ -255,10 +256,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest = null)
+        /// <returns>Task of FlexV1KeysPost200Response</returns>
+        public async System.Threading.Tasks.Task<FlexV1KeysPost200Response> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
-             ApiResponse<InlineResponse200> localVarResponse = await GeneratePublicKeyAsyncWithHttpInfo(generatePublicKeyRequest);
+             ApiResponse<FlexV1KeysPost200Response> localVarResponse = await GeneratePublicKeyAsyncWithHttpInfo(generatePublicKeyRequest);
              return localVarResponse.Data;
 
         }
@@ -268,11 +269,11 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null)
+        /// <returns>Task of ApiResponse (FlexV1KeysPost200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
 
-            var localVarPath = $"/flex/v1/keys/";
+            var localVarPath = "/flex/v1/keys/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -317,9 +318,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<FlexV1KeysPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
+                (FlexV1KeysPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(FlexV1KeysPost200Response)));
         }
 
     }

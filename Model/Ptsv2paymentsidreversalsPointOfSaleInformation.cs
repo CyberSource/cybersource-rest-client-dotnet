@@ -9,11 +9,18 @@
  */
 
 using System;
+using System.Linq;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
@@ -27,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidreversalsPointOfSaleInformation" /> class.
         /// </summary>
         /// <param name="Emv">Emv.</param>
-        public Ptsv2paymentsidreversalsPointOfSaleInformation(InlineResponse201PointOfSaleInformationEmv Emv = default(InlineResponse201PointOfSaleInformationEmv))
+        public Ptsv2paymentsidreversalsPointOfSaleInformation(PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv Emv = default(PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv))
         {
             this.Emv = Emv;
         }
@@ -36,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets Emv
         /// </summary>
         [DataMember(Name="emv", EmitDefaultValue=false)]
-        public InlineResponse201PointOfSaleInformationEmv Emv { get; set; }
+        public PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv Emv { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

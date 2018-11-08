@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -32,8 +33,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 GetNotificationOfChangeReport (DateTime? startTime, DateTime? endTime);
+        /// <returns>ReportingV3NotificationofChangesGet200Response</returns>
+        ReportingV3NotificationofChangesGet200Response GetNotificationOfChangeReport (DateTime? startTime, DateTime? endTime);
 
         /// <summary>
         /// Get Notification Of Changes
@@ -44,8 +45,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> GetNotificationOfChangeReportWithHttpInfo (DateTime? startTime, DateTime? endTime);
+        /// <returns>ApiResponse of ReportingV3NotificationofChangesGet200Response</returns>
+        ApiResponse<ReportingV3NotificationofChangesGet200Response> GetNotificationOfChangeReportWithHttpInfo (DateTime? startTime, DateTime? endTime);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -57,8 +58,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> GetNotificationOfChangeReportAsync (DateTime? startTime, DateTime? endTime);
+        /// <returns>Task of ReportingV3NotificationofChangesGet200Response</returns>
+        System.Threading.Tasks.Task<ReportingV3NotificationofChangesGet200Response> GetNotificationOfChangeReportAsync (DateTime? startTime, DateTime? endTime);
 
         /// <summary>
         /// Get Notification Of Changes
@@ -69,8 +70,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetNotificationOfChangeReportAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime);
+        /// <returns>Task of ApiResponse (ReportingV3NotificationofChangesGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ReportingV3NotificationofChangesGet200Response>> GetNotificationOfChangeReportAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime);
         #endregion Asynchronous Operations
     }
 
@@ -189,10 +190,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 GetNotificationOfChangeReport (DateTime? startTime, DateTime? endTime)
+        /// <returns>ReportingV3NotificationofChangesGet200Response</returns>
+        public ReportingV3NotificationofChangesGet200Response GetNotificationOfChangeReport (DateTime? startTime, DateTime? endTime)
         {
-             ApiResponse<InlineResponse2003> localVarResponse = GetNotificationOfChangeReportWithHttpInfo(startTime, endTime);
+             ApiResponse<ReportingV3NotificationofChangesGet200Response> localVarResponse = GetNotificationOfChangeReportWithHttpInfo(startTime, endTime);
              return localVarResponse.Data;
         }
 
@@ -202,8 +203,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        public ApiResponse< InlineResponse2003 > GetNotificationOfChangeReportWithHttpInfo (DateTime? startTime, DateTime? endTime)
+        /// <returns>ApiResponse of ReportingV3NotificationofChangesGet200Response</returns>
+        public ApiResponse< ReportingV3NotificationofChangesGet200Response > GetNotificationOfChangeReportWithHttpInfo (DateTime? startTime, DateTime? endTime)
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)
@@ -212,7 +213,7 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling NotificationOfChangesApi->GetNotificationOfChangeReport");
 
-            var localVarPath = $"/reporting/v3/notification-of-changes";
+            var localVarPath = "/reporting/v3/notification-of-changes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -251,9 +252,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+            return new ApiResponse<ReportingV3NotificationofChangesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+                (ReportingV3NotificationofChangesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NotificationofChangesGet200Response)));
         }
 
         /// <summary>
@@ -262,10 +263,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> GetNotificationOfChangeReportAsync (DateTime? startTime, DateTime? endTime)
+        /// <returns>Task of ReportingV3NotificationofChangesGet200Response</returns>
+        public async System.Threading.Tasks.Task<ReportingV3NotificationofChangesGet200Response> GetNotificationOfChangeReportAsync (DateTime? startTime, DateTime? endTime)
         {
-             ApiResponse<InlineResponse2003> localVarResponse = await GetNotificationOfChangeReportAsyncWithHttpInfo(startTime, endTime);
+             ApiResponse<ReportingV3NotificationofChangesGet200Response> localVarResponse = await GetNotificationOfChangeReportAsyncWithHttpInfo(startTime, endTime);
              return localVarResponse.Data;
 
         }
@@ -276,8 +277,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetNotificationOfChangeReportAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime)
+        /// <returns>Task of ApiResponse (ReportingV3NotificationofChangesGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3NotificationofChangesGet200Response>> GetNotificationOfChangeReportAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime)
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)
@@ -286,7 +287,7 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling NotificationOfChangesApi->GetNotificationOfChangeReport");
 
-            var localVarPath = $"/reporting/v3/notification-of-changes";
+            var localVarPath = "/reporting/v3/notification-of-changes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -325,9 +326,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+            return new ApiResponse<ReportingV3NotificationofChangesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+                (ReportingV3NotificationofChangesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NotificationofChangesGet200Response)));
         }
 
     }

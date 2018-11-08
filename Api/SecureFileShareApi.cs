@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -56,8 +57,8 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 GetFileDetails (string startDate, string endDate, string organizationId = null);
+        /// <returns>V1FileDetailsGet200Response</returns>
+        V1FileDetailsGet200Response GetFileDetails (string startDate, string endDate, string organizationId = null);
 
         /// <summary>
         /// Get list of files
@@ -69,8 +70,8 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> GetFileDetailsWithHttpInfo (string startDate, string endDate, string organizationId = null);
+        /// <returns>ApiResponse of V1FileDetailsGet200Response</returns>
+        ApiResponse<V1FileDetailsGet200Response> GetFileDetailsWithHttpInfo (string startDate, string endDate, string organizationId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -106,8 +107,8 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> GetFileDetailsAsync (DateTime? startDate, DateTime? endDate, string organizationId = null);
+        /// <returns>Task of V1FileDetailsGet200Response</returns>
+        System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailsAsync (DateTime? startDate, DateTime? endDate, string organizationId = null);
 
         /// <summary>
         /// Get list of files
@@ -119,8 +120,8 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetFileDetailsAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null);
+        /// <returns>Task of ApiResponse (V1FileDetailsGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailsAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null);
         #endregion Asynchronous Operations
     }
 
@@ -330,7 +331,7 @@ namespace CyberSource.Api
             if (fileId == null)
                 throw new ApiException(400, "Missing required parameter 'fileId' when calling SecureFileShareApi->GetFile");
 
-            var localVarPath = $"/v1/files/{fileId}";
+            var localVarPath = "/v1/files/{fileId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -383,10 +384,10 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 GetFileDetails (string startDate, string endDate, string organizationId = null)
+        /// <returns>V1FileDetailsGet200Response</returns>
+        public V1FileDetailsGet200Response GetFileDetails (string startDate, string endDate, string organizationId = null)
         {
-             ApiResponse<InlineResponse2009> localVarResponse = GetFileDetailsWithHttpInfo(startDate, endDate, organizationId);
+             ApiResponse<V1FileDetailsGet200Response> localVarResponse = GetFileDetailsWithHttpInfo(startDate, endDate, organizationId);
              return localVarResponse.Data;
         }
 
@@ -397,8 +398,8 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse< InlineResponse2009 > GetFileDetailsWithHttpInfo (string startDate, string endDate, string organizationId = null)
+        /// <returns>ApiResponse of V1FileDetailsGet200Response</returns>
+        public ApiResponse< V1FileDetailsGet200Response > GetFileDetailsWithHttpInfo (string startDate, string endDate, string organizationId = null)
         {
             // verify the required parameter 'startDate' is set
             if (startDate == null)
@@ -407,7 +408,7 @@ namespace CyberSource.Api
             if (endDate == null)
                 throw new ApiException(400, "Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetails");
 
-            var localVarPath = $"/sfs/v1/file-details";
+            var localVarPath = "/sfs/v1/file-details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -447,9 +448,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2009>(localVarStatusCode,
+            return new ApiResponse<V1FileDetailsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2009) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2009)));
+                (V1FileDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(V1FileDetailsGet200Response)));
         }
 
         /// <summary>
@@ -459,10 +460,10 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009> GetFileDetailsAsync (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        /// <returns>Task of V1FileDetailsGet200Response</returns>
+        public async System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailsAsync (DateTime? startDate, DateTime? endDate, string organizationId = null)
         {
-             ApiResponse<InlineResponse2009> localVarResponse = await GetFileDetailsAsyncWithHttpInfo(startDate, endDate, organizationId);
+             ApiResponse<V1FileDetailsGet200Response> localVarResponse = await GetFileDetailsAsyncWithHttpInfo(startDate, endDate, organizationId);
              return localVarResponse.Data;
 
         }
@@ -474,8 +475,8 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetFileDetailsAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        /// <returns>Task of ApiResponse (V1FileDetailsGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailsAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null)
         {
             // verify the required parameter 'startDate' is set
             if (startDate == null)
@@ -484,7 +485,7 @@ namespace CyberSource.Api
             if (endDate == null)
                 throw new ApiException(400, "Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetails");
 
-            var localVarPath = $"/v1/file-details";
+            var localVarPath = "/v1/file-details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -524,9 +525,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2009>(localVarStatusCode,
+            return new ApiResponse<V1FileDetailsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2009) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2009)));
+                (V1FileDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(V1FileDetailsGet200Response)));
         }
 
     }

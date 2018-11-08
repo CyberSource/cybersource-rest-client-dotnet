@@ -10,12 +10,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Model;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace CyberSource.Api
 {
@@ -33,8 +32,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
-        /// <returns>InlineResponse20012</returns>
-        InlineResponse20012 GetTransaction (string id);
+        /// <returns>TssV2TransactionsGet200Response</returns>
+        TssV2TransactionsGet200Response GetTransaction (string id);
 
         /// <summary>
         /// Retrieve a Transaction
@@ -44,8 +43,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
-        /// <returns>ApiResponse of InlineResponse20012</returns>
-        ApiResponse<InlineResponse20012> GetTransactionWithHttpInfo (string id);
+        /// <returns>ApiResponse of TssV2TransactionsGet200Response</returns>
+        ApiResponse<TssV2TransactionsGet200Response> GetTransactionWithHttpInfo (string id);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -56,8 +55,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
-        /// <returns>Task of InlineResponse20012</returns>
-        System.Threading.Tasks.Task<InlineResponse20012> GetTransactionAsync (string id);
+        /// <returns>Task of TssV2TransactionsGet200Response</returns>
+        System.Threading.Tasks.Task<TssV2TransactionsGet200Response> GetTransactionAsync (string id);
 
         /// <summary>
         /// Retrieve a Transaction
@@ -67,8 +66,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
-        /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetTransactionAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (TssV2TransactionsGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsGet200Response>> GetTransactionAsyncWithHttpInfo (string id);
         #endregion Asynchronous Operations
     }
 
@@ -186,10 +185,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
-        /// <returns>InlineResponse20012</returns>
-        public InlineResponse20012 GetTransaction (string id)
+        /// <returns>TssV2TransactionsGet200Response</returns>
+        public TssV2TransactionsGet200Response GetTransaction (string id)
         {
-             var localVarResponse = GetTransactionWithHttpInfo(id);
+             ApiResponse<TssV2TransactionsGet200Response> localVarResponse = GetTransactionWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -198,8 +197,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
-        /// <returns>ApiResponse of InlineResponse20012</returns>
-        public ApiResponse<InlineResponse20012> GetTransactionWithHttpInfo (string id)
+        /// <returns>ApiResponse of TssV2TransactionsGet200Response</returns>
+        public ApiResponse< TssV2TransactionsGet200Response > GetTransactionWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -221,7 +220,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -243,9 +242,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20012>(localVarStatusCode,
+            return new ApiResponse<TssV2TransactionsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20012)Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20012)));
+                (TssV2TransactionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsGet200Response)));
         }
 
         /// <summary>
@@ -253,10 +252,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
-        /// <returns>Task of InlineResponse20012</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20012> GetTransactionAsync (string id)
+        /// <returns>Task of TssV2TransactionsGet200Response</returns>
+        public async System.Threading.Tasks.Task<TssV2TransactionsGet200Response> GetTransactionAsync (string id)
         {
-             ApiResponse<InlineResponse20012> localVarResponse = await GetTransactionAsyncWithHttpInfo(id);
+             ApiResponse<TssV2TransactionsGet200Response> localVarResponse = await GetTransactionAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -266,14 +265,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
-        /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetTransactionAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (TssV2TransactionsGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsGet200Response>> GetTransactionAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling TransactionDetailsApi->GetTransaction");
 
-            var localVarPath = $"/tss/v2/transactions/{id}";
+            var localVarPath = "/tss/v2/transactions/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -289,7 +288,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -311,9 +310,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20012>(localVarStatusCode,
+            return new ApiResponse<TssV2TransactionsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20012) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20012)));
+                (TssV2TransactionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsGet200Response)));
         }
 
     }

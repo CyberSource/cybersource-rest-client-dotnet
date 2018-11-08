@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -31,8 +32,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
-        /// <returns>InlineResponse2017</returns>
-        InlineResponse2017 CreateSearch (CreateSearchRequest createSearchRequest);
+        /// <returns>TssV2TransactionsPost201Response</returns>
+        TssV2TransactionsPost201Response CreateSearch (TssV2TransactionsPostResponse createSearchRequest);
 
         /// <summary>
         /// Create a search request
@@ -42,8 +43,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2017</returns>
-        ApiResponse<InlineResponse2017> CreateSearchWithHttpInfo (CreateSearchRequest createSearchRequest);
+        /// <returns>ApiResponse of TssV2TransactionsPost201Response</returns>
+        ApiResponse<TssV2TransactionsPost201Response> CreateSearchWithHttpInfo (TssV2TransactionsPostResponse createSearchRequest);
         /// <summary>
         /// Get Search results
         /// </summary>
@@ -52,8 +53,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
-        /// <returns>InlineResponse2017</returns>
-        InlineResponse2017 GetSearch (string id);
+        /// <returns>TssV2TransactionsPost201Response</returns>
+        TssV2TransactionsPost201Response GetSearch (string id);
 
         /// <summary>
         /// Get Search results
@@ -63,8 +64,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
-        /// <returns>ApiResponse of InlineResponse2017</returns>
-        ApiResponse<InlineResponse2017> GetSearchWithHttpInfo (string id);
+        /// <returns>ApiResponse of TssV2TransactionsPost201Response</returns>
+        ApiResponse<TssV2TransactionsPost201Response> GetSearchWithHttpInfo (string id);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -75,8 +76,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
-        /// <returns>Task of InlineResponse2017</returns>
-        System.Threading.Tasks.Task<InlineResponse2017> CreateSearchAsync (CreateSearchRequest createSearchRequest);
+        /// <returns>Task of TssV2TransactionsPost201Response</returns>
+        System.Threading.Tasks.Task<TssV2TransactionsPost201Response> CreateSearchAsync (TssV2TransactionsPostResponse createSearchRequest);
 
         /// <summary>
         /// Create a search request
@@ -86,8 +87,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2017>> CreateSearchAsyncWithHttpInfo (CreateSearchRequest createSearchRequest);
+        /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> CreateSearchAsyncWithHttpInfo (TssV2TransactionsPostResponse createSearchRequest);
         /// <summary>
         /// Get Search results
         /// </summary>
@@ -96,8 +97,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
-        /// <returns>Task of InlineResponse2017</returns>
-        System.Threading.Tasks.Task<InlineResponse2017> GetSearchAsync (string id);
+        /// <returns>Task of TssV2TransactionsPost201Response</returns>
+        System.Threading.Tasks.Task<TssV2TransactionsPost201Response> GetSearchAsync (string id);
 
         /// <summary>
         /// Get Search results
@@ -107,8 +108,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2017>> GetSearchAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> GetSearchAsyncWithHttpInfo (string id);
         #endregion Asynchronous Operations
     }
 
@@ -226,10 +227,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
-        /// <returns>InlineResponse2017</returns>
-        public InlineResponse2017 CreateSearch (CreateSearchRequest createSearchRequest)
+        /// <returns>TssV2TransactionsPost201Response</returns>
+        public TssV2TransactionsPost201Response CreateSearch (TssV2TransactionsPostResponse createSearchRequest)
         {
-             ApiResponse<InlineResponse2017> localVarResponse = CreateSearchWithHttpInfo(createSearchRequest);
+             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = CreateSearchWithHttpInfo(createSearchRequest);
              return localVarResponse.Data;
         }
 
@@ -238,14 +239,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2017</returns>
-        public ApiResponse< InlineResponse2017 > CreateSearchWithHttpInfo (CreateSearchRequest createSearchRequest)
+        /// <returns>ApiResponse of TssV2TransactionsPost201Response</returns>
+        public ApiResponse< TssV2TransactionsPost201Response > CreateSearchWithHttpInfo (TssV2TransactionsPostResponse createSearchRequest)
         {
             // verify the required parameter 'createSearchRequest' is set
             if (createSearchRequest == null)
                 throw new ApiException(400, "Missing required parameter 'createSearchRequest' when calling SearchTransactionsApi->CreateSearch");
 
-            var localVarPath = $"/tss/v2/searches";
+            var localVarPath = "/tss/v2/searches";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -261,7 +262,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -290,9 +291,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
+            return new ApiResponse<TssV2TransactionsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2017) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017)));
+                (TssV2TransactionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsPost201Response)));
         }
 
         /// <summary>
@@ -300,10 +301,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
-        /// <returns>Task of InlineResponse2017</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2017> CreateSearchAsync (CreateSearchRequest createSearchRequest)
+        /// <returns>Task of TssV2TransactionsPost201Response</returns>
+        public async System.Threading.Tasks.Task<TssV2TransactionsPost201Response> CreateSearchAsync (TssV2TransactionsPostResponse createSearchRequest)
         {
-             ApiResponse<InlineResponse2017> localVarResponse = await CreateSearchAsyncWithHttpInfo(createSearchRequest);
+             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = await CreateSearchAsyncWithHttpInfo(createSearchRequest);
              return localVarResponse.Data;
 
         }
@@ -313,14 +314,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2017>> CreateSearchAsyncWithHttpInfo (CreateSearchRequest createSearchRequest)
+        /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> CreateSearchAsyncWithHttpInfo (TssV2TransactionsPostResponse createSearchRequest)
         {
             // verify the required parameter 'createSearchRequest' is set
             if (createSearchRequest == null)
                 throw new ApiException(400, "Missing required parameter 'createSearchRequest' when calling SearchTransactionsApi->CreateSearch");
 
-            var localVarPath = $"/tss/v2/searches";
+            var localVarPath = "/tss/v2/searches";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -336,7 +337,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -365,9 +366,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
+            return new ApiResponse<TssV2TransactionsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2017) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017)));
+                (TssV2TransactionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsPost201Response)));
         }
 
         /// <summary>
@@ -375,10 +376,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
-        /// <returns>InlineResponse2017</returns>
-        public InlineResponse2017 GetSearch (string id)
+        /// <returns>TssV2TransactionsPost201Response</returns>
+        public TssV2TransactionsPost201Response GetSearch (string id)
         {
-             ApiResponse<InlineResponse2017> localVarResponse = GetSearchWithHttpInfo(id);
+             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = GetSearchWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -387,8 +388,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
-        /// <returns>ApiResponse of InlineResponse2017</returns>
-        public ApiResponse< InlineResponse2017 > GetSearchWithHttpInfo (string id)
+        /// <returns>ApiResponse of TssV2TransactionsPost201Response</returns>
+        public ApiResponse< TssV2TransactionsPost201Response > GetSearchWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -410,7 +411,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                //"application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -432,9 +433,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
+            return new ApiResponse<TssV2TransactionsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2017) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017)));
+                (TssV2TransactionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsPost201Response)));
         }
 
         /// <summary>
@@ -442,10 +443,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
-        /// <returns>Task of InlineResponse2017</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2017> GetSearchAsync (string id)
+        /// <returns>Task of TssV2TransactionsPost201Response</returns>
+        public async System.Threading.Tasks.Task<TssV2TransactionsPost201Response> GetSearchAsync (string id)
         {
-             ApiResponse<InlineResponse2017> localVarResponse = await GetSearchAsyncWithHttpInfo(id);
+             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = await GetSearchAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -455,14 +456,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2017>> GetSearchAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> GetSearchAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling SearchTransactionsApi->GetSearch");
 
-            var localVarPath = $"/tss/v2/searches/{id}";
+            var localVarPath = "/tss/v2/searches/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -478,7 +479,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -500,9 +501,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
+            return new ApiResponse<TssV2TransactionsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2017) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017)));
+                (TssV2TransactionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsPost201Response)));
         }
 
     }

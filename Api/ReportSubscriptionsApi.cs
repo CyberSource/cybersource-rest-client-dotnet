@@ -10,11 +10,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Model;
-using Newtonsoft.Json;
 
 namespace CyberSource.Api
 {
@@ -75,8 +75,8 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse2006</returns>
-        InlineResponse2006 GetAllSubscriptions ();
+        /// <returns>ReportingV3ReportSubscriptionsGet200Response</returns>
+        ReportingV3ReportSubscriptionsGet200Response GetAllSubscriptions ();
 
         /// <summary>
         /// Retrieve all subscriptions by organization
@@ -85,8 +85,8 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse2006</returns>
-        ApiResponse<InlineResponse2006> GetAllSubscriptionsWithHttpInfo ();
+        /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200Response</returns>
+        ApiResponse<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsWithHttpInfo ();
         /// <summary>
         /// Retrieve subscription for a report name by organization
         /// </summary>
@@ -95,8 +95,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <returns>InlineResponse2006Subscriptions</returns>
-        InlineResponse2006Subscriptions GetSubscription (string reportName);
+        /// <returns>ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
+        ReportingV3ReportSubscriptionsGet200ResponseSubscriptions GetSubscription (string reportName);
 
         /// <summary>
         /// Retrieve subscription for a report name by organization
@@ -106,8 +106,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <returns>ApiResponse of InlineResponse2006Subscriptions</returns>
-        ApiResponse<InlineResponse2006Subscriptions> GetSubscriptionWithHttpInfo (string reportName);
+        /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
+        ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionWithHttpInfo (string reportName);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -161,8 +161,8 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse2006</returns>
-        System.Threading.Tasks.Task<InlineResponse2006> GetAllSubscriptionsAsync ();
+        /// <returns>Task of ReportingV3ReportSubscriptionsGet200Response</returns>
+        System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync ();
 
         /// <summary>
         /// Retrieve all subscriptions by organization
@@ -171,8 +171,8 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetAllSubscriptionsAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200Response>> GetAllSubscriptionsAsyncWithHttpInfo ();
         /// <summary>
         /// Retrieve subscription for a report name by organization
         /// </summary>
@@ -181,8 +181,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <returns>Task of InlineResponse2006Subscriptions</returns>
-        System.Threading.Tasks.Task<InlineResponse2006Subscriptions> GetSubscriptionAsync (string reportName);
+        /// <returns>Task of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
+        System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync (string reportName);
 
         /// <summary>
         /// Retrieve subscription for a report name by organization
@@ -192,8 +192,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <returns>Task of ApiResponse (InlineResponse2006Subscriptions)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006Subscriptions>> GetSubscriptionAsyncWithHttpInfo (string reportName);
+        /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200ResponseSubscriptions)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>> GetSubscriptionAsyncWithHttpInfo (string reportName);
         #endregion Asynchronous Operations
     }
 
@@ -414,7 +414,7 @@ namespace CyberSource.Api
             if (requestBody == null)
                 throw new ApiException(400, "Missing required parameter 'requestBody' when calling ReportSubscriptionsApi->CreateSubscription");
 
-            var localVarPath = $"/reporting/v3/report-subscriptions/{reportName}";
+            var localVarPath = "/reporting/v3/report-subscriptions/{reportName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -555,7 +555,7 @@ namespace CyberSource.Api
             if (reportName == null)
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportSubscriptionsApi->DeleteSubscription");
 
-            var localVarPath = $"/reporting/v3/report-subscriptions/{reportName}";
+            var localVarPath = "/reporting/v3/report-subscriptions/{reportName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -602,10 +602,10 @@ namespace CyberSource.Api
         /// Retrieve all subscriptions by organization 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse2006</returns>
-        public InlineResponse2006 GetAllSubscriptions ()
+        /// <returns>ReportingV3ReportSubscriptionsGet200Response</returns>
+        public ReportingV3ReportSubscriptionsGet200Response GetAllSubscriptions ()
         {
-             ApiResponse<InlineResponse2006> localVarResponse = GetAllSubscriptionsWithHttpInfo();
+             ApiResponse<ReportingV3ReportSubscriptionsGet200Response> localVarResponse = GetAllSubscriptionsWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -613,11 +613,11 @@ namespace CyberSource.Api
         /// Retrieve all subscriptions by organization 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse2006</returns>
-        public ApiResponse< InlineResponse2006 > GetAllSubscriptionsWithHttpInfo ()
+        /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200Response</returns>
+        public ApiResponse< ReportingV3ReportSubscriptionsGet200Response > GetAllSubscriptionsWithHttpInfo ()
         {
 
-            var localVarPath = $"/reporting/v3/report-subscriptions";
+            var localVarPath = "/reporting/v3/report-subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -654,19 +654,19 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportSubscriptionsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006)));
+                (ReportingV3ReportSubscriptionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportSubscriptionsGet200Response)));
         }
 
         /// <summary>
         /// Retrieve all subscriptions by organization 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006> GetAllSubscriptionsAsync ()
+        /// <returns>Task of ReportingV3ReportSubscriptionsGet200Response</returns>
+        public async System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync ()
         {
-             ApiResponse<InlineResponse2006> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo();
+             ApiResponse<ReportingV3ReportSubscriptionsGet200Response> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -675,11 +675,11 @@ namespace CyberSource.Api
         /// Retrieve all subscriptions by organization 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetAllSubscriptionsAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200Response>> GetAllSubscriptionsAsyncWithHttpInfo ()
         {
 
-            var localVarPath = $"/reporting/v3/report-subscriptions";
+            var localVarPath = "/reporting/v3/report-subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -716,9 +716,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportSubscriptionsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006)));
+                (ReportingV3ReportSubscriptionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportSubscriptionsGet200Response)));
         }
 
         /// <summary>
@@ -726,10 +726,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <returns>InlineResponse2006Subscriptions</returns>
-        public InlineResponse2006Subscriptions GetSubscription (string reportName)
+        /// <returns>ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
+        public ReportingV3ReportSubscriptionsGet200ResponseSubscriptions GetSubscription (string reportName)
         {
-             ApiResponse<InlineResponse2006Subscriptions> localVarResponse = GetSubscriptionWithHttpInfo(reportName);
+             ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> localVarResponse = GetSubscriptionWithHttpInfo(reportName);
              return localVarResponse.Data;
         }
 
@@ -738,8 +738,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <returns>ApiResponse of InlineResponse2006Subscriptions</returns>
-        public ApiResponse< InlineResponse2006Subscriptions > GetSubscriptionWithHttpInfo (string reportName)
+        /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
+        public ApiResponse< ReportingV3ReportSubscriptionsGet200ResponseSubscriptions > GetSubscriptionWithHttpInfo (string reportName)
         {
             // verify the required parameter 'reportName' is set
             if (reportName == null)
@@ -783,9 +783,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2006Subscriptions>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2006Subscriptions)Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006Subscriptions)));
+                (ReportingV3ReportSubscriptionsGet200ResponseSubscriptions) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportSubscriptionsGet200ResponseSubscriptions)));
         }
 
         /// <summary>
@@ -793,10 +793,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <returns>Task of InlineResponse2006Subscriptions</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006Subscriptions> GetSubscriptionAsync (string reportName)
+        /// <returns>Task of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
+        public async System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync (string reportName)
         {
-             ApiResponse<InlineResponse2006Subscriptions> localVarResponse = await GetSubscriptionAsyncWithHttpInfo(reportName);
+             ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> localVarResponse = await GetSubscriptionAsyncWithHttpInfo(reportName);
              return localVarResponse.Data;
 
         }
@@ -806,14 +806,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <returns>Task of ApiResponse (InlineResponse2006Subscriptions)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006Subscriptions>> GetSubscriptionAsyncWithHttpInfo (string reportName)
+        /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200ResponseSubscriptions)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>> GetSubscriptionAsyncWithHttpInfo (string reportName)
         {
             // verify the required parameter 'reportName' is set
             if (reportName == null)
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportSubscriptionsApi->GetSubscription");
 
-            var localVarPath = $"/reporting/v3/report-subscriptions/{reportName}";
+            var localVarPath = "/reporting/v3/report-subscriptions/{reportName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -851,9 +851,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2006Subscriptions>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2006Subscriptions) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006Subscriptions)));
+                (ReportingV3ReportSubscriptionsGet200ResponseSubscriptions) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportSubscriptionsGet200ResponseSubscriptions)));
         }
 
     }

@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -53,8 +54,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>InlineResponse2008</returns>
-        InlineResponse2008 GetReportByReportId (string reportId, string organizationId = null);
+        /// <returns>ReportingV3ReportsIdGet200Response</returns>
+        ReportingV3ReportsIdGet200Response GetReportByReportId (string reportId, string organizationId = null);
 
         /// <summary>
         /// Get Report based on reportId
@@ -65,8 +66,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        ApiResponse<InlineResponse2008> GetReportByReportIdWithHttpInfo (string reportId, string organizationId = null);
+        /// <returns>ApiResponse of ReportingV3ReportsIdGet200Response</returns>
+        ApiResponse<ReportingV3ReportsIdGet200Response> GetReportByReportIdWithHttpInfo (string reportId, string organizationId = null);
         /// <summary>
         /// Retrieve available reports
         /// </summary>
@@ -83,8 +84,8 @@ namespace CyberSource.Api
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
-        /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 SearchReports (string startTime, string endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
+        /// <returns>ReportingV3ReportsGet200Response</returns>
+        ReportingV3ReportsGet200Response SearchReports (string startTime, string endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
 
         /// <summary>
         /// Retrieve available reports
@@ -102,8 +103,8 @@ namespace CyberSource.Api
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> SearchReportsWithHttpInfo (string startTime, string endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
+        /// <returns>ApiResponse of ReportingV3ReportsGet200Response</returns>
+        ApiResponse<ReportingV3ReportsGet200Response> SearchReportsWithHttpInfo (string startTime, string endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -136,8 +137,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        System.Threading.Tasks.Task<InlineResponse2008> GetReportByReportIdAsync (string reportId, string organizationId = null);
+        /// <returns>Task of ReportingV3ReportsIdGet200Response</returns>
+        System.Threading.Tasks.Task<ReportingV3ReportsIdGet200Response> GetReportByReportIdAsync (string reportId, string organizationId = null);
 
         /// <summary>
         /// Get Report based on reportId
@@ -148,8 +149,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> GetReportByReportIdAsyncWithHttpInfo (string reportId, string organizationId = null);
+        /// <returns>Task of ApiResponse (ReportingV3ReportsIdGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsIdGet200Response>> GetReportByReportIdAsyncWithHttpInfo (string reportId, string organizationId = null);
         /// <summary>
         /// Retrieve available reports
         /// </summary>
@@ -166,8 +167,8 @@ namespace CyberSource.Api
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> SearchReportsAsync (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
+        /// <returns>Task of ReportingV3ReportsGet200Response</returns>
+        System.Threading.Tasks.Task<ReportingV3ReportsGet200Response> SearchReportsAsync (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
 
         /// <summary>
         /// Retrieve available reports
@@ -185,8 +186,8 @@ namespace CyberSource.Api
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> SearchReportsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
+        /// <returns>Task of ApiResponse (ReportingV3ReportsGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsGet200Response>> SearchReportsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
         #endregion Asynchronous Operations
     }
 
@@ -322,7 +323,7 @@ namespace CyberSource.Api
             if (requestBody == null)
                 throw new ApiException(400, "Missing required parameter 'requestBody' when calling ReportsApi->CreateReport");
 
-            var localVarPath = $"/reporting/v3/reports";
+            var localVarPath = "/reporting/v3/reports";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -396,7 +397,7 @@ namespace CyberSource.Api
             if (requestBody == null)
                 throw new ApiException(400, "Missing required parameter 'requestBody' when calling ReportsApi->CreateReport");
 
-            var localVarPath = $"/reporting/v3/reports";
+            var localVarPath = "/reporting/v3/reports";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -452,10 +453,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>InlineResponse2008</returns>
-        public InlineResponse2008 GetReportByReportId (string reportId, string organizationId = null)
+        /// <returns>ReportingV3ReportsIdGet200Response</returns>
+        public ReportingV3ReportsIdGet200Response GetReportByReportId (string reportId, string organizationId = null)
         {
-             ApiResponse<InlineResponse2008> localVarResponse = GetReportByReportIdWithHttpInfo(reportId, organizationId);
+             ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse = GetReportByReportIdWithHttpInfo(reportId, organizationId);
              return localVarResponse.Data;
         }
 
@@ -465,8 +466,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        public ApiResponse< InlineResponse2008 > GetReportByReportIdWithHttpInfo (string reportId, string organizationId = null)
+        /// <returns>ApiResponse of ReportingV3ReportsIdGet200Response</returns>
+        public ApiResponse< ReportingV3ReportsIdGet200Response > GetReportByReportIdWithHttpInfo (string reportId, string organizationId = null)
         {
             // verify the required parameter 'reportId' is set
             if (reportId == null)
@@ -512,9 +513,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportsIdGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2008) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008)));
+                (ReportingV3ReportsIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsIdGet200Response)));
         }
 
         /// <summary>
@@ -523,10 +524,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2008> GetReportByReportIdAsync (string reportId, string organizationId = null)
+        /// <returns>Task of ReportingV3ReportsIdGet200Response</returns>
+        public async System.Threading.Tasks.Task<ReportingV3ReportsIdGet200Response> GetReportByReportIdAsync (string reportId, string organizationId = null)
         {
-             ApiResponse<InlineResponse2008> localVarResponse = await GetReportByReportIdAsyncWithHttpInfo(reportId, organizationId);
+             ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse = await GetReportByReportIdAsyncWithHttpInfo(reportId, organizationId);
              return localVarResponse.Data;
 
         }
@@ -537,14 +538,14 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> GetReportByReportIdAsyncWithHttpInfo (string reportId, string organizationId = null)
+        /// <returns>Task of ApiResponse (ReportingV3ReportsIdGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsIdGet200Response>> GetReportByReportIdAsyncWithHttpInfo (string reportId, string organizationId = null)
         {
             // verify the required parameter 'reportId' is set
             if (reportId == null)
                 throw new ApiException(400, "Missing required parameter 'reportId' when calling ReportsApi->GetReportByReportId");
 
-            var localVarPath = $"/reporting/v3/reports/{reportId}";
+            var localVarPath = "/reporting/v3/reports/{reportId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -584,9 +585,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportsIdGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2008) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008)));
+                (ReportingV3ReportsIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsIdGet200Response)));
         }
 
         /// <summary>
@@ -602,10 +603,10 @@ namespace CyberSource.Api
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
-        /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 SearchReports (string startTime, string endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
+        /// <returns>ReportingV3ReportsGet200Response</returns>
+        public ReportingV3ReportsGet200Response SearchReports (string startTime, string endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
-             ApiResponse<InlineResponse2007> localVarResponse = SearchReportsWithHttpInfo(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
+             ApiResponse<ReportingV3ReportsGet200Response> localVarResponse = SearchReportsWithHttpInfo(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
              return localVarResponse.Data;
         }
 
@@ -622,8 +623,8 @@ namespace CyberSource.Api
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        public ApiResponse< InlineResponse2007 > SearchReportsWithHttpInfo (string startTime, string endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
+        /// <returns>ApiResponse of ReportingV3ReportsGet200Response</returns>
+        public ApiResponse< ReportingV3ReportsGet200Response > SearchReportsWithHttpInfo (string startTime, string endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)
@@ -703,9 +704,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007)));
+                (ReportingV3ReportsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsGet200Response)));
         }
 
         /// <summary>
@@ -721,10 +722,10 @@ namespace CyberSource.Api
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> SearchReportsAsync (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
+        /// <returns>Task of ReportingV3ReportsGet200Response</returns>
+        public async System.Threading.Tasks.Task<ReportingV3ReportsGet200Response> SearchReportsAsync (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
-             ApiResponse<InlineResponse2007> localVarResponse = await SearchReportsAsyncWithHttpInfo(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
+             ApiResponse<ReportingV3ReportsGet200Response> localVarResponse = await SearchReportsAsyncWithHttpInfo(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
              return localVarResponse.Data;
 
         }
@@ -742,8 +743,8 @@ namespace CyberSource.Api
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> SearchReportsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
+        /// <returns>Task of ApiResponse (ReportingV3ReportsGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsGet200Response>> SearchReportsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)
@@ -755,7 +756,7 @@ namespace CyberSource.Api
             if (timeQueryType == null)
                 throw new ApiException(400, "Missing required parameter 'timeQueryType' when calling ReportsApi->SearchReports");
 
-            var localVarPath = $"/reporting/v3/reports";
+            var localVarPath = "/reporting/v3/reports";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -801,9 +802,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+            return new ApiResponse<ReportingV3ReportsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007)));
+                (ReportingV3ReportsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsGet200Response)));
         }
 
     }

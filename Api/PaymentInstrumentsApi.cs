@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
@@ -34,8 +35,8 @@ namespace CyberSource.Api
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>InlineResponse20011</returns>
-        InlineResponse20011 TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGet (string profileId, string tokenId, string offset = null, string limit = null);
+        /// <returns>TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response</returns>
+        TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGet (string profileId, string tokenId, string offset = null, string limit = null);
 
         /// <summary>
         /// Retrieve all Payment Instruments associated with an Instrument Identifier
@@ -48,8 +49,8 @@ namespace CyberSource.Api
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>ApiResponse of InlineResponse20011</returns>
-        ApiResponse<InlineResponse20011> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null);
+        /// <returns>ApiResponse of TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response</returns>
+        ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null);
         /// <summary>
         /// Create a Payment Instrument
         /// </summary>
@@ -59,8 +60,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
-        /// <returns>InlineResponse2016</returns>
-        InlineResponse2016 TmsV1PaymentinstrumentsPost (string profileId, Body2 body);
+        /// <returns>TmsV1PaymentinstrumentsPost201Response</returns>
+        TmsV1PaymentinstrumentsPost201Response TmsV1PaymentinstrumentsPost (string profileId, Body2 body);
 
         /// <summary>
         /// Create a Payment Instrument
@@ -71,8 +72,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
-        /// <returns>ApiResponse of InlineResponse2016</returns>
-        ApiResponse<InlineResponse2016> TmsV1PaymentinstrumentsPostWithHttpInfo (string profileId, Body2 body);
+        /// <returns>ApiResponse of TmsV1PaymentinstrumentsPost201Response</returns>
+        ApiResponse<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsPostWithHttpInfo (string profileId, Body2 body);
         /// <summary>
         /// Delete a Payment Instrument
         /// </summary>
@@ -105,8 +106,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <returns>InlineResponse2016</returns>
-        InlineResponse2016 TmsV1PaymentinstrumentsTokenIdGet (string profileId, string tokenId);
+        /// <returns>TmsV1PaymentinstrumentsPost201Response</returns>
+        TmsV1PaymentinstrumentsPost201Response TmsV1PaymentinstrumentsTokenIdGet (string profileId, string tokenId);
 
         /// <summary>
         /// Retrieve a Payment Instrument
@@ -117,8 +118,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <returns>ApiResponse of InlineResponse2016</returns>
-        ApiResponse<InlineResponse2016> TmsV1PaymentinstrumentsTokenIdGetWithHttpInfo (string profileId, string tokenId);
+        /// <returns>ApiResponse of TmsV1PaymentinstrumentsPost201Response</returns>
+        ApiResponse<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsTokenIdGetWithHttpInfo (string profileId, string tokenId);
         /// <summary>
         /// Update a Payment Instrument
         /// </summary>
@@ -129,8 +130,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
-        /// <returns>InlineResponse2016</returns>
-        InlineResponse2016 TmsV1PaymentinstrumentsTokenIdPatch (string profileId, string tokenId, Body3 body);
+        /// <returns>TmsV1PaymentinstrumentsPost201Response</returns>
+        TmsV1PaymentinstrumentsPost201Response TmsV1PaymentinstrumentsTokenIdPatch (string profileId, string tokenId, Body3 body);
 
         /// <summary>
         /// Update a Payment Instrument
@@ -142,8 +143,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
-        /// <returns>ApiResponse of InlineResponse2016</returns>
-        ApiResponse<InlineResponse2016> TmsV1PaymentinstrumentsTokenIdPatchWithHttpInfo (string profileId, string tokenId, Body3 body);
+        /// <returns>ApiResponse of TmsV1PaymentinstrumentsPost201Response</returns>
+        ApiResponse<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsTokenIdPatchWithHttpInfo (string profileId, string tokenId, Body3 body);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -157,8 +158,8 @@ namespace CyberSource.Api
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of InlineResponse20011</returns>
-        System.Threading.Tasks.Task<InlineResponse20011> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsync (string profileId, string tokenId, string offset = null, string limit = null);
+        /// <returns>Task of TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response</returns>
+        System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsync (string profileId, string tokenId, string offset = null, string limit = null);
 
         /// <summary>
         /// Retrieve all Payment Instruments associated with an Instrument Identifier
@@ -171,8 +172,8 @@ namespace CyberSource.Api
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20011)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20011>> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null);
+        /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response>> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null);
         /// <summary>
         /// Create a Payment Instrument
         /// </summary>
@@ -182,8 +183,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
-        /// <returns>Task of InlineResponse2016</returns>
-        System.Threading.Tasks.Task<InlineResponse2016> TmsV1PaymentinstrumentsPostAsync (string profileId, Body2 body);
+        /// <returns>Task of TmsV1PaymentinstrumentsPost201Response</returns>
+        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsPostAsync (string profileId, Body2 body);
 
         /// <summary>
         /// Create a Payment Instrument
@@ -194,8 +195,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2016>> TmsV1PaymentinstrumentsPostAsyncWithHttpInfo (string profileId, Body2 body);
+        /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPost201Response>> TmsV1PaymentinstrumentsPostAsyncWithHttpInfo (string profileId, Body2 body);
         /// <summary>
         /// Delete a Payment Instrument
         /// </summary>
@@ -228,8 +229,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <returns>Task of InlineResponse2016</returns>
-        System.Threading.Tasks.Task<InlineResponse2016> TmsV1PaymentinstrumentsTokenIdGetAsync (string profileId, string tokenId);
+        /// <returns>Task of TmsV1PaymentinstrumentsPost201Response</returns>
+        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsTokenIdGetAsync (string profileId, string tokenId);
 
         /// <summary>
         /// Retrieve a Payment Instrument
@@ -240,8 +241,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2016>> TmsV1PaymentinstrumentsTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId);
+        /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPost201Response>> TmsV1PaymentinstrumentsTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId);
         /// <summary>
         /// Update a Payment Instrument
         /// </summary>
@@ -252,8 +253,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
-        /// <returns>Task of InlineResponse2016</returns>
-        System.Threading.Tasks.Task<InlineResponse2016> TmsV1PaymentinstrumentsTokenIdPatchAsync (string profileId, string tokenId, Body3 body);
+        /// <returns>Task of TmsV1PaymentinstrumentsPost201Response</returns>
+        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsTokenIdPatchAsync (string profileId, string tokenId, Body3 body);
 
         /// <summary>
         /// Update a Payment Instrument
@@ -265,8 +266,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2016>> TmsV1PaymentinstrumentsTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body3 body);
+        /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPost201Response>> TmsV1PaymentinstrumentsTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body3 body);
         #endregion Asynchronous Operations
     }
 
@@ -387,10 +388,10 @@ namespace CyberSource.Api
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>InlineResponse20011</returns>
-        public InlineResponse20011 TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGet (string profileId, string tokenId, string offset = null, string limit = null)
+        /// <returns>TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response</returns>
+        public TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGet (string profileId, string tokenId, string offset = null, string limit = null)
         {
-             ApiResponse<InlineResponse20011> localVarResponse = TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetWithHttpInfo(profileId, tokenId, offset, limit);
+             ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response> localVarResponse = TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetWithHttpInfo(profileId, tokenId, offset, limit);
              return localVarResponse.Data;
         }
 
@@ -402,8 +403,8 @@ namespace CyberSource.Api
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>ApiResponse of InlineResponse20011</returns>
-        public ApiResponse< InlineResponse20011 > TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null)
+        /// <returns>ApiResponse of TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response</returns>
+        public ApiResponse< TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response > TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -428,7 +429,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -453,9 +454,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20011>(localVarStatusCode,
+            return new ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20011)));
+                (TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response)));
         }
 
         /// <summary>
@@ -466,10 +467,10 @@ namespace CyberSource.Api
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of InlineResponse20011</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20011> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsync (string profileId, string tokenId, string offset = null, string limit = null)
+        /// <returns>Task of TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response</returns>
+        public async System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsync (string profileId, string tokenId, string offset = null, string limit = null)
         {
-             ApiResponse<InlineResponse20011> localVarResponse = await TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo(profileId, tokenId, offset, limit);
+             ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response> localVarResponse = await TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo(profileId, tokenId, offset, limit);
              return localVarResponse.Data;
 
         }
@@ -482,8 +483,8 @@ namespace CyberSource.Api
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20011)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20011>> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null)
+        /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response>> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -492,7 +493,7 @@ namespace CyberSource.Api
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling PaymentInstrumentsApi->TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGet");
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{tokenId}/paymentinstruments";
+            var localVarPath = "/tms/v1/instrumentidentifiers/{tokenId}/paymentinstruments";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -508,7 +509,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -533,9 +534,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20011>(localVarStatusCode,
+            return new ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20011)));
+                (TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response)));
         }
 
         /// <summary>
@@ -544,10 +545,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
-        /// <returns>InlineResponse2016</returns>
-        public InlineResponse2016 TmsV1PaymentinstrumentsPost (string profileId, Body2 body)
+        /// <returns>TmsV1PaymentinstrumentsPost201Response</returns>
+        public TmsV1PaymentinstrumentsPost201Response TmsV1PaymentinstrumentsPost (string profileId, Body2 body)
         {
-             ApiResponse<InlineResponse2016> localVarResponse = TmsV1PaymentinstrumentsPostWithHttpInfo(profileId, body);
+             ApiResponse<TmsV1PaymentinstrumentsPost201Response> localVarResponse = TmsV1PaymentinstrumentsPostWithHttpInfo(profileId, body);
              return localVarResponse.Data;
         }
 
@@ -557,8 +558,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
-        /// <returns>ApiResponse of InlineResponse2016</returns>
-        public ApiResponse< InlineResponse2016 > TmsV1PaymentinstrumentsPostWithHttpInfo (string profileId, Body2 body)
+        /// <returns>ApiResponse of TmsV1PaymentinstrumentsPost201Response</returns>
+        public ApiResponse< TmsV1PaymentinstrumentsPost201Response > TmsV1PaymentinstrumentsPostWithHttpInfo (string profileId, Body2 body)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -567,7 +568,7 @@ namespace CyberSource.Api
             if (body == null)
                 throw new ApiException(400, "Missing required parameter 'body' when calling PaymentInstrumentsApi->TmsV1PaymentinstrumentsPost");
 
-            var localVarPath = $"/tms/v1/paymentinstruments";
+            var localVarPath = "/tms/v1/paymentinstruments";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -583,7 +584,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -613,9 +614,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+            return new ApiResponse<TmsV1PaymentinstrumentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2016) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016)));
+                (TmsV1PaymentinstrumentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1PaymentinstrumentsPost201Response)));
         }
 
         /// <summary>
@@ -624,10 +625,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
-        /// <returns>Task of InlineResponse2016</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2016> TmsV1PaymentinstrumentsPostAsync (string profileId, Body2 body)
+        /// <returns>Task of TmsV1PaymentinstrumentsPost201Response</returns>
+        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsPostAsync (string profileId, Body2 body)
         {
-             ApiResponse<InlineResponse2016> localVarResponse = await TmsV1PaymentinstrumentsPostAsyncWithHttpInfo(profileId, body);
+             ApiResponse<TmsV1PaymentinstrumentsPost201Response> localVarResponse = await TmsV1PaymentinstrumentsPostAsyncWithHttpInfo(profileId, body);
              return localVarResponse.Data;
 
         }
@@ -638,8 +639,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2016>> TmsV1PaymentinstrumentsPostAsyncWithHttpInfo (string profileId, Body2 body)
+        /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPost201Response>> TmsV1PaymentinstrumentsPostAsyncWithHttpInfo (string profileId, Body2 body)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -648,7 +649,7 @@ namespace CyberSource.Api
             if (body == null)
                 throw new ApiException(400, "Missing required parameter 'body' when calling PaymentInstrumentsApi->TmsV1PaymentinstrumentsPost");
 
-            var localVarPath = $"/tms/v1/paymentinstruments";
+            var localVarPath = "/tms/v1/paymentinstruments";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -664,7 +665,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -694,9 +695,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+            return new ApiResponse<TmsV1PaymentinstrumentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2016) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016)));
+                (TmsV1PaymentinstrumentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1PaymentinstrumentsPost201Response)));
         }
 
         /// <summary>
@@ -743,7 +744,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -800,7 +801,7 @@ namespace CyberSource.Api
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling PaymentInstrumentsApi->TmsV1PaymentinstrumentsTokenIdDelete");
 
-            var localVarPath = $"/tms/v1/paymentinstruments/{tokenId}";
+            var localVarPath = "/tms/v1/paymentinstruments/{tokenId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -816,7 +817,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -850,10 +851,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <returns>InlineResponse2016</returns>
-        public InlineResponse2016 TmsV1PaymentinstrumentsTokenIdGet (string profileId, string tokenId)
+        /// <returns>TmsV1PaymentinstrumentsPost201Response</returns>
+        public TmsV1PaymentinstrumentsPost201Response TmsV1PaymentinstrumentsTokenIdGet (string profileId, string tokenId)
         {
-             ApiResponse<InlineResponse2016> localVarResponse = TmsV1PaymentinstrumentsTokenIdGetWithHttpInfo(profileId, tokenId);
+             ApiResponse<TmsV1PaymentinstrumentsPost201Response> localVarResponse = TmsV1PaymentinstrumentsTokenIdGetWithHttpInfo(profileId, tokenId);
              return localVarResponse.Data;
         }
 
@@ -863,8 +864,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <returns>ApiResponse of InlineResponse2016</returns>
-        public ApiResponse< InlineResponse2016 > TmsV1PaymentinstrumentsTokenIdGetWithHttpInfo (string profileId, string tokenId)
+        /// <returns>ApiResponse of TmsV1PaymentinstrumentsPost201Response</returns>
+        public ApiResponse< TmsV1PaymentinstrumentsPost201Response > TmsV1PaymentinstrumentsTokenIdGetWithHttpInfo (string profileId, string tokenId)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -889,7 +890,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -912,9 +913,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+            return new ApiResponse<TmsV1PaymentinstrumentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2016) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016)));
+                (TmsV1PaymentinstrumentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1PaymentinstrumentsPost201Response)));
         }
 
         /// <summary>
@@ -923,10 +924,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <returns>Task of InlineResponse2016</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2016> TmsV1PaymentinstrumentsTokenIdGetAsync (string profileId, string tokenId)
+        /// <returns>Task of TmsV1PaymentinstrumentsPost201Response</returns>
+        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsTokenIdGetAsync (string profileId, string tokenId)
         {
-             ApiResponse<InlineResponse2016> localVarResponse = await TmsV1PaymentinstrumentsTokenIdGetAsyncWithHttpInfo(profileId, tokenId);
+             ApiResponse<TmsV1PaymentinstrumentsPost201Response> localVarResponse = await TmsV1PaymentinstrumentsTokenIdGetAsyncWithHttpInfo(profileId, tokenId);
              return localVarResponse.Data;
 
         }
@@ -937,8 +938,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2016>> TmsV1PaymentinstrumentsTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId)
+        /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPost201Response>> TmsV1PaymentinstrumentsTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -947,7 +948,7 @@ namespace CyberSource.Api
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling PaymentInstrumentsApi->TmsV1PaymentinstrumentsTokenIdGet");
 
-            var localVarPath = $"/tms/v1/paymentinstruments/{tokenId}";
+            var localVarPath = "/tms/v1/paymentinstruments/{tokenId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -963,7 +964,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -986,9 +987,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+            return new ApiResponse<TmsV1PaymentinstrumentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2016) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016)));
+                (TmsV1PaymentinstrumentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1PaymentinstrumentsPost201Response)));
         }
 
         /// <summary>
@@ -998,10 +999,10 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
-        /// <returns>InlineResponse2016</returns>
-        public InlineResponse2016 TmsV1PaymentinstrumentsTokenIdPatch (string profileId, string tokenId, Body3 body)
+        /// <returns>TmsV1PaymentinstrumentsPost201Response</returns>
+        public TmsV1PaymentinstrumentsPost201Response TmsV1PaymentinstrumentsTokenIdPatch (string profileId, string tokenId, Body3 body)
         {
-             ApiResponse<InlineResponse2016> localVarResponse = TmsV1PaymentinstrumentsTokenIdPatchWithHttpInfo(profileId, tokenId, body);
+             ApiResponse<TmsV1PaymentinstrumentsPost201Response> localVarResponse = TmsV1PaymentinstrumentsTokenIdPatchWithHttpInfo(profileId, tokenId, body);
              return localVarResponse.Data;
         }
 
@@ -1012,8 +1013,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
-        /// <returns>ApiResponse of InlineResponse2016</returns>
-        public ApiResponse< InlineResponse2016 > TmsV1PaymentinstrumentsTokenIdPatchWithHttpInfo (string profileId, string tokenId, Body3 body)
+        /// <returns>ApiResponse of TmsV1PaymentinstrumentsPost201Response</returns>
+        public ApiResponse< TmsV1PaymentinstrumentsPost201Response > TmsV1PaymentinstrumentsTokenIdPatchWithHttpInfo (string profileId, string tokenId, Body3 body)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -1041,7 +1042,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1072,9 +1073,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+            return new ApiResponse<TmsV1PaymentinstrumentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2016) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016)));
+                (TmsV1PaymentinstrumentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1PaymentinstrumentsPost201Response)));
         }
 
         /// <summary>
@@ -1084,10 +1085,10 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
-        /// <returns>Task of InlineResponse2016</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2016> TmsV1PaymentinstrumentsTokenIdPatchAsync (string profileId, string tokenId, Body3 body)
+        /// <returns>Task of TmsV1PaymentinstrumentsPost201Response</returns>
+        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsTokenIdPatchAsync (string profileId, string tokenId, Body3 body)
         {
-             ApiResponse<InlineResponse2016> localVarResponse = await TmsV1PaymentinstrumentsTokenIdPatchAsyncWithHttpInfo(profileId, tokenId, body);
+             ApiResponse<TmsV1PaymentinstrumentsPost201Response> localVarResponse = await TmsV1PaymentinstrumentsTokenIdPatchAsyncWithHttpInfo(profileId, tokenId, body);
              return localVarResponse.Data;
 
         }
@@ -1099,8 +1100,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2016>> TmsV1PaymentinstrumentsTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body3 body)
+        /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPost201Response>> TmsV1PaymentinstrumentsTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body3 body)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -1112,7 +1113,7 @@ namespace CyberSource.Api
             if (body == null)
                 throw new ApiException(400, "Missing required parameter 'body' when calling PaymentInstrumentsApi->TmsV1PaymentinstrumentsTokenIdPatch");
 
-            var localVarPath = $"/tms/v1/paymentinstruments/{tokenId}";
+            var localVarPath = "/tms/v1/paymentinstruments/{tokenId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1128,7 +1129,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1159,9 +1160,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+            return new ApiResponse<TmsV1PaymentinstrumentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2016) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016)));
+                (TmsV1PaymentinstrumentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1PaymentinstrumentsPost201Response)));
         }
 
     }

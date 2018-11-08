@@ -10,9 +10,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
+using CyberSource.Model;
 
 namespace CyberSource.Api
 {
@@ -246,7 +248,7 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
 
-            var localVarPath = $"/reporting/v3/purchase-refund-details";
+            var localVarPath = "/reporting/v3/purchase-refund-details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -337,7 +339,7 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
 
-            var localVarPath = $"/reporting/v3/purchase-refund-details";
+            var localVarPath = "/reporting/v3/purchase-refund-details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
