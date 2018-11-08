@@ -406,6 +406,7 @@ OpenAPI spec version: 0.0.1
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
