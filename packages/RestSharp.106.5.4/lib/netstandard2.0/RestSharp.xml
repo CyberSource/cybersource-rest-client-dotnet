@@ -1417,7 +1417,7 @@
         <member name="P:RestSharp.IRestRequest.JsonSerializer">
             <summary>
             Serializer to use when writing JSON request bodies. Used if RequestFormat is Json.
-            By default the included JsonSerializer is used (currently using JSON.NET default serialization).
+            By default the included JsonSerializer is used (currently using SimpleJson default serialization).
             </summary>
         </member>
         <member name="P:RestSharp.IRestRequest.XmlSerializer">
@@ -2201,6 +2201,13 @@
             <param name="contentType">MIME content type of the response content</param>
             <param name="deserializer">Deserializer to use to process content</param>
         </member>
+        <member name="M:RestSharp.RestClient.AddHandler(RestSharp.Deserializers.IDeserializer,System.String[])">
+            <summary>
+                Registers a content handler to process response content
+            </summary>
+            <param name="contentTypes">A list of MIME content types of the response content</param>
+            <param name="deserializer">Deserializer to use to process content</param>
+        </member>
         <member name="M:RestSharp.RestClient.RemoveHandler(System.String)">
             <summary>
                 Remove a content handler for the specified MIME content type
@@ -2421,32 +2428,6 @@
             <summary>
                 Sets Method property to value of method
             </summary>
-            <param name="method">Method to use for this request</param>
-        </member>
-        <member name="M:RestSharp.RestRequest.#ctor(System.String)">
-            <summary>
-                Sets Resource property
-            </summary>
-            <param name="resource">Resource to use for this request</param>
-        </member>
-        <member name="M:RestSharp.RestRequest.#ctor(System.String,RestSharp.Method)">
-            <summary>
-                Sets Resource and Method properties
-            </summary>
-            <param name="resource">Resource to use for this request</param>
-            <param name="method">Method to use for this request</param>
-        </member>
-        <member name="M:RestSharp.RestRequest.#ctor(System.Uri)">
-            <summary>
-                Sets Resource property
-            </summary>
-            <param name="resource">Resource to use for this request</param>
-        </member>
-        <member name="M:RestSharp.RestRequest.#ctor(System.Uri,RestSharp.Method)">
-            <summary>
-                Sets Resource and Method properties
-            </summary>
-            <param name="resource">Resource to use for this request</param>
             <param name="method">Method to use for this request</param>
         </member>
         <member name="P:RestSharp.RestRequest.UserState">
@@ -3074,7 +3055,7 @@
         <member name="T:RestSharp.Serializers.JsonSerializer">
             <summary>
             Default JSON serializer for request bodies
-            Doesn't currently use the SerializeAs attribute, defers to Newtonsoft's attributes
+            Doesn't currently use the SerializeAs attribute, defers to SimpleJson's attributes
             </summary>
         </member>
         <member name="M:RestSharp.Serializers.JsonSerializer.#ctor">
@@ -3088,21 +3069,6 @@
             </summary>
             <param name="obj">Object to serialize</param>
             <returns>JSON as String</returns>
-        </member>
-        <member name="P:RestSharp.Serializers.JsonSerializer.DateFormat">
-            <summary>
-            Unused for JSON Serialization
-            </summary>
-        </member>
-        <member name="P:RestSharp.Serializers.JsonSerializer.RootElement">
-            <summary>
-            Unused for JSON Serialization
-            </summary>
-        </member>
-        <member name="P:RestSharp.Serializers.JsonSerializer.Namespace">
-            <summary>
-            Unused for JSON Serialization
-            </summary>
         </member>
         <member name="P:RestSharp.Serializers.JsonSerializer.ContentType">
             <summary>
