@@ -42,8 +42,8 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        /// <param name="MerchantDefinedInformation">TBD.</param>
-        public CapturePaymentRequest(V2paymentsClientReferenceInformation ClientReferenceInformation = default(V2paymentsClientReferenceInformation), V2paymentsidcapturesProcessingInformation ProcessingInformation = default(V2paymentsidcapturesProcessingInformation), V2paymentsidcapturesPaymentInformation PaymentInformation = default(V2paymentsidcapturesPaymentInformation), V2paymentsidcapturesOrderInformation OrderInformation = default(V2paymentsidcapturesOrderInformation), V2paymentsidcapturesBuyerInformation BuyerInformation = default(V2paymentsidcapturesBuyerInformation), V2paymentsDeviceInformation DeviceInformation = default(V2paymentsDeviceInformation), V2paymentsidcapturesMerchantInformation MerchantInformation = default(V2paymentsidcapturesMerchantInformation), V2paymentsidcapturesAggregatorInformation AggregatorInformation = default(V2paymentsidcapturesAggregatorInformation), V2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation = default(V2paymentsidcapturesPointOfSaleInformation), List<V2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<V2paymentsMerchantDefinedInformation>))
+        /// <param name="MerchantDefinedInformation">Description of this field is not available..</param>
+        public CapturePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidcapturesProcessingInformation ProcessingInformation = default(Ptsv2paymentsidcapturesProcessingInformation), Ptsv2paymentsidcapturesPaymentInformation PaymentInformation = default(Ptsv2paymentsidcapturesPaymentInformation), Ptsv2paymentsidcapturesOrderInformation OrderInformation = default(Ptsv2paymentsidcapturesOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsidcapturesMerchantInformation MerchantInformation = default(Ptsv2paymentsidcapturesMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidcapturesPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -61,62 +61,62 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public V2paymentsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Ptsv2paymentsClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation
         /// </summary>
         [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public V2paymentsidcapturesProcessingInformation ProcessingInformation { get; set; }
+        public Ptsv2paymentsidcapturesProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentInformation
         /// </summary>
         [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
-        public V2paymentsidcapturesPaymentInformation PaymentInformation { get; set; }
+        public Ptsv2paymentsidcapturesPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation
         /// </summary>
         [DataMember(Name="orderInformation", EmitDefaultValue=false)]
-        public V2paymentsidcapturesOrderInformation OrderInformation { get; set; }
+        public Ptsv2paymentsidcapturesOrderInformation OrderInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
         /// </summary>
         [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
-        public V2paymentsidcapturesBuyerInformation BuyerInformation { get; set; }
+        public Ptsv2paymentsidcapturesBuyerInformation BuyerInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceInformation
         /// </summary>
         [DataMember(Name="deviceInformation", EmitDefaultValue=false)]
-        public V2paymentsDeviceInformation DeviceInformation { get; set; }
+        public Ptsv2paymentsDeviceInformation DeviceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInformation
         /// </summary>
         [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
-        public V2paymentsidcapturesMerchantInformation MerchantInformation { get; set; }
+        public Ptsv2paymentsidcapturesMerchantInformation MerchantInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets AggregatorInformation
         /// </summary>
         [DataMember(Name="aggregatorInformation", EmitDefaultValue=false)]
-        public V2paymentsidcapturesAggregatorInformation AggregatorInformation { get; set; }
+        public Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets PointOfSaleInformation
         /// </summary>
         [DataMember(Name="pointOfSaleInformation", EmitDefaultValue=false)]
-        public V2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation { get; set; }
+        public Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
-        /// TBD
+        /// Description of this field is not available.
         /// </summary>
-        /// <value>TBD</value>
+        /// <value>Description of this field is not available.</value>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
-        public List<V2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
+        public List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

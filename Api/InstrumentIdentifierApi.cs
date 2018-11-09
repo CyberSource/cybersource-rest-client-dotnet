@@ -25,29 +25,6 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create an Instrument Identifier
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="body">Please specify either a Card or Bank Account. (optional)</param>
-        /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 InstrumentidentifiersPost (string profileId, Body body = null);
-
-        /// <summary>
-        /// Create an Instrument Identifier
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="body">Please specify either a Card or Bank Account. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> InstrumentidentifiersPostWithHttpInfo (string profileId, Body body = null);
-        /// <summary>
         /// Delete an Instrument Identifier
         /// </summary>
         /// <remarks>
@@ -57,7 +34,7 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns></returns>
-        void InstrumentidentifiersTokenIdDelete (string profileId, string tokenId);
+        void TmsV1InstrumentidentifiersTokenIdDelete (string profileId, string tokenId);
 
         /// <summary>
         /// Delete an Instrument Identifier
@@ -69,7 +46,7 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> InstrumentidentifiersTokenIdDeleteWithHttpInfo (string profileId, string tokenId);
+        ApiResponse<Object> TmsV1InstrumentidentifiersTokenIdDeleteWithHttpInfo (string profileId, string tokenId);
         /// <summary>
         /// Retrieve an Instrument Identifier
         /// </summary>
@@ -79,8 +56,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 InstrumentidentifiersTokenIdGet (string profileId, string tokenId);
+        /// <returns>TmsV1InstrumentidentifiersPost200Response</returns>
+        TmsV1InstrumentidentifiersPost200Response TmsV1InstrumentidentifiersTokenIdGet (string profileId, string tokenId);
 
         /// <summary>
         /// Retrieve an Instrument Identifier
@@ -91,8 +68,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> InstrumentidentifiersTokenIdGetWithHttpInfo (string profileId, string tokenId);
+        /// <returns>ApiResponse of TmsV1InstrumentidentifiersPost200Response</returns>
+        ApiResponse<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersTokenIdGetWithHttpInfo (string profileId, string tokenId);
         /// <summary>
         /// Update a Instrument Identifier
         /// </summary>
@@ -101,10 +78,10 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier</param>
+        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
-        /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 InstrumentidentifiersTokenIdPatch (string profileId, string tokenId, Body1 body);
+        /// <returns>TmsV1InstrumentidentifiersPost200Response</returns>
+        TmsV1InstrumentidentifiersPost200Response TmsV1InstrumentidentifiersTokenIdPatch (string profileId, string tokenId, Body1 body);
 
         /// <summary>
         /// Update a Instrument Identifier
@@ -114,62 +91,12 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier</param>
+        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> InstrumentidentifiersTokenIdPatchWithHttpInfo (string profileId, string tokenId, Body1 body);
-        /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
-        /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>InlineResponse2008</returns>
-        InlineResponse2008 InstrumentidentifiersTokenIdPaymentinstrumentsGet (string profileId, string tokenId, string offset = null, string limit = null);
-
-        /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
-        /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        ApiResponse<InlineResponse2008> InstrumentidentifiersTokenIdPaymentinstrumentsGetWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null);
+        /// <returns>ApiResponse of TmsV1InstrumentidentifiersPost200Response</returns>
+        ApiResponse<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersTokenIdPatchWithHttpInfo (string profileId, string tokenId, Body1 body);
         #endregion Synchronous Operations
         #region Asynchronous Operations
-        /// <summary>
-        /// Create an Instrument Identifier
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="body">Please specify either a Card or Bank Account. (optional)</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> InstrumentidentifiersPostAsync (string profileId, Body body = null);
-
-        /// <summary>
-        /// Create an Instrument Identifier
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="body">Please specify either a Card or Bank Account. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> InstrumentidentifiersPostAsyncWithHttpInfo (string profileId, Body body = null);
         /// <summary>
         /// Delete an Instrument Identifier
         /// </summary>
@@ -180,7 +107,7 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task InstrumentidentifiersTokenIdDeleteAsync (string profileId, string tokenId);
+        System.Threading.Tasks.Task TmsV1InstrumentidentifiersTokenIdDeleteAsync (string profileId, string tokenId);
 
         /// <summary>
         /// Delete an Instrument Identifier
@@ -192,7 +119,7 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> InstrumentidentifiersTokenIdDeleteAsyncWithHttpInfo (string profileId, string tokenId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> TmsV1InstrumentidentifiersTokenIdDeleteAsyncWithHttpInfo (string profileId, string tokenId);
         /// <summary>
         /// Retrieve an Instrument Identifier
         /// </summary>
@@ -202,8 +129,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> InstrumentidentifiersTokenIdGetAsync (string profileId, string tokenId);
+        /// <returns>Task of TmsV1InstrumentidentifiersPost200Response</returns>
+        System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersTokenIdGetAsync (string profileId, string tokenId);
 
         /// <summary>
         /// Retrieve an Instrument Identifier
@@ -214,8 +141,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> InstrumentidentifiersTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId);
+        /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPost200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>> TmsV1InstrumentidentifiersTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId);
         /// <summary>
         /// Update a Instrument Identifier
         /// </summary>
@@ -224,10 +151,10 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier</param>
+        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> InstrumentidentifiersTokenIdPatchAsync (string profileId, string tokenId, Body1 body);
+        /// <returns>Task of TmsV1InstrumentidentifiersPost200Response</returns>
+        System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersTokenIdPatchAsync (string profileId, string tokenId, Body1 body);
 
         /// <summary>
         /// Update a Instrument Identifier
@@ -237,37 +164,10 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier</param>
+        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> InstrumentidentifiersTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body1 body);
-        /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
-        /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        System.Threading.Tasks.Task<InlineResponse2008> InstrumentidentifiersTokenIdPaymentinstrumentsGetAsync (string profileId, string tokenId, string offset = null, string limit = null);
-
-        /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
-        /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null);
+        /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPost200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>> TmsV1InstrumentidentifiersTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body1 body);
         #endregion Asynchronous Operations
     }
 
@@ -381,168 +281,15 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create an Instrument Identifier 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="body">Please specify either a Card or Bank Account. (optional)</param>
-        /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 InstrumentidentifiersPost (string profileId, Body body = null)
-        {
-             ApiResponse<InlineResponse2007> localVarResponse = InstrumentidentifiersPostWithHttpInfo(profileId, body);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create an Instrument Identifier 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="body">Please specify either a Card or Bank Account. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        public ApiResponse< InlineResponse2007 > InstrumentidentifiersPostWithHttpInfo (string profileId, Body body = null)
-        {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->InstrumentidentifiersPost");
-
-            var localVarPath = $"/tms/v1/instrumentidentifiers";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("InstrumentidentifiersPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007)));
-        }
-
-        /// <summary>
-        /// Create an Instrument Identifier 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="body">Please specify either a Card or Bank Account. (optional)</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> InstrumentidentifiersPostAsync (string profileId, Body body = null)
-        {
-             ApiResponse<InlineResponse2007> localVarResponse = await InstrumentidentifiersPostAsyncWithHttpInfo(profileId, body);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Create an Instrument Identifier 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="body">Please specify either a Card or Bank Account. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> InstrumentidentifiersPostAsyncWithHttpInfo (string profileId, Body body = null)
-        {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->InstrumentidentifiersPost");
-
-            var localVarPath = $"/tms/v1/instrumentidentifiers";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("InstrumentidentifiersPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007)));
-        }
-
-        /// <summary>
         /// Delete an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns></returns>
-        public void InstrumentidentifiersTokenIdDelete (string profileId, string tokenId)
+        public void TmsV1InstrumentidentifiersTokenIdDelete (string profileId, string tokenId)
         {
-             InstrumentidentifiersTokenIdDeleteWithHttpInfo(profileId, tokenId);
+             TmsV1InstrumentidentifiersTokenIdDeleteWithHttpInfo(profileId, tokenId);
         }
 
         /// <summary>
@@ -552,14 +299,14 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> InstrumentidentifiersTokenIdDeleteWithHttpInfo (string profileId, string tokenId)
+        public ApiResponse<Object> TmsV1InstrumentidentifiersTokenIdDeleteWithHttpInfo (string profileId, string tokenId)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdDelete");
+                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdDelete");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
-                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdDelete");
+                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdDelete");
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{tokenId}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -571,12 +318,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -595,7 +343,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("InstrumentidentifiersTokenIdDelete", localVarResponse);
+                Exception exception = ExceptionFactory("TmsV1InstrumentidentifiersTokenIdDelete", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -611,9 +359,9 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task InstrumentidentifiersTokenIdDeleteAsync (string profileId, string tokenId)
+        public async System.Threading.Tasks.Task TmsV1InstrumentidentifiersTokenIdDeleteAsync (string profileId, string tokenId)
         {
-             await InstrumentidentifiersTokenIdDeleteAsyncWithHttpInfo(profileId, tokenId);
+             await TmsV1InstrumentidentifiersTokenIdDeleteAsyncWithHttpInfo(profileId, tokenId);
 
         }
 
@@ -624,16 +372,16 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> InstrumentidentifiersTokenIdDeleteAsyncWithHttpInfo (string profileId, string tokenId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> TmsV1InstrumentidentifiersTokenIdDeleteAsyncWithHttpInfo (string profileId, string tokenId)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdDelete");
+                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdDelete");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
-                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdDelete");
+                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdDelete");
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{tokenId}";
+            var localVarPath = "/tms/v1/instrumentidentifiers/{tokenId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -643,12 +391,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -667,7 +416,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("InstrumentidentifiersTokenIdDelete", localVarResponse);
+                Exception exception = ExceptionFactory("TmsV1InstrumentidentifiersTokenIdDelete", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -682,10 +431,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 InstrumentidentifiersTokenIdGet (string profileId, string tokenId)
+        /// <returns>TmsV1InstrumentidentifiersPost200Response</returns>
+        public TmsV1InstrumentidentifiersPost200Response TmsV1InstrumentidentifiersTokenIdGet (string profileId, string tokenId)
         {
-             ApiResponse<InlineResponse2007> localVarResponse = InstrumentidentifiersTokenIdGetWithHttpInfo(profileId, tokenId);
+             ApiResponse<TmsV1InstrumentidentifiersPost200Response> localVarResponse = TmsV1InstrumentidentifiersTokenIdGetWithHttpInfo(profileId, tokenId);
              return localVarResponse.Data;
         }
 
@@ -695,15 +444,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        public ApiResponse< InlineResponse2007 > InstrumentidentifiersTokenIdGetWithHttpInfo (string profileId, string tokenId)
+        /// <returns>ApiResponse of TmsV1InstrumentidentifiersPost200Response</returns>
+        public ApiResponse< TmsV1InstrumentidentifiersPost200Response > TmsV1InstrumentidentifiersTokenIdGetWithHttpInfo (string profileId, string tokenId)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdGet");
+                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdGet");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
-                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdGet");
+                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdGet");
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{tokenId}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -715,12 +464,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -739,13 +489,13 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("InstrumentidentifiersTokenIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("TmsV1InstrumentidentifiersTokenIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+            return new ApiResponse<TmsV1InstrumentidentifiersPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007)));
+                (TmsV1InstrumentidentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentidentifiersPost200Response)));
         }
 
         /// <summary>
@@ -754,10 +504,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> InstrumentidentifiersTokenIdGetAsync (string profileId, string tokenId)
+        /// <returns>Task of TmsV1InstrumentidentifiersPost200Response</returns>
+        public async System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersTokenIdGetAsync (string profileId, string tokenId)
         {
-             ApiResponse<InlineResponse2007> localVarResponse = await InstrumentidentifiersTokenIdGetAsyncWithHttpInfo(profileId, tokenId);
+             ApiResponse<TmsV1InstrumentidentifiersPost200Response> localVarResponse = await TmsV1InstrumentidentifiersTokenIdGetAsyncWithHttpInfo(profileId, tokenId);
              return localVarResponse.Data;
 
         }
@@ -768,17 +518,17 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> InstrumentidentifiersTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId)
+        /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPost200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>> TmsV1InstrumentidentifiersTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdGet");
+                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdGet");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
-                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdGet");
+                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdGet");
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{tokenId}";
+            var localVarPath = "/tms/v1/instrumentidentifiers/{tokenId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -788,12 +538,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -812,13 +563,13 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("InstrumentidentifiersTokenIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("TmsV1InstrumentidentifiersTokenIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+            return new ApiResponse<TmsV1InstrumentidentifiersPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007)));
+                (TmsV1InstrumentidentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentidentifiersPost200Response)));
         }
 
         /// <summary>
@@ -826,12 +577,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier</param>
+        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
-        /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 InstrumentidentifiersTokenIdPatch (string profileId, string tokenId, Body1 body)
+        /// <returns>TmsV1InstrumentidentifiersPost200Response</returns>
+        public TmsV1InstrumentidentifiersPost200Response TmsV1InstrumentidentifiersTokenIdPatch (string profileId, string tokenId, Body1 body)
         {
-             ApiResponse<InlineResponse2007> localVarResponse = InstrumentidentifiersTokenIdPatchWithHttpInfo(profileId, tokenId, body);
+             ApiResponse<TmsV1InstrumentidentifiersPost200Response> localVarResponse = TmsV1InstrumentidentifiersTokenIdPatchWithHttpInfo(profileId, tokenId, body);
              return localVarResponse.Data;
         }
 
@@ -840,20 +591,20 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier</param>
+        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        public ApiResponse< InlineResponse2007 > InstrumentidentifiersTokenIdPatchWithHttpInfo (string profileId, string tokenId, Body1 body)
+        /// <returns>ApiResponse of TmsV1InstrumentidentifiersPost200Response</returns>
+        public ApiResponse< TmsV1InstrumentidentifiersPost200Response > TmsV1InstrumentidentifiersTokenIdPatchWithHttpInfo (string profileId, string tokenId, Body1 body)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdPatch");
+                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdPatch");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
-                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdPatch");
+                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdPatch");
             // verify the required parameter 'body' is set
             if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdPatch");
+                throw new ApiException(400, "Missing required parameter 'body' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdPatch");
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{tokenId}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -865,12 +616,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -897,13 +649,13 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("InstrumentidentifiersTokenIdPatch", localVarResponse);
+                Exception exception = ExceptionFactory("TmsV1InstrumentidentifiersTokenIdPatch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+            return new ApiResponse<TmsV1InstrumentidentifiersPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007)));
+                (TmsV1InstrumentidentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentidentifiersPost200Response)));
         }
 
         /// <summary>
@@ -911,12 +663,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier</param>
+        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> InstrumentidentifiersTokenIdPatchAsync (string profileId, string tokenId, Body1 body)
+        /// <returns>Task of TmsV1InstrumentidentifiersPost200Response</returns>
+        public async System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersTokenIdPatchAsync (string profileId, string tokenId, Body1 body)
         {
-             ApiResponse<InlineResponse2007> localVarResponse = await InstrumentidentifiersTokenIdPatchAsyncWithHttpInfo(profileId, tokenId, body);
+             ApiResponse<TmsV1InstrumentidentifiersPost200Response> localVarResponse = await TmsV1InstrumentidentifiersTokenIdPatchAsyncWithHttpInfo(profileId, tokenId, body);
              return localVarResponse.Data;
 
         }
@@ -926,22 +678,22 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier</param>
+        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> InstrumentidentifiersTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body1 body)
+        /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPost200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>> TmsV1InstrumentidentifiersTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body1 body)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdPatch");
+                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdPatch");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
-                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdPatch");
+                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdPatch");
             // verify the required parameter 'body' is set
             if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdPatch");
+                throw new ApiException(400, "Missing required parameter 'body' when calling InstrumentIdentifierApi->TmsV1InstrumentidentifiersTokenIdPatch");
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{tokenId}";
+            var localVarPath = "/tms/v1/instrumentidentifiers/{tokenId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -951,12 +703,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -983,170 +736,13 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("InstrumentidentifiersTokenIdPatch", localVarResponse);
+                Exception exception = ExceptionFactory("TmsV1InstrumentidentifiersTokenIdPatch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+            return new ApiResponse<TmsV1InstrumentidentifiersPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007)));
-        }
-
-        /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
-        /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>InlineResponse2008</returns>
-        public InlineResponse2008 InstrumentidentifiersTokenIdPaymentinstrumentsGet (string profileId, string tokenId, string offset = null, string limit = null)
-        {
-             ApiResponse<InlineResponse2008> localVarResponse = InstrumentidentifiersTokenIdPaymentinstrumentsGetWithHttpInfo(profileId, tokenId, offset, limit);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
-        /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        public ApiResponse< InlineResponse2008 > InstrumentidentifiersTokenIdPaymentinstrumentsGetWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null)
-        {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdPaymentinstrumentsGet");
-            // verify the required parameter 'tokenId' is set
-            if (tokenId == null)
-                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdPaymentinstrumentsGet");
-
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{tokenId}/paymentinstruments";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("InstrumentidentifiersTokenIdPaymentinstrumentsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2008) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008)));
-        }
-
-        /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
-        /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2008> InstrumentidentifiersTokenIdPaymentinstrumentsGetAsync (string profileId, string tokenId, string offset = null, string limit = null)
-        {
-             ApiResponse<InlineResponse2008> localVarResponse = await InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo(profileId, tokenId, offset, limit);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
-        /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null)
-        {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdPaymentinstrumentsGet");
-            // verify the required parameter 'tokenId' is set
-            if (tokenId == null)
-                throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->InstrumentidentifiersTokenIdPaymentinstrumentsGet");
-
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{tokenId}/paymentinstruments";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("InstrumentidentifiersTokenIdPaymentinstrumentsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2008) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008)));
+                (TmsV1InstrumentidentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentidentifiersPost200Response)));
         }
 
     }

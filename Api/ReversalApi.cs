@@ -33,8 +33,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
-        /// <returns>InlineResponse2011</returns>
-        InlineResponse2011 AuthReversal (string id, AuthReversalRequest authReversalRequest);
+        /// <returns>PtsV2PaymentsReversalsPost201Response</returns>
+        PtsV2PaymentsReversalsPost201Response AuthReversal (string id, AuthReversalRequest authReversalRequest);
 
         /// <summary>
         /// Process an Authorization Reversal
@@ -45,29 +45,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2011</returns>
-        ApiResponse<InlineResponse2011> AuthReversalWithHttpInfo (string id, AuthReversalRequest authReversalRequest);
-        /// <summary>
-        /// Retrieve an Authorization Reversal
-        /// </summary>
-        /// <remarks>
-        /// Include the authorization reversal ID in the GET request to retrieve the authorization reversal details. 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The authorization reversal ID returned from a previous authorization reversal request.</param>
-        /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 GetAuthReversal (string id);
-
-        /// <summary>
-        /// Retrieve an Authorization Reversal
-        /// </summary>
-        /// <remarks>
-        /// Include the authorization reversal ID in the GET request to retrieve the authorization reversal details. 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The authorization reversal ID returned from a previous authorization reversal request.</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> GetAuthReversalWithHttpInfo (string id);
+        /// <returns>ApiResponse of PtsV2PaymentsReversalsPost201Response</returns>
+        ApiResponse<PtsV2PaymentsReversalsPost201Response> AuthReversalWithHttpInfo (string id, AuthReversalRequest authReversalRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -79,8 +58,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
-        /// <returns>Task of InlineResponse2011</returns>
-        System.Threading.Tasks.Task<InlineResponse2011> AuthReversalAsync (string id, AuthReversalRequest authReversalRequest);
+        /// <returns>Task of PtsV2PaymentsReversalsPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsReversalsPost201Response> AuthReversalAsync (string id, AuthReversalRequest authReversalRequest);
 
         /// <summary>
         /// Process an Authorization Reversal
@@ -91,29 +70,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> AuthReversalAsyncWithHttpInfo (string id, AuthReversalRequest authReversalRequest);
-        /// <summary>
-        /// Retrieve an Authorization Reversal
-        /// </summary>
-        /// <remarks>
-        /// Include the authorization reversal ID in the GET request to retrieve the authorization reversal details. 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The authorization reversal ID returned from a previous authorization reversal request.</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> GetAuthReversalAsync (string id);
-
-        /// <summary>
-        /// Retrieve an Authorization Reversal
-        /// </summary>
-        /// <remarks>
-        /// Include the authorization reversal ID in the GET request to retrieve the authorization reversal details. 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The authorization reversal ID returned from a previous authorization reversal request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetAuthReversalAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (PtsV2PaymentsReversalsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> AuthReversalAsyncWithHttpInfo (string id, AuthReversalRequest authReversalRequest);
         #endregion Asynchronous Operations
     }
 
@@ -232,10 +190,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
-        /// <returns>InlineResponse2011</returns>
-        public InlineResponse2011 AuthReversal (string id, AuthReversalRequest authReversalRequest)
+        /// <returns>PtsV2PaymentsReversalsPost201Response</returns>
+        public PtsV2PaymentsReversalsPost201Response AuthReversal (string id, AuthReversalRequest authReversalRequest)
         {
-             ApiResponse<InlineResponse2011> localVarResponse = AuthReversalWithHttpInfo(id, authReversalRequest);
+             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = AuthReversalWithHttpInfo(id, authReversalRequest);
              return localVarResponse.Data;
         }
 
@@ -245,8 +203,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2011</returns>
-        public ApiResponse< InlineResponse2011 > AuthReversalWithHttpInfo (string id, AuthReversalRequest authReversalRequest)
+        /// <returns>ApiResponse of PtsV2PaymentsReversalsPost201Response</returns>
+        public ApiResponse< PtsV2PaymentsReversalsPost201Response > AuthReversalWithHttpInfo (string id, AuthReversalRequest authReversalRequest)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -265,12 +223,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -300,9 +259,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011)));
+                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response)));
         }
 
         /// <summary>
@@ -311,10 +270,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
-        /// <returns>Task of InlineResponse2011</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2011> AuthReversalAsync (string id, AuthReversalRequest authReversalRequest)
+        /// <returns>Task of PtsV2PaymentsReversalsPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsReversalsPost201Response> AuthReversalAsync (string id, AuthReversalRequest authReversalRequest)
         {
-             ApiResponse<InlineResponse2011> localVarResponse = await AuthReversalAsyncWithHttpInfo(id, authReversalRequest);
+             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = await AuthReversalAsyncWithHttpInfo(id, authReversalRequest);
              return localVarResponse.Data;
 
         }
@@ -325,8 +284,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> AuthReversalAsyncWithHttpInfo (string id, AuthReversalRequest authReversalRequest)
+        /// <returns>Task of ApiResponse (PtsV2PaymentsReversalsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> AuthReversalAsyncWithHttpInfo (string id, AuthReversalRequest authReversalRequest)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -335,7 +294,7 @@ namespace CyberSource.Api
             if (authReversalRequest == null)
                 throw new ApiException(400, "Missing required parameter 'authReversalRequest' when calling ReversalApi->AuthReversal");
 
-            var localVarPath = $"/pts/v2/payments/{id}/reversals";
+            var localVarPath = "/pts/v2/payments/{id}/reversals";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -345,12 +304,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -380,142 +340,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011)));
-        }
-
-        /// <summary>
-        /// Retrieve an Authorization Reversal Include the authorization reversal ID in the GET request to retrieve the authorization reversal details. 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The authorization reversal ID returned from a previous authorization reversal request.</param>
-        /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 GetAuthReversal (string id)
-        {
-             ApiResponse<InlineResponse2003> localVarResponse = GetAuthReversalWithHttpInfo(id);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve an Authorization Reversal Include the authorization reversal ID in the GET request to retrieve the authorization reversal details. 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The authorization reversal ID returned from a previous authorization reversal request.</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        public ApiResponse< InlineResponse2003 > GetAuthReversalWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling ReversalApi->GetAuthReversal");
-
-            var localVarPath = $"/pts/v2/reversals/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetAuthReversal", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
-        }
-
-        /// <summary>
-        /// Retrieve an Authorization Reversal Include the authorization reversal ID in the GET request to retrieve the authorization reversal details. 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The authorization reversal ID returned from a previous authorization reversal request.</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> GetAuthReversalAsync (string id)
-        {
-             ApiResponse<InlineResponse2003> localVarResponse = await GetAuthReversalAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Retrieve an Authorization Reversal Include the authorization reversal ID in the GET request to retrieve the authorization reversal details. 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The authorization reversal ID returned from a previous authorization reversal request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetAuthReversalAsyncWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling ReversalApi->GetAuthReversal");
-
-            var localVarPath = $"/pts/v2/reversals/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                //"application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetAuthReversal", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response)));
         }
 
     }

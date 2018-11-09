@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="VoidCreditRequest" /> class.
         /// </summary>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
-        public VoidCreditRequest(V2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(V2paymentsidreversalsClientReferenceInformation))
+        public VoidCreditRequest(Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsidreversalsClientReferenceInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public V2paymentsidreversalsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

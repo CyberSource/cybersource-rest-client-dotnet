@@ -44,8 +44,8 @@ namespace CyberSource.Model
         /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        /// <param name="MerchantDefinedInformation">TBD.</param>
-        public CreatePaymentRequest(V2paymentsClientReferenceInformation ClientReferenceInformation = default(V2paymentsClientReferenceInformation), V2paymentsProcessingInformation ProcessingInformation = default(V2paymentsProcessingInformation), V2paymentsPaymentInformation PaymentInformation = default(V2paymentsPaymentInformation), V2paymentsOrderInformation OrderInformation = default(V2paymentsOrderInformation), V2paymentsBuyerInformation BuyerInformation = default(V2paymentsBuyerInformation), V2paymentsRecipientInformation RecipientInformation = default(V2paymentsRecipientInformation), V2paymentsDeviceInformation DeviceInformation = default(V2paymentsDeviceInformation), V2paymentsMerchantInformation MerchantInformation = default(V2paymentsMerchantInformation), V2paymentsAggregatorInformation AggregatorInformation = default(V2paymentsAggregatorInformation), V2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(V2paymentsConsumerAuthenticationInformation), V2paymentsPointOfSaleInformation PointOfSaleInformation = default(V2paymentsPointOfSaleInformation), List<V2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<V2paymentsMerchantDefinedInformation>))
+        /// <param name="MerchantDefinedInformation">Description of this field is not available..</param>
+        public CreatePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsProcessingInformation ProcessingInformation = default(Ptsv2paymentsProcessingInformation), Ptsv2paymentsPaymentInformation PaymentInformation = default(Ptsv2paymentsPaymentInformation), Ptsv2paymentsOrderInformation OrderInformation = default(Ptsv2paymentsOrderInformation), Ptsv2paymentsBuyerInformation BuyerInformation = default(Ptsv2paymentsBuyerInformation), Ptsv2paymentsRecipientInformation RecipientInformation = default(Ptsv2paymentsRecipientInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsMerchantInformation MerchantInformation = default(Ptsv2paymentsMerchantInformation), Ptsv2paymentsAggregatorInformation AggregatorInformation = default(Ptsv2paymentsAggregatorInformation), Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2paymentsConsumerAuthenticationInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -65,74 +65,74 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public V2paymentsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Ptsv2paymentsClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation
         /// </summary>
         [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public V2paymentsProcessingInformation ProcessingInformation { get; set; }
+        public Ptsv2paymentsProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentInformation
         /// </summary>
         [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
-        public V2paymentsPaymentInformation PaymentInformation { get; set; }
+        public Ptsv2paymentsPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation
         /// </summary>
         [DataMember(Name="orderInformation", EmitDefaultValue=false)]
-        public V2paymentsOrderInformation OrderInformation { get; set; }
+        public Ptsv2paymentsOrderInformation OrderInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
         /// </summary>
         [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
-        public V2paymentsBuyerInformation BuyerInformation { get; set; }
+        public Ptsv2paymentsBuyerInformation BuyerInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets RecipientInformation
         /// </summary>
         [DataMember(Name="recipientInformation", EmitDefaultValue=false)]
-        public V2paymentsRecipientInformation RecipientInformation { get; set; }
+        public Ptsv2paymentsRecipientInformation RecipientInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceInformation
         /// </summary>
         [DataMember(Name="deviceInformation", EmitDefaultValue=false)]
-        public V2paymentsDeviceInformation DeviceInformation { get; set; }
+        public Ptsv2paymentsDeviceInformation DeviceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInformation
         /// </summary>
         [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
-        public V2paymentsMerchantInformation MerchantInformation { get; set; }
+        public Ptsv2paymentsMerchantInformation MerchantInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets AggregatorInformation
         /// </summary>
         [DataMember(Name="aggregatorInformation", EmitDefaultValue=false)]
-        public V2paymentsAggregatorInformation AggregatorInformation { get; set; }
+        public Ptsv2paymentsAggregatorInformation AggregatorInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ConsumerAuthenticationInformation
         /// </summary>
         [DataMember(Name="consumerAuthenticationInformation", EmitDefaultValue=false)]
-        public V2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation { get; set; }
+        public Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets PointOfSaleInformation
         /// </summary>
         [DataMember(Name="pointOfSaleInformation", EmitDefaultValue=false)]
-        public V2paymentsPointOfSaleInformation PointOfSaleInformation { get; set; }
+        public Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
-        /// TBD
+        /// Description of this field is not available.
         /// </summary>
-        /// <value>TBD</value>
+        /// <value>Description of this field is not available.</value>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
-        public List<V2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
+        public List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

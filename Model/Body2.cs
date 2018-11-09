@@ -90,7 +90,7 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="MetaData">MetaData.</param>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
-        public Body2(InstrumentidentifiersLinks Links = default(InstrumentidentifiersLinks), PaymentinstrumentsBankAccount BankAccount = default(PaymentinstrumentsBankAccount), PaymentinstrumentsCard Card = default(PaymentinstrumentsCard), PaymentinstrumentsBuyerInformation BuyerInformation = default(PaymentinstrumentsBuyerInformation), PaymentinstrumentsBillTo BillTo = default(PaymentinstrumentsBillTo), PaymentinstrumentsProcessingInformation ProcessingInformation = default(PaymentinstrumentsProcessingInformation), PaymentinstrumentsMerchantInformation MerchantInformation = default(PaymentinstrumentsMerchantInformation), InstrumentidentifiersMetadata MetaData = default(InstrumentidentifiersMetadata), PaymentinstrumentsInstrumentIdentifier InstrumentIdentifier = default(PaymentinstrumentsInstrumentIdentifier))
+        public Body2(Tmsv1instrumentidentifiersLinks Links = default(Tmsv1instrumentidentifiersLinks), Tmsv1paymentinstrumentsBankAccount BankAccount = default(Tmsv1paymentinstrumentsBankAccount), Tmsv1paymentinstrumentsCard Card = default(Tmsv1paymentinstrumentsCard), Tmsv1paymentinstrumentsBuyerInformation BuyerInformation = default(Tmsv1paymentinstrumentsBuyerInformation), Tmsv1paymentinstrumentsBillTo BillTo = default(Tmsv1paymentinstrumentsBillTo), Tmsv1paymentinstrumentsProcessingInformation ProcessingInformation = default(Tmsv1paymentinstrumentsProcessingInformation), Tmsv1paymentinstrumentsMerchantInformation MerchantInformation = default(Tmsv1paymentinstrumentsMerchantInformation), Tmsv1instrumentidentifiersMetadata MetaData = default(Tmsv1instrumentidentifiersMetadata), Tmsv1paymentinstrumentsInstrumentIdentifier InstrumentIdentifier = default(Tmsv1paymentinstrumentsInstrumentIdentifier))
         {
             this.Links = Links;
             this.BankAccount = BankAccount;
@@ -107,7 +107,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public InstrumentidentifiersLinks Links { get; set; }
+        public Tmsv1instrumentidentifiersLinks Links { get; set; }
 
         /// <summary>
         /// Unique identification number assigned by CyberSource to the submitted request.
@@ -122,49 +122,49 @@ namespace CyberSource.Model
         /// Gets or Sets BankAccount
         /// </summary>
         [DataMember(Name="bankAccount", EmitDefaultValue=false)]
-        public PaymentinstrumentsBankAccount BankAccount { get; set; }
+        public Tmsv1paymentinstrumentsBankAccount BankAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets Card
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
-        public PaymentinstrumentsCard Card { get; set; }
+        public Tmsv1paymentinstrumentsCard Card { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
         /// </summary>
         [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
-        public PaymentinstrumentsBuyerInformation BuyerInformation { get; set; }
+        public Tmsv1paymentinstrumentsBuyerInformation BuyerInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BillTo
         /// </summary>
         [DataMember(Name="billTo", EmitDefaultValue=false)]
-        public PaymentinstrumentsBillTo BillTo { get; set; }
+        public Tmsv1paymentinstrumentsBillTo BillTo { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation
         /// </summary>
         [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public PaymentinstrumentsProcessingInformation ProcessingInformation { get; set; }
+        public Tmsv1paymentinstrumentsProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInformation
         /// </summary>
         [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
-        public PaymentinstrumentsMerchantInformation MerchantInformation { get; set; }
+        public Tmsv1paymentinstrumentsMerchantInformation MerchantInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MetaData
         /// </summary>
         [DataMember(Name="metaData", EmitDefaultValue=false)]
-        public InstrumentidentifiersMetadata MetaData { get; set; }
+        public Tmsv1instrumentidentifiersMetadata MetaData { get; set; }
 
         /// <summary>
         /// Gets or Sets InstrumentIdentifier
         /// </summary>
         [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
-        public PaymentinstrumentsInstrumentIdentifier InstrumentIdentifier { get; set; }
+        public Tmsv1paymentinstrumentsInstrumentIdentifier InstrumentIdentifier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

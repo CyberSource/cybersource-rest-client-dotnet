@@ -33,10 +33,35 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneratePublicKeyRequest" /> class.
         /// </summary>
-        /// <param name="EncryptionType">How the card number should be encrypted in the subsequent Tokenize Card request. Possible values are RsaOaep256 or None (if using this value the card number must be in plain text when included in the Tokenize Card request). The Tokenize Card request uses a secure connection (TLS 1.2+) regardless of what encryption type is specified..</param>
-        public GeneratePublicKeyRequest(string EncryptionType = default(string))
+        [JsonConstructorAttribute]
+        protected GeneratePublicKeyRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GeneratePublicKeyRequest" /> class.
+        /// </summary>
+        /// <param name="EncryptionType">How the card number should be encrypted in the subsequent Tokenize Card request. Possible values are RsaOaep256 or None (if using this value the card number must be in plain text when included in the Tokenize Card request). The Tokenize Card request uses a secure connection (TLS 1.2+) regardless of what encryption type is specified. (required).</param>
+        /// <param name="TargetOrigin">This should only be used if using the Microform implementation. This is the protocol, URL, and if used, port number of the page that will host the Microform. Unless using http://localhost, the protocol must be https://. For example, if serving Microform on example.com, the targetOrigin is https://example.com The value is used to restrict the frame ancestor of the Microform. If there is a mismatch between this value and the frame ancestor, the Microfrom will not load..</param>
+        /// <param name="UnmaskedLeft">Specifies the number of card number digits to be returned un-masked from the left. For example, setting this value to 6 will return: 411111XXXXXXXXXX Default value: 6 Maximum value: 6.</param>
+        /// <param name="UnmaskedRight">Specifies the number of card number digits to be returned un-masked from the right. For example, setting this value to 4 will return: 411111XXXXXX1111 Default value: 4 Maximum value: 4.</param>
+        /// <param name="EnableBillingAddress">Specifies whether or not &#39;dummy&#39; address data should be specified in the create token request. If you have &#39;Relaxed AVS&#39; enabled for your MID, this value can be set to False.Default value: true.</param>
+        /// <param name="Currency">Three character ISO currency code to be associated with the token. Required for legacy integrations. Default value: USD..</param>
+        /// <param name="EnableAutoAuth">Specifies whether or not an account verification authorization ($0 Authorization) is carried out on token creation. Default is false, as it is assumed a full or zero amount authorization will be carried out in a separate call from your server..</param>
+        public GeneratePublicKeyRequest(string EncryptionType = default(string), string TargetOrigin = default(string), int? UnmaskedLeft = default(int?), int? UnmaskedRight = default(int?), bool? EnableBillingAddress = default(bool?), string Currency = default(string), bool? EnableAutoAuth = default(bool?))
         {
-            this.EncryptionType = EncryptionType;
+            // to ensure "EncryptionType" is required (not null)
+            if (EncryptionType == null)
+            {
+                throw new InvalidDataException("EncryptionType is a required property for GeneratePublicKeyRequest and cannot be null");
+            }
+            else
+            {
+                this.EncryptionType = EncryptionType;
+            }
+            this.TargetOrigin = TargetOrigin;
+            this.UnmaskedLeft = UnmaskedLeft;
+            this.UnmaskedRight = UnmaskedRight;
+            this.EnableBillingAddress = EnableBillingAddress;
+            this.Currency = Currency;
+            this.EnableAutoAuth = EnableAutoAuth;
         }
         
         /// <summary>
@@ -47,6 +72,48 @@ namespace CyberSource.Model
         public string EncryptionType { get; set; }
 
         /// <summary>
+        /// This should only be used if using the Microform implementation. This is the protocol, URL, and if used, port number of the page that will host the Microform. Unless using http://localhost, the protocol must be https://. For example, if serving Microform on example.com, the targetOrigin is https://example.com The value is used to restrict the frame ancestor of the Microform. If there is a mismatch between this value and the frame ancestor, the Microfrom will not load.
+        /// </summary>
+        /// <value>This should only be used if using the Microform implementation. This is the protocol, URL, and if used, port number of the page that will host the Microform. Unless using http://localhost, the protocol must be https://. For example, if serving Microform on example.com, the targetOrigin is https://example.com The value is used to restrict the frame ancestor of the Microform. If there is a mismatch between this value and the frame ancestor, the Microfrom will not load.</value>
+        [DataMember(Name="targetOrigin", EmitDefaultValue=false)]
+        public string TargetOrigin { get; set; }
+
+        /// <summary>
+        /// Specifies the number of card number digits to be returned un-masked from the left. For example, setting this value to 6 will return: 411111XXXXXXXXXX Default value: 6 Maximum value: 6
+        /// </summary>
+        /// <value>Specifies the number of card number digits to be returned un-masked from the left. For example, setting this value to 6 will return: 411111XXXXXXXXXX Default value: 6 Maximum value: 6</value>
+        [DataMember(Name="unmaskedLeft", EmitDefaultValue=false)]
+        public int? UnmaskedLeft { get; set; }
+
+        /// <summary>
+        /// Specifies the number of card number digits to be returned un-masked from the right. For example, setting this value to 4 will return: 411111XXXXXX1111 Default value: 4 Maximum value: 4
+        /// </summary>
+        /// <value>Specifies the number of card number digits to be returned un-masked from the right. For example, setting this value to 4 will return: 411111XXXXXX1111 Default value: 4 Maximum value: 4</value>
+        [DataMember(Name="unmaskedRight", EmitDefaultValue=false)]
+        public int? UnmaskedRight { get; set; }
+
+        /// <summary>
+        /// Specifies whether or not &#39;dummy&#39; address data should be specified in the create token request. If you have &#39;Relaxed AVS&#39; enabled for your MID, this value can be set to False.Default value: true
+        /// </summary>
+        /// <value>Specifies whether or not &#39;dummy&#39; address data should be specified in the create token request. If you have &#39;Relaxed AVS&#39; enabled for your MID, this value can be set to False.Default value: true</value>
+        [DataMember(Name="enableBillingAddress", EmitDefaultValue=false)]
+        public bool? EnableBillingAddress { get; set; }
+
+        /// <summary>
+        /// Three character ISO currency code to be associated with the token. Required for legacy integrations. Default value: USD.
+        /// </summary>
+        /// <value>Three character ISO currency code to be associated with the token. Required for legacy integrations. Default value: USD.</value>
+        [DataMember(Name="currency", EmitDefaultValue=false)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// Specifies whether or not an account verification authorization ($0 Authorization) is carried out on token creation. Default is false, as it is assumed a full or zero amount authorization will be carried out in a separate call from your server.
+        /// </summary>
+        /// <value>Specifies whether or not an account verification authorization ($0 Authorization) is carried out on token creation. Default is false, as it is assumed a full or zero amount authorization will be carried out in a separate call from your server.</value>
+        [DataMember(Name="enableAutoAuth", EmitDefaultValue=false)]
+        public bool? EnableAutoAuth { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +122,12 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class GeneratePublicKeyRequest {\n");
             sb.Append("  EncryptionType: ").Append(EncryptionType).Append("\n");
+            sb.Append("  TargetOrigin: ").Append(TargetOrigin).Append("\n");
+            sb.Append("  UnmaskedLeft: ").Append(UnmaskedLeft).Append("\n");
+            sb.Append("  UnmaskedRight: ").Append(UnmaskedRight).Append("\n");
+            sb.Append("  EnableBillingAddress: ").Append(EnableBillingAddress).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  EnableAutoAuth: ").Append(EnableAutoAuth).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +168,36 @@ namespace CyberSource.Model
                     this.EncryptionType == other.EncryptionType ||
                     this.EncryptionType != null &&
                     this.EncryptionType.Equals(other.EncryptionType)
+                ) && 
+                (
+                    this.TargetOrigin == other.TargetOrigin ||
+                    this.TargetOrigin != null &&
+                    this.TargetOrigin.Equals(other.TargetOrigin)
+                ) && 
+                (
+                    this.UnmaskedLeft == other.UnmaskedLeft ||
+                    this.UnmaskedLeft != null &&
+                    this.UnmaskedLeft.Equals(other.UnmaskedLeft)
+                ) && 
+                (
+                    this.UnmaskedRight == other.UnmaskedRight ||
+                    this.UnmaskedRight != null &&
+                    this.UnmaskedRight.Equals(other.UnmaskedRight)
+                ) && 
+                (
+                    this.EnableBillingAddress == other.EnableBillingAddress ||
+                    this.EnableBillingAddress != null &&
+                    this.EnableBillingAddress.Equals(other.EnableBillingAddress)
+                ) && 
+                (
+                    this.Currency == other.Currency ||
+                    this.Currency != null &&
+                    this.Currency.Equals(other.Currency)
+                ) && 
+                (
+                    this.EnableAutoAuth == other.EnableAutoAuth ||
+                    this.EnableAutoAuth != null &&
+                    this.EnableAutoAuth.Equals(other.EnableAutoAuth)
                 );
         }
 
@@ -111,6 +214,18 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.EncryptionType != null)
                     hash = hash * 59 + this.EncryptionType.GetHashCode();
+                if (this.TargetOrigin != null)
+                    hash = hash * 59 + this.TargetOrigin.GetHashCode();
+                if (this.UnmaskedLeft != null)
+                    hash = hash * 59 + this.UnmaskedLeft.GetHashCode();
+                if (this.UnmaskedRight != null)
+                    hash = hash * 59 + this.UnmaskedRight.GetHashCode();
+                if (this.EnableBillingAddress != null)
+                    hash = hash * 59 + this.EnableBillingAddress.GetHashCode();
+                if (this.Currency != null)
+                    hash = hash * 59 + this.Currency.GetHashCode();
+                if (this.EnableAutoAuth != null)
+                    hash = hash * 59 + this.EnableAutoAuth.GetHashCode();
                 return hash;
             }
         }

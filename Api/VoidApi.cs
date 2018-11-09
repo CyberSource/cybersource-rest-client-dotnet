@@ -25,27 +25,6 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Retrieve A Void
-        /// </summary>
-        /// <remarks>
-        /// Include the void ID in the GET request to retrieve the void details.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The void ID returned from a previous void request.</param>
-        /// <returns>InlineResponse2015</returns>
-        InlineResponse2015 GetVoid (string id);
-
-        /// <summary>
-        /// Retrieve A Void
-        /// </summary>
-        /// <remarks>
-        /// Include the void ID in the GET request to retrieve the void details.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The void ID returned from a previous void request.</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        ApiResponse<InlineResponse2015> GetVoidWithHttpInfo (string id);
-        /// <summary>
         /// Void a Capture
         /// </summary>
         /// <remarks>
@@ -54,8 +33,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
-        /// <returns>InlineResponse2015</returns>
-        InlineResponse2015 VoidCapture (VoidCaptureRequest voidCaptureRequest, string id);
+        /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
+        PtsV2PaymentsVoidsPost201Response VoidCapture (VoidCaptureRequest voidCaptureRequest, string id);
 
         /// <summary>
         /// Void a Capture
@@ -66,8 +45,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        ApiResponse<InlineResponse2015> VoidCaptureWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id);
+        /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
+        ApiResponse<PtsV2PaymentsVoidsPost201Response> VoidCaptureWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id);
         /// <summary>
         /// Void a Credit
         /// </summary>
@@ -77,8 +56,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
-        /// <returns>InlineResponse2015</returns>
-        InlineResponse2015 VoidCredit (VoidCreditRequest voidCreditRequest, string id);
+        /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
+        PtsV2PaymentsVoidsPost201Response VoidCredit (VoidCreditRequest voidCreditRequest, string id);
 
         /// <summary>
         /// Void a Credit
@@ -89,8 +68,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        ApiResponse<InlineResponse2015> VoidCreditWithHttpInfo (VoidCreditRequest voidCreditRequest, string id);
+        /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
+        ApiResponse<PtsV2PaymentsVoidsPost201Response> VoidCreditWithHttpInfo (VoidCreditRequest voidCreditRequest, string id);
         /// <summary>
         /// Void a Payment
         /// </summary>
@@ -100,8 +79,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
-        /// <returns>InlineResponse2015</returns>
-        InlineResponse2015 VoidPayment (VoidPaymentRequest voidPaymentRequest, string id);
+        /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
+        PtsV2PaymentsVoidsPost201Response VoidPayment (VoidPaymentRequest voidPaymentRequest, string id);
 
         /// <summary>
         /// Void a Payment
@@ -112,8 +91,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        ApiResponse<InlineResponse2015> VoidPaymentWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id);
+        /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
+        ApiResponse<PtsV2PaymentsVoidsPost201Response> VoidPaymentWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id);
         /// <summary>
         /// Void a Refund
         /// </summary>
@@ -123,8 +102,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
-        /// <returns>InlineResponse2015</returns>
-        InlineResponse2015 VoidRefund (VoidRefundRequest voidRefundRequest, string id);
+        /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
+        PtsV2PaymentsVoidsPost201Response VoidRefund (VoidRefundRequest voidRefundRequest, string id);
 
         /// <summary>
         /// Void a Refund
@@ -135,32 +114,11 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        ApiResponse<InlineResponse2015> VoidRefundWithHttpInfo (VoidRefundRequest voidRefundRequest, string id);
+        /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
+        ApiResponse<PtsV2PaymentsVoidsPost201Response> VoidRefundWithHttpInfo (VoidRefundRequest voidRefundRequest, string id);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Retrieve A Void
-        /// </summary>
-        /// <remarks>
-        /// Include the void ID in the GET request to retrieve the void details.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The void ID returned from a previous void request.</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        System.Threading.Tasks.Task<InlineResponse2015> GetVoidAsync (string id);
-
-        /// <summary>
-        /// Retrieve A Void
-        /// </summary>
-        /// <remarks>
-        /// Include the void ID in the GET request to retrieve the void details.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The void ID returned from a previous void request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> GetVoidAsyncWithHttpInfo (string id);
-        /// <summary>
         /// Void a Capture
         /// </summary>
         /// <remarks>
@@ -169,8 +127,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        System.Threading.Tasks.Task<InlineResponse2015> VoidCaptureAsync (VoidCaptureRequest voidCaptureRequest, string id);
+        /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidCaptureAsync (VoidCaptureRequest voidCaptureRequest, string id);
 
         /// <summary>
         /// Void a Capture
@@ -181,8 +139,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> VoidCaptureAsyncWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id);
+        /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCaptureAsyncWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id);
         /// <summary>
         /// Void a Credit
         /// </summary>
@@ -192,8 +150,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        System.Threading.Tasks.Task<InlineResponse2015> VoidCreditAsync (VoidCreditRequest voidCreditRequest, string id);
+        /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidCreditAsync (VoidCreditRequest voidCreditRequest, string id);
 
         /// <summary>
         /// Void a Credit
@@ -204,8 +162,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> VoidCreditAsyncWithHttpInfo (VoidCreditRequest voidCreditRequest, string id);
+        /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCreditAsyncWithHttpInfo (VoidCreditRequest voidCreditRequest, string id);
         /// <summary>
         /// Void a Payment
         /// </summary>
@@ -215,8 +173,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        System.Threading.Tasks.Task<InlineResponse2015> VoidPaymentAsync (VoidPaymentRequest voidPaymentRequest, string id);
+        /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidPaymentAsync (VoidPaymentRequest voidPaymentRequest, string id);
 
         /// <summary>
         /// Void a Payment
@@ -227,8 +185,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> VoidPaymentAsyncWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id);
+        /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidPaymentAsyncWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id);
         /// <summary>
         /// Void a Refund
         /// </summary>
@@ -238,8 +196,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        System.Threading.Tasks.Task<InlineResponse2015> VoidRefundAsync (VoidRefundRequest voidRefundRequest, string id);
+        /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidRefundAsync (VoidRefundRequest voidRefundRequest, string id);
 
         /// <summary>
         /// Void a Refund
@@ -250,8 +208,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> VoidRefundAsyncWithHttpInfo (VoidRefundRequest voidRefundRequest, string id);
+        /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidRefundAsyncWithHttpInfo (VoidRefundRequest voidRefundRequest, string id);
         #endregion Asynchronous Operations
     }
 
@@ -365,148 +323,15 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve A Void Include the void ID in the GET request to retrieve the void details.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The void ID returned from a previous void request.</param>
-        /// <returns>InlineResponse2015</returns>
-        public InlineResponse2015 GetVoid (string id)
-        {
-             ApiResponse<InlineResponse2015> localVarResponse = GetVoidWithHttpInfo(id);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve A Void Include the void ID in the GET request to retrieve the void details.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The void ID returned from a previous void request.</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        public ApiResponse< InlineResponse2015 > GetVoidWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->GetVoid");
-
-            var localVarPath = $"/pts/v2/voids/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetVoid", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015)));
-        }
-
-        /// <summary>
-        /// Retrieve A Void Include the void ID in the GET request to retrieve the void details.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The void ID returned from a previous void request.</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2015> GetVoidAsync (string id)
-        {
-             ApiResponse<InlineResponse2015> localVarResponse = await GetVoidAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Retrieve A Void Include the void ID in the GET request to retrieve the void details.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The void ID returned from a previous void request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> GetVoidAsyncWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->GetVoid");
-
-            var localVarPath = $"/pts/v2/voids/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetVoid", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015)));
-        }
-
-        /// <summary>
         /// Void a Capture Include the capture ID in the POST request to cancel the capture.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
-        /// <returns>InlineResponse2015</returns>
-        public InlineResponse2015 VoidCapture (VoidCaptureRequest voidCaptureRequest, string id)
+        /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
+        public PtsV2PaymentsVoidsPost201Response VoidCapture (VoidCaptureRequest voidCaptureRequest, string id)
         {
-             ApiResponse<InlineResponse2015> localVarResponse = VoidCaptureWithHttpInfo(voidCaptureRequest, id);
+             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = VoidCaptureWithHttpInfo(voidCaptureRequest, id);
              return localVarResponse.Data;
         }
 
@@ -516,8 +341,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        public ApiResponse< InlineResponse2015 > VoidCaptureWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id)
+        /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
+        public ApiResponse< PtsV2PaymentsVoidsPost201Response > VoidCaptureWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id)
         {
             // verify the required parameter 'voidCaptureRequest' is set
             if (voidCaptureRequest == null)
@@ -536,12 +361,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -571,9 +397,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
         }
 
         /// <summary>
@@ -582,10 +408,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2015> VoidCaptureAsync (VoidCaptureRequest voidCaptureRequest, string id)
+        /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidCaptureAsync (VoidCaptureRequest voidCaptureRequest, string id)
         {
-             ApiResponse<InlineResponse2015> localVarResponse = await VoidCaptureAsyncWithHttpInfo(voidCaptureRequest, id);
+             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidCaptureAsyncWithHttpInfo(voidCaptureRequest, id);
              return localVarResponse.Data;
 
         }
@@ -596,8 +422,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> VoidCaptureAsyncWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id)
+        /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCaptureAsyncWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id)
         {
             // verify the required parameter 'voidCaptureRequest' is set
             if (voidCaptureRequest == null)
@@ -606,7 +432,7 @@ namespace CyberSource.Api
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidCapture");
 
-            var localVarPath = $"/pts/v2/captures/{id}/voids";
+            var localVarPath = "/pts/v2/captures/{id}/voids";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -616,12 +442,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -651,9 +478,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
         }
 
         /// <summary>
@@ -662,10 +489,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
-        /// <returns>InlineResponse2015</returns>
-        public InlineResponse2015 VoidCredit (VoidCreditRequest voidCreditRequest, string id)
+        /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
+        public PtsV2PaymentsVoidsPost201Response VoidCredit (VoidCreditRequest voidCreditRequest, string id)
         {
-             ApiResponse<InlineResponse2015> localVarResponse = VoidCreditWithHttpInfo(voidCreditRequest, id);
+             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = VoidCreditWithHttpInfo(voidCreditRequest, id);
              return localVarResponse.Data;
         }
 
@@ -675,8 +502,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        public ApiResponse< InlineResponse2015 > VoidCreditWithHttpInfo (VoidCreditRequest voidCreditRequest, string id)
+        /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
+        public ApiResponse< PtsV2PaymentsVoidsPost201Response > VoidCreditWithHttpInfo (VoidCreditRequest voidCreditRequest, string id)
         {
             // verify the required parameter 'voidCreditRequest' is set
             if (voidCreditRequest == null)
@@ -695,12 +522,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -730,9 +558,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
         }
 
         /// <summary>
@@ -741,10 +569,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2015> VoidCreditAsync (VoidCreditRequest voidCreditRequest, string id)
+        /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidCreditAsync (VoidCreditRequest voidCreditRequest, string id)
         {
-             ApiResponse<InlineResponse2015> localVarResponse = await VoidCreditAsyncWithHttpInfo(voidCreditRequest, id);
+             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidCreditAsyncWithHttpInfo(voidCreditRequest, id);
              return localVarResponse.Data;
 
         }
@@ -755,8 +583,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> VoidCreditAsyncWithHttpInfo (VoidCreditRequest voidCreditRequest, string id)
+        /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCreditAsyncWithHttpInfo (VoidCreditRequest voidCreditRequest, string id)
         {
             // verify the required parameter 'voidCreditRequest' is set
             if (voidCreditRequest == null)
@@ -765,7 +593,7 @@ namespace CyberSource.Api
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidCredit");
 
-            var localVarPath = $"/pts/v2/credits/{id}/voids";
+            var localVarPath = "/pts/v2/credits/{id}/voids";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -775,12 +603,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -810,9 +639,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
         }
 
         /// <summary>
@@ -821,10 +650,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
-        /// <returns>InlineResponse2015</returns>
-        public InlineResponse2015 VoidPayment (VoidPaymentRequest voidPaymentRequest, string id)
+        /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
+        public PtsV2PaymentsVoidsPost201Response VoidPayment (VoidPaymentRequest voidPaymentRequest, string id)
         {
-             ApiResponse<InlineResponse2015> localVarResponse = VoidPaymentWithHttpInfo(voidPaymentRequest, id);
+             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = VoidPaymentWithHttpInfo(voidPaymentRequest, id);
              return localVarResponse.Data;
         }
 
@@ -834,8 +663,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        public ApiResponse< InlineResponse2015 > VoidPaymentWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id)
+        /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
+        public ApiResponse< PtsV2PaymentsVoidsPost201Response > VoidPaymentWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id)
         {
             // verify the required parameter 'voidPaymentRequest' is set
             if (voidPaymentRequest == null)
@@ -854,12 +683,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -889,9 +719,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
         }
 
         /// <summary>
@@ -900,10 +730,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2015> VoidPaymentAsync (VoidPaymentRequest voidPaymentRequest, string id)
+        /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidPaymentAsync (VoidPaymentRequest voidPaymentRequest, string id)
         {
-             ApiResponse<InlineResponse2015> localVarResponse = await VoidPaymentAsyncWithHttpInfo(voidPaymentRequest, id);
+             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidPaymentAsyncWithHttpInfo(voidPaymentRequest, id);
              return localVarResponse.Data;
 
         }
@@ -914,8 +744,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> VoidPaymentAsyncWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id)
+        /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidPaymentAsyncWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id)
         {
             // verify the required parameter 'voidPaymentRequest' is set
             if (voidPaymentRequest == null)
@@ -924,7 +754,7 @@ namespace CyberSource.Api
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidPayment");
 
-            var localVarPath = $"/pts/v2/payments/{id}/voids";
+            var localVarPath = "/pts/v2/payments/{id}/voids";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -934,12 +764,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -969,9 +800,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
         }
 
         /// <summary>
@@ -980,10 +811,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
-        /// <returns>InlineResponse2015</returns>
-        public InlineResponse2015 VoidRefund (VoidRefundRequest voidRefundRequest, string id)
+        /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
+        public PtsV2PaymentsVoidsPost201Response VoidRefund (VoidRefundRequest voidRefundRequest, string id)
         {
-             ApiResponse<InlineResponse2015> localVarResponse = VoidRefundWithHttpInfo(voidRefundRequest, id);
+             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = VoidRefundWithHttpInfo(voidRefundRequest, id);
              return localVarResponse.Data;
         }
 
@@ -993,8 +824,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        public ApiResponse< InlineResponse2015 > VoidRefundWithHttpInfo (VoidRefundRequest voidRefundRequest, string id)
+        /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
+        public ApiResponse< PtsV2PaymentsVoidsPost201Response > VoidRefundWithHttpInfo (VoidRefundRequest voidRefundRequest, string id)
         {
             // verify the required parameter 'voidRefundRequest' is set
             if (voidRefundRequest == null)
@@ -1013,12 +844,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1048,9 +880,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
         }
 
         /// <summary>
@@ -1059,10 +891,10 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2015> VoidRefundAsync (VoidRefundRequest voidRefundRequest, string id)
+        /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidRefundAsync (VoidRefundRequest voidRefundRequest, string id)
         {
-             ApiResponse<InlineResponse2015> localVarResponse = await VoidRefundAsyncWithHttpInfo(voidRefundRequest, id);
+             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidRefundAsyncWithHttpInfo(voidRefundRequest, id);
              return localVarResponse.Data;
 
         }
@@ -1073,8 +905,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> VoidRefundAsyncWithHttpInfo (VoidRefundRequest voidRefundRequest, string id)
+        /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidRefundAsyncWithHttpInfo (VoidRefundRequest voidRefundRequest, string id)
         {
             // verify the required parameter 'voidRefundRequest' is set
             if (voidRefundRequest == null)
@@ -1083,7 +915,7 @@ namespace CyberSource.Api
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidRefund");
 
-            var localVarPath = $"/pts/v2/refunds/{id}/voids";
+            var localVarPath = "/pts/v2/refunds/{id}/voids";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1093,12 +925,13 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                ////"application/json"
+                "application/json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1128,9 +961,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
+            return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
         }
 
     }
