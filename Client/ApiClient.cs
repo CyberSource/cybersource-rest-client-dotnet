@@ -102,6 +102,18 @@ namespace CyberSource.Client
         /// <value>An instance of the RestClient</value>
         public RestClient RestClient { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ApiRequest.
+        /// </summary>
+        /// <value>An instance of the ApiRequest</value>
+        public ApiRequest<string> ApiRequest { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ApiResponse.
+        /// </summary>
+        /// <value>An instance of the ApiResponse</value>
+        public ApiResponse<string> ApiResponse { get; set; }
+
         // Creates and sets up a RestRequest prior to a call.
         private RestRequest PrepareRequest(
             String path, RestSharp.Method method, Dictionary<String, String> queryParams, Object postBody,
@@ -229,28 +241,84 @@ namespace CyberSource.Client
 
             RestClient.ClearHandlers();
 
+            ApiRequest = CreateRequestObject(request);
+
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
 
-            var httpResponseStatusCode = (int)response.StatusCode;
-            var httpResponseHeaders = response.Headers;
-            //var httpResponseData = response.Content;
-
-            Console.WriteLine($"\n");
-            Console.WriteLine($"HTTP RESPONSE STATUS CODE: {httpResponseStatusCode}");
-
-            Console.WriteLine($"\n");
-            Console.WriteLine("HTTP RESPONSE HEADERS:-");
-
-            foreach (var header in httpResponseHeaders)
-            {
-                Console.WriteLine(header);
-            }
-            Console.WriteLine($"\n");
+            ApiResponse = CreateResponseObject(response);            
 
             return (Object)response;
         }
+
+        /// <summary>
+        /// Creates the API Request Object
+        /// </summary>
+        /// <param name="request">RestRequest Object</param>
+        /// <returns>ApiRequest</returns>
+        public ApiRequest<string> CreateRequestObject(RestRequest request)
+        {
+            var headers = new List<string>();
+            var data = string.Empty;
+
+            foreach (var parameter in request.Parameters)
+            {
+                if (parameter.Type == ParameterType.HttpHeader)
+                {
+                    headers.Add(parameter.ToString());
+                }
+
+                if (parameter.Type == ParameterType.RequestBody)
+                {
+                    data = parameter.ToString();
+                }
+            }
+
+            return new ApiRequest<string>(headers, MaskData(data));
+        }
+
+        /// <summary>
+        /// Creates the API Request Object
+        /// </summary>
+        /// <param name="response">IRestResponse Object</param>
+        /// <returns>ApiResponse</returns>
+        public ApiResponse<string> CreateResponseObject(IRestResponse response)
+        {
+            var statusCode = (int)response.StatusCode;
+            var data = response.Content;
+            var headers = response.Headers.Select(header => header.ToString()).ToList();
+
+            return new ApiResponse<string>(statusCode, headers, MaskData(data));
+        }
+
+        /// <summary>
+        /// Masks the fields in the JSON string Data as per the filters set in the function
+        /// </summary>
+        /// <param name="data">JSON string</param>
+        /// <returns>string</returns>
+        public string MaskData(string data)
+        {
+            string[] filters =
+            {
+                "country", "email", "cardNumber", "expirationDate", "cardCode", "cardType "
+            };
+
+            data = Regex.Replace(data, @"\s+", "");
+
+            var serializedMessage = JsonConvert.SerializeObject(data);
+
+            foreach (var filter in filters)
+            {
+                var reg = string.Concat(@"(\\""", filter, @"\\"":\\""[\w|\d|.@-]+\\"")");
+                serializedMessage = Regex.Replace(serializedMessage, reg, string.Concat(@"""\", filter, @"\:\XXXXXXX\"));
+            }
+
+            var maskedMessage = serializedMessage;
+
+            return maskedMessage;
+        }
+
         /// <summary>
         /// Makes the asynchronous HTTP request.
         /// </summary>

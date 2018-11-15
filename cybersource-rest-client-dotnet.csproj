@@ -88,6 +88,7 @@ OpenAPI spec version: 0.0.1
     <Compile Include="Api\VoidApi.cs" />
     <Compile Include="Client\ApiClient.cs" />
     <Compile Include="Client\ApiException.cs" />
+    <Compile Include="Client\ApiRequest.cs" />
     <Compile Include="Client\ApiResponse.cs" />
     <Compile Include="Client\Configuration.cs" />
     <Compile Include="Client\ExceptionFactory.cs" />
