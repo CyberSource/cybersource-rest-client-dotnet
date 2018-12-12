@@ -152,11 +152,11 @@ namespace CyberSource.Client
 
             if (postBody == null)
             {
-                CallAuthHdrs(method.ToString(), path);
+                CallAuthenticationHeaders(method.ToString(), path);
             }
             else
             {
-                CallAuthHdrs(method.ToString(), path, postBody.ToString());
+                CallAuthenticationHeaders(method.ToString(), path, postBody.ToString());
             }
 
             foreach (var param in Configuration.DefaultHeader)
@@ -546,10 +546,12 @@ namespace CyberSource.Client
             }
         }
 
-        /// Calling the authentication headers
+        /// Calling the Authentication SDK to Generate Request Headers necessary for Authentication
         /// 
-        public void CallAuthHdrs(string requestType, string requestTarget, string requestJsonData = null)
+        public void CallAuthenticationHeaders(string requestType, string requestTarget, string requestJsonData = null)
         {
+            requestTarget = Uri.EscapeUriString(requestTarget);
+
             var merchantConfig = Configuration.MerchantConfigDictionaryObj != null
                 ? new MerchantConfig(Configuration.MerchantConfigDictionaryObj)
                 : new MerchantConfig();
