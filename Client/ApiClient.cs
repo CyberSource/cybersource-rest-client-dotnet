@@ -235,19 +235,26 @@ namespace CyberSource.Client
 
             var httpResponseStatusCode = (int)response.StatusCode;
             var httpResponseHeaders = response.Headers;
-            //var httpResponseData = response.Content;
+            var httpResponseData = response.Content;
 
             Console.WriteLine($"\n");
-            Console.WriteLine($"HTTP RESPONSE STATUS CODE: {httpResponseStatusCode}");
+            Console.WriteLine($"RESPONSE STATUS CODE: {httpResponseStatusCode}");
 
             Console.WriteLine($"\n");
-            Console.WriteLine("HTTP RESPONSE HEADERS:-");
+            Console.WriteLine("RESPONSE HEADERS:-");
 
             foreach (var header in httpResponseHeaders)
             {
                 Console.WriteLine(header);
             }
             Console.WriteLine($"\n");
+
+            if (!string.IsNullOrEmpty(httpResponseData))
+            {
+                Console.WriteLine("RESPONSE BODY:-");
+                Console.WriteLine(httpResponseData);
+                Console.WriteLine($"\n");
+            }
 
             return (Object)response;
         }
