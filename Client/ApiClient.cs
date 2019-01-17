@@ -247,7 +247,7 @@ namespace CyberSource.Client
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
 
-            ApiResponse = CreateResponseObject(response);            
+            ApiResponse = CreateResponseObject(response);
 
             return (Object)response;
         }
@@ -306,12 +306,13 @@ namespace CyberSource.Client
 
             data = Regex.Replace(data, @"\s+", "");
 
-            var serializedMessage = JsonConvert.SerializeObject(data);
+            var serializedMessage = JsonConvert.SerializeObject(data);            
 
             foreach (var filter in filters)
             {
                 var reg = string.Concat(@"(\\""", filter, @"\\"":\\""[\w|\d|.@-]+\\"")");
-                serializedMessage = Regex.Replace(serializedMessage, reg, string.Concat(@"""\", filter, @"\:\XXXXXXX\"));
+                //serializedMessage = Regex.Replace(serializedMessage, reg, string.Concat(@"""\", filter, @"\:\XXXXXXX\"));
+                serializedMessage = Regex.Replace(serializedMessage, reg, string.Concat(@"\""", filter, @"\""", ":", @"\""", "XXXXXXX", @"\"""));
             }
 
             var maskedMessage = serializedMessage;
