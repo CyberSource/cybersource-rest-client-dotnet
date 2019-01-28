@@ -103,12 +103,6 @@ namespace CyberSource.Client
         public RestClient RestClient { get; set; }
 
         /// <summary>
-        /// Gets or sets the ApiRequest.
-        /// </summary>
-        /// <value>An instance of the ApiRequest</value>
-        public ApiRequest<string> ApiRequest { get; set; }
-
-        /// <summary>
         /// Gets or sets the ApiResponse.
         /// </summary>
         /// <value>An instance of the ApiResponse</value>
@@ -241,7 +235,7 @@ namespace CyberSource.Client
 
             RestClient.ClearHandlers();
 
-            ApiRequest = CreateRequestObject(request);
+            Configuration.RequestHeaders = AddRequestHeaders(request);
 
             InterceptRequest(request);
             var response = RestClient.Execute(request);
@@ -253,14 +247,13 @@ namespace CyberSource.Client
         }
 
         /// <summary>
-        /// Creates the API Request Object
+        /// Extracts HTTP Request Headers from RestRequest object and adds to a list of string
         /// </summary>
         /// <param name="request">RestRequest Object</param>
-        /// <returns>ApiRequest</returns>
-        public ApiRequest<string> CreateRequestObject(RestRequest request)
+        /// <returns>List<string></returns>
+        public List<string> AddRequestHeaders(RestRequest request)
         {
             var headers = new List<string>();
-            var data = string.Empty;
 
             foreach (var parameter in request.Parameters)
             {
@@ -268,14 +261,9 @@ namespace CyberSource.Client
                 {
                     headers.Add(parameter.ToString());
                 }
-
-                if (parameter.Type == ParameterType.RequestBody)
-                {
-                    data = parameter.ToString();
-                }
             }
 
-            return new ApiRequest<string>(headers, MaskData(data));
+            return headers;
         }
 
         /// <summary>
