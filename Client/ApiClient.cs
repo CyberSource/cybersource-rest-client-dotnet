@@ -18,6 +18,7 @@ using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 using AuthenticationSdk.core;
+using NLog;
 
 namespace CyberSource.Client
 {
@@ -52,6 +53,7 @@ namespace CyberSource.Client
         {
             Configuration = Configuration.Default;
             RestClient = new RestClient("https://api.cybersource.com");
+            Logger = LogManager.GetCurrentClassLogger();
         }
 
         /// <summary>
@@ -67,6 +69,7 @@ namespace CyberSource.Client
                 Configuration = config;
 
             RestClient = new RestClient("https://api.cybersource.com");
+            Logger = LogManager.GetCurrentClassLogger();
         }
 
         /// <summary>
@@ -81,6 +84,7 @@ namespace CyberSource.Client
 
             RestClient = new RestClient(basePath);
             Configuration = Configuration.Default;
+            Logger = LogManager.GetCurrentClassLogger();
         }
 
         /// <summary>
@@ -101,6 +105,12 @@ namespace CyberSource.Client
         /// </summary>
         /// <value>An instance of the RestClient</value>
         public RestClient RestClient { get; set; }
+
+        /// <summary>
+        /// Gets or sets the nlog logger.
+        /// </summary>
+        /// <value>An instance of the nlog logger</value>
+        public Logger Logger { get; set; }
 
         /// <summary>
         /// Gets or sets the ApiResponse.
@@ -237,11 +247,26 @@ namespace CyberSource.Client
 
             Configuration.RequestHeaders = AddRequestHeaders(request);
 
+            if (postBody != null)
+            {
+                var serializedRequest = JsonConvert.SerializeObject(postBody);
+                var requestJsonMasked = MaskData(string.Empty, serializedRequest.ToString());
+
+                Configuration.RequestBody = requestJsonMasked;
+                Logger.Trace($"API Request Body:{requestJsonMasked}"); 
+            }
+
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
 
             ApiResponse = CreateResponseObject(response);
+
+            if (ApiResponse != null)
+            {
+                Logger.Trace($"API Response Status Code:{ApiResponse.StatusCode}");
+                Logger.Trace($"API Response Body:{ApiResponse.Data}");
+            }
 
             return (Object)response;
         }
@@ -285,17 +310,25 @@ namespace CyberSource.Client
         /// </summary>
         /// <param name="data">JSON string</param>
         /// <returns>string</returns>
-        public string MaskData(string data)
+        public string MaskData(string data, string serializedData = null)
         {
             string[] filters =
             {
                 "country", "email", "cardNumber", "expirationDate", "cardCode", "cardType "
             };
 
-            data = Regex.Replace(data, @"\s+", "");
+            string serializedMessage = string.Empty;
 
-            var serializedMessage = JsonConvert.SerializeObject(data);            
-
+            if (serializedData == null)
+            {
+                data = Regex.Replace(data, @"\s+", "");
+                serializedMessage = JsonConvert.SerializeObject(data);
+            }
+            else
+            {
+                serializedMessage = serializedData;
+            }
+            
             foreach (var filter in filters)
             {
                 var reg = string.Concat(@"(\\""", filter, @"\\"":\\""[\w|\d|.@-]+\\"")");
@@ -621,6 +654,8 @@ namespace CyberSource.Client
 
             //these are the Request Headers to be sent along with the HTTP Request
             var authenticationHeaders = new Dictionary<string, string>();
+
+            Logger.Trace($"Calling Authentication SDK - Generating Request Headers");
 
             if (merchantConfig.IsJwtTokenAuthType)
             {

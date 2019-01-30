@@ -37,6 +37,7 @@ namespace CyberSource.Client
         /// <param name="userAgent">HTTP user agent</param>
         /// <param name="merchConfigDictObj">Dictiory Object for Merchant Config</param>
         /// <param name="requestHeaders">list of http request headers</param>
+        /// <param name="requestBody">http request body</param>
         public Configuration(ApiClient apiClient = null,
                              Dictionary<String, String> defaultHeader = null,
                              string username = null,
@@ -49,7 +50,8 @@ namespace CyberSource.Client
                              int timeout = 100000,
                              string userAgent = "Swagger-Codegen/1.0.0/csharp",
                              IReadOnlyDictionary<string, string> merchConfigDictObj = null,
-                             IList<string> requestHeaders = null
+                             IList<string> requestHeaders = null,
+                             string requestBody = null
                             )
         {
             setApiClientUsingDefault(apiClient);
@@ -71,6 +73,7 @@ namespace CyberSource.Client
             Timeout = timeout;
             MerchantConfigDictionaryObj = merchConfigDictObj;
             RequestHeaders = requestHeaders;
+            RequestBody = requestBody;
         }
 
         /// <summary>
@@ -207,6 +210,12 @@ namespace CyberSource.Client
         /// </summary>
         /// <value>HTTP request headers</value>
         public IList<string> RequestHeaders { get; set; }
+
+        /// <summary>
+        /// Gets or sets the HTTP request body
+        /// </summary>
+        /// <value>HTTP request body</value>
+        public string RequestBody { get; set; }
 
         /// <summary>
         /// Gets or sets the HTTP user agent.
