@@ -1,7 +1,4 @@
-mkdir %~dp0Csharp
-cd %~dp0
-
-java -jar swagger-codegen-cli-2.2.3.jar generate -t cybersource-csharp-template -i cybersource-rest-spec.json -l csharp -o Csharp -c %~dp0cybersource-csharp-config.json
+java -jar swagger-codegen-cli-2.2.3.jar generate -t cybersource-csharp-template -i cybersource-rest-spec.json -l csharp -o ../ -c cybersource-csharp-config.json
 
 powershell -Command "(Get-Content .\Csharp\src\CyberSource\Api\CreditApi.cs) | ForEach-Object { $_ -replace '/pts/v2/credits/', '/pts/v2/credits' } | Set-Content .\Csharp\src\CyberSource\Api\CreditApi.cs"
 
