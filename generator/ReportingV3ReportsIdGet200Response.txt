@@ -1,0 +1,8 @@
+            MONTHLY,
+
+            /// <summary>
+            /// Enum ADHOC for "ADHOC"
+            /// </summary>
+            [EnumMember(Value = "ADHOC")]
+            ADHOC
+			

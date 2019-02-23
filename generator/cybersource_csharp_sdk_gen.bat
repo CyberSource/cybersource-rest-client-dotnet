@@ -65,11 +65,49 @@ powershell -Command "(Get-Content ..\src\CyberSource\Model\Ptsv2paymentsidcaptur
 powershell -Command "(Get-Content ..\src\CyberSource\Model\Ptsv2paymentsidcapturesPointOfSaleInformation.cs) | ForEach-Object { $_ -replace 'public string AmexCapnData { get; set; }', 'public string AmexCapnData { get; set; }[DataMember(Name = \"CardPresent\", EmitDefaultValue = false)]public bool CardPresent { get; set; }[DataMember(Name = \"CatLevel\", EmitDefaultValue = false)]public string CatLevel { get; set; }[DataMember(Name = \"TerminalCapability\", EmitDefaultValue = false)]public string TerminalCapability { get; set; }' } | Set-Content ..\src\CyberSource\Model\Ptsv2paymentsidcapturesPointOfSaleInformation.cs"
 
 
+rem Accept Type and Content Type Changes
+powershell -Command " Set-Content ..\src\CyberSource\Api\CaptureApi.cs ((get-content ..\src\CyberSource\Api\CaptureApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+
+powershell -Command " Set-Content ..\src\CyberSource\Api\CreditApi.cs ((get-content ..\src\CyberSource\Api\CreditApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+
+powershell -Command " Set-Content ..\src\CyberSource\Api\InstrumentIdentifierApi.cs ((get-content ..\src\CyberSource\Api\InstrumentIdentifierApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"*/*\"')"
+
+powershell -Command " Set-Content ..\src\CyberSource\Api\InstrumentIdentifiersApi.cs ((get-content ..\src\CyberSource\Api\InstrumentIdentifiersApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {//\"application/hal+json;charset=utf-8\"')"
+
+powershell -Command " Set-Content ..\src\CyberSource\Api\PaymentInstrumentsApi.cs ((get-content ..\src\CyberSource\Api\PaymentInstrumentsApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"*/*\"')"
+
+powershell -Command " Set-Content ..\src\CyberSource\Api\PaymentsApi.cs ((get-content ..\src\CyberSource\Api\PaymentsApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+
+powershell -Command " Set-Content ..\src\CyberSource\Api\ProcessAPayoutApi.cs ((get-content ..\src\CyberSource\Api\ProcessAPayoutApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+
+powershell -Command " Set-Content ..\src\CyberSource\Api\RefundApi.cs ((get-content ..\src\CyberSource\Api\RefundApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+
+powershell -Command " Set-Content ..\src\CyberSource\Api\ReversalApi.cs ((get-content ..\src\CyberSource\Api\ReversalApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SearchTransactionsApi.cs) ; $fileContents[413] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\SearchTransactionsApi.cs"
+
+powershell -Command " Set-Content ..\src\CyberSource\Api\TransactionDetailsApi.cs ((get-content ..\src\CyberSource\Api\TransactionDetailsApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+
+powershell -Command " Set-Content ..\src\CyberSource\Api\UserManagementApi.cs ((get-content ..\src\CyberSource\Api\UserManagementApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+
+powershell -Command " Set-Content ..\src\CyberSource\Api\VoidApi.cs ((get-content ..\src\CyberSource\Api\VoidApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+
+
+rem For Adding Missing Enum Value
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.cs) ; $fileContents[50] = (get-content ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.txt); $fileContents|Set-Content ..\src\CyberSource\Model\ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.cs"
+
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\ReportingV3ReportsIdGet200Response.cs) ; $fileContents[77] = (get-content ReportingV3ReportsIdGet200Response.txt); $fileContents|Set-Content ..\src\CyberSource\Model\ReportingV3ReportsIdGet200Response.cs"
+
+
+
 rem For renaming the Assembly name in csproj file
 powershell -Command "(Get-Content ..\src\CyberSource\CyberSource.csproj) | ForEach-Object { $_ -replace '<AssemblyName>Cybersource', '<AssemblyName>cybersource-rest-client-dotnet' } | Set-Content ..\src\CyberSource\CyberSource.csproj"
 
 rem For Renaming the .csproj file Name from Cybersource to cybersource-rest-client-dotnet
 powershell Rename-Item ..\src\CyberSource\CyberSource.csproj cybersource-rest-client-dotnet.csproj
+
+rem For Renaming the .nuspec file Name from Cybersource to cybersource-rest-client-dotnet
+powershell Rename-Item ..\src\CyberSource\CyberSource.nuspec cybersource-rest-client-dotnet.nuspec
 
 rem For Renaming the Project Folder Name from Cybersource to cybersource-rest-client-dotnet
 powershell Rename-Item ..\src\CyberSource cybersource-rest-client-dotnet
