@@ -1,0 +1,23 @@
+            var localVarPath = $"/reporting/v3/reports";
+            if (!string.IsNullOrEmpty(organizationId))
+                localVarPath += $"?organizationId={organizationId}";
+
+            localVarPath += $"&startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
+            localVarPath += $"&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
+            localVarPath += $"&timeQueryType={timeQueryType}";
+
+            if (!string.IsNullOrEmpty(reportMimeType))
+                localVarPath += $"&reportMimeType={reportMimeType}";
+
+            if (!string.IsNullOrEmpty(reportFrequency))
+                localVarPath += $"&reportFrequency={reportFrequency}";
+
+            if (!string.IsNullOrEmpty(reportName))
+                localVarPath += $"&reportName={reportName}";
+
+            if (!string.IsNullOrEmpty(reportDefinitionId.ToString()))
+                localVarPath += $"&reportDefinitionId={reportDefinitionId}";
+
+            if (!string.IsNullOrEmpty(reportStatus))
+                localVarPath += $"&reportStatus={reportStatus}";
+				
