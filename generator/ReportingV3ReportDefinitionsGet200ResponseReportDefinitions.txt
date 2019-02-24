@@ -1,0 +1,7 @@
+            TextCsv,
+
+            /// <summary>
+            /// Enum ApplicationJson for "application/json"
+            /// </summary>
+            [EnumMember(Value = "application/json")]
+            ApplicationJson
