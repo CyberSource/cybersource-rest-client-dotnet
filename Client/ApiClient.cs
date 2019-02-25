@@ -18,6 +18,7 @@ using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 using AuthenticationSdk.core;
+using NLog;
 
 namespace CyberSource.Client
 {
@@ -52,6 +53,7 @@ namespace CyberSource.Client
         {
             Configuration = Configuration.Default;
             RestClient = new RestClient("https://api.cybersource.com");
+            Logger = LogManager.GetCurrentClassLogger();
         }
 
         /// <summary>
@@ -67,6 +69,7 @@ namespace CyberSource.Client
                 Configuration = config;
 
             RestClient = new RestClient("https://api.cybersource.com");
+            Logger = LogManager.GetCurrentClassLogger();
         }
 
         /// <summary>
@@ -81,6 +84,7 @@ namespace CyberSource.Client
 
             RestClient = new RestClient(basePath);
             Configuration = Configuration.Default;
+            Logger = LogManager.GetCurrentClassLogger();
         }
 
         /// <summary>
@@ -101,6 +105,18 @@ namespace CyberSource.Client
         /// </summary>
         /// <value>An instance of the RestClient</value>
         public RestClient RestClient { get; set; }
+
+        /// <summary>
+        /// Gets or sets the nlog logger.
+        /// </summary>
+        /// <value>An instance of the nlog logger</value>
+        public Logger Logger { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ApiResponse.
+        /// </summary>
+        /// <value>An instance of the ApiResponse</value>
+        public ApiResponse<string> ApiResponse { get; set; }
 
         // Creates and sets up a RestRequest prior to a call.
         private RestRequest PrepareRequest(
@@ -229,35 +245,102 @@ namespace CyberSource.Client
 
             RestClient.ClearHandlers();
 
+            Configuration.RequestHeaders = AddRequestHeaders(request);
+
+            if (postBody != null)
+            {
+                var serializedRequest = JsonConvert.SerializeObject(postBody);
+                var requestJsonMasked = MaskData(string.Empty, serializedRequest.ToString());
+
+                Configuration.RequestBody = requestJsonMasked;
+                Logger.Trace($"API Request Body:{requestJsonMasked}"); 
+            }
+
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
 
-            var httpResponseStatusCode = (int)response.StatusCode;
-            var httpResponseHeaders = response.Headers;
-            var httpResponseData = response.Content;
+            ApiResponse = CreateResponseObject(response);
 
-            Console.WriteLine($"\n");
-            Console.WriteLine($"RESPONSE STATUS CODE: {httpResponseStatusCode}");
-
-            Console.WriteLine($"\n");
-            Console.WriteLine("RESPONSE HEADERS:-");
-
-            foreach (var header in httpResponseHeaders)
+            if (ApiResponse != null)
             {
-                Console.WriteLine(header);
-            }
-            Console.WriteLine($"\n");
-
-            if (!string.IsNullOrEmpty(httpResponseData))
-            {
-                Console.WriteLine("RESPONSE BODY:-");
-                Console.WriteLine(httpResponseData);
-                Console.WriteLine($"\n");
+                Logger.Trace($"API Response Status Code:{ApiResponse.StatusCode}");
+                Logger.Trace($"API Response Body:{ApiResponse.Data}");
             }
 
             return (Object)response;
         }
+
+        /// <summary>
+        /// Extracts HTTP Request Headers from RestRequest object and adds to a list of string
+        /// </summary>
+        /// <param name="request">RestRequest Object</param>
+        /// <returns>List<string></returns>
+        public List<string> AddRequestHeaders(RestRequest request)
+        {
+            var headers = new List<string>();
+
+            foreach (var parameter in request.Parameters)
+            {
+                if (parameter.Type == ParameterType.HttpHeader)
+                {
+                    headers.Add(parameter.ToString());
+                }
+            }
+
+            return headers;
+        }
+
+        /// <summary>
+        /// Creates the API Request Object
+        /// </summary>
+        /// <param name="response">IRestResponse Object</param>
+        /// <returns>ApiResponse</returns>
+        public ApiResponse<string> CreateResponseObject(IRestResponse response)
+        {
+            var statusCode = (int)response.StatusCode;
+            var data = response.Content;
+            var headers = response.Headers.Select(header => header.ToString()).ToList();
+
+            return new ApiResponse<string>(statusCode, headers, MaskData(data));
+        }
+
+        /// <summary>
+        /// Masks the fields in the JSON string Data as per the filters set in the function
+        /// </summary>
+        /// <param name="data">JSON string</param>
+        /// <returns>string</returns>
+        public string MaskData(string data, string serializedData = null)
+        {
+            string[] filters =
+            {
+                "country", "email", "cardNumber", "expirationDate", "cardCode", "cardType "
+            };
+
+            string serializedMessage = string.Empty;
+
+            if (serializedData == null)
+            {
+                data = Regex.Replace(data, @"\s+", "");
+                serializedMessage = JsonConvert.SerializeObject(data);
+            }
+            else
+            {
+                serializedMessage = serializedData;
+            }
+            
+            foreach (var filter in filters)
+            {
+                var reg = string.Concat(@"(\\""", filter, @"\\"":\\""[\w|\d|.@-]+\\"")");
+                //serializedMessage = Regex.Replace(serializedMessage, reg, string.Concat(@"""\", filter, @"\:\XXXXXXX\"));
+                serializedMessage = Regex.Replace(serializedMessage, reg, string.Concat(@"\""", filter, @"\""", ":", @"\""", "XXXXXXX", @"\"""));
+            }
+
+            var maskedMessage = serializedMessage;
+
+            return maskedMessage;
+        }
+
         /// <summary>
         /// Makes the asynchronous HTTP request.
         /// </summary>
@@ -571,6 +654,8 @@ namespace CyberSource.Client
 
             //these are the Request Headers to be sent along with the HTTP Request
             var authenticationHeaders = new Dictionary<string, string>();
+
+            Logger.Trace($"Calling Authentication SDK - Generating Request Headers");
 
             if (merchantConfig.IsJwtTokenAuthType)
             {

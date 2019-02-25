@@ -31,6 +31,12 @@ namespace CyberSource.Client
         public IDictionary<string, string> Headers { get; private set; }
 
         /// <summary>
+        /// Gets or sets the HTTP headers as List of string
+        /// </summary>
+        /// <value>HTTP headers</value>
+        public IList<string> HeadersList { get; private set; }
+
+        /// <summary>
         /// Gets or sets the data (parsed HTTP body)
         /// </summary>
         /// <value>The data.</value>
@@ -49,6 +55,18 @@ namespace CyberSource.Client
             this.Data = data;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApiResponse&lt;T&gt;" /> class.
+        /// </summary>
+        /// <param name="statusCode">HTTP status code.</param>
+        /// <param name="headers">HTTP headers (as List of string values).</param>
+        /// <param name="data">Data (parsed HTTP body)</param>
+        public ApiResponse(int statusCode, IList<string> headers, T data)
+        {
+            this.StatusCode = statusCode;
+            this.HeadersList = headers;
+            this.Data = data;
+        }
     }
 
 }
