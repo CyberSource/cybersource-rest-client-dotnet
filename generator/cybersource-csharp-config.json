@@ -1,3 +1,6 @@
 {
-   "packageName" : "CyberSource"
+   "rootNamespace" : "CyberSource",
+   "targetFramework" : "v4.6.1",
+   "packageName" : "cybersource-rest-client-dotnet",
+   "testPackage" : "cybersource-rest-client-dotnet.Test"
 }
