@@ -1,0 +1,3 @@
+.nuspec
+.config
+AssemblyInfo.cs
