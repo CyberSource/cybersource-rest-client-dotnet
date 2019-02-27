@@ -1,5 +1,5 @@
             var localVarPath = $"/reporting/v3/reports";
-            if (!string.IsNullOrEmpty(organizationId))
+			if (!string.IsNullOrEmpty(organizationId))
                 localVarPath += $"?organizationId={organizationId}";
 
             localVarPath += $"&startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
@@ -20,4 +20,3 @@
 
             if (!string.IsNullOrEmpty(reportStatus))
                 localVarPath += $"&reportStatus={reportStatus}";
-				

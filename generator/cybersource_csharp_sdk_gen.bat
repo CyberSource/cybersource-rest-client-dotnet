@@ -17,31 +17,33 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\SecureFileShareApi.cs) 
 
 
 rem For Converting the datetime values to string while appending them to the localVarPath and commenting out the values being set in query params obj
-powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[257] = $fileContents[257] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}' ; $fileContents[331] = $fileContents[331] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}' ; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[660] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[660] = $fileContents[660] -replace 'Configuration.ApiClient.SelectHeaderContentType\(localVarHttpContentTypes\)', '\"\"'; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[661] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[670] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[662] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[671] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[663] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[672] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[664] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[673] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[665] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[674] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[666] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[675] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[667] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[676] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[668] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[677] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[638] = (get-content ReportsApiLocalVarPath.txt); $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[678] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[648] = (get-content ReportsApiLocalVarPath.txt); $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
 
 rem For Removing the length check for a property which is currently giving compile time error
@@ -100,7 +102,7 @@ REM powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\R
 
 rem For changing nuspec filename in csproj file
 
-powershell -Command "(Get-Content ..\src\CyberSource\CyberSource.csproj) | ForEach-Object { $_ -replace '<None Include="CyberSource.nuspec" />', '<None Include="cybersource-rest-client-dotnet.nuspec" />' } | Set-Content ..\src\CyberSource\CyberSource.csproj"
+powershell -Command "(Get-Content ..\src\CyberSource\CyberSource.csproj) | ForEach-Object { $_ -replace '<None Include=\"CyberSource.nuspec\" />', '<None Include=\"cybersource-rest-client-dotnet.nuspec\" />' } | Set-Content ..\src\CyberSource\CyberSource.csproj"
 
 rem For Renaming the .csproj file Name from Cybersource to cybersource-rest-client-dotnet
 powershell Rename-Item ..\src\CyberSource\CyberSource.csproj cybersource-rest-client-dotnet.csproj
@@ -114,10 +116,10 @@ del ..\cybersource-rest-client-dotnet.sln
 
 powershell Rename-Item ..\CyberSource.sln cybersource-rest-client-dotnet.sln
 
-xcopy ..\src\CyberSource ..\ /s /e /y /Exclude:excludeList.txt
+xcopy ..\src\cybersource ..\ /s /e /y /exclude:excludelist.txt
 git checkout ..\README.md
 md ..\test
-xcopy ..\src\CyberSource.Test ..\test /s /e /y
+xcopy ..\src\cybersource.test ..\test /s /e /y
 
 rd /s /q ..\src
 

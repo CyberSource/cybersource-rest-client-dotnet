@@ -68,22 +68,13 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
 	<Reference Include="AuthenticationSdk">
-      <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\CyberSource.Authentication.0.0.0.3\lib\AuthenticationSdk.dll</HintPath>
-      <HintPath Condition="Exists('..\packages')">..\packages\CyberSource.Authentication.0.0.0.3\lib\AuthenticationSdk.dll</HintPath>
-      <HintPath Condition="Exists('..\..\packages')">..\..\packages\CyberSource.Authentication.0.0.0.3\lib\AuthenticationSdk.dll</HintPath>
-      <HintPath Condition="Exists('{{binRelativePath}}')">{{binRelativePath}}\CyberSource.Authentication.0.0.0.3\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.3\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\Newtonsoft.Json.10.0.3\lib\{{targetFrameworkNuget}}\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('..\packages')">..\packages\Newtonsoft.Json.10.0.3\lib\{{targetFrameworkNuget}}\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('..\..\packages')">..\..\packages\Newtonsoft.Json.10.0.3\lib\{{targetFrameworkNuget}}\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('{{binRelativePath}}')">{{binRelativePath}}\Newtonsoft.Json.10.0.3\lib\{{targetFrameworkNuget}}\Newtonsoft.Json.dll</HintPath>
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\{{targetFrameworkNuget}}\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-        <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\RestSharp.105.1.0\lib\{{targetFrameworkNuget}}\RestSharp.dll</HintPath>
-        <HintPath Condition="Exists('..\packages')">..\packages\RestSharp.105.1.0\lib\{{targetFrameworkNuget}}\RestSharp.dll</HintPath>
-        <HintPath Condition="Exists('..\..\packages')">..\..\packages\RestSharp.105.1.0\lib\{{targetFrameworkNuget}}\RestSharp.dll</HintPath>
-      <HintPath Condition="Exists('{{binRelativePath}}')">{{binRelativePath}}\RestSharp.105.1.0\lib\{{targetFrameworkNuget}}\RestSharp.dll</HintPath>
+        <HintPath>packages\RestSharp.106.5.3\lib\{{targetFrameworkNuget}}\RestSharp.dll</HintPath>
     </Reference>
     {{#generatePropertyChanged}}
     <Reference Include="PropertyChanged">
@@ -98,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="**\*.cs"
-             Exclude="obj\**" />
+             Exclude="obj\**;test\**" />
   </ItemGroup>
   {{^netStandard}}
   <ItemGroup>
