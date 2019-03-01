@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsProcessingInformationRecurringOptions" /> class.
         /// </summary>
-        /// <param name="LoanPayment">Flag that indicates whether this is a payment towards an existing contractual loan.  (default to false).</param>
-        /// <param name="FirstRecurringPayment">Flag that indicates whether this transaction is the first in a series of recurring payments. This field is supported only for **Atos**, **FDC Nashville Global**, and **OmniPay Direct**.  (default to false).</param>
+        /// <param name="LoanPayment">Flag that indicates whether this is a payment towards an existing contractual loan.  Possible values: - **true** Loan payment - **false** (default) Not a loan payment  See \&quot;Visa Debt Repayments,\&quot; page 218, for a list of processors that support this feature.  (default to false).</param>
+        /// <param name="FirstRecurringPayment">Flag that indicates whether this transaction is the first in a series of recurring payments.  This field is supported only for **Atos**, **FDC Nashville Global**, and **OmniPay Direct**.  Possible values:  - **true** Indicates this is the first payment in a series of recurring payments  - **false** (default) Indicates this is not the first payment in a series of recurring payments.  For more details, see \&quot;Recurring Payments,\&quot; page 198.  (default to false).</param>
         public Ptsv2paymentsProcessingInformationRecurringOptions(bool? LoanPayment = false, bool? FirstRecurringPayment = false)
         {
             // use default value if no "LoanPayment" provided
@@ -58,16 +58,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Flag that indicates whether this is a payment towards an existing contractual loan. 
+        /// Flag that indicates whether this is a payment towards an existing contractual loan.  Possible values: - **true** Loan payment - **false** (default) Not a loan payment  See \&quot;Visa Debt Repayments,\&quot; page 218, for a list of processors that support this feature. 
         /// </summary>
-        /// <value>Flag that indicates whether this is a payment towards an existing contractual loan. </value>
+        /// <value>Flag that indicates whether this is a payment towards an existing contractual loan.  Possible values: - **true** Loan payment - **false** (default) Not a loan payment  See \&quot;Visa Debt Repayments,\&quot; page 218, for a list of processors that support this feature. </value>
         [DataMember(Name="loanPayment", EmitDefaultValue=false)]
         public bool? LoanPayment { get; set; }
 
         /// <summary>
-        /// Flag that indicates whether this transaction is the first in a series of recurring payments. This field is supported only for **Atos**, **FDC Nashville Global**, and **OmniPay Direct**. 
+        /// Flag that indicates whether this transaction is the first in a series of recurring payments.  This field is supported only for **Atos**, **FDC Nashville Global**, and **OmniPay Direct**.  Possible values:  - **true** Indicates this is the first payment in a series of recurring payments  - **false** (default) Indicates this is not the first payment in a series of recurring payments.  For more details, see \&quot;Recurring Payments,\&quot; page 198. 
         /// </summary>
-        /// <value>Flag that indicates whether this transaction is the first in a series of recurring payments. This field is supported only for **Atos**, **FDC Nashville Global**, and **OmniPay Direct**. </value>
+        /// <value>Flag that indicates whether this transaction is the first in a series of recurring payments.  This field is supported only for **Atos**, **FDC Nashville Global**, and **OmniPay Direct**.  Possible values:  - **true** Indicates this is the first payment in a series of recurring payments  - **false** (default) Indicates this is not the first payment in a series of recurring payments.  For more details, see \&quot;Recurring Payments,\&quot; page 198. </value>
         [DataMember(Name="firstRecurringPayment", EmitDefaultValue=false)]
         public bool? FirstRecurringPayment { get; set; }
 

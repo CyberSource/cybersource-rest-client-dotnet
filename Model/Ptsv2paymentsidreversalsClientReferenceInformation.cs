@@ -33,18 +33,20 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidreversalsClientReferenceInformation" /> class.
         /// </summary>
-        /// <param name="Code">Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction. .</param>
+        /// <param name="Code">Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  For information about tracking orders, see Getting Started with CyberSource Advanced for the SCMP API.  **FDC Nashville Global**\\ Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. .</param>
         /// <param name="Comments">Comments.</param>
-        public Ptsv2paymentsidreversalsClientReferenceInformation(string Code = default(string), string Comments = default(string))
+        /// <param name="Partner">Partner.</param>
+        public Ptsv2paymentsidreversalsClientReferenceInformation(string Code = default(string), string Comments = default(string), Ptsv2paymentsidreversalsClientReferenceInformationPartner Partner = default(Ptsv2paymentsidreversalsClientReferenceInformationPartner))
         {
             this.Code = Code;
             this.Comments = Comments;
+            this.Partner = Partner;
         }
         
         /// <summary>
-        /// Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction. 
+        /// Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  For information about tracking orders, see Getting Started with CyberSource Advanced for the SCMP API.  **FDC Nashville Global**\\ Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. 
         /// </summary>
-        /// <value>Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction. </value>
+        /// <value>Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  For information about tracking orders, see Getting Started with CyberSource Advanced for the SCMP API.  **FDC Nashville Global**\\ Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
@@ -56,6 +58,12 @@ namespace CyberSource.Model
         public string Comments { get; set; }
 
         /// <summary>
+        /// Gets or Sets Partner
+        /// </summary>
+        [DataMember(Name="partner", EmitDefaultValue=false)]
+        public Ptsv2paymentsidreversalsClientReferenceInformationPartner Partner { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +73,7 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsidreversalsClientReferenceInformation {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
+            sb.Append("  Partner: ").Append(Partner).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +119,11 @@ namespace CyberSource.Model
                     this.Comments == other.Comments ||
                     this.Comments != null &&
                     this.Comments.Equals(other.Comments)
+                ) && 
+                (
+                    this.Partner == other.Partner ||
+                    this.Partner != null &&
+                    this.Partner.Equals(other.Partner)
                 );
         }
 
@@ -128,6 +142,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Code.GetHashCode();
                 if (this.Comments != null)
                     hash = hash * 59 + this.Comments.GetHashCode();
+                if (this.Partner != null)
+                    hash = hash * 59 + this.Partner.GetHashCode();
                 return hash;
             }
         }

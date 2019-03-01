@@ -1,0 +1,74 @@
+# CyberSource.Api.ConversionDetailsApi
+
+All URIs are relative to *https://apitest.cybersource.com*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**GetConversionDetail**](ConversionDetailsApi.md#getconversiondetail) | **GET** /reporting/v3/conversion-details | Get conversion detail transactions
+
+
+<a name="getconversiondetail"></a>
+# **GetConversionDetail**
+> ReportingV3ConversionDetailsGet200Response GetConversionDetail (DateTime? startTime, DateTime? endTime, string organizationId = null)
+
+Get conversion detail transactions
+
+Get conversion detail of transactions for a merchant.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class GetConversionDetailExample
+    {
+        public void main()
+        {
+            var apiInstance = new ConversionDetailsApi();
+            var startTime = 2013-10-20T19:20:30+01:00;  // DateTime? | Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd'T'HH:mm:ssXXX 
+            var endTime = 2013-10-20T19:20:30+01:00;  // DateTime? | Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd'T'HH:mm:ssXXX 
+            var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
+
+            try
+            {
+                // Get conversion detail transactions
+                ReportingV3ConversionDetailsGet200Response result = apiInstance.GetConversionDetail(startTime, endTime, organizationId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversionDetailsApi.GetConversionDetail: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startTime** | **DateTime?**| Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX  | 
+ **endTime** | **DateTime?**| Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX  | 
+ **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
+
+### Return type
+
+[**ReportingV3ConversionDetailsGet200Response**](ReportingV3ConversionDetailsGet200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/hal+json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

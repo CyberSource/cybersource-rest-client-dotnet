@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientReferenceInformation** | [**PtsV2PaymentsPost201ResponseClientReferenceInformation**](PtsV2PaymentsPost201ResponseClientReferenceInformation.md) |  | [optional] 
+**ClientReferenceInformation** | [**Ptsv2payoutsClientReferenceInformation**](Ptsv2payoutsClientReferenceInformation.md) |  | [optional] 
 **OrderInformation** | [**Ptsv2payoutsOrderInformation**](Ptsv2payoutsOrderInformation.md) |  | [optional] 
 **MerchantInformation** | [**Ptsv2payoutsMerchantInformation**](Ptsv2payoutsMerchantInformation.md) |  | [optional] 
 **RecipientInformation** | [**Ptsv2payoutsRecipientInformation**](Ptsv2payoutsRecipientInformation.md) |  | [optional] 

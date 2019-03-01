@@ -33,10 +33,11 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessorInformation" /> class.
         /// </summary>
+        /// <param name="AuthIndicator">Flag that specifies the purpose of the authorization.  Possible values:  - **0**: Preauthorization  - **1**: Final authorization  For processor-specific information, see the auth_indicator field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         /// <param name="ApprovalCode">Authorization code. Returned only when the processor returns this value. .</param>
-        /// <param name="TransactionId">Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this  value. .</param>
-        /// <param name="NetworkTransactionId">Description of this field is not available..</param>
-        /// <param name="ProviderTransactionId">Description of this field is not available..</param>
+        /// <param name="TransactionId">Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this value. .</param>
+        /// <param name="NetworkTransactionId">The description for this field is not available..</param>
+        /// <param name="ProviderTransactionId">The description for this field is not available..</param>
         /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  Important Do not use this field to evaluate the result of the authorization. .</param>
         /// <param name="ResponseCodeSource">Used by Visa only and contains the response source/reason code that identifies the source of the response decision. .</param>
         /// <param name="ResponseDetails">This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. .</param>
@@ -46,9 +47,9 @@ namespace CyberSource.Model
         /// <param name="CardVerification">CardVerification.</param>
         /// <param name="MerchantAdvice">MerchantAdvice.</param>
         /// <param name="ElectronicVerificationResults">ElectronicVerificationResults.</param>
+        /// <param name="AchVerification">AchVerification.</param>
         /// <param name="Customer">Customer.</param>
         /// <param name="ConsumerAuthenticationResponse">ConsumerAuthenticationResponse.</param>
-        /// <param name="Issuer">Issuer.</param>
         /// <param name="SystemTraceAuditNumber">This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customer’s receipt. .</param>
         /// <param name="PaymentAccountReferenceNumber">Visa-generated reference number that identifies a card-present transaction for which youprovided one of the following:   - Visa primary account number (PAN)  - Visa-generated token for a PAN  This reference number serves as a link to the cardholder account and to all transactions for that account. .</param>
         /// <param name="TransactionIntegrityCode">Transaction integrity classification provided by Mastercard. This value specifies Mastercard’s evaluation of the transaction’s safety and security. This field is returned only for **CyberSource through VisaNet**.  For card-present transactions, possible values:   - **A1**: EMV or token in a secure, trusted environment  - **B1**: EMV or chip equivalent  - **C1**: Magnetic stripe  - **E1**: Key entered  - **U0**: Unclassified  For card-not-present transactions, possible values:   - **A2**: Digital transactions  - **B2**: Authenticated checkout  - **C2**: Transaction validation  - **D2**: Enhanced data  - **E2**: Generic messaging  - **U0**: Unclassified  For information about these values, contact Mastercard or your acquirer. .</param>
@@ -58,8 +59,11 @@ namespace CyberSource.Model
         /// <param name="MasterCardServiceReplyCode">Result of the Mastercard card-on-file token service. Mastercard provides this value to CyberSource.  Possible values:   - **C**: Service completed successfully.  - **F**: One of the following:    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 81 for an authorization or      authorization reversal.    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 01 for a tokenized request.    - Token requestor ID is missing or formatted incorrectly.  - **I**: One of the following:    - Invalid token requestor ID.    - Suspended or deactivated token.    - Invalid token (not in mapping table).  - **T**: Invalid combination of token requestor ID and token.  - **U**: Expired token.  - **W**: Primary account number (PAN) listed in electronic warning bulletin.  Note This field is returned only for **CyberSource through VisaNet**. .</param>
         /// <param name="MasterCardAuthenticationType">Type of authentication for which the transaction qualifies as determined by the Mastercard authentication service, which confirms the identity of the cardholder. Mastercard provides this value to CyberSource.  Possible values:   - **1**: Transaction qualifies for Mastercard authentication type 1.  - **2**: Transaction qualifies for Mastercard authentication type 2. .</param>
         /// <param name="Name">Name of the Processor. .</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ProviderTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), PtsV2PaymentsPost201ResponseProcessorInformationIssuer Issuer = default(PtsV2PaymentsPost201ResponseProcessorInformationIssuer), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), decimal? SalesSlipNumber = default(decimal?), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string))
+        /// <param name="Routing">Routing.</param>
+        /// <param name="MerchantNumber">Identifier that was assigned to you by your acquirer.  This value must be printed on the receipt.  This field is supported only on **American Express Direct**, **FDC Nashville Global**, and **SIX**. .</param>
+        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ProviderTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), decimal? SalesSlipNumber = default(decimal?), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string))
         {
+            this.AuthIndicator = AuthIndicator;
             this.ApprovalCode = ApprovalCode;
             this.TransactionId = TransactionId;
             this.NetworkTransactionId = NetworkTransactionId;
@@ -73,9 +77,9 @@ namespace CyberSource.Model
             this.CardVerification = CardVerification;
             this.MerchantAdvice = MerchantAdvice;
             this.ElectronicVerificationResults = ElectronicVerificationResults;
+            this.AchVerification = AchVerification;
             this.Customer = Customer;
             this.ConsumerAuthenticationResponse = ConsumerAuthenticationResponse;
-            this.Issuer = Issuer;
             this.SystemTraceAuditNumber = SystemTraceAuditNumber;
             this.PaymentAccountReferenceNumber = PaymentAccountReferenceNumber;
             this.TransactionIntegrityCode = TransactionIntegrityCode;
@@ -85,8 +89,17 @@ namespace CyberSource.Model
             this.MasterCardServiceReplyCode = MasterCardServiceReplyCode;
             this.MasterCardAuthenticationType = MasterCardAuthenticationType;
             this.Name = Name;
+            this.Routing = Routing;
+            this.MerchantNumber = MerchantNumber;
         }
         
+        /// <summary>
+        /// Flag that specifies the purpose of the authorization.  Possible values:  - **0**: Preauthorization  - **1**: Final authorization  For processor-specific information, see the auth_indicator field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// </summary>
+        /// <value>Flag that specifies the purpose of the authorization.  Possible values:  - **0**: Preauthorization  - **1**: Final authorization  For processor-specific information, see the auth_indicator field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        [DataMember(Name="authIndicator", EmitDefaultValue=false)]
+        public string AuthIndicator { get; set; }
+
         /// <summary>
         /// Authorization code. Returned only when the processor returns this value. 
         /// </summary>
@@ -95,23 +108,23 @@ namespace CyberSource.Model
         public string ApprovalCode { get; set; }
 
         /// <summary>
-        /// Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this  value. 
+        /// Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this value. 
         /// </summary>
-        /// <value>Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this  value. </value>
+        /// <value>Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this value. </value>
         [DataMember(Name="transactionId", EmitDefaultValue=false)]
         public string TransactionId { get; set; }
 
         /// <summary>
-        /// Description of this field is not available.
+        /// The description for this field is not available.
         /// </summary>
-        /// <value>Description of this field is not available.</value>
+        /// <value>The description for this field is not available.</value>
         [DataMember(Name="networkTransactionId", EmitDefaultValue=false)]
         public string NetworkTransactionId { get; set; }
 
         /// <summary>
-        /// Description of this field is not available.
+        /// The description for this field is not available.
         /// </summary>
-        /// <value>Description of this field is not available.</value>
+        /// <value>The description for this field is not available.</value>
         [DataMember(Name="providerTransactionId", EmitDefaultValue=false)]
         public string ProviderTransactionId { get; set; }
 
@@ -175,6 +188,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults { get; set; }
 
         /// <summary>
+        /// Gets or Sets AchVerification
+        /// </summary>
+        [DataMember(Name="achVerification", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification { get; set; }
+
+        /// <summary>
         /// Gets or Sets Customer
         /// </summary>
         [DataMember(Name="customer", EmitDefaultValue=false)]
@@ -185,12 +204,6 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="consumerAuthenticationResponse", EmitDefaultValue=false)]
         public PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Issuer
-        /// </summary>
-        [DataMember(Name="issuer", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseProcessorInformationIssuer Issuer { get; set; }
 
         /// <summary>
         /// This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customer’s receipt. 
@@ -256,6 +269,19 @@ namespace CyberSource.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or Sets Routing
+        /// </summary>
+        [DataMember(Name="routing", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing { get; set; }
+
+        /// <summary>
+        /// Identifier that was assigned to you by your acquirer.  This value must be printed on the receipt.  This field is supported only on **American Express Direct**, **FDC Nashville Global**, and **SIX**. 
+        /// </summary>
+        /// <value>Identifier that was assigned to you by your acquirer.  This value must be printed on the receipt.  This field is supported only on **American Express Direct**, **FDC Nashville Global**, and **SIX**. </value>
+        [DataMember(Name="merchantNumber", EmitDefaultValue=false)]
+        public string MerchantNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -263,6 +289,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseProcessorInformation {\n");
+            sb.Append("  AuthIndicator: ").Append(AuthIndicator).Append("\n");
             sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
@@ -276,9 +303,9 @@ namespace CyberSource.Model
             sb.Append("  CardVerification: ").Append(CardVerification).Append("\n");
             sb.Append("  MerchantAdvice: ").Append(MerchantAdvice).Append("\n");
             sb.Append("  ElectronicVerificationResults: ").Append(ElectronicVerificationResults).Append("\n");
+            sb.Append("  AchVerification: ").Append(AchVerification).Append("\n");
             sb.Append("  Customer: ").Append(Customer).Append("\n");
             sb.Append("  ConsumerAuthenticationResponse: ").Append(ConsumerAuthenticationResponse).Append("\n");
-            sb.Append("  Issuer: ").Append(Issuer).Append("\n");
             sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
             sb.Append("  PaymentAccountReferenceNumber: ").Append(PaymentAccountReferenceNumber).Append("\n");
             sb.Append("  TransactionIntegrityCode: ").Append(TransactionIntegrityCode).Append("\n");
@@ -288,6 +315,8 @@ namespace CyberSource.Model
             sb.Append("  MasterCardServiceReplyCode: ").Append(MasterCardServiceReplyCode).Append("\n");
             sb.Append("  MasterCardAuthenticationType: ").Append(MasterCardAuthenticationType).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Routing: ").Append(Routing).Append("\n");
+            sb.Append("  MerchantNumber: ").Append(MerchantNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -324,6 +353,11 @@ namespace CyberSource.Model
                 return false;
 
             return 
+                (
+                    this.AuthIndicator == other.AuthIndicator ||
+                    this.AuthIndicator != null &&
+                    this.AuthIndicator.Equals(other.AuthIndicator)
+                ) && 
                 (
                     this.ApprovalCode == other.ApprovalCode ||
                     this.ApprovalCode != null &&
@@ -390,6 +424,11 @@ namespace CyberSource.Model
                     this.ElectronicVerificationResults.Equals(other.ElectronicVerificationResults)
                 ) && 
                 (
+                    this.AchVerification == other.AchVerification ||
+                    this.AchVerification != null &&
+                    this.AchVerification.Equals(other.AchVerification)
+                ) && 
+                (
                     this.Customer == other.Customer ||
                     this.Customer != null &&
                     this.Customer.Equals(other.Customer)
@@ -398,11 +437,6 @@ namespace CyberSource.Model
                     this.ConsumerAuthenticationResponse == other.ConsumerAuthenticationResponse ||
                     this.ConsumerAuthenticationResponse != null &&
                     this.ConsumerAuthenticationResponse.Equals(other.ConsumerAuthenticationResponse)
-                ) && 
-                (
-                    this.Issuer == other.Issuer ||
-                    this.Issuer != null &&
-                    this.Issuer.Equals(other.Issuer)
                 ) && 
                 (
                     this.SystemTraceAuditNumber == other.SystemTraceAuditNumber ||
@@ -448,6 +482,16 @@ namespace CyberSource.Model
                     this.Name == other.Name ||
                     this.Name != null &&
                     this.Name.Equals(other.Name)
+                ) && 
+                (
+                    this.Routing == other.Routing ||
+                    this.Routing != null &&
+                    this.Routing.Equals(other.Routing)
+                ) && 
+                (
+                    this.MerchantNumber == other.MerchantNumber ||
+                    this.MerchantNumber != null &&
+                    this.MerchantNumber.Equals(other.MerchantNumber)
                 );
         }
 
@@ -462,6 +506,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.AuthIndicator != null)
+                    hash = hash * 59 + this.AuthIndicator.GetHashCode();
                 if (this.ApprovalCode != null)
                     hash = hash * 59 + this.ApprovalCode.GetHashCode();
                 if (this.TransactionId != null)
@@ -488,12 +534,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantAdvice.GetHashCode();
                 if (this.ElectronicVerificationResults != null)
                     hash = hash * 59 + this.ElectronicVerificationResults.GetHashCode();
+                if (this.AchVerification != null)
+                    hash = hash * 59 + this.AchVerification.GetHashCode();
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
                 if (this.ConsumerAuthenticationResponse != null)
                     hash = hash * 59 + this.ConsumerAuthenticationResponse.GetHashCode();
-                if (this.Issuer != null)
-                    hash = hash * 59 + this.Issuer.GetHashCode();
                 if (this.SystemTraceAuditNumber != null)
                     hash = hash * 59 + this.SystemTraceAuditNumber.GetHashCode();
                 if (this.PaymentAccountReferenceNumber != null)
@@ -512,6 +558,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MasterCardAuthenticationType.GetHashCode();
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
+                if (this.Routing != null)
+                    hash = hash * 59 + this.Routing.GetHashCode();
+                if (this.MerchantNumber != null)
+                    hash = hash * 59 + this.MerchantNumber.GetHashCode();
                 return hash;
             }
         }
@@ -523,6 +573,12 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AuthIndicator (string) maxLength
+            if(this.AuthIndicator != null && this.AuthIndicator.Length > 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthIndicator, length must be less than 1.", new [] { "AuthIndicator" });
+            }
+
             // TransactionId (string) maxLength
             if(this.TransactionId != null && this.TransactionId.Length > 50)
             {
@@ -611,6 +667,12 @@ namespace CyberSource.Model
             if(this.Name != null && this.Name.Length > 30)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 30.", new [] { "Name" });
+            }
+
+            // MerchantNumber (string) maxLength
+            if(this.MerchantNumber != null && this.MerchantNumber.Length > 15)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantNumber, length must be less than 15.", new [] { "MerchantNumber" });
             }
 
             yield break;

@@ -275,12 +275,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Suffix (string) maxLength
-            if(this.Suffix != null && this.Suffix.Length > 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Suffix, length must be less than 4.", new [] { "Suffix" });
-            }
-
             // Prefix (string) maxLength
             if(this.Prefix != null && this.Prefix.Length > 6)
             {
@@ -315,12 +309,6 @@ namespace CyberSource.Model
             if(this.IssueNumber != null && this.IssueNumber.Length > 5)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IssueNumber, length must be less than 5.", new [] { "IssueNumber" });
-            }
-
-            // Type (string) maxLength
-            if(this.Type != null && this.Type.Length > 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 3.", new [] { "Type" });
             }
 
             // AccountEncoderId (string) maxLength

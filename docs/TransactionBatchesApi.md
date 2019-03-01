@@ -4,14 +4,15 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PtsV1TransactionBatchesGet**](TransactionBatchesApi.md#ptsv1transactionbatchesget) | **GET** /pts/v1/transaction-batches | Get a list of batch files processed through the Offline Transaction Submission Services
+[**GetTransactionBatchId**](TransactionBatchesApi.md#gettransactionbatchid) | **GET** /pts/v1/transaction-batches/{id} | Get individual batch file
+[**GetTransactionBatches**](TransactionBatchesApi.md#gettransactionbatches) | **GET** /pts/v1/transaction-batches | Get a list of batch files
 
 
-<a name="ptsv1transactionbatchesget"></a>
-# **PtsV1TransactionBatchesGet**
-> PtsV1TransactionBatchesGet200Response PtsV1TransactionBatchesGet (DateTime? startTime, DateTime? endTime)
+<a name="gettransactionbatchid"></a>
+# **GetTransactionBatchId**
+> PtsV1TransactionBatchesIdGet200Response GetTransactionBatchId (string id)
 
-Get a list of batch files processed through the Offline Transaction Submission Services
+Get individual batch file
 
 Provide the search range
 
@@ -25,7 +26,68 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class PtsV1TransactionBatchesGetExample
+    public class GetTransactionBatchIdExample
+    {
+        public void main()
+        {
+            var apiInstance = new TransactionBatchesApi();
+            var id = id_example;  // string | The batch id assigned for the template.
+
+            try
+            {
+                // Get individual batch file
+                PtsV1TransactionBatchesIdGet200Response result = apiInstance.GetTransactionBatchId(id);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling TransactionBatchesApi.GetTransactionBatchId: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The batch id assigned for the template. | 
+
+### Return type
+
+[**PtsV1TransactionBatchesIdGet200Response**](PtsV1TransactionBatchesIdGet200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/hal+json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="gettransactionbatches"></a>
+# **GetTransactionBatches**
+> PtsV1TransactionBatchesGet200Response GetTransactionBatches (DateTime? startTime, DateTime? endTime)
+
+Get a list of batch files
+
+Provide the search range
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class GetTransactionBatchesExample
     {
         public void main()
         {
@@ -35,13 +97,13 @@ namespace Example
 
             try
             {
-                // Get a list of batch files processed through the Offline Transaction Submission Services
-                PtsV1TransactionBatchesGet200Response result = apiInstance.PtsV1TransactionBatchesGet(startTime, endTime);
+                // Get a list of batch files
+                PtsV1TransactionBatchesGet200Response result = apiInstance.GetTransactionBatches(startTime, endTime);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling TransactionBatchesApi.PtsV1TransactionBatchesGet: " + e.Message );
+                Debug.Print("Exception when calling TransactionBatchesApi.GetTransactionBatches: " + e.Message );
             }
         }
     }

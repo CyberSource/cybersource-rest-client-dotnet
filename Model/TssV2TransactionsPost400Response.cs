@@ -58,7 +58,7 @@ namespace CyberSource.Model
         /// <param name="Status">The status of the submitted transaction..</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
-        public TssV2TransactionsPost400Response(string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
+        public TssV2TransactionsPost400Response(string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string Message = default(string), List<PtsV2PayoutsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PayoutsPost201ResponseErrorInformationDetails>))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
@@ -85,7 +85,7 @@ namespace CyberSource.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="details", EmitDefaultValue=false)]
-        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
+        public List<PtsV2PayoutsPost201ResponseErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

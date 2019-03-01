@@ -199,7 +199,7 @@ No authorization required
 
 <a name="tmsv1paymentinstrumentstokenidget"></a>
 # **TmsV1PaymentinstrumentsTokenIdGet**
-> TmsV1PaymentinstrumentsPost201Response TmsV1PaymentinstrumentsTokenIdGet (string profileId, string tokenId)
+> TmsV1PaymentinstrumentsGet200Response TmsV1PaymentinstrumentsTokenIdGet (string profileId, string tokenId)
 
 Retrieve a Payment Instrument
 
@@ -224,7 +224,7 @@ namespace Example
             try
             {
                 // Retrieve a Payment Instrument
-                TmsV1PaymentinstrumentsPost201Response result = apiInstance.TmsV1PaymentinstrumentsTokenIdGet(profileId, tokenId);
+                TmsV1PaymentinstrumentsGet200Response result = apiInstance.TmsV1PaymentinstrumentsTokenIdGet(profileId, tokenId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TmsV1PaymentinstrumentsPost201Response**](TmsV1PaymentinstrumentsPost201Response.md)
+[**TmsV1PaymentinstrumentsGet200Response**](TmsV1PaymentinstrumentsGet200Response.md)
 
 ### Authorization
 
@@ -260,7 +260,7 @@ No authorization required
 
 <a name="tmsv1paymentinstrumentstokenidpatch"></a>
 # **TmsV1PaymentinstrumentsTokenIdPatch**
-> TmsV1PaymentinstrumentsPost201Response TmsV1PaymentinstrumentsTokenIdPatch (string profileId, string tokenId, Body3 body)
+> TmsV1PaymentinstrumentsGet200Response TmsV1PaymentinstrumentsTokenIdPatch (string profileId, string tokenId, Body3 body)
 
 Update a Payment Instrument
 
@@ -286,7 +286,7 @@ namespace Example
             try
             {
                 // Update a Payment Instrument
-                TmsV1PaymentinstrumentsPost201Response result = apiInstance.TmsV1PaymentinstrumentsTokenIdPatch(profileId, tokenId, body);
+                TmsV1PaymentinstrumentsGet200Response result = apiInstance.TmsV1PaymentinstrumentsTokenIdPatch(profileId, tokenId, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TmsV1PaymentinstrumentsPost201Response**](TmsV1PaymentinstrumentsPost201Response.md)
+[**TmsV1PaymentinstrumentsGet200Response**](TmsV1PaymentinstrumentsGet200Response.md)
 
 ### Authorization
 

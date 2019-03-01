@@ -219,7 +219,7 @@ namespace CyberSource.Api
         public ApiResponse< UmsV1UsersGet200Response > GetUsersWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
         {
 
-            var localVarPath = "/ums/v1/users";
+            var localVarPath = $"/ums/v1/users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -234,8 +234,7 @@ namespace CyberSource.Api
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/hal+json;charset=utf-8"
+String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -293,7 +292,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ApiResponse<UmsV1UsersGet200Response>> GetUsersAsyncWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
         {
 
-            var localVarPath = "/ums/v1/users";
+            var localVarPath = $"/ums/v1/users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -308,8 +307,7 @@ namespace CyberSource.Api
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json;charset=utf-8"
+String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -341,3 +339,4 @@ namespace CyberSource.Api
 
     }
 }
+

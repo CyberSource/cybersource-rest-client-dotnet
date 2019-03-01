@@ -90,7 +90,7 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="MetaData">MetaData.</param>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
-        public TmsV1PaymentinstrumentsPost201Response(Tmsv1instrumentidentifiersLinks Links = default(Tmsv1instrumentidentifiersLinks), Tmsv1paymentinstrumentsBankAccount BankAccount = default(Tmsv1paymentinstrumentsBankAccount), Tmsv1paymentinstrumentsCard Card = default(Tmsv1paymentinstrumentsCard), Tmsv1paymentinstrumentsBuyerInformation BuyerInformation = default(Tmsv1paymentinstrumentsBuyerInformation), Tmsv1paymentinstrumentsBillTo BillTo = default(Tmsv1paymentinstrumentsBillTo), Tmsv1paymentinstrumentsProcessingInformation ProcessingInformation = default(Tmsv1paymentinstrumentsProcessingInformation), Tmsv1paymentinstrumentsMerchantInformation MerchantInformation = default(Tmsv1paymentinstrumentsMerchantInformation), Tmsv1instrumentidentifiersMetadata MetaData = default(Tmsv1instrumentidentifiersMetadata), Tmsv1paymentinstrumentsInstrumentIdentifier InstrumentIdentifier = default(Tmsv1paymentinstrumentsInstrumentIdentifier))
+        public TmsV1PaymentinstrumentsPost201Response(Tmsv1instrumentidentifiersLinks Links = default(Tmsv1instrumentidentifiersLinks), Tmsv1paymentinstrumentsBankAccount BankAccount = default(Tmsv1paymentinstrumentsBankAccount), TmsV1PaymentinstrumentsPost201ResponseCard Card = default(TmsV1PaymentinstrumentsPost201ResponseCard), Tmsv1paymentinstrumentsBuyerInformation BuyerInformation = default(Tmsv1paymentinstrumentsBuyerInformation), Tmsv1paymentinstrumentsBillTo BillTo = default(Tmsv1paymentinstrumentsBillTo), Tmsv1paymentinstrumentsProcessingInformation ProcessingInformation = default(Tmsv1paymentinstrumentsProcessingInformation), Tmsv1paymentinstrumentsMerchantInformation MerchantInformation = default(Tmsv1paymentinstrumentsMerchantInformation), Tmsv1instrumentidentifiersMetadata MetaData = default(Tmsv1instrumentidentifiersMetadata), Tmsv1paymentinstrumentsInstrumentIdentifier InstrumentIdentifier = default(Tmsv1paymentinstrumentsInstrumentIdentifier))
         {
             this.Links = Links;
             this.BankAccount = BankAccount;
@@ -128,7 +128,7 @@ namespace CyberSource.Model
         /// Gets or Sets Card
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
-        public Tmsv1paymentinstrumentsCard Card { get; set; }
+        public TmsV1PaymentinstrumentsPost201ResponseCard Card { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation

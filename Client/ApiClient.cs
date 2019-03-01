@@ -11,9 +11,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Web;
 using System.Linq;
+using System.Net;
 using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
@@ -46,17 +49,17 @@ namespace CyberSource.Client
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default configuration and base path (https://api.cybersource.com).
+        /// with default configuration and base path (https://apitest.cybersource.com).
         /// </summary>
         public ApiClient()
         {
             Configuration = Configuration.Default;
-            RestClient = new RestClient("https://api.cybersource.com");
+            RestClient = new RestClient("https://apitest.cybersource.com");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://api.cybersource.com).
+        /// with default base path (https://apitest.cybersource.com).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config = null)
@@ -66,7 +69,7 @@ namespace CyberSource.Client
             else
                 Configuration = config;
 
-            RestClient = new RestClient("https://api.cybersource.com");
+            RestClient = new RestClient("https://apitest.cybersource.com");
         }
 
         /// <summary>
@@ -74,9 +77,9 @@ namespace CyberSource.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://api.cybersource.com")
+        public ApiClient(String basePath = "https://apitest.cybersource.com")
         {
-            if (String.IsNullOrEmpty(basePath))
+           if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
 
             RestClient = new RestClient(basePath);
@@ -109,14 +112,13 @@ namespace CyberSource.Client
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
             String contentType)
         {
-            //var request = new RestRequest(path, method);
             var request = new RestRequest(path, method);
 
             // add path parameter, if any
-            foreach (var param in pathParams)
+            foreach(var param in pathParams)
                 request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
 
-            // add header parameter, if any
+			// add header parameter, if any
             // 1. passed to this function
             foreach (var param in headerParams)
             {
@@ -171,15 +173,15 @@ namespace CyberSource.Client
             }
 
             // add query parameter, if any
-            foreach (var param in queryParams)
+            foreach(var param in queryParams)
                 request.AddQueryParameter(param.Key, param.Value);
 
             // add form parameter, if any
-            foreach (var param in formParams)
+            foreach(var param in formParams)
                 request.AddParameter(param.Key, param.Value);
 
             // add file parameter, if any
-            foreach (var param in fileParams)
+            foreach(var param in fileParams)
             {
                 request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);
             }
@@ -226,13 +228,13 @@ namespace CyberSource.Client
             RestClient.Timeout = Configuration.Timeout;
             // set user agent
             RestClient.UserAgent = Configuration.UserAgent;
-
-            RestClient.ClearHandlers();
+			
+			RestClient.ClearHandlers();
 
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
-
+            
             var httpResponseStatusCode = (int)response.StatusCode;
             var httpResponseHeaders = response.Headers;
             var httpResponseData = response.Content;
@@ -256,8 +258,9 @@ namespace CyberSource.Client
                 Console.WriteLine($"\n");
             }
 
-            return (Object)response;
+            return (Object) response;
         }
+
         /// <summary>
         /// Makes the asynchronous HTTP request.
         /// </summary>
@@ -324,13 +327,13 @@ namespace CyberSource.Client
                 // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
                 // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
                 // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTime)obj).ToString(Configuration.DateTimeFormat);
+                return ((DateTime)obj).ToString (Configuration.DateTimeFormat);
             else if (obj is DateTimeOffset)
                 // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
                 // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
                 // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
                 // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTimeOffset)obj).ToString(Configuration.DateTimeFormat);
+                return ((DateTimeOffset)obj).ToString (Configuration.DateTimeFormat);
             else if (obj is IList)
             {
                 var flattenedString = new StringBuilder();
@@ -343,7 +346,7 @@ namespace CyberSource.Client
                 return flattenedString.ToString();
             }
             else
-                return Convert.ToString(obj);
+                return Convert.ToString (obj);
         }
 
         /// <summary>
@@ -385,7 +388,7 @@ namespace CyberSource.Client
 
             if (type.Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
             {
-                return DateTime.Parse(response.Content, null, System.Globalization.DateTimeStyles.RoundtripKind);
+                return DateTime.Parse(response.Content,  null, System.Globalization.DateTimeStyles.RoundtripKind);
             }
 
             if (type == typeof(String) || type.Name.StartsWith("System.Nullable")) // return primitive type
@@ -487,7 +490,7 @@ namespace CyberSource.Client
         /// <returns>Byte array</returns>
         public static byte[] ReadAsBytes(Stream input)
         {
-            byte[] buffer = new byte[16 * 1024];
+            byte[] buffer = new byte[16*1024];
             using (MemoryStream ms = new MemoryStream())
             {
                 int read;
@@ -552,10 +555,9 @@ namespace CyberSource.Client
                 return filename;
             }
         }
-
-        /// Calling the Authentication SDK to Generate Request Headers necessary for Authentication
-        /// 
-        public void CallAuthenticationHeaders(string requestType, string requestTarget, string requestJsonData = null)
+		
+		/// Calling the Authentication SDK to Generate Request Headers necessary for Authentication		
+		public void CallAuthenticationHeaders(string requestType, string requestTarget, string requestJsonData = null)
         {
             requestTarget = Uri.EscapeUriString(requestTarget);
 
@@ -593,9 +595,7 @@ namespace CyberSource.Client
 
             //Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
-            //Configuration.ApiClient = new ApiClient("https://" + merchantConfig.HostName);
-            RestClient = new RestClient("https://" + merchantConfig.HostName);
-            //Configuration = new Configuration(apiClient, authenticationHeaders);
+            RestClient = new RestClient("https://" + merchantConfig.HostName);            
         }
     }
 }

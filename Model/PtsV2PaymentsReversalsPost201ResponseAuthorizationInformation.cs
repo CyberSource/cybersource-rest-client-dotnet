@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="ApprovalCode">The authorization code returned by the processor..</param>
         /// <param name="ReasonCode">Reply flag for the original transaction..</param>
-        public PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation(string ApprovalCode = default(string), string ReasonCode = default(string))
+        /// <param name="ReversalSubmitted">Flag indicating whether a full authorization reversal was successfully submitted.  Possible values: - Y: The authorization reversal was successfully submitted. - N: The authorization reversal was not successfully submitted. You must send a credit request for a refund.  This field is supported only for **FDC Nashville Global**. .</param>
+        public PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation(string ApprovalCode = default(string), string ReasonCode = default(string), string ReversalSubmitted = default(string))
         {
             this.ApprovalCode = ApprovalCode;
             this.ReasonCode = ReasonCode;
+            this.ReversalSubmitted = ReversalSubmitted;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace CyberSource.Model
         public string ReasonCode { get; set; }
 
         /// <summary>
+        /// Flag indicating whether a full authorization reversal was successfully submitted.  Possible values: - Y: The authorization reversal was successfully submitted. - N: The authorization reversal was not successfully submitted. You must send a credit request for a refund.  This field is supported only for **FDC Nashville Global**. 
+        /// </summary>
+        /// <value>Flag indicating whether a full authorization reversal was successfully submitted.  Possible values: - Y: The authorization reversal was successfully submitted. - N: The authorization reversal was not successfully submitted. You must send a credit request for a refund.  This field is supported only for **FDC Nashville Global**. </value>
+        [DataMember(Name="reversalSubmitted", EmitDefaultValue=false)]
+        public string ReversalSubmitted { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation {\n");
             sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
             sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
+            sb.Append("  ReversalSubmitted: ").Append(ReversalSubmitted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +120,11 @@ namespace CyberSource.Model
                     this.ReasonCode == other.ReasonCode ||
                     this.ReasonCode != null &&
                     this.ReasonCode.Equals(other.ReasonCode)
+                ) && 
+                (
+                    this.ReversalSubmitted == other.ReversalSubmitted ||
+                    this.ReversalSubmitted != null &&
+                    this.ReversalSubmitted.Equals(other.ReversalSubmitted)
                 );
         }
 
@@ -128,6 +143,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ApprovalCode.GetHashCode();
                 if (this.ReasonCode != null)
                     hash = hash * 59 + this.ReasonCode.GetHashCode();
+                if (this.ReversalSubmitted != null)
+                    hash = hash * 59 + this.ReversalSubmitted.GetHashCode();
                 return hash;
             }
         }
@@ -149,6 +166,12 @@ namespace CyberSource.Model
             if(this.ReasonCode != null && this.ReasonCode.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReasonCode, length must be less than 50.", new [] { "ReasonCode" });
+            }
+
+            // ReversalSubmitted (string) maxLength
+            if(this.ReversalSubmitted != null && this.ReversalSubmitted.Length > 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReversalSubmitted, length must be less than 1.", new [] { "ReversalSubmitted" });
             }
 
             yield break;

@@ -201,7 +201,7 @@ namespace CyberSource.Api
         public ApiResponse< FlexV1TokensPost200Response > TokenizeWithHttpInfo (TokenizeRequest tokenizeRequest = null)
         {
 
-            var localVarPath = "/flex/v1/tokens/";
+            var localVarPath = $"/flex/v1/tokens/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -273,7 +273,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ApiResponse<FlexV1TokensPost200Response>> TokenizeAsyncWithHttpInfo (TokenizeRequest tokenizeRequest = null)
         {
 
-            var localVarPath = "/flex/v1/tokens/";
+            var localVarPath = $"/flex/v1/tokens/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);

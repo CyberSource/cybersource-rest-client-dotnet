@@ -122,6 +122,18 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Number (string) maxLength
+            if(this.Number != null && this.Number.Length > 19)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than 19.", new [] { "Number" });
+            }
+
+            // Number (string) minLength
+            if(this.Number != null && this.Number.Length < 12)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be greater than 12.", new [] { "Number" });
+            }
+
             yield break;
         }
     }

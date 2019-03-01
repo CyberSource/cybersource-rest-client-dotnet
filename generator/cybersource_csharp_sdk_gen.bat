@@ -1,3 +1,5 @@
+@echo off
+
 java -jar swagger-codegen-cli-2.2.3.jar generate -t cybersource-csharp-template -i cybersource-rest-spec.json -l csharp -o ../ -c cybersource-csharp-config.json
 
 rem For removing trailing forward slash from endpoints
@@ -15,9 +17,11 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\SecureFileShareApi.cs) 
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\SecureFileShareApi.cs) | ForEach-Object { $_ -replace 'ParameterToString\(endDate\)', 'ParameterToString(endDate.Value.ToString("""yyyy-MM-dd"""))' } | Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs"
 
+powershell -Command "(Get-Content ..\src\CyberSource\Model\ReportingV3ReportSubscriptionsGet200ResponseSubscriptions.cs) | ForEach-Object { $_ -replace 'DateTime\?', 'string' } | Set-Content ..\src\CyberSource\Model\ReportingV3ReportSubscriptionsGet200ResponseSubscriptions.cs"
+
 
 rem For Converting the datetime values to string while appending them to the localVarPath and commenting out the values being set in query params obj
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[257] = $fileContents[257] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}' ; $fileContents[331] = $fileContents[331] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}' ; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[392] = $fileContents[392] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' ; $fileContents[466] = $fileContents[466] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 

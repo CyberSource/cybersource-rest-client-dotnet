@@ -139,6 +139,30 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Number (string) maxLength
+            if(this.Number != null && this.Number.Length > 19)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than 19.", new [] { "Number" });
+            }
+
+            // Number (string) minLength
+            if(this.Number != null && this.Number.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be greater than 1.", new [] { "Number" });
+            }
+
+            // RoutingNumber (string) maxLength
+            if(this.RoutingNumber != null && this.RoutingNumber.Length > 9)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingNumber, length must be less than 9.", new [] { "RoutingNumber" });
+            }
+
+            // RoutingNumber (string) minLength
+            if(this.RoutingNumber != null && this.RoutingNumber.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingNumber, length must be greater than 1.", new [] { "RoutingNumber" });
+            }
+
             yield break;
         }
     }

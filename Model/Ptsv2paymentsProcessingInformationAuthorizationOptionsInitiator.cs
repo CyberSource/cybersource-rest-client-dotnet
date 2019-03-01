@@ -31,9 +31,9 @@ namespace CyberSource.Model
     public partial class Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator :  IEquatable<Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator>, IValidatableObject
     {
         /// <summary>
-        /// This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction. 
+        /// This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** 
         /// </summary>
-        /// <value>This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction. </value>
+        /// <value>This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -52,17 +52,17 @@ namespace CyberSource.Model
         }
 
         /// <summary>
-        /// This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction. 
+        /// This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** 
         /// </summary>
-        /// <value>This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction. </value>
+        /// <value>This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator" /> class.
         /// </summary>
-        /// <param name="Type">This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction. .</param>
-        /// <param name="CredentialStoredOnFile">Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not. .</param>
-        /// <param name="StoredCredentialUsed">Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not. .</param>
+        /// <param name="Type">This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** .</param>
+        /// <param name="CredentialStoredOnFile">Flag that indicates whether merchant intends to use this transaction to store payment credentials for follow-up merchant-initiated transactions.  Valid values: - &#x60;true&#x60; means merchant will use this transaction to store payment credentials for follow-up merchant-initiated transactions. - &#x60;false&#x60; means merchant will not use this transaction to store payment credentials for follow-up merchant-initiated transactions.  See \&quot;Merchant-Initiated Transactions,\&quot; page 177.  **NOTE:** The value for this field does not correspond to any data in the TC 33 capture file5. This field is supported only for Visa transactions on CyberSource through VisaNet. .</param>
+        /// <param name="StoredCredentialUsed">Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not.  Possible values: - **true** - **false** .</param>
         /// <param name="MerchantInitiatedTransaction">MerchantInitiatedTransaction.</param>
         public Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator(TypeEnum? Type = default(TypeEnum?), bool? CredentialStoredOnFile = default(bool?), bool? StoredCredentialUsed = default(bool?), Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction MerchantInitiatedTransaction = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction))
         {
@@ -74,16 +74,16 @@ namespace CyberSource.Model
         
 
         /// <summary>
-        /// Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not. 
+        /// Flag that indicates whether merchant intends to use this transaction to store payment credentials for follow-up merchant-initiated transactions.  Valid values: - &#x60;true&#x60; means merchant will use this transaction to store payment credentials for follow-up merchant-initiated transactions. - &#x60;false&#x60; means merchant will not use this transaction to store payment credentials for follow-up merchant-initiated transactions.  See \&quot;Merchant-Initiated Transactions,\&quot; page 177.  **NOTE:** The value for this field does not correspond to any data in the TC 33 capture file5. This field is supported only for Visa transactions on CyberSource through VisaNet. 
         /// </summary>
-        /// <value>Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not. </value>
+        /// <value>Flag that indicates whether merchant intends to use this transaction to store payment credentials for follow-up merchant-initiated transactions.  Valid values: - &#x60;true&#x60; means merchant will use this transaction to store payment credentials for follow-up merchant-initiated transactions. - &#x60;false&#x60; means merchant will not use this transaction to store payment credentials for follow-up merchant-initiated transactions.  See \&quot;Merchant-Initiated Transactions,\&quot; page 177.  **NOTE:** The value for this field does not correspond to any data in the TC 33 capture file5. This field is supported only for Visa transactions on CyberSource through VisaNet. </value>
         [DataMember(Name="credentialStoredOnFile", EmitDefaultValue=false)]
         public bool? CredentialStoredOnFile { get; set; }
 
         /// <summary>
-        /// Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not. 
+        /// Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not.  Possible values: - **true** - **false** 
         /// </summary>
-        /// <value>Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not. </value>
+        /// <value>Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not.  Possible values: - **true** - **false** </value>
         [DataMember(Name="storedCredentialUsed", EmitDefaultValue=false)]
         public bool? StoredCredentialUsed { get; set; }
 

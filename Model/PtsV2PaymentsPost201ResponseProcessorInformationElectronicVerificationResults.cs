@@ -43,8 +43,8 @@ namespace CyberSource.Model
         /// <param name="PostalCodeRaw">Raw Electronic Verification response code from the processor for the customer’s postal code..</param>
         /// <param name="Street">Mapped Electronic Verification response code for the customer’s street address. .</param>
         /// <param name="StreetRaw">Raw Electronic Verification response code from the processor for the customer’s street address..</param>
-        /// <param name="Name">TODO .</param>
-        /// <param name="NameRaw">TODO.</param>
+        /// <param name="Name">The description for this field is not available. .</param>
+        /// <param name="NameRaw">The description for this field is not available..</param>
         public PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults(string Code = default(string), string CodeRaw = default(string), string Email = default(string), string EmailRaw = default(string), string PhoneNumber = default(string), string PhoneNumberRaw = default(string), string PostalCode = default(string), string PostalCodeRaw = default(string), string Street = default(string), string StreetRaw = default(string), string Name = default(string), string NameRaw = default(string))
         {
             this.Code = Code;
@@ -132,16 +132,16 @@ namespace CyberSource.Model
         public string StreetRaw { get; set; }
 
         /// <summary>
-        /// TODO 
+        /// The description for this field is not available. 
         /// </summary>
-        /// <value>TODO </value>
+        /// <value>The description for this field is not available. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// TODO
+        /// The description for this field is not available.
         /// </summary>
-        /// <value>TODO</value>
+        /// <value>The description for this field is not available.</value>
         [DataMember(Name="nameRaw", EmitDefaultValue=false)]
         public string NameRaw { get; set; }
 

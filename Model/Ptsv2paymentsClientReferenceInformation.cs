@@ -33,27 +33,29 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsClientReferenceInformation" /> class.
         /// </summary>
-        /// <param name="Code">Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction. .</param>
-        /// <param name="TransactionId">Identifier that you assign to the transaction. See \&quot;Merchant-Initiated Reversals and Voids,\&quot; page 176 .</param>
+        /// <param name="Code">Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  For information about tracking orders, see Getting Started with CyberSource Advanced for the SCMP API.  **FDC Nashville Global**\\ Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. .</param>
+        /// <param name="TransactionId">Identifier that you assign to the transaction.  **Note** Use this field only if you want to support merchant-initiated reversal and void operations . See \&quot;Merchant-Initiated Reversals and Voids,\&quot; page 176. .</param>
         /// <param name="Comments">Comments.</param>
-        public Ptsv2paymentsClientReferenceInformation(string Code = default(string), string TransactionId = default(string), string Comments = default(string))
+        /// <param name="Partner">Partner.</param>
+        public Ptsv2paymentsClientReferenceInformation(string Code = default(string), string TransactionId = default(string), string Comments = default(string), Ptsv2paymentsClientReferenceInformationPartner Partner = default(Ptsv2paymentsClientReferenceInformationPartner))
         {
             this.Code = Code;
             this.TransactionId = TransactionId;
             this.Comments = Comments;
+            this.Partner = Partner;
         }
         
         /// <summary>
-        /// Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction. 
+        /// Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  For information about tracking orders, see Getting Started with CyberSource Advanced for the SCMP API.  **FDC Nashville Global**\\ Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. 
         /// </summary>
-        /// <value>Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction. </value>
+        /// <value>Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  For information about tracking orders, see Getting Started with CyberSource Advanced for the SCMP API.  **FDC Nashville Global**\\ Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Identifier that you assign to the transaction. See \&quot;Merchant-Initiated Reversals and Voids,\&quot; page 176 
+        /// Identifier that you assign to the transaction.  **Note** Use this field only if you want to support merchant-initiated reversal and void operations . See \&quot;Merchant-Initiated Reversals and Voids,\&quot; page 176. 
         /// </summary>
-        /// <value>Identifier that you assign to the transaction. See \&quot;Merchant-Initiated Reversals and Voids,\&quot; page 176 </value>
+        /// <value>Identifier that you assign to the transaction.  **Note** Use this field only if you want to support merchant-initiated reversal and void operations . See \&quot;Merchant-Initiated Reversals and Voids,\&quot; page 176. </value>
         [DataMember(Name="transactionId", EmitDefaultValue=false)]
         public string TransactionId { get; set; }
 
@@ -63,6 +65,12 @@ namespace CyberSource.Model
         /// <value>Comments</value>
         [DataMember(Name="comments", EmitDefaultValue=false)]
         public string Comments { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Partner
+        /// </summary>
+        [DataMember(Name="partner", EmitDefaultValue=false)]
+        public Ptsv2paymentsClientReferenceInformationPartner Partner { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,6 +83,7 @@ namespace CyberSource.Model
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
+            sb.Append("  Partner: ").Append(Partner).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +134,11 @@ namespace CyberSource.Model
                     this.Comments == other.Comments ||
                     this.Comments != null &&
                     this.Comments.Equals(other.Comments)
+                ) && 
+                (
+                    this.Partner == other.Partner ||
+                    this.Partner != null &&
+                    this.Partner.Equals(other.Partner)
                 );
         }
 
@@ -145,6 +159,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionId.GetHashCode();
                 if (this.Comments != null)
                     hash = hash * 59 + this.Comments.GetHashCode();
+                if (this.Partner != null)
+                    hash = hash * 59 + this.Partner.GetHashCode();
                 return hash;
             }
         }

@@ -76,13 +76,12 @@ namespace CyberSource.Model
             /// </summary>
             [EnumMember(Value = "MONTHLY")]
             MONTHLY,
-
+            
             /// <summary>
             /// Enum ADHOC for "ADHOC"
             /// </summary>
             [EnumMember(Value = "ADHOC")]
             ADHOC
-
         }
 
         /// <summary>
@@ -168,10 +167,10 @@ namespace CyberSource.Model
         /// <param name="ReportStartTime">Report Start Time Value.</param>
         /// <param name="ReportEndTime">Report End Time Value.</param>
         /// <param name="Timezone">Time Zone Value.</param>
-        /// <param name="ReportFilters">Report Filters.</param>
+        /// <param name="ReportFilters">List of filters to apply.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
-        /// <param name="SelectedMerchantGroupName">Selected Merchant Group name.</param>
-        public ReportingV3ReportsIdGet200Response(string OrganizationId = default(string), string ReportId = default(string), string ReportDefinitionId = default(string), string ReportName = default(string), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), List<string> ReportFields = default(List<string>), ReportStatusEnum? ReportStatus = default(ReportStatusEnum?), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), string Timezone = default(string), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), ReportingV3ReportSubscriptionsGet200ResponseReportPreferences ReportPreferences = default(ReportingV3ReportSubscriptionsGet200ResponseReportPreferences), string SelectedMerchantGroupName = default(string))
+        /// <param name="GroupId">Id for selected group..</param>
+        public ReportingV3ReportsIdGet200Response(string OrganizationId = default(string), string ReportId = default(string), string ReportDefinitionId = default(string), string ReportName = default(string), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), List<string> ReportFields = default(List<string>), ReportStatusEnum? ReportStatus = default(ReportStatusEnum?), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), string Timezone = default(string), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), ReportingV3ReportsIdGet200ResponseReportPreferences ReportPreferences = default(ReportingV3ReportsIdGet200ResponseReportPreferences), string GroupId = default(string))
         {
             this.OrganizationId = OrganizationId;
             this.ReportId = ReportId;
@@ -186,7 +185,7 @@ namespace CyberSource.Model
             this.Timezone = Timezone;
             this.ReportFilters = ReportFilters;
             this.ReportPreferences = ReportPreferences;
-            this.SelectedMerchantGroupName = SelectedMerchantGroupName;
+            this.GroupId = GroupId;
         }
         
         /// <summary>
@@ -249,9 +248,9 @@ namespace CyberSource.Model
         public string Timezone { get; set; }
 
         /// <summary>
-        /// Report Filters
+        /// List of filters to apply
         /// </summary>
-        /// <value>Report Filters</value>
+        /// <value>List of filters to apply</value>
         [DataMember(Name="reportFilters", EmitDefaultValue=false)]
         public Dictionary<string, List<string>> ReportFilters { get; set; }
 
@@ -259,14 +258,14 @@ namespace CyberSource.Model
         /// Gets or Sets ReportPreferences
         /// </summary>
         [DataMember(Name="reportPreferences", EmitDefaultValue=false)]
-        public ReportingV3ReportSubscriptionsGet200ResponseReportPreferences ReportPreferences { get; set; }
+        public ReportingV3ReportsIdGet200ResponseReportPreferences ReportPreferences { get; set; }
 
         /// <summary>
-        /// Selected Merchant Group name
+        /// Id for selected group.
         /// </summary>
-        /// <value>Selected Merchant Group name</value>
-        [DataMember(Name="selectedMerchantGroupName", EmitDefaultValue=false)]
-        public string SelectedMerchantGroupName { get; set; }
+        /// <value>Id for selected group.</value>
+        [DataMember(Name="groupId", EmitDefaultValue=false)]
+        public string GroupId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -289,7 +288,7 @@ namespace CyberSource.Model
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  ReportFilters: ").Append(ReportFilters).Append("\n");
             sb.Append("  ReportPreferences: ").Append(ReportPreferences).Append("\n");
-            sb.Append("  SelectedMerchantGroupName: ").Append(SelectedMerchantGroupName).Append("\n");
+            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -392,9 +391,9 @@ namespace CyberSource.Model
                     this.ReportPreferences.Equals(other.ReportPreferences)
                 ) && 
                 (
-                    this.SelectedMerchantGroupName == other.SelectedMerchantGroupName ||
-                    this.SelectedMerchantGroupName != null &&
-                    this.SelectedMerchantGroupName.Equals(other.SelectedMerchantGroupName)
+                    this.GroupId == other.GroupId ||
+                    this.GroupId != null &&
+                    this.GroupId.Equals(other.GroupId)
                 );
         }
 
@@ -435,8 +434,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReportFilters.GetHashCode();
                 if (this.ReportPreferences != null)
                     hash = hash * 59 + this.ReportPreferences.GetHashCode();
-                if (this.SelectedMerchantGroupName != null)
-                    hash = hash * 59 + this.SelectedMerchantGroupName.GetHashCode();
+                if (this.GroupId != null)
+                    hash = hash * 59 + this.GroupId.GetHashCode();
                 return hash;
             }
         }

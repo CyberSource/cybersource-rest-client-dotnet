@@ -33,12 +33,20 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidreversalsOrderInformation" /> class.
         /// </summary>
+        /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="LineItems">LineItems.</param>
-        public Ptsv2paymentsidreversalsOrderInformation(List<Ptsv2paymentsidreversalsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsidreversalsOrderInformationLineItems>))
+        public Ptsv2paymentsidreversalsOrderInformation(Ptsv2paymentsidreversalsOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsidreversalsOrderInformationAmountDetails), List<Ptsv2paymentsidreversalsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsidreversalsOrderInformationLineItems>))
         {
+            this.AmountDetails = AmountDetails;
             this.LineItems = LineItems;
         }
         
+        /// <summary>
+        /// Gets or Sets AmountDetails
+        /// </summary>
+        [DataMember(Name="amountDetails", EmitDefaultValue=false)]
+        public Ptsv2paymentsidreversalsOrderInformationAmountDetails AmountDetails { get; set; }
+
         /// <summary>
         /// Gets or Sets LineItems
         /// </summary>
@@ -53,6 +61,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidreversalsOrderInformation {\n");
+            sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
             sb.Append("  LineItems: ").Append(LineItems).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -91,6 +100,11 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.AmountDetails == other.AmountDetails ||
+                    this.AmountDetails != null &&
+                    this.AmountDetails.Equals(other.AmountDetails)
+                ) && 
+                (
                     this.LineItems == other.LineItems ||
                     this.LineItems != null &&
                     this.LineItems.SequenceEqual(other.LineItems)
@@ -108,6 +122,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.AmountDetails != null)
+                    hash = hash * 59 + this.AmountDetails.GetHashCode();
                 if (this.LineItems != null)
                     hash = hash * 59 + this.LineItems.GetHashCode();
                 return hash;

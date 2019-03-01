@@ -31,9 +31,9 @@ namespace CyberSource.Model
     public partial class PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures :  IEquatable<PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures>, IValidatableObject
     {
         /// <summary>
-        /// Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values: 
+        /// Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values:  Possible values:  - **+**  - **-** 
         /// </summary>
-        /// <value>Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values: </value>
+        /// <value>Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values:  Possible values:  - **+**  - **-** </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum BalanceSignEnum
         {
@@ -52,9 +52,9 @@ namespace CyberSource.Model
         }
 
         /// <summary>
-        /// Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values: 
+        /// Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values:  Possible values:  - **+**  - **-** 
         /// </summary>
-        /// <value>Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values: </value>
+        /// <value>Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values:  Possible values:  - **+**  - **-** </value>
         [DataMember(Name="balanceSign", EmitDefaultValue=false)]
         public BalanceSignEnum? BalanceSign { get; set; }
         /// <summary>
@@ -65,7 +65,7 @@ namespace CyberSource.Model
         /// <param name="BalanceAmount">Remaining balance on the account. .</param>
         /// <param name="BalanceAmountType">Type of amount. This value is returned only if you requested a balance inquiry. The issuer determines the value that is returned. Possible values for deposit accounts:   - **01**: Current ledger (posted) balance.  - **02**: Current available balance, which is typically the ledger balance less outstanding authorizations.  Some depository institutions also include pending deposits and the credit or overdraft line associated with the account. Possible values for credit card accounts:   - **01**: Credit amount remaining for customer (open to buy).  - **02**: Credit limit. .</param>
         /// <param name="Currency">Currency of the remaining balance on the account. For the possible values, see the ISO Standard Currency Codes. .</param>
-        /// <param name="BalanceSign">Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values: .</param>
+        /// <param name="BalanceSign">Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values:  Possible values:  - **+**  - **-** .</param>
         /// <param name="AffluenceIndicator">**Chase Paymentech Solutions**  Indicates whether a customer has high credit limits. This information enables you to market high cost items to these customers and to understand the kinds of cards that high income customers are using.  This field is supported for Visa, Mastercard, Discover, and Diners Club. Possible values:   - **Y**: Yes  - **N**: No  - **X**: Not applicable / Unknown  **Litle**  Flag that indicates that a Visa cardholder or Mastercard cardholder is in one of the affluent categories. Possible values:   - **AFFLUENT**: High income customer with high spending pattern (&gt;100k USD annual income and &gt;40k USD annual    card usage).  - **MASS AFFLUENT**: High income customer (&gt;100k USD annual income).  **Processor specific maximum length**:   - Chase Paymentech Solutions: 1  - Litle: 13 .</param>
         /// <param name="Category">**CyberSource through VisaNet**  Visa product ID.  **GPN**  Visa or Mastercard product ID.  **Litle**  Type of card used in the transaction. The only possible value is:   - PREPAID: Prepaid Card  **RBS WorldPay Atlanta**  Type of card used in the transaction. Possible values:   - **B**: Business Card  - **O**: Noncommercial Card  - **R**: Corporate Card  - **S**: Purchase Card  - **Blank**: Purchase card not supported  **Maximum length for processors**:   - CyberSource through VisaNet: 3  - GPN: 3  - Litle: 7  - RBS WorldPay Atlanta: 1 .</param>
         /// <param name="Commercial">Indicates whether the card is a commercial card, which enables you to include Level II data in your transaction requests. This field is supported for Visa and Mastercard on **Chase Paymentech Solutions**. Possible values:   - **Y**: Yes  - **N**: No  - **X**: Not applicable / Unknown .</param>
@@ -446,10 +446,10 @@ namespace CyberSource.Model
             }
 
             // BalanceSign (string) maxLength
-            //if(this.BalanceSign != null && this.BalanceSign.Length > 1)
-            //{
-            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BalanceSign, length must be less than 1.", new [] { "BalanceSign" });
-            //}
+
+
+
+
 
             // AffluenceIndicator (string) maxLength
             if(this.AffluenceIndicator != null && this.AffluenceIndicator.Length > 13)

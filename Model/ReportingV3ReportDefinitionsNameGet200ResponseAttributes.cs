@@ -36,10 +36,10 @@ namespace CyberSource.Model
         /// <param name="Id">Id.</param>
         /// <param name="Name">Name.</param>
         /// <param name="Description">Description.</param>
-        /// <param name="FilterType">FilterType.</param>
+        /// <param name="FilterType">Attribute Filter Type..</param>
         /// <param name="_Default">_Default.</param>
         /// <param name="Required">Required.</param>
-        /// <param name="SupportedType">SupportedType.</param>
+        /// <param name="SupportedType">Valid values for the filter..</param>
         public ReportingV3ReportDefinitionsNameGet200ResponseAttributes(string Id = default(string), string Name = default(string), string Description = default(string), string FilterType = default(string), bool? _Default = default(bool?), bool? Required = default(bool?), string SupportedType = default(string))
         {
             this.Id = Id;
@@ -70,8 +70,9 @@ namespace CyberSource.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets FilterType
+        /// Attribute Filter Type.
         /// </summary>
+        /// <value>Attribute Filter Type.</value>
         [DataMember(Name="filterType", EmitDefaultValue=false)]
         public string FilterType { get; set; }
 
@@ -88,8 +89,9 @@ namespace CyberSource.Model
         public bool? Required { get; set; }
 
         /// <summary>
-        /// Gets or Sets SupportedType
+        /// Valid values for the filter.
         /// </summary>
+        /// <value>Valid values for the filter.</value>
         [DataMember(Name="supportedType", EmitDefaultValue=false)]
         public string SupportedType { get; set; }
 

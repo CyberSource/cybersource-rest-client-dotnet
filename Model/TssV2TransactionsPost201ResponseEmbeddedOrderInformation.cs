@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="BillTo">BillTo.</param>
         /// <param name="ShipTo">ShipTo.</param>
         /// <param name="AmountDetails">AmountDetails.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedOrderInformation(TssV2TransactionsPost201ResponseEmbeddedOrderInformationBillTo BillTo = default(TssV2TransactionsPost201ResponseEmbeddedOrderInformationBillTo), TssV2TransactionsPost201ResponseEmbeddedOrderInformationShipTo ShipTo = default(TssV2TransactionsPost201ResponseEmbeddedOrderInformationShipTo), Ptsv2paymentsidreversalsReversalInformationAmountDetails AmountDetails = default(Ptsv2paymentsidreversalsReversalInformationAmountDetails))
+        public TssV2TransactionsPost201ResponseEmbeddedOrderInformation(TssV2TransactionsPost201ResponseEmbeddedOrderInformationBillTo BillTo = default(TssV2TransactionsPost201ResponseEmbeddedOrderInformationBillTo), TssV2TransactionsPost201ResponseEmbeddedOrderInformationShipTo ShipTo = default(TssV2TransactionsPost201ResponseEmbeddedOrderInformationShipTo), TssV2TransactionsPost201ResponseEmbeddedOrderInformationAmountDetails AmountDetails = default(TssV2TransactionsPost201ResponseEmbeddedOrderInformationAmountDetails))
         {
             this.BillTo = BillTo;
             this.ShipTo = ShipTo;
@@ -59,7 +59,7 @@ namespace CyberSource.Model
         /// Gets or Sets AmountDetails
         /// </summary>
         [DataMember(Name="amountDetails", EmitDefaultValue=false)]
-        public Ptsv2paymentsidreversalsReversalInformationAmountDetails AmountDetails { get; set; }
+        public TssV2TransactionsPost201ResponseEmbeddedOrderInformationAmountDetails AmountDetails { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidrefundsProcessingInformationRecurringOptions" /> class.
         /// </summary>
-        /// <param name="LoanPayment">Flag that indicates whether this is a payment towards an existing contractual loan.  (default to false).</param>
+        /// <param name="LoanPayment">Flag that indicates whether this is a payment towards an existing contractual loan.  Possible values: - **true** Loan payment - **false** (default) Not a loan payment  See \&quot;Visa Debt Repayments,\&quot; page 218, for a list of processors that support this feature.  (default to false).</param>
         public Ptsv2paymentsidrefundsProcessingInformationRecurringOptions(bool? LoanPayment = false)
         {
             // use default value if no "LoanPayment" provided
@@ -48,9 +48,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Flag that indicates whether this is a payment towards an existing contractual loan. 
+        /// Flag that indicates whether this is a payment towards an existing contractual loan.  Possible values: - **true** Loan payment - **false** (default) Not a loan payment  See \&quot;Visa Debt Repayments,\&quot; page 218, for a list of processors that support this feature. 
         /// </summary>
-        /// <value>Flag that indicates whether this is a payment towards an existing contractual loan. </value>
+        /// <value>Flag that indicates whether this is a payment towards an existing contractual loan.  Possible values: - **true** Loan payment - **false** (default) Not a loan payment  See \&quot;Visa Debt Repayments,\&quot; page 218, for a list of processors that support this feature. </value>
         [DataMember(Name="loanPayment", EmitDefaultValue=false)]
         public bool? LoanPayment { get; set; }
 

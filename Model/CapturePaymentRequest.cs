@@ -42,8 +42,9 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        /// <param name="MerchantDefinedInformation">Description of this field is not available..</param>
-        public CapturePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidcapturesProcessingInformation ProcessingInformation = default(Ptsv2paymentsidcapturesProcessingInformation), Ptsv2paymentsidcapturesPaymentInformation PaymentInformation = default(Ptsv2paymentsidcapturesPaymentInformation), Ptsv2paymentsidcapturesOrderInformation OrderInformation = default(Ptsv2paymentsidcapturesOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsidcapturesMerchantInformation MerchantInformation = default(Ptsv2paymentsidcapturesMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidcapturesPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>))
+        /// <param name="MerchantDefinedInformation">The description for this field is not available..</param>
+        /// <param name="InstallmentInformation">InstallmentInformation.</param>
+        public CapturePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidcapturesProcessingInformation ProcessingInformation = default(Ptsv2paymentsidcapturesProcessingInformation), Ptsv2paymentsidcapturesPaymentInformation PaymentInformation = default(Ptsv2paymentsidcapturesPaymentInformation), Ptsv2paymentsidcapturesOrderInformation OrderInformation = default(Ptsv2paymentsidcapturesOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsidcapturesMerchantInformation MerchantInformation = default(Ptsv2paymentsidcapturesMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidcapturesPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsidcapturesInstallmentInformation InstallmentInformation = default(Ptsv2paymentsidcapturesInstallmentInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             this.AggregatorInformation = AggregatorInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
             this.MerchantDefinedInformation = MerchantDefinedInformation;
+            this.InstallmentInformation = InstallmentInformation;
         }
         
         /// <summary>
@@ -112,11 +114,17 @@ namespace CyberSource.Model
         public Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
-        /// Description of this field is not available.
+        /// The description for this field is not available.
         /// </summary>
-        /// <value>Description of this field is not available.</value>
+        /// <value>The description for this field is not available.</value>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
         public List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InstallmentInformation
+        /// </summary>
+        [DataMember(Name="installmentInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsidcapturesInstallmentInformation InstallmentInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -136,6 +144,7 @@ namespace CyberSource.Model
             sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
             sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
+            sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -221,6 +230,11 @@ namespace CyberSource.Model
                     this.MerchantDefinedInformation == other.MerchantDefinedInformation ||
                     this.MerchantDefinedInformation != null &&
                     this.MerchantDefinedInformation.SequenceEqual(other.MerchantDefinedInformation)
+                ) && 
+                (
+                    this.InstallmentInformation == other.InstallmentInformation ||
+                    this.InstallmentInformation != null &&
+                    this.InstallmentInformation.Equals(other.InstallmentInformation)
                 );
         }
 
@@ -255,6 +269,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
                 if (this.MerchantDefinedInformation != null)
                     hash = hash * 59 + this.MerchantDefinedInformation.GetHashCode();
+                if (this.InstallmentInformation != null)
+                    hash = hash * 59 + this.InstallmentInformation.GetHashCode();
                 return hash;
             }
         }

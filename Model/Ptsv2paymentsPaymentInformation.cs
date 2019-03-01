@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="TokenizedCard">TokenizedCard.</param>
         /// <param name="FluidData">FluidData.</param>
         /// <param name="Customer">Customer.</param>
-        public Ptsv2paymentsPaymentInformation(Ptsv2paymentsPaymentInformationCard Card = default(Ptsv2paymentsPaymentInformationCard), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer))
+        /// <param name="Bank">Bank.</param>
+        public Ptsv2paymentsPaymentInformation(Ptsv2paymentsPaymentInformationCard Card = default(Ptsv2paymentsPaymentInformationCard), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
             this.FluidData = FluidData;
             this.Customer = Customer;
+            this.Bank = Bank;
         }
         
         /// <summary>
@@ -70,6 +72,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
+        /// Gets or Sets Bank
+        /// </summary>
+        [DataMember(Name="bank", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationBank Bank { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +89,7 @@ namespace CyberSource.Model
             sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             sb.Append("  FluidData: ").Append(FluidData).Append("\n");
             sb.Append("  Customer: ").Append(Customer).Append("\n");
+            sb.Append("  Bank: ").Append(Bank).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +145,11 @@ namespace CyberSource.Model
                     this.Customer == other.Customer ||
                     this.Customer != null &&
                     this.Customer.Equals(other.Customer)
+                ) && 
+                (
+                    this.Bank == other.Bank ||
+                    this.Bank != null &&
+                    this.Bank.Equals(other.Bank)
                 );
         }
 
@@ -158,6 +172,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FluidData.GetHashCode();
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
+                if (this.Bank != null)
+                    hash = hash * 59 + this.Bank.GetHashCode();
                 return hash;
             }
         }
