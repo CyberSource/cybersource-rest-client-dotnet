@@ -31,9 +31,9 @@ namespace CyberSource.Model
     public partial class PtsV2PaymentsVoidsPost201Response :  IEquatable<PtsV2PaymentsVoidsPost201Response>, IValidatableObject
     {
         /// <summary>
-        /// The status of the submitted transaction.
+        /// The status of the submitted transaction.  Possible values:  - VOIDED 
         /// </summary>
-        /// <value>The status of the submitted transaction.</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - VOIDED </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -46,9 +46,9 @@ namespace CyberSource.Model
         }
 
         /// <summary>
-        /// The status of the submitted transaction.
+        /// The status of the submitted transaction.  Possible values:  - VOIDED 
         /// </summary>
-        /// <value>The status of the submitted transaction.</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - VOIDED </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -57,7 +57,7 @@ namespace CyberSource.Model
         /// <param name="Links">Links.</param>
         /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request..</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="Status">The status of the submitted transaction..</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - VOIDED .</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="VoidAmountDetails">VoidAmountDetails.</param>
         public PtsV2PaymentsVoidsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails VoidAmountDetails = default(PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails))

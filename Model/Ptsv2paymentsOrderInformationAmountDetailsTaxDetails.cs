@@ -31,9 +31,9 @@ namespace CyberSource.Model
     public partial class Ptsv2paymentsOrderInformationAmountDetailsTaxDetails :  IEquatable<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>, IValidatableObject
     {
         /// <summary>
-        /// This is used to determine what type of tax related data should be inclued under _taxDetails_ object. 
+        /// This is used to determine what type of tax related data should be inclued under _taxDetails_ object.  Possible values:  - alternate  - local  - national  - vat 
         /// </summary>
-        /// <value>This is used to determine what type of tax related data should be inclued under _taxDetails_ object. </value>
+        /// <value>This is used to determine what type of tax related data should be inclued under _taxDetails_ object.  Possible values:  - alternate  - local  - national  - vat </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -64,21 +64,22 @@ namespace CyberSource.Model
         }
 
         /// <summary>
-        /// This is used to determine what type of tax related data should be inclued under _taxDetails_ object. 
+        /// This is used to determine what type of tax related data should be inclued under _taxDetails_ object.  Possible values:  - alternate  - local  - national  - vat 
         /// </summary>
-        /// <value>This is used to determine what type of tax related data should be inclued under _taxDetails_ object. </value>
+        /// <value>This is used to determine what type of tax related data should be inclued under _taxDetails_ object.  Possible values:  - alternate  - local  - national  - vat </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsOrderInformationAmountDetailsTaxDetails" /> class.
         /// </summary>
-        /// <param name="Type">This is used to determine what type of tax related data should be inclued under _taxDetails_ object. .</param>
-        /// <param name="Amount">Please see below table for related decription based on above _type_ field.  | type      | amount description | |- -- -- -- -- --|- -- -- -- -- -- -- -- -- -- -| | alternate | Total amount of alternate tax for the order. | | local     | Sales tax for the order. | | national  | National tax for the order. | | vat       | Total amount of VAT or other tax included in the order. | .</param>
+        /// <param name="Type">This is used to determine what type of tax related data should be inclued under _taxDetails_ object.  Possible values:  - alternate  - local  - national  - vat .</param>
+        /// <param name="Amount">Please see below table for related decription based on above _type_ field.  | type      | type description | |- -- -- -- -- --|- -- -- -- -- -- -- -- -- -- -| | alternate | Total amount of alternate tax for the order. | | local     | Sales tax for the order. | | national  | National tax for the order. | | vat       | Total amount of VAT or other tax included in the order. | | other     | Other tax. | .</param>
         /// <param name="Rate">Rate of VAT or other tax for the order.  Example 0.040 (&#x3D;4%)  Valid range: 0.01 to 0.99 (1% to 99%, with only whole percentage values accepted; values with additional decimal places will be truncated) .</param>
-        /// <param name="Code">Type of tax being applied to the item. Possible values:  Below values are used by **RBS WorldPay Atlanta**, **FDC Nashville Global**, **Litle**   - 0000: unknown tax type  - 0001: federal/national sales tax  - 0002: state sales tax  - 0003: city sales tax  - 0004: local sales tax  - 0005: municipal sales tax  - 0006: other tax  - 0010: value-added tax  - 0011: goods and services tax  - 0012: provincial sales tax  - 0013: harmonized sales tax  - 0014: Quebec sales tax (QST)  - 0020: room tax  - 0021: occupancy tax  - 0022: energy tax  - Blank: Tax not supported on line item. .</param>
+        /// <param name="Code">Type of tax being applied to the item. Possible values:  Below values are used by **RBS WorldPay Atlanta**, **FDC Nashville Global**, **Litle**   - 0000: unknown tax type  - 0001: federal/national sales tax  - 0002: state sales tax  - 0003: city sales tax  - 0004: local sales tax  - 0005: municipal sales tax  - 0006: other tax  - 0010: value-added tax (VAT)  - 0011: goods and services tax (GST)  - 0012: provincial sales tax  - 0013: harmonized sales tax  - 0014: Quebec sales tax (QST)  - 0020: room tax  - 0021: occupancy tax  - 0022: energy tax  - 0023: city tax  - 0024: county or parish sales tax  - 0025: county tax  - 0026: environment tax  - 0027: state and local sales tax (combined)  - Blank: Tax not supported on line item. .</param>
         /// <param name="TaxId">Your tax ID number to use for the alternate tax amount. Required if you set alternate tax amount to any value, including zero. You may send this field without sending alternate tax amount. .</param>
         /// <param name="Applied">The tax is applied. Valid value is &#x60;true&#x60; or &#x60;false&#x60;..</param>
-        public Ptsv2paymentsOrderInformationAmountDetailsTaxDetails(TypeEnum? Type = default(TypeEnum?), string Amount = default(string), string Rate = default(string), string Code = default(string), string TaxId = default(string), bool? Applied = default(bool?))
+        /// <param name="ExemptionCode">Code for exemption from sales and use tax. This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor.  For possible values, see Exemption Status Values. See Numbered Elements.  Important For information about using this field, see Item-Level Tax Fields. .</param>
+        public Ptsv2paymentsOrderInformationAmountDetailsTaxDetails(TypeEnum? Type = default(TypeEnum?), string Amount = default(string), string Rate = default(string), string Code = default(string), string TaxId = default(string), bool? Applied = default(bool?), string ExemptionCode = default(string))
         {
             this.Type = Type;
             this.Amount = Amount;
@@ -86,13 +87,14 @@ namespace CyberSource.Model
             this.Code = Code;
             this.TaxId = TaxId;
             this.Applied = Applied;
+            this.ExemptionCode = ExemptionCode;
         }
         
 
         /// <summary>
-        /// Please see below table for related decription based on above _type_ field.  | type      | amount description | |- -- -- -- -- --|- -- -- -- -- -- -- -- -- -- -| | alternate | Total amount of alternate tax for the order. | | local     | Sales tax for the order. | | national  | National tax for the order. | | vat       | Total amount of VAT or other tax included in the order. | 
+        /// Please see below table for related decription based on above _type_ field.  | type      | type description | |- -- -- -- -- --|- -- -- -- -- -- -- -- -- -- -| | alternate | Total amount of alternate tax for the order. | | local     | Sales tax for the order. | | national  | National tax for the order. | | vat       | Total amount of VAT or other tax included in the order. | | other     | Other tax. | 
         /// </summary>
-        /// <value>Please see below table for related decription based on above _type_ field.  | type      | amount description | |- -- -- -- -- --|- -- -- -- -- -- -- -- -- -- -| | alternate | Total amount of alternate tax for the order. | | local     | Sales tax for the order. | | national  | National tax for the order. | | vat       | Total amount of VAT or other tax included in the order. | </value>
+        /// <value>Please see below table for related decription based on above _type_ field.  | type      | type description | |- -- -- -- -- --|- -- -- -- -- -- -- -- -- -- -| | alternate | Total amount of alternate tax for the order. | | local     | Sales tax for the order. | | national  | National tax for the order. | | vat       | Total amount of VAT or other tax included in the order. | | other     | Other tax. | </value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public string Amount { get; set; }
 
@@ -104,9 +106,9 @@ namespace CyberSource.Model
         public string Rate { get; set; }
 
         /// <summary>
-        /// Type of tax being applied to the item. Possible values:  Below values are used by **RBS WorldPay Atlanta**, **FDC Nashville Global**, **Litle**   - 0000: unknown tax type  - 0001: federal/national sales tax  - 0002: state sales tax  - 0003: city sales tax  - 0004: local sales tax  - 0005: municipal sales tax  - 0006: other tax  - 0010: value-added tax  - 0011: goods and services tax  - 0012: provincial sales tax  - 0013: harmonized sales tax  - 0014: Quebec sales tax (QST)  - 0020: room tax  - 0021: occupancy tax  - 0022: energy tax  - Blank: Tax not supported on line item. 
+        /// Type of tax being applied to the item. Possible values:  Below values are used by **RBS WorldPay Atlanta**, **FDC Nashville Global**, **Litle**   - 0000: unknown tax type  - 0001: federal/national sales tax  - 0002: state sales tax  - 0003: city sales tax  - 0004: local sales tax  - 0005: municipal sales tax  - 0006: other tax  - 0010: value-added tax (VAT)  - 0011: goods and services tax (GST)  - 0012: provincial sales tax  - 0013: harmonized sales tax  - 0014: Quebec sales tax (QST)  - 0020: room tax  - 0021: occupancy tax  - 0022: energy tax  - 0023: city tax  - 0024: county or parish sales tax  - 0025: county tax  - 0026: environment tax  - 0027: state and local sales tax (combined)  - Blank: Tax not supported on line item. 
         /// </summary>
-        /// <value>Type of tax being applied to the item. Possible values:  Below values are used by **RBS WorldPay Atlanta**, **FDC Nashville Global**, **Litle**   - 0000: unknown tax type  - 0001: federal/national sales tax  - 0002: state sales tax  - 0003: city sales tax  - 0004: local sales tax  - 0005: municipal sales tax  - 0006: other tax  - 0010: value-added tax  - 0011: goods and services tax  - 0012: provincial sales tax  - 0013: harmonized sales tax  - 0014: Quebec sales tax (QST)  - 0020: room tax  - 0021: occupancy tax  - 0022: energy tax  - Blank: Tax not supported on line item. </value>
+        /// <value>Type of tax being applied to the item. Possible values:  Below values are used by **RBS WorldPay Atlanta**, **FDC Nashville Global**, **Litle**   - 0000: unknown tax type  - 0001: federal/national sales tax  - 0002: state sales tax  - 0003: city sales tax  - 0004: local sales tax  - 0005: municipal sales tax  - 0006: other tax  - 0010: value-added tax (VAT)  - 0011: goods and services tax (GST)  - 0012: provincial sales tax  - 0013: harmonized sales tax  - 0014: Quebec sales tax (QST)  - 0020: room tax  - 0021: occupancy tax  - 0022: energy tax  - 0023: city tax  - 0024: county or parish sales tax  - 0025: county tax  - 0026: environment tax  - 0027: state and local sales tax (combined)  - Blank: Tax not supported on line item. </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
@@ -125,6 +127,13 @@ namespace CyberSource.Model
         public bool? Applied { get; set; }
 
         /// <summary>
+        /// Code for exemption from sales and use tax. This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor.  For possible values, see Exemption Status Values. See Numbered Elements.  Important For information about using this field, see Item-Level Tax Fields. 
+        /// </summary>
+        /// <value>Code for exemption from sales and use tax. This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor.  For possible values, see Exemption Status Values. See Numbered Elements.  Important For information about using this field, see Item-Level Tax Fields. </value>
+        [DataMember(Name="exemptionCode", EmitDefaultValue=false)]
+        public string ExemptionCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -138,6 +147,7 @@ namespace CyberSource.Model
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  TaxId: ").Append(TaxId).Append("\n");
             sb.Append("  Applied: ").Append(Applied).Append("\n");
+            sb.Append("  ExemptionCode: ").Append(ExemptionCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -203,6 +213,11 @@ namespace CyberSource.Model
                     this.Applied == other.Applied ||
                     this.Applied != null &&
                     this.Applied.Equals(other.Applied)
+                ) && 
+                (
+                    this.ExemptionCode == other.ExemptionCode ||
+                    this.ExemptionCode != null &&
+                    this.ExemptionCode.Equals(other.ExemptionCode)
                 );
         }
 
@@ -229,6 +244,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TaxId.GetHashCode();
                 if (this.Applied != null)
                     hash = hash * 59 + this.Applied.GetHashCode();
+                if (this.ExemptionCode != null)
+                    hash = hash * 59 + this.ExemptionCode.GetHashCode();
                 return hash;
             }
         }
@@ -262,6 +279,12 @@ namespace CyberSource.Model
             if(this.TaxId != null && this.TaxId.Length > 15)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxId, length must be less than 15.", new [] { "TaxId" });
+            }
+
+            // ExemptionCode (string) maxLength
+            if(this.ExemptionCode != null && this.ExemptionCode.Length > 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExemptionCode, length must be less than 1.", new [] { "ExemptionCode" });
             }
 
             yield break;

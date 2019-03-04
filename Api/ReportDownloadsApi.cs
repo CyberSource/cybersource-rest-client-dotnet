@@ -28,34 +28,34 @@ namespace CyberSource.Api
         /// Download a report
         /// </summary>
         /// <remarks>
-        /// Download a report for the given report name on the specified date
+        /// Download a report using the unique report name and date. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="reportName">Name of the report to download</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        void DownloadReport (string reportDate, string reportName, string organizationId = null);
+        void DownloadReport (DateTime? reportDate, string reportName, string organizationId = null);
 
         /// <summary>
         /// Download a report
         /// </summary>
         /// <remarks>
-        /// Download a report for the given report name on the specified date
+        /// Download a report using the unique report name and date. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="reportName">Name of the report to download</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DownloadReportWithHttpInfo (string reportDate, string reportName, string organizationId = null);
+        ApiResponse<Object> DownloadReportWithHttpInfo (DateTime? reportDate, string reportName, string organizationId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
         /// Download a report
         /// </summary>
         /// <remarks>
-        /// Download a report for the given report name on the specified date
+        /// Download a report using the unique report name and date. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
@@ -68,7 +68,7 @@ namespace CyberSource.Api
         /// Download a report
         /// </summary>
         /// <remarks>
-        /// Download a report for the given report name on the specified date
+        /// Download a report using the unique report name and date. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
@@ -189,27 +189,27 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a report Download a report for the given report name on the specified date
+        /// Download a report Download a report using the unique report name and date. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="reportName">Name of the report to download</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        public void DownloadReport (string reportDate, string reportName, string organizationId = null)
+        public void DownloadReport (DateTime? reportDate, string reportName, string organizationId = null)
         {
              DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
         }
 
         /// <summary>
-        /// Download a report Download a report for the given report name on the specified date
+        /// Download a report Download a report using the unique report name and date. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="reportName">Name of the report to download</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DownloadReportWithHttpInfo (string reportDate, string reportName, string organizationId = null)
+        public ApiResponse<Object> DownloadReportWithHttpInfo (DateTime? reportDate, string reportName, string organizationId = null)
         {
             // verify the required parameter 'reportDate' is set
             if (reportDate == null)
@@ -218,13 +218,7 @@ namespace CyberSource.Api
             if (reportName == null)
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
 
-            var localVarPath = $"/reporting/v3/report-downloads/?reportDate={reportDate}&reportName={reportName}";
-
-            if (!string.IsNullOrEmpty(organizationId))
-            {
-                localVarPath += $"&organizationId={organizationId}";
-            }
-
+            var localVarPath = $"/reporting/v3/report-downloads";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -241,15 +235,15 @@ namespace CyberSource.Api
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/xml",
-                "test/csv"
+                "text/csv"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            //if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            //if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate)); // query parameter
-            //if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
+            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate.Value.ToString("yyyy-MM-dd"))); // query parameter
+            if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
 
 
             // make the HTTP request
@@ -267,11 +261,11 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                localVarResponse.Content);
+                null);
         }
 
         /// <summary>
-        /// Download a report Download a report for the given report name on the specified date
+        /// Download a report Download a report using the unique report name and date. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
@@ -285,7 +279,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a report Download a report for the given report name on the specified date
+        /// Download a report Download a report using the unique report name and date. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
@@ -301,7 +295,7 @@ namespace CyberSource.Api
             if (reportName == null)
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
 
-            var localVarPath = "/reporting/v3/report-downloads";
+            var localVarPath = $"/reporting/v3/report-downloads";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -318,14 +312,14 @@ namespace CyberSource.Api
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/xml",
-                "test/csv"
+                "text/csv"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate)); // query parameter
+            if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate.Value.ToString("yyyy-MM-dd"))); // query parameter
             if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
 
 

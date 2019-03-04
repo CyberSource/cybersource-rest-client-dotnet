@@ -35,6 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
+        /// <param name="IssuerInformation">IssuerInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
@@ -44,11 +45,13 @@ namespace CyberSource.Model
         /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        /// <param name="MerchantDefinedInformation">Description of this field is not available..</param>
-        public CreatePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsProcessingInformation ProcessingInformation = default(Ptsv2paymentsProcessingInformation), Ptsv2paymentsPaymentInformation PaymentInformation = default(Ptsv2paymentsPaymentInformation), Ptsv2paymentsOrderInformation OrderInformation = default(Ptsv2paymentsOrderInformation), Ptsv2paymentsBuyerInformation BuyerInformation = default(Ptsv2paymentsBuyerInformation), Ptsv2paymentsRecipientInformation RecipientInformation = default(Ptsv2paymentsRecipientInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsMerchantInformation MerchantInformation = default(Ptsv2paymentsMerchantInformation), Ptsv2paymentsAggregatorInformation AggregatorInformation = default(Ptsv2paymentsAggregatorInformation), Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2paymentsConsumerAuthenticationInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>))
+        /// <param name="MerchantDefinedInformation">The description for this field is not available..</param>
+        /// <param name="InstallmentInformation">InstallmentInformation.</param>
+        public CreatePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsProcessingInformation ProcessingInformation = default(Ptsv2paymentsProcessingInformation), Ptsv2paymentsIssuerInformation IssuerInformation = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsPaymentInformation PaymentInformation = default(Ptsv2paymentsPaymentInformation), Ptsv2paymentsOrderInformation OrderInformation = default(Ptsv2paymentsOrderInformation), Ptsv2paymentsBuyerInformation BuyerInformation = default(Ptsv2paymentsBuyerInformation), Ptsv2paymentsRecipientInformation RecipientInformation = default(Ptsv2paymentsRecipientInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsMerchantInformation MerchantInformation = default(Ptsv2paymentsMerchantInformation), Ptsv2paymentsAggregatorInformation AggregatorInformation = default(Ptsv2paymentsAggregatorInformation), Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2paymentsConsumerAuthenticationInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsInstallmentInformation InstallmentInformation = default(Ptsv2paymentsInstallmentInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
+            this.IssuerInformation = IssuerInformation;
             this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
             this.BuyerInformation = BuyerInformation;
@@ -59,6 +62,7 @@ namespace CyberSource.Model
             this.ConsumerAuthenticationInformation = ConsumerAuthenticationInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
             this.MerchantDefinedInformation = MerchantDefinedInformation;
+            this.InstallmentInformation = InstallmentInformation;
         }
         
         /// <summary>
@@ -72,6 +76,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="processingInformation", EmitDefaultValue=false)]
         public Ptsv2paymentsProcessingInformation ProcessingInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IssuerInformation
+        /// </summary>
+        [DataMember(Name="issuerInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsIssuerInformation IssuerInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentInformation
@@ -128,11 +138,17 @@ namespace CyberSource.Model
         public Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
-        /// Description of this field is not available.
+        /// The description for this field is not available.
         /// </summary>
-        /// <value>Description of this field is not available.</value>
+        /// <value>The description for this field is not available.</value>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
         public List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InstallmentInformation
+        /// </summary>
+        [DataMember(Name="installmentInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsInstallmentInformation InstallmentInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -144,6 +160,7 @@ namespace CyberSource.Model
             sb.Append("class CreatePaymentRequest {\n");
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
+            sb.Append("  IssuerInformation: ").Append(IssuerInformation).Append("\n");
             sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
@@ -154,6 +171,7 @@ namespace CyberSource.Model
             sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
             sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
+            sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -199,6 +217,11 @@ namespace CyberSource.Model
                     this.ProcessingInformation == other.ProcessingInformation ||
                     this.ProcessingInformation != null &&
                     this.ProcessingInformation.Equals(other.ProcessingInformation)
+                ) && 
+                (
+                    this.IssuerInformation == other.IssuerInformation ||
+                    this.IssuerInformation != null &&
+                    this.IssuerInformation.Equals(other.IssuerInformation)
                 ) && 
                 (
                     this.PaymentInformation == other.PaymentInformation ||
@@ -249,6 +272,11 @@ namespace CyberSource.Model
                     this.MerchantDefinedInformation == other.MerchantDefinedInformation ||
                     this.MerchantDefinedInformation != null &&
                     this.MerchantDefinedInformation.SequenceEqual(other.MerchantDefinedInformation)
+                ) && 
+                (
+                    this.InstallmentInformation == other.InstallmentInformation ||
+                    this.InstallmentInformation != null &&
+                    this.InstallmentInformation.Equals(other.InstallmentInformation)
                 );
         }
 
@@ -267,6 +295,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 if (this.ProcessingInformation != null)
                     hash = hash * 59 + this.ProcessingInformation.GetHashCode();
+                if (this.IssuerInformation != null)
+                    hash = hash * 59 + this.IssuerInformation.GetHashCode();
                 if (this.PaymentInformation != null)
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.OrderInformation != null)
@@ -287,6 +317,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
                 if (this.MerchantDefinedInformation != null)
                     hash = hash * 59 + this.MerchantDefinedInformation.GetHashCode();
+                if (this.InstallmentInformation != null)
+                    hash = hash * 59 + this.InstallmentInformation.GetHashCode();
                 return hash;
             }
         }

@@ -4,8 +4,8 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetFile**](SecureFileShareApi.md#getfile) | **GET** /v1/files/{fileId} | Download a file with file identifier
-[**GetFileDetails**](SecureFileShareApi.md#getfiledetails) | **GET** /v1/file-details | Get list of files
+[**GetFile**](SecureFileShareApi.md#getfile) | **GET** /sfs/v1/files/{fileId} | Download a file with file identifier
+[**GetFileDetails**](SecureFileShareApi.md#getfiledetails) | **GET** /sfs/v1/file-details | Get list of files
 
 
 <a name="getfile"></a>

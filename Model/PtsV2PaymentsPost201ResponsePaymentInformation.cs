@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="Card">Card.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
         /// <param name="AccountFeatures">AccountFeatures.</param>
-        public PtsV2PaymentsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentInformationCard Card = default(PtsV2PaymentsPost201ResponsePaymentInformationCard), PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard TokenizedCard = default(PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard), PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures AccountFeatures = default(PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures))
+        /// <param name="Bank">Bank.</param>
+        public PtsV2PaymentsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentInformationCard Card = default(PtsV2PaymentsPost201ResponsePaymentInformationCard), PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard TokenizedCard = default(PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard), PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures AccountFeatures = default(PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures), PtsV2PaymentsPost201ResponsePaymentInformationBank Bank = default(PtsV2PaymentsPost201ResponsePaymentInformationBank))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
             this.AccountFeatures = AccountFeatures;
+            this.Bank = Bank;
         }
         
         /// <summary>
@@ -62,6 +64,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures AccountFeatures { get; set; }
 
         /// <summary>
+        /// Gets or Sets Bank
+        /// </summary>
+        [DataMember(Name="bank", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponsePaymentInformationBank Bank { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +80,7 @@ namespace CyberSource.Model
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             sb.Append("  AccountFeatures: ").Append(AccountFeatures).Append("\n");
+            sb.Append("  Bank: ").Append(Bank).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +131,11 @@ namespace CyberSource.Model
                     this.AccountFeatures == other.AccountFeatures ||
                     this.AccountFeatures != null &&
                     this.AccountFeatures.Equals(other.AccountFeatures)
+                ) && 
+                (
+                    this.Bank == other.Bank ||
+                    this.Bank != null &&
+                    this.Bank.Equals(other.Bank)
                 );
         }
 
@@ -142,6 +156,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TokenizedCard.GetHashCode();
                 if (this.AccountFeatures != null)
                     hash = hash * 59 + this.AccountFeatures.GetHashCode();
+                if (this.Bank != null)
+                    hash = hash * 59 + this.Bank.GetHashCode();
                 return hash;
             }
         }

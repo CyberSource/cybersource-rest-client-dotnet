@@ -228,8 +228,7 @@ namespace CyberSource.Api
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/hal+json;charset=utf-8"
+String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -294,7 +293,7 @@ namespace CyberSource.Api
             if (authReversalRequest == null)
                 throw new ApiException(400, "Missing required parameter 'authReversalRequest' when calling ReversalApi->AuthReversal");
 
-            var localVarPath = "/pts/v2/payments/{id}/reversals";
+            var localVarPath = $"/pts/v2/payments/{id}/reversals";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -309,8 +308,7 @@ namespace CyberSource.Api
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json;charset=utf-8"
+String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -347,3 +345,4 @@ namespace CyberSource.Api
 
     }
 }
+

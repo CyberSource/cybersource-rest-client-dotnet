@@ -34,15 +34,15 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsPaymentInformationTokenizedCard" /> class.
         /// </summary>
         /// <param name="Number">Customer’s payment network token value. .</param>
-        /// <param name="ExpirationMonth">Two-digit month in which the payment network token expires. &#x60;Format: MM&#x60;. Possible values: 01 through 12. .</param>
-        /// <param name="ExpirationYear">Four-digit year in which the payment network token expires. &#x60;Format: YYYY&#x60;. .</param>
+        /// <param name="ExpirationMonth">Two-digit month in which the payment network token expires. &#x60;Format: MM&#x60;. Possible values: 01 through 12.  **Barclays and Streamline**\\ For Maestro (UK Domestic) and Maestro (International) cards on Barclays and Streamline, this must be a valid value (01 through 12) but is not required to be a valid expiration date. In other words, an expiration date that is in the past does not cause CyberSource to reject your request. However, an invalid expiration date might cause the issuer to reject your request.  **Encoded Account Numbers**\\ For encoded account numbers (_type_&#x3D;039), if there is no expiration date on the card, use 12.  For processor-specific information, see the customer_cc_expmo field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="ExpirationYear">Four-digit year in which the payment network token expires. &#x60;Format: YYYY&#x60;.  **Barclays and Streamline**\\ For Maestro (UK Domestic) and Maestro (International) cards on Barclays and Streamline, this must be a valid value (1900 through 3000) but is not required to be a valid expiration date. In other words, an expiration date that is in the past does not cause CyberSource to reject your request. However, an invalid expiration date might cause the issuer to reject your request.  **FDC Nashville Global and FDMS South**\\ You can send in 2 digits or 4 digits. If you send in 2 digits, they must be the last 2 digits of the year.  **Encoded Account Numbers**\\ For encoded account numbers (card_type&#x3D;039), if there is no expiration date on the card, use 2021.  For processor-specific information, see the customer_cc_expyr field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         /// <param name="Type">Type of card to authorize. - 001 Visa - 002 Mastercard - 003 Amex - 004 Discover .</param>
         /// <param name="Cryptogram">This field is used internally..</param>
         /// <param name="RequestorId">Value that identifies your business and indicates that the cardholder’s account number is tokenized. This value is assigned by the token service provider and is unique within the token service provider’s database.  &#x60;Note&#x60; This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**. .</param>
         /// <param name="TransactionType">Type of transaction that provided the token data. This value does not specify the token service provider; it specifies the entity that provided you with information about the token.  Set the value for this field to 1. An application on the customer’s mobile device provided the token data. .</param>
         /// <param name="AssuranceLevel">Confidence level of the tokenization. This value is assigned by the token service provider.  &#x60;Note&#x60; This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**. .</param>
         /// <param name="StorageMethod">Type of technology used in the device to store token data. Possible values:   - 001: Secure Element (SE)  Smart card or memory with restricted access and encryption to prevent data tampering. For storing payment credentials, a SE is tested against a set of requirements defined by the payment networks.  &#x60;Note&#x60; This field is supported only for **FDC Compass**.  - 002: Host Card Emulation (HCE)  Emulation of a smart card by using software to create a virtual and exact representation of the card. Sensitive data is stored in a database that is hosted in the cloud. For storing payment credentials, a database must meet very stringent security requirements that exceed PCI DSS.  &#x60;Note&#x60; This field is supported only for **FDC Compass**. .</param>
-        /// <param name="SecurityCode">CVN..</param>
+        /// <param name="SecurityCode">Card Verification Number.  **Ingenico ePayments** Do not include this field when _commerceIndicator&#x3D;recurring_. **Note** Ingenico ePayments was previously called Global Collect. CVN. .</param>
         public Ptsv2paymentsPaymentInformationTokenizedCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), string Cryptogram = default(string), string RequestorId = default(string), string TransactionType = default(string), string AssuranceLevel = default(string), string StorageMethod = default(string), string SecurityCode = default(string))
         {
             this.Number = Number;
@@ -65,16 +65,16 @@ namespace CyberSource.Model
         public string Number { get; set; }
 
         /// <summary>
-        /// Two-digit month in which the payment network token expires. &#x60;Format: MM&#x60;. Possible values: 01 through 12. 
+        /// Two-digit month in which the payment network token expires. &#x60;Format: MM&#x60;. Possible values: 01 through 12.  **Barclays and Streamline**\\ For Maestro (UK Domestic) and Maestro (International) cards on Barclays and Streamline, this must be a valid value (01 through 12) but is not required to be a valid expiration date. In other words, an expiration date that is in the past does not cause CyberSource to reject your request. However, an invalid expiration date might cause the issuer to reject your request.  **Encoded Account Numbers**\\ For encoded account numbers (_type_&#x3D;039), if there is no expiration date on the card, use 12.  For processor-specific information, see the customer_cc_expmo field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
         /// </summary>
-        /// <value>Two-digit month in which the payment network token expires. &#x60;Format: MM&#x60;. Possible values: 01 through 12. </value>
+        /// <value>Two-digit month in which the payment network token expires. &#x60;Format: MM&#x60;. Possible values: 01 through 12.  **Barclays and Streamline**\\ For Maestro (UK Domestic) and Maestro (International) cards on Barclays and Streamline, this must be a valid value (01 through 12) but is not required to be a valid expiration date. In other words, an expiration date that is in the past does not cause CyberSource to reject your request. However, an invalid expiration date might cause the issuer to reject your request.  **Encoded Account Numbers**\\ For encoded account numbers (_type_&#x3D;039), if there is no expiration date on the card, use 12.  For processor-specific information, see the customer_cc_expmo field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
         [DataMember(Name="expirationMonth", EmitDefaultValue=false)]
         public string ExpirationMonth { get; set; }
 
         /// <summary>
-        /// Four-digit year in which the payment network token expires. &#x60;Format: YYYY&#x60;. 
+        /// Four-digit year in which the payment network token expires. &#x60;Format: YYYY&#x60;.  **Barclays and Streamline**\\ For Maestro (UK Domestic) and Maestro (International) cards on Barclays and Streamline, this must be a valid value (1900 through 3000) but is not required to be a valid expiration date. In other words, an expiration date that is in the past does not cause CyberSource to reject your request. However, an invalid expiration date might cause the issuer to reject your request.  **FDC Nashville Global and FDMS South**\\ You can send in 2 digits or 4 digits. If you send in 2 digits, they must be the last 2 digits of the year.  **Encoded Account Numbers**\\ For encoded account numbers (card_type&#x3D;039), if there is no expiration date on the card, use 2021.  For processor-specific information, see the customer_cc_expyr field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
         /// </summary>
-        /// <value>Four-digit year in which the payment network token expires. &#x60;Format: YYYY&#x60;. </value>
+        /// <value>Four-digit year in which the payment network token expires. &#x60;Format: YYYY&#x60;.  **Barclays and Streamline**\\ For Maestro (UK Domestic) and Maestro (International) cards on Barclays and Streamline, this must be a valid value (1900 through 3000) but is not required to be a valid expiration date. In other words, an expiration date that is in the past does not cause CyberSource to reject your request. However, an invalid expiration date might cause the issuer to reject your request.  **FDC Nashville Global and FDMS South**\\ You can send in 2 digits or 4 digits. If you send in 2 digits, they must be the last 2 digits of the year.  **Encoded Account Numbers**\\ For encoded account numbers (card_type&#x3D;039), if there is no expiration date on the card, use 2021.  For processor-specific information, see the customer_cc_expyr field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
         [DataMember(Name="expirationYear", EmitDefaultValue=false)]
         public string ExpirationYear { get; set; }
 
@@ -121,9 +121,9 @@ namespace CyberSource.Model
         public string StorageMethod { get; set; }
 
         /// <summary>
-        /// CVN.
+        /// Card Verification Number.  **Ingenico ePayments** Do not include this field when _commerceIndicator&#x3D;recurring_. **Note** Ingenico ePayments was previously called Global Collect. CVN. 
         /// </summary>
-        /// <value>CVN.</value>
+        /// <value>Card Verification Number.  **Ingenico ePayments** Do not include this field when _commerceIndicator&#x3D;recurring_. **Note** Ingenico ePayments was previously called Global Collect. CVN. </value>
         [DataMember(Name="securityCode", EmitDefaultValue=false)]
         public string SecurityCode { get; set; }
 
@@ -291,12 +291,6 @@ namespace CyberSource.Model
             if(this.ExpirationYear != null && this.ExpirationYear.Length > 4)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationYear, length must be less than 4.", new [] { "ExpirationYear" });
-            }
-
-            // Type (string) maxLength
-            if(this.Type != null && this.Type.Length > 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 3.", new [] { "Type" });
             }
 
             // Cryptogram (string) maxLength

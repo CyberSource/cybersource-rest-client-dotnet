@@ -48,7 +48,5 @@ namespace CyberSource.Client
             this.Headers = headers;
             this.Data = data;
         }
-
     }
-
 }

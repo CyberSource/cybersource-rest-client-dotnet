@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **PostalCodeRaw** | **string** | Raw Electronic Verification response code from the processor for the customer’s postal code. | [optional] 
 **Street** | **string** | Mapped Electronic Verification response code for the customer’s street address.  | [optional] 
 **StreetRaw** | **string** | Raw Electronic Verification response code from the processor for the customer’s street address. | [optional] 
-**Name** | **string** | TODO  | [optional] 
-**NameRaw** | **string** | TODO | [optional] 
+**Name** | **string** | The description for this field is not available.  | [optional] 
+**NameRaw** | **string** | The description for this field is not available. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

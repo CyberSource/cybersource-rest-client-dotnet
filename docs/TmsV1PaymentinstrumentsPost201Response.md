@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **_Object** | **string** | Describes type of token. For example: customer, paymentInstrument or instrumentIdentifier. | [optional] 
 **State** | **string** | Current state of the token. | [optional] 
 **BankAccount** | [**Tmsv1paymentinstrumentsBankAccount**](Tmsv1paymentinstrumentsBankAccount.md) |  | [optional] 
-**Card** | [**Tmsv1paymentinstrumentsCard**](Tmsv1paymentinstrumentsCard.md) |  | [optional] 
+**Card** | [**TmsV1PaymentinstrumentsPost201ResponseCard**](TmsV1PaymentinstrumentsPost201ResponseCard.md) |  | [optional] 
 **BuyerInformation** | [**Tmsv1paymentinstrumentsBuyerInformation**](Tmsv1paymentinstrumentsBuyerInformation.md) |  | [optional] 
 **BillTo** | [**Tmsv1paymentinstrumentsBillTo**](Tmsv1paymentinstrumentsBillTo.md) |  | [optional] 
 **ProcessingInformation** | [**Tmsv1paymentinstrumentsProcessingInformation**](Tmsv1paymentinstrumentsProcessingInformation.md) |  | [optional] 

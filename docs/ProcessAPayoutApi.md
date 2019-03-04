@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="octcreatepayment"></a>
 # **OctCreatePayment**
-> void OctCreatePayment (PtsV2PayoutsPostResponse octCreatePaymentRequest)
+> PtsV2PayoutsPost201Response OctCreatePayment (PtsV2PayoutsPostResponse octCreatePaymentRequest)
 
 Process a Payout
 
@@ -35,7 +35,8 @@ namespace Example
             try
             {
                 // Process a Payout
-                apiInstance.OctCreatePayment(octCreatePaymentRequest);
+                PtsV2PayoutsPost201Response result = apiInstance.OctCreatePayment(octCreatePaymentRequest);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
@@ -54,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**PtsV2PayoutsPost201Response**](PtsV2PayoutsPost201Response.md)
 
 ### Authorization
 

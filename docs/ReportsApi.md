@@ -11,11 +11,11 @@ Method | HTTP request | Description
 
 <a name="createreport"></a>
 # **CreateReport**
-> void CreateReport (RequestBody1 requestBody)
+> void CreateReport (RequestBody requestBody, string organizationId = null)
 
 Create Adhoc Report
 
-Create one time report
+Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
 
 ### Example
 ```csharp
@@ -32,12 +32,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new ReportsApi();
-            var requestBody = new RequestBody1(); // RequestBody1 | Report subscription request payload
+            var requestBody = new RequestBody(); // RequestBody | Report subscription request payload
+            var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
 
             try
             {
                 // Create Adhoc Report
-                apiInstance.CreateReport(requestBody);
+                apiInstance.CreateReport(requestBody, organizationId);
             }
             catch (Exception e)
             {
@@ -52,7 +53,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**RequestBody1**](RequestBody1.md)| Report subscription request payload | 
+ **requestBody** | [**RequestBody**](RequestBody.md)| Report subscription request payload | 
+ **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
 
 ### Return type
 
@@ -75,7 +77,7 @@ No authorization required
 
 Get Report based on reportId
 
-ReportId is mandatory input
+Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
 
 ### Example
 ```csharp
@@ -138,7 +140,7 @@ No authorization required
 
 Retrieve available reports
 
-Retrieve list of available reports
+Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
 
 ### Example
 ```csharp
@@ -157,7 +159,7 @@ namespace Example
             var apiInstance = new ReportsApi();
             var startTime = 2013-10-20T19:20:30+01:00;  // DateTime? | Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd'T'HH:mm:ssXXX 
             var endTime = 2013-10-20T19:20:30+01:00;  // DateTime? | Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd'T'HH:mm:ssXXX 
-            var timeQueryType = timeQueryType_example;  // string | Specify time you woud like to search
+            var timeQueryType = timeQueryType_example;  // string | Specify time you would like to search
             var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
             var reportMimeType = reportMimeType_example;  // string | Valid Report Format (optional) 
             var reportFrequency = reportFrequency_example;  // string | Valid Report Frequency (optional) 
@@ -186,7 +188,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startTime** | **DateTime?**| Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX  | 
  **endTime** | **DateTime?**| Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX  | 
- **timeQueryType** | **string**| Specify time you woud like to search | 
+ **timeQueryType** | **string**| Specify time you would like to search | 
  **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
  **reportMimeType** | **string**| Valid Report Format | [optional] 
  **reportFrequency** | **string**| Valid Report Frequency | [optional] 

@@ -33,21 +33,21 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsProcessingInformation" /> class.
         /// </summary>
-        /// <param name="Capture">Flag that specifies whether to also include capture service in the submitted request or not. (default to false).</param>
-        /// <param name="ProcessorId">Value that identifies the processor/acquirer to use for the transaction. This value is supported only for **CyberSource through VisaNet**. .</param>
-        /// <param name="BusinessApplicationId">Description of this field is not available..</param>
+        /// <param name="Capture">Flag that specifies whether to also include capture service in the submitted request or not.  Possible values: - **true** - **false** (default).  (default to false).</param>
+        /// <param name="ProcessorId">Value that identifies the processor/acquirer to use for the transaction. This value is supported only for **CyberSource through VisaNet**.  Contact CyberSource Customer Support to get the value for this field. .</param>
+        /// <param name="BusinessApplicationId">The description for this field is not available..</param>
         /// <param name="CommerceIndicator">Type of transaction. Some payment card companies use this information when determining discount rates. When you omit this field for **Ingenico ePayments**, the processor uses the default transaction type they have on file for you instead of the default value listed here. .</param>
-        /// <param name="PaymentSolution">Type of digital payment solution that is being used for the transaction. Possible Values:   - **visacheckout**: Visa Checkout.  - **001**: Apple Pay.  - **005**: Masterpass. Required for Masterpass transactions on OmniPay Direct.  - **006**: Android Pay.  - **008**: Samsung Pay. .</param>
+        /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - **visacheckout**: Visa Checkout. This value is required for Visa Checkout transactions. See Visa Checkout Using the SCMP API.  - **005**: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. See \&quot;Masterpass,\&quot; page 153. .</param>
         /// <param name="ReconciliationId">Please check with Cybersource customer support to see if your merchant account is configured correctly so you can include this field in your request. * For Payouts: max length for FDCCompass is String (22). .</param>
-        /// <param name="LinkId">Value that links the current payment request to the original request. Set this value to the ID that was returned in the reply message from the original payment request.  This value is used for:   - Partial authorizations.  - Split shipments. .</param>
+        /// <param name="LinkId">Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:   - Partial authorizations: See \&quot;Partial Authorizations,\&quot; page 88.  - Split shipments: See \&quot;Split Shipments,\&quot; page 210. .</param>
         /// <param name="PurchaseLevel">Set this field to 3 to indicate that the request includes Level III data..</param>
-        /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Litle**. .</param>
-        /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. .</param>
-        /// <param name="Issuer">Issuer.</param>
+        /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  See \&quot;Report Groups,\&quot; page 234. .</param>
+        /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For more details, see Visa Checkout Using the SCMP API. .</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         /// <param name="CaptureOptions">CaptureOptions.</param>
         /// <param name="RecurringOptions">RecurringOptions.</param>
-        public Ptsv2paymentsProcessingInformation(bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), Ptsv2paymentsProcessingInformationIssuer Issuer = default(Ptsv2paymentsProcessingInformationIssuer), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions))
+        /// <param name="BankTransferOptions">BankTransferOptions.</param>
+        public Ptsv2paymentsProcessingInformation(bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions))
         {
             // use default value if no "Capture" provided
             if (Capture == null)
@@ -67,30 +67,30 @@ namespace CyberSource.Model
             this.PurchaseLevel = PurchaseLevel;
             this.ReportGroup = ReportGroup;
             this.VisaCheckoutId = VisaCheckoutId;
-            this.Issuer = Issuer;
             this.AuthorizationOptions = AuthorizationOptions;
             this.CaptureOptions = CaptureOptions;
             this.RecurringOptions = RecurringOptions;
+            this.BankTransferOptions = BankTransferOptions;
         }
         
         /// <summary>
-        /// Flag that specifies whether to also include capture service in the submitted request or not.
+        /// Flag that specifies whether to also include capture service in the submitted request or not.  Possible values: - **true** - **false** (default). 
         /// </summary>
-        /// <value>Flag that specifies whether to also include capture service in the submitted request or not.</value>
+        /// <value>Flag that specifies whether to also include capture service in the submitted request or not.  Possible values: - **true** - **false** (default). </value>
         [DataMember(Name="capture", EmitDefaultValue=false)]
         public bool? Capture { get; set; }
 
         /// <summary>
-        /// Value that identifies the processor/acquirer to use for the transaction. This value is supported only for **CyberSource through VisaNet**. 
+        /// Value that identifies the processor/acquirer to use for the transaction. This value is supported only for **CyberSource through VisaNet**.  Contact CyberSource Customer Support to get the value for this field. 
         /// </summary>
-        /// <value>Value that identifies the processor/acquirer to use for the transaction. This value is supported only for **CyberSource through VisaNet**. </value>
+        /// <value>Value that identifies the processor/acquirer to use for the transaction. This value is supported only for **CyberSource through VisaNet**.  Contact CyberSource Customer Support to get the value for this field. </value>
         [DataMember(Name="processorId", EmitDefaultValue=false)]
         public string ProcessorId { get; set; }
 
         /// <summary>
-        /// Description of this field is not available.
+        /// The description for this field is not available.
         /// </summary>
-        /// <value>Description of this field is not available.</value>
+        /// <value>The description for this field is not available.</value>
         [DataMember(Name="businessApplicationId", EmitDefaultValue=false)]
         public string BusinessApplicationId { get; set; }
 
@@ -102,9 +102,9 @@ namespace CyberSource.Model
         public string CommerceIndicator { get; set; }
 
         /// <summary>
-        /// Type of digital payment solution that is being used for the transaction. Possible Values:   - **visacheckout**: Visa Checkout.  - **001**: Apple Pay.  - **005**: Masterpass. Required for Masterpass transactions on OmniPay Direct.  - **006**: Android Pay.  - **008**: Samsung Pay. 
+        /// Type of digital payment solution for the transaction. Possible Values:   - **visacheckout**: Visa Checkout. This value is required for Visa Checkout transactions. See Visa Checkout Using the SCMP API.  - **005**: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. See \&quot;Masterpass,\&quot; page 153. 
         /// </summary>
-        /// <value>Type of digital payment solution that is being used for the transaction. Possible Values:   - **visacheckout**: Visa Checkout.  - **001**: Apple Pay.  - **005**: Masterpass. Required for Masterpass transactions on OmniPay Direct.  - **006**: Android Pay.  - **008**: Samsung Pay. </value>
+        /// <value>Type of digital payment solution for the transaction. Possible Values:   - **visacheckout**: Visa Checkout. This value is required for Visa Checkout transactions. See Visa Checkout Using the SCMP API.  - **005**: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. See \&quot;Masterpass,\&quot; page 153. </value>
         [DataMember(Name="paymentSolution", EmitDefaultValue=false)]
         public string PaymentSolution { get; set; }
 
@@ -116,9 +116,9 @@ namespace CyberSource.Model
         public string ReconciliationId { get; set; }
 
         /// <summary>
-        /// Value that links the current payment request to the original request. Set this value to the ID that was returned in the reply message from the original payment request.  This value is used for:   - Partial authorizations.  - Split shipments. 
+        /// Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:   - Partial authorizations: See \&quot;Partial Authorizations,\&quot; page 88.  - Split shipments: See \&quot;Split Shipments,\&quot; page 210. 
         /// </summary>
-        /// <value>Value that links the current payment request to the original request. Set this value to the ID that was returned in the reply message from the original payment request.  This value is used for:   - Partial authorizations.  - Split shipments. </value>
+        /// <value>Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:   - Partial authorizations: See \&quot;Partial Authorizations,\&quot; page 88.  - Split shipments: See \&quot;Split Shipments,\&quot; page 210. </value>
         [DataMember(Name="linkId", EmitDefaultValue=false)]
         public string LinkId { get; set; }
 
@@ -130,24 +130,18 @@ namespace CyberSource.Model
         public string PurchaseLevel { get; set; }
 
         /// <summary>
-        /// Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Litle**. 
+        /// Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  See \&quot;Report Groups,\&quot; page 234. 
         /// </summary>
-        /// <value>Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Litle**. </value>
+        /// <value>Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  See \&quot;Report Groups,\&quot; page 234. </value>
         [DataMember(Name="reportGroup", EmitDefaultValue=false)]
         public string ReportGroup { get; set; }
 
         /// <summary>
-        /// Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. 
+        /// Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For more details, see Visa Checkout Using the SCMP API. 
         /// </summary>
-        /// <value>Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. </value>
+        /// <value>Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For more details, see Visa Checkout Using the SCMP API. </value>
         [DataMember(Name="visaCheckoutId", EmitDefaultValue=false)]
         public string VisaCheckoutId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Issuer
-        /// </summary>
-        [DataMember(Name="issuer", EmitDefaultValue=false)]
-        public Ptsv2paymentsProcessingInformationIssuer Issuer { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthorizationOptions
@@ -168,6 +162,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions { get; set; }
 
         /// <summary>
+        /// Gets or Sets BankTransferOptions
+        /// </summary>
+        [DataMember(Name="bankTransferOptions", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -185,10 +185,10 @@ namespace CyberSource.Model
             sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
             sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
             sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
-            sb.Append("  Issuer: ").Append(Issuer).Append("\n");
             sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
             sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
             sb.Append("  RecurringOptions: ").Append(RecurringOptions).Append("\n");
+            sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -276,11 +276,6 @@ namespace CyberSource.Model
                     this.VisaCheckoutId.Equals(other.VisaCheckoutId)
                 ) && 
                 (
-                    this.Issuer == other.Issuer ||
-                    this.Issuer != null &&
-                    this.Issuer.Equals(other.Issuer)
-                ) && 
-                (
                     this.AuthorizationOptions == other.AuthorizationOptions ||
                     this.AuthorizationOptions != null &&
                     this.AuthorizationOptions.Equals(other.AuthorizationOptions)
@@ -294,6 +289,11 @@ namespace CyberSource.Model
                     this.RecurringOptions == other.RecurringOptions ||
                     this.RecurringOptions != null &&
                     this.RecurringOptions.Equals(other.RecurringOptions)
+                ) && 
+                (
+                    this.BankTransferOptions == other.BankTransferOptions ||
+                    this.BankTransferOptions != null &&
+                    this.BankTransferOptions.Equals(other.BankTransferOptions)
                 );
         }
 
@@ -328,14 +328,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReportGroup.GetHashCode();
                 if (this.VisaCheckoutId != null)
                     hash = hash * 59 + this.VisaCheckoutId.GetHashCode();
-                if (this.Issuer != null)
-                    hash = hash * 59 + this.Issuer.GetHashCode();
                 if (this.AuthorizationOptions != null)
                     hash = hash * 59 + this.AuthorizationOptions.GetHashCode();
                 if (this.CaptureOptions != null)
                     hash = hash * 59 + this.CaptureOptions.GetHashCode();
                 if (this.RecurringOptions != null)
                     hash = hash * 59 + this.RecurringOptions.GetHashCode();
+                if (this.BankTransferOptions != null)
+                    hash = hash * 59 + this.BankTransferOptions.GetHashCode();
                 return hash;
             }
         }

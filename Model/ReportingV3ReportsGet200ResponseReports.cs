@@ -163,8 +163,9 @@ namespace CyberSource.Model
         /// <param name="QueuedTime">Specifies the time of the report in queued  in ISO 8601 format.</param>
         /// <param name="ReportGeneratingTime">Specifies the time of the report started to generate  in ISO 8601 format.</param>
         /// <param name="ReportCompletedTime">Specifies the time of the report completed the generation  in ISO 8601 format.</param>
-        /// <param name="SelectedMerchantGroupName">Selected name of the group.</param>
-        public ReportingV3ReportsGet200ResponseReports(string ReportDefinitionId = default(string), string ReportName = default(string), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), StatusEnum? Status = default(StatusEnum?), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), string Timezone = default(string), string ReportId = default(string), string OrganizationId = default(string), DateTime? QueuedTime = default(DateTime?), DateTime? ReportGeneratingTime = default(DateTime?), DateTime? ReportCompletedTime = default(DateTime?), string SelectedMerchantGroupName = default(string))
+        /// <param name="SubscriptionType">Specifies whether the subscription created is either Custom, Standard or Classic .</param>
+        /// <param name="GroupId">Id for selected group..</param>
+        public ReportingV3ReportsGet200ResponseReports(string ReportDefinitionId = default(string), string ReportName = default(string), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), StatusEnum? Status = default(StatusEnum?), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), string Timezone = default(string), string ReportId = default(string), string OrganizationId = default(string), DateTime? QueuedTime = default(DateTime?), DateTime? ReportGeneratingTime = default(DateTime?), DateTime? ReportCompletedTime = default(DateTime?), string SubscriptionType = default(string), string GroupId = default(string))
         {
             this.ReportDefinitionId = ReportDefinitionId;
             this.ReportName = ReportName;
@@ -179,7 +180,8 @@ namespace CyberSource.Model
             this.QueuedTime = QueuedTime;
             this.ReportGeneratingTime = ReportGeneratingTime;
             this.ReportCompletedTime = ReportCompletedTime;
-            this.SelectedMerchantGroupName = SelectedMerchantGroupName;
+            this.SubscriptionType = SubscriptionType;
+            this.GroupId = GroupId;
         }
         
         /// <summary>
@@ -256,11 +258,18 @@ namespace CyberSource.Model
         public DateTime? ReportCompletedTime { get; set; }
 
         /// <summary>
-        /// Selected name of the group
+        /// Specifies whether the subscription created is either Custom, Standard or Classic 
         /// </summary>
-        /// <value>Selected name of the group</value>
-        [DataMember(Name="selectedMerchantGroupName", EmitDefaultValue=false)]
-        public string SelectedMerchantGroupName { get; set; }
+        /// <value>Specifies whether the subscription created is either Custom, Standard or Classic </value>
+        [DataMember(Name="subscriptionType", EmitDefaultValue=false)]
+        public string SubscriptionType { get; set; }
+
+        /// <summary>
+        /// Id for selected group.
+        /// </summary>
+        /// <value>Id for selected group.</value>
+        [DataMember(Name="groupId", EmitDefaultValue=false)]
+        public string GroupId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -283,7 +292,8 @@ namespace CyberSource.Model
             sb.Append("  QueuedTime: ").Append(QueuedTime).Append("\n");
             sb.Append("  ReportGeneratingTime: ").Append(ReportGeneratingTime).Append("\n");
             sb.Append("  ReportCompletedTime: ").Append(ReportCompletedTime).Append("\n");
-            sb.Append("  SelectedMerchantGroupName: ").Append(SelectedMerchantGroupName).Append("\n");
+            sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
+            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -386,9 +396,14 @@ namespace CyberSource.Model
                     this.ReportCompletedTime.Equals(other.ReportCompletedTime)
                 ) && 
                 (
-                    this.SelectedMerchantGroupName == other.SelectedMerchantGroupName ||
-                    this.SelectedMerchantGroupName != null &&
-                    this.SelectedMerchantGroupName.Equals(other.SelectedMerchantGroupName)
+                    this.SubscriptionType == other.SubscriptionType ||
+                    this.SubscriptionType != null &&
+                    this.SubscriptionType.Equals(other.SubscriptionType)
+                ) && 
+                (
+                    this.GroupId == other.GroupId ||
+                    this.GroupId != null &&
+                    this.GroupId.Equals(other.GroupId)
                 );
         }
 
@@ -429,8 +444,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReportGeneratingTime.GetHashCode();
                 if (this.ReportCompletedTime != null)
                     hash = hash * 59 + this.ReportCompletedTime.GetHashCode();
-                if (this.SelectedMerchantGroupName != null)
-                    hash = hash * 59 + this.SelectedMerchantGroupName.GetHashCode();
+                if (this.SubscriptionType != null)
+                    hash = hash * 59 + this.SubscriptionType.GetHashCode();
+                if (this.GroupId != null)
+                    hash = hash * 59 + this.GroupId.GetHashCode();
                 return hash;
             }
         }

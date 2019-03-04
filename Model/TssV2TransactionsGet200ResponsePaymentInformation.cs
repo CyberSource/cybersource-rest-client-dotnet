@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="Invoice">Invoice.</param>
         /// <param name="Bank">Bank.</param>
         /// <param name="AccountFeatures">AccountFeatures.</param>
-        public TssV2TransactionsGet200ResponsePaymentInformation(TssV2TransactionsGet200ResponsePaymentInformationPaymentType PaymentType = default(TssV2TransactionsGet200ResponsePaymentInformationPaymentType), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), TssV2TransactionsGet200ResponsePaymentInformationCard Card = default(TssV2TransactionsGet200ResponsePaymentInformationCard), TssV2TransactionsGet200ResponsePaymentInformationInvoice Invoice = default(TssV2TransactionsGet200ResponsePaymentInformationInvoice), TssV2TransactionsGet200ResponsePaymentInformationBank Bank = default(TssV2TransactionsGet200ResponsePaymentInformationBank), TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures AccountFeatures = default(TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures))
+        public TssV2TransactionsGet200ResponsePaymentInformation(TssV2TransactionsGet200ResponsePaymentInformationPaymentType PaymentType = default(TssV2TransactionsGet200ResponsePaymentInformationPaymentType), TssV2TransactionsGet200ResponsePaymentInformationCustomer Customer = default(TssV2TransactionsGet200ResponsePaymentInformationCustomer), TssV2TransactionsGet200ResponsePaymentInformationCard Card = default(TssV2TransactionsGet200ResponsePaymentInformationCard), TssV2TransactionsGet200ResponsePaymentInformationInvoice Invoice = default(TssV2TransactionsGet200ResponsePaymentInformationInvoice), TssV2TransactionsGet200ResponsePaymentInformationBank Bank = default(TssV2TransactionsGet200ResponsePaymentInformationBank), TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures AccountFeatures = default(TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures))
         {
             this.PaymentType = PaymentType;
             this.Customer = Customer;
@@ -59,7 +59,7 @@ namespace CyberSource.Model
         /// Gets or Sets Customer
         /// </summary>
         [DataMember(Name="customer", EmitDefaultValue=false)]
-        public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
+        public TssV2TransactionsGet200ResponsePaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
         /// Gets or Sets Card

@@ -4,19 +4,19 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateSubscription**](ReportSubscriptionsApi.md#createsubscription) | **PUT** /reporting/v3/report-subscriptions/{reportName} | Create Report Subscription for a report name by organization
+[**CreateSubscription**](ReportSubscriptionsApi.md#createsubscription) | **PUT** /reporting/v3/report-subscriptions | Create Report Subscription for a report name by organization
 [**DeleteSubscription**](ReportSubscriptionsApi.md#deletesubscription) | **DELETE** /reporting/v3/report-subscriptions/{reportName} | Delete subscription of a report name by organization
-[**GetAllSubscriptions**](ReportSubscriptionsApi.md#getallsubscriptions) | **GET** /reporting/v3/report-subscriptions | Retrieve all subscriptions by organization
-[**GetSubscription**](ReportSubscriptionsApi.md#getsubscription) | **GET** /reporting/v3/report-subscriptions/{reportName} | Retrieve subscription for a report name by organization
+[**GetAllSubscriptions**](ReportSubscriptionsApi.md#getallsubscriptions) | **GET** /reporting/v3/report-subscriptions | Get all subscriptions
+[**GetSubscription**](ReportSubscriptionsApi.md#getsubscription) | **GET** /reporting/v3/report-subscriptions/{reportName} | Get subscription for report name
 
 
 <a name="createsubscription"></a>
 # **CreateSubscription**
-> void CreateSubscription (string reportName, RequestBody requestBody)
+> void CreateSubscription (RequestBody1 requestBody, string organizationId = null)
 
 Create Report Subscription for a report name by organization
 
-
+Create a report subscription for your organization. The report name must be unique. 
 
 ### Example
 ```csharp
@@ -33,13 +33,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new ReportSubscriptionsApi();
-            var reportName = reportName_example;  // string | Name of the Report to Create
-            var requestBody = new RequestBody(); // RequestBody | Report subscription request payload
+            var requestBody = new RequestBody1(); // RequestBody1 | Report subscription request payload
+            var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
 
             try
             {
                 // Create Report Subscription for a report name by organization
-                apiInstance.CreateSubscription(reportName, requestBody);
+                apiInstance.CreateSubscription(requestBody, organizationId);
             }
             catch (Exception e)
             {
@@ -54,8 +54,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportName** | **string**| Name of the Report to Create | 
- **requestBody** | [**RequestBody**](RequestBody.md)| Report subscription request payload | 
+ **requestBody** | [**RequestBody1**](RequestBody1.md)| Report subscription request payload | 
+ **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
 
 ### Return type
 
@@ -78,7 +78,7 @@ No authorization required
 
 Delete subscription of a report name by organization
 
-
+Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
 
 ### Example
 ```csharp
@@ -136,9 +136,9 @@ No authorization required
 # **GetAllSubscriptions**
 > ReportingV3ReportSubscriptionsGet200Response GetAllSubscriptions ()
 
-Retrieve all subscriptions by organization
+Get all subscriptions
 
-
+View a summary of all report subscriptions. 
 
 ### Example
 ```csharp
@@ -158,7 +158,7 @@ namespace Example
 
             try
             {
-                // Retrieve all subscriptions by organization
+                // Get all subscriptions
                 ReportingV3ReportSubscriptionsGet200Response result = apiInstance.GetAllSubscriptions();
                 Debug.WriteLine(result);
             }
@@ -193,9 +193,9 @@ No authorization required
 # **GetSubscription**
 > ReportingV3ReportSubscriptionsGet200ResponseSubscriptions GetSubscription (string reportName)
 
-Retrieve subscription for a report name by organization
+Get subscription for report name
 
-
+View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
 
 ### Example
 ```csharp
@@ -216,7 +216,7 @@ namespace Example
 
             try
             {
-                // Retrieve subscription for a report name by organization
+                // Get subscription for report name
                 ReportingV3ReportSubscriptionsGet200ResponseSubscriptions result = apiInstance.GetSubscription(reportName);
                 Debug.WriteLine(result);
             }

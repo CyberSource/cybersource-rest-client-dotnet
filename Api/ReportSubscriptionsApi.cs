@@ -28,30 +28,30 @@ namespace CyberSource.Api
         /// Create Report Subscription for a report name by organization
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a report subscription for your organization. The report name must be unique. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reportName">Name of the Report to Create</param>
         /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        void CreateSubscription (string reportName, RequestBody requestBody);
+        void CreateSubscription (RequestBody1 requestBody, string organizationId = null);
 
         /// <summary>
         /// Create Report Subscription for a report name by organization
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a report subscription for your organization. The report name must be unique. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reportName">Name of the Report to Create</param>
         /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateSubscriptionWithHttpInfo (string reportName, RequestBody requestBody);
+        ApiResponse<Object> CreateSubscriptionWithHttpInfo (RequestBody1 requestBody, string organizationId = null);
         /// <summary>
         /// Delete subscription of a report name by organization
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
@@ -62,36 +62,36 @@ namespace CyberSource.Api
         /// Delete subscription of a report name by organization
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSubscriptionWithHttpInfo (string reportName);
         /// <summary>
-        /// Retrieve all subscriptions by organization
+        /// Get all subscriptions
         /// </summary>
         /// <remarks>
-        /// 
+        /// View a summary of all report subscriptions. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ReportingV3ReportSubscriptionsGet200Response</returns>
         ReportingV3ReportSubscriptionsGet200Response GetAllSubscriptions ();
 
         /// <summary>
-        /// Retrieve all subscriptions by organization
+        /// Get all subscriptions
         /// </summary>
         /// <remarks>
-        /// 
+        /// View a summary of all report subscriptions. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200Response</returns>
         ApiResponse<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsWithHttpInfo ();
         /// <summary>
-        /// Retrieve subscription for a report name by organization
+        /// Get subscription for report name
         /// </summary>
         /// <remarks>
-        /// 
+        /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -99,10 +99,10 @@ namespace CyberSource.Api
         ReportingV3ReportSubscriptionsGet200ResponseSubscriptions GetSubscription (string reportName);
 
         /// <summary>
-        /// Retrieve subscription for a report name by organization
+        /// Get subscription for report name
         /// </summary>
         /// <remarks>
-        /// 
+        /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -114,30 +114,30 @@ namespace CyberSource.Api
         /// Create Report Subscription for a report name by organization
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a report subscription for your organization. The report name must be unique. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reportName">Name of the Report to Create</param>
         /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateSubscriptionAsync (string reportName, RequestBody requestBody);
+        System.Threading.Tasks.Task CreateSubscriptionAsync (RequestBody1 requestBody, string organizationId = null);
 
         /// <summary>
         /// Create Report Subscription for a report name by organization
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a report subscription for your organization. The report name must be unique. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reportName">Name of the Report to Create</param>
         /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateSubscriptionAsyncWithHttpInfo (string reportName, RequestBody requestBody);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CreateSubscriptionAsyncWithHttpInfo (RequestBody1 requestBody, string organizationId = null);
         /// <summary>
         /// Delete subscription of a report name by organization
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
@@ -148,36 +148,36 @@ namespace CyberSource.Api
         /// Delete subscription of a report name by organization
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo (string reportName);
         /// <summary>
-        /// Retrieve all subscriptions by organization
+        /// Get all subscriptions
         /// </summary>
         /// <remarks>
-        /// 
+        /// View a summary of all report subscriptions. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200Response</returns>
         System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync ();
 
         /// <summary>
-        /// Retrieve all subscriptions by organization
+        /// Get all subscriptions
         /// </summary>
         /// <remarks>
-        /// 
+        /// View a summary of all report subscriptions. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200Response>> GetAllSubscriptionsAsyncWithHttpInfo ();
         /// <summary>
-        /// Retrieve subscription for a report name by organization
+        /// Get subscription for report name
         /// </summary>
         /// <remarks>
-        /// 
+        /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -185,10 +185,10 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync (string reportName);
 
         /// <summary>
-        /// Retrieve subscription for a report name by organization
+        /// Get subscription for report name
         /// </summary>
         /// <remarks>
-        /// 
+        /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -307,34 +307,31 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Report Subscription for a report name by organization 
+        /// Create Report Subscription for a report name by organization Create a report subscription for your organization. The report name must be unique. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reportName">Name of the Report to Create</param>
         /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        public void CreateSubscription (string reportName, RequestBody requestBody)
+        public void CreateSubscription (RequestBody1 requestBody, string organizationId = null)
         {
-             CreateSubscriptionWithHttpInfo(reportName, requestBody);
+             CreateSubscriptionWithHttpInfo(requestBody, organizationId);
         }
 
         /// <summary>
-        /// Create Report Subscription for a report name by organization 
+        /// Create Report Subscription for a report name by organization Create a report subscription for your organization. The report name must be unique. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reportName">Name of the Report to Create</param>
         /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateSubscriptionWithHttpInfo (string reportName, RequestBody requestBody)
+        public ApiResponse<Object> CreateSubscriptionWithHttpInfo (RequestBody1 requestBody, string organizationId = null)
         {
-            // verify the required parameter 'reportName' is set
-            if (reportName == null)
-                throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportSubscriptionsApi->CreateSubscription");
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
                 throw new ApiException(400, "Missing required parameter 'requestBody' when calling ReportSubscriptionsApi->CreateSubscription");
 
-            var localVarPath = $"/reporting/v3/report-subscriptions/{reportName}";
+            var localVarPath = $"/reporting/v3/report-subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -356,7 +353,7 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (reportName != null) localVarPathParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // path parameter
+            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             if (requestBody != null && requestBody.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
@@ -386,35 +383,32 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Report Subscription for a report name by organization 
+        /// Create Report Subscription for a report name by organization Create a report subscription for your organization. The report name must be unique. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reportName">Name of the Report to Create</param>
         /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateSubscriptionAsync (string reportName, RequestBody requestBody)
+        public async System.Threading.Tasks.Task CreateSubscriptionAsync (RequestBody1 requestBody, string organizationId = null)
         {
-             await CreateSubscriptionAsyncWithHttpInfo(reportName, requestBody);
+             await CreateSubscriptionAsyncWithHttpInfo(requestBody, organizationId);
 
         }
 
         /// <summary>
-        /// Create Report Subscription for a report name by organization 
+        /// Create Report Subscription for a report name by organization Create a report subscription for your organization. The report name must be unique. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reportName">Name of the Report to Create</param>
         /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSubscriptionAsyncWithHttpInfo (string reportName, RequestBody requestBody)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSubscriptionAsyncWithHttpInfo (RequestBody1 requestBody, string organizationId = null)
         {
-            // verify the required parameter 'reportName' is set
-            if (reportName == null)
-                throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportSubscriptionsApi->CreateSubscription");
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
                 throw new ApiException(400, "Missing required parameter 'requestBody' when calling ReportSubscriptionsApi->CreateSubscription");
 
-            var localVarPath = "/reporting/v3/report-subscriptions/{reportName}";
+            var localVarPath = $"/reporting/v3/report-subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -436,7 +430,7 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (reportName != null) localVarPathParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // path parameter
+            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             if (requestBody != null && requestBody.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
@@ -466,7 +460,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete subscription of a report name by organization 
+        /// Delete subscription of a report name by organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
@@ -477,7 +471,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete subscription of a report name by organization 
+        /// Delete subscription of a report name by organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
@@ -532,7 +526,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete subscription of a report name by organization 
+        /// Delete subscription of a report name by organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
@@ -544,7 +538,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete subscription of a report name by organization 
+        /// Delete subscription of a report name by organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
@@ -555,7 +549,7 @@ namespace CyberSource.Api
             if (reportName == null)
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportSubscriptionsApi->DeleteSubscription");
 
-            var localVarPath = "/reporting/v3/report-subscriptions/{reportName}";
+            var localVarPath = $"/reporting/v3/report-subscriptions/{reportName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -599,7 +593,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve all subscriptions by organization 
+        /// Get all subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ReportingV3ReportSubscriptionsGet200Response</returns>
@@ -610,14 +604,14 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve all subscriptions by organization 
+        /// Get all subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200Response</returns>
         public ApiResponse< ReportingV3ReportSubscriptionsGet200Response > GetAllSubscriptionsWithHttpInfo ()
         {
 
-            var localVarPath = "/reporting/v3/report-subscriptions";
+            var localVarPath = $"/reporting/v3/report-subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -660,7 +654,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve all subscriptions by organization 
+        /// Get all subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200Response</returns>
@@ -672,14 +666,14 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve all subscriptions by organization 
+        /// Get all subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200Response>> GetAllSubscriptionsAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/reporting/v3/report-subscriptions";
+            var localVarPath = $"/reporting/v3/report-subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -722,7 +716,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve subscription for a report name by organization 
+        /// Get subscription for report name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -734,7 +728,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve subscription for a report name by organization 
+        /// Get subscription for report name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -789,7 +783,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve subscription for a report name by organization 
+        /// Get subscription for report name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -802,7 +796,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve subscription for a report name by organization 
+        /// Get subscription for report name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -813,7 +807,7 @@ namespace CyberSource.Api
             if (reportName == null)
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportSubscriptionsApi->GetSubscription");
 
-            var localVarPath = "/reporting/v3/report-subscriptions/{reportName}";
+            var localVarPath = $"/reporting/v3/report-subscriptions/{reportName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);

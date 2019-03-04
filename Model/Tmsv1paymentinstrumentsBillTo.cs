@@ -292,6 +292,84 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // FirstName (string) maxLength
+            if(this.FirstName != null && this.FirstName.Length > 60)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, length must be less than 60.", new [] { "FirstName" });
+            }
+
+            // LastName (string) maxLength
+            if(this.LastName != null && this.LastName.Length > 60)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be less than 60.", new [] { "LastName" });
+            }
+
+            // Company (string) maxLength
+            if(this.Company != null && this.Company.Length > 60)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Company, length must be less than 60.", new [] { "Company" });
+            }
+
+            // Address1 (string) maxLength
+            if(this.Address1 != null && this.Address1.Length > 60)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address1, length must be less than 60.", new [] { "Address1" });
+            }
+
+            // Address2 (string) maxLength
+            if(this.Address2 != null && this.Address2.Length > 60)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address2, length must be less than 60.", new [] { "Address2" });
+            }
+
+            // Locality (string) maxLength
+            if(this.Locality != null && this.Locality.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than 50.", new [] { "Locality" });
+            }
+
+            // AdministrativeArea (string) maxLength
+            if(this.AdministrativeArea != null && this.AdministrativeArea.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than 20.", new [] { "AdministrativeArea" });
+            }
+
+            // PostalCode (string) maxLength
+            if(this.PostalCode != null && this.PostalCode.Length > 10)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than 10.", new [] { "PostalCode" });
+            }
+
+            // Country (string) maxLength
+            if(this.Country != null && this.Country.Length > 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than 3.", new [] { "Country" });
+            }
+
+            // Country (string) minLength
+            if(this.Country != null && this.Country.Length < 2)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be greater than 2.", new [] { "Country" });
+            }
+
+            // Email (string) maxLength
+            if(this.Email != null && this.Email.Length > 320)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than 320.", new [] { "Email" });
+            }
+
+            // PhoneNumber (string) maxLength
+            if(this.PhoneNumber != null && this.PhoneNumber.Length > 32)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, length must be less than 32.", new [] { "PhoneNumber" });
+            }
+
+            // PhoneNumber (string) minLength
+            if(this.PhoneNumber != null && this.PhoneNumber.Length < 6)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, length must be greater than 6.", new [] { "PhoneNumber" });
+            }
+
             yield break;
         }
     }

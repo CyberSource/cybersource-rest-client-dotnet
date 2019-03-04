@@ -39,12 +39,14 @@ namespace CyberSource.Model
         /// <param name="PurchaseOrderNumber">Value used by your customer to identify the order. This value is typically a purchase order number. CyberSource recommends that you do not populate the field with all zeros or nines.  For processor-specific information, see the user_po field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="PurchaseOrderDate">Date the order was processed. &#x60;Format: YYYY-MM-DD&#x60;.  For processor-specific information, see the purchaser_order_date field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="PurchaseContactName">The name of the individual or the company contacted for company authorized purchases.  For processor-specific information, see the authorized_contact_name field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
-        /// <param name="Taxable">Flag that indicates whether an order is taxable. This value must be true if the sum of all _lineItems[].taxAmount_ values &gt; 0.  If you do not include any _lineItems[].taxAmount_ values in your request, CyberSource does not include _invoiceDetails.taxable_ in the data it sends to the processor.  For processor-specific information, see the tax_indicator field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
+        /// <param name="Taxable">Flag that indicates whether an order is taxable. This value must be true if the sum of all _lineItems[].taxAmount_ values &gt; 0.  If you do not include any _lineItems[].taxAmount_ values in your request, CyberSource does not include _invoiceDetails.taxable_ in the data it sends to the processor.  For processor-specific information, see the tax_indicator field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html)  Possible values:  - **true**  - **false** .</param>
         /// <param name="VatInvoiceReferenceNumber">VAT invoice number associated with the transaction.  For processor-specific information, see the vat_invoice_ref_number field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="CommodityCode">International description code of the overall order’s goods or services or the Categorizes purchases for VAT reporting. Contact your acquirer for a list of codes.  For processor-specific information, see the summary_commodity_code field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="MerchandiseCode">Identifier for the merchandise. Possible value:   - 1000: Gift card  This field is supported only for **American Express Direct**. .</param>
         /// <param name="TransactionAdviceAddendum">TransactionAdviceAddendum.</param>
-        public Ptsv2paymentsOrderInformationInvoiceDetails(string InvoiceNumber = default(string), string BarcodeNumber = default(string), string ExpirationDate = default(string), string PurchaseOrderNumber = default(string), string PurchaseOrderDate = default(string), string PurchaseContactName = default(string), bool? Taxable = default(bool?), string VatInvoiceReferenceNumber = default(string), string CommodityCode = default(string), decimal? MerchandiseCode = default(decimal?), List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum> TransactionAdviceAddendum = default(List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum>))
+        /// <param name="ReferenceDataCode">Code that identifies the value of the reference_data_number field. For the possible values, see Reference Data Codes.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
+        /// <param name="ReferenceDataNumber">Reference number. The meaning of this value is identified by the value of the referenceDataCode field.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
+        public Ptsv2paymentsOrderInformationInvoiceDetails(string InvoiceNumber = default(string), string BarcodeNumber = default(string), string ExpirationDate = default(string), string PurchaseOrderNumber = default(string), string PurchaseOrderDate = default(string), string PurchaseContactName = default(string), bool? Taxable = default(bool?), string VatInvoiceReferenceNumber = default(string), string CommodityCode = default(string), decimal? MerchandiseCode = default(decimal?), List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum> TransactionAdviceAddendum = default(List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum>), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string))
         {
             this.InvoiceNumber = InvoiceNumber;
             this.BarcodeNumber = BarcodeNumber;
@@ -57,6 +59,8 @@ namespace CyberSource.Model
             this.CommodityCode = CommodityCode;
             this.MerchandiseCode = MerchandiseCode;
             this.TransactionAdviceAddendum = TransactionAdviceAddendum;
+            this.ReferenceDataCode = ReferenceDataCode;
+            this.ReferenceDataNumber = ReferenceDataNumber;
         }
         
         /// <summary>
@@ -102,9 +106,9 @@ namespace CyberSource.Model
         public string PurchaseContactName { get; set; }
 
         /// <summary>
-        /// Flag that indicates whether an order is taxable. This value must be true if the sum of all _lineItems[].taxAmount_ values &gt; 0.  If you do not include any _lineItems[].taxAmount_ values in your request, CyberSource does not include _invoiceDetails.taxable_ in the data it sends to the processor.  For processor-specific information, see the tax_indicator field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) 
+        /// Flag that indicates whether an order is taxable. This value must be true if the sum of all _lineItems[].taxAmount_ values &gt; 0.  If you do not include any _lineItems[].taxAmount_ values in your request, CyberSource does not include _invoiceDetails.taxable_ in the data it sends to the processor.  For processor-specific information, see the tax_indicator field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html)  Possible values:  - **true**  - **false** 
         /// </summary>
-        /// <value>Flag that indicates whether an order is taxable. This value must be true if the sum of all _lineItems[].taxAmount_ values &gt; 0.  If you do not include any _lineItems[].taxAmount_ values in your request, CyberSource does not include _invoiceDetails.taxable_ in the data it sends to the processor.  For processor-specific information, see the tax_indicator field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) </value>
+        /// <value>Flag that indicates whether an order is taxable. This value must be true if the sum of all _lineItems[].taxAmount_ values &gt; 0.  If you do not include any _lineItems[].taxAmount_ values in your request, CyberSource does not include _invoiceDetails.taxable_ in the data it sends to the processor.  For processor-specific information, see the tax_indicator field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html)  Possible values:  - **true**  - **false** </value>
         [DataMember(Name="taxable", EmitDefaultValue=false)]
         public bool? Taxable { get; set; }
 
@@ -136,6 +140,20 @@ namespace CyberSource.Model
         public List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum> TransactionAdviceAddendum { get; set; }
 
         /// <summary>
+        /// Code that identifies the value of the reference_data_number field. For the possible values, see Reference Data Codes.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. 
+        /// </summary>
+        /// <value>Code that identifies the value of the reference_data_number field. For the possible values, see Reference Data Codes.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. </value>
+        [DataMember(Name="referenceDataCode", EmitDefaultValue=false)]
+        public string ReferenceDataCode { get; set; }
+
+        /// <summary>
+        /// Reference number. The meaning of this value is identified by the value of the referenceDataCode field.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. 
+        /// </summary>
+        /// <value>Reference number. The meaning of this value is identified by the value of the referenceDataCode field.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. </value>
+        [DataMember(Name="referenceDataNumber", EmitDefaultValue=false)]
+        public string ReferenceDataNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -154,6 +172,8 @@ namespace CyberSource.Model
             sb.Append("  CommodityCode: ").Append(CommodityCode).Append("\n");
             sb.Append("  MerchandiseCode: ").Append(MerchandiseCode).Append("\n");
             sb.Append("  TransactionAdviceAddendum: ").Append(TransactionAdviceAddendum).Append("\n");
+            sb.Append("  ReferenceDataCode: ").Append(ReferenceDataCode).Append("\n");
+            sb.Append("  ReferenceDataNumber: ").Append(ReferenceDataNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -244,6 +264,16 @@ namespace CyberSource.Model
                     this.TransactionAdviceAddendum == other.TransactionAdviceAddendum ||
                     this.TransactionAdviceAddendum != null &&
                     this.TransactionAdviceAddendum.SequenceEqual(other.TransactionAdviceAddendum)
+                ) && 
+                (
+                    this.ReferenceDataCode == other.ReferenceDataCode ||
+                    this.ReferenceDataCode != null &&
+                    this.ReferenceDataCode.Equals(other.ReferenceDataCode)
+                ) && 
+                (
+                    this.ReferenceDataNumber == other.ReferenceDataNumber ||
+                    this.ReferenceDataNumber != null &&
+                    this.ReferenceDataNumber.Equals(other.ReferenceDataNumber)
                 );
         }
 
@@ -280,6 +310,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchandiseCode.GetHashCode();
                 if (this.TransactionAdviceAddendum != null)
                     hash = hash * 59 + this.TransactionAdviceAddendum.GetHashCode();
+                if (this.ReferenceDataCode != null)
+                    hash = hash * 59 + this.ReferenceDataCode.GetHashCode();
+                if (this.ReferenceDataNumber != null)
+                    hash = hash * 59 + this.ReferenceDataNumber.GetHashCode();
                 return hash;
             }
         }
@@ -319,6 +353,18 @@ namespace CyberSource.Model
             if(this.CommodityCode != null && this.CommodityCode.Length > 4)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommodityCode, length must be less than 4.", new [] { "CommodityCode" });
+            }
+
+            // ReferenceDataCode (string) maxLength
+            if(this.ReferenceDataCode != null && this.ReferenceDataCode.Length > 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataCode, length must be less than 3.", new [] { "ReferenceDataCode" });
+            }
+
+            // ReferenceDataNumber (string) maxLength
+            if(this.ReferenceDataNumber != null && this.ReferenceDataNumber.Length > 30)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataNumber, length must be less than 30.", new [] { "ReferenceDataNumber" });
             }
 
             yield break;

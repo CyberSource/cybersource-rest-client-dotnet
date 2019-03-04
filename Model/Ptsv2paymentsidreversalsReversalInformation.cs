@@ -138,12 +138,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Reason (string) maxLength
-            if(this.Reason != null && this.Reason.Length > 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Reason, length must be less than 3.", new [] { "Reason" });
-            }
-
             yield break;
         }
     }

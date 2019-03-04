@@ -31,9 +31,9 @@ namespace CyberSource.Model
     public partial class PtsV2CreditsPost201Response :  IEquatable<PtsV2CreditsPost201Response>, IValidatableObject
     {
         /// <summary>
-        /// The status of the submitted transaction.
+        /// The status of the submitted transaction.  Possible values:  - PENDING 
         /// </summary>
-        /// <value>The status of the submitted transaction.</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - PENDING </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -46,9 +46,9 @@ namespace CyberSource.Model
         }
 
         /// <summary>
-        /// The status of the submitted transaction.
+        /// The status of the submitted transaction.  Possible values:  - PENDING 
         /// </summary>
-        /// <value>The status of the submitted transaction.</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - PENDING </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -57,13 +57,15 @@ namespace CyberSource.Model
         /// <param name="Links">Links.</param>
         /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request..</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="Status">The status of the submitted transaction..</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - PENDING .</param>
         /// <param name="ReconciliationId">The reconciliation id for the submitted transaction. This value is not returned for all processors. .</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="CreditAmountDetails">CreditAmountDetails.</param>
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
+        /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public PtsV2CreditsPost201Response(PtsV2PaymentsRefundPost201ResponseLinks Links = default(PtsV2PaymentsRefundPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2CreditsPost201ResponseCreditAmountDetails CreditAmountDetails = default(PtsV2CreditsPost201ResponseCreditAmountDetails), PtsV2PaymentsRefundPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsRefundPost201ResponseProcessorInformation), PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsRefundPost201ResponseOrderInformation))
+        public PtsV2CreditsPost201Response(PtsV2PaymentsRefundPost201ResponseLinks Links = default(PtsV2PaymentsRefundPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2CreditsPost201ResponseCreditAmountDetails CreditAmountDetails = default(PtsV2CreditsPost201ResponseCreditAmountDetails), PtsV2CreditsPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2CreditsPost201ResponseProcessingInformation), PtsV2PaymentsRefundPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsRefundPost201ResponseProcessorInformation), PtsV2CreditsPost201ResponsePaymentInformation PaymentInformation = default(PtsV2CreditsPost201ResponsePaymentInformation), PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsRefundPost201ResponseOrderInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -72,7 +74,9 @@ namespace CyberSource.Model
             this.ReconciliationId = ReconciliationId;
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.CreditAmountDetails = CreditAmountDetails;
+            this.ProcessingInformation = ProcessingInformation;
             this.ProcessorInformation = ProcessorInformation;
+            this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
         }
         
@@ -117,10 +121,22 @@ namespace CyberSource.Model
         public PtsV2CreditsPost201ResponseCreditAmountDetails CreditAmountDetails { get; set; }
 
         /// <summary>
+        /// Gets or Sets ProcessingInformation
+        /// </summary>
+        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
+        public PtsV2CreditsPost201ResponseProcessingInformation ProcessingInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets ProcessorInformation
         /// </summary>
         [DataMember(Name="processorInformation", EmitDefaultValue=false)]
         public PtsV2PaymentsRefundPost201ResponseProcessorInformation ProcessorInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentInformation
+        /// </summary>
+        [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
+        public PtsV2CreditsPost201ResponsePaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation
@@ -143,7 +159,9 @@ namespace CyberSource.Model
             sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  CreditAmountDetails: ").Append(CreditAmountDetails).Append("\n");
+            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
+            sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -217,9 +235,19 @@ namespace CyberSource.Model
                     this.CreditAmountDetails.Equals(other.CreditAmountDetails)
                 ) && 
                 (
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
+                ) && 
+                (
                     this.ProcessorInformation == other.ProcessorInformation ||
                     this.ProcessorInformation != null &&
                     this.ProcessorInformation.Equals(other.ProcessorInformation)
+                ) && 
+                (
+                    this.PaymentInformation == other.PaymentInformation ||
+                    this.PaymentInformation != null &&
+                    this.PaymentInformation.Equals(other.PaymentInformation)
                 ) && 
                 (
                     this.OrderInformation == other.OrderInformation ||
@@ -253,8 +281,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 if (this.CreditAmountDetails != null)
                     hash = hash * 59 + this.CreditAmountDetails.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.ProcessorInformation != null)
                     hash = hash * 59 + this.ProcessorInformation.GetHashCode();
+                if (this.PaymentInformation != null)
+                    hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 return hash;

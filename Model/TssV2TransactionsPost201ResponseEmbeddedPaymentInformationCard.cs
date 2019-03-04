@@ -168,12 +168,6 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Prefix, length must be less than 6.", new [] { "Prefix" });
             }
 
-            // Type (string) maxLength
-            if(this.Type != null && this.Type.Length > 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 3.", new [] { "Type" });
-            }
-
             yield break;
         }
     }

@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidcapturesProcessingInformation" /> class.
         /// </summary>
-        /// <param name="PaymentSolution">Type of digital payment solution that is being used for the transaction. Possible Values:   - **visacheckout**: Visa Checkout.  - **001**: Apple Pay.  - **005**: Masterpass. Required for Masterpass transactions on OmniPay Direct.  - **006**: Android Pay.  - **008**: Samsung Pay. .</param>
+        /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - **visacheckout**: Visa Checkout. This value is required for Visa Checkout transactions. See Visa Checkout Using the SCMP API.  - **005**: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. See \&quot;Masterpass,\&quot; page 153. .</param>
         /// <param name="ReconciliationId">Please check with Cybersource customer support to see if your merchant account is configured correctly so you can include this field in your request. * For Payouts: max length for FDCCompass is String (22). .</param>
-        /// <param name="LinkId">Value that links the current payment request to the original request. Set this value to the ID that was returned in the reply message from the original payment request.  This value is used for:   - Partial authorizations.  - Split shipments. .</param>
-        /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Litle**. .</param>
-        /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. .</param>
+        /// <param name="LinkId">Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:   - Partial authorizations: See \&quot;Partial Authorizations,\&quot; page 88.  - Split shipments: See \&quot;Split Shipments,\&quot; page 210. .</param>
+        /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  See \&quot;Report Groups,\&quot; page 234. .</param>
+        /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For more details, see Visa Checkout Using the SCMP API. .</param>
         /// <param name="PurchaseLevel">Set this field to 3 to indicate that the request includes Level III data..</param>
         /// <param name="Issuer">Issuer.</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         /// <param name="CaptureOptions">CaptureOptions.</param>
-        public Ptsv2paymentsidcapturesProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), Ptsv2paymentsProcessingInformationIssuer Issuer = default(Ptsv2paymentsProcessingInformationIssuer), Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions), Ptsv2paymentsidcapturesProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsidcapturesProcessingInformationCaptureOptions))
+        public Ptsv2paymentsidcapturesProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions), Ptsv2paymentsidcapturesProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsidcapturesProcessingInformationCaptureOptions))
         {
             this.PaymentSolution = PaymentSolution;
             this.ReconciliationId = ReconciliationId;
@@ -56,9 +56,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Type of digital payment solution that is being used for the transaction. Possible Values:   - **visacheckout**: Visa Checkout.  - **001**: Apple Pay.  - **005**: Masterpass. Required for Masterpass transactions on OmniPay Direct.  - **006**: Android Pay.  - **008**: Samsung Pay. 
+        /// Type of digital payment solution for the transaction. Possible Values:   - **visacheckout**: Visa Checkout. This value is required for Visa Checkout transactions. See Visa Checkout Using the SCMP API.  - **005**: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. See \&quot;Masterpass,\&quot; page 153. 
         /// </summary>
-        /// <value>Type of digital payment solution that is being used for the transaction. Possible Values:   - **visacheckout**: Visa Checkout.  - **001**: Apple Pay.  - **005**: Masterpass. Required for Masterpass transactions on OmniPay Direct.  - **006**: Android Pay.  - **008**: Samsung Pay. </value>
+        /// <value>Type of digital payment solution for the transaction. Possible Values:   - **visacheckout**: Visa Checkout. This value is required for Visa Checkout transactions. See Visa Checkout Using the SCMP API.  - **005**: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. See \&quot;Masterpass,\&quot; page 153. </value>
         [DataMember(Name="paymentSolution", EmitDefaultValue=false)]
         public string PaymentSolution { get; set; }
 
@@ -70,23 +70,23 @@ namespace CyberSource.Model
         public string ReconciliationId { get; set; }
 
         /// <summary>
-        /// Value that links the current payment request to the original request. Set this value to the ID that was returned in the reply message from the original payment request.  This value is used for:   - Partial authorizations.  - Split shipments. 
+        /// Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:   - Partial authorizations: See \&quot;Partial Authorizations,\&quot; page 88.  - Split shipments: See \&quot;Split Shipments,\&quot; page 210. 
         /// </summary>
-        /// <value>Value that links the current payment request to the original request. Set this value to the ID that was returned in the reply message from the original payment request.  This value is used for:   - Partial authorizations.  - Split shipments. </value>
+        /// <value>Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:   - Partial authorizations: See \&quot;Partial Authorizations,\&quot; page 88.  - Split shipments: See \&quot;Split Shipments,\&quot; page 210. </value>
         [DataMember(Name="linkId", EmitDefaultValue=false)]
         public string LinkId { get; set; }
 
         /// <summary>
-        /// Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Litle**. 
+        /// Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  See \&quot;Report Groups,\&quot; page 234. 
         /// </summary>
-        /// <value>Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Litle**. </value>
+        /// <value>Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  See \&quot;Report Groups,\&quot; page 234. </value>
         [DataMember(Name="reportGroup", EmitDefaultValue=false)]
         public string ReportGroup { get; set; }
 
         /// <summary>
-        /// Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. 
+        /// Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For more details, see Visa Checkout Using the SCMP API. 
         /// </summary>
-        /// <value>Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. </value>
+        /// <value>Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For more details, see Visa Checkout Using the SCMP API. </value>
         [DataMember(Name="visaCheckoutId", EmitDefaultValue=false)]
         public string VisaCheckoutId { get; set; }
 
@@ -101,7 +101,7 @@ namespace CyberSource.Model
         /// Gets or Sets Issuer
         /// </summary>
         [DataMember(Name="issuer", EmitDefaultValue=false)]
-        public Ptsv2paymentsProcessingInformationIssuer Issuer { get; set; }
+        public Ptsv2paymentsIssuerInformation Issuer { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthorizationOptions

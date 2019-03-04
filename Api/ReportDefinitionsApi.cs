@@ -25,10 +25,10 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get a single report definition information
+        /// Get report definition
         /// </summary>
         /// <remarks>
-        /// The report definition name must be used as path parameter exclusive of each other
+        /// View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -37,10 +37,10 @@ namespace CyberSource.Api
         ReportingV3ReportDefinitionsNameGet200Response GetResourceInfoByReportDefinition (string reportDefinitionName, string organizationId = null);
 
         /// <summary>
-        /// Get a single report definition information
+        /// Get report definition
         /// </summary>
         /// <remarks>
-        /// The report definition name must be used as path parameter exclusive of each other
+        /// View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -51,7 +51,7 @@ namespace CyberSource.Api
         /// Get reporting resource information
         /// </summary>
         /// <remarks>
-        /// 
+        /// View a list of supported reports and their attributes before subscribing to them. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
@@ -62,7 +62,7 @@ namespace CyberSource.Api
         /// Get reporting resource information
         /// </summary>
         /// <remarks>
-        /// 
+        /// View a list of supported reports and their attributes before subscribing to them. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
@@ -71,10 +71,10 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get a single report definition information
+        /// Get report definition
         /// </summary>
         /// <remarks>
-        /// The report definition name must be used as path parameter exclusive of each other
+        /// View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -83,10 +83,10 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionAsync (string reportDefinitionName, string organizationId = null);
 
         /// <summary>
-        /// Get a single report definition information
+        /// Get report definition
         /// </summary>
         /// <remarks>
-        /// The report definition name must be used as path parameter exclusive of each other
+        /// View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -97,7 +97,7 @@ namespace CyberSource.Api
         /// Get reporting resource information
         /// </summary>
         /// <remarks>
-        /// 
+        /// View a list of supported reports and their attributes before subscribing to them. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
@@ -108,7 +108,7 @@ namespace CyberSource.Api
         /// Get reporting resource information
         /// </summary>
         /// <remarks>
-        /// 
+        /// View a list of supported reports and their attributes before subscribing to them. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
@@ -227,7 +227,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get a single report definition information The report definition name must be used as path parameter exclusive of each other
+        /// Get report definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -240,7 +240,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get a single report definition information The report definition name must be used as path parameter exclusive of each other
+        /// Get report definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -297,7 +297,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get a single report definition information The report definition name must be used as path parameter exclusive of each other
+        /// Get report definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -311,7 +311,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get a single report definition information The report definition name must be used as path parameter exclusive of each other
+        /// Get report definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -323,7 +323,7 @@ namespace CyberSource.Api
             if (reportDefinitionName == null)
                 throw new ApiException(400, "Missing required parameter 'reportDefinitionName' when calling ReportDefinitionsApi->GetResourceInfoByReportDefinition");
 
-            var localVarPath = "/reporting/v3/report-definitions/{reportDefinitionName}";
+            var localVarPath = $"/reporting/v3/report-definitions/{reportDefinitionName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -368,7 +368,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get reporting resource information 
+        /// Get reporting resource information View a list of supported reports and their attributes before subscribing to them. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
@@ -380,7 +380,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get reporting resource information 
+        /// Get reporting resource information View a list of supported reports and their attributes before subscribing to them. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
@@ -388,7 +388,7 @@ namespace CyberSource.Api
         public ApiResponse< ReportingV3ReportDefinitionsGet200Response > GetResourceV2InfoWithHttpInfo (string organizationId = null)
         {
 
-            var localVarPath = "/reporting/v3/report-definitions";
+            var localVarPath = $"/reporting/v3/report-definitions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -432,7 +432,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get reporting resource information 
+        /// Get reporting resource information View a list of supported reports and their attributes before subscribing to them. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
@@ -445,7 +445,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get reporting resource information 
+        /// Get reporting resource information View a list of supported reports and their attributes before subscribing to them. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
@@ -453,7 +453,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsGet200Response>> GetResourceV2InfoAsyncWithHttpInfo (string organizationId = null)
         {
 
-            var localVarPath = "/reporting/v3/report-definitions";
+            var localVarPath = $"/reporting/v3/report-definitions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);

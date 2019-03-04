@@ -31,9 +31,9 @@ namespace CyberSource.Model
     public partial class PtsV2PaymentsReversalsPost201Response :  IEquatable<PtsV2PaymentsReversalsPost201Response>, IValidatableObject
     {
         /// <summary>
-        /// The status of the submitted transaction.
+        /// The status of the submitted transaction.  Possible values:  - REVERSED 
         /// </summary>
-        /// <value>The status of the submitted transaction.</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - REVERSED </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -46,9 +46,9 @@ namespace CyberSource.Model
         }
 
         /// <summary>
-        /// The status of the submitted transaction.
+        /// The status of the submitted transaction.  Possible values:  - REVERSED 
         /// </summary>
-        /// <value>The status of the submitted transaction.</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - REVERSED </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -57,14 +57,15 @@ namespace CyberSource.Model
         /// <param name="Links">Links.</param>
         /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request..</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="Status">The status of the submitted transaction..</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - REVERSED .</param>
         /// <param name="ReconciliationId">The reconciliation id for the submitted transaction. This value is not returned for all processors. .</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ReversalAmountDetails">ReversalAmountDetails.</param>
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
+        /// <param name="IssuerInformation">IssuerInformation.</param>
         /// <param name="AuthorizationInformation">AuthorizationInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        public PtsV2PaymentsReversalsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails ReversalAmountDetails = default(PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails), PtsV2PaymentsReversalsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsReversalsPost201ResponseProcessorInformation), PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation AuthorizationInformation = default(PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation))
+        public PtsV2PaymentsReversalsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails ReversalAmountDetails = default(PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails), PtsV2PaymentsReversalsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsReversalsPost201ResponseProcessorInformation), PtsV2PaymentsReversalsPost201ResponseIssuerInformation IssuerInformation = default(PtsV2PaymentsReversalsPost201ResponseIssuerInformation), PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation AuthorizationInformation = default(PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -74,6 +75,7 @@ namespace CyberSource.Model
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ReversalAmountDetails = ReversalAmountDetails;
             this.ProcessorInformation = ProcessorInformation;
+            this.IssuerInformation = IssuerInformation;
             this.AuthorizationInformation = AuthorizationInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
         }
@@ -125,6 +127,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsReversalsPost201ResponseProcessorInformation ProcessorInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets IssuerInformation
+        /// </summary>
+        [DataMember(Name="issuerInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsReversalsPost201ResponseIssuerInformation IssuerInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets AuthorizationInformation
         /// </summary>
         [DataMember(Name="authorizationInformation", EmitDefaultValue=false)]
@@ -152,6 +160,7 @@ namespace CyberSource.Model
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  ReversalAmountDetails: ").Append(ReversalAmountDetails).Append("\n");
             sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
+            sb.Append("  IssuerInformation: ").Append(IssuerInformation).Append("\n");
             sb.Append("  AuthorizationInformation: ").Append(AuthorizationInformation).Append("\n");
             sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             sb.Append("}\n");
@@ -231,6 +240,11 @@ namespace CyberSource.Model
                     this.ProcessorInformation.Equals(other.ProcessorInformation)
                 ) && 
                 (
+                    this.IssuerInformation == other.IssuerInformation ||
+                    this.IssuerInformation != null &&
+                    this.IssuerInformation.Equals(other.IssuerInformation)
+                ) && 
+                (
                     this.AuthorizationInformation == other.AuthorizationInformation ||
                     this.AuthorizationInformation != null &&
                     this.AuthorizationInformation.Equals(other.AuthorizationInformation)
@@ -269,6 +283,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReversalAmountDetails.GetHashCode();
                 if (this.ProcessorInformation != null)
                     hash = hash * 59 + this.ProcessorInformation.GetHashCode();
+                if (this.IssuerInformation != null)
+                    hash = hash * 59 + this.IssuerInformation.GetHashCode();
                 if (this.AuthorizationInformation != null)
                     hash = hash * 59 + this.AuthorizationInformation.GetHashCode();
                 if (this.PointOfSaleInformation != null)

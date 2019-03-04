@@ -31,9 +31,8 @@ namespace CyberSource.Model
     public partial class RequestBody1 :  IEquatable<RequestBody1>, IValidatableObject
     {
         /// <summary>
-        ///  Format of the report
+        /// Gets or Sets ReportMimeType
         /// </summary>
-        /// <value> Format of the report</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ReportMimeTypeEnum
         {
@@ -52,92 +51,187 @@ namespace CyberSource.Model
         }
 
         /// <summary>
-        ///  Format of the report
+        /// The frequency for which subscription is created.
         /// </summary>
-        /// <value> Format of the report</value>
+        /// <value>The frequency for which subscription is created.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ReportFrequencyEnum
+        {
+            
+            /// <summary>
+            /// Enum DAILY for "DAILY"
+            /// </summary>
+            [EnumMember(Value = "DAILY")]
+            DAILY,
+            
+            /// <summary>
+            /// Enum WEEKLY for "WEEKLY"
+            /// </summary>
+            [EnumMember(Value = "WEEKLY")]
+            WEEKLY,
+            
+            /// <summary>
+            /// Enum MONTHLY for "MONTHLY"
+            /// </summary>
+            [EnumMember(Value = "MONTHLY")]
+            MONTHLY
+        }
+
+        /// <summary>
+        /// Gets or Sets ReportMimeType
+        /// </summary>
         [DataMember(Name="reportMimeType", EmitDefaultValue=false)]
         public ReportMimeTypeEnum? ReportMimeType { get; set; }
         /// <summary>
+        /// The frequency for which subscription is created.
+        /// </summary>
+        /// <value>The frequency for which subscription is created.</value>
+        [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
+        public ReportFrequencyEnum? ReportFrequency { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="RequestBody1" /> class.
         /// </summary>
-        /// <param name="OrganizationId">Valid CyberSource Organization Id.</param>
-        /// <param name="ReportDefinitionName">ReportDefinitionName.</param>
-        /// <param name="ReportFields">List of fields which needs to get included in a report.</param>
-        /// <param name="ReportMimeType"> Format of the report.</param>
-        /// <param name="ReportName">Name of the report.</param>
-        /// <param name="Timezone">Timezone of the report.</param>
-        /// <param name="ReportStartTime">Start time of the report.</param>
-        /// <param name="ReportEndTime">End time of the report.</param>
-        /// <param name="ReportFilters">ReportFilters.</param>
+        [JsonConstructorAttribute]
+        protected RequestBody1() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RequestBody1" /> class.
+        /// </summary>
+        /// <param name="OrganizationId">Valid CyberSource organizationId.</param>
+        /// <param name="ReportDefinitionName">Valid Report Definition Name (required).</param>
+        /// <param name="ReportFields">ReportFields (required).</param>
+        /// <param name="ReportMimeType">ReportMimeType (required).</param>
+        /// <param name="ReportFrequency">The frequency for which subscription is created. (required).</param>
+        /// <param name="ReportName">ReportName (required).</param>
+        /// <param name="Timezone">Timezone (required).</param>
+        /// <param name="StartTime">The hour at which the report generation should start. It should be in hhmm format. (required).</param>
+        /// <param name="StartDay">This is the start day if the frequency is WEEKLY or MONTHLY. The value varies from 1-7 for WEEKLY and 1-31 for MONTHLY. For WEEKLY 1 means Sunday and 7 means Saturday. By default the value is 1..</param>
+        /// <param name="ReportFilters">List of filters to apply.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
-        /// <param name="SelectedMerchantGroupName">Specifies the group name.</param>
-        public RequestBody1(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), string ReportName = default(string), string Timezone = default(string), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), ReportingV3ReportSubscriptionsGet200ResponseReportPreferences ReportPreferences = default(ReportingV3ReportSubscriptionsGet200ResponseReportPreferences), string SelectedMerchantGroupName = default(string))
+        /// <param name="GroupName">Valid GroupName.</param>
+        public RequestBody1(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), ReportingV3ReportsIdGet200ResponseReportPreferences ReportPreferences = default(ReportingV3ReportsIdGet200ResponseReportPreferences), string GroupName = default(string))
         {
+            // to ensure "ReportDefinitionName" is required (not null)
+            if (ReportDefinitionName == null)
+            {
+                throw new InvalidDataException("ReportDefinitionName is a required property for RequestBody1 and cannot be null");
+            }
+            else
+            {
+                this.ReportDefinitionName = ReportDefinitionName;
+            }
+            // to ensure "ReportFields" is required (not null)
+            if (ReportFields == null)
+            {
+                throw new InvalidDataException("ReportFields is a required property for RequestBody1 and cannot be null");
+            }
+            else
+            {
+                this.ReportFields = ReportFields;
+            }
+            // to ensure "ReportMimeType" is required (not null)
+            if (ReportMimeType == null)
+            {
+                throw new InvalidDataException("ReportMimeType is a required property for RequestBody1 and cannot be null");
+            }
+            else
+            {
+                this.ReportMimeType = ReportMimeType;
+            }
+            // to ensure "ReportFrequency" is required (not null)
+            if (ReportFrequency == null)
+            {
+                throw new InvalidDataException("ReportFrequency is a required property for RequestBody1 and cannot be null");
+            }
+            else
+            {
+                this.ReportFrequency = ReportFrequency;
+            }
+            // to ensure "ReportName" is required (not null)
+            if (ReportName == null)
+            {
+                throw new InvalidDataException("ReportName is a required property for RequestBody1 and cannot be null");
+            }
+            else
+            {
+                this.ReportName = ReportName;
+            }
+            // to ensure "Timezone" is required (not null)
+            if (Timezone == null)
+            {
+                throw new InvalidDataException("Timezone is a required property for RequestBody1 and cannot be null");
+            }
+            else
+            {
+                this.Timezone = Timezone;
+            }
+            // to ensure "StartTime" is required (not null)
+            if (StartTime == null)
+            {
+                throw new InvalidDataException("StartTime is a required property for RequestBody1 and cannot be null");
+            }
+            else
+            {
+                this.StartTime = StartTime;
+            }
             this.OrganizationId = OrganizationId;
-            this.ReportDefinitionName = ReportDefinitionName;
-            this.ReportFields = ReportFields;
-            this.ReportMimeType = ReportMimeType;
-            this.ReportName = ReportName;
-            this.Timezone = Timezone;
-            this.ReportStartTime = ReportStartTime;
-            this.ReportEndTime = ReportEndTime;
+            this.StartDay = StartDay;
             this.ReportFilters = ReportFilters;
             this.ReportPreferences = ReportPreferences;
-            this.SelectedMerchantGroupName = SelectedMerchantGroupName;
+            this.GroupName = GroupName;
         }
         
         /// <summary>
-        /// Valid CyberSource Organization Id
+        /// Valid CyberSource organizationId
         /// </summary>
-        /// <value>Valid CyberSource Organization Id</value>
+        /// <value>Valid CyberSource organizationId</value>
         [DataMember(Name="organizationId", EmitDefaultValue=false)]
         public string OrganizationId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReportDefinitionName
+        /// Valid Report Definition Name
         /// </summary>
+        /// <value>Valid Report Definition Name</value>
         [DataMember(Name="reportDefinitionName", EmitDefaultValue=false)]
         public string ReportDefinitionName { get; set; }
 
         /// <summary>
-        /// List of fields which needs to get included in a report
+        /// Gets or Sets ReportFields
         /// </summary>
-        /// <value>List of fields which needs to get included in a report</value>
         [DataMember(Name="reportFields", EmitDefaultValue=false)]
         public List<string> ReportFields { get; set; }
 
 
+
         /// <summary>
-        /// Name of the report
+        /// Gets or Sets ReportName
         /// </summary>
-        /// <value>Name of the report</value>
         [DataMember(Name="reportName", EmitDefaultValue=false)]
         public string ReportName { get; set; }
 
         /// <summary>
-        /// Timezone of the report
+        /// Gets or Sets Timezone
         /// </summary>
-        /// <value>Timezone of the report</value>
         [DataMember(Name="timezone", EmitDefaultValue=false)]
         public string Timezone { get; set; }
 
         /// <summary>
-        /// Start time of the report
+        /// The hour at which the report generation should start. It should be in hhmm format.
         /// </summary>
-        /// <value>Start time of the report</value>
-        [DataMember(Name="reportStartTime", EmitDefaultValue=false)]
-        public DateTime? ReportStartTime { get; set; }
+        /// <value>The hour at which the report generation should start. It should be in hhmm format.</value>
+        [DataMember(Name="startTime", EmitDefaultValue=false)]
+        public string StartTime { get; set; }
 
         /// <summary>
-        /// End time of the report
+        /// This is the start day if the frequency is WEEKLY or MONTHLY. The value varies from 1-7 for WEEKLY and 1-31 for MONTHLY. For WEEKLY 1 means Sunday and 7 means Saturday. By default the value is 1.
         /// </summary>
-        /// <value>End time of the report</value>
-        [DataMember(Name="reportEndTime", EmitDefaultValue=false)]
-        public DateTime? ReportEndTime { get; set; }
+        /// <value>This is the start day if the frequency is WEEKLY or MONTHLY. The value varies from 1-7 for WEEKLY and 1-31 for MONTHLY. For WEEKLY 1 means Sunday and 7 means Saturday. By default the value is 1.</value>
+        [DataMember(Name="startDay", EmitDefaultValue=false)]
+        public int? StartDay { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReportFilters
+        /// List of filters to apply
         /// </summary>
+        /// <value>List of filters to apply</value>
         [DataMember(Name="reportFilters", EmitDefaultValue=false)]
         public Dictionary<string, List<string>> ReportFilters { get; set; }
 
@@ -145,14 +239,14 @@ namespace CyberSource.Model
         /// Gets or Sets ReportPreferences
         /// </summary>
         [DataMember(Name="reportPreferences", EmitDefaultValue=false)]
-        public ReportingV3ReportSubscriptionsGet200ResponseReportPreferences ReportPreferences { get; set; }
+        public ReportingV3ReportsIdGet200ResponseReportPreferences ReportPreferences { get; set; }
 
         /// <summary>
-        /// Specifies the group name
+        /// Valid GroupName
         /// </summary>
-        /// <value>Specifies the group name</value>
-        [DataMember(Name="selectedMerchantGroupName", EmitDefaultValue=false)]
-        public string SelectedMerchantGroupName { get; set; }
+        /// <value>Valid GroupName</value>
+        [DataMember(Name="groupName", EmitDefaultValue=false)]
+        public string GroupName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -166,13 +260,14 @@ namespace CyberSource.Model
             sb.Append("  ReportDefinitionName: ").Append(ReportDefinitionName).Append("\n");
             sb.Append("  ReportFields: ").Append(ReportFields).Append("\n");
             sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
+            sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
             sb.Append("  ReportName: ").Append(ReportName).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
-            sb.Append("  ReportStartTime: ").Append(ReportStartTime).Append("\n");
-            sb.Append("  ReportEndTime: ").Append(ReportEndTime).Append("\n");
+            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            sb.Append("  StartDay: ").Append(StartDay).Append("\n");
             sb.Append("  ReportFilters: ").Append(ReportFilters).Append("\n");
             sb.Append("  ReportPreferences: ").Append(ReportPreferences).Append("\n");
-            sb.Append("  SelectedMerchantGroupName: ").Append(SelectedMerchantGroupName).Append("\n");
+            sb.Append("  GroupName: ").Append(GroupName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -230,6 +325,11 @@ namespace CyberSource.Model
                     this.ReportMimeType.Equals(other.ReportMimeType)
                 ) && 
                 (
+                    this.ReportFrequency == other.ReportFrequency ||
+                    this.ReportFrequency != null &&
+                    this.ReportFrequency.Equals(other.ReportFrequency)
+                ) && 
+                (
                     this.ReportName == other.ReportName ||
                     this.ReportName != null &&
                     this.ReportName.Equals(other.ReportName)
@@ -240,14 +340,14 @@ namespace CyberSource.Model
                     this.Timezone.Equals(other.Timezone)
                 ) && 
                 (
-                    this.ReportStartTime == other.ReportStartTime ||
-                    this.ReportStartTime != null &&
-                    this.ReportStartTime.Equals(other.ReportStartTime)
+                    this.StartTime == other.StartTime ||
+                    this.StartTime != null &&
+                    this.StartTime.Equals(other.StartTime)
                 ) && 
                 (
-                    this.ReportEndTime == other.ReportEndTime ||
-                    this.ReportEndTime != null &&
-                    this.ReportEndTime.Equals(other.ReportEndTime)
+                    this.StartDay == other.StartDay ||
+                    this.StartDay != null &&
+                    this.StartDay.Equals(other.StartDay)
                 ) && 
                 (
                     this.ReportFilters == other.ReportFilters ||
@@ -260,9 +360,9 @@ namespace CyberSource.Model
                     this.ReportPreferences.Equals(other.ReportPreferences)
                 ) && 
                 (
-                    this.SelectedMerchantGroupName == other.SelectedMerchantGroupName ||
-                    this.SelectedMerchantGroupName != null &&
-                    this.SelectedMerchantGroupName.Equals(other.SelectedMerchantGroupName)
+                    this.GroupName == other.GroupName ||
+                    this.GroupName != null &&
+                    this.GroupName.Equals(other.GroupName)
                 );
         }
 
@@ -285,20 +385,22 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReportFields.GetHashCode();
                 if (this.ReportMimeType != null)
                     hash = hash * 59 + this.ReportMimeType.GetHashCode();
+                if (this.ReportFrequency != null)
+                    hash = hash * 59 + this.ReportFrequency.GetHashCode();
                 if (this.ReportName != null)
                     hash = hash * 59 + this.ReportName.GetHashCode();
                 if (this.Timezone != null)
                     hash = hash * 59 + this.Timezone.GetHashCode();
-                if (this.ReportStartTime != null)
-                    hash = hash * 59 + this.ReportStartTime.GetHashCode();
-                if (this.ReportEndTime != null)
-                    hash = hash * 59 + this.ReportEndTime.GetHashCode();
+                if (this.StartTime != null)
+                    hash = hash * 59 + this.StartTime.GetHashCode();
+                if (this.StartDay != null)
+                    hash = hash * 59 + this.StartDay.GetHashCode();
                 if (this.ReportFilters != null)
                     hash = hash * 59 + this.ReportFilters.GetHashCode();
                 if (this.ReportPreferences != null)
                     hash = hash * 59 + this.ReportPreferences.GetHashCode();
-                if (this.SelectedMerchantGroupName != null)
-                    hash = hash * 59 + this.SelectedMerchantGroupName.GetHashCode();
+                if (this.GroupName != null)
+                    hash = hash * 59 + this.GroupName.GetHashCode();
                 return hash;
             }
         }
@@ -355,11 +457,23 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportName, must match a pattern of " + regexReportName, new [] { "ReportName" });
             }
 
-            // SelectedMerchantGroupName (string) pattern
-            Regex regexSelectedMerchantGroupName = new Regex(@"[0-9]*", RegexOptions.CultureInvariant);
-            if (false == regexSelectedMerchantGroupName.Match(this.SelectedMerchantGroupName).Success)
+            // StartDay (int?) maximum
+            if(this.StartDay > (int?)31)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SelectedMerchantGroupName, must match a pattern of " + regexSelectedMerchantGroupName, new [] { "SelectedMerchantGroupName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value less than or equal to 31.", new [] { "StartDay" });
+            }
+
+            // StartDay (int?) minimum
+            if(this.StartDay < (int?)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value greater than or equal to 1.", new [] { "StartDay" });
+            }
+
+            // GroupName (string) pattern
+            Regex regexGroupName = new Regex(@"[a-zA-Z0-9-_ ]+", RegexOptions.CultureInvariant);
+            if (false == regexGroupName.Match(this.GroupName).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GroupName, must match a pattern of " + regexGroupName, new [] { "GroupName" });
             }
 
             yield break;

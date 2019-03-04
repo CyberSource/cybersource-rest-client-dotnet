@@ -35,14 +35,18 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="MerchantDescriptor">MerchantDescriptor.</param>
         /// <param name="CardAcceptorReferenceNumber">Reference number that facilitates card acceptor/corporation communication and record keeping.  For processor-specific information, see the card_acceptor_ref_number field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
-        /// <param name="CategoryCode">Four-digit number that the payment card industry uses to classify merchants into market segments. Visa assigned one or more of these values to your business when you started accepting Visa cards.  If you do not include this field in your request, CyberSource uses the value in your CyberSource account.  For processor-specific information, see the merchant_category_code field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="CategoryCode">Four-digit number that the payment card industry uses to classify merchants into market segments. Visa assigned one or more of these values to your business when you started accepting Visa cards.  If you do not include this field in your request, CyberSource uses the value in your CyberSource account.  For processor-specific information, see the merchant_category_code field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  See \&quot;Aggregator Support,\&quot; page 100.  **CyberSource through VisaNet**\\ The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR4 - Position: 150-153 - Field: Merchant Category Code .</param>
         /// <param name="VatRegistrationNumber">Your government-assigned tax identification number.  For CtV processors, the maximum length is 20.  For other processor-specific information, see the merchant_vat_registration_number field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
-        public Ptsv2paymentsidcapturesMerchantInformation(Ptsv2paymentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2paymentsMerchantInformationMerchantDescriptor), string CardAcceptorReferenceNumber = default(string), int? CategoryCode = default(int?), string VatRegistrationNumber = default(string))
+        /// <param name="ServiceFeeDescriptor">ServiceFeeDescriptor.</param>
+        /// <param name="TaxId">Your Cadastro Nacional da Pessoa Jurídica (CNPJ) number.  This field is supported only for BNDES transactions on CyberSource through VisaNet. See BNDES.  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR6 - Position: 40-59 - Field: BNDES Reference Field 1 .</param>
+        public Ptsv2paymentsidcapturesMerchantInformation(Ptsv2paymentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2paymentsMerchantInformationMerchantDescriptor), string CardAcceptorReferenceNumber = default(string), int? CategoryCode = default(int?), string VatRegistrationNumber = default(string), Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor = default(Ptsv2paymentsMerchantInformationServiceFeeDescriptor), string TaxId = default(string))
         {
             this.MerchantDescriptor = MerchantDescriptor;
             this.CardAcceptorReferenceNumber = CardAcceptorReferenceNumber;
             this.CategoryCode = CategoryCode;
             this.VatRegistrationNumber = VatRegistrationNumber;
+            this.ServiceFeeDescriptor = ServiceFeeDescriptor;
+            this.TaxId = TaxId;
         }
         
         /// <summary>
@@ -59,9 +63,9 @@ namespace CyberSource.Model
         public string CardAcceptorReferenceNumber { get; set; }
 
         /// <summary>
-        /// Four-digit number that the payment card industry uses to classify merchants into market segments. Visa assigned one or more of these values to your business when you started accepting Visa cards.  If you do not include this field in your request, CyberSource uses the value in your CyberSource account.  For processor-specific information, see the merchant_category_code field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Four-digit number that the payment card industry uses to classify merchants into market segments. Visa assigned one or more of these values to your business when you started accepting Visa cards.  If you do not include this field in your request, CyberSource uses the value in your CyberSource account.  For processor-specific information, see the merchant_category_code field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  See \&quot;Aggregator Support,\&quot; page 100.  **CyberSource through VisaNet**\\ The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR4 - Position: 150-153 - Field: Merchant Category Code 
         /// </summary>
-        /// <value>Four-digit number that the payment card industry uses to classify merchants into market segments. Visa assigned one or more of these values to your business when you started accepting Visa cards.  If you do not include this field in your request, CyberSource uses the value in your CyberSource account.  For processor-specific information, see the merchant_category_code field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Four-digit number that the payment card industry uses to classify merchants into market segments. Visa assigned one or more of these values to your business when you started accepting Visa cards.  If you do not include this field in your request, CyberSource uses the value in your CyberSource account.  For processor-specific information, see the merchant_category_code field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  See \&quot;Aggregator Support,\&quot; page 100.  **CyberSource through VisaNet**\\ The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR4 - Position: 150-153 - Field: Merchant Category Code </value>
         [DataMember(Name="categoryCode", EmitDefaultValue=false)]
         public int? CategoryCode { get; set; }
 
@@ -71,6 +75,19 @@ namespace CyberSource.Model
         /// <value>Your government-assigned tax identification number.  For CtV processors, the maximum length is 20.  For other processor-specific information, see the merchant_vat_registration_number field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) </value>
         [DataMember(Name="vatRegistrationNumber", EmitDefaultValue=false)]
         public string VatRegistrationNumber { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ServiceFeeDescriptor
+        /// </summary>
+        [DataMember(Name="serviceFeeDescriptor", EmitDefaultValue=false)]
+        public Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor { get; set; }
+
+        /// <summary>
+        /// Your Cadastro Nacional da Pessoa Jurídica (CNPJ) number.  This field is supported only for BNDES transactions on CyberSource through VisaNet. See BNDES.  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR6 - Position: 40-59 - Field: BNDES Reference Field 1 
+        /// </summary>
+        /// <value>Your Cadastro Nacional da Pessoa Jurídica (CNPJ) number.  This field is supported only for BNDES transactions on CyberSource through VisaNet. See BNDES.  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR6 - Position: 40-59 - Field: BNDES Reference Field 1 </value>
+        [DataMember(Name="taxId", EmitDefaultValue=false)]
+        public string TaxId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,6 +101,8 @@ namespace CyberSource.Model
             sb.Append("  CardAcceptorReferenceNumber: ").Append(CardAcceptorReferenceNumber).Append("\n");
             sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
             sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
+            sb.Append("  ServiceFeeDescriptor: ").Append(ServiceFeeDescriptor).Append("\n");
+            sb.Append("  TaxId: ").Append(TaxId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +158,16 @@ namespace CyberSource.Model
                     this.VatRegistrationNumber == other.VatRegistrationNumber ||
                     this.VatRegistrationNumber != null &&
                     this.VatRegistrationNumber.Equals(other.VatRegistrationNumber)
+                ) && 
+                (
+                    this.ServiceFeeDescriptor == other.ServiceFeeDescriptor ||
+                    this.ServiceFeeDescriptor != null &&
+                    this.ServiceFeeDescriptor.Equals(other.ServiceFeeDescriptor)
+                ) && 
+                (
+                    this.TaxId == other.TaxId ||
+                    this.TaxId != null &&
+                    this.TaxId.Equals(other.TaxId)
                 );
         }
 
@@ -161,6 +190,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CategoryCode.GetHashCode();
                 if (this.VatRegistrationNumber != null)
                     hash = hash * 59 + this.VatRegistrationNumber.GetHashCode();
+                if (this.ServiceFeeDescriptor != null)
+                    hash = hash * 59 + this.ServiceFeeDescriptor.GetHashCode();
+                if (this.TaxId != null)
+                    hash = hash * 59 + this.TaxId.GetHashCode();
                 return hash;
             }
         }
@@ -188,6 +221,12 @@ namespace CyberSource.Model
             if(this.VatRegistrationNumber != null && this.VatRegistrationNumber.Length > 21)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VatRegistrationNumber, length must be less than 21.", new [] { "VatRegistrationNumber" });
+            }
+
+            // TaxId (string) maxLength
+            if(this.TaxId != null && this.TaxId.Length > 15)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxId, length must be less than 15.", new [] { "TaxId" });
             }
 
             yield break;

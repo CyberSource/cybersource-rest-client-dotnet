@@ -34,13 +34,13 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsConsumerAuthenticationInformation" /> class.
         /// </summary>
         /// <param name="Cavv">Cardholder authentication verification value (CAVV)..</param>
-        /// <param name="CavvAlgorithm">Algorithm used to generate the CAVV for Verified by Visa or the UCAF authentication data for Mastercard SecureCode. .</param>
-        /// <param name="EciRaw">Raw electronic commerce indicator (ECI)..</param>
-        /// <param name="ParesStatus">Payer authentication response status..</param>
-        /// <param name="VeresEnrolled">Verification response enrollment status..</param>
-        /// <param name="Xid">Transaction identifier..</param>
-        /// <param name="UcafAuthenticationData">Universal cardholder authentication field (UCAF) data..</param>
-        /// <param name="UcafCollectionIndicator">Universal cardholder authentication field (UCAF) collection indicator..</param>
+        /// <param name="CavvAlgorithm">Algorithm used to generate the CAVV for Verified by Visa or the UCAF authentication data for Mastercard Identity Check. .</param>
+        /// <param name="EciRaw">Raw electronic commerce indicator (ECI). For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180..</param>
+        /// <param name="ParesStatus">Payer authentication response status. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180. .</param>
+        /// <param name="VeresEnrolled">Verification response enrollment status. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180..</param>
+        /// <param name="Xid">Transaction identifier. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180..</param>
+        /// <param name="UcafAuthenticationData">Universal cardholder authentication field (UCAF) data.  For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180. .</param>
+        /// <param name="UcafCollectionIndicator">Universal cardholder authentication field (UCAF) collection indicator.  For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.  **CyberSource through VisaNet**\\ The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR7 - Position: 5 - Field: Mastercard Electronic Commerce Indicators—-UCAF Collection Indicator .</param>
         public Ptsv2paymentsConsumerAuthenticationInformation(string Cavv = default(string), string CavvAlgorithm = default(string), string EciRaw = default(string), string ParesStatus = default(string), string VeresEnrolled = default(string), string Xid = default(string), string UcafAuthenticationData = default(string), string UcafCollectionIndicator = default(string))
         {
             this.Cavv = Cavv;
@@ -61,51 +61,51 @@ namespace CyberSource.Model
         public string Cavv { get; set; }
 
         /// <summary>
-        /// Algorithm used to generate the CAVV for Verified by Visa or the UCAF authentication data for Mastercard SecureCode. 
+        /// Algorithm used to generate the CAVV for Verified by Visa or the UCAF authentication data for Mastercard Identity Check. 
         /// </summary>
-        /// <value>Algorithm used to generate the CAVV for Verified by Visa or the UCAF authentication data for Mastercard SecureCode. </value>
+        /// <value>Algorithm used to generate the CAVV for Verified by Visa or the UCAF authentication data for Mastercard Identity Check. </value>
         [DataMember(Name="cavvAlgorithm", EmitDefaultValue=false)]
         public string CavvAlgorithm { get; set; }
 
         /// <summary>
-        /// Raw electronic commerce indicator (ECI).
+        /// Raw electronic commerce indicator (ECI). For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.
         /// </summary>
-        /// <value>Raw electronic commerce indicator (ECI).</value>
+        /// <value>Raw electronic commerce indicator (ECI). For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.</value>
         [DataMember(Name="eciRaw", EmitDefaultValue=false)]
         public string EciRaw { get; set; }
 
         /// <summary>
-        /// Payer authentication response status.
+        /// Payer authentication response status. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180. 
         /// </summary>
-        /// <value>Payer authentication response status.</value>
+        /// <value>Payer authentication response status. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180. </value>
         [DataMember(Name="paresStatus", EmitDefaultValue=false)]
         public string ParesStatus { get; set; }
 
         /// <summary>
-        /// Verification response enrollment status.
+        /// Verification response enrollment status. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.
         /// </summary>
-        /// <value>Verification response enrollment status.</value>
+        /// <value>Verification response enrollment status. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.</value>
         [DataMember(Name="veresEnrolled", EmitDefaultValue=false)]
         public string VeresEnrolled { get; set; }
 
         /// <summary>
-        /// Transaction identifier.
+        /// Transaction identifier. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.
         /// </summary>
-        /// <value>Transaction identifier.</value>
+        /// <value>Transaction identifier. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.</value>
         [DataMember(Name="xid", EmitDefaultValue=false)]
         public string Xid { get; set; }
 
         /// <summary>
-        /// Universal cardholder authentication field (UCAF) data.
+        /// Universal cardholder authentication field (UCAF) data.  For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180. 
         /// </summary>
-        /// <value>Universal cardholder authentication field (UCAF) data.</value>
+        /// <value>Universal cardholder authentication field (UCAF) data.  For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180. </value>
         [DataMember(Name="ucafAuthenticationData", EmitDefaultValue=false)]
         public string UcafAuthenticationData { get; set; }
 
         /// <summary>
-        /// Universal cardholder authentication field (UCAF) collection indicator.
+        /// Universal cardholder authentication field (UCAF) collection indicator.  For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.  **CyberSource through VisaNet**\\ The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR7 - Position: 5 - Field: Mastercard Electronic Commerce Indicators—-UCAF Collection Indicator 
         /// </summary>
-        /// <value>Universal cardholder authentication field (UCAF) collection indicator.</value>
+        /// <value>Universal cardholder authentication field (UCAF) collection indicator.  For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.  **CyberSource through VisaNet**\\ The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR7 - Position: 5 - Field: Mastercard Electronic Commerce Indicators—-UCAF Collection Indicator </value>
         [DataMember(Name="ucafCollectionIndicator", EmitDefaultValue=false)]
         public string UcafCollectionIndicator { get; set; }
 

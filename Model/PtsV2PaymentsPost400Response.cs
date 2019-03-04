@@ -31,9 +31,9 @@ namespace CyberSource.Model
     public partial class PtsV2PaymentsPost400Response :  IEquatable<PtsV2PaymentsPost400Response>, IValidatableObject
     {
         /// <summary>
-        /// The status of the submitted transaction.
+        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
         /// </summary>
-        /// <value>The status of the submitted transaction.</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -46,9 +46,9 @@ namespace CyberSource.Model
         }
 
         /// <summary>
-        /// The reason of the status. 
+        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_AMOUNT  - INVALID_CARD_TYPE  - INVALID_PAYMENT_ID  - DEBIT_CARD_USEAGE_EXCEEDD_LIMIT 
         /// </summary>
-        /// <value>The reason of the status. </value>
+        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_AMOUNT  - INVALID_CARD_TYPE  - INVALID_PAYMENT_ID  - DEBIT_CARD_USEAGE_EXCEEDD_LIMIT </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ReasonEnum
         {
@@ -115,23 +115,23 @@ namespace CyberSource.Model
         }
 
         /// <summary>
-        /// The status of the submitted transaction.
+        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
         /// </summary>
-        /// <value>The status of the submitted transaction.</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
-        /// The reason of the status. 
+        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_AMOUNT  - INVALID_CARD_TYPE  - INVALID_PAYMENT_ID  - DEBIT_CARD_USEAGE_EXCEEDD_LIMIT 
         /// </summary>
-        /// <value>The reason of the status. </value>
+        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_AMOUNT  - INVALID_CARD_TYPE  - INVALID_PAYMENT_ID  - DEBIT_CARD_USEAGE_EXCEEDD_LIMIT </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public ReasonEnum? Reason { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost400Response" /> class.
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="Status">The status of the submitted transaction..</param>
-        /// <param name="Reason">The reason of the status. .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
+        /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_AMOUNT  - INVALID_CARD_TYPE  - INVALID_PAYMENT_ID  - DEBIT_CARD_USEAGE_EXCEEDD_LIMIT .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
         public PtsV2PaymentsPost400Response(string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))

@@ -34,9 +34,13 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidrefundsPaymentInformation" /> class.
         /// </summary>
         /// <param name="Card">Card.</param>
-        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard))
+        /// <param name="Bank">Bank.</param>
+        /// <param name="Customer">Customer.</param>
+        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer))
         {
             this.Card = Card;
+            this.Bank = Bank;
+            this.Customer = Customer;
         }
         
         /// <summary>
@@ -44,6 +48,18 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
         public Ptsv2paymentsidrefundsPaymentInformationCard Card { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Bank
+        /// </summary>
+        [DataMember(Name="bank", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationBank Bank { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Customer
+        /// </summary>
+        [DataMember(Name="customer", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +70,8 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidrefundsPaymentInformation {\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
+            sb.Append("  Bank: ").Append(Bank).Append("\n");
+            sb.Append("  Customer: ").Append(Customer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +112,16 @@ namespace CyberSource.Model
                     this.Card == other.Card ||
                     this.Card != null &&
                     this.Card.Equals(other.Card)
+                ) && 
+                (
+                    this.Bank == other.Bank ||
+                    this.Bank != null &&
+                    this.Bank.Equals(other.Bank)
+                ) && 
+                (
+                    this.Customer == other.Customer ||
+                    this.Customer != null &&
+                    this.Customer.Equals(other.Customer)
                 );
         }
 
@@ -110,6 +138,10 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
+                if (this.Bank != null)
+                    hash = hash * 59 + this.Bank.GetHashCode();
+                if (this.Customer != null)
+                    hash = hash * 59 + this.Customer.GetHashCode();
                 return hash;
             }
         }

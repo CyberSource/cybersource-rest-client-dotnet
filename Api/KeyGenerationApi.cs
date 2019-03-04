@@ -201,7 +201,7 @@ namespace CyberSource.Api
         public ApiResponse< FlexV1KeysPost200Response > GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
 
-            var localVarPath = "/flex/v1/keys/";
+            var localVarPath = $"/flex/v1/keys/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -273,7 +273,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
 
-            var localVarPath = "/flex/v1/keys/";
+            var localVarPath = $"/flex/v1/keys/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);

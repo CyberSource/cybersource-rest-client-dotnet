@@ -35,10 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="TransactionId">Processor transaction ID.  This value identifies the transaction on a host system. This value is supported only for Moneris. It contains this information:   - Terminal used to process the transaction  - Shift during which the transaction took place  - Batch number  - Transaction number within the batch  You must store this value. If you give the customer a receipt, display this value on the receipt.  Example For the value 66012345001069003:   - Terminal ID &#x3D; 66012345  - Shift number &#x3D; 001  - Batch number &#x3D; 069  - Transaction number &#x3D; 003 .</param>
         /// <param name="ForwardedAcquirerCode">Name of the Japanese acquirer that processed the transaction. Returned only for CCS (CAFIS) and JCN Gateway. Please contact the CyberSource Japan Support Group for more information. .</param>
-        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string TransactionId = default(string), string ForwardedAcquirerCode = default(string))
+        /// <param name="MerchantNumber">Identifier that was assigned to you by your acquirer.  This value must be printed on the receipt.  This field is supported only on **American Express Direct**, **FDC Nashville Global**, and **SIX**. .</param>
+        /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  Important Do not use this field to evaluate the result of the authorization. .</param>
+        /// <param name="AchVerification">AchVerification.</param>
+        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string TransactionId = default(string), string ForwardedAcquirerCode = default(string), string MerchantNumber = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification))
         {
             this.TransactionId = TransactionId;
             this.ForwardedAcquirerCode = ForwardedAcquirerCode;
+            this.MerchantNumber = MerchantNumber;
+            this.ResponseCode = ResponseCode;
+            this.AchVerification = AchVerification;
         }
         
         /// <summary>
@@ -56,6 +62,26 @@ namespace CyberSource.Model
         public string ForwardedAcquirerCode { get; set; }
 
         /// <summary>
+        /// Identifier that was assigned to you by your acquirer.  This value must be printed on the receipt.  This field is supported only on **American Express Direct**, **FDC Nashville Global**, and **SIX**. 
+        /// </summary>
+        /// <value>Identifier that was assigned to you by your acquirer.  This value must be printed on the receipt.  This field is supported only on **American Express Direct**, **FDC Nashville Global**, and **SIX**. </value>
+        [DataMember(Name="merchantNumber", EmitDefaultValue=false)]
+        public string MerchantNumber { get; set; }
+
+        /// <summary>
+        /// For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  Important Do not use this field to evaluate the result of the authorization. 
+        /// </summary>
+        /// <value>For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  Important Do not use this field to evaluate the result of the authorization. </value>
+        [DataMember(Name="responseCode", EmitDefaultValue=false)]
+        public string ResponseCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AchVerification
+        /// </summary>
+        [DataMember(Name="achVerification", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +91,9 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsRefundPost201ResponseProcessorInformation {\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("  ForwardedAcquirerCode: ").Append(ForwardedAcquirerCode).Append("\n");
+            sb.Append("  MerchantNumber: ").Append(MerchantNumber).Append("\n");
+            sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+            sb.Append("  AchVerification: ").Append(AchVerification).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +139,21 @@ namespace CyberSource.Model
                     this.ForwardedAcquirerCode == other.ForwardedAcquirerCode ||
                     this.ForwardedAcquirerCode != null &&
                     this.ForwardedAcquirerCode.Equals(other.ForwardedAcquirerCode)
+                ) && 
+                (
+                    this.MerchantNumber == other.MerchantNumber ||
+                    this.MerchantNumber != null &&
+                    this.MerchantNumber.Equals(other.MerchantNumber)
+                ) && 
+                (
+                    this.ResponseCode == other.ResponseCode ||
+                    this.ResponseCode != null &&
+                    this.ResponseCode.Equals(other.ResponseCode)
+                ) && 
+                (
+                    this.AchVerification == other.AchVerification ||
+                    this.AchVerification != null &&
+                    this.AchVerification.Equals(other.AchVerification)
                 );
         }
 
@@ -128,6 +172,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionId.GetHashCode();
                 if (this.ForwardedAcquirerCode != null)
                     hash = hash * 59 + this.ForwardedAcquirerCode.GetHashCode();
+                if (this.MerchantNumber != null)
+                    hash = hash * 59 + this.MerchantNumber.GetHashCode();
+                if (this.ResponseCode != null)
+                    hash = hash * 59 + this.ResponseCode.GetHashCode();
+                if (this.AchVerification != null)
+                    hash = hash * 59 + this.AchVerification.GetHashCode();
                 return hash;
             }
         }
@@ -149,6 +199,18 @@ namespace CyberSource.Model
             if(this.ForwardedAcquirerCode != null && this.ForwardedAcquirerCode.Length > 32)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForwardedAcquirerCode, length must be less than 32.", new [] { "ForwardedAcquirerCode" });
+            }
+
+            // MerchantNumber (string) maxLength
+            if(this.MerchantNumber != null && this.MerchantNumber.Length > 15)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantNumber, length must be less than 15.", new [] { "MerchantNumber" });
+            }
+
+            // ResponseCode (string) maxLength
+            if(this.ResponseCode != null && this.ResponseCode.Length > 10)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCode, length must be less than 10.", new [] { "ResponseCode" });
             }
 
             yield break;
