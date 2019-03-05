@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/CyberSource/cybersource-rest-client-dotnet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Use this client SDK to Call CyberSource REST API's. This SDK includes generates both HTTP Signature and JWT headers (including authentication headers) for the API requests.</description>
-    <releaseNotes>Beta Release.</releaseNotes>
+    <releaseNotes>Minor Release.</releaseNotes>
   </metadata>
   <files>
     <file src="bin\Release\cybersource-rest-client-dotnet.dll" target="lib\cybersource-rest-client-dotnet.dll"/>
