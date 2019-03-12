@@ -1,0 +1,4 @@
+testCaseId,paymentId,amount,message
+PAuthRev_01,5494546224156840604004,100.00,Success
+PAuthRev_02,5494546321226831004002,100,Fails due to mismatch amount
+PAuthRev_03,1234567898726221234599,100.00,Fails due to invalid paymentId
