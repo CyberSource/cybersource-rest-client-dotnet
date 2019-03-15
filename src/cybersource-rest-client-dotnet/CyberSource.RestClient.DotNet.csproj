@@ -11,11 +11,11 @@ OpenAPI spec version: 0.0.1
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{19F1DEBC-DE5E-4517-8062-F000CD499087}</ProjectGuid>
+    <ProjectGuid>{51EEEB84-24E5-4323-9B21-31CE2D7FB209}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CyberSource.Test</RootNamespace>
-    <AssemblyName>CyberSource.Test</AssemblyName>
+    <RootNamespace>CyberSource</RootNamespace>
+    <AssemblyName>CyberSource.RestClient.DotNet</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,16 +35,12 @@ OpenAPI spec version: 0.0.1
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>..\..\packages\RestSharp.106.5.3\lib\net452\RestSharp.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -52,23 +48,24 @@ OpenAPI spec version: 0.0.1
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
+    <Reference Include="AuthenticationSdk">
+      <HintPath>..\..\packages\CyberSource.Authentication.0.0.0.3\lib\AuthenticationSdk.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\..\packages\RestSharp.106.5.3\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs" Exclude="obj\**" />
+    <Compile Include="**\*.cs" Exclude="obj\**;test\**" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
+    <None Include="packages.config" />
+    <None Include="CyberSource.RestClient.DotNet.nuspec">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\cybersource-rest-client-dotnet\cybersource-rest-client-dotnet.csproj">
-      <Project>{51EEEB84-24E5-4323-9B21-31CE2D7FB209}</Project>
-      <Name>cybersource-rest-client-dotnet</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

@@ -19,6 +19,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\cybersource-rest-client-dotnet.dll" target="lib\net461\cybersource-rest-client-dotnet.dll"/>
+    <file src="bin\Release\CyberSource.RestClient.DotNet.dll" target="lib\net461\CyberSource.RestClient.DotNet.dll"/>
   </files>
 </package>

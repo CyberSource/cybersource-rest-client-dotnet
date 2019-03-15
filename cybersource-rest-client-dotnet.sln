@@ -2,9 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet", "src\cybersource-rest-client-dotnet\cybersource-rest-client-dotnet.csproj", "{51EEEB84-24E5-4323-9B21-31CE2D7FB209}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSource.RestClient.DotNet", "src\cybersource-rest-client-dotnet\CyberSource.RestClient.DotNet.csproj", "{51EEEB84-24E5-4323-9B21-31CE2D7FB209}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet.Test", "tests\cybersource-rest-client-dotnet.Test\cybersource-rest-client-dotnet.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSource.RestClient.DotNet.Test", "tests\cybersource-rest-client-dotnet.Test\CyberSource.RestClient.DotNet.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7EAD186D-A2FC-410C-B784-759B3A5C8199}"
 EndProject
