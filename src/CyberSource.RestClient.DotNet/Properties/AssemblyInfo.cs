@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("CyberSource.Rest.Client.DotNet")]
 [assembly: AssemblyDescription("A library generated from a Swagger doc for CyberSource API")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CyberSource")]
+[assembly: AssemblyCompany("CyberSource Corporation")]
 [assembly: AssemblyProduct("CyberSource REST API DotNET client")]
 [assembly: AssemblyCopyright("CyberSource © Copyright 2019")]
 [assembly: AssemblyTrademark("")]

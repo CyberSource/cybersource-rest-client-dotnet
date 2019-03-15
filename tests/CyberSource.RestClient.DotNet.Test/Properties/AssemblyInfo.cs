@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("CyberSource.Rest.Client.DotNet.Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CyberSource")]
+[assembly: AssemblyCompany("CyberSource Corporation")]
 [assembly: AssemblyProduct("CyberSource.Rest.Client.DotNet.Test")]
 [assembly: AssemblyCopyright("Copyright © CyberSource 2019")]
 [assembly: AssemblyTrademark("")]
