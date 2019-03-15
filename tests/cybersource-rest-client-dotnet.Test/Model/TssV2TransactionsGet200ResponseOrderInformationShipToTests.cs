@@ -11,15 +11,6 @@
 
 using NUnit.Framework;
 
-using System;
-using System.Linq;
-using System.IO;
-using System.Collections.Generic;
-using CyberSource.Api;
-using CyberSource.Model;
-using CyberSource.Client;
-using System.Reflection;
-
 namespace CyberSource.Test
 {
     /// <summary>
