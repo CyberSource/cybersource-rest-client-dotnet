@@ -10,8 +10,9 @@
 
 
 using System;
+using CyberSource.Client;
 
-namespace CyberSource.Client
+namespace CyberSource.Interfaces
 {
     /// <summary>
     /// Represents configuration aspects required to interact with the API endpoints.

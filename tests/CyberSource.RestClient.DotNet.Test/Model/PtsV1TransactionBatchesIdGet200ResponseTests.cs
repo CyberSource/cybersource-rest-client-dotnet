@@ -11,7 +11,7 @@
 
 using NUnit.Framework;
 
-namespace CyberSource.Test
+namespace CyberSource.Test.Model
 {
     /// <summary>
     ///  Class for testing PtsV1TransactionBatchesIdGet200Response

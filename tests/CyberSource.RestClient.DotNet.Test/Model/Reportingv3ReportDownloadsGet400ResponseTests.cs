@@ -11,7 +11,7 @@
 
 using NUnit.Framework;
 
-namespace CyberSource.Test
+namespace CyberSource.Test.Model
 {
     /// <summary>
     ///  Class for testing Reportingv3ReportDownloadsGet400Response

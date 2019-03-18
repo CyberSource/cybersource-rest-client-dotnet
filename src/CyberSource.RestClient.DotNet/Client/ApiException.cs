@@ -56,5 +56,4 @@ namespace CyberSource.Client
             this.ErrorContent = errorContent;
         }
     }
-
 }

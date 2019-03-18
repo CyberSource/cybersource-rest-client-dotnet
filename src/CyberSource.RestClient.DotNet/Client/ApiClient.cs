@@ -236,6 +236,8 @@ namespace CyberSource.Client
             var httpResponseHeaders = response.Headers;
             var httpResponseData = response.Content;
 
+            // TODO: completely remove dependencies with Console inside the library!
+
             Console.WriteLine($"\n");
             Console.WriteLine($"RESPONSE STATUS CODE: {httpResponseStatusCode}");
 

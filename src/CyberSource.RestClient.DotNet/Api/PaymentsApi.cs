@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
+using CyberSource.Interfaces;
 using CyberSource.Model;
 
 namespace CyberSource.Api
