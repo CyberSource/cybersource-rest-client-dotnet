@@ -481,6 +481,7 @@ OpenAPI spec version: 0.0.1
     <Compile Include="Model\VoidPaymentRequest.cs" />
     <Compile Include="Model\VoidRefundRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializers\ResponseSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

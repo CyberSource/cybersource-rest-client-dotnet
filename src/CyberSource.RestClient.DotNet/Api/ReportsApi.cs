@@ -47,7 +47,6 @@ namespace CyberSource.Api
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
-        /// <returns></returns>
         public ReportsApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
@@ -183,8 +182,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = requestBody; // byte array
             }
-
-
+            
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -213,7 +211,6 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task CreateReportAsync (RequestBody requestBody, string organizationId = null)
         {
              await CreateReportAsyncWithHttpInfo(requestBody, organizationId);
-
         }
 
         /// <summary>
@@ -260,8 +257,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = requestBody; // byte array
             }
-
-
+            
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -362,7 +358,6 @@ namespace CyberSource.Api
         {
              ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse = await GetReportByReportIdAsyncWithHttpInfo(reportId, organizationId);
              return localVarResponse.Data;
-
         }
 
         /// <summary>

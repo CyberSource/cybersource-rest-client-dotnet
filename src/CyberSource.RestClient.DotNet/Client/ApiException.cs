@@ -15,7 +15,7 @@ namespace CyberSource.Client
     /// <summary>
     /// API Exception
     /// </summary>
-    public class ApiException : Exception
+    public sealed class ApiException : Exception
     {
         /// <summary>
         /// Gets or sets the error code (HTTP status code)

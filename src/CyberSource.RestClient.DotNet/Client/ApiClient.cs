@@ -18,18 +18,21 @@ using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 using AuthenticationSdk.core;
+using CyberSource.Serializers;
 
 namespace CyberSource.Client
 {
+    // TODO: rework ApiClient class to be more consistent and have the ways to return proper data from API but not print in console!
+
     /// <summary>
     /// API client is mainly responsible for making the HTTP call to the API backend.
     /// </summary>
     public partial class ApiClient
     {
-        private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
-        {
-            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
-        };
+        /// <summary>
+        /// Serializer for responses in JSON format.
+        /// </summary>
+        private readonly IResponseSerializer _responseSerializer;
 
         /// <summary>
         /// Allows for extending request processing for <see cref="ApiClient"/> generated code.
@@ -44,6 +47,8 @@ namespace CyberSource.Client
         /// <param name="response">The RestSharp response object</param>
         partial void InterceptResponse(IRestRequest request, IRestResponse response);
 
+        #region Constructors.
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
         /// with default configuration and base path (https://apitest.cybersource.com).
@@ -52,6 +57,7 @@ namespace CyberSource.Client
         {
             Configuration = Configuration.Default;
             RestClient = new RestClient("https://apitest.cybersource.com");
+            _responseSerializer = new ResponseSerializer();
         }
 
         /// <summary>
@@ -67,6 +73,7 @@ namespace CyberSource.Client
                 Configuration = config;
 
             RestClient = new RestClient("https://apitest.cybersource.com");
+            _responseSerializer = new ResponseSerializer();
         }
 
         /// <summary>
@@ -81,7 +88,10 @@ namespace CyberSource.Client
 
             RestClient = new RestClient(basePath);
             Configuration = Configuration.Default;
+            _responseSerializer = new ResponseSerializer();
         }
+
+        #endregion
 
         /// <summary>
         /// Gets or sets the default API client for making HTTP calls.
@@ -398,7 +408,7 @@ namespace CyberSource.Client
             // at this point, it must be a model (json)
             try
             {
-                return JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
+                return _responseSerializer.Deserialize(response.Content, type);
             }
             catch (Exception e)
             {
@@ -570,18 +580,18 @@ namespace CyberSource.Client
 
             var authorize = new Authorize(merchantConfig);
 
-            //these are the Request Headers to be sent along with the HTTP Request
+            // these are the Request Headers to be sent along with the HTTP Request
             var authenticationHeaders = new Dictionary<string, string>();
 
             if (merchantConfig.IsJwtTokenAuthType)
             {
-                //generate token and set JWT token headers
+                // generate token and set JWT token headers
                 var jwtToken = authorize.GetToken();
                 authenticationHeaders.Add("Authorization", jwtToken.BearerToken);
             }
             else if (merchantConfig.IsHttpSignAuthType)
             {
-                //generate signature and set HTTP Signature headers
+                // generate signature and set HTTP Signature headers
                 var httpSign = authorize.GetSignature();
                 authenticationHeaders.Add("v-c-merchant-id", httpSign.MerchantId);
                 authenticationHeaders.Add("Date", httpSign.GmtDateTime);
@@ -592,7 +602,8 @@ namespace CyberSource.Client
                     authenticationHeaders.Add("Digest", httpSign.Digest);
             }
 
-            //Set the Configuration
+            // TODO: rework here is required!
+            // Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
             RestClient = new RestClient("https://" + merchantConfig.HostName);            
         }

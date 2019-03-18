@@ -14,6 +14,8 @@ using CyberSource.Client;
 
 namespace CyberSource.Interfaces
 {
+    // TODO: rework interface for API classes!
+
     /// <summary>
     /// Represents configuration aspects required to interact with the API endpoints.
     /// </summary>

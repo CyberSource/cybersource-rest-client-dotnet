@@ -19,7 +19,7 @@ namespace CyberSource.Client
     /// <summary>
     /// Represents a set of configuration settings
     /// </summary>
-    public class Configuration
+    public sealed class Configuration
     {
         /// <summary>
         /// Initializes a new instance of the Configuration class with different settings
@@ -97,8 +97,8 @@ namespace CyberSource.Client
         public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response) =>
         {
             int status = (int) response.StatusCode;
-            if (status >= 400) return new ApiException(status, String.Format("Error calling {0}: {1}", methodName, response.Content), response.Content);
-            if (status == 0) return new ApiException(status, String.Format("Error calling {0}: {1}", methodName, response.ErrorMessage), response.ErrorMessage);
+            if (status >= 400) return new ApiException(status, $"Error calling {methodName}: {response.Content}", response.Content);
+            if (status == 0) return new ApiException(status, $"Error calling {methodName}: {response.ErrorMessage}", response.ErrorMessage);
             return null;
         };
 
