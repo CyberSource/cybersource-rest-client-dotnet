@@ -56,7 +56,7 @@ namespace CyberSource.Client
         public ApiClient()
         {
             Configuration = Configuration.Default;
-            RestClient = new RestClient("https://apitest.cybersource.com");
+            RestClient = new RestClient(Constants.BaseTestApiPath);
             _responseSerializer = new ResponseSerializer();
         }
 
@@ -72,7 +72,7 @@ namespace CyberSource.Client
             else
                 Configuration = config;
 
-            RestClient = new RestClient("https://apitest.cybersource.com");
+            RestClient = new RestClient(Constants.BaseTestApiPath);
             _responseSerializer = new ResponseSerializer();
         }
 
@@ -81,7 +81,7 @@ namespace CyberSource.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://apitest.cybersource.com")
+        public ApiClient(String basePath = Constants.BaseTestApiPath)
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");

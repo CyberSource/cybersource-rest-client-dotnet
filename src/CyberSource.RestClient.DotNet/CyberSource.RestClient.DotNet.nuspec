@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>CyberSource.Rest.Client</id>
-    <version>0.0.1</version>
-    <title>CyberSource.Rest.Client</title>
+    <id>CyberSource.RestClient</id>
+    <version>0.1.0</version>
+    <title>CyberSource.RestClient</title>
     <authors>CyberSource Corporation</authors>
     <owners>CyberSource</owners>
     <projectUrl>https://github.com/CyberSource/cybersource-rest-client-dotnet</projectUrl>

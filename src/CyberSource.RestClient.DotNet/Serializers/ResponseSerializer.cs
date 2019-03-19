@@ -3,6 +3,8 @@ using Newtonsoft.Json;
 
 namespace CyberSource.Serializers
 {
+    // TODO: move interface to Interfaces folder and namespace later!
+
     public interface IResponseSerializer
     {
         string Serialize(object data);

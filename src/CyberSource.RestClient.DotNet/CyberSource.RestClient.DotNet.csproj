@@ -63,6 +63,7 @@ OpenAPI spec version: 0.0.1
     <Compile Include="Api\ConversionDetailsApi.cs" />
     <Compile Include="Api\CreditApi.cs" />
     <Compile Include="Api\FlexTokenApi.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Interfaces\IApiAccessor.cs" />
     <Compile Include="Interfaces\IProcessAPayoutApi.cs" />
     <Compile Include="Interfaces\IPurchaseAndRefundDetailsApi.cs" />

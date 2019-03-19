@@ -36,7 +36,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Gets or Sets Reports
         /// </summary>
-        [DataMember(Name="reports", EmitDefaultValue=false)]
+        //[DataMember(Name="reports", EmitDefaultValue=false)] // TODO: fix issue here!
+        [DataMember(Name = "reportSearchResults", EmitDefaultValue = false)]
         public List<ReportingV3ReportsGet200ResponseReports> Reports { get; set; }
 
         /// <summary>
