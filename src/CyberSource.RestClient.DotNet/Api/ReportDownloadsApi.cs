@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -133,10 +134,11 @@ namespace CyberSource.Api
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="reportName">Name of the report to download</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns></returns>
-        public void DownloadReport (DateTime? reportDate, string reportName, string organizationId = null)
+        /// <returns>Returns downloaded report as byte array.</returns>
+        public object DownloadReport(DateTime? reportDate, string reportName, string organizationId = null)
         {
-             DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
+             var result = DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
+             return result.Data;
         }
 
         /// <summary>
@@ -182,8 +184,7 @@ namespace CyberSource.Api
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate.Value.ToString("yyyy-MM-dd"))); // query parameter
             if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
-
-
+            
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -199,7 +200,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                localVarResponse.RawBytes);
         }
 
         /// <summary>
@@ -209,11 +210,11 @@ namespace CyberSource.Api
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="reportName">Name of the report to download</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DownloadReportAsync (DateTime? reportDate, string reportName, string organizationId = null)
+        /// <returns>Returns downloaded report as byte array.</returns>
+        public async Task<object> DownloadReportAsync (DateTime? reportDate, string reportName, string organizationId = null)
         {
-             await DownloadReportAsyncWithHttpInfo(reportDate, reportName, organizationId);
-
+             var result = await DownloadReportAsyncWithHttpInfo(reportDate, reportName, organizationId);
+             return result.Data;
         }
 
         /// <summary>
@@ -224,7 +225,7 @@ namespace CyberSource.Api
         /// <param name="reportName">Name of the report to download</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DownloadReportAsyncWithHttpInfo (DateTime? reportDate, string reportName, string organizationId = null)
+        public async Task<ApiResponse<Object>> DownloadReportAsyncWithHttpInfo (DateTime? reportDate, string reportName, string organizationId = null)
         {
             // verify the required parameter 'reportDate' is set
             if (reportDate == null)
@@ -260,7 +261,6 @@ namespace CyberSource.Api
             if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate.Value.ToString("yyyy-MM-dd"))); // query parameter
             if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
 
-
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -278,6 +278,5 @@ namespace CyberSource.Api
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
-
     }
 }

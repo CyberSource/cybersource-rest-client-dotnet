@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -171,8 +172,7 @@ namespace CyberSource.Api
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset=utf-8"
-            };
+            String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset=utf-8"};
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
@@ -186,8 +186,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
             {
                 localVarPostBody = authReversalRequest; // byte array
             }
-
-
+            
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -213,11 +212,10 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
         /// <returns>Task of PtsV2PaymentsReversalsPost201Response</returns>
-        public async System.Threading.Tasks.Task<PtsV2PaymentsReversalsPost201Response> AuthReversalAsync (string id, AuthReversalRequest authReversalRequest)
+        public async Task<PtsV2PaymentsReversalsPost201Response> AuthReversalAsync(string id, AuthReversalRequest authReversalRequest)
         {
-             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = await AuthReversalAsyncWithHttpInfo(id, authReversalRequest);
-             return localVarResponse.Data;
-
+            ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = await AuthReversalAsyncWithHttpInfo(id, authReversalRequest);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -227,7 +225,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsReversalsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> AuthReversalAsyncWithHttpInfo (string id, AuthReversalRequest authReversalRequest)
+        public async Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> AuthReversalAsyncWithHttpInfo (string id, AuthReversalRequest authReversalRequest)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -251,8 +249,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset=utf-8"
-            };
+            String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset=utf-8"};
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
@@ -266,8 +263,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
             {
                 localVarPostBody = authReversalRequest; // byte array
             }
-
-
+            
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -285,7 +281,6 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response)));
         }
-
     }
 }
 

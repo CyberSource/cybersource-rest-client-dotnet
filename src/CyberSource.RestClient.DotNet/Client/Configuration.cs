@@ -21,6 +21,9 @@ namespace CyberSource.Client
     /// </summary>
     public sealed class Configuration
     {
+        private const int DefaultTimeout = 100000;
+        private const string DefaultUserAgent = "Swagger-Codegen/1.0.0/csharp";
+
         /// <summary>
         /// Initializes a new instance of the Configuration class with different settings
         /// </summary>
@@ -45,9 +48,9 @@ namespace CyberSource.Client
                              Dictionary<String, String> apiKeyPrefix = null,
                              string tempFolderPath = null,
                              string dateTimeFormat = null,
-                             int timeout = 100000,
-                             string userAgent = "Swagger-Codegen/1.0.0/csharp",
-							 IReadOnlyDictionary<string, string> merchConfigDictObj = null
+                             int timeout = DefaultTimeout,
+                             string userAgent = DefaultUserAgent,
+							 Dictionary<string, string> merchConfigDictObj = null
                             )
         {
             setApiClientUsingDefault(apiClient);
@@ -78,12 +81,6 @@ namespace CyberSource.Client
         {
             setApiClientUsingDefault(apiClient);
         }
-
-        /// <summary>
-        /// Version of the package.
-        /// </summary>
-        /// <value>Version of the package.</value>
-        public const string Version = "1.0.0";
 
         /// <summary>
         /// Gets or sets the default Configuration.
@@ -197,7 +194,7 @@ namespace CyberSource.Client
         /// Gets or sets the Merchant Config Dictionary Object (key/value pairs).
         /// </summary>
         /// <value>Merchant Config Dictionary Object</value>
-        public IReadOnlyDictionary<string, string> MerchantConfigDictionaryObj { get; set; }
+        public Dictionary<string, string> MerchantConfigDictionaryObj { get; set; }
 		
         /// <summary>
         /// Gets or sets the HTTP user agent.
