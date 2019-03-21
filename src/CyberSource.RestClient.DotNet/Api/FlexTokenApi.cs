@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -204,7 +205,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
         /// <returns>Task of FlexV1TokensPost200Response</returns>
-        public async System.Threading.Tasks.Task<FlexV1TokensPost200Response> TokenizeAsync (TokenizeRequest tokenizeRequest = null)
+        public async Task<FlexV1TokensPost200Response> TokenizeAsync (TokenizeRequest tokenizeRequest = null)
         {
              ApiResponse<FlexV1TokensPost200Response> localVarResponse = await TokenizeAsyncWithHttpInfo(tokenizeRequest);
              return localVarResponse.Data;
@@ -217,7 +218,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (FlexV1TokensPost200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FlexV1TokensPost200Response>> TokenizeAsyncWithHttpInfo (TokenizeRequest tokenizeRequest = null)
+        public async Task<ApiResponse<FlexV1TokensPost200Response>> TokenizeAsyncWithHttpInfo (TokenizeRequest tokenizeRequest = null)
         {
 
             var localVarPath = $"/flex/v1/tokens/";

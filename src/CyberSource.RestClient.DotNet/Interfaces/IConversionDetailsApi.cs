@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -54,7 +55,7 @@ namespace CyberSource.Interfaces
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ConversionDetailsGet200Response</returns>
-        System.Threading.Tasks.Task<ReportingV3ConversionDetailsGet200Response> GetConversionDetailAsync(
+        Task<ReportingV3ConversionDetailsGet200Response> GetConversionDetailAsync(
             DateTime? startTime, DateTime? endTime, string organizationId = null);
 
         /// <summary>
@@ -68,7 +69,7 @@ namespace CyberSource.Interfaces
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ConversionDetailsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ReportingV3ConversionDetailsGet200Response>>
+        Task<ApiResponse<ReportingV3ConversionDetailsGet200Response>>
             GetConversionDetailAsyncWithHttpInfo(DateTime? startTime, DateTime? endTime, string organizationId = null);
 
         #endregion Asynchronous Operations

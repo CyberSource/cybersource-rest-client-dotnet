@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -49,7 +50,7 @@ namespace CyberSource.Interfaces
         /// <param name="capturePaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request. This ID links the capture to the payment. </param>
         /// <returns>Task of PtsV2PaymentsCapturesPost201Response</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsCapturesPost201Response> CapturePaymentAsync(
+        Task<PtsV2PaymentsCapturesPost201Response> CapturePaymentAsync(
             CapturePaymentRequest capturePaymentRequest, string id);
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace CyberSource.Interfaces
         /// <param name="capturePaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request. This ID links the capture to the payment. </param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsCapturesPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsCapturesPost201Response>> CapturePaymentAsyncWithHttpInfo(
+        Task<ApiResponse<PtsV2PaymentsCapturesPost201Response>> CapturePaymentAsyncWithHttpInfo(
             CapturePaymentRequest capturePaymentRequest, string id);
 
         #endregion Asynchronous Operations

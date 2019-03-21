@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -74,7 +75,7 @@ namespace CyberSource.Interfaces
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
         /// <returns>Task of PtsV2PaymentsRefundPost201Response</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsRefundPost201Response> RefundCaptureAsync(
+        Task<PtsV2PaymentsRefundPost201Response> RefundCaptureAsync(
             RefundCaptureRequest refundCaptureRequest, string id);
 
         /// <summary>
@@ -87,7 +88,7 @@ namespace CyberSource.Interfaces
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsRefundPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundCaptureAsyncWithHttpInfo(
+        Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundCaptureAsyncWithHttpInfo(
             RefundCaptureRequest refundCaptureRequest, string id);
 
         /// <summary>
@@ -100,7 +101,7 @@ namespace CyberSource.Interfaces
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
         /// <returns>Task of PtsV2PaymentsRefundPost201Response</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsRefundPost201Response> RefundPaymentAsync(
+        Task<PtsV2PaymentsRefundPost201Response> RefundPaymentAsync(
             RefundPaymentRequest refundPaymentRequest, string id);
 
         /// <summary>
@@ -113,7 +114,7 @@ namespace CyberSource.Interfaces
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsRefundPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundPaymentAsyncWithHttpInfo(
+        Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundPaymentAsyncWithHttpInfo(
             RefundPaymentRequest refundPaymentRequest, string id);
 
         #endregion Asynchronous Operations

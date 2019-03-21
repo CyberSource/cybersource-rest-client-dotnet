@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -134,9 +135,10 @@ namespace CyberSource.Api
         /// <param name="fileId">Unique identifier for each file</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        public void GetFile (string fileId, string organizationId = null)
+        public object GetFile(string fileId, string organizationId = null)
         {
-             GetFileWithHttpInfo(fileId, organizationId);
+             var response = GetFileWithHttpInfo(fileId, organizationId);
+             return response.Data;
         }
 
         /// <summary>
@@ -146,7 +148,7 @@ namespace CyberSource.Api
         /// <param name="fileId">Unique identifier for each file</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetFileWithHttpInfo (string fileId, string organizationId = null)
+        public ApiResponse<Object> GetFileWithHttpInfo(string fileId, string organizationId = null)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -178,8 +180,7 @@ namespace CyberSource.Api
 
             if (fileId != null) localVarPathParams.Add("fileId", Configuration.ApiClient.ParameterToString(fileId)); // path parameter
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-
-
+            
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -195,7 +196,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                localVarResponse.RawBytes);
         }
 
         /// <summary>
@@ -205,10 +206,10 @@ namespace CyberSource.Api
         /// <param name="fileId">Unique identifier for each file</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetFileAsync (string fileId, string organizationId = null)
+        public async Task<object> GetFileAsync(string fileId, string organizationId = null)
         {
-             await GetFileAsyncWithHttpInfo(fileId, organizationId);
-
+            var response = await GetFileAsyncWithHttpInfo(fileId, organizationId);
+            return response.Data;
         }
 
         /// <summary>
@@ -218,7 +219,7 @@ namespace CyberSource.Api
         /// <param name="fileId">Unique identifier for each file</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetFileAsyncWithHttpInfo (string fileId, string organizationId = null)
+        public async Task<ApiResponse<Object>> GetFileAsyncWithHttpInfo(string fileId, string organizationId = null)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -250,7 +251,6 @@ namespace CyberSource.Api
 
             if (fileId != null) localVarPathParams.Add("fileId", Configuration.ApiClient.ParameterToString(fileId)); // path parameter
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -267,7 +267,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                localVarResponse.RawBytes);
         }
 
         /// <summary>
@@ -326,8 +326,7 @@ namespace CyberSource.Api
             if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate.Value.ToString("yyyy-MM-dd"))); // query parameter
             if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate.Value.ToString("yyyy-MM-dd"))); // query parameter
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-
-
+            
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -354,11 +353,12 @@ namespace CyberSource.Api
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of V1FileDetailsGet200Response</returns>
-        public async System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailsAsync (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        public async Task<V1FileDetailsGet200Response> GetFileDetailsAsync(DateTime? startDate,
+            DateTime? endDate, string organizationId = null)
         {
-             ApiResponse<V1FileDetailsGet200Response> localVarResponse = await GetFileDetailsAsyncWithHttpInfo(startDate, endDate, organizationId);
-             return localVarResponse.Data;
-
+            ApiResponse<V1FileDetailsGet200Response> localVarResponse =
+                await GetFileDetailsAsyncWithHttpInfo(startDate, endDate, organizationId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -369,7 +369,7 @@ namespace CyberSource.Api
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (V1FileDetailsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailsAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        public async Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailsAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null)
         {
             // verify the required parameter 'startDate' is set
             if (startDate == null)
@@ -403,8 +403,7 @@ namespace CyberSource.Api
             if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate.Value.ToString("yyyy-MM-dd"))); // query parameter
             if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate.Value.ToString("yyyy-MM-dd"))); // query parameter
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-
-
+            
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -422,6 +421,5 @@ namespace CyberSource.Api
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (V1FileDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(V1FileDetailsGet200Response)));
         }
-
     }
 }

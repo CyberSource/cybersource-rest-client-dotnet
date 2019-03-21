@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -45,7 +46,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
         /// <returns>Task of TssV2TransactionsGet200Response</returns>
-        System.Threading.Tasks.Task<TssV2TransactionsGet200Response> GetTransactionAsync(string id);
+        Task<TssV2TransactionsGet200Response> GetTransactionAsync(string id);
 
         /// <summary>
         /// Retrieve a Transaction
@@ -56,7 +57,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
         /// <returns>Task of ApiResponse (TssV2TransactionsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsGet200Response>>
+        Task<ApiResponse<TssV2TransactionsGet200Response>>
             GetTransactionAsyncWithHttpInfo(string id);
 
         #endregion Asynchronous Operations

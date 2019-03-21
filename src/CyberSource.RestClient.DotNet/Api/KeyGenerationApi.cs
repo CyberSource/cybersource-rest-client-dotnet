@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -204,7 +205,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>Task of FlexV1KeysPost200Response</returns>
-        public async System.Threading.Tasks.Task<FlexV1KeysPost200Response> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest = null)
+        public async Task<FlexV1KeysPost200Response> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
              ApiResponse<FlexV1KeysPost200Response> localVarResponse = await GeneratePublicKeyAsyncWithHttpInfo(generatePublicKeyRequest);
              return localVarResponse.Data;
@@ -217,7 +218,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (FlexV1KeysPost200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null)
+        public async Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest = null)
         {
 
             var localVarPath = $"/flex/v1/keys/";

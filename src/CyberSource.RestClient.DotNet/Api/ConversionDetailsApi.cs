@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -211,7 +212,7 @@ namespace CyberSource.Api
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ConversionDetailsGet200Response</returns>
-        public async System.Threading.Tasks.Task<ReportingV3ConversionDetailsGet200Response> GetConversionDetailAsync (DateTime? startTime, DateTime? endTime, string organizationId = null)
+        public async Task<ReportingV3ConversionDetailsGet200Response> GetConversionDetailAsync (DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
              ApiResponse<ReportingV3ConversionDetailsGet200Response> localVarResponse = await GetConversionDetailAsyncWithHttpInfo(startTime, endTime, organizationId);
              return localVarResponse.Data;
@@ -226,7 +227,7 @@ namespace CyberSource.Api
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ConversionDetailsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ConversionDetailsGet200Response>> GetConversionDetailAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null)
+        public async Task<ApiResponse<ReportingV3ConversionDetailsGet200Response>> GetConversionDetailAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)

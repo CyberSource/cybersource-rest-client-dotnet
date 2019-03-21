@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -71,7 +72,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
         /// <returns>Task of PtsV1TransactionBatchesIdGet200Response</returns>
-        System.Threading.Tasks.Task<PtsV1TransactionBatchesIdGet200Response> GetTransactionBatchIdAsync(string id);
+        Task<PtsV1TransactionBatchesIdGet200Response> GetTransactionBatchIdAsync(string id);
 
         /// <summary>
         /// Get individual batch file
@@ -82,7 +83,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
         /// <returns>Task of ApiResponse (PtsV1TransactionBatchesIdGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV1TransactionBatchesIdGet200Response>>
+        Task<ApiResponse<PtsV1TransactionBatchesIdGet200Response>>
             GetTransactionBatchIdAsyncWithHttpInfo(string id);
 
         /// <summary>
@@ -95,7 +96,7 @@ namespace CyberSource.Interfaces
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
         /// <returns>Task of PtsV1TransactionBatchesGet200Response</returns>
-        System.Threading.Tasks.Task<PtsV1TransactionBatchesGet200Response> GetTransactionBatchesAsync(
+        Task<PtsV1TransactionBatchesGet200Response> GetTransactionBatchesAsync(
             DateTime? startTime, DateTime? endTime);
 
         /// <summary>
@@ -108,7 +109,7 @@ namespace CyberSource.Interfaces
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
         /// <returns>Task of ApiResponse (PtsV1TransactionBatchesGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV1TransactionBatchesGet200Response>>
+        Task<ApiResponse<PtsV1TransactionBatchesGet200Response>>
             GetTransactionBatchesAsyncWithHttpInfo(DateTime? startTime, DateTime? endTime);
 
         #endregion Asynchronous Operations

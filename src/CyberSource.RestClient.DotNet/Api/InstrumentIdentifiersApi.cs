@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -213,7 +214,7 @@ String[] localVarHttpHeaderAccepts = new String[] {//"application/hal+json;chars
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify either a Card or Bank Account.</param>
         /// <returns>Task of TmsV1InstrumentidentifiersPost200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersPostAsync (string profileId, Body body)
+        public async Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersPostAsync (string profileId, Body body)
         {
              ApiResponse<TmsV1InstrumentidentifiersPost200Response> localVarResponse = await TmsV1InstrumentidentifiersPostAsyncWithHttpInfo(profileId, body);
              return localVarResponse.Data;
@@ -227,7 +228,7 @@ String[] localVarHttpHeaderAccepts = new String[] {//"application/hal+json;chars
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify either a Card or Bank Account.</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPost200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>> TmsV1InstrumentidentifiersPostAsyncWithHttpInfo (string profileId, Body body)
+        public async Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>> TmsV1InstrumentidentifiersPostAsyncWithHttpInfo (string profileId, Body body)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)

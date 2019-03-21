@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -46,7 +47,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>Task of FlexV1KeysPost200Response</returns>
-        System.Threading.Tasks.Task<FlexV1KeysPost200Response> GeneratePublicKeyAsync(
+        Task<FlexV1KeysPost200Response> GeneratePublicKeyAsync(
             GeneratePublicKeyRequest generatePublicKeyRequest = null);
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (FlexV1KeysPost200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo(
+        Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo(
             GeneratePublicKeyRequest generatePublicKeyRequest = null);
 
         #endregion Asynchronous Operations

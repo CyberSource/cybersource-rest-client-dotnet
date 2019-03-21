@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -49,7 +50,7 @@ namespace CyberSource.Interfaces
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
         /// <returns>Task of PtsV2PaymentsReversalsPost201Response</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsReversalsPost201Response> AuthReversalAsync(string id,
+        Task<PtsV2PaymentsReversalsPost201Response> AuthReversalAsync(string id,
             AuthReversalRequest authReversalRequest);
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace CyberSource.Interfaces
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <param name="authReversalRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsReversalsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> AuthReversalAsyncWithHttpInfo(
+        Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> AuthReversalAsyncWithHttpInfo(
             string id, AuthReversalRequest authReversalRequest);
 
         #endregion Asynchronous Operations

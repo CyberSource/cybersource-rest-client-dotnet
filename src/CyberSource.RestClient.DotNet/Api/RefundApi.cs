@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -213,7 +214,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
         /// <returns>Task of PtsV2PaymentsRefundPost201Response</returns>
-        public async System.Threading.Tasks.Task<PtsV2PaymentsRefundPost201Response> RefundCaptureAsync (RefundCaptureRequest refundCaptureRequest, string id)
+        public async Task<PtsV2PaymentsRefundPost201Response> RefundCaptureAsync (RefundCaptureRequest refundCaptureRequest, string id)
         {
              ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = await RefundCaptureAsyncWithHttpInfo(refundCaptureRequest, id);
              return localVarResponse.Data;
@@ -227,7 +228,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="refundCaptureRequest"></param>
         /// <param name="id">The capture ID. This ID is returned from a previous capture request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsRefundPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundCaptureAsyncWithHttpInfo (RefundCaptureRequest refundCaptureRequest, string id)
+        public async Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundCaptureAsyncWithHttpInfo (RefundCaptureRequest refundCaptureRequest, string id)
         {
             // verify the required parameter 'refundCaptureRequest' is set
             if (refundCaptureRequest == null)
@@ -372,7 +373,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
         /// <returns>Task of PtsV2PaymentsRefundPost201Response</returns>
-        public async System.Threading.Tasks.Task<PtsV2PaymentsRefundPost201Response> RefundPaymentAsync (RefundPaymentRequest refundPaymentRequest, string id)
+        public async Task<PtsV2PaymentsRefundPost201Response> RefundPaymentAsync (RefundPaymentRequest refundPaymentRequest, string id)
         {
              ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = await RefundPaymentAsyncWithHttpInfo(refundPaymentRequest, id);
              return localVarResponse.Data;
@@ -386,7 +387,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="refundPaymentRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsRefundPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundPaymentAsyncWithHttpInfo (RefundPaymentRequest refundPaymentRequest, string id)
+        public async Task<ApiResponse<PtsV2PaymentsRefundPost201Response>> RefundPaymentAsyncWithHttpInfo (RefundPaymentRequest refundPaymentRequest, string id)
         {
             // verify the required parameter 'refundPaymentRequest' is set
             if (refundPaymentRequest == null)

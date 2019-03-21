@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -214,7 +215,7 @@ namespace CyberSource.Api
         /// <param name="requestBody">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateReportAsync(RequestBody requestBody, string organizationId = null)
+        public async Task CreateReportAsync(RequestBody requestBody, string organizationId = null)
         {
             await CreateReportAsyncWithHttpInfo(requestBody, organizationId);
         }
@@ -226,7 +227,7 @@ namespace CyberSource.Api
         /// <param name="requestBody">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo(RequestBody requestBody, string organizationId = null)
+        public async Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo(RequestBody requestBody, string organizationId = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -376,7 +377,7 @@ namespace CyberSource.Api
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportsIdGet200Response</returns>
-        public async System.Threading.Tasks.Task<ReportingV3ReportsIdGet200Response> GetReportByReportIdAsync(
+        public async Task<ReportingV3ReportsIdGet200Response> GetReportByReportIdAsync(
             string reportId, string organizationId = null)
         {
             ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse =
@@ -391,7 +392,7 @@ namespace CyberSource.Api
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportsIdGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsIdGet200Response>>
+        public async Task<ApiResponse<ReportingV3ReportsIdGet200Response>>
             GetReportByReportIdAsyncWithHttpInfo(string reportId, string organizationId = null)
         {
             // verify the required parameter 'reportId' is set
@@ -588,7 +589,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
         /// <returns>Task of ReportingV3ReportsGet200Response</returns>
-        public async System.Threading.Tasks.Task<ReportingV3ReportsGet200Response> SearchReportsAsync(
+        public async Task<ReportingV3ReportsGet200Response> SearchReportsAsync(
             DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null,
             string reportMimeType = null, string reportFrequency = null, string reportName = null,
             int? reportDefinitionId = null, string reportStatus = null)
@@ -613,7 +614,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsGet200Response>>
+        public async Task<ApiResponse<ReportingV3ReportsGet200Response>>
             SearchReportsAsyncWithHttpInfo(DateTime? startTime, DateTime? endTime, string timeQueryType,
                 string organizationId = null, string reportMimeType = null, string reportFrequency = null,
                 string reportName = null, int? reportDefinitionId = null, string reportStatus = null)

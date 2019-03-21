@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -45,7 +46,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
         /// <returns>Task of FlexV1TokensPost200Response</returns>
-        System.Threading.Tasks.Task<FlexV1TokensPost200Response> TokenizeAsync(TokenizeRequest tokenizeRequest = null);
+        Task<FlexV1TokensPost200Response> TokenizeAsync(TokenizeRequest tokenizeRequest = null);
 
         /// <summary>
         /// Flex Tokenize card
@@ -56,7 +57,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (FlexV1TokensPost200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FlexV1TokensPost200Response>> TokenizeAsyncWithHttpInfo(
+        Task<ApiResponse<FlexV1TokensPost200Response>> TokenizeAsyncWithHttpInfo(
             TokenizeRequest tokenizeRequest = null);
 
         #endregion Asynchronous Operations

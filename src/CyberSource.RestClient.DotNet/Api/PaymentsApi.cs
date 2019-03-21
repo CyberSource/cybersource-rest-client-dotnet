@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -56,7 +57,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
         /// <returns>Task of PtsV2PaymentsPost201Response</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsPost201Response> CreatePaymentAsync (CreatePaymentRequest createPaymentRequest);
+        Task<PtsV2PaymentsPost201Response> CreatePaymentAsync (CreatePaymentRequest createPaymentRequest);
 
         /// <summary>
         /// Process a Payment
@@ -67,7 +68,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response>> CreatePaymentAsyncWithHttpInfo (CreatePaymentRequest createPaymentRequest);
+        Task<ApiResponse<PtsV2PaymentsPost201Response>> CreatePaymentAsyncWithHttpInfo (CreatePaymentRequest createPaymentRequest);
         #endregion Asynchronous Operations
     }
 
@@ -259,7 +260,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
         /// <returns>Task of PtsV2PaymentsPost201Response</returns>
-        public async System.Threading.Tasks.Task<PtsV2PaymentsPost201Response> CreatePaymentAsync (CreatePaymentRequest createPaymentRequest)
+        public async Task<PtsV2PaymentsPost201Response> CreatePaymentAsync (CreatePaymentRequest createPaymentRequest)
         {
              ApiResponse<PtsV2PaymentsPost201Response> localVarResponse = await CreatePaymentAsyncWithHttpInfo(createPaymentRequest);
              return localVarResponse.Data;
@@ -272,7 +273,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response>> CreatePaymentAsyncWithHttpInfo (CreatePaymentRequest createPaymentRequest)
+        public async Task<ApiResponse<PtsV2PaymentsPost201Response>> CreatePaymentAsyncWithHttpInfo (CreatePaymentRequest createPaymentRequest)
         {
             // verify the required parameter 'createPaymentRequest' is set
             if (createPaymentRequest == null)

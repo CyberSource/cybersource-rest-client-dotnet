@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -213,7 +214,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
-        public async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidCaptureAsync (VoidCaptureRequest voidCaptureRequest, string id)
+        public async Task<PtsV2PaymentsVoidsPost201Response> VoidCaptureAsync (VoidCaptureRequest voidCaptureRequest, string id)
         {
              ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidCaptureAsyncWithHttpInfo(voidCaptureRequest, id);
              return localVarResponse.Data;
@@ -227,7 +228,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCaptureAsyncWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id)
+        public async Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCaptureAsyncWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id)
         {
             // verify the required parameter 'voidCaptureRequest' is set
             if (voidCaptureRequest == null)
@@ -372,7 +373,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
-        public async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidCreditAsync (VoidCreditRequest voidCreditRequest, string id)
+        public async Task<PtsV2PaymentsVoidsPost201Response> VoidCreditAsync (VoidCreditRequest voidCreditRequest, string id)
         {
              ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidCreditAsyncWithHttpInfo(voidCreditRequest, id);
              return localVarResponse.Data;
@@ -386,7 +387,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCreditAsyncWithHttpInfo (VoidCreditRequest voidCreditRequest, string id)
+        public async Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCreditAsyncWithHttpInfo (VoidCreditRequest voidCreditRequest, string id)
         {
             // verify the required parameter 'voidCreditRequest' is set
             if (voidCreditRequest == null)
@@ -531,7 +532,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
-        public async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidPaymentAsync (VoidPaymentRequest voidPaymentRequest, string id)
+        public async Task<PtsV2PaymentsVoidsPost201Response> VoidPaymentAsync (VoidPaymentRequest voidPaymentRequest, string id)
         {
              ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidPaymentAsyncWithHttpInfo(voidPaymentRequest, id);
              return localVarResponse.Data;
@@ -545,7 +546,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidPaymentAsyncWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id)
+        public async Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidPaymentAsyncWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id)
         {
             // verify the required parameter 'voidPaymentRequest' is set
             if (voidPaymentRequest == null)
@@ -690,7 +691,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
-        public async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidRefundAsync (VoidRefundRequest voidRefundRequest, string id)
+        public async Task<PtsV2PaymentsVoidsPost201Response> VoidRefundAsync (VoidRefundRequest voidRefundRequest, string id)
         {
              ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidRefundAsyncWithHttpInfo(voidRefundRequest, id);
              return localVarResponse.Data;
@@ -704,7 +705,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidRefundAsyncWithHttpInfo (VoidRefundRequest voidRefundRequest, string id)
+        public async Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidRefundAsyncWithHttpInfo (VoidRefundRequest voidRefundRequest, string id)
         {
             // verify the required parameter 'voidRefundRequest' is set
             if (voidRefundRequest == null)

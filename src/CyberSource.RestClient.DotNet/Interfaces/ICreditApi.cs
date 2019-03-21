@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -45,7 +46,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
         /// <returns>Task of PtsV2CreditsPost201Response</returns>
-        System.Threading.Tasks.Task<PtsV2CreditsPost201Response> CreateCreditAsync(
+        Task<PtsV2CreditsPost201Response> CreateCreditAsync(
             CreateCreditRequest createCreditRequest);
 
         /// <summary>
@@ -57,7 +58,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2CreditsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2CreditsPost201Response>> CreateCreditAsyncWithHttpInfo(
+        Task<ApiResponse<PtsV2CreditsPost201Response>> CreateCreditAsyncWithHttpInfo(
             CreateCreditRequest createCreditRequest);
 
         #endregion Asynchronous Operations

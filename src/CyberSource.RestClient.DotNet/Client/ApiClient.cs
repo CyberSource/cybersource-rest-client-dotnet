@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
 using CyberSource.Authentication.Core;
@@ -30,6 +31,8 @@ namespace CyberSource.Client
     /// </summary>
     public partial class ApiClient
     {
+        private const bool IsOutputToConsole = false;
+
         /// <summary>
         /// Serializer for responses in JSON format.
         /// </summary>
@@ -242,31 +245,35 @@ namespace CyberSource.Client
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
-            
-            // some logging information - to remove later!
-            var httpResponseStatusCode = (int)response.StatusCode;
-            var httpResponseHeaders = response.Headers;
-            var httpResponseData = response.Content;
 
-            // TODO: completely remove dependencies with Console inside the library!
-
-            Console.WriteLine($"\n");
-            Console.WriteLine($"RESPONSE STATUS CODE: {httpResponseStatusCode}");
-
-            Console.WriteLine($"\n");
-            Console.WriteLine("RESPONSE HEADERS:-");
-
-            foreach (var header in httpResponseHeaders)
+            if (IsOutputToConsole)
             {
-                Console.WriteLine(header);
-            }
-            Console.WriteLine($"\n");
+                // some logging information - to remove later!
+                var httpResponseStatusCode = (int) response.StatusCode;
+                var httpResponseHeaders = response.Headers;
+                var httpResponseData = response.Content;
 
-            if (!string.IsNullOrEmpty(httpResponseData))
-            {
-                Console.WriteLine("RESPONSE BODY:-");
-                Console.WriteLine(httpResponseData);
+                // TODO: completely remove dependencies with Console inside the library!
+
                 Console.WriteLine($"\n");
+                Console.WriteLine($"RESPONSE STATUS CODE: {httpResponseStatusCode}");
+
+                Console.WriteLine($"\n");
+                Console.WriteLine("RESPONSE HEADERS:-");
+
+                foreach (var header in httpResponseHeaders)
+                {
+                    Console.WriteLine(header);
+                }
+
+                Console.WriteLine($"\n");
+
+                if (!string.IsNullOrEmpty(httpResponseData))
+                {
+                    Console.WriteLine("RESPONSE BODY:-");
+                    Console.WriteLine(httpResponseData);
+                    Console.WriteLine($"\n");
+                }
             }
 
             return (Object) response;
@@ -285,7 +292,7 @@ namespace CyberSource.Client
         /// <param name="pathParams">Path parameters.</param>
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
-        public async System.Threading.Tasks.Task<Object> CallApiAsync(
+        public async Task<Object> CallApiAsync(
             String path, RestSharp.Method method, Dictionary<String, String> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,

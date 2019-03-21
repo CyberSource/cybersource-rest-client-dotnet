@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -205,7 +206,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TmsV1InstrumentidentifiersTokenIdDeleteAsync (string profileId, string tokenId)
+        public async Task TmsV1InstrumentidentifiersTokenIdDeleteAsync (string profileId, string tokenId)
         {
              await TmsV1InstrumentidentifiersTokenIdDeleteAsyncWithHttpInfo(profileId, tokenId);
 
@@ -218,7 +219,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> TmsV1InstrumentidentifiersTokenIdDeleteAsyncWithHttpInfo (string profileId, string tokenId)
+        public async Task<ApiResponse<Object>> TmsV1InstrumentidentifiersTokenIdDeleteAsyncWithHttpInfo (string profileId, string tokenId)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -349,7 +350,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of TmsV1InstrumentidentifiersPost200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersTokenIdGetAsync (string profileId, string tokenId)
+        public async Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersTokenIdGetAsync (string profileId, string tokenId)
         {
              ApiResponse<TmsV1InstrumentidentifiersPost200Response> localVarResponse = await TmsV1InstrumentidentifiersTokenIdGetAsyncWithHttpInfo(profileId, tokenId);
              return localVarResponse.Data;
@@ -363,7 +364,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPost200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>> TmsV1InstrumentidentifiersTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId)
+        public async Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>> TmsV1InstrumentidentifiersTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -508,7 +509,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
         /// <returns>Task of TmsV1InstrumentidentifiersPost200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersTokenIdPatchAsync (string profileId, string tokenId, Body1 body)
+        public async Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersTokenIdPatchAsync (string profileId, string tokenId, Body1 body)
         {
              ApiResponse<TmsV1InstrumentidentifiersPost200Response> localVarResponse = await TmsV1InstrumentidentifiersTokenIdPatchAsyncWithHttpInfo(profileId, tokenId, body);
              return localVarResponse.Data;
@@ -523,7 +524,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPost200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>> TmsV1InstrumentidentifiersTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body1 body)
+        public async Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>> TmsV1InstrumentidentifiersTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body1 body)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)

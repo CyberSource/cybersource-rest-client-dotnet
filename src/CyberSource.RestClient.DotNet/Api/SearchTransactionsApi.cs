@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -207,7 +208,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
         /// <returns>Task of TssV2TransactionsPost201Response</returns>
-        public async System.Threading.Tasks.Task<TssV2TransactionsPost201Response> CreateSearchAsync (TssV2TransactionsPostResponse createSearchRequest)
+        public async Task<TssV2TransactionsPost201Response> CreateSearchAsync (TssV2TransactionsPostResponse createSearchRequest)
         {
              ApiResponse<TssV2TransactionsPost201Response> localVarResponse = await CreateSearchAsyncWithHttpInfo(createSearchRequest);
              return localVarResponse.Data;
@@ -220,7 +221,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
         /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> CreateSearchAsyncWithHttpInfo (TssV2TransactionsPostResponse createSearchRequest)
+        public async Task<ApiResponse<TssV2TransactionsPost201Response>> CreateSearchAsyncWithHttpInfo (TssV2TransactionsPostResponse createSearchRequest)
         {
             // verify the required parameter 'createSearchRequest' is set
             if (createSearchRequest == null)
@@ -349,7 +350,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
         /// <returns>Task of TssV2TransactionsPost201Response</returns>
-        public async System.Threading.Tasks.Task<TssV2TransactionsPost201Response> GetSearchAsync (string id)
+        public async Task<TssV2TransactionsPost201Response> GetSearchAsync (string id)
         {
              ApiResponse<TssV2TransactionsPost201Response> localVarResponse = await GetSearchAsyncWithHttpInfo(id);
              return localVarResponse.Data;
@@ -362,7 +363,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
         /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> GetSearchAsyncWithHttpInfo (string id)
+        public async Task<ApiResponse<TssV2TransactionsPost201Response>> GetSearchAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)

@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -208,7 +209,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
         /// <returns>Task of UmsV1UsersGet200Response</returns>
-        public async System.Threading.Tasks.Task<UmsV1UsersGet200Response> GetUsersAsync (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
+        public async Task<UmsV1UsersGet200Response> GetUsersAsync (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
         {
              ApiResponse<UmsV1UsersGet200Response> localVarResponse = await GetUsersAsyncWithHttpInfo(organizationId, userName, permissionId, roleId);
              return localVarResponse.Data;
@@ -224,7 +225,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
         /// <returns>Task of ApiResponse (UmsV1UsersGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UmsV1UsersGet200Response>> GetUsersAsyncWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
+        public async Task<ApiResponse<UmsV1UsersGet200Response>> GetUsersAsyncWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
         {
 
             var localVarPath = $"/ums/v1/users";

@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -161,7 +162,7 @@ namespace CyberSource.Interfaces
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response</returns>
-        System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response>
+        Task<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response>
             TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsync(string profileId, string tokenId,
                 string offset = null, string limit = null);
 
@@ -177,7 +178,7 @@ namespace CyberSource.Interfaces
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response>>
+        Task<ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response>>
             TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo(string profileId, string tokenId,
                 string offset = null, string limit = null);
 
@@ -191,7 +192,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
         /// <returns>Task of TmsV1PaymentinstrumentsPost201Response</returns>
-        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsPostAsync(
+        Task<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsPostAsync(
             string profileId, Body2 body);
 
         /// <summary>
@@ -204,7 +205,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPost201Response>>
+        Task<ApiResponse<TmsV1PaymentinstrumentsPost201Response>>
             TmsV1PaymentinstrumentsPostAsyncWithHttpInfo(string profileId, Body2 body);
 
         /// <summary>
@@ -217,7 +218,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TmsV1PaymentinstrumentsTokenIdDeleteAsync(string profileId, string tokenId);
+        Task TmsV1PaymentinstrumentsTokenIdDeleteAsync(string profileId, string tokenId);
 
         /// <summary>
         /// Delete a Payment Instrument
@@ -229,7 +230,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TmsV1PaymentinstrumentsTokenIdDeleteAsyncWithHttpInfo(
+        Task<ApiResponse<Object>> TmsV1PaymentinstrumentsTokenIdDeleteAsyncWithHttpInfo(
             string profileId, string tokenId);
 
         /// <summary>
@@ -242,7 +243,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <returns>Task of TmsV1PaymentinstrumentsGet200Response</returns>
-        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsGet200Response> TmsV1PaymentinstrumentsTokenIdGetAsync(
+        Task<TmsV1PaymentinstrumentsGet200Response> TmsV1PaymentinstrumentsTokenIdGetAsync(
             string profileId, string tokenId);
 
         /// <summary>
@@ -255,7 +256,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsGet200Response>>
+        Task<ApiResponse<TmsV1PaymentinstrumentsGet200Response>>
             TmsV1PaymentinstrumentsTokenIdGetAsyncWithHttpInfo(string profileId, string tokenId);
 
         /// <summary>
@@ -269,7 +270,7 @@ namespace CyberSource.Interfaces
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
         /// <returns>Task of TmsV1PaymentinstrumentsGet200Response</returns>
-        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsGet200Response> TmsV1PaymentinstrumentsTokenIdPatchAsync(
+        Task<TmsV1PaymentinstrumentsGet200Response> TmsV1PaymentinstrumentsTokenIdPatchAsync(
             string profileId, string tokenId, Body3 body);
 
         /// <summary>
@@ -283,7 +284,7 @@ namespace CyberSource.Interfaces
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsGet200Response>>
+        Task<ApiResponse<TmsV1PaymentinstrumentsGet200Response>>
             TmsV1PaymentinstrumentsTokenIdPatchAsyncWithHttpInfo(string profileId, string tokenId, Body3 body);
 
         #endregion Asynchronous Operations

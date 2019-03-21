@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -210,7 +211,7 @@ namespace CyberSource.Api
         /// <param name="requestBody">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateSubscriptionAsync (RequestBody1 requestBody, string organizationId = null)
+        public async Task CreateSubscriptionAsync (RequestBody1 requestBody, string organizationId = null)
         {
              await CreateSubscriptionAsyncWithHttpInfo(requestBody, organizationId);
 
@@ -223,7 +224,7 @@ namespace CyberSource.Api
         /// <param name="requestBody">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSubscriptionAsyncWithHttpInfo (RequestBody1 requestBody, string organizationId = null)
+        public async Task<ApiResponse<Object>> CreateSubscriptionAsyncWithHttpInfo (RequestBody1 requestBody, string organizationId = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -352,7 +353,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteSubscriptionAsync (string reportName)
+        public async Task DeleteSubscriptionAsync (string reportName)
         {
              await DeleteSubscriptionAsyncWithHttpInfo(reportName);
 
@@ -364,7 +365,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo (string reportName)
+        public async Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo (string reportName)
         {
             // verify the required parameter 'reportName' is set
             if (reportName == null)
@@ -479,7 +480,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200Response</returns>
-        public async System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync ()
+        public async Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync ()
         {
              ApiResponse<ReportingV3ReportSubscriptionsGet200Response> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo();
              return localVarResponse.Data;
@@ -491,7 +492,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200Response>> GetAllSubscriptionsAsyncWithHttpInfo ()
+        public async Task<ApiResponse<ReportingV3ReportSubscriptionsGet200Response>> GetAllSubscriptionsAsyncWithHttpInfo ()
         {
 
             var localVarPath = $"/reporting/v3/report-subscriptions";
@@ -609,7 +610,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
-        public async System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync (string reportName)
+        public async Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync (string reportName)
         {
              ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> localVarResponse = await GetSubscriptionAsyncWithHttpInfo(reportName);
              return localVarResponse.Data;
@@ -622,7 +623,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200ResponseSubscriptions)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>> GetSubscriptionAsyncWithHttpInfo (string reportName)
+        public async Task<ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>> GetSubscriptionAsyncWithHttpInfo (string reportName)
         {
             // verify the required parameter 'reportName' is set
             if (reportName == null)

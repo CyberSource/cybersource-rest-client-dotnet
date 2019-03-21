@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -46,7 +47,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns>Task of PtsV2PayoutsPost201Response</returns>
-        System.Threading.Tasks.Task<PtsV2PayoutsPost201Response> OctCreatePaymentAsync(
+        Task<PtsV2PayoutsPost201Response> OctCreatePaymentAsync(
             PtsV2PayoutsPostResponse octCreatePaymentRequest);
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2PayoutsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PayoutsPost201Response>> OctCreatePaymentAsyncWithHttpInfo(
+        Task<ApiResponse<PtsV2PayoutsPost201Response>> OctCreatePaymentAsyncWithHttpInfo(
             PtsV2PayoutsPostResponse octCreatePaymentRequest);
 
         #endregion Asynchronous Operations

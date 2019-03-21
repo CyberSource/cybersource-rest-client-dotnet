@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -204,7 +205,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportDefinitionsNameGet200Response</returns>
-        public async System.Threading.Tasks.Task<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionAsync (string reportDefinitionName, string organizationId = null)
+        public async Task<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionAsync (string reportDefinitionName, string organizationId = null)
         {
              ApiResponse<ReportingV3ReportDefinitionsNameGet200Response> localVarResponse = await GetResourceInfoByReportDefinitionAsyncWithHttpInfo(reportDefinitionName, organizationId);
              return localVarResponse.Data;
@@ -218,7 +219,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsNameGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>> GetResourceInfoByReportDefinitionAsyncWithHttpInfo (string reportDefinitionName, string organizationId = null)
+        public async Task<ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>> GetResourceInfoByReportDefinitionAsyncWithHttpInfo (string reportDefinitionName, string organizationId = null)
         {
             // verify the required parameter 'reportDefinitionName' is set
             if (reportDefinitionName == null)
@@ -338,7 +339,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportDefinitionsGet200Response</returns>
-        public async System.Threading.Tasks.Task<ReportingV3ReportDefinitionsGet200Response> GetResourceV2InfoAsync (string organizationId = null)
+        public async Task<ReportingV3ReportDefinitionsGet200Response> GetResourceV2InfoAsync (string organizationId = null)
         {
              ApiResponse<ReportingV3ReportDefinitionsGet200Response> localVarResponse = await GetResourceV2InfoAsyncWithHttpInfo(organizationId);
              return localVarResponse.Data;
@@ -351,7 +352,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsGet200Response>> GetResourceV2InfoAsyncWithHttpInfo (string organizationId = null)
+        public async Task<ApiResponse<ReportingV3ReportDefinitionsGet200Response>> GetResourceV2InfoAsyncWithHttpInfo (string organizationId = null)
         {
 
             var localVarPath = $"/reporting/v3/report-definitions";
