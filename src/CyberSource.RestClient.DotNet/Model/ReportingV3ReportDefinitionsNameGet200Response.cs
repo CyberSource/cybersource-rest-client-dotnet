@@ -12,10 +12,10 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 
 namespace CyberSource.Model
 {
@@ -93,8 +93,7 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public List<ReportingV3ReportDefinitionsNameGet200ResponseAttributes> Attributes { get; set; }
-
-
+        
         /// <summary>
         /// Gets or Sets Description
         /// </summary>

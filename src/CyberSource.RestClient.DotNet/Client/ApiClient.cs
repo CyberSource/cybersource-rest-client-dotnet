@@ -15,9 +15,11 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
-using AuthenticationSdk.core;
+using CyberSource.Authentication.Core;
+using CyberSource.Authentication.Enums;
 using CyberSource.Serializers;
 
 namespace CyberSource.Client
@@ -29,6 +31,8 @@ namespace CyberSource.Client
     /// </summary>
     public partial class ApiClient
     {
+        private const bool IsOutputToConsole = false;
+
         /// <summary>
         /// Serializer for responses in JSON format.
         /// </summary>
@@ -241,30 +245,35 @@ namespace CyberSource.Client
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
-            
-            var httpResponseStatusCode = (int)response.StatusCode;
-            var httpResponseHeaders = response.Headers;
-            var httpResponseData = response.Content;
 
-            // TODO: completely remove dependencies with Console inside the library!
-
-            Console.WriteLine($"\n");
-            Console.WriteLine($"RESPONSE STATUS CODE: {httpResponseStatusCode}");
-
-            Console.WriteLine($"\n");
-            Console.WriteLine("RESPONSE HEADERS:-");
-
-            foreach (var header in httpResponseHeaders)
+            if (IsOutputToConsole)
             {
-                Console.WriteLine(header);
-            }
-            Console.WriteLine($"\n");
+                // some logging information - to remove later!
+                var httpResponseStatusCode = (int) response.StatusCode;
+                var httpResponseHeaders = response.Headers;
+                var httpResponseData = response.Content;
 
-            if (!string.IsNullOrEmpty(httpResponseData))
-            {
-                Console.WriteLine("RESPONSE BODY:-");
-                Console.WriteLine(httpResponseData);
+                // TODO: completely remove dependencies with Console inside the library!
+
                 Console.WriteLine($"\n");
+                Console.WriteLine($"RESPONSE STATUS CODE: {httpResponseStatusCode}");
+
+                Console.WriteLine($"\n");
+                Console.WriteLine("RESPONSE HEADERS:-");
+
+                foreach (var header in httpResponseHeaders)
+                {
+                    Console.WriteLine(header);
+                }
+
+                Console.WriteLine($"\n");
+
+                if (!string.IsNullOrEmpty(httpResponseData))
+                {
+                    Console.WriteLine("RESPONSE BODY:-");
+                    Console.WriteLine(httpResponseData);
+                    Console.WriteLine($"\n");
+                }
             }
 
             return (Object) response;
@@ -283,7 +292,7 @@ namespace CyberSource.Client
         /// <param name="pathParams">Path parameters.</param>
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
-        public async System.Threading.Tasks.Task<Object> CallApiAsync(
+        public async Task<Object> CallApiAsync(
             String path, RestSharp.Method method, Dictionary<String, String> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
@@ -292,9 +301,11 @@ namespace CyberSource.Client
             var request = PrepareRequest(
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType);
+
             InterceptRequest(request);
             var response = await RestClient.ExecuteTaskAsync(request);
             InterceptResponse(request, response);
+
             return (Object)response;
         }
 
@@ -483,9 +494,9 @@ namespace CyberSource.Client
         /// Dynamically cast the object into target type.
         /// Ref: http://stackoverflow.com/questions/4925718/c-dynamic-runtime-cast
         /// </summary>
-        /// <param name="source">Object to be casted</param>
-        /// <param name="dest">Target type</param>
-        /// <returns>Casted object</returns>
+        /// <param name="source">Object to be casted.</param>
+        /// <param name="dest">Target type.</param>
+        /// <returns>Casted object.</returns>
         public static dynamic ConvertType(dynamic source, Type dest)
         {
             return Convert.ChangeType(source, dest);
@@ -564,9 +575,14 @@ namespace CyberSource.Client
                 return filename;
             }
         }
-		
-		/// Calling the Authentication SDK to Generate Request Headers necessary for Authentication		
-		public void CallAuthenticationHeaders(string requestType, string requestTarget, string requestJsonData = null)
+
+        /// <summary>
+        /// Calling the Authentication SDK to Generate Request Headers necessary for Authentication.
+        /// </summary>
+        /// <param name="requestType"></param>
+        /// <param name="requestTarget"></param>
+        /// <param name="requestJsonData"></param>
+        public void CallAuthenticationHeaders(string requestType, string requestTarget, string requestJsonData = null)
         {
             requestTarget = Uri.EscapeUriString(requestTarget);
 
@@ -574,7 +590,7 @@ namespace CyberSource.Client
                 ? new MerchantConfig(Configuration.MerchantConfigDictionaryObj)
                 : new MerchantConfig();
 
-            merchantConfig.RequestType = requestType;
+            merchantConfig.RequestType = (RequestType) Enum.Parse(typeof(RequestType), requestType);
             merchantConfig.RequestTarget = requestTarget;
             merchantConfig.RequestJsonData = requestJsonData;
 

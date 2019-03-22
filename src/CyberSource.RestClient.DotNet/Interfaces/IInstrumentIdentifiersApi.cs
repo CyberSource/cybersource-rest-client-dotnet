@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -49,7 +50,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify either a Card or Bank Account.</param>
         /// <returns>Task of TmsV1InstrumentidentifiersPost200Response</returns>
-        System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersPostAsync(
+        Task<TmsV1InstrumentidentifiersPost200Response> TmsV1InstrumentidentifiersPostAsync(
             string profileId, Body body);
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify either a Card or Bank Account.</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPost200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>>
+        Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>>
             TmsV1InstrumentidentifiersPostAsyncWithHttpInfo(string profileId, Body body);
 
         #endregion Asynchronous Operations

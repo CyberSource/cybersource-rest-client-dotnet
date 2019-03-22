@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -57,7 +58,7 @@ namespace CyberSource.Interfaces
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="groupName">Valid CyberSource Group Name. (optional)</param>
         /// <returns>Task of ReportingV3NetFundingsGet200Response</returns>
-        System.Threading.Tasks.Task<ReportingV3NetFundingsGet200Response> GetNetFundingInfoAsync(DateTime? startTime,
+        Task<ReportingV3NetFundingsGet200Response> GetNetFundingInfoAsync(DateTime? startTime,
             DateTime? endTime, string organizationId = null, string groupName = null);
 
         /// <summary>
@@ -72,7 +73,7 @@ namespace CyberSource.Interfaces
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="groupName">Valid CyberSource Group Name. (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3NetFundingsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ReportingV3NetFundingsGet200Response>>
+        Task<ApiResponse<ReportingV3NetFundingsGet200Response>>
             GetNetFundingInfoAsyncWithHttpInfo(DateTime? startTime, DateTime? endTime, string organizationId = null,
                 string groupName = null);
 

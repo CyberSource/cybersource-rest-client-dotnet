@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -68,7 +69,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
         /// <returns>Task of TssV2TransactionsPost201Response</returns>
-        System.Threading.Tasks.Task<TssV2TransactionsPost201Response> CreateSearchAsync(
+        Task<TssV2TransactionsPost201Response> CreateSearchAsync(
             TssV2TransactionsPostResponse createSearchRequest);
 
         /// <summary>
@@ -80,7 +81,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
         /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> CreateSearchAsyncWithHttpInfo(
+        Task<ApiResponse<TssV2TransactionsPost201Response>> CreateSearchAsyncWithHttpInfo(
             TssV2TransactionsPostResponse createSearchRequest);
 
         /// <summary>
@@ -92,7 +93,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
         /// <returns>Task of TssV2TransactionsPost201Response</returns>
-        System.Threading.Tasks.Task<TssV2TransactionsPost201Response> GetSearchAsync(string id);
+        Task<TssV2TransactionsPost201Response> GetSearchAsync(string id);
 
         /// <summary>
         /// Get Search results
@@ -103,7 +104,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Search ID.</param>
         /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>>
+        Task<ApiResponse<TssV2TransactionsPost201Response>>
             GetSearchAsyncWithHttpInfo(string id);
 
         #endregion Asynchronous Operations

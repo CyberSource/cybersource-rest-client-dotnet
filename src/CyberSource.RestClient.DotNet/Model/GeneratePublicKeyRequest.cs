@@ -12,9 +12,9 @@ using System;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
 
 namespace CyberSource.Model
 {

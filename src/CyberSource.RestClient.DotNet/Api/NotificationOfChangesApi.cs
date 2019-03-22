@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -207,7 +208,7 @@ namespace CyberSource.Api
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <returns>Task of ReportingV3NotificationofChangesGet200Response</returns>
-        public async System.Threading.Tasks.Task<ReportingV3NotificationofChangesGet200Response> GetNotificationOfChangeReportAsync (DateTime? startTime, DateTime? endTime)
+        public async Task<ReportingV3NotificationofChangesGet200Response> GetNotificationOfChangeReportAsync (DateTime? startTime, DateTime? endTime)
         {
              ApiResponse<ReportingV3NotificationofChangesGet200Response> localVarResponse = await GetNotificationOfChangeReportAsyncWithHttpInfo(startTime, endTime);
              return localVarResponse.Data;
@@ -221,7 +222,7 @@ namespace CyberSource.Api
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
         /// <returns>Task of ApiResponse (ReportingV3NotificationofChangesGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3NotificationofChangesGet200Response>> GetNotificationOfChangeReportAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime)
+        public async Task<ApiResponse<ReportingV3NotificationofChangesGet200Response>> GetNotificationOfChangeReportAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime)
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)

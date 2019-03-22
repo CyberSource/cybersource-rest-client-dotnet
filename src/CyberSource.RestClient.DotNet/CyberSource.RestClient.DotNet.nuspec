@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CyberSource.RestClient</id>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <title>CyberSource.RestClient</title>
     <authors>CyberSource Corporation</authors>
     <owners>CyberSource</owners>
@@ -12,13 +12,21 @@
     <releaseNotes>Fixed release with updates for libraries and also resolve issues with dependencies.</releaseNotes>
     <dependencies>
       <group targetFramework="net461">
-        <dependency id="CyberSource.Authentication" version="0.0.0.3"/>
+        <dependency id="CyberSource.Authentication" version="0.1.1"/>
+        <dependency id="Newtonsoft.Json" version="11.0.2"/>
+        <dependency id="RestSharp" version="106.5.3"/>
+      </group>
+      <group targetFramework="netstandard2.0">
+        <dependency id="CyberSource.Authentication" version="0.1.1"/>
         <dependency id="Newtonsoft.Json" version="11.0.2"/>
         <dependency id="RestSharp" version="106.5.3"/>
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\CyberSource.RestClient.DotNet.dll" target="lib\net461\CyberSource.RestClient.DotNet.dll"/>
+    <file src="bin\Release\netstandard2.0\CyberSource.RestClient.DotNet.dll" target="lib\netstandard2.0\CyberSource.RestClient.DotNet.dll"/>
+    <file src="bin\Release\netstandard2.0\CyberSource.RestClient.DotNet.xml" target="lib\netstandard2.0\CyberSource.RestClient.DotNet.xml"/>
+    <file src="bin\Release\netstandard2.0\CyberSource.RestClient.DotNet.dll" target="lib\net461\CyberSource.RestClient.DotNet.dll"/>
+    <file src="bin\Release\netstandard2.0\CyberSource.RestClient.DotNet.xml" target="lib\net461\CyberSource.RestClient.DotNet.xml"/>
   </files>
 </package>

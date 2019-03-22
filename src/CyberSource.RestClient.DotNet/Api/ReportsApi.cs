@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -29,7 +30,7 @@ namespace CyberSource.Api
         /// Initializes a new instance of the <see cref="ReportsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ReportsApi(String basePath)
+        public ReportsApi(string basePath)
         {
             Configuration = new Configuration(new ApiClient(basePath));
 
@@ -86,7 +87,7 @@ namespace CyberSource.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration {get; set;}
+        public Configuration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -99,6 +100,7 @@ namespace CyberSource.Api
                 {
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
+
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
@@ -133,9 +135,9 @@ namespace CyberSource.Api
         /// <param name="requestBody">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        public void CreateReport (RequestBody requestBody, string organizationId = null)
+        public void CreateReport(RequestBody requestBody, string organizationId = null)
         {
-             CreateReportWithHttpInfo(requestBody, organizationId);
+            CreateReportWithHttpInfo(requestBody, organizationId);
         }
 
         /// <summary>
@@ -145,11 +147,12 @@ namespace CyberSource.Api
         /// <param name="requestBody">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateReportWithHttpInfo (RequestBody requestBody, string organizationId = null)
+        public ApiResponse<Object> CreateReportWithHttpInfo(RequestBody requestBody, string organizationId = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling ReportsApi->CreateReport");
+                throw new ApiException(400,
+                    "Missing required parameter 'requestBody' when calling ReportsApi->CreateReport");
 
             var localVarPath = $"/reporting/v3/reports";
             var localVarPathParams = new Dictionary<String, String>();
@@ -160,20 +163,23 @@ namespace CyberSource.Api
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            String[] localVarHttpContentTypes = new String[]
+            {
                 "application/json"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[]
+            {
                 "application/hal+json"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (organizationId != null)
+                localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             if (requestBody != null && requestBody.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
@@ -182,10 +188,11 @@ namespace CyberSource.Api
             {
                 localVarPostBody = requestBody; // byte array
             }
-            
+
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams,
+                localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -208,9 +215,9 @@ namespace CyberSource.Api
         /// <param name="requestBody">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateReportAsync (RequestBody requestBody, string organizationId = null)
+        public async Task CreateReportAsync(RequestBody requestBody, string organizationId = null)
         {
-             await CreateReportAsyncWithHttpInfo(requestBody, organizationId);
+            await CreateReportAsyncWithHttpInfo(requestBody, organizationId);
         }
 
         /// <summary>
@@ -220,11 +227,12 @@ namespace CyberSource.Api
         /// <param name="requestBody">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo (RequestBody requestBody, string organizationId = null)
+        public async Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo(RequestBody requestBody, string organizationId = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling ReportsApi->CreateReport");
+                throw new ApiException(400,
+                    "Missing required parameter 'requestBody' when calling ReportsApi->CreateReport");
 
             var localVarPath = $"/reporting/v3/reports";
             var localVarPathParams = new Dictionary<String, String>();
@@ -235,20 +243,24 @@ namespace CyberSource.Api
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            String[] localVarHttpContentTypes = new String[]
+            {
                 "application/json"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[]
+            {
                 "application/hal+json"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (organizationId != null)
+                localVarQueryParams.Add("organizationId",
+                    Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             if (requestBody != null && requestBody.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
@@ -257,10 +269,11 @@ namespace CyberSource.Api
             {
                 localVarPostBody = requestBody; // byte array
             }
-            
+
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams,
+                localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -283,10 +296,11 @@ namespace CyberSource.Api
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ReportingV3ReportsIdGet200Response</returns>
-        public ReportingV3ReportsIdGet200Response GetReportByReportId (string reportId, string organizationId = null)
+        public ReportingV3ReportsIdGet200Response GetReportByReportId(string reportId, string organizationId = null)
         {
-             ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse = GetReportByReportIdWithHttpInfo(reportId, organizationId);
-             return localVarResponse.Data;
+            ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse =
+                GetReportByReportIdWithHttpInfo(reportId, organizationId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -296,11 +310,13 @@ namespace CyberSource.Api
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportsIdGet200Response</returns>
-        public ApiResponse< ReportingV3ReportsIdGet200Response > GetReportByReportIdWithHttpInfo (string reportId, string organizationId = null)
+        public ApiResponse<ReportingV3ReportsIdGet200Response> GetReportByReportIdWithHttpInfo(string reportId,
+            string organizationId = null)
         {
             // verify the required parameter 'reportId' is set
             if (reportId == null)
-                throw new ApiException(400, "Missing required parameter 'reportId' when calling ReportsApi->GetReportByReportId");
+                throw new ApiException(400,
+                    "Missing required parameter 'reportId' when calling ReportsApi->GetReportByReportId");
 
             var localVarPath = $"/reporting/v3/reports/{reportId}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -311,13 +327,15 @@ namespace CyberSource.Api
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            String[] localVarHttpContentTypes = new String[]
+            {
                 "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[]
+            {
                 "application/hal+json",
                 "application/xml"
             };
@@ -325,13 +343,17 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (reportId != null) localVarPathParams.Add("reportId", Configuration.ApiClient.ParameterToString(reportId)); // path parameter
-            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-
-
+            if (reportId != null)
+                localVarPathParams.Add("reportId",
+                    Configuration.ApiClient.ParameterToString(reportId)); // path parameter
+            if (organizationId != null)
+                localVarQueryParams.Add("organizationId",
+                    Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams,
+                localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -344,7 +366,8 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3ReportsIdGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3ReportsIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsIdGet200Response)));
+                (ReportingV3ReportsIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse,
+                    typeof(ReportingV3ReportsIdGet200Response)));
         }
 
         /// <summary>
@@ -354,10 +377,12 @@ namespace CyberSource.Api
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportsIdGet200Response</returns>
-        public async System.Threading.Tasks.Task<ReportingV3ReportsIdGet200Response> GetReportByReportIdAsync (string reportId, string organizationId = null)
+        public async Task<ReportingV3ReportsIdGet200Response> GetReportByReportIdAsync(
+            string reportId, string organizationId = null)
         {
-             ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse = await GetReportByReportIdAsyncWithHttpInfo(reportId, organizationId);
-             return localVarResponse.Data;
+            ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse =
+                await GetReportByReportIdAsyncWithHttpInfo(reportId, organizationId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -367,11 +392,13 @@ namespace CyberSource.Api
         /// <param name="reportId">Valid Report Id</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportsIdGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsIdGet200Response>> GetReportByReportIdAsyncWithHttpInfo (string reportId, string organizationId = null)
+        public async Task<ApiResponse<ReportingV3ReportsIdGet200Response>>
+            GetReportByReportIdAsyncWithHttpInfo(string reportId, string organizationId = null)
         {
             // verify the required parameter 'reportId' is set
             if (reportId == null)
-                throw new ApiException(400, "Missing required parameter 'reportId' when calling ReportsApi->GetReportByReportId");
+                throw new ApiException(400,
+                    "Missing required parameter 'reportId' when calling ReportsApi->GetReportByReportId");
 
             var localVarPath = $"/reporting/v3/reports/{reportId}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -382,13 +409,15 @@ namespace CyberSource.Api
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            String[] localVarHttpContentTypes = new String[]
+            {
                 "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[]
+            {
                 "application/hal+json",
                 "application/xml"
             };
@@ -396,13 +425,18 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (reportId != null) localVarPathParams.Add("reportId", Configuration.ApiClient.ParameterToString(reportId)); // path parameter
-            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (reportId != null)
+                localVarPathParams.Add("reportId",
+                    Configuration.ApiClient.ParameterToString(reportId)); // path parameter
+            if (organizationId != null)
+                localVarQueryParams.Add("organizationId",
+                    Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams,
+                localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -415,7 +449,8 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3ReportsIdGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3ReportsIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsIdGet200Response)));
+                (ReportingV3ReportsIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse,
+                    typeof(ReportingV3ReportsIdGet200Response)));
         }
 
         /// <summary>
@@ -432,10 +467,15 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
         /// <returns>ReportingV3ReportsGet200Response</returns>
-        public ReportingV3ReportsGet200Response SearchReports (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
+        public ReportingV3ReportsGet200Response SearchReports(DateTime? startTime, DateTime? endTime,
+            string timeQueryType, string organizationId = null, string reportMimeType = null,
+            string reportFrequency = null, string reportName = null, int? reportDefinitionId = null,
+            string reportStatus = null)
         {
-             ApiResponse<ReportingV3ReportsGet200Response> localVarResponse = SearchReportsWithHttpInfo(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
-             return localVarResponse.Data;
+            ApiResponse<ReportingV3ReportsGet200Response> localVarResponse = SearchReportsWithHttpInfo(startTime,
+                endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId,
+                reportStatus);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -452,20 +492,26 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportsGet200Response</returns>
-        public ApiResponse< ReportingV3ReportsGet200Response > SearchReportsWithHttpInfo (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
+        public ApiResponse<ReportingV3ReportsGet200Response> SearchReportsWithHttpInfo(DateTime? startTime,
+            DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null,
+            string reportFrequency = null, string reportName = null, int? reportDefinitionId = null,
+            string reportStatus = null)
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)
-                throw new ApiException(400, "Missing required parameter 'startTime' when calling ReportsApi->SearchReports");
+                throw new ApiException(400,
+                    "Missing required parameter 'startTime' when calling ReportsApi->SearchReports");
             // verify the required parameter 'endTime' is set
             if (endTime == null)
-                throw new ApiException(400, "Missing required parameter 'endTime' when calling ReportsApi->SearchReports");
+                throw new ApiException(400,
+                    "Missing required parameter 'endTime' when calling ReportsApi->SearchReports");
             // verify the required parameter 'timeQueryType' is set
             if (timeQueryType == null)
-                throw new ApiException(400, "Missing required parameter 'timeQueryType' when calling ReportsApi->SearchReports");
+                throw new ApiException(400,
+                    "Missing required parameter 'timeQueryType' when calling ReportsApi->SearchReports");
 
             var localVarPath = $"/reporting/v3/reports";
-			if (!string.IsNullOrEmpty(organizationId))
+            if (!string.IsNullOrEmpty(organizationId))
                 localVarPath += $"?organizationId={organizationId}";
 
             localVarPath += $"&startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
@@ -494,33 +540,25 @@ namespace CyberSource.Api
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            String[] localVarHttpContentTypes = new String[]
+            {
                 "application/json;charset=utf-8"
             };
             String localVarHttpContentType = "";
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[]
+            {
                 "application/hal+json"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-
-
-
-
-
-
-
-
-
-
-
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams,
+                localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -533,7 +571,8 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3ReportsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3ReportsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsGet200Response)));
+                (ReportingV3ReportsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse,
+                    typeof(ReportingV3ReportsGet200Response)));
         }
 
         /// <summary>
@@ -550,11 +589,15 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
         /// <returns>Task of ReportingV3ReportsGet200Response</returns>
-        public async System.Threading.Tasks.Task<ReportingV3ReportsGet200Response> SearchReportsAsync (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
+        public async Task<ReportingV3ReportsGet200Response> SearchReportsAsync(
+            DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null,
+            string reportMimeType = null, string reportFrequency = null, string reportName = null,
+            int? reportDefinitionId = null, string reportStatus = null)
         {
-             ApiResponse<ReportingV3ReportsGet200Response> localVarResponse = await SearchReportsAsyncWithHttpInfo(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
-             return localVarResponse.Data;
-
+            ApiResponse<ReportingV3ReportsGet200Response> localVarResponse =
+                await SearchReportsAsyncWithHttpInfo(startTime, endTime, timeQueryType, organizationId, reportMimeType,
+                    reportFrequency, reportName, reportDefinitionId, reportStatus);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -571,7 +614,10 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsGet200Response>> SearchReportsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
+        public async Task<ApiResponse<ReportingV3ReportsGet200Response>>
+            SearchReportsAsyncWithHttpInfo(DateTime? startTime, DateTime? endTime, string timeQueryType,
+                string organizationId = null, string reportMimeType = null, string reportFrequency = null,
+                string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)
@@ -592,33 +638,53 @@ namespace CyberSource.Api
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            String[] localVarHttpContentTypes = new String[]
+            {
                 "application/json;charset=utf-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[]
+            {
                 "application/hal+json"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
-            if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
-            if (timeQueryType != null) localVarQueryParams.Add("timeQueryType", Configuration.ApiClient.ParameterToString(timeQueryType)); // query parameter
-            if (reportMimeType != null) localVarQueryParams.Add("reportMimeType", Configuration.ApiClient.ParameterToString(reportMimeType)); // query parameter
-            if (reportFrequency != null) localVarQueryParams.Add("reportFrequency", Configuration.ApiClient.ParameterToString(reportFrequency)); // query parameter
-            if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
-            if (reportDefinitionId != null) localVarQueryParams.Add("reportDefinitionId", Configuration.ApiClient.ParameterToString(reportDefinitionId)); // query parameter
-            if (reportStatus != null) localVarQueryParams.Add("reportStatus", Configuration.ApiClient.ParameterToString(reportStatus)); // query parameter
-
-
+            if (organizationId != null)
+                localVarQueryParams.Add("organizationId",
+                    Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (startTime != null)
+                localVarQueryParams.Add("startTime",
+                    Configuration.ApiClient.ParameterToString(startTime)); // query parameter
+            if (endTime != null)
+                localVarQueryParams.Add("endTime",
+                    Configuration.ApiClient.ParameterToString(endTime)); // query parameter
+            if (timeQueryType != null)
+                localVarQueryParams.Add("timeQueryType",
+                    Configuration.ApiClient.ParameterToString(timeQueryType)); // query parameter
+            if (reportMimeType != null)
+                localVarQueryParams.Add("reportMimeType",
+                    Configuration.ApiClient.ParameterToString(reportMimeType)); // query parameter
+            if (reportFrequency != null)
+                localVarQueryParams.Add("reportFrequency",
+                    Configuration.ApiClient.ParameterToString(reportFrequency)); // query parameter
+            if (reportName != null)
+                localVarQueryParams.Add("reportName",
+                    Configuration.ApiClient.ParameterToString(reportName)); // query parameter
+            if (reportDefinitionId != null)
+                localVarQueryParams.Add("reportDefinitionId",
+                    Configuration.ApiClient.ParameterToString(reportDefinitionId)); // query parameter
+            if (reportStatus != null)
+                localVarQueryParams.Add("reportStatus",
+                    Configuration.ApiClient.ParameterToString(reportStatus)); // query parameter
+            
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams,
+                localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -631,8 +697,8 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3ReportsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3ReportsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsGet200Response)));
+                (ReportingV3ReportsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse,
+                    typeof(ReportingV3ReportsGet200Response)));
         }
-
     }
 }

@@ -22,7 +22,7 @@ namespace CyberSource.Interfaces
         /// <param name="reportName">Name of the report to download</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        void DownloadReport(DateTime? reportDate, string reportName, string organizationId = null);
+        object DownloadReport(DateTime? reportDate, string reportName, string organizationId = null);
 
         /// <summary>
         /// Download a report
@@ -35,8 +35,7 @@ namespace CyberSource.Interfaces
         /// <param name="reportName">Name of the report to download</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DownloadReportWithHttpInfo(DateTime? reportDate, string reportName,
-            string organizationId = null);
+        ApiResponse<Object> DownloadReportWithHttpInfo(DateTime? reportDate, string reportName, string organizationId = null);
 
         #endregion Synchronous Operations
 
@@ -53,7 +52,7 @@ namespace CyberSource.Interfaces
         /// <param name="reportName">Name of the report to download</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        Task DownloadReportAsync(DateTime? reportDate, string reportName, string organizationId = null);
+        Task<object> DownloadReportAsync(DateTime? reportDate, string reportName, string organizationId = null);
 
         /// <summary>
         /// Download a report
@@ -66,8 +65,7 @@ namespace CyberSource.Interfaces
         /// <param name="reportName">Name of the report to download</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> DownloadReportAsyncWithHttpInfo(DateTime? reportDate,
-            string reportName, string organizationId = null);
+        Task<ApiResponse<Object>> DownloadReportAsyncWithHttpInfo(DateTime? reportDate, string reportName, string organizationId = null);
 
         #endregion Asynchronous Operations
     }

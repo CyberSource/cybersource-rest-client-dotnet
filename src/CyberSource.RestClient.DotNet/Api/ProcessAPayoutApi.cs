@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -206,7 +207,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns>Task of PtsV2PayoutsPost201Response</returns>
-        public async System.Threading.Tasks.Task<PtsV2PayoutsPost201Response> OctCreatePaymentAsync (PtsV2PayoutsPostResponse octCreatePaymentRequest)
+        public async Task<PtsV2PayoutsPost201Response> OctCreatePaymentAsync (PtsV2PayoutsPostResponse octCreatePaymentRequest)
         {
              ApiResponse<PtsV2PayoutsPost201Response> localVarResponse = await OctCreatePaymentAsyncWithHttpInfo(octCreatePaymentRequest);
              return localVarResponse.Data;
@@ -219,7 +220,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="octCreatePaymentRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2PayoutsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PayoutsPost201Response>> OctCreatePaymentAsyncWithHttpInfo (PtsV2PayoutsPostResponse octCreatePaymentRequest)
+        public async Task<ApiResponse<PtsV2PayoutsPost201Response>> OctCreatePaymentAsyncWithHttpInfo (PtsV2PayoutsPostResponse octCreatePaymentRequest)
         {
             // verify the required parameter 'octCreatePaymentRequest' is set
             if (octCreatePaymentRequest == null)

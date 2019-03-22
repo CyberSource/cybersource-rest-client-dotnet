@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -114,7 +115,7 @@ namespace CyberSource.Interfaces
         /// <param name="requestBody">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateSubscriptionAsync(RequestBody1 requestBody, string organizationId = null);
+        Task CreateSubscriptionAsync(RequestBody1 requestBody, string organizationId = null);
 
         /// <summary>
         /// Create Report Subscription for a report name by organization
@@ -126,7 +127,7 @@ namespace CyberSource.Interfaces
         /// <param name="requestBody">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateSubscriptionAsyncWithHttpInfo(RequestBody1 requestBody,
+        Task<ApiResponse<Object>> CreateSubscriptionAsyncWithHttpInfo(RequestBody1 requestBody,
             string organizationId = null);
 
         /// <summary>
@@ -138,7 +139,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteSubscriptionAsync(string reportName);
+        Task DeleteSubscriptionAsync(string reportName);
 
         /// <summary>
         /// Delete subscription of a report name by organization
@@ -149,7 +150,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo(string reportName);
+        Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo(string reportName);
 
         /// <summary>
         /// Get all subscriptions
@@ -159,7 +160,7 @@ namespace CyberSource.Interfaces
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200Response</returns>
-        System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync();
+        Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync();
 
         /// <summary>
         /// Get all subscriptions
@@ -169,7 +170,7 @@ namespace CyberSource.Interfaces
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200Response>>
+        Task<ApiResponse<ReportingV3ReportSubscriptionsGet200Response>>
             GetAllSubscriptionsAsyncWithHttpInfo();
 
         /// <summary>
@@ -181,7 +182,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
-        System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync(
+        Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync(
             string reportName);
 
         /// <summary>
@@ -193,7 +194,7 @@ namespace CyberSource.Interfaces
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200ResponseSubscriptions)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>>
+        Task<ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>>
             GetSubscriptionAsyncWithHttpInfo(string reportName);
 
         #endregion Asynchronous Operations

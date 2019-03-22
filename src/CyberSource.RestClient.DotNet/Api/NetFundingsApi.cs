@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -215,7 +216,7 @@ namespace CyberSource.Api
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="groupName">Valid CyberSource Group Name. (optional)</param>
         /// <returns>Task of ReportingV3NetFundingsGet200Response</returns>
-        public async System.Threading.Tasks.Task<ReportingV3NetFundingsGet200Response> GetNetFundingInfoAsync (DateTime? startTime, DateTime? endTime, string organizationId = null, string groupName = null)
+        public async Task<ReportingV3NetFundingsGet200Response> GetNetFundingInfoAsync (DateTime? startTime, DateTime? endTime, string organizationId = null, string groupName = null)
         {
              ApiResponse<ReportingV3NetFundingsGet200Response> localVarResponse = await GetNetFundingInfoAsyncWithHttpInfo(startTime, endTime, organizationId, groupName);
              return localVarResponse.Data;
@@ -231,7 +232,7 @@ namespace CyberSource.Api
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="groupName">Valid CyberSource Group Name. (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3NetFundingsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3NetFundingsGet200Response>> GetNetFundingInfoAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string groupName = null)
+        public async Task<ApiResponse<ReportingV3NetFundingsGet200Response>> GetNetFundingInfoAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string groupName = null)
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)

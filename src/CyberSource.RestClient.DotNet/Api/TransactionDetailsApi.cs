@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -199,7 +200,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
         /// <returns>Task of TssV2TransactionsGet200Response</returns>
-        public async System.Threading.Tasks.Task<TssV2TransactionsGet200Response> GetTransactionAsync (string id)
+        public async Task<TssV2TransactionsGet200Response> GetTransactionAsync (string id)
         {
              ApiResponse<TssV2TransactionsGet200Response> localVarResponse = await GetTransactionAsyncWithHttpInfo(id);
              return localVarResponse.Data;
@@ -212,7 +213,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Request ID. </param>
         /// <returns>Task of ApiResponse (TssV2TransactionsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsGet200Response>> GetTransactionAsyncWithHttpInfo (string id)
+        public async Task<ApiResponse<TssV2TransactionsGet200Response>> GetTransactionAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)

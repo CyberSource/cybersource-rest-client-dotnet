@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -206,7 +207,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
         /// <returns>Task of PtsV2CreditsPost201Response</returns>
-        public async System.Threading.Tasks.Task<PtsV2CreditsPost201Response> CreateCreditAsync (CreateCreditRequest createCreditRequest)
+        public async Task<PtsV2CreditsPost201Response> CreateCreditAsync (CreateCreditRequest createCreditRequest)
         {
              ApiResponse<PtsV2CreditsPost201Response> localVarResponse = await CreateCreditAsyncWithHttpInfo(createCreditRequest);
              return localVarResponse.Data;
@@ -219,7 +220,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCreditRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2CreditsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2CreditsPost201Response>> CreateCreditAsyncWithHttpInfo (CreateCreditRequest createCreditRequest)
+        public async Task<ApiResponse<PtsV2CreditsPost201Response>> CreateCreditAsyncWithHttpInfo (CreateCreditRequest createCreditRequest)
         {
             // verify the required parameter 'createCreditRequest' is set
             if (createCreditRequest == null)

@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -213,7 +214,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="capturePaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request. This ID links the capture to the payment. </param>
         /// <returns>Task of PtsV2PaymentsCapturesPost201Response</returns>
-        public async System.Threading.Tasks.Task<PtsV2PaymentsCapturesPost201Response> CapturePaymentAsync (CapturePaymentRequest capturePaymentRequest, string id)
+        public async Task<PtsV2PaymentsCapturesPost201Response> CapturePaymentAsync (CapturePaymentRequest capturePaymentRequest, string id)
         {
              ApiResponse<PtsV2PaymentsCapturesPost201Response> localVarResponse = await CapturePaymentAsyncWithHttpInfo(capturePaymentRequest, id);
              return localVarResponse.Data;
@@ -227,7 +228,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         /// <param name="capturePaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request. This ID links the capture to the payment. </param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsCapturesPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsCapturesPost201Response>> CapturePaymentAsyncWithHttpInfo (CapturePaymentRequest capturePaymentRequest, string id)
+        public async Task<ApiResponse<PtsV2PaymentsCapturesPost201Response>> CapturePaymentAsyncWithHttpInfo (CapturePaymentRequest capturePaymentRequest, string id)
         {
             // verify the required parameter 'capturePaymentRequest' is set
             if (capturePaymentRequest == null)

@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Interfaces;
@@ -214,7 +215,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsync (string profileId, string tokenId, string offset = null, string limit = null)
+        public async Task<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsync (string profileId, string tokenId, string offset = null, string limit = null)
         {
              ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response> localVarResponse = await TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo(profileId, tokenId, offset, limit);
              return localVarResponse.Data;
@@ -230,7 +231,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response>> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null)
+        public async Task<ApiResponse<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response>> TmsV1InstrumentidentifiersTokenIdPaymentinstrumentsGetAsyncWithHttpInfo (string profileId, string tokenId, string offset = null, string limit = null)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -370,7 +371,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
         /// <returns>Task of TmsV1PaymentinstrumentsPost201Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsPostAsync (string profileId, Body2 body)
+        public async Task<TmsV1PaymentinstrumentsPost201Response> TmsV1PaymentinstrumentsPostAsync (string profileId, Body2 body)
         {
              ApiResponse<TmsV1PaymentinstrumentsPost201Response> localVarResponse = await TmsV1PaymentinstrumentsPostAsyncWithHttpInfo(profileId, body);
              return localVarResponse.Data;
@@ -384,7 +385,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="body">Please specify the customers payment details for card or bank account.</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPost201Response>> TmsV1PaymentinstrumentsPostAsyncWithHttpInfo (string profileId, Body2 body)
+        public async Task<ApiResponse<TmsV1PaymentinstrumentsPost201Response>> TmsV1PaymentinstrumentsPostAsyncWithHttpInfo (string profileId, Body2 body)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -521,7 +522,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TmsV1PaymentinstrumentsTokenIdDeleteAsync (string profileId, string tokenId)
+        public async Task TmsV1PaymentinstrumentsTokenIdDeleteAsync (string profileId, string tokenId)
         {
              await TmsV1PaymentinstrumentsTokenIdDeleteAsyncWithHttpInfo(profileId, tokenId);
 
@@ -534,7 +535,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> TmsV1PaymentinstrumentsTokenIdDeleteAsyncWithHttpInfo (string profileId, string tokenId)
+        public async Task<ApiResponse<Object>> TmsV1PaymentinstrumentsTokenIdDeleteAsyncWithHttpInfo (string profileId, string tokenId)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -665,7 +666,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <returns>Task of TmsV1PaymentinstrumentsGet200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsGet200Response> TmsV1PaymentinstrumentsTokenIdGetAsync (string profileId, string tokenId)
+        public async Task<TmsV1PaymentinstrumentsGet200Response> TmsV1PaymentinstrumentsTokenIdGetAsync (string profileId, string tokenId)
         {
              ApiResponse<TmsV1PaymentinstrumentsGet200Response> localVarResponse = await TmsV1PaymentinstrumentsTokenIdGetAsyncWithHttpInfo(profileId, tokenId);
              return localVarResponse.Data;
@@ -679,7 +680,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsGet200Response>> TmsV1PaymentinstrumentsTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId)
+        public async Task<ApiResponse<TmsV1PaymentinstrumentsGet200Response>> TmsV1PaymentinstrumentsTokenIdGetAsyncWithHttpInfo (string profileId, string tokenId)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -824,7 +825,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
         /// <returns>Task of TmsV1PaymentinstrumentsGet200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsGet200Response> TmsV1PaymentinstrumentsTokenIdPatchAsync (string profileId, string tokenId, Body3 body)
+        public async Task<TmsV1PaymentinstrumentsGet200Response> TmsV1PaymentinstrumentsTokenIdPatchAsync (string profileId, string tokenId, Body3 body)
         {
              ApiResponse<TmsV1PaymentinstrumentsGet200Response> localVarResponse = await TmsV1PaymentinstrumentsTokenIdPatchAsyncWithHttpInfo(profileId, tokenId, body);
              return localVarResponse.Data;
@@ -839,7 +840,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"*/*"
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="body">Please specify the customers payment details.</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsGet200Response>> TmsV1PaymentinstrumentsTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body3 body)
+        public async Task<ApiResponse<TmsV1PaymentinstrumentsGet200Response>> TmsV1PaymentinstrumentsTokenIdPatchAsyncWithHttpInfo (string profileId, string tokenId, Body3 body)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)

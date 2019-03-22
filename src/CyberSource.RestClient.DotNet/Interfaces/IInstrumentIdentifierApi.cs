@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -103,7 +104,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TmsV1InstrumentidentifiersTokenIdDeleteAsync(string profileId, string tokenId);
+        Task TmsV1InstrumentidentifiersTokenIdDeleteAsync(string profileId, string tokenId);
 
         /// <summary>
         /// Delete an Instrument Identifier
@@ -115,7 +116,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TmsV1InstrumentidentifiersTokenIdDeleteAsyncWithHttpInfo(
+        Task<ApiResponse<Object>> TmsV1InstrumentidentifiersTokenIdDeleteAsyncWithHttpInfo(
             string profileId, string tokenId);
 
         /// <summary>
@@ -128,7 +129,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of TmsV1InstrumentidentifiersPost200Response</returns>
-        System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPost200Response>
+        Task<TmsV1InstrumentidentifiersPost200Response>
             TmsV1InstrumentidentifiersTokenIdGetAsync(string profileId, string tokenId);
 
         /// <summary>
@@ -141,7 +142,7 @@ namespace CyberSource.Interfaces
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPost200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>>
+        Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>>
             TmsV1InstrumentidentifiersTokenIdGetAsyncWithHttpInfo(string profileId, string tokenId);
 
         /// <summary>
@@ -155,7 +156,7 @@ namespace CyberSource.Interfaces
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
         /// <returns>Task of TmsV1InstrumentidentifiersPost200Response</returns>
-        System.Threading.Tasks.Task<TmsV1InstrumentidentifiersPost200Response>
+        Task<TmsV1InstrumentidentifiersPost200Response>
             TmsV1InstrumentidentifiersTokenIdPatchAsync(string profileId, string tokenId, Body1 body);
 
         /// <summary>
@@ -169,7 +170,7 @@ namespace CyberSource.Interfaces
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="body">Please specify the previous transaction Id to update.</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentidentifiersPost200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>>
+        Task<ApiResponse<TmsV1InstrumentidentifiersPost200Response>>
             TmsV1InstrumentidentifiersTokenIdPatchAsyncWithHttpInfo(string profileId, string tokenId, Body1 body);
 
         #endregion Asynchronous Operations

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -124,7 +125,7 @@ namespace CyberSource.Interfaces
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidCaptureAsync(
+        Task<PtsV2PaymentsVoidsPost201Response> VoidCaptureAsync(
             VoidCaptureRequest voidCaptureRequest, string id);
 
         /// <summary>
@@ -137,7 +138,7 @@ namespace CyberSource.Interfaces
         /// <param name="voidCaptureRequest"></param>
         /// <param name="id">The capture ID returned from a previous capture request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCaptureAsyncWithHttpInfo(
+        Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCaptureAsyncWithHttpInfo(
             VoidCaptureRequest voidCaptureRequest, string id);
 
         /// <summary>
@@ -150,7 +151,7 @@ namespace CyberSource.Interfaces
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidCreditAsync(
+        Task<PtsV2PaymentsVoidsPost201Response> VoidCreditAsync(
             VoidCreditRequest voidCreditRequest, string id);
 
         /// <summary>
@@ -163,7 +164,7 @@ namespace CyberSource.Interfaces
         /// <param name="voidCreditRequest"></param>
         /// <param name="id">The credit ID returned from a previous credit request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCreditAsyncWithHttpInfo(
+        Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCreditAsyncWithHttpInfo(
             VoidCreditRequest voidCreditRequest, string id);
 
         /// <summary>
@@ -176,7 +177,7 @@ namespace CyberSource.Interfaces
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidPaymentAsync(
+        Task<PtsV2PaymentsVoidsPost201Response> VoidPaymentAsync(
             VoidPaymentRequest voidPaymentRequest, string id);
 
         /// <summary>
@@ -189,7 +190,7 @@ namespace CyberSource.Interfaces
         /// <param name="voidPaymentRequest"></param>
         /// <param name="id">The payment ID returned from a previous payment request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidPaymentAsyncWithHttpInfo(
+        Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidPaymentAsyncWithHttpInfo(
             VoidPaymentRequest voidPaymentRequest, string id);
 
         /// <summary>
@@ -202,7 +203,7 @@ namespace CyberSource.Interfaces
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> VoidRefundAsync(
+        Task<PtsV2PaymentsVoidsPost201Response> VoidRefundAsync(
             VoidRefundRequest voidRefundRequest, string id);
 
         /// <summary>
@@ -215,7 +216,7 @@ namespace CyberSource.Interfaces
         /// <param name="voidRefundRequest"></param>
         /// <param name="id">The refund ID returned from a previous refund request.</param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidRefundAsyncWithHttpInfo(
+        Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidRefundAsyncWithHttpInfo(
             VoidRefundRequest voidRefundRequest, string id);
 
         #endregion Asynchronous Operations

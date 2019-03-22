@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -71,7 +72,7 @@ namespace CyberSource.Interfaces
         /// <param name="offset">Offset of the Purchase and Refund Results. (optional)</param>
         /// <param name="limit">Results count per page. Range(1-2000) (optional, default to 2000)</param>
         /// <returns>Task of ReportingV3PurchaseRefundDetailsGet200Response</returns>
-        System.Threading.Tasks.Task<ReportingV3PurchaseRefundDetailsGet200Response> GetPurchaseAndRefundDetailsAsync(
+        Task<ReportingV3PurchaseRefundDetailsGet200Response> GetPurchaseAndRefundDetailsAsync(
             DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null,
             string viewBy = null, string groupName = null, int? offset = null, int? limit = null);
 
@@ -91,7 +92,7 @@ namespace CyberSource.Interfaces
         /// <param name="offset">Offset of the Purchase and Refund Results. (optional)</param>
         /// <param name="limit">Results count per page. Range(1-2000) (optional, default to 2000)</param>
         /// <returns>Task of ApiResponse (ReportingV3PurchaseRefundDetailsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response>>
+        Task<ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response>>
             GetPurchaseAndRefundDetailsAsyncWithHttpInfo(DateTime? startTime, DateTime? endTime,
                 string organizationId = null, string paymentSubtype = null, string viewBy = null,
                 string groupName = null, int? offset = null, int? limit = null);

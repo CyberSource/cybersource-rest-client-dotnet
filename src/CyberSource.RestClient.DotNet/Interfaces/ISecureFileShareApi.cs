@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -21,7 +22,7 @@ namespace CyberSource.Interfaces
         /// <param name="fileId">Unique identifier for each file</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        void GetFile(string fileId, string organizationId = null);
+        object GetFile(string fileId, string organizationId = null);
 
         /// <summary>
         /// Download a file with file identifier
@@ -46,8 +47,7 @@ namespace CyberSource.Interfaces
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>V1FileDetailsGet200Response</returns>
-        V1FileDetailsGet200Response GetFileDetails(DateTime? startDate, DateTime? endDate,
-            string organizationId = null);
+        V1FileDetailsGet200Response GetFileDetails(DateTime? startDate, DateTime? endDate, string organizationId = null);
 
         /// <summary>
         /// Get list of files
@@ -60,8 +60,7 @@ namespace CyberSource.Interfaces
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of V1FileDetailsGet200Response</returns>
-        ApiResponse<V1FileDetailsGet200Response> GetFileDetailsWithHttpInfo(DateTime? startDate, DateTime? endDate,
-            string organizationId = null);
+        ApiResponse<V1FileDetailsGet200Response> GetFileDetailsWithHttpInfo(DateTime? startDate, DateTime? endDate, string organizationId = null);
 
         #endregion Synchronous Operations
 
@@ -77,7 +76,7 @@ namespace CyberSource.Interfaces
         /// <param name="fileId">Unique identifier for each file</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetFileAsync(string fileId, string organizationId = null);
+        Task<object> GetFileAsync(string fileId, string organizationId = null);
 
         /// <summary>
         /// Download a file with file identifier
@@ -89,8 +88,7 @@ namespace CyberSource.Interfaces
         /// <param name="fileId">Unique identifier for each file</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetFileAsyncWithHttpInfo(string fileId,
-            string organizationId = null);
+        Task<ApiResponse<Object>> GetFileAsyncWithHttpInfo(string fileId, string organizationId = null);
 
         /// <summary>
         /// Get list of files
@@ -103,8 +101,7 @@ namespace CyberSource.Interfaces
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of V1FileDetailsGet200Response</returns>
-        System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailsAsync(DateTime? startDate,
-            DateTime? endDate, string organizationId = null);
+        Task<V1FileDetailsGet200Response> GetFileDetailsAsync(DateTime? startDate, DateTime? endDate, string organizationId = null);
 
         /// <summary>
         /// Get list of files
@@ -117,8 +114,7 @@ namespace CyberSource.Interfaces
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (V1FileDetailsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailsAsyncWithHttpInfo(
-            DateTime? startDate, DateTime? endDate, string organizationId = null);
+        Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailsAsyncWithHttpInfo(DateTime? startDate, DateTime? endDate, string organizationId = null);
 
         #endregion Asynchronous Operations
     }

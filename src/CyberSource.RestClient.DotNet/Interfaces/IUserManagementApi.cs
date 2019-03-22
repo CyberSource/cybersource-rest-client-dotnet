@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CyberSource.Client;
 using CyberSource.Model;
 
@@ -56,7 +57,7 @@ namespace CyberSource.Interfaces
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
         /// <returns>Task of UmsV1UsersGet200Response</returns>
-        System.Threading.Tasks.Task<UmsV1UsersGet200Response> GetUsersAsync(string organizationId = null,
+        Task<UmsV1UsersGet200Response> GetUsersAsync(string organizationId = null,
             string userName = null, string permissionId = null, string roleId = null);
 
         /// <summary>
@@ -71,7 +72,7 @@ namespace CyberSource.Interfaces
         /// <param name="permissionId">permission that you are trying to search user on. (optional)</param>
         /// <param name="roleId">role of the user you are trying to search on. (optional)</param>
         /// <returns>Task of ApiResponse (UmsV1UsersGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UmsV1UsersGet200Response>> GetUsersAsyncWithHttpInfo(
+        Task<ApiResponse<UmsV1UsersGet200Response>> GetUsersAsyncWithHttpInfo(
             string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
 
         #endregion Asynchronous Operations
