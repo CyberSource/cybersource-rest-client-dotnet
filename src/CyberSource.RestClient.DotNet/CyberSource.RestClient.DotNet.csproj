@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Description>A library generated from a Swagger doc for CyberSource API</Description>
+    <Copyright>Copyright © CyberSource 2019</Copyright>
+    <Company>CyberSource Corporation</Company>
+    <Authors>CyberSource</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CyberSource.Authentication" Version="0.1.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="RestSharp" Version="106.6.9" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
+  </ItemGroup>
+
+</Project>
