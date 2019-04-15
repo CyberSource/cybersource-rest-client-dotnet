@@ -106,6 +106,8 @@ powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\Repor
 
 REM powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\ReportingV3ReportsIdGet200Response.cs) ; $fileContents[77] = (get-content ReportingV3ReportsIdGet200Response.txt); $fileContents|Set-Content ..\src\CyberSource\Model\ReportingV3ReportsIdGet200Response.cs"
 
+powershell -Command "(Get-Content ..\src\CyberSource\Model\FlexV1KeysPost200ResponseJwk.cs) | ForEach-Object { $_ -replace ', Formatting.Indented', '' } | Set-Content ..\src\CyberSource\Model\FlexV1KeysPost200ResponseJwk.cs"
+
 rem For changing nuspec filename in csproj file
 
 powershell -Command "(Get-Content ..\src\CyberSource\CyberSource.csproj) | ForEach-Object { $_ -replace '<None Include=\"CyberSource.nuspec\" />', '<None Include=\"cybersource-rest-client-dotnet.nuspec\" />' } | Set-Content ..\src\CyberSource\CyberSource.csproj"
