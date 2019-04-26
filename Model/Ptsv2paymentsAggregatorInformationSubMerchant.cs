@@ -299,12 +299,6 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than 21.", new [] { "Locality" });
             }
 
-            // AdministrativeArea (string) maxLength
-            if(this.AdministrativeArea != null && this.AdministrativeArea.Length > 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than 3.", new [] { "AdministrativeArea" });
-            }
-
             // Region (string) maxLength
             if(this.Region != null && this.Region.Length > 3)
             {
