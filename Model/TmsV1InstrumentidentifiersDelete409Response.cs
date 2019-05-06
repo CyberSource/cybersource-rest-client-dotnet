@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -25,16 +25,16 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// TmsV1InstrumentidentifiersDelete409Response
+    /// TmsV1InstrumentIdentifiersDelete409Response
     /// </summary>
     [DataContract]
-    public partial class TmsV1InstrumentidentifiersDelete409Response :  IEquatable<TmsV1InstrumentidentifiersDelete409Response>, IValidatableObject
+    public partial class TmsV1InstrumentIdentifiersDelete409Response :  IEquatable<TmsV1InstrumentIdentifiersDelete409Response>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TmsV1InstrumentidentifiersDelete409Response" /> class.
+        /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersDelete409Response" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
-        public TmsV1InstrumentidentifiersDelete409Response(TmsV1InstrumentidentifiersDelete409ResponseLinks Links = default(TmsV1InstrumentidentifiersDelete409ResponseLinks))
+        public TmsV1InstrumentIdentifiersDelete409Response(TmsV1InstrumentIdentifiersDelete409ResponseLinks Links = default(TmsV1InstrumentIdentifiersDelete409ResponseLinks))
         {
             this.Links = Links;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public TmsV1InstrumentidentifiersDelete409ResponseLinks Links { get; set; }
+        public TmsV1InstrumentIdentifiersDelete409ResponseLinks Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,7 +52,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TmsV1InstrumentidentifiersDelete409Response {\n");
+            sb.Append("class TmsV1InstrumentIdentifiersDelete409Response {\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -75,15 +75,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TmsV1InstrumentidentifiersDelete409Response);
+            return this.Equals(obj as TmsV1InstrumentIdentifiersDelete409Response);
         }
 
         /// <summary>
-        /// Returns true if TmsV1InstrumentidentifiersDelete409Response instances are equal
+        /// Returns true if TmsV1InstrumentIdentifiersDelete409Response instances are equal
         /// </summary>
-        /// <param name="other">Instance of TmsV1InstrumentidentifiersDelete409Response to be compared</param>
+        /// <param name="other">Instance of TmsV1InstrumentIdentifiersDelete409Response to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TmsV1InstrumentidentifiersDelete409Response other)
+        public bool Equals(TmsV1InstrumentIdentifiersDelete409Response other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

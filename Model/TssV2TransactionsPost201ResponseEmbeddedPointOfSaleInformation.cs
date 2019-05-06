@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -34,10 +34,10 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation" /> class.
         /// </summary>
         /// <param name="TerminalId">Identifier for the terminal at your retail location. You can define this value yourself, but consult the processor for requirements.  For Payouts: This field is applicable for CtV. .</param>
-        /// <param name="TerminalSerialNumber">The description for this field is not available..</param>
+        /// <param name="TerminalSerialNumber">Terminal serial number assigned by the hardware manufacturer. This value is provided by the client software that is installed on the POS terminal.  CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only on American Express Direct, FDC Nashville Global, and SIX. .</param>
         /// <param name="DeviceId">The description for this field is not available..</param>
         /// <param name="Partner">Partner.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string DeviceId = default(string), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner Partner = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner))
+        public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string DeviceId = default(string), Ptsv2paymentsClientReferenceInformationPartner Partner = default(Ptsv2paymentsClientReferenceInformationPartner))
         {
             this.TerminalId = TerminalId;
             this.TerminalSerialNumber = TerminalSerialNumber;
@@ -53,9 +53,9 @@ namespace CyberSource.Model
         public string TerminalId { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Terminal serial number assigned by the hardware manufacturer. This value is provided by the client software that is installed on the POS terminal.  CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only on American Express Direct, FDC Nashville Global, and SIX. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Terminal serial number assigned by the hardware manufacturer. This value is provided by the client software that is installed on the POS terminal.  CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only on American Express Direct, FDC Nashville Global, and SIX. </value>
         [DataMember(Name="terminalSerialNumber", EmitDefaultValue=false)]
         public string TerminalSerialNumber { get; set; }
 
@@ -70,7 +70,7 @@ namespace CyberSource.Model
         /// Gets or Sets Partner
         /// </summary>
         [DataMember(Name="partner", EmitDefaultValue=false)]
-        public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner Partner { get; set; }
+        public Ptsv2paymentsClientReferenceInformationPartner Partner { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -176,6 +176,12 @@ namespace CyberSource.Model
             if(this.TerminalId != null && this.TerminalId.Length > 8)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalId, length must be less than 8.", new [] { "TerminalId" });
+            }
+
+            // TerminalSerialNumber (string) maxLength
+            if(this.TerminalSerialNumber != null && this.TerminalSerialNumber.Length > 32)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalSerialNumber, length must be less than 32.", new [] { "TerminalSerialNumber" });
             }
 
             yield break;

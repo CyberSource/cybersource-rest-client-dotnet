@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -71,7 +71,7 @@ namespace CyberSource.Test
         public void CreateSearchTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //TssV2TransactionsPostResponse createSearchRequest = null;
+            //CreateSearchRequest createSearchRequest = null;
             //var response = instance.CreateSearch(createSearchRequest);
             //Assert.IsInstanceOf<TssV2TransactionsPost201Response> (response, "response is TssV2TransactionsPost201Response");
         }
@@ -83,8 +83,8 @@ namespace CyberSource.Test
         public void GetSearchTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string id = null;
-            //var response = instance.GetSearch(id);
+            //string searchId = null;
+            //var response = instance.GetSearch(searchId);
             //Assert.IsInstanceOf<TssV2TransactionsPost201Response> (response, "response is TssV2TransactionsPost201Response");
         }
         

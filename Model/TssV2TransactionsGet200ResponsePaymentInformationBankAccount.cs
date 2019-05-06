@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -35,11 +35,11 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Suffix">The description for this field is not available..</param>
         /// <param name="Prefix">The description for this field is not available..</param>
-        /// <param name="CheckNumber">The description for this field is not available..</param>
-        /// <param name="Type">The description for this field is not available..</param>
+        /// <param name="CheckNumber">Check number.  Chase Paymentech Solutions - Optional. CyberSource ACH Service - Not used. RBS WorldPay Atlanta - Optional on debits. Required on credits. TeleCheck - Strongly recommended on debit requests. Optional on credits. .</param>
+        /// <param name="Type">Account type.  Possible values:  - **C**: Checking.  - **G**: General ledger. This value is supported only on Wells Fargo ACH.  - **S**: Savings (U.S. dollars only).  - **X**: Corporate checking (U.S. dollars only). .</param>
         /// <param name="Name">The description for this field is not available..</param>
         /// <param name="CheckDigit">The description for this field is not available..</param>
-        /// <param name="EncoderId">The description for this field is not available..</param>
+        /// <param name="EncoderId">Identifier for the bank that provided the customer’s encoded account number.  To obtain the bank identifier, contact your processor. See \&quot;Encoded Account Numbers,\&quot; page 39. .</param>
         public TssV2TransactionsGet200ResponsePaymentInformationBankAccount(string Suffix = default(string), string Prefix = default(string), string CheckNumber = default(string), string Type = default(string), string Name = default(string), string CheckDigit = default(string), string EncoderId = default(string))
         {
             this.Suffix = Suffix;
@@ -66,16 +66,16 @@ namespace CyberSource.Model
         public string Prefix { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Check number.  Chase Paymentech Solutions - Optional. CyberSource ACH Service - Not used. RBS WorldPay Atlanta - Optional on debits. Required on credits. TeleCheck - Strongly recommended on debit requests. Optional on credits. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Check number.  Chase Paymentech Solutions - Optional. CyberSource ACH Service - Not used. RBS WorldPay Atlanta - Optional on debits. Required on credits. TeleCheck - Strongly recommended on debit requests. Optional on credits. </value>
         [DataMember(Name="checkNumber", EmitDefaultValue=false)]
         public string CheckNumber { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Account type.  Possible values:  - **C**: Checking.  - **G**: General ledger. This value is supported only on Wells Fargo ACH.  - **S**: Savings (U.S. dollars only).  - **X**: Corporate checking (U.S. dollars only). 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Account type.  Possible values:  - **C**: Checking.  - **G**: General ledger. This value is supported only on Wells Fargo ACH.  - **S**: Savings (U.S. dollars only).  - **X**: Corporate checking (U.S. dollars only). </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -94,9 +94,9 @@ namespace CyberSource.Model
         public string CheckDigit { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Identifier for the bank that provided the customer’s encoded account number.  To obtain the bank identifier, contact your processor. See \&quot;Encoded Account Numbers,\&quot; page 39. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Identifier for the bank that provided the customer’s encoded account number.  To obtain the bank identifier, contact your processor. See \&quot;Encoded Account Numbers,\&quot; page 39. </value>
         [DataMember(Name="encoderId", EmitDefaultValue=false)]
         public string EncoderId { get; set; }
 
@@ -224,6 +224,24 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CheckNumber (string) maxLength
+            if(this.CheckNumber != null && this.CheckNumber.Length > 8)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CheckNumber, length must be less than 8.", new [] { "CheckNumber" });
+            }
+
+            // Type (string) maxLength
+            if(this.Type != null && this.Type.Length > 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 1.", new [] { "Type" });
+            }
+
+            // EncoderId (string) maxLength
+            if(this.EncoderId != null && this.EncoderId.Length > 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EncoderId, length must be less than 3.", new [] { "EncoderId" });
+            }
+
             yield break;
         }
     }

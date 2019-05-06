@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries" /> class.
         /// </summary>
-        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request..</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource..</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
         /// <param name="MerchantId">The description for this field is not available..</param>
         /// <param name="ApplicationInformation">ApplicationInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="Links">Links.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries(string Id = default(string), string SubmitTimeUtc = default(string), string MerchantId = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsPost201ResponseEmbeddedBuyerInformation BuyerInformation = default(TssV2TransactionsPost201ResponseEmbeddedBuyerInformation), TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation), TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation), TssV2TransactionsPost201ResponseEmbeddedDeviceInformation DeviceInformation = default(TssV2TransactionsPost201ResponseEmbeddedDeviceInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), List<TssV2TransactionsGet200ResponseMerchantDefinedInformation> MerchantDefinedInformation = default(List<TssV2TransactionsGet200ResponseMerchantDefinedInformation>), TssV2TransactionsPost201ResponseEmbeddedMerchantInformation MerchantInformation = default(TssV2TransactionsPost201ResponseEmbeddedMerchantInformation), TssV2TransactionsPost201ResponseEmbeddedOrderInformation OrderInformation = default(TssV2TransactionsPost201ResponseEmbeddedOrderInformation), TssV2TransactionsPost201ResponseEmbeddedPaymentInformation PaymentInformation = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformation), TssV2TransactionsPost201ResponseEmbeddedProcessingInformation ProcessingInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessingInformation), TssV2TransactionsPost201ResponseEmbeddedProcessorInformation ProcessorInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessorInformation), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation), TssV2TransactionsPost201ResponseEmbeddedRiskInformation RiskInformation = default(TssV2TransactionsPost201ResponseEmbeddedRiskInformation), TssV2TransactionsPost201ResponseEmbeddedLinks Links = default(TssV2TransactionsPost201ResponseEmbeddedLinks))
+        public TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries(string Id = default(string), string SubmitTimeUtc = default(string), string MerchantId = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsPost201ResponseEmbeddedBuyerInformation BuyerInformation = default(TssV2TransactionsPost201ResponseEmbeddedBuyerInformation), TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation), TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation), TssV2TransactionsPost201ResponseEmbeddedDeviceInformation DeviceInformation = default(TssV2TransactionsPost201ResponseEmbeddedDeviceInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsPost201ResponseEmbeddedMerchantInformation MerchantInformation = default(TssV2TransactionsPost201ResponseEmbeddedMerchantInformation), TssV2TransactionsPost201ResponseEmbeddedOrderInformation OrderInformation = default(TssV2TransactionsPost201ResponseEmbeddedOrderInformation), TssV2TransactionsPost201ResponseEmbeddedPaymentInformation PaymentInformation = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformation), TssV2TransactionsPost201ResponseEmbeddedProcessingInformation ProcessingInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessingInformation), TssV2TransactionsPost201ResponseEmbeddedProcessorInformation ProcessorInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessorInformation), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation), TssV2TransactionsPost201ResponseEmbeddedRiskInformation RiskInformation = default(TssV2TransactionsPost201ResponseEmbeddedRiskInformation), TssV2TransactionsPost201ResponseEmbeddedLinks Links = default(TssV2TransactionsPost201ResponseEmbeddedLinks))
         {
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
@@ -74,16 +74,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// An unique identification number assigned by CyberSource to identify the submitted request.
+        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.
         /// </summary>
-        /// <value>An unique identification number assigned by CyberSource to identify the submitted request.</value>
+        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
@@ -135,7 +135,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The description for this field is not available.</value>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
-        public List<TssV2TransactionsGet200ResponseMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
+        public List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInformation

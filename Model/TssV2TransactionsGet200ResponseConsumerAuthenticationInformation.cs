@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseConsumerAuthenticationInformation" /> class.
         /// </summary>
-        /// <param name="EciRaw">Raw electronic commerce indicator (ECI)..</param>
+        /// <param name="EciRaw">Raw electronic commerce indicator (ECI). For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180..</param>
         /// <param name="Cavv">Cardholder authentication verification value (CAVV)..</param>
-        /// <param name="Xid">Transaction identifier..</param>
+        /// <param name="Xid">Transaction identifier. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180..</param>
         /// <param name="TransactionId">Payer auth Transaction identifier..</param>
         public TssV2TransactionsGet200ResponseConsumerAuthenticationInformation(string EciRaw = default(string), string Cavv = default(string), string Xid = default(string), string TransactionId = default(string))
         {
@@ -46,9 +46,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Raw electronic commerce indicator (ECI).
+        /// Raw electronic commerce indicator (ECI). For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.
         /// </summary>
-        /// <value>Raw electronic commerce indicator (ECI).</value>
+        /// <value>Raw electronic commerce indicator (ECI). For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.</value>
         [DataMember(Name="eciRaw", EmitDefaultValue=false)]
         public string EciRaw { get; set; }
 
@@ -60,9 +60,9 @@ namespace CyberSource.Model
         public string Cavv { get; set; }
 
         /// <summary>
-        /// Transaction identifier.
+        /// Transaction identifier. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.
         /// </summary>
-        /// <value>Transaction identifier.</value>
+        /// <value>Transaction identifier. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.</value>
         [DataMember(Name="xid", EmitDefaultValue=false)]
         public string Xid { get; set; }
 

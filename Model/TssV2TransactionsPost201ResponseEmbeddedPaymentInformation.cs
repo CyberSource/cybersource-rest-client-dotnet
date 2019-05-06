@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,27 +33,27 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedPaymentInformation" /> class.
         /// </summary>
-        /// <param name="PaymentMethod">PaymentMethod.</param>
+        /// <param name="PaymentType">PaymentType.</param>
         /// <param name="Customer">Customer.</param>
         /// <param name="Card">Card.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformation(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentMethod PaymentMethod = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentMethod), TssV2TransactionsGet200ResponsePaymentInformationCustomer Customer = default(TssV2TransactionsGet200ResponsePaymentInformationCustomer), TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard Card = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard))
+        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformation(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType PaymentType = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard Card = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard))
         {
-            this.PaymentMethod = PaymentMethod;
+            this.PaymentType = PaymentType;
             this.Customer = Customer;
             this.Card = Card;
         }
         
         /// <summary>
-        /// Gets or Sets PaymentMethod
+        /// Gets or Sets PaymentType
         /// </summary>
-        [DataMember(Name="paymentMethod", EmitDefaultValue=false)]
-        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentMethod PaymentMethod { get; set; }
+        [DataMember(Name="paymentType", EmitDefaultValue=false)]
+        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType PaymentType { get; set; }
 
         /// <summary>
         /// Gets or Sets Customer
         /// </summary>
         [DataMember(Name="customer", EmitDefaultValue=false)]
-        public TssV2TransactionsGet200ResponsePaymentInformationCustomer Customer { get; set; }
+        public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
         /// Gets or Sets Card
@@ -69,7 +69,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedPaymentInformation {\n");
-            sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
+            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("  Customer: ").Append(Customer).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("}\n");
@@ -109,9 +109,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.PaymentMethod == other.PaymentMethod ||
-                    this.PaymentMethod != null &&
-                    this.PaymentMethod.Equals(other.PaymentMethod)
+                    this.PaymentType == other.PaymentType ||
+                    this.PaymentType != null &&
+                    this.PaymentType.Equals(other.PaymentType)
                 ) && 
                 (
                     this.Customer == other.Customer ||
@@ -136,8 +136,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.PaymentMethod != null)
-                    hash = hash * 59 + this.PaymentMethod.GetHashCode();
+                if (this.PaymentType != null)
+                    hash = hash * 59 + this.PaymentType.GetHashCode();
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
                 if (this.Card != null)

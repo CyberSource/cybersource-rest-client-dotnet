@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -25,6 +25,31 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Filters batch response. 
+        /// </summary>
+        /// <remarks>
+        /// Filters batch response. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionBatchId">Transaction Batch Id, this is unique.</param>
+        /// <param name="uploadDate">Date in which the original batch file was uploaded. Date must be in ISO-8601 format. (optional)</param>
+        /// <param name="status">Allows you to filter by rejected response.  (optional)</param>
+        /// <returns></returns>
+        void GetTransactionBatchDetails (string transactionBatchId, DateTime? uploadDate = null, string status = null);
+
+        /// <summary>
+        /// Filters batch response. 
+        /// </summary>
+        /// <remarks>
+        /// Filters batch response. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionBatchId">Transaction Batch Id, this is unique.</param>
+        /// <param name="uploadDate">Date in which the original batch file was uploaded. Date must be in ISO-8601 format. (optional)</param>
+        /// <param name="status">Allows you to filter by rejected response.  (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> GetTransactionBatchDetailsWithHttpInfo (string transactionBatchId, DateTime? uploadDate = null, string status = null);
+        /// <summary>
         /// Get individual batch file
         /// </summary>
         /// <remarks>
@@ -32,8 +57,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
-        /// <returns>PtsV1TransactionBatchesIdGet200Response</returns>
-        PtsV1TransactionBatchesIdGet200Response GetTransactionBatchId (string id);
+        /// <returns></returns>
+        void GetTransactionBatchId (string id);
 
         /// <summary>
         /// Get individual batch file
@@ -43,8 +68,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
-        /// <returns>ApiResponse of PtsV1TransactionBatchesIdGet200Response</returns>
-        ApiResponse<PtsV1TransactionBatchesIdGet200Response> GetTransactionBatchIdWithHttpInfo (string id);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> GetTransactionBatchIdWithHttpInfo (string id);
         /// <summary>
         /// Get a list of batch files
         /// </summary>
@@ -71,6 +96,31 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Filters batch response. 
+        /// </summary>
+        /// <remarks>
+        /// Filters batch response. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionBatchId">Transaction Batch Id, this is unique.</param>
+        /// <param name="uploadDate">Date in which the original batch file was uploaded. Date must be in ISO-8601 format. (optional)</param>
+        /// <param name="status">Allows you to filter by rejected response.  (optional)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task GetTransactionBatchDetailsAsync (string transactionBatchId, DateTime? uploadDate = null, string status = null);
+
+        /// <summary>
+        /// Filters batch response. 
+        /// </summary>
+        /// <remarks>
+        /// Filters batch response. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionBatchId">Transaction Batch Id, this is unique.</param>
+        /// <param name="uploadDate">Date in which the original batch file was uploaded. Date must be in ISO-8601 format. (optional)</param>
+        /// <param name="status">Allows you to filter by rejected response.  (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetTransactionBatchDetailsAsyncWithHttpInfo (string transactionBatchId, DateTime? uploadDate = null, string status = null);
+        /// <summary>
         /// Get individual batch file
         /// </summary>
         /// <remarks>
@@ -78,8 +128,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
-        /// <returns>Task of PtsV1TransactionBatchesIdGet200Response</returns>
-        System.Threading.Tasks.Task<PtsV1TransactionBatchesIdGet200Response> GetTransactionBatchIdAsync (string id);
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task GetTransactionBatchIdAsync (string id);
 
         /// <summary>
         /// Get individual batch file
@@ -89,8 +139,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
-        /// <returns>Task of ApiResponse (PtsV1TransactionBatchesIdGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV1TransactionBatchesIdGet200Response>> GetTransactionBatchIdAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetTransactionBatchIdAsyncWithHttpInfo (string id);
         /// <summary>
         /// Get a list of batch files
         /// </summary>
@@ -227,15 +277,148 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get individual batch file Provide the search range
+        /// Filters batch response.  Filters batch response. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The batch id assigned for the template.</param>
-        /// <returns>PtsV1TransactionBatchesIdGet200Response</returns>
-        public PtsV1TransactionBatchesIdGet200Response GetTransactionBatchId (string id)
+        /// <param name="transactionBatchId">Transaction Batch Id, this is unique.</param>
+        /// <param name="uploadDate">Date in which the original batch file was uploaded. Date must be in ISO-8601 format. (optional)</param>
+        /// <param name="status">Allows you to filter by rejected response.  (optional)</param>
+        /// <returns></returns>
+        public void GetTransactionBatchDetails (string transactionBatchId, DateTime? uploadDate = null, string status = null)
         {
-             ApiResponse<PtsV1TransactionBatchesIdGet200Response> localVarResponse = GetTransactionBatchIdWithHttpInfo(id);
-             return localVarResponse.Data;
+             GetTransactionBatchDetailsWithHttpInfo(transactionBatchId, uploadDate, status);
+        }
+
+        /// <summary>
+        /// Filters batch response.  Filters batch response. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionBatchId">Transaction Batch Id, this is unique.</param>
+        /// <param name="uploadDate">Date in which the original batch file was uploaded. Date must be in ISO-8601 format. (optional)</param>
+        /// <param name="status">Allows you to filter by rejected response.  (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> GetTransactionBatchDetailsWithHttpInfo (string transactionBatchId, DateTime? uploadDate = null, string status = null)
+        {
+            // verify the required parameter 'transactionBatchId' is set
+            if (transactionBatchId == null)
+                throw new ApiException(400, "Missing required parameter 'transactionBatchId' when calling TransactionBatchesApi->GetTransactionBatchDetails");
+
+            var localVarPath = $"/pts/v1/transaction-batch-details";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/vnd.cybersource.map-csv"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (transactionBatchId != null) localVarQueryParams.Add("transactionBatchId", Configuration.ApiClient.ParameterToString(transactionBatchId)); // query parameter
+            if (uploadDate != null) localVarQueryParams.Add("uploadDate", Configuration.ApiClient.ParameterToString(uploadDate)); // query parameter
+            if (status != null) localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTransactionBatchDetails", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Filters batch response.  Filters batch response. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionBatchId">Transaction Batch Id, this is unique.</param>
+        /// <param name="uploadDate">Date in which the original batch file was uploaded. Date must be in ISO-8601 format. (optional)</param>
+        /// <param name="status">Allows you to filter by rejected response.  (optional)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task GetTransactionBatchDetailsAsync (string transactionBatchId, DateTime? uploadDate = null, string status = null)
+        {
+             await GetTransactionBatchDetailsAsyncWithHttpInfo(transactionBatchId, uploadDate, status);
+
+        }
+
+        /// <summary>
+        /// Filters batch response.  Filters batch response. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionBatchId">Transaction Batch Id, this is unique.</param>
+        /// <param name="uploadDate">Date in which the original batch file was uploaded. Date must be in ISO-8601 format. (optional)</param>
+        /// <param name="status">Allows you to filter by rejected response.  (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetTransactionBatchDetailsAsyncWithHttpInfo (string transactionBatchId, DateTime? uploadDate = null, string status = null)
+        {
+            // verify the required parameter 'transactionBatchId' is set
+            if (transactionBatchId == null)
+                throw new ApiException(400, "Missing required parameter 'transactionBatchId' when calling TransactionBatchesApi->GetTransactionBatchDetails");
+
+            var localVarPath = $"/pts/v1/transaction-batch-details";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/vnd.cybersource.map-csv"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (transactionBatchId != null) localVarQueryParams.Add("transactionBatchId", Configuration.ApiClient.ParameterToString(transactionBatchId)); // query parameter
+            if (uploadDate != null) localVarQueryParams.Add("uploadDate", Configuration.ApiClient.ParameterToString(uploadDate)); // query parameter
+            if (status != null) localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTransactionBatchDetails", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
@@ -243,8 +426,19 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
-        /// <returns>ApiResponse of PtsV1TransactionBatchesIdGet200Response</returns>
-        public ApiResponse< PtsV1TransactionBatchesIdGet200Response > GetTransactionBatchIdWithHttpInfo (string id)
+        /// <returns></returns>
+        public void GetTransactionBatchId (string id)
+        {
+             GetTransactionBatchIdWithHttpInfo(id);
+        }
+
+        /// <summary>
+        /// Get individual batch file Provide the search range
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The batch id assigned for the template.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> GetTransactionBatchIdWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -288,9 +482,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<PtsV1TransactionBatchesIdGet200Response>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV1TransactionBatchesIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesIdGet200Response)));
+                null);
         }
 
         /// <summary>
@@ -298,11 +492,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
-        /// <returns>Task of PtsV1TransactionBatchesIdGet200Response</returns>
-        public async System.Threading.Tasks.Task<PtsV1TransactionBatchesIdGet200Response> GetTransactionBatchIdAsync (string id)
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task GetTransactionBatchIdAsync (string id)
         {
-             ApiResponse<PtsV1TransactionBatchesIdGet200Response> localVarResponse = await GetTransactionBatchIdAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
+             await GetTransactionBatchIdAsyncWithHttpInfo(id);
 
         }
 
@@ -311,8 +504,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
-        /// <returns>Task of ApiResponse (PtsV1TransactionBatchesIdGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV1TransactionBatchesIdGet200Response>> GetTransactionBatchIdAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetTransactionBatchIdAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -356,9 +549,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<PtsV1TransactionBatchesIdGet200Response>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV1TransactionBatchesIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesIdGet200Response)));
+                null);
         }
 
         /// <summary>
@@ -390,7 +583,7 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling TransactionBatchesApi->GetTransactionBatches");
 
-            var localVarPath = $"/pts/v1/transaction-batches?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
+            var localVarPath = $"/pts/v1/transaction-batches";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -464,7 +657,7 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling TransactionBatchesApi->GetTransactionBatches");
 
-            var localVarPath = $"/pts/v1/transaction-batches?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
+            var localVarPath = $"/pts/v1/transaction-batches";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);

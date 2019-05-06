@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -38,8 +38,8 @@ namespace CyberSource.Model
         /// <param name="PassiveProfile">PassiveProfile.</param>
         /// <param name="PassiveRules">PassiveRules.</param>
         /// <param name="Score">Score.</param>
-        /// <param name="LocalTime">Time that the transaction was submitted in local time...</param>
-        public TssV2TransactionsGet200ResponseRiskInformation(TssV2TransactionsGet200ResponseRiskInformationProfile Profile = default(TssV2TransactionsGet200ResponseRiskInformationProfile), List<TssV2TransactionsGet200ResponseRiskInformationProfile> Rules = default(List<TssV2TransactionsGet200ResponseRiskInformationProfile>), TssV2TransactionsGet200ResponseRiskInformationProfile PassiveProfile = default(TssV2TransactionsGet200ResponseRiskInformationProfile), List<TssV2TransactionsGet200ResponseRiskInformationProfile> PassiveRules = default(List<TssV2TransactionsGet200ResponseRiskInformationProfile>), TssV2TransactionsGet200ResponseRiskInformationScore Score = default(TssV2TransactionsGet200ResponseRiskInformationScore), string LocalTime = default(string))
+        /// <param name="LocalTime">Time that the transaction was submitted in local time..</param>
+        public TssV2TransactionsGet200ResponseRiskInformation(TssV2TransactionsGet200ResponseRiskInformationProfile Profile = default(TssV2TransactionsGet200ResponseRiskInformationProfile), List<TssV2TransactionsGet200ResponseRiskInformationRules> Rules = default(List<TssV2TransactionsGet200ResponseRiskInformationRules>), TssV2TransactionsGet200ResponseRiskInformationProfile PassiveProfile = default(TssV2TransactionsGet200ResponseRiskInformationProfile), List<TssV2TransactionsGet200ResponseRiskInformationRules> PassiveRules = default(List<TssV2TransactionsGet200ResponseRiskInformationRules>), TssV2TransactionsGet200ResponseRiskInformationScore Score = default(TssV2TransactionsGet200ResponseRiskInformationScore), string LocalTime = default(string))
         {
             this.Profile = Profile;
             this.Rules = Rules;
@@ -59,7 +59,7 @@ namespace CyberSource.Model
         /// Gets or Sets Rules
         /// </summary>
         [DataMember(Name="rules", EmitDefaultValue=false)]
-        public List<TssV2TransactionsGet200ResponseRiskInformationProfile> Rules { get; set; }
+        public List<TssV2TransactionsGet200ResponseRiskInformationRules> Rules { get; set; }
 
         /// <summary>
         /// Gets or Sets PassiveProfile
@@ -71,7 +71,7 @@ namespace CyberSource.Model
         /// Gets or Sets PassiveRules
         /// </summary>
         [DataMember(Name="passiveRules", EmitDefaultValue=false)]
-        public List<TssV2TransactionsGet200ResponseRiskInformationProfile> PassiveRules { get; set; }
+        public List<TssV2TransactionsGet200ResponseRiskInformationRules> PassiveRules { get; set; }
 
         /// <summary>
         /// Gets or Sets Score
@@ -80,9 +80,9 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponseRiskInformationScore Score { get; set; }
 
         /// <summary>
-        /// Time that the transaction was submitted in local time..
+        /// Time that the transaction was submitted in local time.
         /// </summary>
-        /// <value>Time that the transaction was submitted in local time..</value>
+        /// <value>Time that the transaction was submitted in local time.</value>
         [DataMember(Name="localTime", EmitDefaultValue=false)]
         public string LocalTime { get; set; }
 
