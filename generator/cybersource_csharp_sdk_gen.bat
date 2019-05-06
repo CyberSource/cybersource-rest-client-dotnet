@@ -7,7 +7,7 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\CreditApi.cs) | ForEach
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\PaymentsApi.cs) | ForEach-Object { $_ -replace '/pts/v2/payments/', '/pts/v2/payments' } | Set-Content ..\src\CyberSource\Api\PaymentsApi.cs"
 
-powershell -Command "(Get-Content ..\src\CyberSource\Api\ProcessAPayoutApi.cs) | ForEach-Object { $_ -replace '/pts/v2/payouts/', '/pts/v2/payouts' } | Set-Content ..\src\CyberSource\Api\ProcessAPayoutApi.cs"
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PayoutsApi.cs) | ForEach-Object { $_ -replace '/pts/v2/payouts/', '/pts/v2/payouts' } | Set-Content ..\src\CyberSource\Api\PayoutsApi.cs"
 
 
 rem For Converting the datetime values to string while passing them to the query params object
@@ -21,7 +21,7 @@ powershell -Command "(Get-Content ..\src\CyberSource\Model\ReportingV3ReportSubs
 
 
 rem For Converting the datetime values to string while appending them to the localVarPath and commenting out the values being set in query params obj
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[392] = $fileContents[392] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' ; $fileContents[466] = $fileContents[466] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[586] = $fileContents[586] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' ; $fileContents[660] = $fileContents[660] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[263] = $fileContents[263] -replace 'null', 'localVarResponse.Content' ; $fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
 
@@ -78,15 +78,9 @@ powershell -Command " Set-Content ..\src\CyberSource\Api\CaptureApi.cs ((get-con
 
 powershell -Command " Set-Content ..\src\CyberSource\Api\CreditApi.cs ((get-content ..\src\CyberSource\Api\CreditApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 
-powershell -Command " Set-Content ..\src\CyberSource\Api\InstrumentIdentifierApi.cs ((get-content ..\src\CyberSource\Api\InstrumentIdentifierApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"*/*\"')"
-
-powershell -Command " Set-Content ..\src\CyberSource\Api\InstrumentIdentifiersApi.cs ((get-content ..\src\CyberSource\Api\InstrumentIdentifiersApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {//\"application/hal+json;charset=utf-8\"')"
-
-powershell -Command " Set-Content ..\src\CyberSource\Api\PaymentInstrumentsApi.cs ((get-content ..\src\CyberSource\Api\PaymentInstrumentsApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"*/*\"')"
-
 powershell -Command " Set-Content ..\src\CyberSource\Api\PaymentsApi.cs ((get-content ..\src\CyberSource\Api\PaymentsApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 
-powershell -Command " Set-Content ..\src\CyberSource\Api\ProcessAPayoutApi.cs ((get-content ..\src\CyberSource\Api\ProcessAPayoutApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+powershell -Command " Set-Content ..\src\CyberSource\Api\PayoutsApi.cs ((get-content ..\src\CyberSource\Api\PayoutsApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 
 powershell -Command " Set-Content ..\src\CyberSource\Api\RefundApi.cs ((get-content ..\src\CyberSource\Api\RefundApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 
@@ -105,8 +99,6 @@ rem For Adding Missing Enum Value
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.cs) ; $fileContents[50] = (get-content ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.txt); $fileContents|Set-Content ..\src\CyberSource\Model\ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.cs"
 
 REM powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\ReportingV3ReportsIdGet200Response.cs) ; $fileContents[77] = (get-content ReportingV3ReportsIdGet200Response.txt); $fileContents|Set-Content ..\src\CyberSource\Model\ReportingV3ReportsIdGet200Response.cs"
-
-powershell -Command "(Get-Content ..\src\CyberSource\Model\FlexV1KeysPost200ResponseJwk.cs) | ForEach-Object { $_ -replace ', Formatting.Indented', '' } | Set-Content ..\src\CyberSource\Model\FlexV1KeysPost200ResponseJwk.cs"
 
 rem For changing nuspec filename in csproj file
 
