@@ -1,9 +1,0 @@
-# CyberSource.Model.TssV2TransactionsGet200ResponseProcessorInformationCardVerification
-## Properties
-
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**ResultCode** | **string** | CVN result code.  | [optional] 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-

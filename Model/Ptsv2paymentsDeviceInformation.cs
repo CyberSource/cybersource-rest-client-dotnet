@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsDeviceInformation" /> class.
         /// </summary>
-        /// <param name="HostName">DNS resolved hostname from above _ipAddress_..</param>
-        /// <param name="IpAddress">IP address of the customer..</param>
+        /// <param name="HostName">Host name reported by the customer’s browser to your Web server identified via the HTTP header..</param>
+        /// <param name="IpAddress">Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. .</param>
         /// <param name="UserAgent">Customer’s browser as identified from the HTTP header data. For example, Mozilla is the value that identifies the Netscape browser. .</param>
         public Ptsv2paymentsDeviceInformation(string HostName = default(string), string IpAddress = default(string), string UserAgent = default(string))
         {
@@ -44,16 +44,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// DNS resolved hostname from above _ipAddress_.
+        /// Host name reported by the customer’s browser to your Web server identified via the HTTP header.
         /// </summary>
-        /// <value>DNS resolved hostname from above _ipAddress_.</value>
+        /// <value>Host name reported by the customer’s browser to your Web server identified via the HTTP header.</value>
         [DataMember(Name="hostName", EmitDefaultValue=false)]
         public string HostName { get; set; }
 
         /// <summary>
-        /// IP address of the customer.
+        /// Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. 
         /// </summary>
-        /// <value>IP address of the customer.</value>
+        /// <value>Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 

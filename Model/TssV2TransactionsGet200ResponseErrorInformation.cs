@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="Reason">The description for this field is not available..</param>
         /// <param name="Message">The description for this field is not available..</param>
         /// <param name="Details">Details.</param>
-        public TssV2TransactionsGet200ResponseErrorInformation(string Reason = default(string), string Message = default(string), List<PtsV2PayoutsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PayoutsPost201ResponseErrorInformationDetails>))
+        public TssV2TransactionsGet200ResponseErrorInformation(string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
             this.Reason = Reason;
             this.Message = Message;
@@ -61,7 +61,7 @@ namespace CyberSource.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="details", EmitDefaultValue=false)]
-        public List<PtsV2PayoutsPost201ResponseErrorInformationDetails> Details { get; set; }
+        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -25,20 +25,20 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks
+    /// TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks
     /// </summary>
     [DataContract]
-    public partial class TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks :  IEquatable<TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks>, IValidatableObject
+    public partial class TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks :  IEquatable<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks" /> class.
+        /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks" /> class.
         /// </summary>
         /// <param name="Self">Self.</param>
         /// <param name="First">First.</param>
         /// <param name="Prev">Prev.</param>
         /// <param name="Next">Next.</param>
         /// <param name="Last">Last.</param>
-        public TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks(TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksSelf Self = default(TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksSelf), TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksFirst First = default(TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksFirst), TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev Prev = default(TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev), TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksNext Next = default(TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksNext), TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksLast Last = default(TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksLast))
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksSelf Self = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksSelf), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksFirst First = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksFirst), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev Prev = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksNext Next = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksNext), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksLast Last = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksLast))
         {
             this.Self = Self;
             this.First = First;
@@ -51,31 +51,31 @@ namespace CyberSource.Model
         /// Gets or Sets Self
         /// </summary>
         [DataMember(Name="self", EmitDefaultValue=false)]
-        public TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksSelf Self { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksSelf Self { get; set; }
 
         /// <summary>
         /// Gets or Sets First
         /// </summary>
         [DataMember(Name="first", EmitDefaultValue=false)]
-        public TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksFirst First { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksFirst First { get; set; }
 
         /// <summary>
         /// Gets or Sets Prev
         /// </summary>
         [DataMember(Name="prev", EmitDefaultValue=false)]
-        public TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev Prev { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev Prev { get; set; }
 
         /// <summary>
         /// Gets or Sets Next
         /// </summary>
         [DataMember(Name="next", EmitDefaultValue=false)]
-        public TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksNext Next { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksNext Next { get; set; }
 
         /// <summary>
         /// Gets or Sets Last
         /// </summary>
         [DataMember(Name="last", EmitDefaultValue=false)]
-        public TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksLast Last { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksLast Last { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,7 +84,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks {\n");
+            sb.Append("class TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks {\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("  First: ").Append(First).Append("\n");
             sb.Append("  Prev: ").Append(Prev).Append("\n");
@@ -111,15 +111,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks);
+            return this.Equals(obj as TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks);
         }
 
         /// <summary>
-        /// Returns true if TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks instances are equal
+        /// Returns true if TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks instances are equal
         /// </summary>
-        /// <param name="other">Instance of TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks to be compared</param>
+        /// <param name="other">Instance of TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks other)
+        public bool Equals(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

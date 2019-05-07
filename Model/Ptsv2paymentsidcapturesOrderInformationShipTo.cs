@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidcapturesOrderInformationShipTo" /> class.
         /// </summary>
         /// <param name="AdministrativeArea">State or province of the shipping address. Use the State, Province, and Territory Codes for the United States and Canada. .</param>
-        /// <param name="Country">Country of the shipping address. Use the two character ISO Standard Country Codes..</param>
+        /// <param name="Country">Country of the shipping address. Use the two-character ISO Standard Country Codes..</param>
         /// <param name="PostalCode">Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  **American Express Direct**\\ Before sending the postal code to the processor, CyberSource removes all nonalphanumeric characters and, if the remaining value is longer than nine characters, truncates the value starting from the right side. .</param>
         public Ptsv2paymentsidcapturesOrderInformationShipTo(string AdministrativeArea = default(string), string Country = default(string), string PostalCode = default(string))
         {
@@ -51,9 +51,9 @@ namespace CyberSource.Model
         public string AdministrativeArea { get; set; }
 
         /// <summary>
-        /// Country of the shipping address. Use the two character ISO Standard Country Codes.
+        /// Country of the shipping address. Use the two-character ISO Standard Country Codes.
         /// </summary>
-        /// <value>Country of the shipping address. Use the two character ISO Standard Country Codes.</value>
+        /// <value>Country of the shipping address. Use the two-character ISO Standard Country Codes.</value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 

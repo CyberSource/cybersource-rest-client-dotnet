@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -74,6 +74,18 @@ namespace CyberSource.Test
             //string id = null;
             //AuthReversalRequest authReversalRequest = null;
             //var response = instance.AuthReversal(id, authReversalRequest);
+            //Assert.IsInstanceOf<PtsV2PaymentsReversalsPost201Response> (response, "response is PtsV2PaymentsReversalsPost201Response");
+        }
+        
+        /// <summary>
+        /// Test MitReversal
+        /// </summary>
+        [Test]
+        public void MitReversalTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //MitReversalRequest mitReversalRequest = null;
+            //var response = instance.MitReversal(mitReversalRequest);
             //Assert.IsInstanceOf<PtsV2PaymentsReversalsPost201Response> (response, "response is PtsV2PaymentsReversalsPost201Response");
         }
         

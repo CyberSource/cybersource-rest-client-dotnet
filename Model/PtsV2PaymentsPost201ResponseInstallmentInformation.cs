@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -360,84 +360,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AdditionalCosts (string) maxLength
-            if(this.AdditionalCosts != null && this.AdditionalCosts.Length > 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdditionalCosts, length must be less than 12.", new [] { "AdditionalCosts" });
-            }
-
-            // AdditionalCostsPercentage (string) maxLength
-            if(this.AdditionalCostsPercentage != null && this.AdditionalCostsPercentage.Length > 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdditionalCostsPercentage, length must be less than 4.", new [] { "AdditionalCostsPercentage" });
-            }
-
-            // AmountFunded (string) maxLength
-            if(this.AmountFunded != null && this.AmountFunded.Length > 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmountFunded, length must be less than 12.", new [] { "AmountFunded" });
-            }
-
-            // AmountRequestedPercentage (string) maxLength
-            if(this.AmountRequestedPercentage != null && this.AmountRequestedPercentage.Length > 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmountRequestedPercentage, length must be less than 4.", new [] { "AmountRequestedPercentage" });
-            }
-
-            // AnnualFinancingCost (string) maxLength
-            if(this.AnnualFinancingCost != null && this.AnnualFinancingCost.Length > 7)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AnnualFinancingCost, length must be less than 7.", new [] { "AnnualFinancingCost" });
-            }
-
-            // Expenses (string) maxLength
-            if(this.Expenses != null && this.Expenses.Length > 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Expenses, length must be less than 12.", new [] { "Expenses" });
-            }
-
-            // ExpensesPercentage (string) maxLength
-            if(this.ExpensesPercentage != null && this.ExpensesPercentage.Length > 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpensesPercentage, length must be less than 4.", new [] { "ExpensesPercentage" });
-            }
-
-            // Fees (string) maxLength
-            if(this.Fees != null && this.Fees.Length > 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Fees, length must be less than 12.", new [] { "Fees" });
-            }
-
-            // FeesPercentage (string) maxLength
-            if(this.FeesPercentage != null && this.FeesPercentage.Length > 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FeesPercentage, length must be less than 4.", new [] { "FeesPercentage" });
-            }
-
-            // Insurance (string) maxLength
-            if(this.Insurance != null && this.Insurance.Length > 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Insurance, length must be less than 12.", new [] { "Insurance" });
-            }
-
-            // InsurancePercentage (string) maxLength
-            if(this.InsurancePercentage != null && this.InsurancePercentage.Length > 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InsurancePercentage, length must be less than 4.", new [] { "InsurancePercentage" });
-            }
-
-            // Taxes (string) maxLength
-            if(this.Taxes != null && this.Taxes.Length > 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Taxes, length must be less than 12.", new [] { "Taxes" });
-            }
-
-            // TaxesPercentage (string) maxLength
-            if(this.TaxesPercentage != null && this.TaxesPercentage.Length > 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxesPercentage, length must be less than 4.", new [] { "TaxesPercentage" });
-            }
-
             yield break;
         }
     }

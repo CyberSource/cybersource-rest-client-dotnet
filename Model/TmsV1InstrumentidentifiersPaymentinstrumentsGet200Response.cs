@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -25,10 +25,10 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response
+    /// TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response
     /// </summary>
     [DataContract]
-    public partial class TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response :  IEquatable<TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response>, IValidatableObject
+    public partial class TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response :  IEquatable<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response>, IValidatableObject
     {
         /// <summary>
         /// Shows the response is a collection of objects.
@@ -52,11 +52,11 @@ namespace CyberSource.Model
         [DataMember(Name="object", EmitDefaultValue=false)]
         public ObjectEnum? _Object { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response" /> class.
+        /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
         /// <param name="Embedded">Array of Payment Instruments returned for the supplied Instrument Identifier..</param>
-        public TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response(TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks Links = default(TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks), Object Embedded = default(Object))
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks Links = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks), List<TmsV1PaymentinstrumentsPatch200Response> Embedded = default(List<TmsV1PaymentinstrumentsPatch200Response>))
         {
             this.Links = Links;
             this.Embedded = Embedded;
@@ -66,7 +66,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks Links { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks Links { get; set; }
 
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Array of Payment Instruments returned for the supplied Instrument Identifier.</value>
         [DataMember(Name="_embedded", EmitDefaultValue=false)]
-        public Object Embedded { get; set; }
+        public List<TmsV1PaymentinstrumentsPatch200Response> Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -111,7 +111,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response {\n");
+            sb.Append("class TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response {\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("  _Object: ").Append(_Object).Append("\n");
             sb.Append("  Offset: ").Append(Offset).Append("\n");
@@ -140,15 +140,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response);
+            return this.Equals(obj as TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response);
         }
 
         /// <summary>
-        /// Returns true if TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response instances are equal
+        /// Returns true if TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response instances are equal
         /// </summary>
-        /// <param name="other">Instance of TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response to be compared</param>
+        /// <param name="other">Instance of TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response other)
+        public bool Equals(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -188,7 +188,7 @@ namespace CyberSource.Model
                 (
                     this.Embedded == other.Embedded ||
                     this.Embedded != null &&
-                    this.Embedded.Equals(other.Embedded)
+                    this.Embedded.SequenceEqual(other.Embedded)
                 );
         }
 

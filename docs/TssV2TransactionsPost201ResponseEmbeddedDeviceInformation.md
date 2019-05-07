@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IpAddress** | **string** | IP address of the customer. | [optional] 
+**IpAddress** | **string** | Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

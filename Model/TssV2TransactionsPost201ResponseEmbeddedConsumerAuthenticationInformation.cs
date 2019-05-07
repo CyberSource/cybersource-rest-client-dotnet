@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation" /> class.
         /// </summary>
-        /// <param name="Xid">Transaction identifier..</param>
+        /// <param name="Xid">Transaction identifier. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180..</param>
         /// <param name="TransactionId">Payer auth Transaction identifier..</param>
         public TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation(string Xid = default(string), string TransactionId = default(string))
         {
@@ -42,9 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Transaction identifier.
+        /// Transaction identifier. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.
         /// </summary>
-        /// <value>Transaction identifier.</value>
+        /// <value>Transaction identifier. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.</value>
         [DataMember(Name="xid", EmitDefaultValue=false)]
         public string Xid { get; set; }
 

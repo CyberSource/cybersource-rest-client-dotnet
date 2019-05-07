@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -25,16 +25,16 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// TmsV1InstrumentidentifiersDelete409ResponseLinks
+    /// TmsV1InstrumentIdentifiersDelete409ResponseLinks
     /// </summary>
     [DataContract]
-    public partial class TmsV1InstrumentidentifiersDelete409ResponseLinks :  IEquatable<TmsV1InstrumentidentifiersDelete409ResponseLinks>, IValidatableObject
+    public partial class TmsV1InstrumentIdentifiersDelete409ResponseLinks :  IEquatable<TmsV1InstrumentIdentifiersDelete409ResponseLinks>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TmsV1InstrumentidentifiersDelete409ResponseLinks" /> class.
+        /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersDelete409ResponseLinks" /> class.
         /// </summary>
         /// <param name="PaymentInstruments">PaymentInstruments.</param>
-        public TmsV1InstrumentidentifiersDelete409ResponseLinks(TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments PaymentInstruments = default(TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments))
+        public TmsV1InstrumentIdentifiersDelete409ResponseLinks(TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments PaymentInstruments = default(TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments))
         {
             this.PaymentInstruments = PaymentInstruments;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentInstruments
         /// </summary>
         [DataMember(Name="paymentInstruments", EmitDefaultValue=false)]
-        public TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments PaymentInstruments { get; set; }
+        public TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments PaymentInstruments { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,7 +52,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TmsV1InstrumentidentifiersDelete409ResponseLinks {\n");
+            sb.Append("class TmsV1InstrumentIdentifiersDelete409ResponseLinks {\n");
             sb.Append("  PaymentInstruments: ").Append(PaymentInstruments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -75,15 +75,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TmsV1InstrumentidentifiersDelete409ResponseLinks);
+            return this.Equals(obj as TmsV1InstrumentIdentifiersDelete409ResponseLinks);
         }
 
         /// <summary>
-        /// Returns true if TmsV1InstrumentidentifiersDelete409ResponseLinks instances are equal
+        /// Returns true if TmsV1InstrumentIdentifiersDelete409ResponseLinks instances are equal
         /// </summary>
-        /// <param name="other">Instance of TmsV1InstrumentidentifiersDelete409ResponseLinks to be compared</param>
+        /// <param name="other">Instance of TmsV1InstrumentIdentifiersDelete409ResponseLinks to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TmsV1InstrumentidentifiersDelete409ResponseLinks other)
+        public bool Equals(TmsV1InstrumentIdentifiersDelete409ResponseLinks other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

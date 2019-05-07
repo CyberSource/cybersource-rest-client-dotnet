@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -25,16 +25,16 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments
+    /// TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments
     /// </summary>
     [DataContract]
-    public partial class TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments :  IEquatable<TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments>, IValidatableObject
+    public partial class TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments :  IEquatable<TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments" /> class.
+        /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments" /> class.
         /// </summary>
         /// <param name="Href">Href.</param>
-        public TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments(string Href = default(string))
+        public TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments(string Href = default(string))
         {
             this.Href = Href;
         }
@@ -52,7 +52,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments {\n");
+            sb.Append("class TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -75,15 +75,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments);
+            return this.Equals(obj as TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments);
         }
 
         /// <summary>
-        /// Returns true if TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments instances are equal
+        /// Returns true if TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments instances are equal
         /// </summary>
-        /// <param name="other">Instance of TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments to be compared</param>
+        /// <param name="other">Instance of TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TmsV1InstrumentidentifiersDelete409ResponseLinksPaymentInstruments other)
+        public bool Equals(TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

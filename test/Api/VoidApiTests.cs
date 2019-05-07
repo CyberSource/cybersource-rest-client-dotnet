@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -63,6 +63,18 @@ namespace CyberSource.Test
             //Assert.IsInstanceOfType(typeof(VoidApi), instance, "instance is a VoidApi");
         }
 
+        
+        /// <summary>
+        /// Test MitVoid
+        /// </summary>
+        [Test]
+        public void MitVoidTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //MitVoidRequest mitVoidRequest = null;
+            //var response = instance.MitVoid(mitVoidRequest);
+            //Assert.IsInstanceOf<PtsV2PaymentsVoidsPost201Response> (response, "response is PtsV2PaymentsVoidsPost201Response");
+        }
         
         /// <summary>
         /// Test VoidCapture

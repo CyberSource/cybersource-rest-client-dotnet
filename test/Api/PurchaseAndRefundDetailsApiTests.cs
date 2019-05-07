@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -79,8 +79,8 @@ namespace CyberSource.Test
             //string groupName = null;
             //int? offset = null;
             //int? limit = null;
-            //var response = instance.GetPurchaseAndRefundDetails(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
-            //Assert.IsInstanceOf<ReportingV3PurchaseRefundDetailsGet200Response> (response, "response is ReportingV3PurchaseRefundDetailsGet200Response");
+            //instance.GetPurchaseAndRefundDetails(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
+            
         }
         
     }
