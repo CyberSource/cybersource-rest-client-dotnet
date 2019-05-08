@@ -71,12 +71,8 @@ namespace CyberSource.Test
         public void CreateInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //string vCMerchantId = null;
-            //string vCCorrelationId = null;
             //CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest = null;
-            //string clientApplication = null;
-            //var response = instance.CreateInstrumentIdentifier(profileId, vCMerchantId, vCCorrelationId, createInstrumentIdentifierRequest, clientApplication);
+            //var response = instance.CreateInstrumentIdentifier(createInstrumentIdentifierRequest);
             //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
         }
         
@@ -87,12 +83,8 @@ namespace CyberSource.Test
         public void DeleteInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //string vCMerchantId = null;
-            //string vCCorrelationId = null;
             //string tokenId = null;
-            //string clientApplication = null;
-            //instance.DeleteInstrumentIdentifier(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+            //instance.DeleteInstrumentIdentifier(tokenId);
             
         }
         
@@ -103,14 +95,10 @@ namespace CyberSource.Test
         public void GetAllPaymentInstrumentsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //string vCMerchantId = null;
-            //string vCCorrelationId = null;
             //string tokenId = null;
-            //string clientApplication = null;
             //long? offset = null;
             //long? limit = null;
-            //var response = instance.GetAllPaymentInstruments(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication, offset, limit);
+            //var response = instance.GetAllPaymentInstruments(tokenId, offset, limit);
             //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> (response, "response is TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response");
         }
         
@@ -121,12 +109,8 @@ namespace CyberSource.Test
         public void GetInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //string vCMerchantId = null;
-            //string vCCorrelationId = null;
             //string tokenId = null;
-            //string clientApplication = null;
-            //var response = instance.GetInstrumentIdentifier(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+            //var response = instance.GetInstrumentIdentifier(tokenId);
             //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
         }
         
@@ -137,13 +121,9 @@ namespace CyberSource.Test
         public void UpdateInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //string vCMerchantId = null;
-            //string vCCorrelationId = null;
             //string tokenId = null;
             //UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest = null;
-            //string clientApplication = null;
-            //var response = instance.UpdateInstrumentIdentifier(profileId, vCMerchantId, vCCorrelationId, tokenId, updateInstrumentIdentifierRequest, clientApplication);
+            //var response = instance.UpdateInstrumentIdentifier(tokenId, updateInstrumentIdentifierRequest);
             //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
         }
         

@@ -31,13 +31,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1InstrumentIdentifiersPost200Response</returns>
-        TmsV1InstrumentIdentifiersPost200Response CreateInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest, string clientApplication = null);
+        TmsV1InstrumentIdentifiersPost200Response CreateInstrumentIdentifier (CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest);
 
         /// <summary>
         /// Create an Instrument Identifier
@@ -46,13 +42,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1InstrumentIdentifiersPost200Response</returns>
-        ApiResponse<TmsV1InstrumentIdentifiersPost200Response> CreateInstrumentIdentifierWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest, string clientApplication = null);
+        ApiResponse<TmsV1InstrumentIdentifiersPost200Response> CreateInstrumentIdentifierWithHttpInfo (CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest);
         /// <summary>
         /// Delete an Instrument Identifier
         /// </summary>
@@ -60,13 +52,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns></returns>
-        void DeleteInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        void DeleteInstrumentIdentifier (string tokenId);
 
         /// <summary>
         /// Delete an Instrument Identifier
@@ -75,13 +63,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteInstrumentIdentifierWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        ApiResponse<Object> DeleteInstrumentIdentifierWithHttpInfo (string tokenId);
         /// <summary>
         /// Retrieve all Payment Instruments associated with an Instrument Identifier
         /// </summary>
@@ -89,15 +73,11 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response</returns>
-        TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response GetAllPaymentInstruments (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null, long? offset = null, long? limit = null);
+        TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response GetAllPaymentInstruments (string tokenId, long? offset = null, long? limit = null);
 
         /// <summary>
         /// Retrieve all Payment Instruments associated with an Instrument Identifier
@@ -106,15 +86,11 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>ApiResponse of TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response</returns>
-        ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> GetAllPaymentInstrumentsWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null, long? offset = null, long? limit = null);
+        ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> GetAllPaymentInstrumentsWithHttpInfo (string tokenId, long? offset = null, long? limit = null);
         /// <summary>
         /// Retrieve an Instrument Identifier
         /// </summary>
@@ -122,13 +98,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1InstrumentIdentifiersPost200Response</returns>
-        TmsV1InstrumentIdentifiersPost200Response GetInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        TmsV1InstrumentIdentifiersPost200Response GetInstrumentIdentifier (string tokenId);
 
         /// <summary>
         /// Retrieve an Instrument Identifier
@@ -137,13 +109,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1InstrumentIdentifiersPost200Response</returns>
-        ApiResponse<TmsV1InstrumentIdentifiersPost200Response> GetInstrumentIdentifierWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        ApiResponse<TmsV1InstrumentIdentifiersPost200Response> GetInstrumentIdentifierWithHttpInfo (string tokenId);
         /// <summary>
         /// Update a Instrument Identifier
         /// </summary>
@@ -151,14 +119,10 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="updateInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1InstrumentIdentifiersPost200Response</returns>
-        TmsV1InstrumentIdentifiersPost200Response UpdateInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string clientApplication = null);
+        TmsV1InstrumentIdentifiersPost200Response UpdateInstrumentIdentifier (string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest);
 
         /// <summary>
         /// Update a Instrument Identifier
@@ -167,14 +131,10 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="updateInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1InstrumentIdentifiersPost200Response</returns>
-        ApiResponse<TmsV1InstrumentIdentifiersPost200Response> UpdateInstrumentIdentifierWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string clientApplication = null);
+        ApiResponse<TmsV1InstrumentIdentifiersPost200Response> UpdateInstrumentIdentifierWithHttpInfo (string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -184,13 +144,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1InstrumentIdentifiersPost200Response</returns>
-        System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> CreateInstrumentIdentifierAsync (string profileId, string vCMerchantId, string vCCorrelationId, CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest, string clientApplication = null);
+        System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> CreateInstrumentIdentifierAsync (CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest);
 
         /// <summary>
         /// Create an Instrument Identifier
@@ -199,13 +155,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentIdentifiersPost200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> CreateInstrumentIdentifierAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest, string clientApplication = null);
+        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> CreateInstrumentIdentifierAsyncWithHttpInfo (CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest);
         /// <summary>
         /// Delete an Instrument Identifier
         /// </summary>
@@ -213,13 +165,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteInstrumentIdentifierAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        System.Threading.Tasks.Task DeleteInstrumentIdentifierAsync (string tokenId);
 
         /// <summary>
         /// Delete an Instrument Identifier
@@ -228,13 +176,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInstrumentIdentifierAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInstrumentIdentifierAsyncWithHttpInfo (string tokenId);
         /// <summary>
         /// Retrieve all Payment Instruments associated with an Instrument Identifier
         /// </summary>
@@ -242,15 +186,11 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response</returns>
-        System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> GetAllPaymentInstrumentsAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null, long? offset = null, long? limit = null);
+        System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> GetAllPaymentInstrumentsAsync (string tokenId, long? offset = null, long? limit = null);
 
         /// <summary>
         /// Retrieve all Payment Instruments associated with an Instrument Identifier
@@ -259,15 +199,11 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response>> GetAllPaymentInstrumentsAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null, long? offset = null, long? limit = null);
+        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response>> GetAllPaymentInstrumentsAsyncWithHttpInfo (string tokenId, long? offset = null, long? limit = null);
         /// <summary>
         /// Retrieve an Instrument Identifier
         /// </summary>
@@ -275,13 +211,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1InstrumentIdentifiersPost200Response</returns>
-        System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> GetInstrumentIdentifierAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> GetInstrumentIdentifierAsync (string tokenId);
 
         /// <summary>
         /// Retrieve an Instrument Identifier
@@ -290,13 +222,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentIdentifiersPost200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> GetInstrumentIdentifierAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> GetInstrumentIdentifierAsyncWithHttpInfo (string tokenId);
         /// <summary>
         /// Update a Instrument Identifier
         /// </summary>
@@ -304,14 +232,10 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="updateInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1InstrumentIdentifiersPost200Response</returns>
-        System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> UpdateInstrumentIdentifierAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string clientApplication = null);
+        System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> UpdateInstrumentIdentifierAsync (string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest);
 
         /// <summary>
         /// Update a Instrument Identifier
@@ -320,14 +244,10 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="updateInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentIdentifiersPost200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> UpdateInstrumentIdentifierAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string clientApplication = null);
+        System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> UpdateInstrumentIdentifierAsyncWithHttpInfo (string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest);
         #endregion Asynchronous Operations
     }
 
@@ -444,15 +364,11 @@ namespace CyberSource.Api
         /// Create an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1InstrumentIdentifiersPost200Response</returns>
-        public TmsV1InstrumentIdentifiersPost200Response CreateInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest, string clientApplication = null)
+        public TmsV1InstrumentIdentifiersPost200Response CreateInstrumentIdentifier (CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest)
         {
-             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = CreateInstrumentIdentifierWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, createInstrumentIdentifierRequest, clientApplication);
+             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = CreateInstrumentIdentifierWithHttpInfo(createInstrumentIdentifierRequest);
              return localVarResponse.Data;
         }
 
@@ -460,23 +376,10 @@ namespace CyberSource.Api
         /// Create an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1InstrumentIdentifiersPost200Response</returns>
-        public ApiResponse< TmsV1InstrumentIdentifiersPost200Response > CreateInstrumentIdentifierWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest, string clientApplication = null)
+        public ApiResponse< TmsV1InstrumentIdentifiersPost200Response > CreateInstrumentIdentifierWithHttpInfo (CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->CreateInstrumentIdentifier");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling InstrumentIdentifierApi->CreateInstrumentIdentifier");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling InstrumentIdentifierApi->CreateInstrumentIdentifier");
             // verify the required parameter 'createInstrumentIdentifierRequest' is set
             if (createInstrumentIdentifierRequest == null)
                 throw new ApiException(400, "Missing required parameter 'createInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->CreateInstrumentIdentifier");
@@ -503,10 +406,6 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
             if (createInstrumentIdentifierRequest != null && createInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(createInstrumentIdentifierRequest); // http body (model) parameter
@@ -539,15 +438,11 @@ namespace CyberSource.Api
         /// Create an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1InstrumentIdentifiersPost200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> CreateInstrumentIdentifierAsync (string profileId, string vCMerchantId, string vCCorrelationId, CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest, string clientApplication = null)
+        public async System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> CreateInstrumentIdentifierAsync (CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest)
         {
-             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = await CreateInstrumentIdentifierAsyncWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, createInstrumentIdentifierRequest, clientApplication);
+             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = await CreateInstrumentIdentifierAsyncWithHttpInfo(createInstrumentIdentifierRequest);
              return localVarResponse.Data;
 
         }
@@ -556,23 +451,10 @@ namespace CyberSource.Api
         /// Create an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentIdentifiersPost200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> CreateInstrumentIdentifierAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest, string clientApplication = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> CreateInstrumentIdentifierAsyncWithHttpInfo (CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->CreateInstrumentIdentifier");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling InstrumentIdentifierApi->CreateInstrumentIdentifier");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling InstrumentIdentifierApi->CreateInstrumentIdentifier");
             // verify the required parameter 'createInstrumentIdentifierRequest' is set
             if (createInstrumentIdentifierRequest == null)
                 throw new ApiException(400, "Missing required parameter 'createInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->CreateInstrumentIdentifier");
@@ -599,10 +481,6 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
             if (createInstrumentIdentifierRequest != null && createInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(createInstrumentIdentifierRequest); // http body (model) parameter
@@ -635,38 +513,21 @@ namespace CyberSource.Api
         /// Delete an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns></returns>
-        public void DeleteInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public void DeleteInstrumentIdentifier (string tokenId)
         {
-             DeleteInstrumentIdentifierWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+             DeleteInstrumentIdentifierWithHttpInfo(tokenId);
         }
 
         /// <summary>
         /// Delete an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteInstrumentIdentifierWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public ApiResponse<Object> DeleteInstrumentIdentifierWithHttpInfo (string tokenId)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
@@ -694,10 +555,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
 
 
             // make the HTTP request
@@ -722,15 +579,11 @@ namespace CyberSource.Api
         /// Delete an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteInstrumentIdentifierAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public async System.Threading.Tasks.Task DeleteInstrumentIdentifierAsync (string tokenId)
         {
-             await DeleteInstrumentIdentifierAsyncWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+             await DeleteInstrumentIdentifierAsyncWithHttpInfo(tokenId);
 
         }
 
@@ -738,23 +591,10 @@ namespace CyberSource.Api
         /// Delete an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInstrumentIdentifierAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInstrumentIdentifierAsyncWithHttpInfo (string tokenId)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
@@ -782,10 +622,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
 
 
             // make the HTTP request
@@ -810,17 +646,13 @@ namespace CyberSource.Api
         /// Retrieve all Payment Instruments associated with an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response</returns>
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response GetAllPaymentInstruments (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null, long? offset = null, long? limit = null)
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response GetAllPaymentInstruments (string tokenId, long? offset = null, long? limit = null)
         {
-             ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> localVarResponse = GetAllPaymentInstrumentsWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication, offset, limit);
+             ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> localVarResponse = GetAllPaymentInstrumentsWithHttpInfo(tokenId, offset, limit);
              return localVarResponse.Data;
         }
 
@@ -828,25 +660,12 @@ namespace CyberSource.Api
         /// Retrieve all Payment Instruments associated with an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>ApiResponse of TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response</returns>
-        public ApiResponse< TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response > GetAllPaymentInstrumentsWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null, long? offset = null, long? limit = null)
+        public ApiResponse< TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response > GetAllPaymentInstrumentsWithHttpInfo (string tokenId, long? offset = null, long? limit = null)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->GetAllPaymentInstruments");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling InstrumentIdentifierApi->GetAllPaymentInstruments");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling InstrumentIdentifierApi->GetAllPaymentInstruments");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->GetAllPaymentInstruments");
@@ -876,10 +695,6 @@ namespace CyberSource.Api
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
             if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
             if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
 
 
             // make the HTTP request
@@ -904,17 +719,13 @@ namespace CyberSource.Api
         /// Retrieve all Payment Instruments associated with an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> GetAllPaymentInstrumentsAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null, long? offset = null, long? limit = null)
+        public async System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> GetAllPaymentInstrumentsAsync (string tokenId, long? offset = null, long? limit = null)
         {
-             ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> localVarResponse = await GetAllPaymentInstrumentsAsyncWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication, offset, limit);
+             ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> localVarResponse = await GetAllPaymentInstrumentsAsyncWithHttpInfo(tokenId, offset, limit);
              return localVarResponse.Data;
 
         }
@@ -923,25 +734,12 @@ namespace CyberSource.Api
         /// Retrieve all Payment Instruments associated with an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <param name="offset">Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response>> GetAllPaymentInstrumentsAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null, long? offset = null, long? limit = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response>> GetAllPaymentInstrumentsAsyncWithHttpInfo (string tokenId, long? offset = null, long? limit = null)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->GetAllPaymentInstruments");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling InstrumentIdentifierApi->GetAllPaymentInstruments");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling InstrumentIdentifierApi->GetAllPaymentInstruments");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->GetAllPaymentInstruments");
@@ -971,10 +769,6 @@ namespace CyberSource.Api
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
             if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
             if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
 
 
             // make the HTTP request
@@ -999,15 +793,11 @@ namespace CyberSource.Api
         /// Retrieve an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1InstrumentIdentifiersPost200Response</returns>
-        public TmsV1InstrumentIdentifiersPost200Response GetInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public TmsV1InstrumentIdentifiersPost200Response GetInstrumentIdentifier (string tokenId)
         {
-             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = GetInstrumentIdentifierWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = GetInstrumentIdentifierWithHttpInfo(tokenId);
              return localVarResponse.Data;
         }
 
@@ -1015,23 +805,10 @@ namespace CyberSource.Api
         /// Retrieve an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1InstrumentIdentifiersPost200Response</returns>
-        public ApiResponse< TmsV1InstrumentIdentifiersPost200Response > GetInstrumentIdentifierWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public ApiResponse< TmsV1InstrumentIdentifiersPost200Response > GetInstrumentIdentifierWithHttpInfo (string tokenId)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
@@ -1059,10 +836,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
 
 
             // make the HTTP request
@@ -1087,15 +860,11 @@ namespace CyberSource.Api
         /// Retrieve an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1InstrumentIdentifiersPost200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> GetInstrumentIdentifierAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public async System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> GetInstrumentIdentifierAsync (string tokenId)
         {
-             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(tokenId);
              return localVarResponse.Data;
 
         }
@@ -1104,23 +873,10 @@ namespace CyberSource.Api
         /// Retrieve an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentIdentifiersPost200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> GetInstrumentIdentifierAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> GetInstrumentIdentifierAsyncWithHttpInfo (string tokenId)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
@@ -1148,10 +904,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
 
 
             // make the HTTP request
@@ -1176,16 +928,12 @@ namespace CyberSource.Api
         /// Update a Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="updateInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1InstrumentIdentifiersPost200Response</returns>
-        public TmsV1InstrumentIdentifiersPost200Response UpdateInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string clientApplication = null)
+        public TmsV1InstrumentIdentifiersPost200Response UpdateInstrumentIdentifier (string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest)
         {
-             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = UpdateInstrumentIdentifierWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, updateInstrumentIdentifierRequest, clientApplication);
+             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = UpdateInstrumentIdentifierWithHttpInfo(tokenId, updateInstrumentIdentifierRequest);
              return localVarResponse.Data;
         }
 
@@ -1193,24 +941,11 @@ namespace CyberSource.Api
         /// Update a Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="updateInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1InstrumentIdentifiersPost200Response</returns>
-        public ApiResponse< TmsV1InstrumentIdentifiersPost200Response > UpdateInstrumentIdentifierWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string clientApplication = null)
+        public ApiResponse< TmsV1InstrumentIdentifiersPost200Response > UpdateInstrumentIdentifierWithHttpInfo (string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->UpdateInstrumentIdentifier");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling InstrumentIdentifierApi->UpdateInstrumentIdentifier");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling InstrumentIdentifierApi->UpdateInstrumentIdentifier");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->UpdateInstrumentIdentifier");
@@ -1241,10 +976,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
             if (updateInstrumentIdentifierRequest != null && updateInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(updateInstrumentIdentifierRequest); // http body (model) parameter
@@ -1277,16 +1008,12 @@ namespace CyberSource.Api
         /// Update a Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="updateInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1InstrumentIdentifiersPost200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> UpdateInstrumentIdentifierAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string clientApplication = null)
+        public async System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPost200Response> UpdateInstrumentIdentifierAsync (string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest)
         {
-             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = await UpdateInstrumentIdentifierAsyncWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, updateInstrumentIdentifierRequest, clientApplication);
+             ApiResponse<TmsV1InstrumentIdentifiersPost200Response> localVarResponse = await UpdateInstrumentIdentifierAsyncWithHttpInfo(tokenId, updateInstrumentIdentifierRequest);
              return localVarResponse.Data;
 
         }
@@ -1295,24 +1022,11 @@ namespace CyberSource.Api
         /// Update a Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of an Instrument Identifier.</param>
         /// <param name="updateInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1InstrumentIdentifiersPost200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> UpdateInstrumentIdentifierAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string clientApplication = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1InstrumentIdentifiersPost200Response>> UpdateInstrumentIdentifierAsyncWithHttpInfo (string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling InstrumentIdentifierApi->UpdateInstrumentIdentifier");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling InstrumentIdentifierApi->UpdateInstrumentIdentifier");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling InstrumentIdentifierApi->UpdateInstrumentIdentifier");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling InstrumentIdentifierApi->UpdateInstrumentIdentifier");
@@ -1343,10 +1057,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
             if (updateInstrumentIdentifierRequest != null && updateInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(updateInstrumentIdentifierRequest); // http body (model) parameter

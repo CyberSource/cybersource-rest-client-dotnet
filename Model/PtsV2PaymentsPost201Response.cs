@@ -60,7 +60,19 @@ namespace CyberSource.Model
             /// Enum DECLINED for "DECLINED"
             /// </summary>
             [EnumMember(Value = "DECLINED")]
-            DECLINED
+            DECLINED,
+            
+            /// <summary>
+            /// Enum INVALIDREQUEST for "INVALID_REQUEST"
+            /// </summary>
+            [EnumMember(Value = "INVALID_REQUEST")]
+            INVALIDREQUEST,
+            
+            /// <summary>
+            /// Enum PENDING for "PENDING"
+            /// </summary>
+            [EnumMember(Value = "PENDING")]
+            PENDING
         }
 
         /// <summary>

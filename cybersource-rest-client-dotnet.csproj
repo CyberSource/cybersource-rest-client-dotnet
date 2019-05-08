@@ -12,7 +12,7 @@ OpenAPI spec version: 0.0.1
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{081B51ED-ECA7-450F-95BE-034B373FD852}</ProjectGuid>
+    <ProjectGuid>{BCA5ACAA-101A-492D-BFBF-A27E5B4B0823}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CyberSource</RootNamespace>
@@ -55,7 +55,7 @@ OpenAPI spec version: 0.0.1
       <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-        <HintPath>packages\RestSharp.106.5.3\lib\net452\RestSharp.dll</HintPath>
+        <HintPath>packages\RestSharp.106.5.3\lib\net45.2\RestSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -2376,7 +2376,9 @@
                                         "AUTHORIZED",
                                         "PARTIAL_AUTHORIZED",
                                         "AUTHORIZED_PENDING_REVIEW",
-                                        "DECLINED"
+                                        "DECLINED",
+                                        "INVALID_REQUEST",
+                                        "PENDING"
                                     ]
                                 },
                                 "reconciliationId": {
@@ -2406,8 +2408,8 @@
                                                 "PAYMENT_REFUSED",
                                                 "INVALID_ACCOUNT",
                                                 "GENERAL_DECLINE",
-												"DECISION_PROFILE_REJECT",
-												"SCORE_EXCEEDS_THRESHOLD"
+                                                "DECISION_PROFILE_REJECT",
+                                                "SCORE_EXCEEDS_THRESHOLD"
                                             ]
                                         },
                                         "message": {
@@ -17953,15 +17955,15 @@
                 "tags": [
                     "decision manager"
                 ],
-                "x-devcenter-metaData": {
-                    "categoryTag": "Decision_Manager"
-                },
                 "consumes": [
                     "application/hal+json;charset=utf-8"
                 ],
                 "produces": [
                     "application/hal+json;charset=utf-8"
                 ],
+                "x-devcenter-metaData": {
+                    "categoryTag": "Decision_Manager"
+                },
                 "parameters": [
                     {
                         "name": "createDecisionManagerCaseRequest",
@@ -18830,8 +18832,8 @@
                                                 "PAYMENT_REFUSED",
                                                 "INVALID_ACCOUNT",
                                                 "GENERAL_DECLINE",
-												"DECISION_PROFILE_REJECT",
-												"SCORE_EXCEEDS_THRESHOLD"
+                                                "DECISION_PROFILE_REJECT",
+                                                "SCORE_EXCEEDS_THRESHOLD"
                                             ]
                                         },
                                         "message": {
@@ -19342,17 +19344,17 @@
                                     "currency": "USD",
                                     "totalAmount": "144.14"
                                 },
-								"shipTo": {
-									"address1": "96, powers street",
-									"address2": "",
-									"locality": "Clearwater milford",
-									"country": "INDIA",
-									"firstName": "James",
-									"lastName": "Smith",
-									"phoneNumber": "7606160717",
-									"administrativeArea": "KA",
-									"postalCode": "560056"
-								}
+                                "shipTo": {
+                                    "address1": "96, powers street",
+                                    "address2": "",
+                                    "locality": "Clearwater milford",
+                                    "country": "INDIA",
+                                    "firstName": "James",
+                                    "lastName": "Smith",
+                                    "phoneNumber": "7606160717",
+                                    "administrativeArea": "KA",
+                                    "postalCode": "560056"
+                                }
                             }
                         },
                         "responseValue": {
@@ -19428,17 +19430,17 @@
                                     "currency": "USD",
                                     "totalAmount": "144.14"
                                 },
-								"shipTo": {
-									"address1": "96, powers street",
-									"address2": "",
-									"locality": "Clearwater milford",
-									"country": "INDIA",
-									"firstName": "James",
-									"lastName": "Smith",
-									"phoneNumber": "7606160717",
-									"administrativeArea": "KA",
-									"postalCode": "560056"
-								}
+                                "shipTo": {
+                                    "address1": "96, powers street",
+                                    "address2": "",
+                                    "locality": "Clearwater milford",
+                                    "country": "INDIA",
+                                    "firstName": "James",
+                                    "lastName": "Smith",
+                                    "phoneNumber": "7606160717",
+                                    "administrativeArea": "KA",
+                                    "postalCode": "560056"
+                                }
                             }
                         },
                         "responseValue": {
@@ -20109,43 +20111,6 @@
             "post": {
                 "summary": "Create an Instrument Identifier",
                 "parameters": [
-                    {
-                        "name": "profile-id",
-                        "in": "header",
-                        "description": "The id of a profile containing user specific TMS configuration.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "v-c-merchant-id",
-                        "in": "header",
-                        "description": "CyberSource merchant id.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 5,
-                        "maxLength": 32
-                    },
-                    {
-                        "name": "v-c-correlation-id",
-                        "in": "header",
-                        "description": "The mandatory correlation id passed by upstream (calling) system.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "Client-Application",
-                        "in": "header",
-                        "description": "Client application name",
-                        "required": false,
-                        "pattern": "^[a-zA-Z0-9\\\\-_]{3,30}|$",
-                        "type": "string",
-                        "minLength": 3,
-                        "maxLength": 30
-                    },
                     {
                         "name": "createInstrumentIdentifierRequest",
                         "in": "body",
@@ -20836,43 +20801,6 @@
                 "summary": "Retrieve an Instrument Identifier",
                 "parameters": [
                     {
-                        "name": "profile-id",
-                        "in": "header",
-                        "description": "The id of a profile containing user specific TMS configuration.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "v-c-merchant-id",
-                        "in": "header",
-                        "description": "CyberSource merchant id.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 5,
-                        "maxLength": 32
-                    },
-                    {
-                        "name": "v-c-correlation-id",
-                        "in": "header",
-                        "description": "The mandatory correlation id passed by upstream (calling) system.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "Client-Application",
-                        "in": "header",
-                        "description": "Client application name",
-                        "required": false,
-                        "pattern": "^[a-zA-Z0-9\\\\-_]{3,30}|$",
-                        "type": "string",
-                        "minLength": 3,
-                        "maxLength": 30
-                    },
-                    {
                         "name": "tokenId",
                         "in": "path",
                         "description": "The TokenId of an Instrument Identifier.",
@@ -21360,43 +21288,6 @@
             "patch": {
                 "summary": "Update a Instrument Identifier",
                 "parameters": [
-                    {
-                        "name": "profile-id",
-                        "in": "header",
-                        "description": "The id of a profile containing user specific TMS configuration.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "v-c-merchant-id",
-                        "in": "header",
-                        "description": "CyberSource merchant id.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 5,
-                        "maxLength": 32
-                    },
-                    {
-                        "name": "v-c-correlation-id",
-                        "in": "header",
-                        "description": "The mandatory correlation id passed by upstream (calling) system.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "Client-Application",
-                        "in": "header",
-                        "description": "Client application name",
-                        "required": false,
-                        "pattern": "^[a-zA-Z0-9\\\\-_]{3,30}|$",
-                        "type": "string",
-                        "minLength": 3,
-                        "maxLength": 30
-                    },
                     {
                         "name": "tokenId",
                         "in": "path",
@@ -21975,43 +21866,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "profile-id",
-                        "in": "header",
-                        "description": "The id of a profile containing user specific TMS configuration.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "v-c-merchant-id",
-                        "in": "header",
-                        "description": "CyberSource merchant id.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 5,
-                        "maxLength": 32
-                    },
-                    {
-                        "name": "v-c-correlation-id",
-                        "in": "header",
-                        "description": "The mandatory correlation id passed by upstream (calling) system.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "Client-Application",
-                        "in": "header",
-                        "description": "Client application name",
-                        "required": false,
-                        "pattern": "^[a-zA-Z0-9\\\\-_]{3,30}|$",
-                        "type": "string",
-                        "minLength": 3,
-                        "maxLength": 30
-                    },
-                    {
                         "name": "tokenId",
                         "in": "path",
                         "description": "The TokenId of an Instrument Identifier.",
@@ -22348,43 +22202,6 @@
             "get": {
                 "summary": "Retrieve all Payment Instruments associated with an Instrument Identifier",
                 "parameters": [
-                    {
-                        "name": "profile-id",
-                        "in": "header",
-                        "description": "The id of a profile containing user specific TMS configuration.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "v-c-merchant-id",
-                        "in": "header",
-                        "description": "CyberSource merchant id.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 5,
-                        "maxLength": 32
-                    },
-                    {
-                        "name": "v-c-correlation-id",
-                        "in": "header",
-                        "description": "The mandatory correlation id passed by upstream (calling) system.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "Client-Application",
-                        "in": "header",
-                        "description": "Client application name",
-                        "required": false,
-                        "pattern": "^[a-zA-Z0-9\\\\-_]{3,30}|$",
-                        "type": "string",
-                        "minLength": 3,
-                        "maxLength": 30
-                    },
                     {
                         "name": "tokenId",
                         "in": "path",
@@ -23445,43 +23262,6 @@
             "post": {
                 "summary": "Create a Payment Instrument",
                 "parameters": [
-                    {
-                        "name": "profile-id",
-                        "in": "header",
-                        "description": "The id of a profile containing user specific TMS configuration.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "v-c-merchant-id",
-                        "in": "header",
-                        "description": "CyberSource merchant id.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 5,
-                        "maxLength": 32
-                    },
-                    {
-                        "name": "v-c-correlation-id",
-                        "in": "header",
-                        "description": "The mandatory correlation id passed by upstream (calling) system.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "Client-Application",
-                        "in": "header",
-                        "description": "Client application name",
-                        "required": false,
-                        "pattern": "^[a-zA-Z0-9\\\\-_]{3,30}|$",
-                        "type": "string",
-                        "minLength": 3,
-                        "maxLength": 30
-                    },
                     {
                         "name": "createPaymentInstrumentRequest",
                         "in": "body",
@@ -25111,43 +24891,6 @@
                 "summary": "Update a Payment Instrument",
                 "parameters": [
                     {
-                        "name": "profile-id",
-                        "in": "header",
-                        "description": "The id of a profile containing user specific TMS configuration.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "v-c-merchant-id",
-                        "in": "header",
-                        "description": "CyberSource merchant id.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 5,
-                        "maxLength": 32
-                    },
-                    {
-                        "name": "v-c-correlation-id",
-                        "in": "header",
-                        "description": "The mandatory correlation id passed by upstream (calling) system.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "Client-Application",
-                        "in": "header",
-                        "description": "Client application name",
-                        "required": false,
-                        "pattern": "^[a-zA-Z0-9\\\\-_]{3,30}|$",
-                        "type": "string",
-                        "minLength": 3,
-                        "maxLength": 30
-                    },
-                    {
                         "name": "tokenId",
                         "in": "path",
                         "description": "The TokenId of a Payment Instrument.",
@@ -26620,43 +26363,6 @@
                 "summary": "Retrieve a Payment Instrument",
                 "parameters": [
                     {
-                        "name": "profile-id",
-                        "in": "header",
-                        "description": "The id of a profile containing user specific TMS configuration.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "v-c-merchant-id",
-                        "in": "header",
-                        "description": "CyberSource merchant id.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 5,
-                        "maxLength": 32
-                    },
-                    {
-                        "name": "v-c-correlation-id",
-                        "in": "header",
-                        "description": "The mandatory correlation id passed by upstream (calling) system.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "Client-Application",
-                        "in": "header",
-                        "description": "Client application name",
-                        "required": false,
-                        "pattern": "^[a-zA-Z0-9\\\\-_]{3,30}|$",
-                        "type": "string",
-                        "minLength": 3,
-                        "maxLength": 30
-                    },
-                    {
                         "name": "tokenId",
                         "in": "path",
                         "description": "The TokenId of a Payment Instrument.",
@@ -27566,43 +27272,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "profile-id",
-                        "in": "header",
-                        "description": "The id of a profile containing user specific TMS configuration.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "v-c-merchant-id",
-                        "in": "header",
-                        "description": "CyberSource merchant id.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 5,
-                        "maxLength": 32
-                    },
-                    {
-                        "name": "v-c-correlation-id",
-                        "in": "header",
-                        "description": "The mandatory correlation id passed by upstream (calling) system.",
-                        "required": true,
-                        "type": "string",
-                        "minLength": 36,
-                        "maxLength": 36
-                    },
-                    {
-                        "name": "Client-Application",
-                        "in": "header",
-                        "description": "Client application name",
-                        "required": false,
-                        "pattern": "^[a-zA-Z0-9\\\\-_]{3,30}|$",
-                        "type": "string",
-                        "minLength": 3,
-                        "maxLength": 30
-                    },
-                    {
                         "name": "tokenId",
                         "in": "path",
                         "description": "The TokenId of a Payment Instrument.",
@@ -27925,7 +27594,7 @@
                                     "type": "string",
                                     "description": "The status of the submitted transaction."
                                 },
-                                "submitTimeUtc": {
+                                "submitTimeUTC": {
                                     "type": "string",
                                     "description": "Time of request in UTC. Format: `YYYY-MM-DDThh:mm:ssZ`\nExample `2016-08-11T22:47:57Z` equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The `T` separates the date and the\ntime. The `Z` indicates UTC.\n"
                                 },

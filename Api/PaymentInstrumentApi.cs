@@ -31,13 +31,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createPaymentInstrumentRequest">Specify the customer&#39;s payment details for card or bank account.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1PaymentinstrumentsPatch200Response</returns>
-        TmsV1PaymentinstrumentsPatch200Response CreatePaymentInstrument (string profileId, string vCMerchantId, string vCCorrelationId, CreatePaymentInstrumentRequest createPaymentInstrumentRequest, string clientApplication = null);
+        TmsV1PaymentinstrumentsPatch200Response CreatePaymentInstrument (CreatePaymentInstrumentRequest createPaymentInstrumentRequest);
 
         /// <summary>
         /// Create a Payment Instrument
@@ -46,13 +42,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createPaymentInstrumentRequest">Specify the customer&#39;s payment details for card or bank account.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1PaymentinstrumentsPatch200Response</returns>
-        ApiResponse<TmsV1PaymentinstrumentsPatch200Response> CreatePaymentInstrumentWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, CreatePaymentInstrumentRequest createPaymentInstrumentRequest, string clientApplication = null);
+        ApiResponse<TmsV1PaymentinstrumentsPatch200Response> CreatePaymentInstrumentWithHttpInfo (CreatePaymentInstrumentRequest createPaymentInstrumentRequest);
         /// <summary>
         /// Delete a Payment Instrument
         /// </summary>
@@ -60,13 +52,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns></returns>
-        void DeletePaymentInstrument (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        void DeletePaymentInstrument (string tokenId);
 
         /// <summary>
         /// Delete a Payment Instrument
@@ -75,13 +63,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeletePaymentInstrumentWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        ApiResponse<Object> DeletePaymentInstrumentWithHttpInfo (string tokenId);
         /// <summary>
         /// Retrieve a Payment Instrument
         /// </summary>
@@ -89,13 +73,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1PaymentinstrumentsPatch200Response</returns>
-        TmsV1PaymentinstrumentsPatch200Response GetPaymentInstrument (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        TmsV1PaymentinstrumentsPatch200Response GetPaymentInstrument (string tokenId);
 
         /// <summary>
         /// Retrieve a Payment Instrument
@@ -104,13 +84,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1PaymentinstrumentsPatch200Response</returns>
-        ApiResponse<TmsV1PaymentinstrumentsPatch200Response> GetPaymentInstrumentWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        ApiResponse<TmsV1PaymentinstrumentsPatch200Response> GetPaymentInstrumentWithHttpInfo (string tokenId);
         /// <summary>
         /// Update a Payment Instrument
         /// </summary>
@@ -118,14 +94,10 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="updatePaymentInstrumentRequest">Specify the customer&#39;s payment details.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1PaymentinstrumentsPatch200Response</returns>
-        TmsV1PaymentinstrumentsPatch200Response UpdatePaymentInstrument (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest, string clientApplication = null);
+        TmsV1PaymentinstrumentsPatch200Response UpdatePaymentInstrument (string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest);
 
         /// <summary>
         /// Update a Payment Instrument
@@ -134,14 +106,10 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="updatePaymentInstrumentRequest">Specify the customer&#39;s payment details.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1PaymentinstrumentsPatch200Response</returns>
-        ApiResponse<TmsV1PaymentinstrumentsPatch200Response> UpdatePaymentInstrumentWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest, string clientApplication = null);
+        ApiResponse<TmsV1PaymentinstrumentsPatch200Response> UpdatePaymentInstrumentWithHttpInfo (string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -151,13 +119,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createPaymentInstrumentRequest">Specify the customer&#39;s payment details for card or bank account.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1PaymentinstrumentsPatch200Response</returns>
-        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> CreatePaymentInstrumentAsync (string profileId, string vCMerchantId, string vCCorrelationId, CreatePaymentInstrumentRequest createPaymentInstrumentRequest, string clientApplication = null);
+        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> CreatePaymentInstrumentAsync (CreatePaymentInstrumentRequest createPaymentInstrumentRequest);
 
         /// <summary>
         /// Create a Payment Instrument
@@ -166,13 +130,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createPaymentInstrumentRequest">Specify the customer&#39;s payment details for card or bank account.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPatch200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> CreatePaymentInstrumentAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, CreatePaymentInstrumentRequest createPaymentInstrumentRequest, string clientApplication = null);
+        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> CreatePaymentInstrumentAsyncWithHttpInfo (CreatePaymentInstrumentRequest createPaymentInstrumentRequest);
         /// <summary>
         /// Delete a Payment Instrument
         /// </summary>
@@ -180,13 +140,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeletePaymentInstrumentAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        System.Threading.Tasks.Task DeletePaymentInstrumentAsync (string tokenId);
 
         /// <summary>
         /// Delete a Payment Instrument
@@ -195,13 +151,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePaymentInstrumentAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePaymentInstrumentAsyncWithHttpInfo (string tokenId);
         /// <summary>
         /// Retrieve a Payment Instrument
         /// </summary>
@@ -209,13 +161,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1PaymentinstrumentsPatch200Response</returns>
-        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> GetPaymentInstrumentAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> GetPaymentInstrumentAsync (string tokenId);
 
         /// <summary>
         /// Retrieve a Payment Instrument
@@ -224,13 +172,9 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPatch200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> GetPaymentInstrumentAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null);
+        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> GetPaymentInstrumentAsyncWithHttpInfo (string tokenId);
         /// <summary>
         /// Update a Payment Instrument
         /// </summary>
@@ -238,14 +182,10 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="updatePaymentInstrumentRequest">Specify the customer&#39;s payment details.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1PaymentinstrumentsPatch200Response</returns>
-        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> UpdatePaymentInstrumentAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest, string clientApplication = null);
+        System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> UpdatePaymentInstrumentAsync (string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest);
 
         /// <summary>
         /// Update a Payment Instrument
@@ -254,14 +194,10 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="updatePaymentInstrumentRequest">Specify the customer&#39;s payment details.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPatch200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> UpdatePaymentInstrumentAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest, string clientApplication = null);
+        System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> UpdatePaymentInstrumentAsyncWithHttpInfo (string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest);
         #endregion Asynchronous Operations
     }
 
@@ -378,15 +314,11 @@ namespace CyberSource.Api
         /// Create a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createPaymentInstrumentRequest">Specify the customer&#39;s payment details for card or bank account.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1PaymentinstrumentsPatch200Response</returns>
-        public TmsV1PaymentinstrumentsPatch200Response CreatePaymentInstrument (string profileId, string vCMerchantId, string vCCorrelationId, CreatePaymentInstrumentRequest createPaymentInstrumentRequest, string clientApplication = null)
+        public TmsV1PaymentinstrumentsPatch200Response CreatePaymentInstrument (CreatePaymentInstrumentRequest createPaymentInstrumentRequest)
         {
-             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = CreatePaymentInstrumentWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, createPaymentInstrumentRequest, clientApplication);
+             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = CreatePaymentInstrumentWithHttpInfo(createPaymentInstrumentRequest);
              return localVarResponse.Data;
         }
 
@@ -394,23 +326,10 @@ namespace CyberSource.Api
         /// Create a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createPaymentInstrumentRequest">Specify the customer&#39;s payment details for card or bank account.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1PaymentinstrumentsPatch200Response</returns>
-        public ApiResponse< TmsV1PaymentinstrumentsPatch200Response > CreatePaymentInstrumentWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, CreatePaymentInstrumentRequest createPaymentInstrumentRequest, string clientApplication = null)
+        public ApiResponse< TmsV1PaymentinstrumentsPatch200Response > CreatePaymentInstrumentWithHttpInfo (CreatePaymentInstrumentRequest createPaymentInstrumentRequest)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling PaymentInstrumentApi->CreatePaymentInstrument");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PaymentInstrumentApi->CreatePaymentInstrument");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PaymentInstrumentApi->CreatePaymentInstrument");
             // verify the required parameter 'createPaymentInstrumentRequest' is set
             if (createPaymentInstrumentRequest == null)
                 throw new ApiException(400, "Missing required parameter 'createPaymentInstrumentRequest' when calling PaymentInstrumentApi->CreatePaymentInstrument");
@@ -437,10 +356,6 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
             if (createPaymentInstrumentRequest != null && createPaymentInstrumentRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(createPaymentInstrumentRequest); // http body (model) parameter
@@ -473,15 +388,11 @@ namespace CyberSource.Api
         /// Create a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createPaymentInstrumentRequest">Specify the customer&#39;s payment details for card or bank account.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1PaymentinstrumentsPatch200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> CreatePaymentInstrumentAsync (string profileId, string vCMerchantId, string vCCorrelationId, CreatePaymentInstrumentRequest createPaymentInstrumentRequest, string clientApplication = null)
+        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> CreatePaymentInstrumentAsync (CreatePaymentInstrumentRequest createPaymentInstrumentRequest)
         {
-             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = await CreatePaymentInstrumentAsyncWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, createPaymentInstrumentRequest, clientApplication);
+             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = await CreatePaymentInstrumentAsyncWithHttpInfo(createPaymentInstrumentRequest);
              return localVarResponse.Data;
 
         }
@@ -490,23 +401,10 @@ namespace CyberSource.Api
         /// Create a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="createPaymentInstrumentRequest">Specify the customer&#39;s payment details for card or bank account.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPatch200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> CreatePaymentInstrumentAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, CreatePaymentInstrumentRequest createPaymentInstrumentRequest, string clientApplication = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> CreatePaymentInstrumentAsyncWithHttpInfo (CreatePaymentInstrumentRequest createPaymentInstrumentRequest)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling PaymentInstrumentApi->CreatePaymentInstrument");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PaymentInstrumentApi->CreatePaymentInstrument");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PaymentInstrumentApi->CreatePaymentInstrument");
             // verify the required parameter 'createPaymentInstrumentRequest' is set
             if (createPaymentInstrumentRequest == null)
                 throw new ApiException(400, "Missing required parameter 'createPaymentInstrumentRequest' when calling PaymentInstrumentApi->CreatePaymentInstrument");
@@ -533,10 +431,6 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
             if (createPaymentInstrumentRequest != null && createPaymentInstrumentRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(createPaymentInstrumentRequest); // http body (model) parameter
@@ -569,38 +463,21 @@ namespace CyberSource.Api
         /// Delete a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns></returns>
-        public void DeletePaymentInstrument (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public void DeletePaymentInstrument (string tokenId)
         {
-             DeletePaymentInstrumentWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+             DeletePaymentInstrumentWithHttpInfo(tokenId);
         }
 
         /// <summary>
         /// Delete a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeletePaymentInstrumentWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public ApiResponse<Object> DeletePaymentInstrumentWithHttpInfo (string tokenId)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling PaymentInstrumentApi->DeletePaymentInstrument");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PaymentInstrumentApi->DeletePaymentInstrument");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PaymentInstrumentApi->DeletePaymentInstrument");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling PaymentInstrumentApi->DeletePaymentInstrument");
@@ -628,10 +505,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
 
 
             // make the HTTP request
@@ -656,15 +529,11 @@ namespace CyberSource.Api
         /// Delete a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeletePaymentInstrumentAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public async System.Threading.Tasks.Task DeletePaymentInstrumentAsync (string tokenId)
         {
-             await DeletePaymentInstrumentAsyncWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+             await DeletePaymentInstrumentAsyncWithHttpInfo(tokenId);
 
         }
 
@@ -672,23 +541,10 @@ namespace CyberSource.Api
         /// Delete a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeletePaymentInstrumentAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeletePaymentInstrumentAsyncWithHttpInfo (string tokenId)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling PaymentInstrumentApi->DeletePaymentInstrument");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PaymentInstrumentApi->DeletePaymentInstrument");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PaymentInstrumentApi->DeletePaymentInstrument");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling PaymentInstrumentApi->DeletePaymentInstrument");
@@ -716,10 +572,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
 
 
             // make the HTTP request
@@ -744,15 +596,11 @@ namespace CyberSource.Api
         /// Retrieve a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1PaymentinstrumentsPatch200Response</returns>
-        public TmsV1PaymentinstrumentsPatch200Response GetPaymentInstrument (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public TmsV1PaymentinstrumentsPatch200Response GetPaymentInstrument (string tokenId)
         {
-             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = GetPaymentInstrumentWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = GetPaymentInstrumentWithHttpInfo(tokenId);
              return localVarResponse.Data;
         }
 
@@ -760,23 +608,10 @@ namespace CyberSource.Api
         /// Retrieve a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1PaymentinstrumentsPatch200Response</returns>
-        public ApiResponse< TmsV1PaymentinstrumentsPatch200Response > GetPaymentInstrumentWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public ApiResponse< TmsV1PaymentinstrumentsPatch200Response > GetPaymentInstrumentWithHttpInfo (string tokenId)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling PaymentInstrumentApi->GetPaymentInstrument");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PaymentInstrumentApi->GetPaymentInstrument");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PaymentInstrumentApi->GetPaymentInstrument");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling PaymentInstrumentApi->GetPaymentInstrument");
@@ -804,10 +639,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
 
 
             // make the HTTP request
@@ -832,15 +663,11 @@ namespace CyberSource.Api
         /// Retrieve a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1PaymentinstrumentsPatch200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> GetPaymentInstrumentAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> GetPaymentInstrumentAsync (string tokenId)
         {
-             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = await GetPaymentInstrumentAsyncWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = await GetPaymentInstrumentAsyncWithHttpInfo(tokenId);
              return localVarResponse.Data;
 
         }
@@ -849,23 +676,10 @@ namespace CyberSource.Api
         /// Retrieve a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPatch200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> GetPaymentInstrumentAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> GetPaymentInstrumentAsyncWithHttpInfo (string tokenId)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling PaymentInstrumentApi->GetPaymentInstrument");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PaymentInstrumentApi->GetPaymentInstrument");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PaymentInstrumentApi->GetPaymentInstrument");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling PaymentInstrumentApi->GetPaymentInstrument");
@@ -893,10 +707,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
 
 
             // make the HTTP request
@@ -921,16 +731,12 @@ namespace CyberSource.Api
         /// Update a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="updatePaymentInstrumentRequest">Specify the customer&#39;s payment details.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>TmsV1PaymentinstrumentsPatch200Response</returns>
-        public TmsV1PaymentinstrumentsPatch200Response UpdatePaymentInstrument (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest, string clientApplication = null)
+        public TmsV1PaymentinstrumentsPatch200Response UpdatePaymentInstrument (string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest)
         {
-             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = UpdatePaymentInstrumentWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, updatePaymentInstrumentRequest, clientApplication);
+             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = UpdatePaymentInstrumentWithHttpInfo(tokenId, updatePaymentInstrumentRequest);
              return localVarResponse.Data;
         }
 
@@ -938,24 +744,11 @@ namespace CyberSource.Api
         /// Update a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="updatePaymentInstrumentRequest">Specify the customer&#39;s payment details.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>ApiResponse of TmsV1PaymentinstrumentsPatch200Response</returns>
-        public ApiResponse< TmsV1PaymentinstrumentsPatch200Response > UpdatePaymentInstrumentWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest, string clientApplication = null)
+        public ApiResponse< TmsV1PaymentinstrumentsPatch200Response > UpdatePaymentInstrumentWithHttpInfo (string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling PaymentInstrumentApi->UpdatePaymentInstrument");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PaymentInstrumentApi->UpdatePaymentInstrument");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PaymentInstrumentApi->UpdatePaymentInstrument");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling PaymentInstrumentApi->UpdatePaymentInstrument");
@@ -986,10 +779,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
             if (updatePaymentInstrumentRequest != null && updatePaymentInstrumentRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(updatePaymentInstrumentRequest); // http body (model) parameter
@@ -1022,16 +811,12 @@ namespace CyberSource.Api
         /// Update a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="updatePaymentInstrumentRequest">Specify the customer&#39;s payment details.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of TmsV1PaymentinstrumentsPatch200Response</returns>
-        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> UpdatePaymentInstrumentAsync (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest, string clientApplication = null)
+        public async System.Threading.Tasks.Task<TmsV1PaymentinstrumentsPatch200Response> UpdatePaymentInstrumentAsync (string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest)
         {
-             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = await UpdatePaymentInstrumentAsyncWithHttpInfo(profileId, vCMerchantId, vCCorrelationId, tokenId, updatePaymentInstrumentRequest, clientApplication);
+             ApiResponse<TmsV1PaymentinstrumentsPatch200Response> localVarResponse = await UpdatePaymentInstrumentAsyncWithHttpInfo(tokenId, updatePaymentInstrumentRequest);
              return localVarResponse.Data;
 
         }
@@ -1040,24 +825,11 @@ namespace CyberSource.Api
         /// Update a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
-        /// <param name="vCMerchantId">CyberSource merchant id.</param>
-        /// <param name="vCCorrelationId">The mandatory correlation id passed by upstream (calling) system.</param>
         /// <param name="tokenId">The TokenId of a Payment Instrument.</param>
         /// <param name="updatePaymentInstrumentRequest">Specify the customer&#39;s payment details.</param>
-        /// <param name="clientApplication">Client application name (optional)</param>
         /// <returns>Task of ApiResponse (TmsV1PaymentinstrumentsPatch200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> UpdatePaymentInstrumentAsyncWithHttpInfo (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest, string clientApplication = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TmsV1PaymentinstrumentsPatch200Response>> UpdatePaymentInstrumentAsyncWithHttpInfo (string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest)
         {
-            // verify the required parameter 'profileId' is set
-            if (profileId == null)
-                throw new ApiException(400, "Missing required parameter 'profileId' when calling PaymentInstrumentApi->UpdatePaymentInstrument");
-            // verify the required parameter 'vCMerchantId' is set
-            if (vCMerchantId == null)
-                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PaymentInstrumentApi->UpdatePaymentInstrument");
-            // verify the required parameter 'vCCorrelationId' is set
-            if (vCCorrelationId == null)
-                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PaymentInstrumentApi->UpdatePaymentInstrument");
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling PaymentInstrumentApi->UpdatePaymentInstrument");
@@ -1088,10 +860,6 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (tokenId != null) localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
-            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            if (vCMerchantId != null) localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
-            if (vCCorrelationId != null) localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
-            if (clientApplication != null) localVarHeaderParams.Add("Client-Application", Configuration.ApiClient.ParameterToString(clientApplication)); // header parameter
             if (updatePaymentInstrumentRequest != null && updatePaymentInstrumentRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(updatePaymentInstrumentRequest); // http body (model) parameter

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createinstrumentidentifier"></a>
 # **CreateInstrumentIdentifier**
-> TmsV1InstrumentIdentifiersPost200Response CreateInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest, string clientApplication = null)
+> TmsV1InstrumentIdentifiersPost200Response CreateInstrumentIdentifier (CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest)
 
 Create an Instrument Identifier
 
@@ -32,16 +32,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new InstrumentIdentifierApi();
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
-            var vCMerchantId = vCMerchantId_example;  // string | CyberSource merchant id.
-            var vCCorrelationId = vCCorrelationId_example;  // string | The mandatory correlation id passed by upstream (calling) system.
             var createInstrumentIdentifierRequest = new CreateInstrumentIdentifierRequest(); // CreateInstrumentIdentifierRequest | Please specify either a Card, Bank Account or Enrollable Card
-            var clientApplication = clientApplication_example;  // string | Client application name (optional) 
 
             try
             {
                 // Create an Instrument Identifier
-                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.CreateInstrumentIdentifier(profileId, vCMerchantId, vCCorrelationId, createInstrumentIdentifierRequest, clientApplication);
+                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.CreateInstrumentIdentifier(createInstrumentIdentifierRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,11 +53,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
- **vCMerchantId** | **string**| CyberSource merchant id. | 
- **vCCorrelationId** | **string**| The mandatory correlation id passed by upstream (calling) system. | 
  **createInstrumentIdentifierRequest** | [**CreateInstrumentIdentifierRequest**](CreateInstrumentIdentifierRequest.md)| Please specify either a Card, Bank Account or Enrollable Card | 
- **clientApplication** | **string**| Client application name | [optional] 
 
 ### Return type
 
@@ -80,7 +72,7 @@ No authorization required
 
 <a name="deleteinstrumentidentifier"></a>
 # **DeleteInstrumentIdentifier**
-> void DeleteInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+> void DeleteInstrumentIdentifier (string tokenId)
 
 Delete an Instrument Identifier
 
@@ -99,16 +91,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new InstrumentIdentifierApi();
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
-            var vCMerchantId = vCMerchantId_example;  // string | CyberSource merchant id.
-            var vCCorrelationId = vCCorrelationId_example;  // string | The mandatory correlation id passed by upstream (calling) system.
             var tokenId = tokenId_example;  // string | The TokenId of an Instrument Identifier.
-            var clientApplication = clientApplication_example;  // string | Client application name (optional) 
 
             try
             {
                 // Delete an Instrument Identifier
-                apiInstance.DeleteInstrumentIdentifier(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+                apiInstance.DeleteInstrumentIdentifier(tokenId);
             }
             catch (Exception e)
             {
@@ -123,11 +111,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
- **vCMerchantId** | **string**| CyberSource merchant id. | 
- **vCCorrelationId** | **string**| The mandatory correlation id passed by upstream (calling) system. | 
  **tokenId** | **string**| The TokenId of an Instrument Identifier. | 
- **clientApplication** | **string**| Client application name | [optional] 
 
 ### Return type
 
@@ -146,7 +130,7 @@ No authorization required
 
 <a name="getallpaymentinstruments"></a>
 # **GetAllPaymentInstruments**
-> TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response GetAllPaymentInstruments (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null, long? offset = null, long? limit = null)
+> TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response GetAllPaymentInstruments (string tokenId, long? offset = null, long? limit = null)
 
 Retrieve all Payment Instruments associated with an Instrument Identifier
 
@@ -165,18 +149,14 @@ namespace Example
         public void main()
         {
             var apiInstance = new InstrumentIdentifierApi();
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
-            var vCMerchantId = vCMerchantId_example;  // string | CyberSource merchant id.
-            var vCCorrelationId = vCCorrelationId_example;  // string | The mandatory correlation id passed by upstream (calling) system.
             var tokenId = tokenId_example;  // string | The TokenId of an Instrument Identifier.
-            var clientApplication = clientApplication_example;  // string | Client application name (optional) 
             var offset = 789;  // long? | Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)  (default to 0)
             var limit = 789;  // long? | The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional)  (default to 20)
 
             try
             {
                 // Retrieve all Payment Instruments associated with an Instrument Identifier
-                TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response result = apiInstance.GetAllPaymentInstruments(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication, offset, limit);
+                TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response result = apiInstance.GetAllPaymentInstruments(tokenId, offset, limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -192,11 +172,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
- **vCMerchantId** | **string**| CyberSource merchant id. | 
- **vCCorrelationId** | **string**| The mandatory correlation id passed by upstream (calling) system. | 
  **tokenId** | **string**| The TokenId of an Instrument Identifier. | 
- **clientApplication** | **string**| Client application name | [optional] 
  **offset** | **long?**| Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. | [optional] [default to 0]
  **limit** | **long?**| The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. | [optional] [default to 20]
 
@@ -217,7 +193,7 @@ No authorization required
 
 <a name="getinstrumentidentifier"></a>
 # **GetInstrumentIdentifier**
-> TmsV1InstrumentIdentifiersPost200Response GetInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, string clientApplication = null)
+> TmsV1InstrumentIdentifiersPost200Response GetInstrumentIdentifier (string tokenId)
 
 Retrieve an Instrument Identifier
 
@@ -236,16 +212,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new InstrumentIdentifierApi();
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
-            var vCMerchantId = vCMerchantId_example;  // string | CyberSource merchant id.
-            var vCCorrelationId = vCCorrelationId_example;  // string | The mandatory correlation id passed by upstream (calling) system.
             var tokenId = tokenId_example;  // string | The TokenId of an Instrument Identifier.
-            var clientApplication = clientApplication_example;  // string | Client application name (optional) 
 
             try
             {
                 // Retrieve an Instrument Identifier
-                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.GetInstrumentIdentifier(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.GetInstrumentIdentifier(tokenId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -261,11 +233,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
- **vCMerchantId** | **string**| CyberSource merchant id. | 
- **vCCorrelationId** | **string**| The mandatory correlation id passed by upstream (calling) system. | 
  **tokenId** | **string**| The TokenId of an Instrument Identifier. | 
- **clientApplication** | **string**| Client application name | [optional] 
 
 ### Return type
 
@@ -284,7 +252,7 @@ No authorization required
 
 <a name="updateinstrumentidentifier"></a>
 # **UpdateInstrumentIdentifier**
-> TmsV1InstrumentIdentifiersPost200Response UpdateInstrumentIdentifier (string profileId, string vCMerchantId, string vCCorrelationId, string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string clientApplication = null)
+> TmsV1InstrumentIdentifiersPost200Response UpdateInstrumentIdentifier (string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest)
 
 Update a Instrument Identifier
 
@@ -303,17 +271,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new InstrumentIdentifierApi();
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
-            var vCMerchantId = vCMerchantId_example;  // string | CyberSource merchant id.
-            var vCCorrelationId = vCCorrelationId_example;  // string | The mandatory correlation id passed by upstream (calling) system.
             var tokenId = tokenId_example;  // string | The TokenId of an Instrument Identifier.
             var updateInstrumentIdentifierRequest = new UpdateInstrumentIdentifierRequest(); // UpdateInstrumentIdentifierRequest | Specify the previous transaction ID to update.
-            var clientApplication = clientApplication_example;  // string | Client application name (optional) 
 
             try
             {
                 // Update a Instrument Identifier
-                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.UpdateInstrumentIdentifier(profileId, vCMerchantId, vCCorrelationId, tokenId, updateInstrumentIdentifierRequest, clientApplication);
+                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.UpdateInstrumentIdentifier(tokenId, updateInstrumentIdentifierRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -329,12 +293,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
- **vCMerchantId** | **string**| CyberSource merchant id. | 
- **vCCorrelationId** | **string**| The mandatory correlation id passed by upstream (calling) system. | 
  **tokenId** | **string**| The TokenId of an Instrument Identifier. | 
  **updateInstrumentIdentifierRequest** | [**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md)| Specify the previous transaction ID to update. | 
- **clientApplication** | **string**| Client application name | [optional] 
 
 ### Return type
 

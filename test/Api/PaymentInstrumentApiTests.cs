@@ -71,12 +71,8 @@ namespace CyberSource.Test
         public void CreatePaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //string vCMerchantId = null;
-            //string vCCorrelationId = null;
             //CreatePaymentInstrumentRequest createPaymentInstrumentRequest = null;
-            //string clientApplication = null;
-            //var response = instance.CreatePaymentInstrument(profileId, vCMerchantId, vCCorrelationId, createPaymentInstrumentRequest, clientApplication);
+            //var response = instance.CreatePaymentInstrument(createPaymentInstrumentRequest);
             //Assert.IsInstanceOf<TmsV1PaymentinstrumentsPatch200Response> (response, "response is TmsV1PaymentinstrumentsPatch200Response");
         }
         
@@ -87,12 +83,8 @@ namespace CyberSource.Test
         public void DeletePaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //string vCMerchantId = null;
-            //string vCCorrelationId = null;
             //string tokenId = null;
-            //string clientApplication = null;
-            //instance.DeletePaymentInstrument(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+            //instance.DeletePaymentInstrument(tokenId);
             
         }
         
@@ -103,12 +95,8 @@ namespace CyberSource.Test
         public void GetPaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //string vCMerchantId = null;
-            //string vCCorrelationId = null;
             //string tokenId = null;
-            //string clientApplication = null;
-            //var response = instance.GetPaymentInstrument(profileId, vCMerchantId, vCCorrelationId, tokenId, clientApplication);
+            //var response = instance.GetPaymentInstrument(tokenId);
             //Assert.IsInstanceOf<TmsV1PaymentinstrumentsPatch200Response> (response, "response is TmsV1PaymentinstrumentsPatch200Response");
         }
         
@@ -119,13 +107,9 @@ namespace CyberSource.Test
         public void UpdatePaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //string vCMerchantId = null;
-            //string vCCorrelationId = null;
             //string tokenId = null;
             //UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest = null;
-            //string clientApplication = null;
-            //var response = instance.UpdatePaymentInstrument(profileId, vCMerchantId, vCCorrelationId, tokenId, updatePaymentInstrumentRequest, clientApplication);
+            //var response = instance.UpdatePaymentInstrument(tokenId, updatePaymentInstrumentRequest);
             //Assert.IsInstanceOf<TmsV1PaymentinstrumentsPatch200Response> (response, "response is TmsV1PaymentinstrumentsPatch200Response");
         }
         
