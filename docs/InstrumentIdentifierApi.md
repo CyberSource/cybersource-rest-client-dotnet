@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createinstrumentidentifier"></a>
 # **CreateInstrumentIdentifier**
-> TmsV1InstrumentIdentifiersPost200Response CreateInstrumentIdentifier (CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest)
+> TmsV1InstrumentIdentifiersPost200Response CreateInstrumentIdentifier (string profileId, CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest)
 
 Create an Instrument Identifier
 
@@ -32,12 +32,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new InstrumentIdentifierApi();
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
             var createInstrumentIdentifierRequest = new CreateInstrumentIdentifierRequest(); // CreateInstrumentIdentifierRequest | Please specify either a Card, Bank Account or Enrollable Card
 
             try
             {
                 // Create an Instrument Identifier
-                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.CreateInstrumentIdentifier(createInstrumentIdentifierRequest);
+                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.CreateInstrumentIdentifier(profileId, createInstrumentIdentifierRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -53,6 +54,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
  **createInstrumentIdentifierRequest** | [**CreateInstrumentIdentifierRequest**](CreateInstrumentIdentifierRequest.md)| Please specify either a Card, Bank Account or Enrollable Card | 
 
 ### Return type
@@ -72,7 +74,7 @@ No authorization required
 
 <a name="deleteinstrumentidentifier"></a>
 # **DeleteInstrumentIdentifier**
-> void DeleteInstrumentIdentifier (string tokenId)
+> void DeleteInstrumentIdentifier (string profileId, string tokenId)
 
 Delete an Instrument Identifier
 
@@ -91,12 +93,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new InstrumentIdentifierApi();
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
             var tokenId = tokenId_example;  // string | The TokenId of an Instrument Identifier.
 
             try
             {
                 // Delete an Instrument Identifier
-                apiInstance.DeleteInstrumentIdentifier(tokenId);
+                apiInstance.DeleteInstrumentIdentifier(profileId, tokenId);
             }
             catch (Exception e)
             {
@@ -111,6 +114,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
  **tokenId** | **string**| The TokenId of an Instrument Identifier. | 
 
 ### Return type
@@ -130,7 +134,7 @@ No authorization required
 
 <a name="getallpaymentinstruments"></a>
 # **GetAllPaymentInstruments**
-> TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response GetAllPaymentInstruments (string tokenId, long? offset = null, long? limit = null)
+> TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response GetAllPaymentInstruments (string profileId, string tokenId, long? offset = null, long? limit = null)
 
 Retrieve all Payment Instruments associated with an Instrument Identifier
 
@@ -149,6 +153,7 @@ namespace Example
         public void main()
         {
             var apiInstance = new InstrumentIdentifierApi();
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
             var tokenId = tokenId_example;  // string | The TokenId of an Instrument Identifier.
             var offset = 789;  // long? | Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)  (default to 0)
             var limit = 789;  // long? | The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional)  (default to 20)
@@ -156,7 +161,7 @@ namespace Example
             try
             {
                 // Retrieve all Payment Instruments associated with an Instrument Identifier
-                TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response result = apiInstance.GetAllPaymentInstruments(tokenId, offset, limit);
+                TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response result = apiInstance.GetAllPaymentInstruments(profileId, tokenId, offset, limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -172,6 +177,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
  **tokenId** | **string**| The TokenId of an Instrument Identifier. | 
  **offset** | **long?**| Starting Payment Instrument record in zero-based dataset that should be returned as the first object in the array. Default is 0. | [optional] [default to 0]
  **limit** | **long?**| The maximum number of Payment Instruments that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. | [optional] [default to 20]
@@ -193,7 +199,7 @@ No authorization required
 
 <a name="getinstrumentidentifier"></a>
 # **GetInstrumentIdentifier**
-> TmsV1InstrumentIdentifiersPost200Response GetInstrumentIdentifier (string tokenId)
+> TmsV1InstrumentIdentifiersPost200Response GetInstrumentIdentifier (string profileId, string tokenId)
 
 Retrieve an Instrument Identifier
 
@@ -212,12 +218,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new InstrumentIdentifierApi();
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
             var tokenId = tokenId_example;  // string | The TokenId of an Instrument Identifier.
 
             try
             {
                 // Retrieve an Instrument Identifier
-                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.GetInstrumentIdentifier(tokenId);
+                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.GetInstrumentIdentifier(profileId, tokenId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -233,6 +240,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
  **tokenId** | **string**| The TokenId of an Instrument Identifier. | 
 
 ### Return type
@@ -252,7 +260,7 @@ No authorization required
 
 <a name="updateinstrumentidentifier"></a>
 # **UpdateInstrumentIdentifier**
-> TmsV1InstrumentIdentifiersPost200Response UpdateInstrumentIdentifier (string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest)
+> TmsV1InstrumentIdentifiersPost200Response UpdateInstrumentIdentifier (string profileId, string tokenId, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest)
 
 Update a Instrument Identifier
 
@@ -271,13 +279,14 @@ namespace Example
         public void main()
         {
             var apiInstance = new InstrumentIdentifierApi();
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
             var tokenId = tokenId_example;  // string | The TokenId of an Instrument Identifier.
             var updateInstrumentIdentifierRequest = new UpdateInstrumentIdentifierRequest(); // UpdateInstrumentIdentifierRequest | Specify the previous transaction ID to update.
 
             try
             {
                 // Update a Instrument Identifier
-                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.UpdateInstrumentIdentifier(tokenId, updateInstrumentIdentifierRequest);
+                TmsV1InstrumentIdentifiersPost200Response result = apiInstance.UpdateInstrumentIdentifier(profileId, tokenId, updateInstrumentIdentifierRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -293,6 +302,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
  **tokenId** | **string**| The TokenId of an Instrument Identifier. | 
  **updateInstrumentIdentifierRequest** | [**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md)| Specify the previous transaction ID to update. | 
 

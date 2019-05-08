@@ -66,7 +66,7 @@ OpenAPI spec version: 0.0.1
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\CyberSource\CyberSource.csproj">
-          <Project>{BCA5ACAA-101A-492D-BFBF-A27E5B4B0823}</Project>
+          <Project>{E3B10255-3545-45E4-9BEA-6F1C3D19749A}</Project>
           <Name>CyberSource</Name>
       </ProjectReference>
   </ItemGroup>

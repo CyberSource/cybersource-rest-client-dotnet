@@ -20111,6 +20111,15 @@
             "post": {
                 "summary": "Create an Instrument Identifier",
                 "parameters": [
+					{
+                        "name": "profile-id",
+                        "in": "header",
+                        "description": "The id of a profile containing user specific TMS configuration.",
+                        "required": true,
+                        "type": "string",
+                        "minLength": 36,
+                        "maxLength": 36
+                    },
                     {
                         "name": "createInstrumentIdentifierRequest",
                         "in": "body",
@@ -20800,6 +20809,15 @@
             "get": {
                 "summary": "Retrieve an Instrument Identifier",
                 "parameters": [
+					{
+                        "name": "profile-id",
+                        "in": "header",
+                        "description": "The id of a profile containing user specific TMS configuration.",
+                        "required": true,
+                        "type": "string",
+                        "minLength": 36,
+                        "maxLength": 36
+                    },
                     {
                         "name": "tokenId",
                         "in": "path",
@@ -21288,6 +21306,15 @@
             "patch": {
                 "summary": "Update a Instrument Identifier",
                 "parameters": [
+					{
+                        "name": "profile-id",
+                        "in": "header",
+                        "description": "The id of a profile containing user specific TMS configuration.",
+                        "required": true,
+                        "type": "string",
+                        "minLength": 36,
+                        "maxLength": 36
+                    },
                     {
                         "name": "tokenId",
                         "in": "path",
@@ -21865,6 +21892,15 @@
                     "*/*"
                 ],
                 "parameters": [
+					{
+                        "name": "profile-id",
+                        "in": "header",
+                        "description": "The id of a profile containing user specific TMS configuration.",
+                        "required": true,
+                        "type": "string",
+                        "minLength": 36,
+                        "maxLength": 36
+                    },
                     {
                         "name": "tokenId",
                         "in": "path",
@@ -22202,6 +22238,15 @@
             "get": {
                 "summary": "Retrieve all Payment Instruments associated with an Instrument Identifier",
                 "parameters": [
+					{
+                        "name": "profile-id",
+                        "in": "header",
+                        "description": "The id of a profile containing user specific TMS configuration.",
+                        "required": true,
+                        "type": "string",
+                        "minLength": 36,
+                        "maxLength": 36
+                    },
                     {
                         "name": "tokenId",
                         "in": "path",
@@ -23262,6 +23307,15 @@
             "post": {
                 "summary": "Create a Payment Instrument",
                 "parameters": [
+					{
+                        "name": "profile-id",
+                        "in": "header",
+                        "description": "The id of a profile containing user specific TMS configuration.",
+                        "required": true,
+                        "type": "string",
+                        "minLength": 36,
+                        "maxLength": 36
+                    },
                     {
                         "name": "createPaymentInstrumentRequest",
                         "in": "body",
@@ -24890,6 +24944,15 @@
             "patch": {
                 "summary": "Update a Payment Instrument",
                 "parameters": [
+					{
+                        "name": "profile-id",
+                        "in": "header",
+                        "description": "The id of a profile containing user specific TMS configuration.",
+                        "required": true,
+                        "type": "string",
+                        "minLength": 36,
+                        "maxLength": 36
+                    },
                     {
                         "name": "tokenId",
                         "in": "path",
@@ -26362,6 +26425,15 @@
             "get": {
                 "summary": "Retrieve a Payment Instrument",
                 "parameters": [
+					{
+                        "name": "profile-id",
+                        "in": "header",
+                        "description": "The id of a profile containing user specific TMS configuration.",
+                        "required": true,
+                        "type": "string",
+                        "minLength": 36,
+                        "maxLength": 36
+                    },
                     {
                         "name": "tokenId",
                         "in": "path",
@@ -27271,6 +27343,15 @@
                     "Payment Instrument"
                 ],
                 "parameters": [
+					{
+                        "name": "profile-id",
+                        "in": "header",
+                        "description": "The id of a profile containing user specific TMS configuration.",
+                        "required": true,
+                        "type": "string",
+                        "minLength": 36,
+                        "maxLength": 36
+                    },
                     {
                         "name": "tokenId",
                         "in": "path",

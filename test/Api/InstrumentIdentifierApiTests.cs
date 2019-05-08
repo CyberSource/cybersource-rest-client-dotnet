@@ -71,8 +71,9 @@ namespace CyberSource.Test
         public void CreateInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
             //CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest = null;
-            //var response = instance.CreateInstrumentIdentifier(createInstrumentIdentifierRequest);
+            //var response = instance.CreateInstrumentIdentifier(profileId, createInstrumentIdentifierRequest);
             //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
         }
         
@@ -83,8 +84,9 @@ namespace CyberSource.Test
         public void DeleteInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
             //string tokenId = null;
-            //instance.DeleteInstrumentIdentifier(tokenId);
+            //instance.DeleteInstrumentIdentifier(profileId, tokenId);
             
         }
         
@@ -95,10 +97,11 @@ namespace CyberSource.Test
         public void GetAllPaymentInstrumentsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
             //string tokenId = null;
             //long? offset = null;
             //long? limit = null;
-            //var response = instance.GetAllPaymentInstruments(tokenId, offset, limit);
+            //var response = instance.GetAllPaymentInstruments(profileId, tokenId, offset, limit);
             //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> (response, "response is TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response");
         }
         
@@ -109,8 +112,9 @@ namespace CyberSource.Test
         public void GetInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
             //string tokenId = null;
-            //var response = instance.GetInstrumentIdentifier(tokenId);
+            //var response = instance.GetInstrumentIdentifier(profileId, tokenId);
             //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
         }
         
@@ -121,9 +125,10 @@ namespace CyberSource.Test
         public void UpdateInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
             //string tokenId = null;
             //UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest = null;
-            //var response = instance.UpdateInstrumentIdentifier(tokenId, updateInstrumentIdentifierRequest);
+            //var response = instance.UpdateInstrumentIdentifier(profileId, tokenId, updateInstrumentIdentifierRequest);
             //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
         }
         

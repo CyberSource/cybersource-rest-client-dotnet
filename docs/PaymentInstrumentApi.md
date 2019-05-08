@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="createpaymentinstrument"></a>
 # **CreatePaymentInstrument**
-> TmsV1PaymentinstrumentsPatch200Response CreatePaymentInstrument (CreatePaymentInstrumentRequest createPaymentInstrumentRequest)
+> TmsV1PaymentinstrumentsPatch200Response CreatePaymentInstrument (string profileId, CreatePaymentInstrumentRequest createPaymentInstrumentRequest)
 
 Create a Payment Instrument
 
@@ -31,12 +31,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new PaymentInstrumentApi();
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
             var createPaymentInstrumentRequest = new CreatePaymentInstrumentRequest(); // CreatePaymentInstrumentRequest | Specify the customer's payment details for card or bank account.
 
             try
             {
                 // Create a Payment Instrument
-                TmsV1PaymentinstrumentsPatch200Response result = apiInstance.CreatePaymentInstrument(createPaymentInstrumentRequest);
+                TmsV1PaymentinstrumentsPatch200Response result = apiInstance.CreatePaymentInstrument(profileId, createPaymentInstrumentRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -52,6 +53,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
  **createPaymentInstrumentRequest** | [**CreatePaymentInstrumentRequest**](CreatePaymentInstrumentRequest.md)| Specify the customer&#39;s payment details for card or bank account. | 
 
 ### Return type
@@ -71,7 +73,7 @@ No authorization required
 
 <a name="deletepaymentinstrument"></a>
 # **DeletePaymentInstrument**
-> void DeletePaymentInstrument (string tokenId)
+> void DeletePaymentInstrument (string profileId, string tokenId)
 
 Delete a Payment Instrument
 
@@ -90,12 +92,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new PaymentInstrumentApi();
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
             var tokenId = tokenId_example;  // string | The TokenId of a Payment Instrument.
 
             try
             {
                 // Delete a Payment Instrument
-                apiInstance.DeletePaymentInstrument(tokenId);
+                apiInstance.DeletePaymentInstrument(profileId, tokenId);
             }
             catch (Exception e)
             {
@@ -110,6 +113,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
  **tokenId** | **string**| The TokenId of a Payment Instrument. | 
 
 ### Return type
@@ -129,7 +133,7 @@ No authorization required
 
 <a name="getpaymentinstrument"></a>
 # **GetPaymentInstrument**
-> TmsV1PaymentinstrumentsPatch200Response GetPaymentInstrument (string tokenId)
+> TmsV1PaymentinstrumentsPatch200Response GetPaymentInstrument (string profileId, string tokenId)
 
 Retrieve a Payment Instrument
 
@@ -148,12 +152,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new PaymentInstrumentApi();
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
             var tokenId = tokenId_example;  // string | The TokenId of a Payment Instrument.
 
             try
             {
                 // Retrieve a Payment Instrument
-                TmsV1PaymentinstrumentsPatch200Response result = apiInstance.GetPaymentInstrument(tokenId);
+                TmsV1PaymentinstrumentsPatch200Response result = apiInstance.GetPaymentInstrument(profileId, tokenId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -169,6 +174,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
  **tokenId** | **string**| The TokenId of a Payment Instrument. | 
 
 ### Return type
@@ -188,7 +194,7 @@ No authorization required
 
 <a name="updatepaymentinstrument"></a>
 # **UpdatePaymentInstrument**
-> TmsV1PaymentinstrumentsPatch200Response UpdatePaymentInstrument (string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest)
+> TmsV1PaymentinstrumentsPatch200Response UpdatePaymentInstrument (string profileId, string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest)
 
 Update a Payment Instrument
 
@@ -207,13 +213,14 @@ namespace Example
         public void main()
         {
             var apiInstance = new PaymentInstrumentApi();
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
             var tokenId = tokenId_example;  // string | The TokenId of a Payment Instrument.
             var updatePaymentInstrumentRequest = new UpdatePaymentInstrumentRequest(); // UpdatePaymentInstrumentRequest | Specify the customer's payment details.
 
             try
             {
                 // Update a Payment Instrument
-                TmsV1PaymentinstrumentsPatch200Response result = apiInstance.UpdatePaymentInstrument(tokenId, updatePaymentInstrumentRequest);
+                TmsV1PaymentinstrumentsPatch200Response result = apiInstance.UpdatePaymentInstrument(profileId, tokenId, updatePaymentInstrumentRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -229,6 +236,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
  **tokenId** | **string**| The TokenId of a Payment Instrument. | 
  **updatePaymentInstrumentRequest** | [**UpdatePaymentInstrumentRequest**](UpdatePaymentInstrumentRequest.md)| Specify the customer&#39;s payment details. | 
 

@@ -71,8 +71,9 @@ namespace CyberSource.Test
         public void CreatePaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
             //CreatePaymentInstrumentRequest createPaymentInstrumentRequest = null;
-            //var response = instance.CreatePaymentInstrument(createPaymentInstrumentRequest);
+            //var response = instance.CreatePaymentInstrument(profileId, createPaymentInstrumentRequest);
             //Assert.IsInstanceOf<TmsV1PaymentinstrumentsPatch200Response> (response, "response is TmsV1PaymentinstrumentsPatch200Response");
         }
         
@@ -83,8 +84,9 @@ namespace CyberSource.Test
         public void DeletePaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
             //string tokenId = null;
-            //instance.DeletePaymentInstrument(tokenId);
+            //instance.DeletePaymentInstrument(profileId, tokenId);
             
         }
         
@@ -95,8 +97,9 @@ namespace CyberSource.Test
         public void GetPaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
             //string tokenId = null;
-            //var response = instance.GetPaymentInstrument(tokenId);
+            //var response = instance.GetPaymentInstrument(profileId, tokenId);
             //Assert.IsInstanceOf<TmsV1PaymentinstrumentsPatch200Response> (response, "response is TmsV1PaymentinstrumentsPatch200Response");
         }
         
@@ -107,9 +110,10 @@ namespace CyberSource.Test
         public void UpdatePaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
             //string tokenId = null;
             //UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest = null;
-            //var response = instance.UpdatePaymentInstrument(tokenId, updatePaymentInstrumentRequest);
+            //var response = instance.UpdatePaymentInstrument(profileId, tokenId, updatePaymentInstrumentRequest);
             //Assert.IsInstanceOf<TmsV1PaymentinstrumentsPatch200Response> (response, "response is TmsV1PaymentinstrumentsPatch200Response");
         }
         
