@@ -39,8 +39,8 @@ namespace CyberSource.Api
         /// <param name="groupName">Valid CyberSource Group Name.User can define groups using CBAPI and Group Management Module in EBC2. Groups are collection of organizationIds (optional)</param>
         /// <param name="offset">Offset of the Purchase and Refund Results. (optional)</param>
         /// <param name="limit">Results count per page. Range(1-2000) (optional, default to 2000)</param>
-        /// <returns></returns>
-        void GetPurchaseAndRefundDetails (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null);
+        /// <returns>ReportingV3PurchaseRefundDetailsGet200Response</returns>
+        ReportingV3PurchaseRefundDetailsGet200Response GetPurchaseAndRefundDetails (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null);
 
         /// <summary>
         /// Get Purchase and Refund details
@@ -57,8 +57,8 @@ namespace CyberSource.Api
         /// <param name="groupName">Valid CyberSource Group Name.User can define groups using CBAPI and Group Management Module in EBC2. Groups are collection of organizationIds (optional)</param>
         /// <param name="offset">Offset of the Purchase and Refund Results. (optional)</param>
         /// <param name="limit">Results count per page. Range(1-2000) (optional, default to 2000)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetPurchaseAndRefundDetailsWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null);
+        /// <returns>ApiResponse of ReportingV3PurchaseRefundDetailsGet200Response</returns>
+        ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response> GetPurchaseAndRefundDetailsWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -76,8 +76,8 @@ namespace CyberSource.Api
         /// <param name="groupName">Valid CyberSource Group Name.User can define groups using CBAPI and Group Management Module in EBC2. Groups are collection of organizationIds (optional)</param>
         /// <param name="offset">Offset of the Purchase and Refund Results. (optional)</param>
         /// <param name="limit">Results count per page. Range(1-2000) (optional, default to 2000)</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetPurchaseAndRefundDetailsAsync (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null);
+        /// <returns>Task of ReportingV3PurchaseRefundDetailsGet200Response</returns>
+        System.Threading.Tasks.Task<ReportingV3PurchaseRefundDetailsGet200Response> GetPurchaseAndRefundDetailsAsync (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null);
 
         /// <summary>
         /// Get Purchase and Refund details
@@ -94,8 +94,8 @@ namespace CyberSource.Api
         /// <param name="groupName">Valid CyberSource Group Name.User can define groups using CBAPI and Group Management Module in EBC2. Groups are collection of organizationIds (optional)</param>
         /// <param name="offset">Offset of the Purchase and Refund Results. (optional)</param>
         /// <param name="limit">Results count per page. Range(1-2000) (optional, default to 2000)</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetPurchaseAndRefundDetailsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null);
+        /// <returns>Task of ApiResponse (ReportingV3PurchaseRefundDetailsGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response>> GetPurchaseAndRefundDetailsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null);
         #endregion Asynchronous Operations
     }
 
@@ -220,10 +220,11 @@ namespace CyberSource.Api
         /// <param name="groupName">Valid CyberSource Group Name.User can define groups using CBAPI and Group Management Module in EBC2. Groups are collection of organizationIds (optional)</param>
         /// <param name="offset">Offset of the Purchase and Refund Results. (optional)</param>
         /// <param name="limit">Results count per page. Range(1-2000) (optional, default to 2000)</param>
-        /// <returns></returns>
-        public void GetPurchaseAndRefundDetails (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
+        /// <returns>ReportingV3PurchaseRefundDetailsGet200Response</returns>
+        public ReportingV3PurchaseRefundDetailsGet200Response GetPurchaseAndRefundDetails (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
         {
-             GetPurchaseAndRefundDetailsWithHttpInfo(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
+             ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response> localVarResponse = GetPurchaseAndRefundDetailsWithHttpInfo(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -238,8 +239,8 @@ namespace CyberSource.Api
         /// <param name="groupName">Valid CyberSource Group Name.User can define groups using CBAPI and Group Management Module in EBC2. Groups are collection of organizationIds (optional)</param>
         /// <param name="offset">Offset of the Purchase and Refund Results. (optional)</param>
         /// <param name="limit">Results count per page. Range(1-2000) (optional, default to 2000)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetPurchaseAndRefundDetailsWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
+        /// <returns>ApiResponse of ReportingV3PurchaseRefundDetailsGet200Response</returns>
+        public ApiResponse< ReportingV3PurchaseRefundDetailsGet200Response > GetPurchaseAndRefundDetailsWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)
@@ -248,7 +249,7 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
 
-            var localVarPath = $"/reporting/v3/purchase-refund-details";
+            var localVarPath = $"/reporting/v3/purchase-refund-details?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&organizationId={organizationId}&paymentSubtype={paymentSubtype}&viewBy={viewBy}&groupName={groupName}&offset={offset}&limit={limit}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -270,14 +271,14 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
-            if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
-            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (paymentSubtype != null) localVarQueryParams.Add("paymentSubtype", Configuration.ApiClient.ParameterToString(paymentSubtype)); // query parameter
-            if (viewBy != null) localVarQueryParams.Add("viewBy", Configuration.ApiClient.ParameterToString(viewBy)); // query parameter
-            if (groupName != null) localVarQueryParams.Add("groupName", Configuration.ApiClient.ParameterToString(groupName)); // query parameter
-            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            //if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
+            //if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
+            //if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            //if (paymentSubtype != null) localVarQueryParams.Add("paymentSubtype", Configuration.ApiClient.ParameterToString(paymentSubtype)); // query parameter
+            //if (viewBy != null) localVarQueryParams.Add("viewBy", Configuration.ApiClient.ParameterToString(viewBy)); // query parameter
+            //if (groupName != null) localVarQueryParams.Add("groupName", Configuration.ApiClient.ParameterToString(groupName)); // query parameter
+            //if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            //if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
 
 
             // make the HTTP request
@@ -293,9 +294,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                (ReportingV3PurchaseRefundDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PurchaseRefundDetailsGet200Response)));
         }
 
         /// <summary>
@@ -310,10 +311,11 @@ namespace CyberSource.Api
         /// <param name="groupName">Valid CyberSource Group Name.User can define groups using CBAPI and Group Management Module in EBC2. Groups are collection of organizationIds (optional)</param>
         /// <param name="offset">Offset of the Purchase and Refund Results. (optional)</param>
         /// <param name="limit">Results count per page. Range(1-2000) (optional, default to 2000)</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetPurchaseAndRefundDetailsAsync (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
+        /// <returns>Task of ReportingV3PurchaseRefundDetailsGet200Response</returns>
+        public async System.Threading.Tasks.Task<ReportingV3PurchaseRefundDetailsGet200Response> GetPurchaseAndRefundDetailsAsync (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
         {
-             await GetPurchaseAndRefundDetailsAsyncWithHttpInfo(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
+             ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response> localVarResponse = await GetPurchaseAndRefundDetailsAsyncWithHttpInfo(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
+             return localVarResponse.Data;
 
         }
 
@@ -329,8 +331,8 @@ namespace CyberSource.Api
         /// <param name="groupName">Valid CyberSource Group Name.User can define groups using CBAPI and Group Management Module in EBC2. Groups are collection of organizationIds (optional)</param>
         /// <param name="offset">Offset of the Purchase and Refund Results. (optional)</param>
         /// <param name="limit">Results count per page. Range(1-2000) (optional, default to 2000)</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetPurchaseAndRefundDetailsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
+        /// <returns>Task of ApiResponse (ReportingV3PurchaseRefundDetailsGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response>> GetPurchaseAndRefundDetailsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)
@@ -339,7 +341,7 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
 
-            var localVarPath = $"/reporting/v3/purchase-refund-details";
+            var localVarPath = $"/reporting/v3/purchase-refund-details?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&organizationId={organizationId}&paymentSubtype={paymentSubtype}&viewBy={viewBy}&groupName={groupName}&offset={offset}&limit={limit}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -361,14 +363,14 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
-            if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
-            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (paymentSubtype != null) localVarQueryParams.Add("paymentSubtype", Configuration.ApiClient.ParameterToString(paymentSubtype)); // query parameter
-            if (viewBy != null) localVarQueryParams.Add("viewBy", Configuration.ApiClient.ParameterToString(viewBy)); // query parameter
-            if (groupName != null) localVarQueryParams.Add("groupName", Configuration.ApiClient.ParameterToString(groupName)); // query parameter
-            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            //if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
+            //if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
+            //if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            //if (paymentSubtype != null) localVarQueryParams.Add("paymentSubtype", Configuration.ApiClient.ParameterToString(paymentSubtype)); // query parameter
+            //if (viewBy != null) localVarQueryParams.Add("viewBy", Configuration.ApiClient.ParameterToString(viewBy)); // query parameter
+            //if (groupName != null) localVarQueryParams.Add("groupName", Configuration.ApiClient.ParameterToString(groupName)); // query parameter
+            //if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            //if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
 
 
             // make the HTTP request
@@ -384,9 +386,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                (ReportingV3PurchaseRefundDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PurchaseRefundDetailsGet200Response)));
         }
 
     }

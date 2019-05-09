@@ -86,8 +86,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
-            //instance.GetTransactionBatchId(id);
-            
+            //var response = instance.GetTransactionBatchId(id);
+            //Assert.IsInstanceOf<PtsV1TransactionBatchesIdGet200Response> (response, "response is PtsV1TransactionBatchesIdGet200Response");
         }
         
         /// <summary>

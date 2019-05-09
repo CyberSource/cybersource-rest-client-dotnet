@@ -21,7 +21,7 @@ powershell -Command "(Get-Content ..\src\CyberSource\Model\ReportingV3ReportSubs
 
 
 rem For Converting the datetime values to string while appending them to the localVarPath and commenting out the values being set in query params obj
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[585] = $fileContents[585] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' ; $fileContents[659] = $fileContents[659] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[587] = $fileContents[587] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' ; $fileContents[661] = $fileContents[661] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
@@ -38,6 +38,26 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\NetFundingsApi.cs) | Fo
 powershell -Command "(Get-Content ..\src\CyberSource\Api\NetFundingsApi.cs) | ForEach-Object { $_ -replace 'if \(organizationId != null\)', '//if (organizationId != null)' } | Set-Content ..\src\CyberSource\Api\NetFundingsApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\NetFundingsApi.cs) | ForEach-Object { $_ -replace 'if \(groupName != null\)', '//if (groupName != null)' } | Set-Content ..\src\CyberSource\Api\NetFundingsApi.cs"
+
+
+powershell -Command "$fileContents = (Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace '/reporting/v3/purchase-refund-details', '/reporting/v3/purchase-refund-details?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&organizationId={organizationId}&paymentSubtype={paymentSubtype}&viewBy={viewBy}&groupName={groupName}&offset={offset}&limit={limit}' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(organizationId != null\)', '//if (organizationId != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(paymentSubtype != null\)', '//if (paymentSubtype != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(viewBy != null\)', '//if (viewBy != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(groupName != null\)', '//if (groupName != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(offset != null\)', '//if (offset != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(limit != null\)', '//if (limit != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\NotificationOfChangesApi.cs) | ForEach-Object { $_ -replace '/reporting/v3/notification-of-changes', '/reporting/v3/notification-of-changes?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' } | Set-Content ..\src\CyberSource\Api\NotificationOfChangesApi.cs"
 

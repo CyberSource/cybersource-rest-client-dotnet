@@ -74,7 +74,7 @@ namespace CyberSource.Test
             //string profileId = null;
             //CreatePaymentInstrumentRequest createPaymentInstrumentRequest = null;
             //var response = instance.CreatePaymentInstrument(profileId, createPaymentInstrumentRequest);
-            //Assert.IsInstanceOf<TmsV1PaymentinstrumentsPatch200Response> (response, "response is TmsV1PaymentinstrumentsPatch200Response");
+            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments> (response, "response is TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments");
         }
         
         /// <summary>
@@ -100,7 +100,7 @@ namespace CyberSource.Test
             //string profileId = null;
             //string tokenId = null;
             //var response = instance.GetPaymentInstrument(profileId, tokenId);
-            //Assert.IsInstanceOf<TmsV1PaymentinstrumentsPatch200Response> (response, "response is TmsV1PaymentinstrumentsPatch200Response");
+            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments> (response, "response is TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments");
         }
         
         /// <summary>
@@ -114,7 +114,7 @@ namespace CyberSource.Test
             //string tokenId = null;
             //UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest = null;
             //var response = instance.UpdatePaymentInstrument(profileId, tokenId, updatePaymentInstrumentRequest);
-            //Assert.IsInstanceOf<TmsV1PaymentinstrumentsPatch200Response> (response, "response is TmsV1PaymentinstrumentsPatch200Response");
+            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments> (response, "response is TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments");
         }
         
     }

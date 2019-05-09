@@ -79,8 +79,8 @@ namespace CyberSource.Test
             //string groupName = null;
             //int? offset = null;
             //int? limit = null;
-            //instance.GetPurchaseAndRefundDetails(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
-            
+            //var response = instance.GetPurchaseAndRefundDetails(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
+            //Assert.IsInstanceOf<ReportingV3PurchaseRefundDetailsGet200Response> (response, "response is ReportingV3PurchaseRefundDetailsGet200Response");
         }
         
     }

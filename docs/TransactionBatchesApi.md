@@ -75,7 +75,7 @@ No authorization required
 
 <a name="gettransactionbatchid"></a>
 # **GetTransactionBatchId**
-> void GetTransactionBatchId (string id)
+> PtsV1TransactionBatchesIdGet200Response GetTransactionBatchId (string id)
 
 Get individual batch file
 
@@ -101,7 +101,8 @@ namespace Example
             try
             {
                 // Get individual batch file
-                apiInstance.GetTransactionBatchId(id);
+                PtsV1TransactionBatchesIdGet200Response result = apiInstance.GetTransactionBatchId(id);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
@@ -120,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**PtsV1TransactionBatchesIdGet200Response**](PtsV1TransactionBatchesIdGet200Response.md)
 
 ### Authorization
 

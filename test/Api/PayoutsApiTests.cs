@@ -72,8 +72,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //OctCreatePaymentRequest octCreatePaymentRequest = null;
-            //instance.OctCreatePayment(octCreatePaymentRequest);
-            
+            //var response = instance.OctCreatePayment(octCreatePaymentRequest);
+            //Assert.IsInstanceOf<PtsV2PayoutsPost201Response> (response, "response is PtsV2PayoutsPost201Response");
         }
         
     }

@@ -90,7 +90,7 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="MetaData">MetaData.</param>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
-        public CreatePaymentInstrumentRequest(TmsV1InstrumentIdentifiersPost200ResponseLinks Links = default(TmsV1InstrumentIdentifiersPost200ResponseLinks), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseBankAccount BankAccount = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseBankAccount), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseCard Card = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseCard), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseBuyerInformation BuyerInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseBuyerInformation), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseBillTo BillTo = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseBillTo), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseProcessingInformation ProcessingInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseProcessingInformation), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseMerchantInformation MerchantInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseMerchantInformation), TmsV1InstrumentIdentifiersPost200ResponseMetadata MetaData = default(TmsV1InstrumentIdentifiersPost200ResponseMetadata), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseInstrumentIdentifier InstrumentIdentifier = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseInstrumentIdentifier))
+        public CreatePaymentInstrumentRequest(TmsV1InstrumentIdentifiersPost200ResponseLinks Links = default(TmsV1InstrumentIdentifiersPost200ResponseLinks), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount BankAccount = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard Card = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation BuyerInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo BillTo = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation ProcessingInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation MerchantInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation), TmsV1InstrumentIdentifiersPost200ResponseMetadata MetaData = default(TmsV1InstrumentIdentifiersPost200ResponseMetadata), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedInstrumentIdentifier InstrumentIdentifier = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedInstrumentIdentifier))
         {
             this.Links = Links;
             this.BankAccount = BankAccount;
@@ -122,37 +122,37 @@ namespace CyberSource.Model
         /// Gets or Sets BankAccount
         /// </summary>
         [DataMember(Name="bankAccount", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseBankAccount BankAccount { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount BankAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets Card
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseCard Card { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard Card { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
         /// </summary>
         [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseBuyerInformation BuyerInformation { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation BuyerInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BillTo
         /// </summary>
         [DataMember(Name="billTo", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseBillTo BillTo { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo BillTo { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation
         /// </summary>
         [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseProcessingInformation ProcessingInformation { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInformation
         /// </summary>
         [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseMerchantInformation MerchantInformation { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation MerchantInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MetaData
@@ -164,7 +164,7 @@ namespace CyberSource.Model
         /// Gets or Sets InstrumentIdentifier
         /// </summary>
         [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseInstrumentIdentifier InstrumentIdentifier { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedInstrumentIdentifier InstrumentIdentifier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

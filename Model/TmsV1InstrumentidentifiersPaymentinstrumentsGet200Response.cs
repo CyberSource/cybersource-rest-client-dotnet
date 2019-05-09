@@ -55,8 +55,8 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
-        /// <param name="Embedded">Array of Payment Instruments returned for the supplied Instrument Identifier..</param>
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks Links = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks), List<TmsV1PaymentinstrumentsPatch200Response> Embedded = default(List<TmsV1PaymentinstrumentsPatch200Response>))
+        /// <param name="Embedded">Embedded.</param>
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks Links = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbedded Embedded = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbedded))
         {
             this.Links = Links;
             this.Embedded = Embedded;
@@ -98,11 +98,10 @@ namespace CyberSource.Model
         public string Total { get; private set; }
 
         /// <summary>
-        /// Array of Payment Instruments returned for the supplied Instrument Identifier.
+        /// Gets or Sets Embedded
         /// </summary>
-        /// <value>Array of Payment Instruments returned for the supplied Instrument Identifier.</value>
         [DataMember(Name="_embedded", EmitDefaultValue=false)]
-        public List<TmsV1PaymentinstrumentsPatch200Response> Embedded { get; set; }
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbedded Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -188,7 +187,7 @@ namespace CyberSource.Model
                 (
                     this.Embedded == other.Embedded ||
                     this.Embedded != null &&
-                    this.Embedded.SequenceEqual(other.Embedded)
+                    this.Embedded.Equals(other.Embedded)
                 );
         }
 

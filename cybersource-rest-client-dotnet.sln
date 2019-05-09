@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet", "cybersource-rest-client-dotnet.csproj", "{E3B10255-3545-45E4-9BEA-6F1C3D19749A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet", "cybersource-rest-client-dotnet.csproj", "{13E74DDC-6374-4EF5-B88C-B73FC9A3F532}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet.Test", "test\cybersource-rest-client-dotnet.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Debug|Any CPU = Debug|Any CPU
 Release|Any CPU = Release|Any CPU
 EndGlobalSection
 GlobalSection(ProjectConfigurationPlatforms) = postSolution
-{E3B10255-3545-45E4-9BEA-6F1C3D19749A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-{E3B10255-3545-45E4-9BEA-6F1C3D19749A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-{E3B10255-3545-45E4-9BEA-6F1C3D19749A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-{E3B10255-3545-45E4-9BEA-6F1C3D19749A}.Release|Any CPU.Build.0 = Release|Any CPU
+{13E74DDC-6374-4EF5-B88C-B73FC9A3F532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+{13E74DDC-6374-4EF5-B88C-B73FC9A3F532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+{13E74DDC-6374-4EF5-B88C-B73FC9A3F532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+{13E74DDC-6374-4EF5-B88C-B73FC9A3F532}.Release|Any CPU.Build.0 = Release|Any CPU
 {19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 {19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 {19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
