@@ -318,18 +318,6 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 26.", new [] { "Id" });
             }
 
-            // SubmitTimeUtc (string) maxLength
-            if(this.SubmitTimeUtc != null && this.SubmitTimeUtc.Length > 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubmitTimeUtc, length must be less than 6.", new [] { "SubmitTimeUtc" });
-            }
-
-            // SubmitTimeUtc (string) minLength
-            if(this.SubmitTimeUtc != null && this.SubmitTimeUtc.Length < 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubmitTimeUtc, length must be greater than 6.", new [] { "SubmitTimeUtc" });
-            }
-
             // ReconciliationId (string) maxLength
             if(this.ReconciliationId != null && this.ReconciliationId.Length > 25)
             {
