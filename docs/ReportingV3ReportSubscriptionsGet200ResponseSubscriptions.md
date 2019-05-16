@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **StartDay** | **int?** | Start Day | [optional] 
 **ReportFields** | **List&lt;string&gt;** | List of all fields String values | [optional] 
 **ReportFilters** | **Dictionary&lt;string, List&lt;string&gt;&gt;** | List of filters to apply | [optional] 
-**ReportPreferences** | [**ReportingV3ReportsIdGet200ResponseReportPreferences**](ReportingV3ReportsIdGet200ResponseReportPreferences.md) |  | [optional] 
+**ReportPreferences** | [**Reportingv3reportsReportPreferences**](Reportingv3reportsReportPreferences.md) |  | [optional] 
 **GroupId** | **string** | Id for the selected group. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

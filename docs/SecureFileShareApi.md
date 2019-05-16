@@ -5,7 +5,7 @@ All URIs are relative to *https://apitest.cybersource.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetFile**](SecureFileShareApi.md#getfile) | **GET** /sfs/v1/files/{fileId} | Download a file with file identifier
-[**GetFileDetails**](SecureFileShareApi.md#getfiledetails) | **GET** /sfs/v1/file-details | Get list of files
+[**GetFileDetail**](SecureFileShareApi.md#getfiledetail) | **GET** /sfs/v1/file-details | Get list of files
 
 
 <a name="getfile"></a>
@@ -70,9 +70,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfiledetails"></a>
-# **GetFileDetails**
-> V1FileDetailsGet200Response GetFileDetails (DateTime? startDate, DateTime? endDate, string organizationId = null)
+<a name="getfiledetail"></a>
+# **GetFileDetail**
+> V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null)
 
 Get list of files
 
@@ -88,7 +88,7 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class GetFileDetailsExample
+    public class GetFileDetailExample
     {
         public void main()
         {
@@ -100,12 +100,12 @@ namespace Example
             try
             {
                 // Get list of files
-                V1FileDetailsGet200Response result = apiInstance.GetFileDetails(startDate, endDate, organizationId);
+                V1FileDetailsGet200Response result = apiInstance.GetFileDetail(startDate, endDate, organizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling SecureFileShareApi.GetFileDetails: " + e.Message );
+                Debug.Print("Exception when calling SecureFileShareApi.GetFileDetail: " + e.Message );
             }
         }
     }

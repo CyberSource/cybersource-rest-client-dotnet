@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PaymentType** | [**TssV2TransactionsGet200ResponsePaymentInformationPaymentType**](TssV2TransactionsGet200ResponsePaymentInformationPaymentType.md) |  | [optional] 
-**Customer** | [**TssV2TransactionsGet200ResponsePaymentInformationCustomer**](TssV2TransactionsGet200ResponsePaymentInformationCustomer.md) |  | [optional] 
+**Customer** | [**Ptsv2paymentsPaymentInformationCustomer**](Ptsv2paymentsPaymentInformationCustomer.md) |  | [optional] 
 **Card** | [**TssV2TransactionsGet200ResponsePaymentInformationCard**](TssV2TransactionsGet200ResponsePaymentInformationCard.md) |  | [optional] 
 **Invoice** | [**TssV2TransactionsGet200ResponsePaymentInformationInvoice**](TssV2TransactionsGet200ResponsePaymentInformationInvoice.md) |  | [optional] 
 **Bank** | [**TssV2TransactionsGet200ResponsePaymentInformationBank**](TssV2TransactionsGet200ResponsePaymentInformationBank.md) |  | [optional] 

@@ -7,7 +7,7 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\CreditApi.cs) | ForEach
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\PaymentsApi.cs) | ForEach-Object { $_ -replace '/pts/v2/payments/', '/pts/v2/payments' } | Set-Content ..\src\CyberSource\Api\PaymentsApi.cs"
 
-powershell -Command "(Get-Content ..\src\CyberSource\Api\ProcessAPayoutApi.cs) | ForEach-Object { $_ -replace '/pts/v2/payouts/', '/pts/v2/payouts' } | Set-Content ..\src\CyberSource\Api\ProcessAPayoutApi.cs"
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PayoutsApi.cs) | ForEach-Object { $_ -replace '/pts/v2/payouts/', '/pts/v2/payouts' } | Set-Content ..\src\CyberSource\Api\PayoutsApi.cs"
 
 
 rem For Converting the datetime values to string while passing them to the query params object
@@ -21,13 +21,57 @@ powershell -Command "(Get-Content ..\src\CyberSource\Model\ReportingV3ReportSubs
 
 
 rem For Converting the datetime values to string while appending them to the localVarPath and commenting out the values being set in query params obj
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[392] = $fileContents[392] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' ; $fileContents[466] = $fileContents[466] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
-
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[263] = $fileContents[263] -replace 'null', 'localVarResponse.Content' ; $fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[587] = $fileContents[587] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' ; $fileContents[661] = $fileContents[661] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[263] = $fileContents[263] -replace 'null', 'localVarResponse.Content' ; $fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
+
+powershell -Command "$fileContents = (Get-Content ..\src\CyberSource\Api\NetFundingsApi.cs) | ForEach-Object { $_ -replace '/reporting/v3/net-fundings', '/reporting/v3/net-fundings?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&organizationId={organizationId}&groupName={groupName}' } | Set-Content ..\src\CyberSource\Api\NetFundingsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\NetFundingsApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\NetFundingsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\NetFundingsApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\NetFundingsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\NetFundingsApi.cs) | ForEach-Object { $_ -replace 'if \(organizationId != null\)', '//if (organizationId != null)' } | Set-Content ..\src\CyberSource\Api\NetFundingsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\NetFundingsApi.cs) | ForEach-Object { $_ -replace 'if \(groupName != null\)', '//if (groupName != null)' } | Set-Content ..\src\CyberSource\Api\NetFundingsApi.cs"
+
+
+powershell -Command "$fileContents = (Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace '/reporting/v3/purchase-refund-details', '/reporting/v3/purchase-refund-details?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&organizationId={organizationId}&paymentSubtype={paymentSubtype}&viewBy={viewBy}&groupName={groupName}&offset={offset}&limit={limit}' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(organizationId != null\)', '//if (organizationId != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(paymentSubtype != null\)', '//if (paymentSubtype != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(viewBy != null\)', '//if (viewBy != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(groupName != null\)', '//if (groupName != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(offset != null\)', '//if (offset != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(limit != null\)', '//if (limit != null)' } | Set-Content ..\src\CyberSource\Api\PurchaseAndRefundDetailsApi.cs"
+
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\NotificationOfChangesApi.cs) | ForEach-Object { $_ -replace '/reporting/v3/notification-of-changes', '/reporting/v3/notification-of-changes?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' } | Set-Content ..\src\CyberSource\Api\NotificationOfChangesApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\NotificationOfChangesApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\NotificationOfChangesApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\NotificationOfChangesApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\NotificationOfChangesApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) | ForEach-Object { $_ -replace '/reporting/v3/conversion-details', '/reporting/v3/conversion-details?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&organizationId={organizationId}' } | Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(organizationId != null\)', '//if (organizationId != null)' } | Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
 
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[660] = $fileContents[660] -replace 'Configuration.ApiClient.SelectHeaderContentType\(localVarHttpContentTypes\)', '\"\"'; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
@@ -78,15 +122,9 @@ powershell -Command " Set-Content ..\src\CyberSource\Api\CaptureApi.cs ((get-con
 
 powershell -Command " Set-Content ..\src\CyberSource\Api\CreditApi.cs ((get-content ..\src\CyberSource\Api\CreditApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 
-powershell -Command " Set-Content ..\src\CyberSource\Api\InstrumentIdentifierApi.cs ((get-content ..\src\CyberSource\Api\InstrumentIdentifierApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"*/*\"')"
-
-powershell -Command " Set-Content ..\src\CyberSource\Api\InstrumentIdentifiersApi.cs ((get-content ..\src\CyberSource\Api\InstrumentIdentifiersApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {//\"application/hal+json;charset=utf-8\"')"
-
-powershell -Command " Set-Content ..\src\CyberSource\Api\PaymentInstrumentsApi.cs ((get-content ..\src\CyberSource\Api\PaymentInstrumentsApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"*/*\"')"
-
 powershell -Command " Set-Content ..\src\CyberSource\Api\PaymentsApi.cs ((get-content ..\src\CyberSource\Api\PaymentsApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 
-powershell -Command " Set-Content ..\src\CyberSource\Api\ProcessAPayoutApi.cs ((get-content ..\src\CyberSource\Api\ProcessAPayoutApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+powershell -Command " Set-Content ..\src\CyberSource\Api\PayoutsApi.cs ((get-content ..\src\CyberSource\Api\PayoutsApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 
 powershell -Command " Set-Content ..\src\CyberSource\Api\RefundApi.cs ((get-content ..\src\CyberSource\Api\RefundApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 

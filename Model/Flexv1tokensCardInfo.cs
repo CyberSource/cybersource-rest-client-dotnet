@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,16 +33,37 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Flexv1tokensCardInfo" /> class.
         /// </summary>
-        /// <param name="CardNumber">Encrypted or plain text card number. If the encryption type of “None” was used in the Generate Key request, this value can be set to the plaintext card number/Personal Account Number (PAN). If the encryption type of RsaOaep256 was used in the Generate Key request, this value needs to be the RSA OAEP 256 encrypted card number. The card number should be encrypted on the cardholders’ device. The [WebCrypto API] (https://github.com/CyberSource/cybersource-flex-samples/blob/master/java/spring-boot/src/main/resources/public/flex.js) can be used with the JWK obtained in the Generate Key request..</param>
+        [JsonConstructorAttribute]
+        protected Flexv1tokensCardInfo() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Flexv1tokensCardInfo" /> class.
+        /// </summary>
+        /// <param name="CardNumber">Encrypted or plain text card number. If the encryption type of “None” was used in the Generate Key request, this value can be set to the plaintext card number/Personal Account Number (PAN). If the encryption type of RsaOaep256 was used in the Generate Key request, this value needs to be the RSA OAEP 256 encrypted card number. The card number should be encrypted on the cardholders’ device. The [WebCrypto API] (https://github.com/CyberSource/cybersource-flex-samples/blob/master/java/spring-boot/src/main/resources/public/flex.js) can be used with the JWK obtained in the Generate Key request. (required).</param>
         /// <param name="CardExpirationMonth">Two digit expiration month.</param>
         /// <param name="CardExpirationYear">Four digit expiration year.</param>
-        /// <param name="CardType">Card Type. This field is required. Refer to the CyberSource Credit Card Services documentation for supported card types..</param>
+        /// <param name="CardType">Card Type. This field is required. Refer to the CyberSource Credit Card Services documentation for supported card types. (required).</param>
         public Flexv1tokensCardInfo(string CardNumber = default(string), string CardExpirationMonth = default(string), string CardExpirationYear = default(string), string CardType = default(string))
         {
-            this.CardNumber = CardNumber;
+            // to ensure "CardNumber" is required (not null)
+            if (CardNumber == null)
+            {
+                throw new InvalidDataException("CardNumber is a required property for Flexv1tokensCardInfo and cannot be null");
+            }
+            else
+            {
+                this.CardNumber = CardNumber;
+            }
+            // to ensure "CardType" is required (not null)
+            if (CardType == null)
+            {
+                throw new InvalidDataException("CardType is a required property for Flexv1tokensCardInfo and cannot be null");
+            }
+            else
+            {
+                this.CardType = CardType;
+            }
             this.CardExpirationMonth = CardExpirationMonth;
             this.CardExpirationYear = CardExpirationYear;
-            this.CardType = CardType;
         }
         
         /// <summary>

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -34,10 +34,10 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedOrderInformationShipTo" /> class.
         /// </summary>
         /// <param name="FirstName">First name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
-        /// <param name="LastName">Last name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
+        /// <param name="LastName">Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
         /// <param name="Address1">First line of the shipping address..</param>
-        /// <param name="Country">Country of the shipping address. Use the two character ISO Standard Country Codes..</param>
-        /// <param name="PhoneNumber">Phone number for the shipping address..</param>
+        /// <param name="Country">Country of the shipping address. Use the two-character ISO Standard Country Codes..</param>
+        /// <param name="PhoneNumber">Phone number associated with the shipping address..</param>
         public TssV2TransactionsPost201ResponseEmbeddedOrderInformationShipTo(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Country = default(string), string PhoneNumber = default(string))
         {
             this.FirstName = FirstName;
@@ -55,9 +55,9 @@ namespace CyberSource.Model
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Last name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 
+        /// Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 
         /// </summary>
-        /// <value>Last name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 </value>
+        /// <value>Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 </value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
@@ -69,16 +69,16 @@ namespace CyberSource.Model
         public string Address1 { get; set; }
 
         /// <summary>
-        /// Country of the shipping address. Use the two character ISO Standard Country Codes.
+        /// Country of the shipping address. Use the two-character ISO Standard Country Codes.
         /// </summary>
-        /// <value>Country of the shipping address. Use the two character ISO Standard Country Codes.</value>
+        /// <value>Country of the shipping address. Use the two-character ISO Standard Country Codes.</value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 
         /// <summary>
-        /// Phone number for the shipping address.
+        /// Phone number associated with the shipping address.
         /// </summary>
-        /// <value>Phone number for the shipping address.</value>
+        /// <value>Phone number associated with the shipping address.</value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 

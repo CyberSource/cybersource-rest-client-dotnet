@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseProcessorInformation" /> class.
         /// </summary>
         /// <param name="Processor">Processor.</param>
-        /// <param name="TransactionId">Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this  value. .</param>
+        /// <param name="TransactionId">Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this value. .</param>
         /// <param name="NetworkTransactionId">The description for this field is not available..</param>
         /// <param name="ResponseId">The description for this field is not available..</param>
         /// <param name="ProviderTransactionId">The description for this field is not available..</param>
@@ -44,7 +44,9 @@ namespace CyberSource.Model
         /// <param name="CardVerification">CardVerification.</param>
         /// <param name="AchVerification">AchVerification.</param>
         /// <param name="ElectronicVerificationResults">ElectronicVerificationResults.</param>
-        public TssV2TransactionsGet200ResponseProcessorInformation(TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor = default(TssV2TransactionsGet200ResponseProcessorInformationProcessor), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseId = default(string), string ProviderTransactionId = default(string), string ApprovalCode = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), TssV2TransactionsGet200ResponseProcessorInformationCardVerification CardVerification = default(TssV2TransactionsGet200ResponseProcessorInformationCardVerification), TssV2TransactionsGet200ResponseProcessorInformationAchVerification AchVerification = default(TssV2TransactionsGet200ResponseProcessorInformationAchVerification), TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults))
+        /// <param name="SystemTraceAuditNumber">This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customer’s receipt. .</param>
+        /// <param name="ResponseCodeSource">Used by Visa only and contains the response source/reason code that identifies the source of the response decision. .</param>
+        public TssV2TransactionsGet200ResponseProcessorInformation(TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor = default(TssV2TransactionsGet200ResponseProcessorInformationProcessor), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseId = default(string), string ProviderTransactionId = default(string), string ApprovalCode = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), Riskv1decisionsCardVerification CardVerification = default(Riskv1decisionsCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults), string SystemTraceAuditNumber = default(string), string ResponseCodeSource = default(string))
         {
             this.Processor = Processor;
             this.TransactionId = TransactionId;
@@ -57,6 +59,8 @@ namespace CyberSource.Model
             this.CardVerification = CardVerification;
             this.AchVerification = AchVerification;
             this.ElectronicVerificationResults = ElectronicVerificationResults;
+            this.SystemTraceAuditNumber = SystemTraceAuditNumber;
+            this.ResponseCodeSource = ResponseCodeSource;
         }
         
         /// <summary>
@@ -66,9 +70,9 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor { get; set; }
 
         /// <summary>
-        /// Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this  value. 
+        /// Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this value. 
         /// </summary>
-        /// <value>Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this  value. </value>
+        /// <value>Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this value. </value>
         [DataMember(Name="transactionId", EmitDefaultValue=false)]
         public string TransactionId { get; set; }
 
@@ -117,19 +121,33 @@ namespace CyberSource.Model
         /// Gets or Sets CardVerification
         /// </summary>
         [DataMember(Name="cardVerification", EmitDefaultValue=false)]
-        public TssV2TransactionsGet200ResponseProcessorInformationCardVerification CardVerification { get; set; }
+        public Riskv1decisionsCardVerification CardVerification { get; set; }
 
         /// <summary>
         /// Gets or Sets AchVerification
         /// </summary>
         [DataMember(Name="achVerification", EmitDefaultValue=false)]
-        public TssV2TransactionsGet200ResponseProcessorInformationAchVerification AchVerification { get; set; }
+        public PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification { get; set; }
 
         /// <summary>
         /// Gets or Sets ElectronicVerificationResults
         /// </summary>
         [DataMember(Name="electronicVerificationResults", EmitDefaultValue=false)]
         public TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults { get; set; }
+
+        /// <summary>
+        /// This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customer’s receipt. 
+        /// </summary>
+        /// <value>This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customer’s receipt. </value>
+        [DataMember(Name="systemTraceAuditNumber", EmitDefaultValue=false)]
+        public string SystemTraceAuditNumber { get; set; }
+
+        /// <summary>
+        /// Used by Visa only and contains the response source/reason code that identifies the source of the response decision. 
+        /// </summary>
+        /// <value>Used by Visa only and contains the response source/reason code that identifies the source of the response decision. </value>
+        [DataMember(Name="responseCodeSource", EmitDefaultValue=false)]
+        public string ResponseCodeSource { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -150,6 +168,8 @@ namespace CyberSource.Model
             sb.Append("  CardVerification: ").Append(CardVerification).Append("\n");
             sb.Append("  AchVerification: ").Append(AchVerification).Append("\n");
             sb.Append("  ElectronicVerificationResults: ").Append(ElectronicVerificationResults).Append("\n");
+            sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
+            sb.Append("  ResponseCodeSource: ").Append(ResponseCodeSource).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -240,6 +260,16 @@ namespace CyberSource.Model
                     this.ElectronicVerificationResults == other.ElectronicVerificationResults ||
                     this.ElectronicVerificationResults != null &&
                     this.ElectronicVerificationResults.Equals(other.ElectronicVerificationResults)
+                ) && 
+                (
+                    this.SystemTraceAuditNumber == other.SystemTraceAuditNumber ||
+                    this.SystemTraceAuditNumber != null &&
+                    this.SystemTraceAuditNumber.Equals(other.SystemTraceAuditNumber)
+                ) && 
+                (
+                    this.ResponseCodeSource == other.ResponseCodeSource ||
+                    this.ResponseCodeSource != null &&
+                    this.ResponseCodeSource.Equals(other.ResponseCodeSource)
                 );
         }
 
@@ -276,6 +306,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AchVerification.GetHashCode();
                 if (this.ElectronicVerificationResults != null)
                     hash = hash * 59 + this.ElectronicVerificationResults.GetHashCode();
+                if (this.SystemTraceAuditNumber != null)
+                    hash = hash * 59 + this.SystemTraceAuditNumber.GetHashCode();
+                if (this.ResponseCodeSource != null)
+                    hash = hash * 59 + this.ResponseCodeSource.GetHashCode();
                 return hash;
             }
         }
@@ -297,6 +331,18 @@ namespace CyberSource.Model
             if(this.ResponseCode != null && this.ResponseCode.Length > 10)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCode, length must be less than 10.", new [] { "ResponseCode" });
+            }
+
+            // SystemTraceAuditNumber (string) maxLength
+            if(this.SystemTraceAuditNumber != null && this.SystemTraceAuditNumber.Length > 6)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SystemTraceAuditNumber, length must be less than 6.", new [] { "SystemTraceAuditNumber" });
+            }
+
+            // ResponseCodeSource (string) maxLength
+            if(this.ResponseCodeSource != null && this.ResponseCodeSource.Length > 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCodeSource, length must be less than 1.", new [] { "ResponseCodeSource" });
             }
 
             yield break;

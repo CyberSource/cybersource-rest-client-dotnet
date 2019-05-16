@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,12 +33,12 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200Response" /> class.
         /// </summary>
-        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request..</param>
+        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource..</param>
         /// <param name="RootId">Payment Request Id.</param>
         /// <param name="ReconciliationId">The reconciliation id for the submitted transaction. This value is not returned for all processors. .</param>
         /// <param name="MerchantId">The description for this field is not available..</param>
         /// <param name="Status">The status of the submitted transaction..</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        /// <param name="SubmitTimeUTC">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
         /// <param name="ApplicationInformation">ApplicationInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
@@ -57,14 +57,14 @@ namespace CyberSource.Model
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="Links">Links.</param>
-        public TssV2TransactionsGet200Response(string Id = default(string), string RootId = default(string), string ReconciliationId = default(string), string MerchantId = default(string), string Status = default(string), string SubmitTimeUtc = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsGet200ResponseBuyerInformation BuyerInformation = default(TssV2TransactionsGet200ResponseBuyerInformation), TssV2TransactionsGet200ResponseClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsGet200ResponseClientReferenceInformation), TssV2TransactionsGet200ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformation), TssV2TransactionsGet200ResponseDeviceInformation DeviceInformation = default(TssV2TransactionsGet200ResponseDeviceInformation), TssV2TransactionsGet200ResponseErrorInformation ErrorInformation = default(TssV2TransactionsGet200ResponseErrorInformation), TssV2TransactionsGet200ResponseInstallmentInformation InstallmentInformation = default(TssV2TransactionsGet200ResponseInstallmentInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), List<TssV2TransactionsGet200ResponseMerchantDefinedInformation> MerchantDefinedInformation = default(List<TssV2TransactionsGet200ResponseMerchantDefinedInformation>), TssV2TransactionsGet200ResponseMerchantInformation MerchantInformation = default(TssV2TransactionsGet200ResponseMerchantInformation), TssV2TransactionsGet200ResponseOrderInformation OrderInformation = default(TssV2TransactionsGet200ResponseOrderInformation), TssV2TransactionsGet200ResponsePaymentInformation PaymentInformation = default(TssV2TransactionsGet200ResponsePaymentInformation), TssV2TransactionsGet200ResponseProcessingInformation ProcessingInformation = default(TssV2TransactionsGet200ResponseProcessingInformation), TssV2TransactionsGet200ResponseProcessorInformation ProcessorInformation = default(TssV2TransactionsGet200ResponseProcessorInformation), TssV2TransactionsGet200ResponsePointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsGet200ResponsePointOfSaleInformation), TssV2TransactionsGet200ResponseRiskInformation RiskInformation = default(TssV2TransactionsGet200ResponseRiskInformation), TssV2TransactionsGet200ResponseSenderInformation SenderInformation = default(TssV2TransactionsGet200ResponseSenderInformation), PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks))
+        public TssV2TransactionsGet200Response(string Id = default(string), string RootId = default(string), string ReconciliationId = default(string), string MerchantId = default(string), string Status = default(string), string SubmitTimeUTC = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsGet200ResponseBuyerInformation BuyerInformation = default(TssV2TransactionsGet200ResponseBuyerInformation), TssV2TransactionsGet200ResponseClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsGet200ResponseClientReferenceInformation), TssV2TransactionsGet200ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformation), TssV2TransactionsGet200ResponseDeviceInformation DeviceInformation = default(TssV2TransactionsGet200ResponseDeviceInformation), TssV2TransactionsGet200ResponseErrorInformation ErrorInformation = default(TssV2TransactionsGet200ResponseErrorInformation), TssV2TransactionsGet200ResponseInstallmentInformation InstallmentInformation = default(TssV2TransactionsGet200ResponseInstallmentInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsGet200ResponseMerchantInformation MerchantInformation = default(TssV2TransactionsGet200ResponseMerchantInformation), TssV2TransactionsGet200ResponseOrderInformation OrderInformation = default(TssV2TransactionsGet200ResponseOrderInformation), TssV2TransactionsGet200ResponsePaymentInformation PaymentInformation = default(TssV2TransactionsGet200ResponsePaymentInformation), TssV2TransactionsGet200ResponseProcessingInformation ProcessingInformation = default(TssV2TransactionsGet200ResponseProcessingInformation), TssV2TransactionsGet200ResponseProcessorInformation ProcessorInformation = default(TssV2TransactionsGet200ResponseProcessorInformation), TssV2TransactionsGet200ResponsePointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsGet200ResponsePointOfSaleInformation), TssV2TransactionsGet200ResponseRiskInformation RiskInformation = default(TssV2TransactionsGet200ResponseRiskInformation), TssV2TransactionsGet200ResponseSenderInformation SenderInformation = default(TssV2TransactionsGet200ResponseSenderInformation), TssV2TransactionsGet200ResponseLinks Links = default(TssV2TransactionsGet200ResponseLinks))
         {
             this.Id = Id;
             this.RootId = RootId;
             this.ReconciliationId = ReconciliationId;
             this.MerchantId = MerchantId;
             this.Status = Status;
-            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.SubmitTimeUTC = SubmitTimeUTC;
             this.ApplicationInformation = ApplicationInformation;
             this.BuyerInformation = BuyerInformation;
             this.ClientReferenceInformation = ClientReferenceInformation;
@@ -86,9 +86,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// An unique identification number assigned by CyberSource to identify the submitted request.
+        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.
         /// </summary>
-        /// <value>An unique identification number assigned by CyberSource to identify the submitted request.</value>
+        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -121,11 +121,11 @@ namespace CyberSource.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
-        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
+        [DataMember(Name="submitTimeUTC", EmitDefaultValue=false)]
+        public string SubmitTimeUTC { get; set; }
 
         /// <summary>
         /// Gets or Sets ApplicationInformation
@@ -180,7 +180,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The description for this field is not available.</value>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
-        public List<TssV2TransactionsGet200ResponseMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
+        public List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInformation
@@ -234,7 +234,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public PtsV2PaymentsReversalsPost201ResponseLinks Links { get; set; }
+        public TssV2TransactionsGet200ResponseLinks Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -249,7 +249,7 @@ namespace CyberSource.Model
             sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            sb.Append("  SubmitTimeUTC: ").Append(SubmitTimeUTC).Append("\n");
             sb.Append("  ApplicationInformation: ").Append(ApplicationInformation).Append("\n");
             sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
@@ -330,9 +330,9 @@ namespace CyberSource.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.SubmitTimeUTC == other.SubmitTimeUTC ||
+                    this.SubmitTimeUTC != null &&
+                    this.SubmitTimeUTC.Equals(other.SubmitTimeUTC)
                 ) && 
                 (
                     this.ApplicationInformation == other.ApplicationInformation ||
@@ -447,8 +447,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantId.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                if (this.SubmitTimeUTC != null)
+                    hash = hash * 59 + this.SubmitTimeUTC.GetHashCode();
                 if (this.ApplicationInformation != null)
                     hash = hash * 59 + this.ApplicationInformation.GetHashCode();
                 if (this.BuyerInformation != null)

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -65,43 +65,71 @@ namespace CyberSource.Test
 
         
         /// <summary>
-        /// Test TmsV1InstrumentidentifiersTokenIdDelete
+        /// Test CreateInstrumentIdentifier
         /// </summary>
         [Test]
-        public void TmsV1InstrumentidentifiersTokenIdDeleteTest()
+        public void CreateInstrumentIdentifierTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
+            //CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest = null;
+            //var response = instance.CreateInstrumentIdentifier(profileId, createInstrumentIdentifierRequest);
+            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
+        }
+        
+        /// <summary>
+        /// Test DeleteInstrumentIdentifier
+        /// </summary>
+        [Test]
+        public void DeleteInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string profileId = null;
             //string tokenId = null;
-            //instance.TmsV1InstrumentidentifiersTokenIdDelete(profileId, tokenId);
+            //instance.DeleteInstrumentIdentifier(profileId, tokenId);
             
         }
         
         /// <summary>
-        /// Test TmsV1InstrumentidentifiersTokenIdGet
+        /// Test GetAllPaymentInstruments
         /// </summary>
         [Test]
-        public void TmsV1InstrumentidentifiersTokenIdGetTest()
+        public void GetAllPaymentInstrumentsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string profileId = null;
             //string tokenId = null;
-            //var response = instance.TmsV1InstrumentidentifiersTokenIdGet(profileId, tokenId);
-            //Assert.IsInstanceOf<TmsV1InstrumentidentifiersPost200Response> (response, "response is TmsV1InstrumentidentifiersPost200Response");
+            //long? offset = null;
+            //long? limit = null;
+            //var response = instance.GetAllPaymentInstruments(profileId, tokenId, offset, limit);
+            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> (response, "response is TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response");
         }
         
         /// <summary>
-        /// Test TmsV1InstrumentidentifiersTokenIdPatch
+        /// Test GetInstrumentIdentifier
         /// </summary>
         [Test]
-        public void TmsV1InstrumentidentifiersTokenIdPatchTest()
+        public void GetInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string profileId = null;
             //string tokenId = null;
-            //Body1 body = null;
-            //var response = instance.TmsV1InstrumentidentifiersTokenIdPatch(profileId, tokenId, body);
-            //Assert.IsInstanceOf<TmsV1InstrumentidentifiersPost200Response> (response, "response is TmsV1InstrumentidentifiersPost200Response");
+            //var response = instance.GetInstrumentIdentifier(profileId, tokenId);
+            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
+        }
+        
+        /// <summary>
+        /// Test UpdateInstrumentIdentifier
+        /// </summary>
+        [Test]
+        public void UpdateInstrumentIdentifierTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
+            //string tokenId = null;
+            //UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest = null;
+            //var response = instance.UpdateInstrumentIdentifier(profileId, tokenId, updateInstrumentIdentifierRequest);
+            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
         }
         
     }

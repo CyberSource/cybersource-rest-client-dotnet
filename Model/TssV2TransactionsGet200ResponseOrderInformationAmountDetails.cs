@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,29 +33,33 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseOrderInformationAmountDetails" /> class.
         /// </summary>
-        /// <param name="TotalAmount">Grand total for the order. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  * CTV, FDCCompass, Paymentech (&lt;&#x3D; 12)  For processor-specific information, see the grand_total_amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        /// <param name="Currency">Currency used for the order. Use the three-character ISO Standard Currency Codes.  For an authorization reversal or a capture, you must use the same currency that you used in your request for Payment API. .</param>
+        /// <param name="TotalAmount">Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  **Note** For CTV, FDCCompass, Paymentech processors, the maximum length for this field is 12.  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. This information is covered in:  Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43  Table 19, \&quot;Capture Information for Specific Processors,\&quot; on page 58  Table 23, \&quot;Credit Information for Specific Processors,\&quot; on page 75 If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations,\&quot; page 247.  **DCC with a Third-Party Provider**\\ Set this field to the converted amount that was returned by the DCC provider. You must include either this field or offer0 and the offerlevel field amount in your request. For details, see \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  **FDMS South**\\ If you accept IDR or CLP currencies, see the entry for FDMS South in Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43.  **DCC for First Data**\\ Not used. .</param>
+        /// <param name="Currency">Currency used for the order. Use the three-character ISO Standard Currency Codes.  For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your request for Payment API.  **DCC for First Data**\\ Your local currency. For details, see \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113. .</param>
         /// <param name="TaxAmount">Total tax amount for all the items in the order.  For processor-specific information, see the total_tax_amount field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="AuthorizedAmount">Amount that was authorized. .</param>
-        public TssV2TransactionsGet200ResponseOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string TaxAmount = default(string), string AuthorizedAmount = default(string))
+        /// <param name="SettlementAmount">This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. .</param>
+        /// <param name="SettlementCurrency">This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. .</param>
+        public TssV2TransactionsGet200ResponseOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string TaxAmount = default(string), string AuthorizedAmount = default(string), string SettlementAmount = default(string), string SettlementCurrency = default(string))
         {
             this.TotalAmount = TotalAmount;
             this.Currency = Currency;
             this.TaxAmount = TaxAmount;
             this.AuthorizedAmount = AuthorizedAmount;
+            this.SettlementAmount = SettlementAmount;
+            this.SettlementCurrency = SettlementCurrency;
         }
         
         /// <summary>
-        /// Grand total for the order. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  * CTV, FDCCompass, Paymentech (&lt;&#x3D; 12)  For processor-specific information, see the grand_total_amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  **Note** For CTV, FDCCompass, Paymentech processors, the maximum length for this field is 12.  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. This information is covered in:  Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43  Table 19, \&quot;Capture Information for Specific Processors,\&quot; on page 58  Table 23, \&quot;Credit Information for Specific Processors,\&quot; on page 75 If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations,\&quot; page 247.  **DCC with a Third-Party Provider**\\ Set this field to the converted amount that was returned by the DCC provider. You must include either this field or offer0 and the offerlevel field amount in your request. For details, see \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  **FDMS South**\\ If you accept IDR or CLP currencies, see the entry for FDMS South in Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43.  **DCC for First Data**\\ Not used. 
         /// </summary>
-        /// <value>Grand total for the order. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  * CTV, FDCCompass, Paymentech (&lt;&#x3D; 12)  For processor-specific information, see the grand_total_amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  **Note** For CTV, FDCCompass, Paymentech processors, the maximum length for this field is 12.  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. This information is covered in:  Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43  Table 19, \&quot;Capture Information for Specific Processors,\&quot; on page 58  Table 23, \&quot;Credit Information for Specific Processors,\&quot; on page 75 If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations,\&quot; page 247.  **DCC with a Third-Party Provider**\\ Set this field to the converted amount that was returned by the DCC provider. You must include either this field or offer0 and the offerlevel field amount in your request. For details, see \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  **FDMS South**\\ If you accept IDR or CLP currencies, see the entry for FDMS South in Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43.  **DCC for First Data**\\ Not used. </value>
         [DataMember(Name="totalAmount", EmitDefaultValue=false)]
         public string TotalAmount { get; set; }
 
         /// <summary>
-        /// Currency used for the order. Use the three-character ISO Standard Currency Codes.  For an authorization reversal or a capture, you must use the same currency that you used in your request for Payment API. 
+        /// Currency used for the order. Use the three-character ISO Standard Currency Codes.  For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your request for Payment API.  **DCC for First Data**\\ Your local currency. For details, see \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113. 
         /// </summary>
-        /// <value>Currency used for the order. Use the three-character ISO Standard Currency Codes.  For an authorization reversal or a capture, you must use the same currency that you used in your request for Payment API. </value>
+        /// <value>Currency used for the order. Use the three-character ISO Standard Currency Codes.  For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your request for Payment API.  **DCC for First Data**\\ Your local currency. For details, see \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113. </value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
 
@@ -74,6 +78,20 @@ namespace CyberSource.Model
         public string AuthorizedAmount { get; set; }
 
         /// <summary>
+        /// This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. 
+        /// </summary>
+        /// <value>This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. </value>
+        [DataMember(Name="settlementAmount", EmitDefaultValue=false)]
+        public string SettlementAmount { get; set; }
+
+        /// <summary>
+        /// This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. 
+        /// </summary>
+        /// <value>This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. </value>
+        [DataMember(Name="settlementCurrency", EmitDefaultValue=false)]
+        public string SettlementCurrency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +103,8 @@ namespace CyberSource.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
             sb.Append("  AuthorizedAmount: ").Append(AuthorizedAmount).Append("\n");
+            sb.Append("  SettlementAmount: ").Append(SettlementAmount).Append("\n");
+            sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +160,16 @@ namespace CyberSource.Model
                     this.AuthorizedAmount == other.AuthorizedAmount ||
                     this.AuthorizedAmount != null &&
                     this.AuthorizedAmount.Equals(other.AuthorizedAmount)
+                ) && 
+                (
+                    this.SettlementAmount == other.SettlementAmount ||
+                    this.SettlementAmount != null &&
+                    this.SettlementAmount.Equals(other.SettlementAmount)
+                ) && 
+                (
+                    this.SettlementCurrency == other.SettlementCurrency ||
+                    this.SettlementCurrency != null &&
+                    this.SettlementCurrency.Equals(other.SettlementCurrency)
                 );
         }
 
@@ -162,6 +192,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TaxAmount.GetHashCode();
                 if (this.AuthorizedAmount != null)
                     hash = hash * 59 + this.AuthorizedAmount.GetHashCode();
+                if (this.SettlementAmount != null)
+                    hash = hash * 59 + this.SettlementAmount.GetHashCode();
+                if (this.SettlementCurrency != null)
+                    hash = hash * 59 + this.SettlementCurrency.GetHashCode();
                 return hash;
             }
         }
@@ -195,6 +229,18 @@ namespace CyberSource.Model
             if(this.AuthorizedAmount != null && this.AuthorizedAmount.Length > 15)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorizedAmount, length must be less than 15.", new [] { "AuthorizedAmount" });
+            }
+
+            // SettlementAmount (string) maxLength
+            if(this.SettlementAmount != null && this.SettlementAmount.Length > 12)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementAmount, length must be less than 12.", new [] { "SettlementAmount" });
+            }
+
+            // SettlementCurrency (string) maxLength
+            if(this.SettlementCurrency != null && this.SettlementCurrency.Length > 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementCurrency, length must be less than 3.", new [] { "SettlementCurrency" });
             }
 
             yield break;

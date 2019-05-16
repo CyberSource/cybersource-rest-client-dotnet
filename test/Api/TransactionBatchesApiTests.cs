@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -63,6 +63,20 @@ namespace CyberSource.Test
             //Assert.IsInstanceOfType(typeof(TransactionBatchesApi), instance, "instance is a TransactionBatchesApi");
         }
 
+        
+        /// <summary>
+        /// Test GetTransactionBatchDetails
+        /// </summary>
+        [Test]
+        public void GetTransactionBatchDetailsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string transactionBatchId = null;
+            //DateTime? uploadDate = null;
+            //string status = null;
+            //instance.GetTransactionBatchDetails(transactionBatchId, uploadDate, status);
+            
+        }
         
         /// <summary>
         /// Test GetTransactionBatchId

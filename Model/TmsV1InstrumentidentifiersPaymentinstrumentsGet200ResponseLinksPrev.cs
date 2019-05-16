@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -28,13 +28,13 @@ namespace CyberSource.Model
     /// A link to the previous collection starting at the supplied offset minus the supplied limit.
     /// </summary>
     [DataContract]
-    public partial class TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev :  IEquatable<TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev>, IValidatableObject
+    public partial class TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev :  IEquatable<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev" /> class.
+        /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev" /> class.
         /// </summary>
         /// <param name="Href">Href.</param>
-        public TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev(string Href = default(string))
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev(string Href = default(string))
         {
             this.Href = Href;
         }
@@ -52,7 +52,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev {\n");
+            sb.Append("class TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -75,15 +75,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev);
+            return this.Equals(obj as TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev);
         }
 
         /// <summary>
-        /// Returns true if TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev instances are equal
+        /// Returns true if TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev instances are equal
         /// </summary>
-        /// <param name="other">Instance of TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev to be compared</param>
+        /// <param name="other">Instance of TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinksPrev other)
+        public bool Equals(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinksPrev other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

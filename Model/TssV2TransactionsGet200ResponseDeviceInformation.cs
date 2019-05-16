@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseDeviceInformation" /> class.
         /// </summary>
-        /// <param name="IpAddress">IP address of the customer..</param>
-        /// <param name="HostName">DNS resolved hostname from above _ipAddress_..</param>
-        /// <param name="CookiesAccepted">The description for this field is not available..</param>
+        /// <param name="IpAddress">Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. .</param>
+        /// <param name="HostName">Host name reported by the customer’s browser to your Web server identified via the HTTP header..</param>
+        /// <param name="CookiesAccepted">Boolean that indicates whether the customer’s browser accepts cookies. This field can contain one of the following values:   - &#x60;yes&#x60;: The customer’s browser accepts cookies.   - &#x60;no&#x60;: The customer’s browser does not accept cookies. .</param>
         public TssV2TransactionsGet200ResponseDeviceInformation(string IpAddress = default(string), string HostName = default(string), string CookiesAccepted = default(string))
         {
             this.IpAddress = IpAddress;
@@ -44,23 +44,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// IP address of the customer.
+        /// Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. 
         /// </summary>
-        /// <value>IP address of the customer.</value>
+        /// <value>Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 
         /// <summary>
-        /// DNS resolved hostname from above _ipAddress_.
+        /// Host name reported by the customer’s browser to your Web server identified via the HTTP header.
         /// </summary>
-        /// <value>DNS resolved hostname from above _ipAddress_.</value>
+        /// <value>Host name reported by the customer’s browser to your Web server identified via the HTTP header.</value>
         [DataMember(Name="hostName", EmitDefaultValue=false)]
         public string HostName { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Boolean that indicates whether the customer’s browser accepts cookies. This field can contain one of the following values:   - &#x60;yes&#x60;: The customer’s browser accepts cookies.   - &#x60;no&#x60;: The customer’s browser does not accept cookies. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Boolean that indicates whether the customer’s browser accepts cookies. This field can contain one of the following values:   - &#x60;yes&#x60;: The customer’s browser accepts cookies.   - &#x60;no&#x60;: The customer’s browser does not accept cookies. </value>
         [DataMember(Name="cookiesAccepted", EmitDefaultValue=false)]
         public string CookiesAccepted { get; set; }
 

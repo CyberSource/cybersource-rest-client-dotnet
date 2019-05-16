@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -31,9 +31,9 @@ namespace CyberSource.Model
     public partial class PtsV2PayoutsPost201ResponseErrorInformation :  IEquatable<PtsV2PayoutsPost201ResponseErrorInformation>, IValidatableObject
     {
         /// <summary>
-        /// The reason of the status. 
+        /// The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE 
         /// </summary>
-        /// <value>The reason of the status. </value>
+        /// <value>The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ReasonEnum
         {
@@ -106,18 +106,18 @@ namespace CyberSource.Model
         }
 
         /// <summary>
-        /// The reason of the status. 
+        /// The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE 
         /// </summary>
-        /// <value>The reason of the status. </value>
+        /// <value>The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public ReasonEnum? Reason { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PayoutsPost201ResponseErrorInformation" /> class.
         /// </summary>
-        /// <param name="Reason">The reason of the status. .</param>
+        /// <param name="Reason">The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
-        public PtsV2PayoutsPost201ResponseErrorInformation(ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string), List<PtsV2PayoutsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PayoutsPost201ResponseErrorInformationDetails>))
+        public PtsV2PayoutsPost201ResponseErrorInformation(ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
             this.Reason = Reason;
             this.Message = Message;
@@ -136,7 +136,7 @@ namespace CyberSource.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="details", EmitDefaultValue=false)]
-        public List<PtsV2PayoutsPost201ResponseErrorInformationDetails> Details { get; set; }
+        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

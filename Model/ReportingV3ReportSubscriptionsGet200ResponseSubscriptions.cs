@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -75,7 +75,13 @@ namespace CyberSource.Model
             /// Enum MONTHLY for "MONTHLY"
             /// </summary>
             [EnumMember(Value = "MONTHLY")]
-            MONTHLY
+            MONTHLY,
+            
+            /// <summary>
+            /// Enum ADHOC for "ADHOC"
+            /// </summary>
+            [EnumMember(Value = "ADHOC")]
+            ADHOC
         }
 
         /// <summary>
@@ -106,7 +112,7 @@ namespace CyberSource.Model
         /// <param name="ReportFilters">List of filters to apply.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
         /// <param name="GroupId">Id for the selected group..</param>
-        public ReportingV3ReportSubscriptionsGet200ResponseSubscriptions(string OrganizationId = default(string), string ReportDefinitionId = default(string), string ReportDefinitionName = default(string), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), List<string> ReportFields = default(List<string>), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), ReportingV3ReportsIdGet200ResponseReportPreferences ReportPreferences = default(ReportingV3ReportsIdGet200ResponseReportPreferences), string GroupId = default(string))
+        public ReportingV3ReportSubscriptionsGet200ResponseSubscriptions(string OrganizationId = default(string), string ReportDefinitionId = default(string), string ReportDefinitionName = default(string), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), List<string> ReportFields = default(List<string>), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupId = default(string))
         {
             this.OrganizationId = OrganizationId;
             this.ReportDefinitionId = ReportDefinitionId;
@@ -192,7 +198,7 @@ namespace CyberSource.Model
         /// Gets or Sets ReportPreferences
         /// </summary>
         [DataMember(Name="reportPreferences", EmitDefaultValue=false)]
-        public ReportingV3ReportsIdGet200ResponseReportPreferences ReportPreferences { get; set; }
+        public Reportingv3reportsReportPreferences ReportPreferences { get; set; }
 
         /// <summary>
         /// Id for the selected group.

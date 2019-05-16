@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,18 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponsePaymentInformationPaymentType" /> class.
         /// </summary>
-        /// <param name="Name">The description for this field is not available..</param>
-        /// <param name="Type">The description for this field is not available..</param>
-        /// <param name="SubType">The description for this field is not available..</param>
-        /// <param name="Method">The description for this field is not available..</param>
+        /// <param name="Name">The name of a payment method. This is required for non-credit card payment.  Examples: &#x60;SEARS&#x60;, &#x60;JCREW&#x60;, &#x60;PAYPAL&#x60;, &#x60;IDEAL&#x60;, &#x60;EPS&#x60; ...etc.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. .</param>
+        /// <param name="Type">The type of payment method. This is required for non-credit card payment.  Possible values:  - BANK_TRANSFER  - CARD (Default)  - EWALLET  - DIGITAL  - DIRECT_DEBIT  - INVOICE  - PUSH_PAYMENT  - CARRIER_BILLING  - CASH  - CHECK  - CRYPTOGRAPHIC  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. .</param>
+        /// <param name="Method">This is an optional field.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. .</param>
         /// <param name="FundingSource">The description for this field is not available..</param>
         /// <param name="FundingSourceAffiliation">The description for this field is not available..</param>
         /// <param name="Credential">The description for this field is not available..</param>
-        public TssV2TransactionsGet200ResponsePaymentInformationPaymentType(string Name = default(string), string Type = default(string), string SubType = default(string), string Method = default(string), string FundingSource = default(string), string FundingSourceAffiliation = default(string), string Credential = default(string))
+        public TssV2TransactionsGet200ResponsePaymentInformationPaymentType(string Name = default(string), string Type = default(string), string Method = default(string), string FundingSource = default(string), string FundingSourceAffiliation = default(string), string Credential = default(string))
         {
             this.Name = Name;
             this.Type = Type;
-            this.SubType = SubType;
             this.Method = Method;
             this.FundingSource = FundingSource;
             this.FundingSourceAffiliation = FundingSourceAffiliation;
@@ -52,30 +50,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The description for this field is not available.
+        /// The name of a payment method. This is required for non-credit card payment.  Examples: &#x60;SEARS&#x60;, &#x60;JCREW&#x60;, &#x60;PAYPAL&#x60;, &#x60;IDEAL&#x60;, &#x60;EPS&#x60; ...etc.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The name of a payment method. This is required for non-credit card payment.  Examples: &#x60;SEARS&#x60;, &#x60;JCREW&#x60;, &#x60;PAYPAL&#x60;, &#x60;IDEAL&#x60;, &#x60;EPS&#x60; ...etc.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// The type of payment method. This is required for non-credit card payment.  Possible values:  - BANK_TRANSFER  - CARD (Default)  - EWALLET  - DIGITAL  - DIRECT_DEBIT  - INVOICE  - PUSH_PAYMENT  - CARRIER_BILLING  - CASH  - CHECK  - CRYPTOGRAPHIC  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The type of payment method. This is required for non-credit card payment.  Possible values:  - BANK_TRANSFER  - CARD (Default)  - EWALLET  - DIGITAL  - DIRECT_DEBIT  - INVOICE  - PUSH_PAYMENT  - CARRIER_BILLING  - CASH  - CHECK  - CRYPTOGRAPHIC  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// This is an optional field.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
-        [DataMember(Name="subType", EmitDefaultValue=false)]
-        public string SubType { get; set; }
-
-        /// <summary>
-        /// The description for this field is not available.
-        /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>This is an optional field.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. </value>
         [DataMember(Name="method", EmitDefaultValue=false)]
         public string Method { get; set; }
 
@@ -110,7 +101,6 @@ namespace CyberSource.Model
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformationPaymentType {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  SubType: ").Append(SubType).Append("\n");
             sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("  FundingSource: ").Append(FundingSource).Append("\n");
             sb.Append("  FundingSourceAffiliation: ").Append(FundingSourceAffiliation).Append("\n");
@@ -162,11 +152,6 @@ namespace CyberSource.Model
                     this.Type.Equals(other.Type)
                 ) && 
                 (
-                    this.SubType == other.SubType ||
-                    this.SubType != null &&
-                    this.SubType.Equals(other.SubType)
-                ) && 
-                (
                     this.Method == other.Method ||
                     this.Method != null &&
                     this.Method.Equals(other.Method)
@@ -203,8 +188,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Name.GetHashCode();
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
-                if (this.SubType != null)
-                    hash = hash * 59 + this.SubType.GetHashCode();
                 if (this.Method != null)
                     hash = hash * 59 + this.Method.GetHashCode();
                 if (this.FundingSource != null)

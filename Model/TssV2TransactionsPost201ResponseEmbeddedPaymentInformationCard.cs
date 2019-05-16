@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Suffix">Last four digits of the cardholder’s account number. This field is returned only for tokenized transactions. You can use this value on the receipt that you give to the cardholder. .</param>
         /// <param name="Prefix">The description for this field is not available..</param>
-        /// <param name="Type">Type of card to authorize. - 001 Visa - 002 Mastercard - 003 Amex - 004 Discover .</param>
+        /// <param name="Type">Type of card to authorize. - 001 Visa - 002 Mastercard - 003 Amex - 004 Discover - 005: Diners Club - 007: JCB - 024: Maestro (UK Domestic) - 039 Encoded account number - 042: Maestro (International) .</param>
         public TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard(string Suffix = default(string), string Prefix = default(string), string Type = default(string))
         {
             this.Suffix = Suffix;
@@ -58,9 +58,9 @@ namespace CyberSource.Model
         public string Prefix { get; set; }
 
         /// <summary>
-        /// Type of card to authorize. - 001 Visa - 002 Mastercard - 003 Amex - 004 Discover 
+        /// Type of card to authorize. - 001 Visa - 002 Mastercard - 003 Amex - 004 Discover - 005: Diners Club - 007: JCB - 024: Maestro (UK Domestic) - 039 Encoded account number - 042: Maestro (International) 
         /// </summary>
-        /// <value>Type of card to authorize. - 001 Visa - 002 Mastercard - 003 Amex - 004 Discover </value>
+        /// <value>Type of card to authorize. - 001 Visa - 002 Mastercard - 003 Amex - 004 Discover - 005: Diners Club - 007: JCB - 024: Maestro (UK Domestic) - 039 Encoded account number - 042: Maestro (International) </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -156,12 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Suffix (string) maxLength
-            if(this.Suffix != null && this.Suffix.Length > 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Suffix, length must be less than 4.", new [] { "Suffix" });
-            }
-
             // Prefix (string) maxLength
             if(this.Prefix != null && this.Prefix.Length > 6)
             {

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -170,7 +170,7 @@ namespace CyberSource.Model
         /// <param name="ReportFilters">List of filters to apply.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
         /// <param name="GroupId">Id for selected group..</param>
-        public ReportingV3ReportsIdGet200Response(string OrganizationId = default(string), string ReportId = default(string), string ReportDefinitionId = default(string), string ReportName = default(string), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), List<string> ReportFields = default(List<string>), ReportStatusEnum? ReportStatus = default(ReportStatusEnum?), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), string Timezone = default(string), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), ReportingV3ReportsIdGet200ResponseReportPreferences ReportPreferences = default(ReportingV3ReportsIdGet200ResponseReportPreferences), string GroupId = default(string))
+        public ReportingV3ReportsIdGet200Response(string OrganizationId = default(string), string ReportId = default(string), string ReportDefinitionId = default(string), string ReportName = default(string), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), List<string> ReportFields = default(List<string>), ReportStatusEnum? ReportStatus = default(ReportStatusEnum?), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), string Timezone = default(string), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupId = default(string))
         {
             this.OrganizationId = OrganizationId;
             this.ReportId = ReportId;
@@ -258,7 +258,7 @@ namespace CyberSource.Model
         /// Gets or Sets ReportPreferences
         /// </summary>
         [DataMember(Name="reportPreferences", EmitDefaultValue=false)]
-        public ReportingV3ReportsIdGet200ResponseReportPreferences ReportPreferences { get; set; }
+        public Reportingv3reportsReportPreferences ReportPreferences { get; set; }
 
         /// <summary>
         /// Id for selected group.
