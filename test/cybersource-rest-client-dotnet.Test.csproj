@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 CyberSource Merged Spec
 
@@ -50,25 +50,23 @@ OpenAPI spec version: 0.0.1
       <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-        <HintPath>packages\RestSharp.106.5.3\lib\net45\RestSharp.dll</HintPath>
+      <HintPath>packages\RestSharp.106.5.3\lib\net45\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-        <HintPath>packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <HintPath>packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs"
-             Exclude="obj\**"/>
+    <Compile Include="**\*.cs" Exclude="obj\**" />
   </ItemGroup>
   <ItemGroup>
-      <None Include="packages.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-      <ProjectReference Include="..\CyberSource\CyberSource.csproj">
-          <Project>{13E74DDC-6374-4EF5-B88C-B73FC9A3F532}</Project>
-          <Name>CyberSource</Name>
-      </ProjectReference>
+    <ProjectReference Include="..\cybersource-rest-client-dotnet.csproj">
+      <Project>{13E74DDC-6374-4EF5-B88C-B73FC9A3F532}</Project>
+      <Name>CyberSource</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
-
