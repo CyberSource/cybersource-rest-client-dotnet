@@ -1,5 +1,11 @@
 @echo off
 
+rd /s /q ..\Api
+rd /s /q ..\Client
+rd /s /q ..\Model
+rd /s /q ..\docs
+rd /s /q ..\test
+
 java -jar swagger-codegen-cli-2.2.3.jar generate -t cybersource-csharp-template -i cybersource-rest-spec.json -l csharp -o ../ -c cybersource-csharp-config.json
 
 rem For removing trailing forward slash from endpoints
