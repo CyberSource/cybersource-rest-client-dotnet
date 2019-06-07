@@ -71,7 +71,7 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteInstrumentIdentifierWithHttpInfo (string profileId, string tokenId);
         /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier
+        /// Retrieve all Payment Instruments
         /// </summary>
         /// <remarks>
         /// 
@@ -85,7 +85,7 @@ namespace CyberSource.Api
         TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response GetAllPaymentInstruments (string profileId, string tokenId, long? offset = null, long? limit = null);
 
         /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier
+        /// Retrieve all Payment Instruments
         /// </summary>
         /// <remarks>
         /// 
@@ -194,7 +194,7 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInstrumentIdentifierAsyncWithHttpInfo (string profileId, string tokenId);
         /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier
+        /// Retrieve all Payment Instruments
         /// </summary>
         /// <remarks>
         /// 
@@ -208,7 +208,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> GetAllPaymentInstrumentsAsync (string profileId, string tokenId, long? offset = null, long? limit = null);
 
         /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier
+        /// Retrieve all Payment Instruments
         /// </summary>
         /// <remarks>
         /// 
@@ -687,7 +687,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier 
+        /// Retrieve all Payment Instruments 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
@@ -702,7 +702,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier 
+        /// Retrieve all Payment Instruments 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
@@ -766,7 +766,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier 
+        /// Retrieve all Payment Instruments 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>
@@ -782,7 +782,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve all Payment Instruments associated with an Instrument Identifier 
+        /// Retrieve all Payment Instruments 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration.</param>

@@ -33,12 +33,12 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1decisionsDeviceInformation" /> class.
         /// </summary>
-        /// <param name="CookiesAccepted">Boolean that indicates whether the customer’s browser accepts cookies. This field can contain one of the following values:   - &#x60;yes&#x60;: The customer’s browser accepts cookies.   - &#x60;no&#x60;: The customer’s browser does not accept cookies. .</param>
-        /// <param name="IpAddress">Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. .</param>
-        /// <param name="HostName">Host name reported by the customer’s browser to your Web server identified via the HTTP header..</param>
-        /// <param name="FingerprintSessionId">Contains the session ID that you send to Decision Manager to obtain the device fingerprint information. The string can contain uppercase and lowercase letters, digits, hyphen (-), and underscore (_). However, do not use the same uppercase and lowercase letters to indicate different session IDs. The session ID must be unique for each merchant ID. You can use any string that you are already generating, such as an order number or web session ID.The session ID must be unique for each page load, regardless of an individual’s web session ID. If the same user navigates to a profiled page and is assigned a web session, navigates away from the profiled page, then navigates back to the profiled page, the generated session ID should be different and unique. An example of an ideal session ID would be a web session ID plus the timestamp. This measure ensures that a unique ID is generated every time the page is loaded, even if it is the same user reloading the page. .</param>
+        /// <param name="CookiesAccepted">Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. .</param>
+        /// <param name="IpAddress">IP address of the customer. .</param>
+        /// <param name="HostName">DNS resolved hostname from &#x60;ipAddress&#x60;..</param>
+        /// <param name="FingerprintSessionId">Field that contains the session ID that you send to Decision Manager to obtain the device fingerprint information. The string can contain uppercase and lowercase letters, digits, hyphen (-), and underscore (_). However, do not use the same uppercase and lowercase letters to indicate different session IDs.  The session ID must be unique for each merchant ID. You can use any string that you are already generating, such as an order number or web session ID.  The session ID must be unique for each page load, regardless of an individual’s web session ID. If a user navigates to a profiled page and is assigned a web session, navigates away from the profiled page, then navigates back to the profiled page, the generated session ID should be different and unique. You may use a web session ID, but it is preferable to use an application GUID (Globally Unique Identifier). This measure ensures that a unique ID is generated every time the page is loaded, even if it is the same user reloading the page. .</param>
         /// <param name="HttpBrowserEmail">Email address set in the customer’s browser, which may differ from customer email. .</param>
-        /// <param name="UserAgent">Customer’s browser as identified from the HTTP header data. For example, Mozilla is the value that identifies the Netscape browser. .</param>
+        /// <param name="UserAgent">Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. .</param>
         public Riskv1decisionsDeviceInformation(string CookiesAccepted = default(string), string IpAddress = default(string), string HostName = default(string), string FingerprintSessionId = default(string), string HttpBrowserEmail = default(string), string UserAgent = default(string))
         {
             this.CookiesAccepted = CookiesAccepted;
@@ -50,30 +50,30 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Boolean that indicates whether the customer’s browser accepts cookies. This field can contain one of the following values:   - &#x60;yes&#x60;: The customer’s browser accepts cookies.   - &#x60;no&#x60;: The customer’s browser does not accept cookies. 
+        /// Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. 
         /// </summary>
-        /// <value>Boolean that indicates whether the customer’s browser accepts cookies. This field can contain one of the following values:   - &#x60;yes&#x60;: The customer’s browser accepts cookies.   - &#x60;no&#x60;: The customer’s browser does not accept cookies. </value>
+        /// <value>Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. </value>
         [DataMember(Name="cookiesAccepted", EmitDefaultValue=false)]
         public string CookiesAccepted { get; set; }
 
         /// <summary>
-        /// Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. 
+        /// IP address of the customer. 
         /// </summary>
-        /// <value>Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. </value>
+        /// <value>IP address of the customer. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 
         /// <summary>
-        /// Host name reported by the customer’s browser to your Web server identified via the HTTP header.
+        /// DNS resolved hostname from &#x60;ipAddress&#x60;.
         /// </summary>
-        /// <value>Host name reported by the customer’s browser to your Web server identified via the HTTP header.</value>
+        /// <value>DNS resolved hostname from &#x60;ipAddress&#x60;.</value>
         [DataMember(Name="hostName", EmitDefaultValue=false)]
         public string HostName { get; set; }
 
         /// <summary>
-        /// Contains the session ID that you send to Decision Manager to obtain the device fingerprint information. The string can contain uppercase and lowercase letters, digits, hyphen (-), and underscore (_). However, do not use the same uppercase and lowercase letters to indicate different session IDs. The session ID must be unique for each merchant ID. You can use any string that you are already generating, such as an order number or web session ID.The session ID must be unique for each page load, regardless of an individual’s web session ID. If the same user navigates to a profiled page and is assigned a web session, navigates away from the profiled page, then navigates back to the profiled page, the generated session ID should be different and unique. An example of an ideal session ID would be a web session ID plus the timestamp. This measure ensures that a unique ID is generated every time the page is loaded, even if it is the same user reloading the page. 
+        /// Field that contains the session ID that you send to Decision Manager to obtain the device fingerprint information. The string can contain uppercase and lowercase letters, digits, hyphen (-), and underscore (_). However, do not use the same uppercase and lowercase letters to indicate different session IDs.  The session ID must be unique for each merchant ID. You can use any string that you are already generating, such as an order number or web session ID.  The session ID must be unique for each page load, regardless of an individual’s web session ID. If a user navigates to a profiled page and is assigned a web session, navigates away from the profiled page, then navigates back to the profiled page, the generated session ID should be different and unique. You may use a web session ID, but it is preferable to use an application GUID (Globally Unique Identifier). This measure ensures that a unique ID is generated every time the page is loaded, even if it is the same user reloading the page. 
         /// </summary>
-        /// <value>Contains the session ID that you send to Decision Manager to obtain the device fingerprint information. The string can contain uppercase and lowercase letters, digits, hyphen (-), and underscore (_). However, do not use the same uppercase and lowercase letters to indicate different session IDs. The session ID must be unique for each merchant ID. You can use any string that you are already generating, such as an order number or web session ID.The session ID must be unique for each page load, regardless of an individual’s web session ID. If the same user navigates to a profiled page and is assigned a web session, navigates away from the profiled page, then navigates back to the profiled page, the generated session ID should be different and unique. An example of an ideal session ID would be a web session ID plus the timestamp. This measure ensures that a unique ID is generated every time the page is loaded, even if it is the same user reloading the page. </value>
+        /// <value>Field that contains the session ID that you send to Decision Manager to obtain the device fingerprint information. The string can contain uppercase and lowercase letters, digits, hyphen (-), and underscore (_). However, do not use the same uppercase and lowercase letters to indicate different session IDs.  The session ID must be unique for each merchant ID. You can use any string that you are already generating, such as an order number or web session ID.  The session ID must be unique for each page load, regardless of an individual’s web session ID. If a user navigates to a profiled page and is assigned a web session, navigates away from the profiled page, then navigates back to the profiled page, the generated session ID should be different and unique. You may use a web session ID, but it is preferable to use an application GUID (Globally Unique Identifier). This measure ensures that a unique ID is generated every time the page is loaded, even if it is the same user reloading the page. </value>
         [DataMember(Name="fingerprintSessionId", EmitDefaultValue=false)]
         public string FingerprintSessionId { get; set; }
 
@@ -85,9 +85,9 @@ namespace CyberSource.Model
         public string HttpBrowserEmail { get; set; }
 
         /// <summary>
-        /// Customer’s browser as identified from the HTTP header data. For example, Mozilla is the value that identifies the Netscape browser. 
+        /// Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. 
         /// </summary>
-        /// <value>Customer’s browser as identified from the HTTP header data. For example, Mozilla is the value that identifies the Netscape browser. </value>
+        /// <value>Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. </value>
         [DataMember(Name="userAgent", EmitDefaultValue=false)]
         public string UserAgent { get; set; }
 

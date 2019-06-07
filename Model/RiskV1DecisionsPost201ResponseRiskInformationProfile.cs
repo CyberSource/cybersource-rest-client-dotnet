@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RiskV1DecisionsPost201ResponseRiskInformationProfile" /> class.
         /// </summary>
-        /// <param name="Name">Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen. .</param>
+        /// <param name="Name">Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen.  **Note** By default, your default profile is the active profile, or the Profile Selector chooses the active profile. Use this field only if you want to specify the name of a different profile. The passed-in profile will then become the active profile. .</param>
         /// <param name="DesinationQueue">Name of the queue where orders that are not automatically accepted are sent. .</param>
         /// <param name="SelectorRule">Name of the profile selector rule that chooses the profile to use for the transaction. If no profile selector exists, the value is Default Active Profile. .</param>
         public RiskV1DecisionsPost201ResponseRiskInformationProfile(string Name = default(string), string DesinationQueue = default(string), string SelectorRule = default(string))
@@ -44,9 +44,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen. 
+        /// Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen.  **Note** By default, your default profile is the active profile, or the Profile Selector chooses the active profile. Use this field only if you want to specify the name of a different profile. The passed-in profile will then become the active profile. 
         /// </summary>
-        /// <value>Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen. </value>
+        /// <value>Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen.  **Note** By default, your default profile is the active profile, or the Profile Selector chooses the active profile. Use this field only if you want to specify the name of a different profile. The passed-in profile will then become the active profile. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 

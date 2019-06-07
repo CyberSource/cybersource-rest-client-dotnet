@@ -39,8 +39,9 @@ namespace CyberSource.Model
         /// <param name="SubmitTimeLocal">Time that the transaction was submitted in local time..</param>
         /// <param name="Status">The status of the submitted transaction.  Possible values:   - &#x60;ACCEPTED&#x60;   - &#x60;REJECTED&#x60;   - &#x60;PENDING_REVIEW&#x60; .</param>
         /// <param name="RiskInformation">RiskInformation.</param>
+        /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        public RiskV1DecisionsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), RiskV1DecisionsPost201ResponseRiskInformation RiskInformation = default(RiskV1DecisionsPost201ResponseRiskInformation), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation))
+        public RiskV1DecisionsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), RiskV1DecisionsPost201ResponseRiskInformation RiskInformation = default(RiskV1DecisionsPost201ResponseRiskInformation), RiskV1DecisionsPost201ResponsePaymentInformation PaymentInformation = default(RiskV1DecisionsPost201ResponsePaymentInformation), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -48,6 +49,7 @@ namespace CyberSource.Model
             this.SubmitTimeLocal = SubmitTimeLocal;
             this.Status = Status;
             this.RiskInformation = RiskInformation;
+            this.PaymentInformation = PaymentInformation;
             this.ErrorInformation = ErrorInformation;
         }
         
@@ -92,6 +94,12 @@ namespace CyberSource.Model
         public RiskV1DecisionsPost201ResponseRiskInformation RiskInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentInformation
+        /// </summary>
+        [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
+        public RiskV1DecisionsPost201ResponsePaymentInformation PaymentInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets ErrorInformation
         /// </summary>
         [DataMember(Name="errorInformation", EmitDefaultValue=false)]
@@ -111,6 +119,7 @@ namespace CyberSource.Model
             sb.Append("  SubmitTimeLocal: ").Append(SubmitTimeLocal).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
+            sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -179,6 +188,11 @@ namespace CyberSource.Model
                     this.RiskInformation.Equals(other.RiskInformation)
                 ) && 
                 (
+                    this.PaymentInformation == other.PaymentInformation ||
+                    this.PaymentInformation != null &&
+                    this.PaymentInformation.Equals(other.PaymentInformation)
+                ) && 
+                (
                     this.ErrorInformation == other.ErrorInformation ||
                     this.ErrorInformation != null &&
                     this.ErrorInformation.Equals(other.ErrorInformation)
@@ -208,6 +222,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Status.GetHashCode();
                 if (this.RiskInformation != null)
                     hash = hash * 59 + this.RiskInformation.GetHashCode();
+                if (this.PaymentInformation != null)
+                    hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.ErrorInformation != null)
                     hash = hash * 59 + this.ErrorInformation.GetHashCode();
                 return hash;

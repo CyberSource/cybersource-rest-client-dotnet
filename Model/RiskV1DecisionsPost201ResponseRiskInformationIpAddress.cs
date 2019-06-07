@@ -33,52 +33,52 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RiskV1DecisionsPost201ResponseRiskInformationIpAddress" /> class.
         /// </summary>
-        /// <param name="AnonymizerStatus">Indicates whether the transaction IP address is associated with a known anonymous proxy. For all possible values, Please refer to Simple Order API Developer Guide on [CyberSource Business Center](https://ebc2.cybersource.com/ebc2/)- Look for &#39;Reply Fields&#39;: \&quot;afsReply_ipAnonymizerStatus\&quot;. .</param>
-        /// <param name="City">Name of the city decoded from the IP address used directly or indirectly by the customer to send the order. .</param>
-        /// <param name="Country">Name of the country decoded from the IP address used directly or indirectly by the customer to send the order. .</param>
-        /// <param name="State">Name of the state decoded from the IP address used directly or indirectly by the customer to send the order. .</param>
-        /// <param name="RoutingMethod">Routing method decoded from the IP address used directly or indirectly by the customer to send the order. For all possible values, Please refer to Simple Order API Developer Guide on [CyberSource Business Center](https://ebc2.cybersource.com/ebc2/)- Look for &#39;Reply Fields&#39;: \&quot;afsService_ipRoutingMethod \&quot;. .</param>
-        public RiskV1DecisionsPost201ResponseRiskInformationIpAddress(string AnonymizerStatus = default(string), string City = default(string), string Country = default(string), string State = default(string), string RoutingMethod = default(string))
+        /// <param name="AnonymizerStatus">Indicates whether the transaction IP address is associated with a known anonymous proxy.  For all possible values, see the &#x60;score_ip_anonymizer_status&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="Locality">Name of the city decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_city&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="Country">Name of the country decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="AdministrativeArea">Name of the country decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="RoutingMethod">Routing method decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_routing_method&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        public RiskV1DecisionsPost201ResponseRiskInformationIpAddress(string AnonymizerStatus = default(string), string Locality = default(string), string Country = default(string), string AdministrativeArea = default(string), string RoutingMethod = default(string))
         {
             this.AnonymizerStatus = AnonymizerStatus;
-            this.City = City;
+            this.Locality = Locality;
             this.Country = Country;
-            this.State = State;
+            this.AdministrativeArea = AdministrativeArea;
             this.RoutingMethod = RoutingMethod;
         }
         
         /// <summary>
-        /// Indicates whether the transaction IP address is associated with a known anonymous proxy. For all possible values, Please refer to Simple Order API Developer Guide on [CyberSource Business Center](https://ebc2.cybersource.com/ebc2/)- Look for &#39;Reply Fields&#39;: \&quot;afsReply_ipAnonymizerStatus\&quot;. 
+        /// Indicates whether the transaction IP address is associated with a known anonymous proxy.  For all possible values, see the &#x60;score_ip_anonymizer_status&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Indicates whether the transaction IP address is associated with a known anonymous proxy. For all possible values, Please refer to Simple Order API Developer Guide on [CyberSource Business Center](https://ebc2.cybersource.com/ebc2/)- Look for &#39;Reply Fields&#39;: \&quot;afsReply_ipAnonymizerStatus\&quot;. </value>
+        /// <value>Indicates whether the transaction IP address is associated with a known anonymous proxy.  For all possible values, see the &#x60;score_ip_anonymizer_status&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="anonymizerStatus", EmitDefaultValue=false)]
         public string AnonymizerStatus { get; set; }
 
         /// <summary>
-        /// Name of the city decoded from the IP address used directly or indirectly by the customer to send the order. 
+        /// Name of the city decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_city&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Name of the city decoded from the IP address used directly or indirectly by the customer to send the order. </value>
-        [DataMember(Name="city", EmitDefaultValue=false)]
-        public string City { get; set; }
+        /// <value>Name of the city decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_city&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
+        [DataMember(Name="locality", EmitDefaultValue=false)]
+        public string Locality { get; set; }
 
         /// <summary>
-        /// Name of the country decoded from the IP address used directly or indirectly by the customer to send the order. 
+        /// Name of the country decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Name of the country decoded from the IP address used directly or indirectly by the customer to send the order. </value>
+        /// <value>Name of the country decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 
         /// <summary>
-        /// Name of the state decoded from the IP address used directly or indirectly by the customer to send the order. 
+        /// Name of the country decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Name of the state decoded from the IP address used directly or indirectly by the customer to send the order. </value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
-        public string State { get; set; }
+        /// <value>Name of the country decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
+        [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
+        public string AdministrativeArea { get; set; }
 
         /// <summary>
-        /// Routing method decoded from the IP address used directly or indirectly by the customer to send the order. For all possible values, Please refer to Simple Order API Developer Guide on [CyberSource Business Center](https://ebc2.cybersource.com/ebc2/)- Look for &#39;Reply Fields&#39;: \&quot;afsService_ipRoutingMethod \&quot;. 
+        /// Routing method decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_routing_method&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Routing method decoded from the IP address used directly or indirectly by the customer to send the order. For all possible values, Please refer to Simple Order API Developer Guide on [CyberSource Business Center](https://ebc2.cybersource.com/ebc2/)- Look for &#39;Reply Fields&#39;: \&quot;afsService_ipRoutingMethod \&quot;. </value>
+        /// <value>Routing method decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_routing_method&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="routingMethod", EmitDefaultValue=false)]
         public string RoutingMethod { get; set; }
 
@@ -91,9 +91,9 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class RiskV1DecisionsPost201ResponseRiskInformationIpAddress {\n");
             sb.Append("  AnonymizerStatus: ").Append(AnonymizerStatus).Append("\n");
-            sb.Append("  City: ").Append(City).Append("\n");
+            sb.Append("  Locality: ").Append(Locality).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
+            sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             sb.Append("  RoutingMethod: ").Append(RoutingMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -137,9 +137,9 @@ namespace CyberSource.Model
                     this.AnonymizerStatus.Equals(other.AnonymizerStatus)
                 ) && 
                 (
-                    this.City == other.City ||
-                    this.City != null &&
-                    this.City.Equals(other.City)
+                    this.Locality == other.Locality ||
+                    this.Locality != null &&
+                    this.Locality.Equals(other.Locality)
                 ) && 
                 (
                     this.Country == other.Country ||
@@ -147,9 +147,9 @@ namespace CyberSource.Model
                     this.Country.Equals(other.Country)
                 ) && 
                 (
-                    this.State == other.State ||
-                    this.State != null &&
-                    this.State.Equals(other.State)
+                    this.AdministrativeArea == other.AdministrativeArea ||
+                    this.AdministrativeArea != null &&
+                    this.AdministrativeArea.Equals(other.AdministrativeArea)
                 ) && 
                 (
                     this.RoutingMethod == other.RoutingMethod ||
@@ -171,12 +171,12 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.AnonymizerStatus != null)
                     hash = hash * 59 + this.AnonymizerStatus.GetHashCode();
-                if (this.City != null)
-                    hash = hash * 59 + this.City.GetHashCode();
+                if (this.Locality != null)
+                    hash = hash * 59 + this.Locality.GetHashCode();
                 if (this.Country != null)
                     hash = hash * 59 + this.Country.GetHashCode();
-                if (this.State != null)
-                    hash = hash * 59 + this.State.GetHashCode();
+                if (this.AdministrativeArea != null)
+                    hash = hash * 59 + this.AdministrativeArea.GetHashCode();
                 if (this.RoutingMethod != null)
                     hash = hash * 59 + this.RoutingMethod.GetHashCode();
                 return hash;
@@ -196,10 +196,10 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AnonymizerStatus, length must be less than 255.", new [] { "AnonymizerStatus" });
             }
 
-            // City (string) maxLength
-            if(this.City != null && this.City.Length > 255)
+            // Locality (string) maxLength
+            if(this.Locality != null && this.Locality.Length > 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for City, length must be less than 255.", new [] { "City" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than 255.", new [] { "Locality" });
             }
 
             // Country (string) maxLength
@@ -208,10 +208,10 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than 255.", new [] { "Country" });
             }
 
-            // State (string) maxLength
-            if(this.State != null && this.State.Length > 255)
+            // AdministrativeArea (string) maxLength
+            if(this.AdministrativeArea != null && this.AdministrativeArea.Length > 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be less than 255.", new [] { "State" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than 255.", new [] { "AdministrativeArea" });
             }
 
             // RoutingMethod (string) maxLength

@@ -73,12 +73,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AnonymizerStatus'
         }
         /// <summary>
-        /// Test the property 'City'
+        /// Test the property 'Locality'
         /// </summary>
         [Test]
-        public void CityTest()
+        public void LocalityTest()
         {
-            // TODO unit test for the property 'City'
+            // TODO unit test for the property 'Locality'
         }
         /// <summary>
         /// Test the property 'Country'
@@ -89,12 +89,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Country'
         }
         /// <summary>
-        /// Test the property 'State'
+        /// Test the property 'AdministrativeArea'
         /// </summary>
         [Test]
-        public void StateTest()
+        public void AdministrativeAreaTest()
         {
-            // TODO unit test for the property 'State'
+            // TODO unit test for the property 'AdministrativeArea'
         }
         /// <summary>
         /// Test the property 'RoutingMethod'

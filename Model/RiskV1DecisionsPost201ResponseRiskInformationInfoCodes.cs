@@ -33,14 +33,14 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RiskV1DecisionsPost201ResponseRiskInformationInfoCodes" /> class.
         /// </summary>
-        /// <param name="Velocity">List of information codes triggered by the order. These information codes were generated when you created the order and product velocity rules and are returned so that you can associate them with the rules. .</param>
-        /// <param name="Address">Indicates a mismatch between the customer’s billing and shipping addresses..</param>
-        /// <param name="CustomerList">Indicates that customer information is associated with transactions that are either on the negative or the positive list. .</param>
-        /// <param name="IdentityChange">Indicates excessive identity changes. The threshold is variable depending on the identity elements being compared. This field can contain one or more information codes, separated by carets (^). .</param>
-        /// <param name="Internet">Indicates a problem with the customer’s email address, IP address, or billing address..</param>
-        /// <param name="Phone">Indicates a problem with the customer’s phone number..</param>
-        /// <param name="Suspicious">Indicates that the customer provided potentially suspicious information..</param>
-        /// <param name="GlobalVelocity">Indicates that the customer has a high purchase frequency..</param>
+        /// <param name="Velocity">List of information codes triggered by the order. These information codes were generated when you created the order and product velocity rules and are returned so that you can associate them with the rules.  For all possible values, see the &#x60;decision_velocity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="Address">Indicates a mismatch between the customer’s billing and shipping addresses.  For all possible values, see the &#x60;score_address_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="CustomerList">Indicates that customer information is associated with transactions that are either on the negative or the positive list.  For all possible values, see the &#x60;score_hotlist_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="IdentityChange">Indicates excessive identity changes. The threshold is variable depending on the identity elements being compared. This field can contain one or more information codes, separated by carets (^).  For all possible values, see the &#x60;score_identity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="Internet">Indicates a problem with the customer’s email address, IP address, or billing address.  For all possible values, see the &#x60;score_internet_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="Phone">Indicates a problem with the customer’s phone number.  For all possible values, see the &#x60;score_phone_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="Suspicious">Indicates that the customer provided potentially suspicious information.  For all possible values, see the &#x60;score_suspicious_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="GlobalVelocity">Indicates that the customer has a high purchase frequency.  For all possible values, see the &#x60;score_velocity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         public RiskV1DecisionsPost201ResponseRiskInformationInfoCodes(List<string> Velocity = default(List<string>), List<string> Address = default(List<string>), List<string> CustomerList = default(List<string>), List<string> IdentityChange = default(List<string>), List<string> Internet = default(List<string>), List<string> Phone = default(List<string>), List<string> Suspicious = default(List<string>), List<string> GlobalVelocity = default(List<string>))
         {
             this.Velocity = Velocity;
@@ -54,58 +54,58 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// List of information codes triggered by the order. These information codes were generated when you created the order and product velocity rules and are returned so that you can associate them with the rules. 
+        /// List of information codes triggered by the order. These information codes were generated when you created the order and product velocity rules and are returned so that you can associate them with the rules.  For all possible values, see the &#x60;decision_velocity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>List of information codes triggered by the order. These information codes were generated when you created the order and product velocity rules and are returned so that you can associate them with the rules. </value>
+        /// <value>List of information codes triggered by the order. These information codes were generated when you created the order and product velocity rules and are returned so that you can associate them with the rules.  For all possible values, see the &#x60;decision_velocity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="velocity", EmitDefaultValue=false)]
         public List<string> Velocity { get; set; }
 
         /// <summary>
-        /// Indicates a mismatch between the customer’s billing and shipping addresses.
+        /// Indicates a mismatch between the customer’s billing and shipping addresses.  For all possible values, see the &#x60;score_address_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Indicates a mismatch between the customer’s billing and shipping addresses.</value>
+        /// <value>Indicates a mismatch between the customer’s billing and shipping addresses.  For all possible values, see the &#x60;score_address_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="address", EmitDefaultValue=false)]
         public List<string> Address { get; set; }
 
         /// <summary>
-        /// Indicates that customer information is associated with transactions that are either on the negative or the positive list. 
+        /// Indicates that customer information is associated with transactions that are either on the negative or the positive list.  For all possible values, see the &#x60;score_hotlist_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Indicates that customer information is associated with transactions that are either on the negative or the positive list. </value>
+        /// <value>Indicates that customer information is associated with transactions that are either on the negative or the positive list.  For all possible values, see the &#x60;score_hotlist_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="customerList", EmitDefaultValue=false)]
         public List<string> CustomerList { get; set; }
 
         /// <summary>
-        /// Indicates excessive identity changes. The threshold is variable depending on the identity elements being compared. This field can contain one or more information codes, separated by carets (^). 
+        /// Indicates excessive identity changes. The threshold is variable depending on the identity elements being compared. This field can contain one or more information codes, separated by carets (^).  For all possible values, see the &#x60;score_identity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Indicates excessive identity changes. The threshold is variable depending on the identity elements being compared. This field can contain one or more information codes, separated by carets (^). </value>
+        /// <value>Indicates excessive identity changes. The threshold is variable depending on the identity elements being compared. This field can contain one or more information codes, separated by carets (^).  For all possible values, see the &#x60;score_identity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="identityChange", EmitDefaultValue=false)]
         public List<string> IdentityChange { get; set; }
 
         /// <summary>
-        /// Indicates a problem with the customer’s email address, IP address, or billing address.
+        /// Indicates a problem with the customer’s email address, IP address, or billing address.  For all possible values, see the &#x60;score_internet_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Indicates a problem with the customer’s email address, IP address, or billing address.</value>
+        /// <value>Indicates a problem with the customer’s email address, IP address, or billing address.  For all possible values, see the &#x60;score_internet_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="internet", EmitDefaultValue=false)]
         public List<string> Internet { get; set; }
 
         /// <summary>
-        /// Indicates a problem with the customer’s phone number.
+        /// Indicates a problem with the customer’s phone number.  For all possible values, see the &#x60;score_phone_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Indicates a problem with the customer’s phone number.</value>
+        /// <value>Indicates a problem with the customer’s phone number.  For all possible values, see the &#x60;score_phone_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="phone", EmitDefaultValue=false)]
         public List<string> Phone { get; set; }
 
         /// <summary>
-        /// Indicates that the customer provided potentially suspicious information.
+        /// Indicates that the customer provided potentially suspicious information.  For all possible values, see the &#x60;score_suspicious_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Indicates that the customer provided potentially suspicious information.</value>
+        /// <value>Indicates that the customer provided potentially suspicious information.  For all possible values, see the &#x60;score_suspicious_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="suspicious", EmitDefaultValue=false)]
         public List<string> Suspicious { get; set; }
 
         /// <summary>
-        /// Indicates that the customer has a high purchase frequency.
+        /// Indicates that the customer has a high purchase frequency.  For all possible values, see the &#x60;score_velocity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Indicates that the customer has a high purchase frequency.</value>
+        /// <value>Indicates that the customer has a high purchase frequency.  For all possible values, see the &#x60;score_velocity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="globalVelocity", EmitDefaultValue=false)]
         public List<string> GlobalVelocity { get; set; }
 

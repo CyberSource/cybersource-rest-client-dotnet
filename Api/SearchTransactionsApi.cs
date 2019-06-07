@@ -49,7 +49,7 @@ namespace CyberSource.Api
         /// Get Search results
         /// </summary>
         /// <remarks>
-        /// Include the Search ID in the GET request to retrieve the search results. 
+        /// Include the Search ID in the GET request to retrieve the search results.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
@@ -60,7 +60,7 @@ namespace CyberSource.Api
         /// Get Search results
         /// </summary>
         /// <remarks>
-        /// Include the Search ID in the GET request to retrieve the search results. 
+        /// Include the Search ID in the GET request to retrieve the search results.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
@@ -93,7 +93,7 @@ namespace CyberSource.Api
         /// Get Search results
         /// </summary>
         /// <remarks>
-        /// Include the Search ID in the GET request to retrieve the search results. 
+        /// Include the Search ID in the GET request to retrieve the search results.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
@@ -104,7 +104,7 @@ namespace CyberSource.Api
         /// Get Search results
         /// </summary>
         /// <remarks>
-        /// Include the Search ID in the GET request to retrieve the search results. 
+        /// Include the Search ID in the GET request to retrieve the search results.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
@@ -372,7 +372,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Search results Include the Search ID in the GET request to retrieve the search results. 
+        /// Get Search results Include the Search ID in the GET request to retrieve the search results.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
@@ -384,7 +384,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Search results Include the Search ID in the GET request to retrieve the search results. 
+        /// Get Search results Include the Search ID in the GET request to retrieve the search results.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
@@ -439,7 +439,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Search results Include the Search ID in the GET request to retrieve the search results. 
+        /// Get Search results Include the Search ID in the GET request to retrieve the search results.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
@@ -452,7 +452,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Search results Include the Search ID in the GET request to retrieve the search results. 
+        /// Get Search results Include the Search ID in the GET request to retrieve the search results.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>

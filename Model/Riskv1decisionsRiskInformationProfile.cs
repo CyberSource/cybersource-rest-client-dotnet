@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1decisionsRiskInformationProfile" /> class.
         /// </summary>
-        /// <param name="Name">Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen. .</param>
+        /// <param name="Name">Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen.  **Note** By default, your default profile is the active profile, or the Profile Selector chooses the active profile. Use this field only if you want to specify the name of a different profile. The passed-in profile will then become the active profile. .</param>
         public Riskv1decisionsRiskInformationProfile(string Name = default(string))
         {
             this.Name = Name;
         }
         
         /// <summary>
-        /// Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen. 
+        /// Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen.  **Note** By default, your default profile is the active profile, or the Profile Selector chooses the active profile. Use this field only if you want to specify the name of a different profile. The passed-in profile will then become the active profile. 
         /// </summary>
-        /// <value>Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen. </value>
+        /// <value>Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen.  **Note** By default, your default profile is the active profile, or the Profile Selector chooses the active profile. Use this field only if you want to specify the name of a different profile. The passed-in profile will then become the active profile. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **SubmitTimeLocal** | **string** | Time that the transaction was submitted in local time. | [optional] 
 **Status** | **string** | The status of the submitted transaction.  Possible values:   - &#x60;ACCEPTED&#x60;   - &#x60;REJECTED&#x60;   - &#x60;PENDING_REVIEW&#x60;  | [optional] 
 **RiskInformation** | [**RiskV1DecisionsPost201ResponseRiskInformation**](RiskV1DecisionsPost201ResponseRiskInformation.md) |  | [optional] 
+**PaymentInformation** | [**RiskV1DecisionsPost201ResponsePaymentInformation**](RiskV1DecisionsPost201ResponsePaymentInformation.md) |  | [optional] 
 **ErrorInformation** | [**PtsV2PaymentsPost201ResponseErrorInformation**](PtsV2PaymentsPost201ResponseErrorInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

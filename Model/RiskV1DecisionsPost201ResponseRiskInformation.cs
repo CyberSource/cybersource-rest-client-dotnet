@@ -37,13 +37,13 @@ namespace CyberSource.Model
         /// <param name="Rules">Rules.</param>
         /// <param name="InfoCodes">InfoCodes.</param>
         /// <param name="Velocity">Velocity.</param>
-        /// <param name="CasePriority">You receive this field only if you subscribe to the Enhanced Case Management service. For all possible values, Please refer to Simple Order API Developer Guide on [CyberSource Business Center](https://ebc2.cybersource.com/ebc2/) - Look for &#39;Reply Fields&#39;: \&quot;decisionReply_casePriority\&quot;. .</param>
-        /// <param name="LocalTime">The customer&#39;s local time (hh:mm:ss), which is calculated from the transaction request time and the customer&#39;s billing address. .</param>
-        /// <param name="PaymentInformation">PaymentInformation.</param>
+        /// <param name="CasePriority">You receive this field only if you subscribe to the Enhanced Case Management service. The priority level ranges from 1 (highest) to 5 (lowest); the default value is 3. If you do not assign a priority to your rules or to your profiles, the default value is given to the order.  For all possible values, see the &#x60;decision_case_priority&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="LocalTime">The customer&#39;s local time (&#x60;hh:mm:ss&#x60;), which is calculated from the transaction request time and the customer&#39;s billing address.  For details, see the &#x60;score_time_local&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) .</param>
         /// <param name="Score">Score.</param>
         /// <param name="IpAddress">IpAddress.</param>
         /// <param name="Providers">Providers.</param>
-        public RiskV1DecisionsPost201ResponseRiskInformation(RiskV1DecisionsPost201ResponseRiskInformationProfile Profile = default(RiskV1DecisionsPost201ResponseRiskInformationProfile), List<RiskV1DecisionsPost201ResponseRiskInformationRules> Rules = default(List<RiskV1DecisionsPost201ResponseRiskInformationRules>), RiskV1DecisionsPost201ResponseRiskInformationInfoCodes InfoCodes = default(RiskV1DecisionsPost201ResponseRiskInformationInfoCodes), RiskV1DecisionsPost201ResponseRiskInformationVelocity Velocity = default(RiskV1DecisionsPost201ResponseRiskInformationVelocity), int? CasePriority = default(int?), string LocalTime = default(string), RiskV1DecisionsPost201ResponseRiskInformationPaymentInformation PaymentInformation = default(RiskV1DecisionsPost201ResponseRiskInformationPaymentInformation), RiskV1DecisionsPost201ResponseRiskInformationScore Score = default(RiskV1DecisionsPost201ResponseRiskInformationScore), RiskV1DecisionsPost201ResponseRiskInformationIpAddress IpAddress = default(RiskV1DecisionsPost201ResponseRiskInformationIpAddress), RiskV1DecisionsPost201ResponseRiskInformationProviders Providers = default(RiskV1DecisionsPost201ResponseRiskInformationProviders))
+        /// <param name="Travel">Travel.</param>
+        public RiskV1DecisionsPost201ResponseRiskInformation(RiskV1DecisionsPost201ResponseRiskInformationProfile Profile = default(RiskV1DecisionsPost201ResponseRiskInformationProfile), List<RiskV1DecisionsPost201ResponseRiskInformationRules> Rules = default(List<RiskV1DecisionsPost201ResponseRiskInformationRules>), RiskV1DecisionsPost201ResponseRiskInformationInfoCodes InfoCodes = default(RiskV1DecisionsPost201ResponseRiskInformationInfoCodes), RiskV1DecisionsPost201ResponseRiskInformationVelocity Velocity = default(RiskV1DecisionsPost201ResponseRiskInformationVelocity), int? CasePriority = default(int?), string LocalTime = default(string), RiskV1DecisionsPost201ResponseRiskInformationScore Score = default(RiskV1DecisionsPost201ResponseRiskInformationScore), RiskV1DecisionsPost201ResponseRiskInformationIpAddress IpAddress = default(RiskV1DecisionsPost201ResponseRiskInformationIpAddress), RiskV1DecisionsPost201ResponseRiskInformationProviders Providers = default(RiskV1DecisionsPost201ResponseRiskInformationProviders), RiskV1DecisionsPost201ResponseRiskInformationTravel Travel = default(RiskV1DecisionsPost201ResponseRiskInformationTravel))
         {
             this.Profile = Profile;
             this.Rules = Rules;
@@ -51,10 +51,10 @@ namespace CyberSource.Model
             this.Velocity = Velocity;
             this.CasePriority = CasePriority;
             this.LocalTime = LocalTime;
-            this.PaymentInformation = PaymentInformation;
             this.Score = Score;
             this.IpAddress = IpAddress;
             this.Providers = Providers;
+            this.Travel = Travel;
         }
         
         /// <summary>
@@ -82,24 +82,18 @@ namespace CyberSource.Model
         public RiskV1DecisionsPost201ResponseRiskInformationVelocity Velocity { get; set; }
 
         /// <summary>
-        /// You receive this field only if you subscribe to the Enhanced Case Management service. For all possible values, Please refer to Simple Order API Developer Guide on [CyberSource Business Center](https://ebc2.cybersource.com/ebc2/) - Look for &#39;Reply Fields&#39;: \&quot;decisionReply_casePriority\&quot;. 
+        /// You receive this field only if you subscribe to the Enhanced Case Management service. The priority level ranges from 1 (highest) to 5 (lowest); the default value is 3. If you do not assign a priority to your rules or to your profiles, the default value is given to the order.  For all possible values, see the &#x60;decision_case_priority&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>You receive this field only if you subscribe to the Enhanced Case Management service. For all possible values, Please refer to Simple Order API Developer Guide on [CyberSource Business Center](https://ebc2.cybersource.com/ebc2/) - Look for &#39;Reply Fields&#39;: \&quot;decisionReply_casePriority\&quot;. </value>
+        /// <value>You receive this field only if you subscribe to the Enhanced Case Management service. The priority level ranges from 1 (highest) to 5 (lowest); the default value is 3. If you do not assign a priority to your rules or to your profiles, the default value is given to the order.  For all possible values, see the &#x60;decision_case_priority&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="casePriority", EmitDefaultValue=false)]
         public int? CasePriority { get; set; }
 
         /// <summary>
-        /// The customer&#39;s local time (hh:mm:ss), which is calculated from the transaction request time and the customer&#39;s billing address. 
+        /// The customer&#39;s local time (&#x60;hh:mm:ss&#x60;), which is calculated from the transaction request time and the customer&#39;s billing address.  For details, see the &#x60;score_time_local&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) 
         /// </summary>
-        /// <value>The customer&#39;s local time (hh:mm:ss), which is calculated from the transaction request time and the customer&#39;s billing address. </value>
+        /// <value>The customer&#39;s local time (&#x60;hh:mm:ss&#x60;), which is calculated from the transaction request time and the customer&#39;s billing address.  For details, see the &#x60;score_time_local&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) </value>
         [DataMember(Name="localTime", EmitDefaultValue=false)]
         public string LocalTime { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaymentInformation
-        /// </summary>
-        [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
-        public RiskV1DecisionsPost201ResponseRiskInformationPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets Score
@@ -120,6 +114,12 @@ namespace CyberSource.Model
         public RiskV1DecisionsPost201ResponseRiskInformationProviders Providers { get; set; }
 
         /// <summary>
+        /// Gets or Sets Travel
+        /// </summary>
+        [DataMember(Name="travel", EmitDefaultValue=false)]
+        public RiskV1DecisionsPost201ResponseRiskInformationTravel Travel { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -133,10 +133,10 @@ namespace CyberSource.Model
             sb.Append("  Velocity: ").Append(Velocity).Append("\n");
             sb.Append("  CasePriority: ").Append(CasePriority).Append("\n");
             sb.Append("  LocalTime: ").Append(LocalTime).Append("\n");
-            sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("  Score: ").Append(Score).Append("\n");
             sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
             sb.Append("  Providers: ").Append(Providers).Append("\n");
+            sb.Append("  Travel: ").Append(Travel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -204,11 +204,6 @@ namespace CyberSource.Model
                     this.LocalTime.Equals(other.LocalTime)
                 ) && 
                 (
-                    this.PaymentInformation == other.PaymentInformation ||
-                    this.PaymentInformation != null &&
-                    this.PaymentInformation.Equals(other.PaymentInformation)
-                ) && 
-                (
                     this.Score == other.Score ||
                     this.Score != null &&
                     this.Score.Equals(other.Score)
@@ -222,6 +217,11 @@ namespace CyberSource.Model
                     this.Providers == other.Providers ||
                     this.Providers != null &&
                     this.Providers.Equals(other.Providers)
+                ) && 
+                (
+                    this.Travel == other.Travel ||
+                    this.Travel != null &&
+                    this.Travel.Equals(other.Travel)
                 );
         }
 
@@ -248,14 +248,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CasePriority.GetHashCode();
                 if (this.LocalTime != null)
                     hash = hash * 59 + this.LocalTime.GetHashCode();
-                if (this.PaymentInformation != null)
-                    hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.Score != null)
                     hash = hash * 59 + this.Score.GetHashCode();
                 if (this.IpAddress != null)
                     hash = hash * 59 + this.IpAddress.GetHashCode();
                 if (this.Providers != null)
                     hash = hash * 59 + this.Providers.GetHashCode();
+                if (this.Travel != null)
+                    hash = hash * 59 + this.Travel.GetHashCode();
                 return hash;
             }
         }

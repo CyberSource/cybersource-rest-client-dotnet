@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Profile'
         }
+        /// <summary>
+        /// Test the property 'EventType'
+        /// </summary>
+        [Test]
+        public void EventTypeTest()
+        {
+            // TODO unit test for the property 'EventType'
+        }
 
     }
 

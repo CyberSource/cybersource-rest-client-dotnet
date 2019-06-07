@@ -35,12 +35,13 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Type">Passenger classification associated with the price of the ticket. You can use one of the following values: - &#x60;ADT&#x60;: Adult - &#x60;CNN&#x60;: Child - &#x60;INF&#x60;: Infant - &#x60;YTH&#x60;: Youth - &#x60;STU&#x60;: Student - &#x60;SCR&#x60;: Senior Citizen - &#x60;MIL&#x60;: Military .</param>
         /// <param name="Status">Your company&#39;s passenger classification, such as with a frequent flyer program. In this case, you might use values such as &#x60;standard&#x60;, &#x60;gold&#x60;, or &#x60;platinum&#x60;. .</param>
-        /// <param name="Phone">Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the country code. .</param>
+        /// <param name="Phone">Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) .</param>
         /// <param name="FirstName">Passenger&#39;s first name..</param>
         /// <param name="LastName">Passenger&#39;s last name..</param>
         /// <param name="Id">ID of the passenger to whom the ticket was issued. For example, you can use this field for the frequent flyer number. .</param>
         /// <param name="Email">Passenger&#39;s email address, including the full domain name, such as jdoe@example.com..</param>
-        public Riskv1decisionsOrderInformationPassenger(string Type = default(string), string Status = default(string), string Phone = default(string), string FirstName = default(string), string LastName = default(string), string Id = default(string), string Email = default(string))
+        /// <param name="Nationality">Passenger&#39;s nationality country. Use the two character ISO Standard Country Codes..</param>
+        public Riskv1decisionsOrderInformationPassenger(string Type = default(string), string Status = default(string), string Phone = default(string), string FirstName = default(string), string LastName = default(string), string Id = default(string), string Email = default(string), string Nationality = default(string))
         {
             this.Type = Type;
             this.Status = Status;
@@ -49,6 +50,7 @@ namespace CyberSource.Model
             this.LastName = LastName;
             this.Id = Id;
             this.Email = Email;
+            this.Nationality = Nationality;
         }
         
         /// <summary>
@@ -66,9 +68,9 @@ namespace CyberSource.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the country code. 
+        /// Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) 
         /// </summary>
-        /// <value>Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the country code. </value>
+        /// <value>Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) </value>
         [DataMember(Name="phone", EmitDefaultValue=false)]
         public string Phone { get; set; }
 
@@ -101,6 +103,13 @@ namespace CyberSource.Model
         public string Email { get; set; }
 
         /// <summary>
+        /// Passenger&#39;s nationality country. Use the two character ISO Standard Country Codes.
+        /// </summary>
+        /// <value>Passenger&#39;s nationality country. Use the two character ISO Standard Country Codes.</value>
+        [DataMember(Name="nationality", EmitDefaultValue=false)]
+        public string Nationality { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +124,7 @@ namespace CyberSource.Model
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  Nationality: ").Append(Nationality).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -185,6 +195,11 @@ namespace CyberSource.Model
                     this.Email == other.Email ||
                     this.Email != null &&
                     this.Email.Equals(other.Email)
+                ) && 
+                (
+                    this.Nationality == other.Nationality ||
+                    this.Nationality != null &&
+                    this.Nationality.Equals(other.Nationality)
                 );
         }
 
@@ -213,6 +228,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Email != null)
                     hash = hash * 59 + this.Email.GetHashCode();
+                if (this.Nationality != null)
+                    hash = hash * 59 + this.Nationality.GetHashCode();
                 return hash;
             }
         }
@@ -264,6 +281,12 @@ namespace CyberSource.Model
             if(this.Email != null && this.Email.Length > 255)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than 255.", new [] { "Email" });
+            }
+
+            // Nationality (string) maxLength
+            if(this.Nationality != null && this.Nationality.Length > 2)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Nationality, length must be less than 2.", new [] { "Nationality" });
             }
 
             yield break;

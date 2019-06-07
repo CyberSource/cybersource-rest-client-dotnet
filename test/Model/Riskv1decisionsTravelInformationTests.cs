@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'ActualFinalDestination'
+        /// </summary>
+        [Test]
+        public void ActualFinalDestinationTest()
+        {
+            // TODO unit test for the property 'ActualFinalDestination'
+        }
+        /// <summary>
         /// Test the property 'CompleteRoute'
         /// </summary>
         [Test]

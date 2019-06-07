@@ -84,6 +84,12 @@ namespace CyberSource.Model
             INVALIDMERCHANTCONFIGURATION,
             
             /// <summary>
+            /// Enum INVALIDAMOUNT for "INVALID_AMOUNT"
+            /// </summary>
+            [EnumMember(Value = "INVALID_AMOUNT")]
+            INVALIDAMOUNT,
+            
+            /// <summary>
             /// Enum CAPTUREALREADYVOIDED for "CAPTURE_ALREADY_VOIDED"
             /// </summary>
             [EnumMember(Value = "CAPTURE_ALREADY_VOIDED")]
