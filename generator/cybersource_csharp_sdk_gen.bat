@@ -146,6 +146,8 @@ powershell -Command " Set-Content ..\src\CyberSource\Api\UserManagementApi.cs ((
 
 powershell -Command " Set-Content ..\src\CyberSource\Api\VoidApi.cs ((get-content ..\src\CyberSource\Api\VoidApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 
+powershell -Command " Set-Content ..\src\CyberSource\Api\PayerAuthenticationApi.cs ((get-content ..\src\CyberSource\Api\PayerAuthenticationApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+
 
 rem For Adding Missing Enum Value
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.cs) ; $fileContents[50] = (get-content ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.txt); $fileContents|Set-Content ..\src\CyberSource\Model\ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.cs"
