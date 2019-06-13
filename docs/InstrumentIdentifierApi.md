@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateInstrumentIdentifier**](InstrumentIdentifierApi.md#createinstrumentidentifier) | **POST** /tms/v1/instrumentidentifiers | Create an Instrument Identifier
 [**DeleteInstrumentIdentifier**](InstrumentIdentifierApi.md#deleteinstrumentidentifier) | **DELETE** /tms/v1/instrumentidentifiers/{tokenId} | Delete an Instrument Identifier
-[**GetAllPaymentInstruments**](InstrumentIdentifierApi.md#getallpaymentinstruments) | **GET** /tms/v1/instrumentidentifiers/{tokenId}/paymentinstruments | Retrieve all Payment Instruments associated with an Instrument Identifier
+[**GetAllPaymentInstruments**](InstrumentIdentifierApi.md#getallpaymentinstruments) | **GET** /tms/v1/instrumentidentifiers/{tokenId}/paymentinstruments | Retrieve all Payment Instruments
 [**GetInstrumentIdentifier**](InstrumentIdentifierApi.md#getinstrumentidentifier) | **GET** /tms/v1/instrumentidentifiers/{tokenId} | Retrieve an Instrument Identifier
 [**UpdateInstrumentIdentifier**](InstrumentIdentifierApi.md#updateinstrumentidentifier) | **PATCH** /tms/v1/instrumentidentifiers/{tokenId} | Update a Instrument Identifier
 
@@ -136,7 +136,7 @@ No authorization required
 # **GetAllPaymentInstruments**
 > TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response GetAllPaymentInstruments (string profileId, string tokenId, long? offset = null, long? limit = null)
 
-Retrieve all Payment Instruments associated with an Instrument Identifier
+Retrieve all Payment Instruments
 
 ### Example
 ```csharp
@@ -160,7 +160,7 @@ namespace Example
 
             try
             {
-                // Retrieve all Payment Instruments associated with an Instrument Identifier
+                // Retrieve all Payment Instruments
                 TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response result = apiInstance.GetAllPaymentInstruments(profileId, tokenId, offset, limit);
                 Debug.WriteLine(result);
             }

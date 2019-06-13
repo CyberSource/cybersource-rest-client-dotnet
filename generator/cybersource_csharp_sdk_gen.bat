@@ -23,19 +23,18 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\SecureFileShareApi.cs) 
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\SecureFileShareApi.cs) | ForEach-Object { $_ -replace 'ParameterToString\(endDate\)', 'ParameterToString(endDate.Value.ToString("""yyyy-MM-dd"""))' } | Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SecureFileShareApi.cs) ; $fileContents[304] = $fileContents[304] -replace 'null', 'localVarResponse.Content' ; $fileContents|Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs"
-
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SecureFileShareApi.cs) ; $fileContents[300] = $fileContents[300] -replace 'null', 'localVarResponse.Content' ; $fileContents|Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs"
 powershell -Command "(Get-Content ..\src\CyberSource\Model\ReportingV3ReportSubscriptionsGet200ResponseSubscriptions.cs) | ForEach-Object { $_ -replace 'DateTime\?', 'string' } | Set-Content ..\src\CyberSource\Model\ReportingV3ReportSubscriptionsGet200ResponseSubscriptions.cs"
 
 
 rem For Converting the datetime values to string while appending them to the localVarPath and commenting out the values being set in query params obj
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[392] = $fileContents[392] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' ; $fileContents[466] = $fileContents[466] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[388] = $fileContents[388] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' ; $fileContents[462] = $fileContents[462] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[263] = $fileContents[263] -replace 'null', 'localVarResponse.Content' ; $fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[259] = $fileContents[259] -replace 'null', 'localVarResponse.Content' ; $fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
 
 powershell -Command "$fileContents = (Get-Content ..\src\CyberSource\Api\NetFundingsApi.cs) | ForEach-Object { $_ -replace '/reporting/v3/net-fundings', '/reporting/v3/net-fundings?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&organizationId={organizationId}&groupName={groupName}' } | Set-Content ..\src\CyberSource\Api\NetFundingsApi.cs"
 
@@ -81,7 +80,15 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(organizationId != null\)', '//if (organizationId != null)' } | Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[660] = $fileContents[660] -replace 'Configuration.ApiClient.SelectHeaderContentType\(localVarHttpContentTypes\)', '\"\"'; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[656] = $fileContents[656] -replace 'Configuration.ApiClient.SelectHeaderContentType\(localVarHttpContentTypes\)', '\"\"'; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[666] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[667] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[668] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[669] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[670] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
@@ -93,15 +100,7 @@ powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\Reports
 
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[674] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[675] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
-
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[676] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
-
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[677] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
-
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[678] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
-
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[648] = (get-content ReportsApiLocalVarPath.txt); $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[644] = (get-content ReportsApiLocalVarPath.txt); $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
 
 rem For Removing the length check for a property which is currently giving compile time error
@@ -138,7 +137,7 @@ powershell -Command " Set-Content ..\src\CyberSource\Api\RefundApi.cs ((get-cont
 
 powershell -Command " Set-Content ..\src\CyberSource\Api\ReversalApi.cs ((get-content ..\src\CyberSource\Api\ReversalApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SearchTransactionsApi.cs) ; $fileContents[413] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\SearchTransactionsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SearchTransactionsApi.cs) ; $fileContents[409] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\SearchTransactionsApi.cs"
 
 powershell -Command " Set-Content ..\src\CyberSource\Api\TransactionDetailsApi.cs ((get-content ..\src\CyberSource\Api\TransactionDetailsApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 

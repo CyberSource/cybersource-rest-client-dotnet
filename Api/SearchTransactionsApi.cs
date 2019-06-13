@@ -152,11 +152,7 @@ namespace CyberSource.Api
 
             ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
+            this.Configuration.ApiClient.Configuration = this.Configuration;
         }
 
         /// <summary>
