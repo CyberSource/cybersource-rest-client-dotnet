@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get user based on organization Id, username, permission and role
+        /// Get user information
         /// </summary>
         /// <remarks>
         /// This endpoint is to get all the user information depending on the filter criteria passed in the query.
@@ -39,7 +39,7 @@ namespace CyberSource.Api
         UmsV1UsersGet200Response GetUsers (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
 
         /// <summary>
-        /// Get user based on organization Id, username, permission and role
+        /// Get user information
         /// </summary>
         /// <remarks>
         /// This endpoint is to get all the user information depending on the filter criteria passed in the query.
@@ -54,7 +54,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get user based on organization Id, username, permission and role
+        /// Get user information
         /// </summary>
         /// <remarks>
         /// This endpoint is to get all the user information depending on the filter criteria passed in the query.
@@ -68,7 +68,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<UmsV1UsersGet200Response> GetUsersAsync (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
 
         /// <summary>
-        /// Get user based on organization Id, username, permission and role
+        /// Get user information
         /// </summary>
         /// <remarks>
         /// This endpoint is to get all the user information depending on the filter criteria passed in the query.
@@ -122,11 +122,7 @@ namespace CyberSource.Api
 
             ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
+            this.Configuration.ApiClient.Configuration = this.Configuration;
         }
 
         /// <summary>
@@ -193,7 +189,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get user based on organization Id, username, permission and role This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// Get user information This endpoint is to get all the user information depending on the filter criteria passed in the query.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>
@@ -208,7 +204,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get user based on organization Id, username, permission and role This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// Get user information This endpoint is to get all the user information depending on the filter criteria passed in the query.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>
@@ -265,7 +261,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         }
 
         /// <summary>
-        /// Get user based on organization Id, username, permission and role This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// Get user information This endpoint is to get all the user information depending on the filter criteria passed in the query.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>
@@ -281,7 +277,7 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
         }
 
         /// <summary>
-        /// Get user based on organization Id, username, permission and role This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// Get user information This endpoint is to get all the user information depending on the filter criteria passed in the query.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>

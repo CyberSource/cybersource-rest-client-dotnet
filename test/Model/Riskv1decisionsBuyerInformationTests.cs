@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'Username'
+        /// </summary>
+        [Test]
+        public void UsernameTest()
+        {
+            // TODO unit test for the property 'Username'
+        }
+        /// <summary>
         /// Test the property 'HashedPassword'
         /// </summary>
         [Test]

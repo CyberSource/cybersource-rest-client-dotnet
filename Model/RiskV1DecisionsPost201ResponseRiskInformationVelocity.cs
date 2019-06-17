@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RiskV1DecisionsPost201ResponseRiskInformationVelocity" /> class.
         /// </summary>
-        /// <param name="Morphing">Morphing.</param>
+        /// <param name="Morphing">List of information codes triggered by the order. These information codes were generated when you created the order and product velocity rules and are returned so that you can associate them with the rules.  For all possible values, see the &#x60;decision_velocity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="Address">Address.</param>
         public RiskV1DecisionsPost201ResponseRiskInformationVelocity(List<RiskV1DecisionsPost201ResponseRiskInformationVelocityMorphing> Morphing = default(List<RiskV1DecisionsPost201ResponseRiskInformationVelocityMorphing>), List<string> Address = default(List<string>))
         {
@@ -42,8 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Gets or Sets Morphing
+        /// List of information codes triggered by the order. These information codes were generated when you created the order and product velocity rules and are returned so that you can associate them with the rules.  For all possible values, see the &#x60;decision_velocity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
+        /// <value>List of information codes triggered by the order. These information codes were generated when you created the order and product velocity rules and are returned so that you can associate them with the rules.  For all possible values, see the &#x60;decision_velocity_info&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="morphing", EmitDefaultValue=false)]
         public List<RiskV1DecisionsPost201ResponseRiskInformationVelocityMorphing> Morphing { get; set; }
 

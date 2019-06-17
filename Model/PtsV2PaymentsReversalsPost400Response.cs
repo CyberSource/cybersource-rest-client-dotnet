@@ -78,10 +78,28 @@ namespace CyberSource.Model
             INVALIDMERCHANTCONFIGURATION,
             
             /// <summary>
+            /// Enum PROCESSORUNAVAILABLE for "PROCESSOR_UNAVAILABLE"
+            /// </summary>
+            [EnumMember(Value = "PROCESSOR_UNAVAILABLE")]
+            PROCESSORUNAVAILABLE,
+            
+            /// <summary>
             /// Enum AUTHALREADYREVERSED for "AUTH_ALREADY_REVERSED"
             /// </summary>
             [EnumMember(Value = "AUTH_ALREADY_REVERSED")]
             AUTHALREADYREVERSED,
+            
+            /// <summary>
+            /// Enum TRANSACTIONALREADYSETTLED for "TRANSACTION_ALREADY_SETTLED"
+            /// </summary>
+            [EnumMember(Value = "TRANSACTION_ALREADY_SETTLED")]
+            TRANSACTIONALREADYSETTLED,
+            
+            /// <summary>
+            /// Enum INVALIDAMOUNT for "INVALID_AMOUNT"
+            /// </summary>
+            [EnumMember(Value = "INVALID_AMOUNT")]
+            INVALIDAMOUNT,
             
             /// <summary>
             /// Enum MISSINGAUTH for "MISSING_AUTH"

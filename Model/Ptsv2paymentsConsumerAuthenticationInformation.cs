@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsConsumerAuthenticationInformation" /> class.
         /// </summary>
         /// <param name="Cavv">Cardholder authentication verification value (CAVV)..</param>
-        /// <param name="CavvAlgorithm">Algorithm used to generate the CAVV for Verified by Visa or the UCAF authentication data for Mastercard Identity Check. .</param>
+        /// <param name="CavvAlgorithm">Algorithm used to generate the CAVV for Visa Secure or the UCAF authentication data for Mastercard Identity Check. .</param>
         /// <param name="EciRaw">Raw electronic commerce indicator (ECI). For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180..</param>
         /// <param name="ParesStatus">Payer authentication response status. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180. .</param>
         /// <param name="VeresEnrolled">Verification response enrollment status. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180..</param>
@@ -61,9 +61,9 @@ namespace CyberSource.Model
         public string Cavv { get; set; }
 
         /// <summary>
-        /// Algorithm used to generate the CAVV for Verified by Visa or the UCAF authentication data for Mastercard Identity Check. 
+        /// Algorithm used to generate the CAVV for Visa Secure or the UCAF authentication data for Mastercard Identity Check. 
         /// </summary>
-        /// <value>Algorithm used to generate the CAVV for Verified by Visa or the UCAF authentication data for Mastercard Identity Check. </value>
+        /// <value>Algorithm used to generate the CAVV for Visa Secure or the UCAF authentication data for Mastercard Identity Check. </value>
         [DataMember(Name="cavvAlgorithm", EmitDefaultValue=false)]
         public string CavvAlgorithm { get; set; }
 

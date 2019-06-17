@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Riskv1decisionsRiskInformation" /> class.
         /// </summary>
         /// <param name="Profile">Profile.</param>
-        public Riskv1decisionsRiskInformation(Riskv1decisionsRiskInformationProfile Profile = default(Riskv1decisionsRiskInformationProfile))
+        /// <param name="EventType">Specifies one of the following types of events: - login - account_creation - account_update For regular payment transactions, do not send this field. .</param>
+        public Riskv1decisionsRiskInformation(Riskv1decisionsRiskInformationProfile Profile = default(Riskv1decisionsRiskInformationProfile), string EventType = default(string))
         {
             this.Profile = Profile;
+            this.EventType = EventType;
         }
         
         /// <summary>
@@ -44,6 +46,13 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="profile", EmitDefaultValue=false)]
         public Riskv1decisionsRiskInformationProfile Profile { get; set; }
+
+        /// <summary>
+        /// Specifies one of the following types of events: - login - account_creation - account_update For regular payment transactions, do not send this field. 
+        /// </summary>
+        /// <value>Specifies one of the following types of events: - login - account_creation - account_update For regular payment transactions, do not send this field. </value>
+        [DataMember(Name="eventType", EmitDefaultValue=false)]
+        public string EventType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +63,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsRiskInformation {\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
+            sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +104,11 @@ namespace CyberSource.Model
                     this.Profile == other.Profile ||
                     this.Profile != null &&
                     this.Profile.Equals(other.Profile)
+                ) && 
+                (
+                    this.EventType == other.EventType ||
+                    this.EventType != null &&
+                    this.EventType.Equals(other.EventType)
                 );
         }
 
@@ -110,6 +125,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Profile != null)
                     hash = hash * 59 + this.Profile.GetHashCode();
+                if (this.EventType != null)
+                    hash = hash * 59 + this.EventType.GetHashCode();
                 return hash;
             }
         }
@@ -121,6 +138,12 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // EventType (string) maxLength
+            if(this.EventType != null && this.EventType.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventType, length must be less than 255.", new [] { "EventType" });
+            }
+
             yield break;
         }
     }

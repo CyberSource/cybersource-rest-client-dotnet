@@ -113,14 +113,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'LocalTime'
         }
         /// <summary>
-        /// Test the property 'PaymentInformation'
-        /// </summary>
-        [Test]
-        public void PaymentInformationTest()
-        {
-            // TODO unit test for the property 'PaymentInformation'
-        }
-        /// <summary>
         /// Test the property 'Score'
         /// </summary>
         [Test]
@@ -143,6 +135,14 @@ namespace CyberSource.Test
         public void ProvidersTest()
         {
             // TODO unit test for the property 'Providers'
+        }
+        /// <summary>
+        /// Test the property 'Travel'
+        /// </summary>
+        [Test]
+        public void TravelTest()
+        {
+            // TODO unit test for the property 'Travel'
         }
 
     }

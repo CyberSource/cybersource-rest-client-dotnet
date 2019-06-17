@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedDeviceInformation" /> class.
         /// </summary>
-        /// <param name="IpAddress">Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. .</param>
+        /// <param name="IpAddress">IP address of the customer. .</param>
         public TssV2TransactionsPost201ResponseEmbeddedDeviceInformation(string IpAddress = default(string))
         {
             this.IpAddress = IpAddress;
         }
         
         /// <summary>
-        /// Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. 
+        /// IP address of the customer. 
         /// </summary>
-        /// <value>Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. </value>
+        /// <value>IP address of the customer. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 

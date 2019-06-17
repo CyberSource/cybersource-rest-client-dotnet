@@ -34,8 +34,8 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="RiskV1DecisionsPost201ResponseRiskInformationScore" /> class.
         /// </summary>
         /// <param name="FactorCodes">FactorCodes.</param>
-        /// <param name="ModelUsed">Name of the score model used for the transaction. If you did not include a custom model in your request, this field contains the name of CyberSource’s default model. .</param>
-        /// <param name="Result">Total score calculated for this order. The value cannot be negative. .</param>
+        /// <param name="ModelUsed">Name of the score model used for the transaction. If you did not include a custom model in your request, this field contains the name of CyberSource’s default model.  For all possible values, see the &#x60;score_model_used&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="Result">Total score calculated for this order. The value cannot be negative.  For all possible values, see the &#x60;score_score_result&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         public RiskV1DecisionsPost201ResponseRiskInformationScore(List<string> FactorCodes = default(List<string>), string ModelUsed = default(string), string Result = default(string))
         {
             this.FactorCodes = FactorCodes;
@@ -50,16 +50,16 @@ namespace CyberSource.Model
         public List<string> FactorCodes { get; set; }
 
         /// <summary>
-        /// Name of the score model used for the transaction. If you did not include a custom model in your request, this field contains the name of CyberSource’s default model. 
+        /// Name of the score model used for the transaction. If you did not include a custom model in your request, this field contains the name of CyberSource’s default model.  For all possible values, see the &#x60;score_model_used&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Name of the score model used for the transaction. If you did not include a custom model in your request, this field contains the name of CyberSource’s default model. </value>
+        /// <value>Name of the score model used for the transaction. If you did not include a custom model in your request, this field contains the name of CyberSource’s default model.  For all possible values, see the &#x60;score_model_used&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="modelUsed", EmitDefaultValue=false)]
         public string ModelUsed { get; set; }
 
         /// <summary>
-        /// Total score calculated for this order. The value cannot be negative. 
+        /// Total score calculated for this order. The value cannot be negative.  For all possible values, see the &#x60;score_score_result&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Total score calculated for this order. The value cannot be negative. </value>
+        /// <value>Total score calculated for this order. The value cannot be negative.  For all possible values, see the &#x60;score_score_result&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="result", EmitDefaultValue=false)]
         public string Result { get; set; }
 

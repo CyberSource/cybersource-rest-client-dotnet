@@ -36,10 +36,10 @@ namespace CyberSource.Model
         /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="ShippingDetails">ShippingDetails.</param>
         /// <param name="ShipTo">ShipTo.</param>
-        /// <param name="ReturnsAccepted">Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - &#x60;yes&#x60;: Returns are accepted for this order. - &#x60;no&#x60;: Returns are not accepted for this order. .</param>
+        /// <param name="ReturnsAccepted">Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. .</param>
         /// <param name="LineItems">This array contains detailed information about individual products in the order..</param>
         /// <param name="BillTo">BillTo.</param>
-        public Riskv1decisionsOrderInformation(Riskv1decisionsOrderInformationAmountDetails AmountDetails = default(Riskv1decisionsOrderInformationAmountDetails), Riskv1decisionsOrderInformationShippingDetails ShippingDetails = default(Riskv1decisionsOrderInformationShippingDetails), Riskv1decisionsOrderInformationShipTo ShipTo = default(Riskv1decisionsOrderInformationShipTo), string ReturnsAccepted = default(string), List<Riskv1decisionsOrderInformationLineItems> LineItems = default(List<Riskv1decisionsOrderInformationLineItems>), Riskv1decisionsOrderInformationBillTo BillTo = default(Riskv1decisionsOrderInformationBillTo))
+        public Riskv1decisionsOrderInformation(Riskv1decisionsOrderInformationAmountDetails AmountDetails = default(Riskv1decisionsOrderInformationAmountDetails), Riskv1decisionsOrderInformationShippingDetails ShippingDetails = default(Riskv1decisionsOrderInformationShippingDetails), Riskv1decisionsOrderInformationShipTo ShipTo = default(Riskv1decisionsOrderInformationShipTo), bool? ReturnsAccepted = default(bool?), List<Riskv1decisionsOrderInformationLineItems> LineItems = default(List<Riskv1decisionsOrderInformationLineItems>), Riskv1decisionsOrderInformationBillTo BillTo = default(Riskv1decisionsOrderInformationBillTo))
         {
             this.AmountDetails = AmountDetails;
             this.ShippingDetails = ShippingDetails;
@@ -68,11 +68,11 @@ namespace CyberSource.Model
         public Riskv1decisionsOrderInformationShipTo ShipTo { get; set; }
 
         /// <summary>
-        /// Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - &#x60;yes&#x60;: Returns are accepted for this order. - &#x60;no&#x60;: Returns are not accepted for this order. 
+        /// Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. 
         /// </summary>
-        /// <value>Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - &#x60;yes&#x60;: Returns are accepted for this order. - &#x60;no&#x60;: Returns are not accepted for this order. </value>
+        /// <value>Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. </value>
         [DataMember(Name="returnsAccepted", EmitDefaultValue=false)]
-        public string ReturnsAccepted { get; set; }
+        public bool? ReturnsAccepted { get; set; }
 
         /// <summary>
         /// This array contains detailed information about individual products in the order.
@@ -203,12 +203,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ReturnsAccepted (string) maxLength
-            if(this.ReturnsAccepted != null && this.ReturnsAccepted.Length > 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReturnsAccepted, length must be less than 3.", new [] { "ReturnsAccepted" });
-            }
-
             yield break;
         }
     }

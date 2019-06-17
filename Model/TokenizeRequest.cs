@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TokenizeRequest" /> class.
         /// </summary>
-        /// <param name="KeyId">Unique identifier for the generated token. This is obtained from the Generate Key request. See the [Java Script and Java examples] (http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Flex/Key/html) on how to import the key and encrypt using the imported key. (required).</param>
+        /// <param name="KeyId">Unique identifier for the generated token. This is obtained from the Generate Key request. See the [Java Script and Java examples](http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Flex/Key/html) on how to import the key and encrypt using the imported key. (required).</param>
         /// <param name="CardInfo">CardInfo.</param>
         public TokenizeRequest(string KeyId = default(string), Flexv1tokensCardInfo CardInfo = default(Flexv1tokensCardInfo))
         {
@@ -55,9 +55,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Unique identifier for the generated token. This is obtained from the Generate Key request. See the [Java Script and Java examples] (http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Flex/Key/html) on how to import the key and encrypt using the imported key.
+        /// Unique identifier for the generated token. This is obtained from the Generate Key request. See the [Java Script and Java examples](http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Flex/Key/html) on how to import the key and encrypt using the imported key.
         /// </summary>
-        /// <value>Unique identifier for the generated token. This is obtained from the Generate Key request. See the [Java Script and Java examples] (http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Flex/Key/html) on how to import the key and encrypt using the imported key.</value>
+        /// <value>Unique identifier for the generated token. This is obtained from the Generate Key request. See the [Java Script and Java examples](http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Flex/Key/html) on how to import the key and encrypt using the imported key.</value>
         [DataMember(Name="keyId", EmitDefaultValue=false)]
         public string KeyId { get; set; }
 

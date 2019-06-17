@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen.  | [optional] 
+**Name** | **string** | Name of the active profile chosen by the profile selector. If no profile selector exists, the default active profile is chosen.  **Note** By default, your default profile is the active profile, or the Profile Selector chooses the active profile. Use this field only if you want to specify the name of a different profile. The passed-in profile will then become the active profile.  | [optional] 
 **DesinationQueue** | **string** | Name of the queue where orders that are not automatically accepted are sent.  | [optional] 
 **SelectorRule** | **string** | Name of the profile selector rule that chooses the profile to use for the transaction. If no profile selector exists, the value is Default Active Profile.  | [optional] 
 

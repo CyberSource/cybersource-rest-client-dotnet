@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseDeviceInformation" /> class.
         /// </summary>
-        /// <param name="IpAddress">Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. .</param>
-        /// <param name="HostName">Host name reported by the customer’s browser to your Web server identified via the HTTP header..</param>
-        /// <param name="CookiesAccepted">Boolean that indicates whether the customer’s browser accepts cookies. This field can contain one of the following values:   - &#x60;yes&#x60;: The customer’s browser accepts cookies.   - &#x60;no&#x60;: The customer’s browser does not accept cookies. .</param>
+        /// <param name="IpAddress">IP address of the customer. .</param>
+        /// <param name="HostName">DNS resolved hostname from &#x60;ipAddress&#x60;..</param>
+        /// <param name="CookiesAccepted">Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. .</param>
         public TssV2TransactionsGet200ResponseDeviceInformation(string IpAddress = default(string), string HostName = default(string), string CookiesAccepted = default(string))
         {
             this.IpAddress = IpAddress;
@@ -44,23 +44,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. 
+        /// IP address of the customer. 
         /// </summary>
-        /// <value>Customer’s IP address, such as 10.1.27.63, reported by your Web server via socket information. </value>
+        /// <value>IP address of the customer. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 
         /// <summary>
-        /// Host name reported by the customer’s browser to your Web server identified via the HTTP header.
+        /// DNS resolved hostname from &#x60;ipAddress&#x60;.
         /// </summary>
-        /// <value>Host name reported by the customer’s browser to your Web server identified via the HTTP header.</value>
+        /// <value>DNS resolved hostname from &#x60;ipAddress&#x60;.</value>
         [DataMember(Name="hostName", EmitDefaultValue=false)]
         public string HostName { get; set; }
 
         /// <summary>
-        /// Boolean that indicates whether the customer’s browser accepts cookies. This field can contain one of the following values:   - &#x60;yes&#x60;: The customer’s browser accepts cookies.   - &#x60;no&#x60;: The customer’s browser does not accept cookies. 
+        /// Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. 
         /// </summary>
-        /// <value>Boolean that indicates whether the customer’s browser accepts cookies. This field can contain one of the following values:   - &#x60;yes&#x60;: The customer’s browser accepts cookies.   - &#x60;no&#x60;: The customer’s browser does not accept cookies. </value>
+        /// <value>Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. </value>
         [DataMember(Name="cookiesAccepted", EmitDefaultValue=false)]
         public string CookiesAccepted { get; set; }
 

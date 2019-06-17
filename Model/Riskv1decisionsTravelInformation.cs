@@ -33,18 +33,27 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1decisionsTravelInformation" /> class.
         /// </summary>
+        /// <param name="ActualFinalDestination">IATA Code for the actual final destination that the customer intends to travel to. It should be a destination on the completeRoute. .</param>
         /// <param name="CompleteRoute">Concatenation of individual travel legs in the format ORIG1-DEST1[:ORIG2-DEST2...:ORIGn-DESTn], for example, SFO-JFK:JFK-LHR:LHR-CDG. For airport codes, see the IATA Airline and Airport Code Search. Note In your request, send either the complete route or the individual legs (_leg#_orig and _leg#_dest). If you send all the fields, the value of _complete_route takes precedence over that of the _leg# fields. .</param>
         /// <param name="DepartureTime">Departure date and time of the first leg of the trip. Use one of the following formats:   - yyyy-MM-dd HH:mm z   - yyyy-MM-dd hh:mm a z   - yyyy-MM-dd hh:mma z   HH &#x3D; hour in 24-hour format   hh &#x3D; hour in 12-hour format   a &#x3D; am or pm (case insensitive)   z &#x3D; time zone of the departing flight, for example: If the   airline is based in city A, but the flight departs from city   B, z is the time zone of city B at the time of departure. Important For travel information, use GMT instead of UTC, or use the local time zone. Examples 2011-03-20 11:30 PM PDT 2011-03-20 11:30pm GMT 2011-03-20 11:30pm GMT-05:00 Eastern Standard Time: GMT-05:00 or EST Note When specifying an offset from GMT, the format must be exactly as specified in the example. Insert no spaces between the time zone and the offset. .</param>
         /// <param name="JourneyType">Type of travel, for example one way or round trip..</param>
         /// <param name="Legs">Legs.</param>
-        public Riskv1decisionsTravelInformation(string CompleteRoute = default(string), string DepartureTime = default(string), string JourneyType = default(string), List<Riskv1decisionsTravelInformationLegs> Legs = default(List<Riskv1decisionsTravelInformationLegs>))
+        public Riskv1decisionsTravelInformation(string ActualFinalDestination = default(string), string CompleteRoute = default(string), string DepartureTime = default(string), string JourneyType = default(string), List<Riskv1decisionsTravelInformationLegs> Legs = default(List<Riskv1decisionsTravelInformationLegs>))
         {
+            this.ActualFinalDestination = ActualFinalDestination;
             this.CompleteRoute = CompleteRoute;
             this.DepartureTime = DepartureTime;
             this.JourneyType = JourneyType;
             this.Legs = Legs;
         }
         
+        /// <summary>
+        /// IATA Code for the actual final destination that the customer intends to travel to. It should be a destination on the completeRoute. 
+        /// </summary>
+        /// <value>IATA Code for the actual final destination that the customer intends to travel to. It should be a destination on the completeRoute. </value>
+        [DataMember(Name="actualFinalDestination", EmitDefaultValue=false)]
+        public string ActualFinalDestination { get; set; }
+
         /// <summary>
         /// Concatenation of individual travel legs in the format ORIG1-DEST1[:ORIG2-DEST2...:ORIGn-DESTn], for example, SFO-JFK:JFK-LHR:LHR-CDG. For airport codes, see the IATA Airline and Airport Code Search. Note In your request, send either the complete route or the individual legs (_leg#_orig and _leg#_dest). If you send all the fields, the value of _complete_route takes precedence over that of the _leg# fields. 
         /// </summary>
@@ -80,6 +89,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsTravelInformation {\n");
+            sb.Append("  ActualFinalDestination: ").Append(ActualFinalDestination).Append("\n");
             sb.Append("  CompleteRoute: ").Append(CompleteRoute).Append("\n");
             sb.Append("  DepartureTime: ").Append(DepartureTime).Append("\n");
             sb.Append("  JourneyType: ").Append(JourneyType).Append("\n");
@@ -121,6 +131,11 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.ActualFinalDestination == other.ActualFinalDestination ||
+                    this.ActualFinalDestination != null &&
+                    this.ActualFinalDestination.Equals(other.ActualFinalDestination)
+                ) && 
+                (
                     this.CompleteRoute == other.CompleteRoute ||
                     this.CompleteRoute != null &&
                     this.CompleteRoute.Equals(other.CompleteRoute)
@@ -153,6 +168,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.ActualFinalDestination != null)
+                    hash = hash * 59 + this.ActualFinalDestination.GetHashCode();
                 if (this.CompleteRoute != null)
                     hash = hash * 59 + this.CompleteRoute.GetHashCode();
                 if (this.DepartureTime != null)
@@ -172,6 +189,12 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ActualFinalDestination (string) maxLength
+            if(this.ActualFinalDestination != null && this.ActualFinalDestination.Length > 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ActualFinalDestination, length must be less than 3.", new [] { "ActualFinalDestination" });
+            }
+
             // CompleteRoute (string) maxLength
             if(this.CompleteRoute != null && this.CompleteRoute.Length > 255)
             {

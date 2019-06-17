@@ -240,18 +240,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // SubmitTimeUtc (string) maxLength
-            if(this.SubmitTimeUtc != null && this.SubmitTimeUtc.Length > 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubmitTimeUtc, length must be less than 6.", new [] { "SubmitTimeUtc" });
-            }
-
-            // SubmitTimeUtc (string) minLength
-            if(this.SubmitTimeUtc != null && this.SubmitTimeUtc.Length < 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubmitTimeUtc, length must be greater than 6.", new [] { "SubmitTimeUtc" });
-            }
-
             yield break;
         }
     }

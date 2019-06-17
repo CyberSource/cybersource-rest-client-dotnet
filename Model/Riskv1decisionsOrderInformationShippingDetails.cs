@@ -33,20 +33,20 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1decisionsOrderInformationShippingDetails" /> class.
         /// </summary>
-        /// <param name="GiftWrap">Boolean that indicates whether the customer requested gift wrapping for this purchase. This field can contain one of the following values:  - &#x60;yes&#x60;: The customer requested gift wrapping. - &#x60;no&#x60;: The customer did not request gift wrapping. .</param>
+        /// <param name="GiftWrap">Boolean that indicates whether the customer requested gift wrapping for this purchase. This field can contain one of the following values: - true: The customer requested gift wrapping. - false: The customer did not request gift wrapping. .</param>
         /// <param name="ShippingMethod">Shipping method for the product. Possible values:   - &#x60;lowcost&#x60;: Lowest-cost service  - &#x60;sameday&#x60;: Courier or same-day service  - &#x60;oneday&#x60;: Next-day or overnight service  - &#x60;twoday&#x60;: Two-day service  - &#x60;threeday&#x60;: Three-day service  - &#x60;pickup&#x60;: Store pick-up  - &#x60;other&#x60;: Other shipping method  - &#x60;none&#x60;: No shipping method because product is a service or subscription .</param>
-        public Riskv1decisionsOrderInformationShippingDetails(string GiftWrap = default(string), string ShippingMethod = default(string))
+        public Riskv1decisionsOrderInformationShippingDetails(bool? GiftWrap = default(bool?), string ShippingMethod = default(string))
         {
             this.GiftWrap = GiftWrap;
             this.ShippingMethod = ShippingMethod;
         }
         
         /// <summary>
-        /// Boolean that indicates whether the customer requested gift wrapping for this purchase. This field can contain one of the following values:  - &#x60;yes&#x60;: The customer requested gift wrapping. - &#x60;no&#x60;: The customer did not request gift wrapping. 
+        /// Boolean that indicates whether the customer requested gift wrapping for this purchase. This field can contain one of the following values: - true: The customer requested gift wrapping. - false: The customer did not request gift wrapping. 
         /// </summary>
-        /// <value>Boolean that indicates whether the customer requested gift wrapping for this purchase. This field can contain one of the following values:  - &#x60;yes&#x60;: The customer requested gift wrapping. - &#x60;no&#x60;: The customer did not request gift wrapping. </value>
+        /// <value>Boolean that indicates whether the customer requested gift wrapping for this purchase. This field can contain one of the following values: - true: The customer requested gift wrapping. - false: The customer did not request gift wrapping. </value>
         [DataMember(Name="giftWrap", EmitDefaultValue=false)]
-        public string GiftWrap { get; set; }
+        public bool? GiftWrap { get; set; }
 
         /// <summary>
         /// Shipping method for the product. Possible values:   - &#x60;lowcost&#x60;: Lowest-cost service  - &#x60;sameday&#x60;: Courier or same-day service  - &#x60;oneday&#x60;: Next-day or overnight service  - &#x60;twoday&#x60;: Two-day service  - &#x60;threeday&#x60;: Three-day service  - &#x60;pickup&#x60;: Store pick-up  - &#x60;other&#x60;: Other shipping method  - &#x60;none&#x60;: No shipping method because product is a service or subscription 
@@ -139,12 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // GiftWrap (string) maxLength
-            if(this.GiftWrap != null && this.GiftWrap.Length > 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GiftWrap, length must be less than 3.", new [] { "GiftWrap" });
-            }
-
             // ShippingMethod (string) maxLength
             if(this.ShippingMethod != null && this.ShippingMethod.Length > 10)
             {

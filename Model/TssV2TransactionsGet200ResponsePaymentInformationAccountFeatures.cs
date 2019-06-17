@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="BalanceAmount">Remaining balance on the account. .</param>
         /// <param name="PreviousBalanceAmount">Remaining balance on the account. .</param>
-        /// <param name="Currency">Currency of the remaining balance on the account. For the possible values, see the ISO Standard Currency Codes. .</param>
+        /// <param name="Currency">Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;auth_account_balance_currency&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         public TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures(string BalanceAmount = default(string), string PreviousBalanceAmount = default(string), string Currency = default(string))
         {
             this.BalanceAmount = BalanceAmount;
@@ -58,9 +58,9 @@ namespace CyberSource.Model
         public string PreviousBalanceAmount { get; set; }
 
         /// <summary>
-        /// Currency of the remaining balance on the account. For the possible values, see the ISO Standard Currency Codes. 
+        /// Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;auth_account_balance_currency&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
         /// </summary>
-        /// <value>Currency of the remaining balance on the account. For the possible values, see the ISO Standard Currency Codes. </value>
+        /// <value>Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;auth_account_balance_currency&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
 

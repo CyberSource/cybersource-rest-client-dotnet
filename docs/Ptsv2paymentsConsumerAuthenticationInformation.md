@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cavv** | **string** | Cardholder authentication verification value (CAVV). | [optional] 
-**CavvAlgorithm** | **string** | Algorithm used to generate the CAVV for Verified by Visa or the UCAF authentication data for Mastercard Identity Check.  | [optional] 
+**CavvAlgorithm** | **string** | Algorithm used to generate the CAVV for Visa Secure or the UCAF authentication data for Mastercard Identity Check.  | [optional] 
 **EciRaw** | **string** | Raw electronic commerce indicator (ECI). For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180. | [optional] 
 **ParesStatus** | **string** | Payer authentication response status. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180.  | [optional] 
 **VeresEnrolled** | **string** | Verification response enrollment status. For the description and requirements, see \&quot;Payer Authentication,\&quot; page 180. | [optional] 
