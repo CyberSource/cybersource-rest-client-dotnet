@@ -215,7 +215,12 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling ConversionDetailsApi->GetConversionDetail");
 
-            var localVarPath = $"/reporting/v3/conversion-details?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&organizationId={organizationId}";
+            var localVarPath = $"/reporting/v3/conversion-details?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
+            
+            // add the optional organizationId parameter if it is set
+            if (organizationId != null)
+                localVarPath = $"{localVarPath}&organizationId={organizationId}";
+
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
