@@ -140,15 +140,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // MerchantCustomerId (string) maxLength
-            if(this.MerchantCustomerId != null && this.MerchantCustomerId.Length > 100)
+            if(this.MerchantCustomerId != null && this.MerchantCustomerId.Length >= 100)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantCustomerId, length must be less than 100.", new [] { "MerchantCustomerId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantCustomerId, length must be less than or equal to 100.", new [] { "MerchantCustomerId" });
             }
 
             // HashedPassword (string) maxLength
-            if(this.HashedPassword != null && this.HashedPassword.Length > 100)
+            if(this.HashedPassword != null && this.HashedPassword.Length >= 100)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HashedPassword, length must be less than 100.", new [] { "HashedPassword" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HashedPassword, length must be less than or equal to 100.", new [] { "HashedPassword" });
             }
 
             yield break;

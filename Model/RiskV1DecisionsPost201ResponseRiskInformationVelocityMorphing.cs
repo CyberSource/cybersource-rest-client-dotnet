@@ -157,15 +157,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // FieldName (string) maxLength
-            if(this.FieldName != null && this.FieldName.Length > 255)
+            if(this.FieldName != null && this.FieldName.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FieldName, length must be less than 255.", new [] { "FieldName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FieldName, length must be less than or equal to 255.", new [] { "FieldName" });
             }
 
             // InformationCode (string) maxLength
-            if(this.InformationCode != null && this.InformationCode.Length > 255)
+            if(this.InformationCode != null && this.InformationCode.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InformationCode, length must be less than 255.", new [] { "InformationCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InformationCode, length must be less than or equal to 255.", new [] { "InformationCode" });
             }
 
             yield break;

@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="AnonymizerStatus">Indicates whether the transaction IP address is associated with a known anonymous proxy.  For all possible values, see the &#x60;score_ip_anonymizer_status&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="Locality">Name of the city decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_city&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="Country">Name of the country decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
-        /// <param name="AdministrativeArea">Name of the country decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="AdministrativeArea">Name of the state decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_state&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="RoutingMethod">Routing method decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_routing_method&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         public RiskV1DecisionsPost201ResponseRiskInformationIpAddress(string AnonymizerStatus = default(string), string Locality = default(string), string Country = default(string), string AdministrativeArea = default(string), string RoutingMethod = default(string))
         {
@@ -69,9 +69,9 @@ namespace CyberSource.Model
         public string Country { get; set; }
 
         /// <summary>
-        /// Name of the country decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
+        /// Name of the state decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_state&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>Name of the country decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
+        /// <value>Name of the state decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_state&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
         public string AdministrativeArea { get; set; }
 
@@ -191,33 +191,33 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AnonymizerStatus (string) maxLength
-            if(this.AnonymizerStatus != null && this.AnonymizerStatus.Length > 255)
+            if(this.AnonymizerStatus != null && this.AnonymizerStatus.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AnonymizerStatus, length must be less than 255.", new [] { "AnonymizerStatus" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AnonymizerStatus, length must be less than or equal to 255.", new [] { "AnonymizerStatus" });
             }
 
             // Locality (string) maxLength
-            if(this.Locality != null && this.Locality.Length > 255)
+            if(this.Locality != null && this.Locality.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than 255.", new [] { "Locality" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than or equal to 255.", new [] { "Locality" });
             }
 
             // Country (string) maxLength
-            if(this.Country != null && this.Country.Length > 255)
+            if(this.Country != null && this.Country.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than 255.", new [] { "Country" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 255.", new [] { "Country" });
             }
 
             // AdministrativeArea (string) maxLength
-            if(this.AdministrativeArea != null && this.AdministrativeArea.Length > 255)
+            if(this.AdministrativeArea != null && this.AdministrativeArea.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than 255.", new [] { "AdministrativeArea" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than or equal to 255.", new [] { "AdministrativeArea" });
             }
 
             // RoutingMethod (string) maxLength
-            if(this.RoutingMethod != null && this.RoutingMethod.Length > 255)
+            if(this.RoutingMethod != null && this.RoutingMethod.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingMethod, length must be less than 255.", new [] { "RoutingMethod" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingMethod, length must be less than or equal to 255.", new [] { "RoutingMethod" });
             }
 
             yield break;

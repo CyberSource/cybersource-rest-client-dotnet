@@ -140,15 +140,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CreditAmount (string) maxLength
-            if(this.CreditAmount != null && this.CreditAmount.Length > 15)
+            if(this.CreditAmount != null && this.CreditAmount.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreditAmount, length must be less than 15.", new [] { "CreditAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreditAmount, length must be less than or equal to 15.", new [] { "CreditAmount" });
             }
 
             // Currency (string) maxLength
-            if(this.Currency != null && this.Currency.Length > 3)
+            if(this.Currency != null && this.Currency.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 3.", new [] { "Currency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than or equal to 3.", new [] { "Currency" });
             }
 
             yield break;

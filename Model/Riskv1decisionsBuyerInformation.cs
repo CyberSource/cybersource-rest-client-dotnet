@@ -173,21 +173,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Username (string) maxLength
-            if(this.Username != null && this.Username.Length > 255)
+            if(this.Username != null && this.Username.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Username, length must be less than 255.", new [] { "Username" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Username, length must be less than or equal to 255.", new [] { "Username" });
             }
 
             // HashedPassword (string) maxLength
-            if(this.HashedPassword != null && this.HashedPassword.Length > 100)
+            if(this.HashedPassword != null && this.HashedPassword.Length >= 100)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HashedPassword, length must be less than 100.", new [] { "HashedPassword" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HashedPassword, length must be less than or equal to 100.", new [] { "HashedPassword" });
             }
 
             // DateOfBirth (string) maxLength
-            if(this.DateOfBirth != null && this.DateOfBirth.Length > 8)
+            if(this.DateOfBirth != null && this.DateOfBirth.Length >= 8)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOfBirth, length must be less than 8.", new [] { "DateOfBirth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOfBirth, length must be less than or equal to 8.", new [] { "DateOfBirth" });
             }
 
             yield break;

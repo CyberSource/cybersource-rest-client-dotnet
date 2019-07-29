@@ -4,14 +4,14 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateDecisionManagerCase**](DecisionManagerApi.md#createdecisionmanagercase) | **POST** /risk/v1/decisions | Create Decision Manager case
+[**CreateDecisionManagerCase**](DecisionManagerApi.md#createdecisionmanagercase) | **POST** /risk/v1/decisions | Create Decision Manager Case
 
 
 <a name="createdecisionmanagercase"></a>
 # **CreateDecisionManagerCase**
 > RiskV1DecisionsPost201Response CreateDecisionManagerCase (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest)
 
-Create Decision Manager case
+Create Decision Manager Case
 
 This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
 
@@ -34,7 +34,7 @@ namespace Example
 
             try
             {
-                // Create Decision Manager case
+                // Create Decision Manager Case
                 RiskV1DecisionsPost201Response result = apiInstance.CreateDecisionManagerCase(createDecisionManagerCaseRequest);
                 Debug.WriteLine(result);
             }

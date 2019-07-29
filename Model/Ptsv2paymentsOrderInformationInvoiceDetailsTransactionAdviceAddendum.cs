@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Data (string) maxLength
-            if(this.Data != null && this.Data.Length > 40)
+            if(this.Data != null && this.Data.Length >= 40)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Data, length must be less than 40.", new [] { "Data" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Data, length must be less than or equal to 40.", new [] { "Data" });
             }
 
             yield break;

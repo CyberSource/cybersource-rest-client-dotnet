@@ -145,6 +145,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'TotalCount'
         }
         /// <summary>
+        /// Test the property 'Status'
+        /// </summary>
+        [Test]
+        public void StatusTest()
+        {
+            // TODO unit test for the property 'Status'
+        }
+        /// <summary>
         /// Test the property 'SubmitTimeUtc'
         /// </summary>
         [Test]

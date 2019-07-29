@@ -31,33 +31,12 @@ namespace CyberSource.Model
     public partial class TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification :  IEquatable<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification>, IValidatableObject
     {
         /// <summary>
-        /// Type of personal identification.  **Important**: Contact your TeleCheck representative to learn whether this field is required or optional. 
-        /// </summary>
-        /// <value>Type of personal identification.  **Important**: Contact your TeleCheck representative to learn whether this field is required or optional. </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
-        {
-            
-            /// <summary>
-            /// Enum License for "driver license"
-            /// </summary>
-            [EnumMember(Value = "driver license")]
-            License
-        }
-
-        /// <summary>
-        /// Type of personal identification.  **Important**: Contact your TeleCheck representative to learn whether this field is required or optional. 
-        /// </summary>
-        /// <value>Type of personal identification.  **Important**: Contact your TeleCheck representative to learn whether this field is required or optional. </value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeEnum? Type { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification" /> class.
         /// </summary>
         /// <param name="Id">Customer&#39;s identification number.  **Important**: Contact your TeleCheck representative to learn whether this field is required or optional. .</param>
-        /// <param name="Type">Type of personal identification.  **Important**: Contact your TeleCheck representative to learn whether this field is required or optional. .</param>
+        /// <param name="Type">Type of personal identification. **Important**: Contact your TeleCheck representative to learn whether this field is required or optional.  Valid values: - driver license .</param>
         /// <param name="IssuedBy">IssuedBy.</param>
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification(string Id = default(string), TypeEnum? Type = default(TypeEnum?), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationIssuedBy IssuedBy = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationIssuedBy))
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification(string Id = default(string), string Type = default(string), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationIssuedBy IssuedBy = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationIssuedBy))
         {
             this.Id = Id;
             this.Type = Type;
@@ -71,6 +50,12 @@ namespace CyberSource.Model
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
+        /// <summary>
+        /// Type of personal identification. **Important**: Contact your TeleCheck representative to learn whether this field is required or optional.  Valid values: - driver license 
+        /// </summary>
+        /// <value>Type of personal identification. **Important**: Contact your TeleCheck representative to learn whether this field is required or optional.  Valid values: - driver license </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets IssuedBy

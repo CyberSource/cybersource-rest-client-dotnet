@@ -142,9 +142,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AmexCapnData (string) maxLength
-            if(this.AmexCapnData != null && this.AmexCapnData.Length > 12)
+            if(this.AmexCapnData != null && this.AmexCapnData.Length >= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmexCapnData, length must be less than 12.", new [] { "AmexCapnData" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmexCapnData, length must be less than or equal to 12.", new [] { "AmexCapnData" });
             }
 
             yield break;

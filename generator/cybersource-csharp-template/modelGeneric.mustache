@@ -118,7 +118,7 @@ this.{{name}} = {{name}};
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public {{#parent}} new {{/parent}}string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -212,23 +212,23 @@ this.{{name}} = {{name}};
             {{#hasValidation}}
             {{#maxLength}}
             // {{{name}}} ({{{datatype}}}) maxLength
-            if(this.{{{name}}} != null && this.{{{name}}}.Length > {{maxLength}})
+            if(this.{{{name}}} != null && this.{{{name}}}.Length >= {{maxLength}})
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for {{{name}}}, length must be less than {{maxLength}}.", new [] { "{{{name}}}" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for {{{name}}}, length must be less than or equal to {{maxLength}}.", new [] { "{{{name}}}" });
             }
 
             {{/maxLength}}
             {{#minLength}}
             // {{{name}}} ({{{datatype}}}) minLength
-            if(this.{{{name}}} != null && this.{{{name}}}.Length < {{minLength}})
+            if(this.{{{name}}} != null && this.{{{name}}}.Length <= {{minLength}})
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for {{{name}}}, length must be greater than {{minLength}}.", new [] { "{{{name}}}" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for {{{name}}}, length must be greater than or equal to {{minLength}}.", new [] { "{{{name}}}" });
             }
 
             {{/minLength}}
             {{#maximum}}
             // {{{name}}} ({{{datatype}}}) maximum
-            if(this.{{{name}}} > ({{{datatype}}}){{maximum}})
+            if(this.{{{name}}} >= ({{{datatype}}}){{maximum}})
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for {{{name}}}, must be a value less than or equal to {{maximum}}.", new [] { "{{{name}}}" });
             }
@@ -236,7 +236,7 @@ this.{{name}} = {{name}};
             {{/maximum}}
             {{#minimum}}
             // {{{name}}} ({{{datatype}}}) minimum
-            if(this.{{{name}}} < ({{{datatype}}}){{minimum}})
+            if(this.{{{name}}} <= ({{{datatype}}}){{minimum}})
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for {{{name}}}, must be a value greater than or equal to {{minimum}}.", new [] { "{{{name}}}" });
             }

@@ -276,37 +276,37 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Amount (string) maxLength
-            if(this.Amount != null && this.Amount.Length > 12)
+            if(this.Amount != null && this.Amount.Length >= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, length must be less than 12.", new [] { "Amount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, length must be less than or equal to 12.", new [] { "Amount" });
             }
 
             // Frequency (string) maxLength
-            if(this.Frequency != null && this.Frequency.Length > 1)
+            if(this.Frequency != null && this.Frequency.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Frequency, length must be less than 1.", new [] { "Frequency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Frequency, length must be less than or equal to 1.", new [] { "Frequency" });
             }
 
             // PlanType (string) maxLength
-            if(this.PlanType != null && this.PlanType.Length > 1)
+            if(this.PlanType != null && this.PlanType.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlanType, length must be less than 1.", new [] { "PlanType" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlanType, length must be less than or equal to 1.", new [] { "PlanType" });
             }
 
             // Sequence (int?) maximum
-            if(this.Sequence > (int?)99)
+            if(this.Sequence >= (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sequence, must be a value less than or equal to 99.", new [] { "Sequence" });
             }
 
             // TotalAmount (string) maxLength
-            if(this.TotalAmount != null && this.TotalAmount.Length > 12)
+            if(this.TotalAmount != null && this.TotalAmount.Length >= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalAmount, length must be less than 12.", new [] { "TotalAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalAmount, length must be less than or equal to 12.", new [] { "TotalAmount" });
             }
 
             // TotalCount (int?) maximum
-            if(this.TotalCount > (int?)99)
+            if(this.TotalCount >= (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCount, must be a value less than or equal to 99.", new [] { "TotalCount" });
             }

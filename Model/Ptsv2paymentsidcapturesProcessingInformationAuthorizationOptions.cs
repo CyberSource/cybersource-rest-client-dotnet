@@ -157,21 +157,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AuthType (string) maxLength
-            if(this.AuthType != null && this.AuthType.Length > 15)
+            if(this.AuthType != null && this.AuthType.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthType, length must be less than 15.", new [] { "AuthType" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthType, length must be less than or equal to 15.", new [] { "AuthType" });
             }
 
             // VerbalAuthCode (string) maxLength
-            if(this.VerbalAuthCode != null && this.VerbalAuthCode.Length > 7)
+            if(this.VerbalAuthCode != null && this.VerbalAuthCode.Length >= 7)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VerbalAuthCode, length must be less than 7.", new [] { "VerbalAuthCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VerbalAuthCode, length must be less than or equal to 7.", new [] { "VerbalAuthCode" });
             }
 
             // VerbalAuthTransactionId (string) maxLength
-            if(this.VerbalAuthTransactionId != null && this.VerbalAuthTransactionId.Length > 15)
+            if(this.VerbalAuthTransactionId != null && this.VerbalAuthTransactionId.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VerbalAuthTransactionId, length must be less than 15.", new [] { "VerbalAuthTransactionId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VerbalAuthTransactionId, length must be less than or equal to 15.", new [] { "VerbalAuthTransactionId" });
             }
 
             yield break;

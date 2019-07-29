@@ -31,27 +31,6 @@ namespace CyberSource.Model
     public partial class PtsV2PaymentsReversalsPost201Response :  IEquatable<PtsV2PaymentsReversalsPost201Response>, IValidatableObject
     {
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - REVERSED 
-        /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - REVERSED </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum REVERSED for "REVERSED"
-            /// </summary>
-            [EnumMember(Value = "REVERSED")]
-            REVERSED
-        }
-
-        /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - REVERSED 
-        /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - REVERSED </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsReversalsPost201Response" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
@@ -65,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="IssuerInformation">IssuerInformation.</param>
         /// <param name="AuthorizationInformation">AuthorizationInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        public PtsV2PaymentsReversalsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails ReversalAmountDetails = default(PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails), PtsV2PaymentsReversalsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsReversalsPost201ResponseProcessorInformation), PtsV2PaymentsReversalsPost201ResponseIssuerInformation IssuerInformation = default(PtsV2PaymentsReversalsPost201ResponseIssuerInformation), PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation AuthorizationInformation = default(PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation))
+        public PtsV2PaymentsReversalsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails ReversalAmountDetails = default(PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails), PtsV2PaymentsReversalsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsReversalsPost201ResponseProcessorInformation), PtsV2PaymentsReversalsPost201ResponseIssuerInformation IssuerInformation = default(PtsV2PaymentsReversalsPost201ResponseIssuerInformation), PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation AuthorizationInformation = default(PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -100,6 +79,12 @@ namespace CyberSource.Model
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
+        /// <summary>
+        /// The status of the submitted transaction.  Possible values:  - REVERSED 
+        /// </summary>
+        /// <value>The status of the submitted transaction.  Possible values:  - REVERSED </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// The reconciliation id for the submitted transaction. This value is not returned for all processors. 
@@ -301,15 +286,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) maxLength
-            if(this.Id != null && this.Id.Length > 26)
+            if(this.Id != null && this.Id.Length >= 26)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 26.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than or equal to 26.", new [] { "Id" });
             }
 
             // ReconciliationId (string) maxLength
-            if(this.ReconciliationId != null && this.ReconciliationId.Length > 60)
+            if(this.ReconciliationId != null && this.ReconciliationId.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationId, length must be less than 60.", new [] { "ReconciliationId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationId, length must be less than or equal to 60.", new [] { "ReconciliationId" });
             }
 
             yield break;

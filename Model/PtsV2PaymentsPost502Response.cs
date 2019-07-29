@@ -31,79 +31,13 @@ namespace CyberSource.Model
     public partial class PtsV2PaymentsPost502Response :  IEquatable<PtsV2PaymentsPost502Response>, IValidatableObject
     {
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - SERVER_ERROR 
-        /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - SERVER_ERROR </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum ERROR for "SERVER_ERROR"
-            /// </summary>
-            [EnumMember(Value = "SERVER_ERROR")]
-            ERROR
-        }
-
-        /// <summary>
-        /// The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT  - INVALID_OR_MISSING_CONFIG  - PROCESSOR_TIMEOUT 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT  - INVALID_OR_MISSING_CONFIG  - PROCESSOR_TIMEOUT </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReasonEnum
-        {
-            
-            /// <summary>
-            /// Enum SYSTEMERROR for "SYSTEM_ERROR"
-            /// </summary>
-            [EnumMember(Value = "SYSTEM_ERROR")]
-            SYSTEMERROR,
-            
-            /// <summary>
-            /// Enum SERVERTIMEOUT for "SERVER_TIMEOUT"
-            /// </summary>
-            [EnumMember(Value = "SERVER_TIMEOUT")]
-            SERVERTIMEOUT,
-            
-            /// <summary>
-            /// Enum SERVICETIMEOUT for "SERVICE_TIMEOUT"
-            /// </summary>
-            [EnumMember(Value = "SERVICE_TIMEOUT")]
-            SERVICETIMEOUT,
-            
-            /// <summary>
-            /// Enum INVALIDORMISSINGCONFIG for "INVALID_OR_MISSING_CONFIG"
-            /// </summary>
-            [EnumMember(Value = "INVALID_OR_MISSING_CONFIG")]
-            INVALIDORMISSINGCONFIG,
-            
-            /// <summary>
-            /// Enum PROCESSORTIMEOUT for "PROCESSOR_TIMEOUT"
-            /// </summary>
-            [EnumMember(Value = "PROCESSOR_TIMEOUT")]
-            PROCESSORTIMEOUT
-        }
-
-        /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - SERVER_ERROR 
-        /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - SERVER_ERROR </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
-        /// The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT  - INVALID_OR_MISSING_CONFIG  - PROCESSOR_TIMEOUT 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT  - INVALID_OR_MISSING_CONFIG  - PROCESSOR_TIMEOUT </value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public ReasonEnum? Reason { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost502Response" /> class.
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
         /// <param name="Status">The status of the submitted transaction.  Possible values:  - SERVER_ERROR .</param>
-        /// <param name="Reason">The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT  - INVALID_OR_MISSING_CONFIG  - PROCESSOR_TIMEOUT .</param>
+        /// <param name="Reason">The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT  - INVALID_OR_MISSING_CONFIG .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
-        public PtsV2PaymentsPost502Response(string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string))
+        public PtsV2PaymentsPost502Response(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
@@ -118,7 +52,19 @@ namespace CyberSource.Model
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
+        /// <summary>
+        /// The status of the submitted transaction.  Possible values:  - SERVER_ERROR 
+        /// </summary>
+        /// <value>The status of the submitted transaction.  Possible values:  - SERVER_ERROR </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
+        /// <summary>
+        /// The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT  - INVALID_OR_MISSING_CONFIG 
+        /// </summary>
+        /// <value>The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT  - INVALID_OR_MISSING_CONFIG </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// The detail message related to the status and reason listed above.

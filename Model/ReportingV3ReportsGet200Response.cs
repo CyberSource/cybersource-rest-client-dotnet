@@ -33,17 +33,17 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3ReportsGet200Response" /> class.
         /// </summary>
-        /// <param name="Reports">Reports.</param>
-        public ReportingV3ReportsGet200Response(List<ReportingV3ReportsGet200ResponseReports> Reports = default(List<ReportingV3ReportsGet200ResponseReports>))
+        /// <param name="ReportSearchResults">ReportSearchResults.</param>
+        public ReportingV3ReportsGet200Response(List<ReportingV3ReportsGet200ResponseReportSearchResults> ReportSearchResults = default(List<ReportingV3ReportsGet200ResponseReportSearchResults>))
         {
-            this.Reports = Reports;
+            this.ReportSearchResults = ReportSearchResults;
         }
         
         /// <summary>
-        /// Gets or Sets Reports
+        /// Gets or Sets ReportSearchResults
         /// </summary>
-        [DataMember(Name="reports", EmitDefaultValue=false)]
-        public List<ReportingV3ReportsGet200ResponseReports> Reports { get; set; }
+        [DataMember(Name="reportSearchResults", EmitDefaultValue=false)]
+        public List<ReportingV3ReportsGet200ResponseReportSearchResults> ReportSearchResults { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3ReportsGet200Response {\n");
-            sb.Append("  Reports: ").Append(Reports).Append("\n");
+            sb.Append("  ReportSearchResults: ").Append(ReportSearchResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,9 +91,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Reports == other.Reports ||
-                    this.Reports != null &&
-                    this.Reports.SequenceEqual(other.Reports)
+                    this.ReportSearchResults == other.ReportSearchResults ||
+                    this.ReportSearchResults != null &&
+                    this.ReportSearchResults.SequenceEqual(other.ReportSearchResults)
                 );
         }
 
@@ -108,8 +108,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Reports != null)
-                    hash = hash * 59 + this.Reports.GetHashCode();
+                if (this.ReportSearchResults != null)
+                    hash = hash * 59 + this.ReportSearchResults.GetHashCode();
                 return hash;
             }
         }

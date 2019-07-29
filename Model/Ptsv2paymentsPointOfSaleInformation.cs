@@ -477,123 +477,123 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // TerminalId (string) maxLength
-            if(this.TerminalId != null && this.TerminalId.Length > 8)
+            if(this.TerminalId != null && this.TerminalId.Length >= 8)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalId, length must be less than 8.", new [] { "TerminalId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalId, length must be less than or equal to 8.", new [] { "TerminalId" });
             }
 
             // TerminalSerialNumber (string) maxLength
-            if(this.TerminalSerialNumber != null && this.TerminalSerialNumber.Length > 32)
+            if(this.TerminalSerialNumber != null && this.TerminalSerialNumber.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalSerialNumber, length must be less than 32.", new [] { "TerminalSerialNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalSerialNumber, length must be less than or equal to 32.", new [] { "TerminalSerialNumber" });
             }
 
             // LaneNumber (string) maxLength
-            if(this.LaneNumber != null && this.LaneNumber.Length > 8)
+            if(this.LaneNumber != null && this.LaneNumber.Length >= 8)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LaneNumber, length must be less than 8.", new [] { "LaneNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LaneNumber, length must be less than or equal to 8.", new [] { "LaneNumber" });
             }
 
             // CatLevel (int?) maximum
-            if(this.CatLevel > (int?)9)
+            if(this.CatLevel >= (int?)9)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CatLevel, must be a value less than or equal to 9.", new [] { "CatLevel" });
             }
 
             // CatLevel (int?) minimum
-            if(this.CatLevel < (int?)1)
+            if(this.CatLevel <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CatLevel, must be a value greater than or equal to 1.", new [] { "CatLevel" });
             }
 
             // EntryMode (string) maxLength
-            if(this.EntryMode != null && this.EntryMode.Length > 11)
+            if(this.EntryMode != null && this.EntryMode.Length >= 11)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntryMode, length must be less than 11.", new [] { "EntryMode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntryMode, length must be less than or equal to 11.", new [] { "EntryMode" });
             }
 
             // TerminalCapability (int?) maximum
-            if(this.TerminalCapability > (int?)5)
+            if(this.TerminalCapability >= (int?)5)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCapability, must be a value less than or equal to 5.", new [] { "TerminalCapability" });
             }
 
             // TerminalCapability (int?) minimum
-            if(this.TerminalCapability < (int?)1)
+            if(this.TerminalCapability <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCapability, must be a value greater than or equal to 1.", new [] { "TerminalCapability" });
             }
 
             // PinEntryCapability (int?) maximum
-            if(this.PinEntryCapability > (int?)1)
+            if(this.PinEntryCapability >= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PinEntryCapability, must be a value less than or equal to 1.", new [] { "PinEntryCapability" });
             }
 
             // PinEntryCapability (int?) minimum
-            if(this.PinEntryCapability < (int?)1)
+            if(this.PinEntryCapability <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PinEntryCapability, must be a value greater than or equal to 1.", new [] { "PinEntryCapability" });
             }
 
             // OperatingEnvironment (string) maxLength
-            if(this.OperatingEnvironment != null && this.OperatingEnvironment.Length > 1)
+            if(this.OperatingEnvironment != null && this.OperatingEnvironment.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OperatingEnvironment, length must be less than 1.", new [] { "OperatingEnvironment" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OperatingEnvironment, length must be less than or equal to 1.", new [] { "OperatingEnvironment" });
             }
 
             // AmexCapnData (string) maxLength
-            if(this.AmexCapnData != null && this.AmexCapnData.Length > 12)
+            if(this.AmexCapnData != null && this.AmexCapnData.Length >= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmexCapnData, length must be less than 12.", new [] { "AmexCapnData" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmexCapnData, length must be less than or equal to 12.", new [] { "AmexCapnData" });
             }
 
             // StoreAndForwardIndicator (string) maxLength
-            if(this.StoreAndForwardIndicator != null && this.StoreAndForwardIndicator.Length > 1)
+            if(this.StoreAndForwardIndicator != null && this.StoreAndForwardIndicator.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreAndForwardIndicator, length must be less than 1.", new [] { "StoreAndForwardIndicator" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreAndForwardIndicator, length must be less than or equal to 1.", new [] { "StoreAndForwardIndicator" });
             }
 
             // TerminalCardCaptureCapability (string) maxLength
-            if(this.TerminalCardCaptureCapability != null && this.TerminalCardCaptureCapability.Length > 1)
+            if(this.TerminalCardCaptureCapability != null && this.TerminalCardCaptureCapability.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCardCaptureCapability, length must be less than 1.", new [] { "TerminalCardCaptureCapability" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCardCaptureCapability, length must be less than or equal to 1.", new [] { "TerminalCardCaptureCapability" });
             }
 
             // TerminalOutputCapability (string) maxLength
-            if(this.TerminalOutputCapability != null && this.TerminalOutputCapability.Length > 1)
+            if(this.TerminalOutputCapability != null && this.TerminalOutputCapability.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalOutputCapability, length must be less than 1.", new [] { "TerminalOutputCapability" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalOutputCapability, length must be less than or equal to 1.", new [] { "TerminalOutputCapability" });
             }
 
             // DeviceId (string) maxLength
-            if(this.DeviceId != null && this.DeviceId.Length > 32)
+            if(this.DeviceId != null && this.DeviceId.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DeviceId, length must be less than 32.", new [] { "DeviceId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DeviceId, length must be less than or equal to 32.", new [] { "DeviceId" });
             }
 
             // PinBlockEncodingFormat (int?) maximum
-            if(this.PinBlockEncodingFormat > (int?)9)
+            if(this.PinBlockEncodingFormat >= (int?)9)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PinBlockEncodingFormat, must be a value less than or equal to 9.", new [] { "PinBlockEncodingFormat" });
             }
 
             // EncryptedPin (string) maxLength
-            if(this.EncryptedPin != null && this.EncryptedPin.Length > 16)
+            if(this.EncryptedPin != null && this.EncryptedPin.Length >= 16)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EncryptedPin, length must be less than 16.", new [] { "EncryptedPin" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EncryptedPin, length must be less than or equal to 16.", new [] { "EncryptedPin" });
             }
 
             // EncryptedKeySerialNumber (string) maxLength
-            if(this.EncryptedKeySerialNumber != null && this.EncryptedKeySerialNumber.Length > 20)
+            if(this.EncryptedKeySerialNumber != null && this.EncryptedKeySerialNumber.Length >= 20)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EncryptedKeySerialNumber, length must be less than 20.", new [] { "EncryptedKeySerialNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EncryptedKeySerialNumber, length must be less than or equal to 20.", new [] { "EncryptedKeySerialNumber" });
             }
 
             // PartnerSdkVersion (string) maxLength
-            if(this.PartnerSdkVersion != null && this.PartnerSdkVersion.Length > 32)
+            if(this.PartnerSdkVersion != null && this.PartnerSdkVersion.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PartnerSdkVersion, length must be less than 32.", new [] { "PartnerSdkVersion" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PartnerSdkVersion, length must be less than or equal to 32.", new [] { "PartnerSdkVersion" });
             }
 
             yield break;

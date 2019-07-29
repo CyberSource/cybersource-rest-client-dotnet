@@ -140,21 +140,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Quantity (decimal?) maximum
-            if(this.Quantity > (decimal?)9999999999)
+            if(this.Quantity >= (decimal?)9999999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 9999999999.", new [] { "Quantity" });
             }
 
             // Quantity (decimal?) minimum
-            if(this.Quantity < (decimal?)1)
+            if(this.Quantity <= (decimal?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
             }
 
             // UnitPrice (string) maxLength
-            if(this.UnitPrice != null && this.UnitPrice.Length > 15)
+            if(this.UnitPrice != null && this.UnitPrice.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than 15.", new [] { "UnitPrice" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than or equal to 15.", new [] { "UnitPrice" });
             }
 
             yield break;

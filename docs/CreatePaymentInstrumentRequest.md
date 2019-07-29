@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Links** | [**TmsV1InstrumentIdentifiersPost200ResponseLinks**](TmsV1InstrumentIdentifiersPost200ResponseLinks.md) |  | [optional] 
 **Id** | **string** | Unique identification number assigned by CyberSource to the submitted request. | [optional] 
-**_Object** | **string** | Describes type of token. | [optional] 
-**State** | **string** | Current state of the token. | [optional] 
+**_Object** | **string** | &#39;Describes type of token.&#39;  Valid values: - paymentInstrument  | [optional] 
+**State** | **string** | &#39;Current state of the token.&#39;  Valid values: - ACTIVE - CLOSED  | [optional] 
 **BankAccount** | [**TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount**](TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount.md) |  | [optional] 
 **Card** | [**TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard**](TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard.md) |  | [optional] 
 **BuyerInformation** | [**TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation**](TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation.md) |  | [optional] 

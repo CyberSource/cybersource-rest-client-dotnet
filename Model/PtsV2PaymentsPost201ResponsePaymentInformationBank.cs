@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponsePaymentInformationBank" /> class.
         /// </summary>
         /// <param name="Account">Account.</param>
-        /// <param name="CorrectedRoutingNumber">The description for this field is not available..</param>
+        /// <param name="CorrectedRoutingNumber">Corrected account number from the ACH verification service.  For details, see &#x60;ecp_debit_corrected_routing_number&#x60; or &#x60;ecp_credit_corrected_routing_number&#x60; reply field descriptions in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         public PtsV2PaymentsPost201ResponsePaymentInformationBank(PtsV2PaymentsPost201ResponsePaymentInformationBankAccount Account = default(PtsV2PaymentsPost201ResponsePaymentInformationBankAccount), string CorrectedRoutingNumber = default(string))
         {
             this.Account = Account;
@@ -48,9 +48,9 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponsePaymentInformationBankAccount Account { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Corrected account number from the ACH verification service.  For details, see &#x60;ecp_debit_corrected_routing_number&#x60; or &#x60;ecp_credit_corrected_routing_number&#x60; reply field descriptions in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Corrected account number from the ACH verification service.  For details, see &#x60;ecp_debit_corrected_routing_number&#x60; or &#x60;ecp_credit_corrected_routing_number&#x60; reply field descriptions in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
         [DataMember(Name="correctedRoutingNumber", EmitDefaultValue=false)]
         public string CorrectedRoutingNumber { get; set; }
 
@@ -139,9 +139,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CorrectedRoutingNumber (string) maxLength
-            if(this.CorrectedRoutingNumber != null && this.CorrectedRoutingNumber.Length > 9)
+            if(this.CorrectedRoutingNumber != null && this.CorrectedRoutingNumber.Length >= 9)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CorrectedRoutingNumber, length must be less than 9.", new [] { "CorrectedRoutingNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CorrectedRoutingNumber, length must be less than or equal to 9.", new [] { "CorrectedRoutingNumber" });
             }
 
             yield break;

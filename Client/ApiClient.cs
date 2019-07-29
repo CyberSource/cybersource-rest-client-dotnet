@@ -386,7 +386,7 @@ namespace CyberSource.Client
                 return stream;
             }
 
-            if (type.Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
+            if ( type == typeof(DateTime?)) // return a datetime object
             {
                 return DateTime.Parse(response.Content,  null, System.Globalization.DateTimeStyles.RoundtripKind);
             }

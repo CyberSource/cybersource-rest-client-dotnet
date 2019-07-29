@@ -174,27 +174,27 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Country (string) maxLength
-            if(this.Country != null && this.Country.Length > 90)
+            if(this.Country != null && this.Country.Length >= 90)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than 90.", new [] { "Country" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 90.", new [] { "Country" });
             }
 
             // Locality (string) maxLength
-            if(this.Locality != null && this.Locality.Length > 90)
+            if(this.Locality != null && this.Locality.Length >= 90)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than 90.", new [] { "Locality" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than or equal to 90.", new [] { "Locality" });
             }
 
             // Latitude (string) maxLength
-            if(this.Latitude != null && this.Latitude.Length > 10)
+            if(this.Latitude != null && this.Latitude.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Latitude, length must be less than 10.", new [] { "Latitude" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Latitude, length must be less than or equal to 10.", new [] { "Latitude" });
             }
 
             // Longitude (string) maxLength
-            if(this.Longitude != null && this.Longitude.Length > 10)
+            if(this.Longitude != null && this.Longitude.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Longitude, length must be less than 10.", new [] { "Longitude" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Longitude, length must be less than or equal to 10.", new [] { "Longitude" });
             }
 
             yield break;

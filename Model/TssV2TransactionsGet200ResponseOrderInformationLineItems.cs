@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="ProductCode">Type of product. This value is used to determine the category that the product is in: electronic, handling, physical, service, or shipping. The default value is **default**.  For a payment, when you set this field to a value other than default or any of the values related to shipping and handling, below fields _quantity_, _productName_, and _productSKU_ are required. .</param>
         /// <param name="ProductName">For PAYMENT and CAPTURE API, this field is required when above _productCode_ is not **default** or one of the values related to shipping and handling. .</param>
         /// <param name="ProductSku">Identification code for the product. For PAYMENT and CAPTURE API, this field is required when above _productCode_ is not **default** or one of the values related to shipping and/or handling. .</param>
-        /// <param name="TaxAmount">Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:  1. You include each line item in your request.     - 1st line item has &#x60;amount&#x3D;10.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;0.80&#x60;     - 2nd line item has &#x60;amount&#x3D;20.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;1.60&#x60; 2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  This field is frequently used for Level II and Level III transactions.  For details, see &#x60;tax_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
+        /// <param name="TaxAmount">Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:  1. You include each line item in your request.     - 1st line item has &#x60;amount&#x3D;10.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;0.80&#x60;     - 2nd line item has &#x60;amount&#x3D;20.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;1.60&#x60; 2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  This field is frequently used for Level II and Level III transactions.  For details, see &#x60;tax_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         /// <param name="Quantity">For a payment or capture, this field is required when _productCode_ is not **default** or one of the values related to shipping and handling. .</param>
         /// <param name="UnitPrice">Per-item price of the product. This value cannot be negative. You can include a decimal point (.), but you cannot include any other special characters. CyberSource truncates the amount to the correct number of decimal places.  For processor-specific information, see the amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         /// <param name="FulfillmentType">The description for this field is not available..</param>
@@ -73,9 +73,9 @@ namespace CyberSource.Model
         public string ProductSku { get; set; }
 
         /// <summary>
-        /// Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:  1. You include each line item in your request.     - 1st line item has &#x60;amount&#x3D;10.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;0.80&#x60;     - 2nd line item has &#x60;amount&#x3D;20.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;1.60&#x60; 2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  This field is frequently used for Level II and Level III transactions.  For details, see &#x60;tax_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        /// Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:  1. You include each line item in your request.     - 1st line item has &#x60;amount&#x3D;10.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;0.80&#x60;     - 2nd line item has &#x60;amount&#x3D;20.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;1.60&#x60; 2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  This field is frequently used for Level II and Level III transactions.  For details, see &#x60;tax_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
         /// </summary>
-        /// <value>Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:  1. You include each line item in your request.     - 1st line item has &#x60;amount&#x3D;10.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;0.80&#x60;     - 2nd line item has &#x60;amount&#x3D;20.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;1.60&#x60; 2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  This field is frequently used for Level II and Level III transactions.  For details, see &#x60;tax_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
+        /// <value>Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:  1. You include each line item in your request.     - 1st line item has &#x60;amount&#x3D;10.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;0.80&#x60;     - 2nd line item has &#x60;amount&#x3D;20.00&#x60;, &#x60;quantity&#x3D;1&#x60;, and &#x60;taxAmount&#x3D;1.60&#x60; 2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  This field is frequently used for Level II and Level III transactions.  For details, see &#x60;tax_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
         [DataMember(Name="taxAmount", EmitDefaultValue=false)]
         public string TaxAmount { get; set; }
 
@@ -225,45 +225,45 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ProductCode (string) maxLength
-            if(this.ProductCode != null && this.ProductCode.Length > 255)
+            if(this.ProductCode != null && this.ProductCode.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductCode, length must be less than 255.", new [] { "ProductCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductCode, length must be less than or equal to 255.", new [] { "ProductCode" });
             }
 
             // ProductName (string) maxLength
-            if(this.ProductName != null && this.ProductName.Length > 255)
+            if(this.ProductName != null && this.ProductName.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than 255.", new [] { "ProductName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than or equal to 255.", new [] { "ProductName" });
             }
 
             // ProductSku (string) maxLength
-            if(this.ProductSku != null && this.ProductSku.Length > 255)
+            if(this.ProductSku != null && this.ProductSku.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductSku, length must be less than 255.", new [] { "ProductSku" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductSku, length must be less than or equal to 255.", new [] { "ProductSku" });
             }
 
             // TaxAmount (string) maxLength
-            if(this.TaxAmount != null && this.TaxAmount.Length > 15)
+            if(this.TaxAmount != null && this.TaxAmount.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than 15.", new [] { "TaxAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than or equal to 15.", new [] { "TaxAmount" });
             }
 
             // Quantity (decimal?) maximum
-            if(this.Quantity > (decimal?)9999999999)
+            if(this.Quantity >= (decimal?)9999999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 9999999999.", new [] { "Quantity" });
             }
 
             // Quantity (decimal?) minimum
-            if(this.Quantity < (decimal?)1)
+            if(this.Quantity <= (decimal?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
             }
 
             // UnitPrice (string) maxLength
-            if(this.UnitPrice != null && this.UnitPrice.Length > 15)
+            if(this.UnitPrice != null && this.UnitPrice.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than 15.", new [] { "UnitPrice" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than or equal to 15.", new [] { "UnitPrice" });
             }
 
             yield break;

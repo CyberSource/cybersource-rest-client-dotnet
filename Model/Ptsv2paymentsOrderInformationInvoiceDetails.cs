@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="CommodityCode">International description code of the overall order’s goods or services or the Categorizes purchases for VAT reporting. Contact your acquirer for a list of codes.  For processor-specific information, see the &#x60;summary_commodity_code&#x60; field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="MerchandiseCode">Identifier for the merchandise. Possible value:   - 1000: Gift card  This field is supported only for **American Express Direct**. .</param>
         /// <param name="TransactionAdviceAddendum">TransactionAdviceAddendum.</param>
-        /// <param name="ReferenceDataCode">Code that identifies the value of the &#x60;referenceDataNumber&#x60; field.  For the possible values, see \&quot;Reference Data Codes\&quot; in [Level II and Level III Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm).  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
+        /// <param name="ReferenceDataCode">Code that identifies the value of the &#x60;referenceDataNumber&#x60; field.  For the possible values, see \&quot;Reference Data Codes\&quot; in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm).  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
         /// <param name="ReferenceDataNumber">Reference number. The meaning of this value is identified by the value of the &#x60;referenceDataCode&#x60; field.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
         public Ptsv2paymentsOrderInformationInvoiceDetails(string InvoiceNumber = default(string), string BarcodeNumber = default(string), string ExpirationDate = default(string), string PurchaseOrderNumber = default(string), string PurchaseOrderDate = default(string), string PurchaseContactName = default(string), bool? Taxable = default(bool?), string VatInvoiceReferenceNumber = default(string), string CommodityCode = default(string), decimal? MerchandiseCode = default(decimal?), List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum> TransactionAdviceAddendum = default(List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum>), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string))
         {
@@ -140,9 +140,9 @@ namespace CyberSource.Model
         public List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum> TransactionAdviceAddendum { get; set; }
 
         /// <summary>
-        /// Code that identifies the value of the &#x60;referenceDataNumber&#x60; field.  For the possible values, see \&quot;Reference Data Codes\&quot; in [Level II and Level III Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm).  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. 
+        /// Code that identifies the value of the &#x60;referenceDataNumber&#x60; field.  For the possible values, see \&quot;Reference Data Codes\&quot; in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm).  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. 
         /// </summary>
-        /// <value>Code that identifies the value of the &#x60;referenceDataNumber&#x60; field.  For the possible values, see \&quot;Reference Data Codes\&quot; in [Level II and Level III Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm).  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. </value>
+        /// <value>Code that identifies the value of the &#x60;referenceDataNumber&#x60; field.  For the possible values, see \&quot;Reference Data Codes\&quot; in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm).  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. </value>
         [DataMember(Name="referenceDataCode", EmitDefaultValue=false)]
         public string ReferenceDataCode { get; set; }
 
@@ -326,45 +326,45 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // PurchaseOrderNumber (string) maxLength
-            if(this.PurchaseOrderNumber != null && this.PurchaseOrderNumber.Length > 25)
+            if(this.PurchaseOrderNumber != null && this.PurchaseOrderNumber.Length >= 25)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseOrderNumber, length must be less than 25.", new [] { "PurchaseOrderNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseOrderNumber, length must be less than or equal to 25.", new [] { "PurchaseOrderNumber" });
             }
 
             // PurchaseOrderDate (string) maxLength
-            if(this.PurchaseOrderDate != null && this.PurchaseOrderDate.Length > 10)
+            if(this.PurchaseOrderDate != null && this.PurchaseOrderDate.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseOrderDate, length must be less than 10.", new [] { "PurchaseOrderDate" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseOrderDate, length must be less than or equal to 10.", new [] { "PurchaseOrderDate" });
             }
 
             // PurchaseContactName (string) maxLength
-            if(this.PurchaseContactName != null && this.PurchaseContactName.Length > 36)
+            if(this.PurchaseContactName != null && this.PurchaseContactName.Length >= 36)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseContactName, length must be less than 36.", new [] { "PurchaseContactName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseContactName, length must be less than or equal to 36.", new [] { "PurchaseContactName" });
             }
 
             // VatInvoiceReferenceNumber (string) maxLength
-            if(this.VatInvoiceReferenceNumber != null && this.VatInvoiceReferenceNumber.Length > 15)
+            if(this.VatInvoiceReferenceNumber != null && this.VatInvoiceReferenceNumber.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VatInvoiceReferenceNumber, length must be less than 15.", new [] { "VatInvoiceReferenceNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VatInvoiceReferenceNumber, length must be less than or equal to 15.", new [] { "VatInvoiceReferenceNumber" });
             }
 
             // CommodityCode (string) maxLength
-            if(this.CommodityCode != null && this.CommodityCode.Length > 4)
+            if(this.CommodityCode != null && this.CommodityCode.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommodityCode, length must be less than 4.", new [] { "CommodityCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommodityCode, length must be less than or equal to 4.", new [] { "CommodityCode" });
             }
 
             // ReferenceDataCode (string) maxLength
-            if(this.ReferenceDataCode != null && this.ReferenceDataCode.Length > 3)
+            if(this.ReferenceDataCode != null && this.ReferenceDataCode.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataCode, length must be less than 3.", new [] { "ReferenceDataCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataCode, length must be less than or equal to 3.", new [] { "ReferenceDataCode" });
             }
 
             // ReferenceDataNumber (string) maxLength
-            if(this.ReferenceDataNumber != null && this.ReferenceDataNumber.Length > 30)
+            if(this.ReferenceDataNumber != null && this.ReferenceDataNumber.Length >= 30)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataNumber, length must be less than 30.", new [] { "ReferenceDataNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataNumber, length must be less than or equal to 30.", new [] { "ReferenceDataNumber" });
             }
 
             yield break;

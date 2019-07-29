@@ -23,7 +23,8 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\SecureFileShareApi.cs) 
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\SecureFileShareApi.cs) | ForEach-Object { $_ -replace 'ParameterToString\(endDate\)', 'ParameterToString(endDate.Value.ToString("""yyyy-MM-dd"""))' } | Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SecureFileShareApi.cs) ; $fileContents[300] = $fileContents[300] -replace 'null', 'localVarResponse.Content' ; $fileContents|Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SecureFileShareApi.cs) ; $fileContents[300] = $fileContents[300] -replace 'null', 'localVarResponse.Content' ;  $fileContents[372] = $fileContents[372] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs"
+
 powershell -Command "(Get-Content ..\src\CyberSource\Model\ReportingV3ReportSubscriptionsGet200ResponseSubscriptions.cs) | ForEach-Object { $_ -replace 'DateTime\?', 'string' } | Set-Content ..\src\CyberSource\Model\ReportingV3ReportSubscriptionsGet200ResponseSubscriptions.cs"
 
 
@@ -34,7 +35,7 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.c
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[259] = $fileContents[259] -replace 'null', 'localVarResponse.Content' ; $fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[259] = $fileContents[259] -replace 'null', 'localVarResponse.Content' ;  $fileContents[336] = $fileContents[336] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
 
 powershell -Command "$fileContents = (Get-Content ..\src\CyberSource\Api\NetFundingsApi.cs) | ForEach-Object { $_ -replace '/reporting/v3/net-fundings', '/reporting/v3/net-fundings?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&organizationId={organizationId}&groupName={groupName}' } | Set-Content ..\src\CyberSource\Api\NetFundingsApi.cs"
 
@@ -72,7 +73,9 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\NotificationOfChangesAp
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\NotificationOfChangesApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\NotificationOfChangesApi.cs"
 
-powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) | ForEach-Object { $_ -replace '/reporting/v3/conversion-details', '/reporting/v3/conversion-details?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&organizationId={organizationId}' } | Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
+powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) | ForEach-Object { $_ -replace '/reporting/v3/conversion-details', '/reporting/v3/conversion-details?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'} | Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
+
+powershell -Command "$fileContents = (Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) ; $fileContents[295] = (get-content OrganizationIdFix.txt); $fileContents[218] = (get-content OrganizationIdFix.txt); $fileContents|Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
 
@@ -80,7 +83,7 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(organizationId != null\)', '//if (organizationId != null)' } | Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[656] = $fileContents[656] -replace 'Configuration.ApiClient.SelectHeaderContentType\(localVarHttpContentTypes\)', '\"\"'; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
+REM powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[654] = $fileContents[654] -replace 'Configuration.ApiClient.SelectHeaderContentType\(localVarHttpContentTypes\)', '\"\"'; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportsApi.cs) ; $fileContents[666] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\ReportsApi.cs"
 
@@ -104,15 +107,15 @@ powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\Reports
 
 
 rem For Removing the length check for a property which is currently giving compile time error
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs) ; $fileContents[448] = ''; $fileContents|Set-Content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs"
+REM powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs) ; $fileContents[426] = ''; $fileContents|Set-Content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs) ; $fileContents[449] = ''; $fileContents|Set-Content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs"
+REM powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs) ; $fileContents[427] = ''; $fileContents|Set-Content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs) ; $fileContents[450] = ''; $fileContents|Set-Content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs"
+REM powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs) ; $fileContents[428] = ''; $fileContents|Set-Content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs) ; $fileContents[451] = ''; $fileContents|Set-Content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs"
+REM powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs) ; $fileContents[429] = ''; $fileContents|Set-Content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs) ; $fileContents[452] = ''; $fileContents|Set-Content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs"
+REM powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs) ; $fileContents[430] = ''; $fileContents|Set-Content ..\src\CyberSource\Model\PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures.cs"
 
 
 rem For Adding missing properties in the model file
@@ -145,11 +148,11 @@ powershell -Command " Set-Content ..\src\CyberSource\Api\UserManagementApi.cs ((
 
 powershell -Command " Set-Content ..\src\CyberSource\Api\VoidApi.cs ((get-content ..\src\CyberSource\Api\VoidApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 
-powershell -Command " Set-Content ..\src\CyberSource\Api\PayerAuthenticationApi.cs ((get-content ..\src\CyberSource\Api\PayerAuthenticationApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
+REM powershell -Command " Set-Content ..\src\CyberSource\Api\PayerAuthenticationApi.cs ((get-content ..\src\CyberSource\Api\PayerAuthenticationApi.cs -raw) -replace '(?m)(.*)^*String\[\] localVarHttpHeaderAccepts = new String\[\] {[\r\n\s]+\"application\/json;charset=utf-8\"', 'String[] localVarHttpHeaderAccepts = new String[] {\"application/hal+json;charset=utf-8\"')"
 
 
 rem For Adding Missing Enum Value
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.cs) ; $fileContents[50] = (get-content ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.txt); $fileContents|Set-Content ..\src\CyberSource\Model\ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.cs"
+REM powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.cs) ; $fileContents[50] = (get-content ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.txt); $fileContents|Set-Content ..\src\CyberSource\Model\ReportingV3ReportDefinitionsGet200ResponseReportDefinitions.cs"
 
 REM powershell -Command "$fileContents = (get-content ..\src\CyberSource\Model\ReportingV3ReportsIdGet200Response.cs) ; $fileContents[77] = (get-content ReportingV3ReportsIdGet200Response.txt); $fileContents|Set-Content ..\src\CyberSource\Model\ReportingV3ReportsIdGet200Response.cs"
 

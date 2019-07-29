@@ -35,9 +35,9 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="TerminalId">Identifier for the terminal at your retail location. You can define this value yourself, but consult the processor for requirements.  #### FDC Nashville Global To have your account configured to support this field, contact CyberSource Customer Support. This value must be a value that FDC Nashville Global issued to you.  For details, see the &#x60;terminal_id&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  **For Payouts**: This field is applicable for CtV. .</param>
         /// <param name="TerminalSerialNumber">Terminal serial number assigned by the hardware manufacturer. This value is provided by the client software that is installed on the POS terminal.  CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only on American Express Direct, FDC Nashville Global, and SIX.  For details, see the &#x60;terminal_serial_number&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
-        /// <param name="DeviceId">The description for this field is not available..</param>
+        /// <param name="DeviceId">Value created by the client software that uniquely identifies the POS device. CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only for specific CyberSource integrations. For details, see the &#x60;pos_device_id&#x60; field description in the [Card-Present Processing Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         /// <param name="Partner">Partner.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string DeviceId = default(string), Ptsv2paymentsClientReferenceInformationPartner Partner = default(Ptsv2paymentsClientReferenceInformationPartner))
+        public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string DeviceId = default(string), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner Partner = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner))
         {
             this.TerminalId = TerminalId;
             this.TerminalSerialNumber = TerminalSerialNumber;
@@ -60,9 +60,9 @@ namespace CyberSource.Model
         public string TerminalSerialNumber { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Value created by the client software that uniquely identifies the POS device. CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only for specific CyberSource integrations. For details, see the &#x60;pos_device_id&#x60; field description in the [Card-Present Processing Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Value created by the client software that uniquely identifies the POS device. CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only for specific CyberSource integrations. For details, see the &#x60;pos_device_id&#x60; field description in the [Card-Present Processing Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
         [DataMember(Name="deviceId", EmitDefaultValue=false)]
         public string DeviceId { get; set; }
 
@@ -70,7 +70,7 @@ namespace CyberSource.Model
         /// Gets or Sets Partner
         /// </summary>
         [DataMember(Name="partner", EmitDefaultValue=false)]
-        public Ptsv2paymentsClientReferenceInformationPartner Partner { get; set; }
+        public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner Partner { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -173,15 +173,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // TerminalId (string) maxLength
-            if(this.TerminalId != null && this.TerminalId.Length > 8)
+            if(this.TerminalId != null && this.TerminalId.Length >= 8)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalId, length must be less than 8.", new [] { "TerminalId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalId, length must be less than or equal to 8.", new [] { "TerminalId" });
             }
 
             // TerminalSerialNumber (string) maxLength
-            if(this.TerminalSerialNumber != null && this.TerminalSerialNumber.Length > 32)
+            if(this.TerminalSerialNumber != null && this.TerminalSerialNumber.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalSerialNumber, length must be less than 32.", new [] { "TerminalSerialNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalSerialNumber, length must be less than or equal to 32.", new [] { "TerminalSerialNumber" });
             }
 
             yield break;

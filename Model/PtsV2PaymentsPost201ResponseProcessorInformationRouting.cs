@@ -157,21 +157,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Network (string) maxLength
-            if(this.Network != null && this.Network.Length > 1)
+            if(this.Network != null && this.Network.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Network, length must be less than 1.", new [] { "Network" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Network, length must be less than or equal to 1.", new [] { "Network" });
             }
 
             // NetworkName (string) maxLength
-            if(this.NetworkName != null && this.NetworkName.Length > 10)
+            if(this.NetworkName != null && this.NetworkName.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetworkName, length must be less than 10.", new [] { "NetworkName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetworkName, length must be less than or equal to 10.", new [] { "NetworkName" });
             }
 
             // CustomerSignatureRequired (string) maxLength
-            if(this.CustomerSignatureRequired != null && this.CustomerSignatureRequired.Length > 1)
+            if(this.CustomerSignatureRequired != null && this.CustomerSignatureRequired.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomerSignatureRequired, length must be less than 1.", new [] { "CustomerSignatureRequired" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomerSignatureRequired, length must be less than or equal to 1.", new [] { "CustomerSignatureRequired" });
             }
 
             yield break;

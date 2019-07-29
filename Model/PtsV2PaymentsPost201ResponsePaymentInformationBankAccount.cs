@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CorrectedAccountNumber (string) maxLength
-            if(this.CorrectedAccountNumber != null && this.CorrectedAccountNumber.Length > 17)
+            if(this.CorrectedAccountNumber != null && this.CorrectedAccountNumber.Length >= 17)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CorrectedAccountNumber, length must be less than 17.", new [] { "CorrectedAccountNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CorrectedAccountNumber, length must be less than or equal to 17.", new [] { "CorrectedAccountNumber" });
             }
 
             yield break;

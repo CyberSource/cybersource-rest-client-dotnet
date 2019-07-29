@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ShipFromPostalCode (string) maxLength
-            if(this.ShipFromPostalCode != null && this.ShipFromPostalCode.Length > 10)
+            if(this.ShipFromPostalCode != null && this.ShipFromPostalCode.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShipFromPostalCode, length must be less than 10.", new [] { "ShipFromPostalCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShipFromPostalCode, length must be less than or equal to 10.", new [] { "ShipFromPostalCode" });
             }
 
             yield break;

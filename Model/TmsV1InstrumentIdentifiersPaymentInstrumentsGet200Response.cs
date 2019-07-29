@@ -31,27 +31,6 @@ namespace CyberSource.Model
     public partial class TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response :  IEquatable<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response>, IValidatableObject
     {
         /// <summary>
-        /// Shows the response is a collection of objects.
-        /// </summary>
-        /// <value>Shows the response is a collection of objects.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ObjectEnum
-        {
-            
-            /// <summary>
-            /// Enum Collection for "collection"
-            /// </summary>
-            [EnumMember(Value = "collection")]
-            Collection
-        }
-
-        /// <summary>
-        /// Shows the response is a collection of objects.
-        /// </summary>
-        /// <value>Shows the response is a collection of objects.</value>
-        [DataMember(Name="object", EmitDefaultValue=false)]
-        public ObjectEnum? _Object { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
@@ -68,6 +47,12 @@ namespace CyberSource.Model
         [DataMember(Name="_links", EmitDefaultValue=false)]
         public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks Links { get; set; }
 
+        /// <summary>
+        /// &#39;Shows the response is a collection of objects.&#39;  Valid values: - collection 
+        /// </summary>
+        /// <value>&#39;Shows the response is a collection of objects.&#39;  Valid values: - collection </value>
+        [DataMember(Name="object", EmitDefaultValue=false)]
+        public string _Object { get; private set; }
 
         /// <summary>
         /// The offset parameter supplied in the request.

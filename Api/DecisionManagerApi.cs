@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create Decision Manager case
+        /// Create Decision Manager Case
         /// </summary>
         /// <remarks>
         /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
@@ -36,7 +36,7 @@ namespace CyberSource.Api
         RiskV1DecisionsPost201Response CreateDecisionManagerCase (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest);
 
         /// <summary>
-        /// Create Decision Manager case
+        /// Create Decision Manager Case
         /// </summary>
         /// <remarks>
         /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
@@ -48,7 +48,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create Decision Manager case
+        /// Create Decision Manager Case
         /// </summary>
         /// <remarks>
         /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
@@ -59,7 +59,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<RiskV1DecisionsPost201Response> CreateDecisionManagerCaseAsync (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest);
 
         /// <summary>
-        /// Create Decision Manager case
+        /// Create Decision Manager Case
         /// </summary>
         /// <remarks>
         /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
@@ -177,7 +177,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Decision Manager case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDecisionManagerCaseRequest"></param>
@@ -189,7 +189,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Decision Manager case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDecisionManagerCaseRequest"></param>
@@ -251,7 +251,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Decision Manager case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDecisionManagerCaseRequest"></param>
@@ -264,7 +264,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Decision Manager case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDecisionManagerCaseRequest"></param>

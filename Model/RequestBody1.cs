@@ -31,70 +31,6 @@ namespace CyberSource.Model
     public partial class RequestBody1 :  IEquatable<RequestBody1>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets ReportMimeType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReportMimeTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum ApplicationXml for "application/xml"
-            /// </summary>
-            [EnumMember(Value = "application/xml")]
-            ApplicationXml,
-            
-            /// <summary>
-            /// Enum TextCsv for "text/csv"
-            /// </summary>
-            [EnumMember(Value = "text/csv")]
-            TextCsv
-        }
-
-        /// <summary>
-        /// The frequency for which subscription is created.
-        /// </summary>
-        /// <value>The frequency for which subscription is created.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReportFrequencyEnum
-        {
-            
-            /// <summary>
-            /// Enum DAILY for "DAILY"
-            /// </summary>
-            [EnumMember(Value = "DAILY")]
-            DAILY,
-            
-            /// <summary>
-            /// Enum WEEKLY for "WEEKLY"
-            /// </summary>
-            [EnumMember(Value = "WEEKLY")]
-            WEEKLY,
-            
-            /// <summary>
-            /// Enum MONTHLY for "MONTHLY"
-            /// </summary>
-            [EnumMember(Value = "MONTHLY")]
-            MONTHLY,
-            
-            /// <summary>
-            /// Enum ADHOC for "ADHOC"
-            /// </summary>
-            [EnumMember(Value = "ADHOC")]
-            ADHOC
-        }
-
-        /// <summary>
-        /// Gets or Sets ReportMimeType
-        /// </summary>
-        [DataMember(Name="reportMimeType", EmitDefaultValue=false)]
-        public ReportMimeTypeEnum? ReportMimeType { get; set; }
-        /// <summary>
-        /// The frequency for which subscription is created.
-        /// </summary>
-        /// <value>The frequency for which subscription is created.</value>
-        [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
-        public ReportFrequencyEnum? ReportFrequency { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RequestBody1" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -105,8 +41,8 @@ namespace CyberSource.Model
         /// <param name="OrganizationId">Valid CyberSource organizationId.</param>
         /// <param name="ReportDefinitionName">Valid Report Definition Name (required).</param>
         /// <param name="ReportFields">ReportFields (required).</param>
-        /// <param name="ReportMimeType">ReportMimeType (required).</param>
-        /// <param name="ReportFrequency">The frequency for which subscription is created. (required).</param>
+        /// <param name="ReportMimeType">Valid values: - application/xml - text/csv  (required).</param>
+        /// <param name="ReportFrequency">&#39;The frequency for which subscription is created.&#39;  Valid values: - &#39;DAILY&#39; - &#39;WEEKLY&#39; - &#39;MONTHLY&#39; - &#39;ADHOC&#39;  (required).</param>
         /// <param name="ReportName">ReportName (required).</param>
         /// <param name="Timezone">Timezone (required).</param>
         /// <param name="StartTime">The hour at which the report generation should start. It should be in hhmm format. (required).</param>
@@ -114,7 +50,7 @@ namespace CyberSource.Model
         /// <param name="ReportFilters">List of filters to apply.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
         /// <param name="GroupName">Valid GroupName.</param>
-        public RequestBody1(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupName = default(string))
+        public RequestBody1(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), string ReportMimeType = default(string), string ReportFrequency = default(string), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupName = default(string))
         {
             // to ensure "ReportDefinitionName" is required (not null)
             if (ReportDefinitionName == null)
@@ -206,7 +142,19 @@ namespace CyberSource.Model
         [DataMember(Name="reportFields", EmitDefaultValue=false)]
         public List<string> ReportFields { get; set; }
 
+        /// <summary>
+        /// Valid values: - application/xml - text/csv 
+        /// </summary>
+        /// <value>Valid values: - application/xml - text/csv </value>
+        [DataMember(Name="reportMimeType", EmitDefaultValue=false)]
+        public string ReportMimeType { get; set; }
 
+        /// <summary>
+        /// &#39;The frequency for which subscription is created.&#39;  Valid values: - &#39;DAILY&#39; - &#39;WEEKLY&#39; - &#39;MONTHLY&#39; - &#39;ADHOC&#39; 
+        /// </summary>
+        /// <value>&#39;The frequency for which subscription is created.&#39;  Valid values: - &#39;DAILY&#39; - &#39;WEEKLY&#39; - &#39;MONTHLY&#39; - &#39;ADHOC&#39; </value>
+        [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
+        public string ReportFrequency { get; set; }
 
         /// <summary>
         /// Gets or Sets ReportName
@@ -426,15 +374,15 @@ namespace CyberSource.Model
             }
 
             // ReportDefinitionName (string) maxLength
-            if(this.ReportDefinitionName != null && this.ReportDefinitionName.Length > 80)
+            if(this.ReportDefinitionName != null && this.ReportDefinitionName.Length >= 80)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportDefinitionName, length must be less than 80.", new [] { "ReportDefinitionName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportDefinitionName, length must be less than or equal to 80.", new [] { "ReportDefinitionName" });
             }
 
             // ReportDefinitionName (string) minLength
-            if(this.ReportDefinitionName != null && this.ReportDefinitionName.Length < 1)
+            if(this.ReportDefinitionName != null && this.ReportDefinitionName.Length <= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportDefinitionName, length must be greater than 1.", new [] { "ReportDefinitionName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportDefinitionName, length must be greater than or equal to 1.", new [] { "ReportDefinitionName" });
             }
 
             // ReportDefinitionName (string) pattern
@@ -445,15 +393,15 @@ namespace CyberSource.Model
             }
 
             // ReportName (string) maxLength
-            if(this.ReportName != null && this.ReportName.Length > 128)
+            if(this.ReportName != null && this.ReportName.Length >= 128)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportName, length must be less than 128.", new [] { "ReportName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportName, length must be less than or equal to 128.", new [] { "ReportName" });
             }
 
             // ReportName (string) minLength
-            if(this.ReportName != null && this.ReportName.Length < 1)
+            if(this.ReportName != null && this.ReportName.Length <= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportName, length must be greater than 1.", new [] { "ReportName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportName, length must be greater than or equal to 1.", new [] { "ReportName" });
             }
 
             // ReportName (string) pattern
@@ -464,13 +412,13 @@ namespace CyberSource.Model
             }
 
             // StartDay (int?) maximum
-            if(this.StartDay > (int?)31)
+            if(this.StartDay >= (int?)31)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value less than or equal to 31.", new [] { "StartDay" });
             }
 
             // StartDay (int?) minimum
-            if(this.StartDay < (int?)1)
+            if(this.StartDay <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value greater than or equal to 1.", new [] { "StartDay" });
             }
