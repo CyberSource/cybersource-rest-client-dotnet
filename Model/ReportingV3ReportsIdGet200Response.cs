@@ -31,146 +31,23 @@ namespace CyberSource.Model
     public partial class ReportingV3ReportsIdGet200Response :  IEquatable<ReportingV3ReportsIdGet200Response>, IValidatableObject
     {
         /// <summary>
-        /// Report Format
-        /// </summary>
-        /// <value>Report Format</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReportMimeTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum ApplicationXml for "application/xml"
-            /// </summary>
-            [EnumMember(Value = "application/xml")]
-            ApplicationXml,
-            
-            /// <summary>
-            /// Enum TextCsv for "text/csv"
-            /// </summary>
-            [EnumMember(Value = "text/csv")]
-            TextCsv
-        }
-
-        /// <summary>
-        /// Report Frequency Value
-        /// </summary>
-        /// <value>Report Frequency Value</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReportFrequencyEnum
-        {
-            
-            /// <summary>
-            /// Enum DAILY for "DAILY"
-            /// </summary>
-            [EnumMember(Value = "DAILY")]
-            DAILY,
-            
-            /// <summary>
-            /// Enum WEEKLY for "WEEKLY"
-            /// </summary>
-            [EnumMember(Value = "WEEKLY")]
-            WEEKLY,
-            
-            /// <summary>
-            /// Enum MONTHLY for "MONTHLY"
-            /// </summary>
-            [EnumMember(Value = "MONTHLY")]
-            MONTHLY,
-            
-            /// <summary>
-            /// Enum ADHOC for "ADHOC"
-            /// </summary>
-            [EnumMember(Value = "ADHOC")]
-            ADHOC
-        }
-
-        /// <summary>
-        /// Report Status Value
-        /// </summary>
-        /// <value>Report Status Value</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReportStatusEnum
-        {
-            
-            /// <summary>
-            /// Enum COMPLETED for "COMPLETED"
-            /// </summary>
-            [EnumMember(Value = "COMPLETED")]
-            COMPLETED,
-            
-            /// <summary>
-            /// Enum PENDING for "PENDING"
-            /// </summary>
-            [EnumMember(Value = "PENDING")]
-            PENDING,
-            
-            /// <summary>
-            /// Enum QUEUED for "QUEUED"
-            /// </summary>
-            [EnumMember(Value = "QUEUED")]
-            QUEUED,
-            
-            /// <summary>
-            /// Enum RUNNING for "RUNNING"
-            /// </summary>
-            [EnumMember(Value = "RUNNING")]
-            RUNNING,
-            
-            /// <summary>
-            /// Enum ERROR for "ERROR"
-            /// </summary>
-            [EnumMember(Value = "ERROR")]
-            ERROR,
-            
-            /// <summary>
-            /// Enum NODATA for "NO_DATA"
-            /// </summary>
-            [EnumMember(Value = "NO_DATA")]
-            NODATA,
-            
-            /// <summary>
-            /// Enum RERUN for "RERUN"
-            /// </summary>
-            [EnumMember(Value = "RERUN")]
-            RERUN
-        }
-
-        /// <summary>
-        /// Report Format
-        /// </summary>
-        /// <value>Report Format</value>
-        [DataMember(Name="reportMimeType", EmitDefaultValue=false)]
-        public ReportMimeTypeEnum? ReportMimeType { get; set; }
-        /// <summary>
-        /// Report Frequency Value
-        /// </summary>
-        /// <value>Report Frequency Value</value>
-        [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
-        public ReportFrequencyEnum? ReportFrequency { get; set; }
-        /// <summary>
-        /// Report Status Value
-        /// </summary>
-        /// <value>Report Status Value</value>
-        [DataMember(Name="reportStatus", EmitDefaultValue=false)]
-        public ReportStatusEnum? ReportStatus { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3ReportsIdGet200Response" /> class.
         /// </summary>
         /// <param name="OrganizationId">CyberSource merchant id.</param>
         /// <param name="ReportId">Report ID Value.</param>
         /// <param name="ReportDefinitionId">Report definition Id.</param>
         /// <param name="ReportName">Report Name.</param>
-        /// <param name="ReportMimeType">Report Format.</param>
-        /// <param name="ReportFrequency">Report Frequency Value.</param>
+        /// <param name="ReportMimeType">Report Format  Valid values: - application/xml - text/csv .</param>
+        /// <param name="ReportFrequency">Report Frequency Value  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC .</param>
         /// <param name="ReportFields">List of Integer Values.</param>
-        /// <param name="ReportStatus">Report Status Value.</param>
+        /// <param name="ReportStatus">Report Status Value  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA - RERUN .</param>
         /// <param name="ReportStartTime">Report Start Time Value.</param>
         /// <param name="ReportEndTime">Report End Time Value.</param>
         /// <param name="Timezone">Time Zone Value.</param>
         /// <param name="ReportFilters">List of filters to apply.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
         /// <param name="GroupId">Id for selected group..</param>
-        public ReportingV3ReportsIdGet200Response(string OrganizationId = default(string), string ReportId = default(string), string ReportDefinitionId = default(string), string ReportName = default(string), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), List<string> ReportFields = default(List<string>), ReportStatusEnum? ReportStatus = default(ReportStatusEnum?), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), string Timezone = default(string), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupId = default(string))
+        public ReportingV3ReportsIdGet200Response(string OrganizationId = default(string), string ReportId = default(string), string ReportDefinitionId = default(string), string ReportName = default(string), string ReportMimeType = default(string), string ReportFrequency = default(string), List<string> ReportFields = default(List<string>), string ReportStatus = default(string), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), string Timezone = default(string), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupId = default(string))
         {
             this.OrganizationId = OrganizationId;
             this.ReportId = ReportId;
@@ -216,7 +93,19 @@ namespace CyberSource.Model
         [DataMember(Name="reportName", EmitDefaultValue=false)]
         public string ReportName { get; set; }
 
+        /// <summary>
+        /// Report Format  Valid values: - application/xml - text/csv 
+        /// </summary>
+        /// <value>Report Format  Valid values: - application/xml - text/csv </value>
+        [DataMember(Name="reportMimeType", EmitDefaultValue=false)]
+        public string ReportMimeType { get; set; }
 
+        /// <summary>
+        /// Report Frequency Value  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC 
+        /// </summary>
+        /// <value>Report Frequency Value  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC </value>
+        [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
+        public string ReportFrequency { get; set; }
 
         /// <summary>
         /// List of Integer Values
@@ -225,6 +114,12 @@ namespace CyberSource.Model
         [DataMember(Name="reportFields", EmitDefaultValue=false)]
         public List<string> ReportFields { get; set; }
 
+        /// <summary>
+        /// Report Status Value  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA - RERUN 
+        /// </summary>
+        /// <value>Report Status Value  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA - RERUN </value>
+        [DataMember(Name="reportStatus", EmitDefaultValue=false)]
+        public string ReportStatus { get; set; }
 
         /// <summary>
         /// Report Start Time Value

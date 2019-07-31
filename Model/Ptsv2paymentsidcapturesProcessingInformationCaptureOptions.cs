@@ -140,25 +140,25 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CaptureSequenceNumber (decimal?) maximum
-            if(this.CaptureSequenceNumber > (decimal?)99)
+            if(this.CaptureSequenceNumber >= (decimal?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CaptureSequenceNumber, must be a value less than or equal to 99.", new [] { "CaptureSequenceNumber" });
             }
 
             // CaptureSequenceNumber (decimal?) minimum
-            if(this.CaptureSequenceNumber < (decimal?)1)
+            if(this.CaptureSequenceNumber <= (decimal?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CaptureSequenceNumber, must be a value greater than or equal to 1.", new [] { "CaptureSequenceNumber" });
             }
 
             // TotalCaptureCount (decimal?) maximum
-            if(this.TotalCaptureCount > (decimal?)99)
+            if(this.TotalCaptureCount >= (decimal?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCaptureCount, must be a value less than or equal to 99.", new [] { "TotalCaptureCount" });
             }
 
             // TotalCaptureCount (decimal?) minimum
-            if(this.TotalCaptureCount < (decimal?)1)
+            if(this.TotalCaptureCount <= (decimal?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCaptureCount, must be a value greater than or equal to 1.", new [] { "TotalCaptureCount" });
             }

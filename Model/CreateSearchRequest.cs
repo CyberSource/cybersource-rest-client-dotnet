@@ -35,10 +35,10 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Save">save or not save..</param>
         /// <param name="Name">The description for this field is not available. .</param>
-        /// <param name="Timezone">Time Zone..</param>
+        /// <param name="Timezone">Time Zone in ISO format..</param>
         /// <param name="Query">transaction search query string..</param>
         /// <param name="Offset">offset..</param>
-        /// <param name="Limit">limit on number of results..</param>
+        /// <param name="Limit">Limit on number of results..</param>
         /// <param name="Sort">A comma separated list of the following form - fieldName1 asc or desc, fieldName2 asc or desc, etc..</param>
         public CreateSearchRequest(bool? Save = default(bool?), string Name = default(string), string Timezone = default(string), string Query = default(string), int? Offset = default(int?), int? Limit = default(int?), string Sort = default(string))
         {
@@ -66,9 +66,9 @@ namespace CyberSource.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Time Zone.
+        /// Time Zone in ISO format.
         /// </summary>
-        /// <value>Time Zone.</value>
+        /// <value>Time Zone in ISO format.</value>
         [DataMember(Name="timezone", EmitDefaultValue=false)]
         public string Timezone { get; set; }
 
@@ -87,9 +87,9 @@ namespace CyberSource.Model
         public int? Offset { get; set; }
 
         /// <summary>
-        /// limit on number of results.
+        /// Limit on number of results.
         /// </summary>
-        /// <value>limit on number of results.</value>
+        /// <value>Limit on number of results.</value>
         [DataMember(Name="limit", EmitDefaultValue=false)]
         public int? Limit { get; set; }
 

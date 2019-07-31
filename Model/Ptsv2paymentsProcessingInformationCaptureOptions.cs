@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="CaptureSequenceNumber">Capture number when requesting multiple partial captures for one authorization. Used along with &#x60;totalCaptureCount&#x60; to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber_ &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; .</param>
         /// <param name="TotalCaptureCount">Total number of captures when requesting multiple partial captures for one payment. Used along with &#x60;captureSequenceNumber&#x60; field to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; .</param>
-        /// <param name="DateToCapture">Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet.\\ &#x60;Format: MMDD&#x60; .</param>
+        /// <param name="DateToCapture">Date on which you want the capture to occur. This field is supported only for Visa Platform Connect.\\ &#x60;Format: MMDD&#x60; .</param>
         public Ptsv2paymentsProcessingInformationCaptureOptions(decimal? CaptureSequenceNumber = default(decimal?), decimal? TotalCaptureCount = default(decimal?), string DateToCapture = default(string))
         {
             this.CaptureSequenceNumber = CaptureSequenceNumber;
@@ -58,9 +58,9 @@ namespace CyberSource.Model
         public decimal? TotalCaptureCount { get; set; }
 
         /// <summary>
-        /// Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet.\\ &#x60;Format: MMDD&#x60; 
+        /// Date on which you want the capture to occur. This field is supported only for Visa Platform Connect.\\ &#x60;Format: MMDD&#x60; 
         /// </summary>
-        /// <value>Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet.\\ &#x60;Format: MMDD&#x60; </value>
+        /// <value>Date on which you want the capture to occur. This field is supported only for Visa Platform Connect.\\ &#x60;Format: MMDD&#x60; </value>
         [DataMember(Name="dateToCapture", EmitDefaultValue=false)]
         public string DateToCapture { get; set; }
 
@@ -157,33 +157,33 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CaptureSequenceNumber (decimal?) maximum
-            if(this.CaptureSequenceNumber > (decimal?)99)
+            if(this.CaptureSequenceNumber >= (decimal?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CaptureSequenceNumber, must be a value less than or equal to 99.", new [] { "CaptureSequenceNumber" });
             }
 
             // CaptureSequenceNumber (decimal?) minimum
-            if(this.CaptureSequenceNumber < (decimal?)1)
+            if(this.CaptureSequenceNumber <= (decimal?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CaptureSequenceNumber, must be a value greater than or equal to 1.", new [] { "CaptureSequenceNumber" });
             }
 
             // TotalCaptureCount (decimal?) maximum
-            if(this.TotalCaptureCount > (decimal?)99)
+            if(this.TotalCaptureCount >= (decimal?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCaptureCount, must be a value less than or equal to 99.", new [] { "TotalCaptureCount" });
             }
 
             // TotalCaptureCount (decimal?) minimum
-            if(this.TotalCaptureCount < (decimal?)1)
+            if(this.TotalCaptureCount <= (decimal?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCaptureCount, must be a value greater than or equal to 1.", new [] { "TotalCaptureCount" });
             }
 
             // DateToCapture (string) maxLength
-            if(this.DateToCapture != null && this.DateToCapture.Length > 4)
+            if(this.DateToCapture != null && this.DateToCapture.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateToCapture, length must be less than 4.", new [] { "DateToCapture" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateToCapture, length must be less than or equal to 4.", new [] { "DateToCapture" });
             }
 
             yield break;

@@ -31,99 +31,24 @@ namespace CyberSource.Model
     public partial class PtsV2PayoutsPost201ResponseErrorInformation :  IEquatable<PtsV2PayoutsPost201ResponseErrorInformation>, IValidatableObject
     {
         /// <summary>
-        /// The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReasonEnum
-        {
-            
-            /// <summary>
-            /// Enum EXPIREDCARD for "EXPIRED_CARD"
-            /// </summary>
-            [EnumMember(Value = "EXPIRED_CARD")]
-            EXPIREDCARD,
-            
-            /// <summary>
-            /// Enum PROCESSORDECLINED for "PROCESSOR_DECLINED"
-            /// </summary>
-            [EnumMember(Value = "PROCESSOR_DECLINED")]
-            PROCESSORDECLINED,
-            
-            /// <summary>
-            /// Enum STOLENLOSTCARD for "STOLEN_LOST_CARD"
-            /// </summary>
-            [EnumMember(Value = "STOLEN_LOST_CARD")]
-            STOLENLOSTCARD,
-            
-            /// <summary>
-            /// Enum UNAUTHORIZEDCARD for "UNAUTHORIZED_CARD"
-            /// </summary>
-            [EnumMember(Value = "UNAUTHORIZED_CARD")]
-            UNAUTHORIZEDCARD,
-            
-            /// <summary>
-            /// Enum CVNNOTMATCH for "CVN_NOT_MATCH"
-            /// </summary>
-            [EnumMember(Value = "CVN_NOT_MATCH")]
-            CVNNOTMATCH,
-            
-            /// <summary>
-            /// Enum INVALIDCVN for "INVALID_CVN"
-            /// </summary>
-            [EnumMember(Value = "INVALID_CVN")]
-            INVALIDCVN,
-            
-            /// <summary>
-            /// Enum BLACKLISTEDCUSTOMER for "BLACKLISTED_CUSTOMER"
-            /// </summary>
-            [EnumMember(Value = "BLACKLISTED_CUSTOMER")]
-            BLACKLISTEDCUSTOMER,
-            
-            /// <summary>
-            /// Enum INVALIDACCOUNT for "INVALID_ACCOUNT"
-            /// </summary>
-            [EnumMember(Value = "INVALID_ACCOUNT")]
-            INVALIDACCOUNT,
-            
-            /// <summary>
-            /// Enum GENERALDECLINE for "GENERAL_DECLINE"
-            /// </summary>
-            [EnumMember(Value = "GENERAL_DECLINE")]
-            GENERALDECLINE,
-            
-            /// <summary>
-            /// Enum RISKCONTROLDECLINE for "RISK_CONTROL_DECLINE"
-            /// </summary>
-            [EnumMember(Value = "RISK_CONTROL_DECLINE")]
-            RISKCONTROLDECLINE,
-            
-            /// <summary>
-            /// Enum PROCESSORRISKCONTROLDECLINE for "PROCESSOR_RISK_CONTROL_DECLINE"
-            /// </summary>
-            [EnumMember(Value = "PROCESSOR_RISK_CONTROL_DECLINE")]
-            PROCESSORRISKCONTROLDECLINE
-        }
-
-        /// <summary>
-        /// The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE </value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public ReasonEnum? Reason { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PayoutsPost201ResponseErrorInformation" /> class.
         /// </summary>
         /// <param name="Reason">The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
-        public PtsV2PayoutsPost201ResponseErrorInformation(ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
+        public PtsV2PayoutsPost201ResponseErrorInformation(string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
             this.Reason = Reason;
             this.Message = Message;
             this.Details = Details;
         }
         
+        /// <summary>
+        /// The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE 
+        /// </summary>
+        /// <value>The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// The detail message related to the status and reason listed above.

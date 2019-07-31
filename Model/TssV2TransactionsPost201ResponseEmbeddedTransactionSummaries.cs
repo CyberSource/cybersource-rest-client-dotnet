@@ -35,14 +35,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource..</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
-        /// <param name="MerchantId">The description for this field is not available..</param>
+        /// <param name="MerchantId">Your CyberSource merchant ID..</param>
         /// <param name="ApplicationInformation">ApplicationInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="FraudMarkingInformation">FraudMarkingInformation.</param>
-        /// <param name="MerchantDefinedInformation">The description for this field is not available..</param>
+        /// <param name="MerchantDefinedInformation">The object containing the custom data that the merchant defines. .</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
@@ -88,9 +88,9 @@ namespace CyberSource.Model
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Your CyberSource merchant ID.
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Your CyberSource merchant ID.</value>
         [DataMember(Name="merchantId", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
 
@@ -131,9 +131,9 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// The object containing the custom data that the merchant defines. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The object containing the custom data that the merchant defines. </value>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
         public List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
 
@@ -398,9 +398,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) maxLength
-            if(this.Id != null && this.Id.Length > 26)
+            if(this.Id != null && this.Id.Length >= 26)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 26.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than or equal to 26.", new [] { "Id" });
             }
 
             yield break;

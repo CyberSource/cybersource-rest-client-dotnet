@@ -1,0 +1,3 @@
+			if (organizationId != null && localVarPath != null)
+				localVarPath = $"{localVarPath}&organizationId={organizationId}";
+			var localVarPathParams = new Dictionary<String, String>();

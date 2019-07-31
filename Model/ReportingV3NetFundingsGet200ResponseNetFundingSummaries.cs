@@ -31,46 +31,9 @@ namespace CyberSource.Model
     public partial class ReportingV3NetFundingsGet200ResponseNetFundingSummaries :  IEquatable<ReportingV3NetFundingsGet200ResponseNetFundingSummaries>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
-        {
-            
-            /// <summary>
-            /// Enum PURCHASES for "PURCHASES"
-            /// </summary>
-            [EnumMember(Value = "PURCHASES")]
-            PURCHASES,
-            
-            /// <summary>
-            /// Enum REFUNDS for "REFUNDS"
-            /// </summary>
-            [EnumMember(Value = "REFUNDS")]
-            REFUNDS,
-            
-            /// <summary>
-            /// Enum FEES for "FEES"
-            /// </summary>
-            [EnumMember(Value = "FEES")]
-            FEES,
-            
-            /// <summary>
-            /// Enum CHARGEBACKS for "CHARGEBACKS"
-            /// </summary>
-            [EnumMember(Value = "CHARGEBACKS")]
-            CHARGEBACKS
-        }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeEnum? Type { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3NetFundingsGet200ResponseNetFundingSummaries" /> class.
         /// </summary>
-        /// <param name="Type">Type.</param>
+        /// <param name="Type">Valid values: - PURCHASES - REFUNDS - FEES - CHARGEBACKS .</param>
         /// <param name="PaymentSubType">PaymentSubType.</param>
         /// <param name="ConveyedCount">ConveyedCount.</param>
         /// <param name="ConveyedAmount">ConveyedAmount.</param>
@@ -78,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="FundedCount">FundedCount.</param>
         /// <param name="FundedAmount">FundedAmount.</param>
         /// <param name="CurrencyCode">Valid ISO 4217 ALPHA-3 currency code.</param>
-        public ReportingV3NetFundingsGet200ResponseNetFundingSummaries(TypeEnum? Type = default(TypeEnum?), string PaymentSubType = default(string), int? ConveyedCount = default(int?), string ConveyedAmount = default(string), int? SettledCount = default(int?), int? FundedCount = default(int?), string FundedAmount = default(string), string CurrencyCode = default(string))
+        public ReportingV3NetFundingsGet200ResponseNetFundingSummaries(string Type = default(string), string PaymentSubType = default(string), int? ConveyedCount = default(int?), string ConveyedAmount = default(string), int? SettledCount = default(int?), int? FundedCount = default(int?), string FundedAmount = default(string), string CurrencyCode = default(string))
         {
             this.Type = Type;
             this.PaymentSubType = PaymentSubType;
@@ -90,6 +53,12 @@ namespace CyberSource.Model
             this.CurrencyCode = CurrencyCode;
         }
         
+        /// <summary>
+        /// Valid values: - PURCHASES - REFUNDS - FEES - CHARGEBACKS 
+        /// </summary>
+        /// <value>Valid values: - PURCHASES - REFUNDS - FEES - CHARGEBACKS </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentSubType

@@ -73,20 +73,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Name'
         }
         /// <summary>
-        /// Test the property 'Type'
+        /// Test the property 'SubTypeName'
         /// </summary>
         [Test]
-        public void TypeTest()
+        public void SubTypeNameTest()
         {
-            // TODO unit test for the property 'Type'
-        }
-        /// <summary>
-        /// Test the property 'Method'
-        /// </summary>
-        [Test]
-        public void MethodTest()
-        {
-            // TODO unit test for the property 'Method'
+            // TODO unit test for the property 'SubTypeName'
         }
         /// <summary>
         /// Test the property 'FundingSource'
@@ -97,20 +89,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'FundingSource'
         }
         /// <summary>
-        /// Test the property 'FundingSourceAffiliation'
+        /// Test the property 'Method'
         /// </summary>
         [Test]
-        public void FundingSourceAffiliationTest()
+        public void MethodTest()
         {
-            // TODO unit test for the property 'FundingSourceAffiliation'
+            // TODO unit test for the property 'Method'
         }
         /// <summary>
-        /// Test the property 'Credential'
+        /// Test the property 'AuthenticationMethod'
         /// </summary>
         [Test]
-        public void CredentialTest()
+        public void AuthenticationMethodTest()
         {
-            // TODO unit test for the property 'Credential'
+            // TODO unit test for the property 'AuthenticationMethod'
         }
 
     }

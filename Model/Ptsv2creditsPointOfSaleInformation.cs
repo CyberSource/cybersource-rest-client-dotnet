@@ -273,39 +273,39 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // PartnerSdkVersion (string) maxLength
-            if(this.PartnerSdkVersion != null && this.PartnerSdkVersion.Length > 32)
+            if(this.PartnerSdkVersion != null && this.PartnerSdkVersion.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PartnerSdkVersion, length must be less than 32.", new [] { "PartnerSdkVersion" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PartnerSdkVersion, length must be less than or equal to 32.", new [] { "PartnerSdkVersion" });
             }
 
             // StoreAndForwardIndicator (string) maxLength
-            if(this.StoreAndForwardIndicator != null && this.StoreAndForwardIndicator.Length > 1)
+            if(this.StoreAndForwardIndicator != null && this.StoreAndForwardIndicator.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreAndForwardIndicator, length must be less than 1.", new [] { "StoreAndForwardIndicator" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreAndForwardIndicator, length must be less than or equal to 1.", new [] { "StoreAndForwardIndicator" });
             }
 
             // TerminalSerialNumber (string) maxLength
-            if(this.TerminalSerialNumber != null && this.TerminalSerialNumber.Length > 32)
+            if(this.TerminalSerialNumber != null && this.TerminalSerialNumber.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalSerialNumber, length must be less than 32.", new [] { "TerminalSerialNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalSerialNumber, length must be less than or equal to 32.", new [] { "TerminalSerialNumber" });
             }
 
             // TerminalCardCaptureCapability (string) maxLength
-            if(this.TerminalCardCaptureCapability != null && this.TerminalCardCaptureCapability.Length > 1)
+            if(this.TerminalCardCaptureCapability != null && this.TerminalCardCaptureCapability.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCardCaptureCapability, length must be less than 1.", new [] { "TerminalCardCaptureCapability" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCardCaptureCapability, length must be less than or equal to 1.", new [] { "TerminalCardCaptureCapability" });
             }
 
             // TerminalOutputCapability (string) maxLength
-            if(this.TerminalOutputCapability != null && this.TerminalOutputCapability.Length > 1)
+            if(this.TerminalOutputCapability != null && this.TerminalOutputCapability.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalOutputCapability, length must be less than 1.", new [] { "TerminalOutputCapability" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalOutputCapability, length must be less than or equal to 1.", new [] { "TerminalOutputCapability" });
             }
 
             // DeviceId (string) maxLength
-            if(this.DeviceId != null && this.DeviceId.Length > 32)
+            if(this.DeviceId != null && this.DeviceId.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DeviceId, length must be less than 32.", new [] { "DeviceId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DeviceId, length must be less than or equal to 32.", new [] { "DeviceId" });
             }
 
             yield break;

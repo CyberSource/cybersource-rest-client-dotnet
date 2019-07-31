@@ -31,96 +31,6 @@ namespace CyberSource.Model
     public partial class PtsV2PaymentsCapturesPost400Response :  IEquatable<PtsV2PaymentsCapturesPost400Response>, IValidatableObject
     {
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
-        /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum REQUEST for "INVALID_REQUEST"
-            /// </summary>
-            [EnumMember(Value = "INVALID_REQUEST")]
-            REQUEST
-        }
-
-        /// <summary>
-        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - EXCEEDS_AUTH_AMOUNT  - AUTH_ALREADY_REVERSED  - TRANSACTION_ALREADY_SETTLED  - INVALID_AMOUNT  - MISSING_AUTH  - TRANSACTION_ALREADY_REVERSED_OR_SETTLED 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - EXCEEDS_AUTH_AMOUNT  - AUTH_ALREADY_REVERSED  - TRANSACTION_ALREADY_SETTLED  - INVALID_AMOUNT  - MISSING_AUTH  - TRANSACTION_ALREADY_REVERSED_OR_SETTLED </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReasonEnum
-        {
-            
-            /// <summary>
-            /// Enum MISSINGFIELD for "MISSING_FIELD"
-            /// </summary>
-            [EnumMember(Value = "MISSING_FIELD")]
-            MISSINGFIELD,
-            
-            /// <summary>
-            /// Enum INVALIDDATA for "INVALID_DATA"
-            /// </summary>
-            [EnumMember(Value = "INVALID_DATA")]
-            INVALIDDATA,
-            
-            /// <summary>
-            /// Enum DUPLICATEREQUEST for "DUPLICATE_REQUEST"
-            /// </summary>
-            [EnumMember(Value = "DUPLICATE_REQUEST")]
-            DUPLICATEREQUEST,
-            
-            /// <summary>
-            /// Enum INVALIDMERCHANTCONFIGURATION for "INVALID_MERCHANT_CONFIGURATION"
-            /// </summary>
-            [EnumMember(Value = "INVALID_MERCHANT_CONFIGURATION")]
-            INVALIDMERCHANTCONFIGURATION,
-            
-            /// <summary>
-            /// Enum EXCEEDSAUTHAMOUNT for "EXCEEDS_AUTH_AMOUNT"
-            /// </summary>
-            [EnumMember(Value = "EXCEEDS_AUTH_AMOUNT")]
-            EXCEEDSAUTHAMOUNT,
-            
-            /// <summary>
-            /// Enum AUTHALREADYREVERSED for "AUTH_ALREADY_REVERSED"
-            /// </summary>
-            [EnumMember(Value = "AUTH_ALREADY_REVERSED")]
-            AUTHALREADYREVERSED,
-            
-            /// <summary>
-            /// Enum TRANSACTIONALREADYSETTLED for "TRANSACTION_ALREADY_SETTLED"
-            /// </summary>
-            [EnumMember(Value = "TRANSACTION_ALREADY_SETTLED")]
-            TRANSACTIONALREADYSETTLED,
-            
-            /// <summary>
-            /// Enum MISSINGAUTH for "MISSING_AUTH"
-            /// </summary>
-            [EnumMember(Value = "MISSING_AUTH")]
-            MISSINGAUTH,
-            
-            /// <summary>
-            /// Enum TRANSACTIONALREADYREVERSEDORSETTLED for "TRANSACTION_ALREADY_REVERSED_OR_SETTLED"
-            /// </summary>
-            [EnumMember(Value = "TRANSACTION_ALREADY_REVERSED_OR_SETTLED")]
-            TRANSACTIONALREADYREVERSEDORSETTLED
-        }
-
-        /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
-        /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
-        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - EXCEEDS_AUTH_AMOUNT  - AUTH_ALREADY_REVERSED  - TRANSACTION_ALREADY_SETTLED  - INVALID_AMOUNT  - MISSING_AUTH  - TRANSACTION_ALREADY_REVERSED_OR_SETTLED 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - EXCEEDS_AUTH_AMOUNT  - AUTH_ALREADY_REVERSED  - TRANSACTION_ALREADY_SETTLED  - INVALID_AMOUNT  - MISSING_AUTH  - TRANSACTION_ALREADY_REVERSED_OR_SETTLED </value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public ReasonEnum? Reason { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsCapturesPost400Response" /> class.
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
@@ -128,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - EXCEEDS_AUTH_AMOUNT  - AUTH_ALREADY_REVERSED  - TRANSACTION_ALREADY_SETTLED  - INVALID_AMOUNT  - MISSING_AUTH  - TRANSACTION_ALREADY_REVERSED_OR_SETTLED .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
-        public PtsV2PaymentsCapturesPost400Response(string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
+        public PtsV2PaymentsCapturesPost400Response(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
@@ -144,7 +54,19 @@ namespace CyberSource.Model
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
+        /// <summary>
+        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
+        /// </summary>
+        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
+        /// <summary>
+        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - EXCEEDS_AUTH_AMOUNT  - AUTH_ALREADY_REVERSED  - TRANSACTION_ALREADY_SETTLED  - INVALID_AMOUNT  - MISSING_AUTH  - TRANSACTION_ALREADY_REVERSED_OR_SETTLED 
+        /// </summary>
+        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - EXCEEDS_AUTH_AMOUNT  - AUTH_ALREADY_REVERSED  - TRANSACTION_ALREADY_SETTLED  - INVALID_AMOUNT  - MISSING_AUTH  - TRANSACTION_ALREADY_REVERSED_OR_SETTLED </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// The detail message related to the status and reason listed above.

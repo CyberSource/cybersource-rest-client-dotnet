@@ -258,51 +258,51 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // UnitPrice (string) maxLength
-            if(this.UnitPrice != null && this.UnitPrice.Length > 15)
+            if(this.UnitPrice != null && this.UnitPrice.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than 15.", new [] { "UnitPrice" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than or equal to 15.", new [] { "UnitPrice" });
             }
 
             // Quantity (decimal?) maximum
-            if(this.Quantity > (decimal?)9999999999)
+            if(this.Quantity >= (decimal?)9999999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 9999999999.", new [] { "Quantity" });
             }
 
             // Quantity (decimal?) minimum
-            if(this.Quantity < (decimal?)1)
+            if(this.Quantity <= (decimal?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
             }
 
             // ProductSKU (string) maxLength
-            if(this.ProductSKU != null && this.ProductSKU.Length > 255)
+            if(this.ProductSKU != null && this.ProductSKU.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductSKU, length must be less than 255.", new [] { "ProductSKU" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductSKU, length must be less than or equal to 255.", new [] { "ProductSKU" });
             }
 
             // ProductRisk (string) maxLength
-            if(this.ProductRisk != null && this.ProductRisk.Length > 6)
+            if(this.ProductRisk != null && this.ProductRisk.Length >= 6)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductRisk, length must be less than 6.", new [] { "ProductRisk" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductRisk, length must be less than or equal to 6.", new [] { "ProductRisk" });
             }
 
             // ProductName (string) maxLength
-            if(this.ProductName != null && this.ProductName.Length > 255)
+            if(this.ProductName != null && this.ProductName.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than 255.", new [] { "ProductName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than or equal to 255.", new [] { "ProductName" });
             }
 
             // ProductCode (string) maxLength
-            if(this.ProductCode != null && this.ProductCode.Length > 255)
+            if(this.ProductCode != null && this.ProductCode.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductCode, length must be less than 255.", new [] { "ProductCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductCode, length must be less than or equal to 255.", new [] { "ProductCode" });
             }
 
             // DistributorProductSku (string) maxLength
-            if(this.DistributorProductSku != null && this.DistributorProductSku.Length > 15)
+            if(this.DistributorProductSku != null && this.DistributorProductSku.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DistributorProductSku, length must be less than 15.", new [] { "DistributorProductSku" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DistributorProductSku, length must be less than or equal to 15.", new [] { "DistributorProductSku" });
             }
 
             yield break;

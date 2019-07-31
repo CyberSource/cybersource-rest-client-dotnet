@@ -157,21 +157,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Name (string) maxLength
-            if(this.Name != null && this.Name.Length > 30)
+            if(this.Name != null && this.Name.Length >= 30)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 30.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than or equal to 30.", new [] { "Name" });
             }
 
             // DesinationQueue (string) maxLength
-            if(this.DesinationQueue != null && this.DesinationQueue.Length > 255)
+            if(this.DesinationQueue != null && this.DesinationQueue.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DesinationQueue, length must be less than 255.", new [] { "DesinationQueue" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DesinationQueue, length must be less than or equal to 255.", new [] { "DesinationQueue" });
             }
 
             // SelectorRule (string) maxLength
-            if(this.SelectorRule != null && this.SelectorRule.Length > 255)
+            if(this.SelectorRule != null && this.SelectorRule.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SelectorRule, length must be less than 255.", new [] { "SelectorRule" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SelectorRule, length must be less than or equal to 255.", new [] { "SelectorRule" });
             }
 
             yield break;

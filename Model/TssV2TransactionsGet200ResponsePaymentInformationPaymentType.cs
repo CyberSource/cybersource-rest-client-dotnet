@@ -33,63 +33,53 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponsePaymentInformationPaymentType" /> class.
         /// </summary>
-        /// <param name="Name">The name of a payment method. This is required for non-credit card payment.  Examples: &#x60;SEARS&#x60;, &#x60;JCREW&#x60;, &#x60;PAYPAL&#x60;, &#x60;IDEAL&#x60;, &#x60;EPS&#x60; ...etc.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. .</param>
-        /// <param name="Type">The type of payment method. This is required for non-credit card payment.  Possible values:  - BANK_TRANSFER  - CARD (Default)  - EWALLET  - DIGITAL  - DIRECT_DEBIT  - INVOICE  - PUSH_PAYMENT  - CARRIER_BILLING  - CASH  - CHECK  - CRYPTOGRAPHIC  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. .</param>
-        /// <param name="Method">This is an optional field.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. .</param>
-        /// <param name="FundingSource">The description for this field is not available..</param>
-        /// <param name="FundingSourceAffiliation">The description for this field is not available..</param>
-        /// <param name="Credential">The description for this field is not available..</param>
-        public TssV2TransactionsGet200ResponsePaymentInformationPaymentType(string Name = default(string), string Type = default(string), string Method = default(string), string FundingSource = default(string), string FundingSourceAffiliation = default(string), string Credential = default(string))
+        /// <param name="Name">A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. .</param>
+        /// <param name="SubTypeName">SubType Name is detail information about Payment Type. Examples: For Card, if Credit or Debit or PrePaid. For Bank Transfer, if Online Bank Transfer or Wire Transfers. .</param>
+        /// <param name="FundingSource">FundingSource.</param>
+        /// <param name="Method">A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal.</param>
+        /// <param name="AuthenticationMethod">A Payment Type Authentication Method is the means used to verify that the presenter of the Payment Type credential is an authorized user of the Payment Instrument. Examples: 3DSecure – Verified by Visa, 3DSecure – MasteCard Secure Code .</param>
+        public TssV2TransactionsGet200ResponsePaymentInformationPaymentType(string Name = default(string), string SubTypeName = default(string), TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeFundingSource FundingSource = default(TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeFundingSource), string Method = default(string), string AuthenticationMethod = default(string))
         {
             this.Name = Name;
-            this.Type = Type;
-            this.Method = Method;
+            this.SubTypeName = SubTypeName;
             this.FundingSource = FundingSource;
-            this.FundingSourceAffiliation = FundingSourceAffiliation;
-            this.Credential = Credential;
+            this.Method = Method;
+            this.AuthenticationMethod = AuthenticationMethod;
         }
         
         /// <summary>
-        /// The name of a payment method. This is required for non-credit card payment.  Examples: &#x60;SEARS&#x60;, &#x60;JCREW&#x60;, &#x60;PAYPAL&#x60;, &#x60;IDEAL&#x60;, &#x60;EPS&#x60; ...etc.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. 
+        /// A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. 
         /// </summary>
-        /// <value>The name of a payment method. This is required for non-credit card payment.  Examples: &#x60;SEARS&#x60;, &#x60;JCREW&#x60;, &#x60;PAYPAL&#x60;, &#x60;IDEAL&#x60;, &#x60;EPS&#x60; ...etc.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. </value>
+        /// <value>A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The type of payment method. This is required for non-credit card payment.  Possible values:  - BANK_TRANSFER  - CARD (Default)  - EWALLET  - DIGITAL  - DIRECT_DEBIT  - INVOICE  - PUSH_PAYMENT  - CARRIER_BILLING  - CASH  - CHECK  - CRYPTOGRAPHIC  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. 
+        /// SubType Name is detail information about Payment Type. Examples: For Card, if Credit or Debit or PrePaid. For Bank Transfer, if Online Bank Transfer or Wire Transfers. 
         /// </summary>
-        /// <value>The type of payment method. This is required for non-credit card payment.  Possible values:  - BANK_TRANSFER  - CARD (Default)  - EWALLET  - DIGITAL  - DIRECT_DEBIT  - INVOICE  - PUSH_PAYMENT  - CARRIER_BILLING  - CASH  - CHECK  - CRYPTOGRAPHIC  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. </value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
+        /// <value>SubType Name is detail information about Payment Type. Examples: For Card, if Credit or Debit or PrePaid. For Bank Transfer, if Online Bank Transfer or Wire Transfers. </value>
+        [DataMember(Name="subTypeName", EmitDefaultValue=false)]
+        public string SubTypeName { get; set; }
 
         /// <summary>
-        /// This is an optional field.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. 
+        /// Gets or Sets FundingSource
         /// </summary>
-        /// <value>This is an optional field.  Please contact CyberSource Customer Support to enable the payment method of your choice and the value you should send in your payment request for this field. </value>
+        [DataMember(Name="fundingSource", EmitDefaultValue=false)]
+        public TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeFundingSource FundingSource { get; set; }
+
+        /// <summary>
+        /// A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal
+        /// </summary>
+        /// <value>A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal</value>
         [DataMember(Name="method", EmitDefaultValue=false)]
         public string Method { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// A Payment Type Authentication Method is the means used to verify that the presenter of the Payment Type credential is an authorized user of the Payment Instrument. Examples: 3DSecure – Verified by Visa, 3DSecure – MasteCard Secure Code 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
-        [DataMember(Name="fundingSource", EmitDefaultValue=false)]
-        public string FundingSource { get; set; }
-
-        /// <summary>
-        /// The description for this field is not available.
-        /// </summary>
-        /// <value>The description for this field is not available.</value>
-        [DataMember(Name="fundingSourceAffiliation", EmitDefaultValue=false)]
-        public string FundingSourceAffiliation { get; set; }
-
-        /// <summary>
-        /// The description for this field is not available.
-        /// </summary>
-        /// <value>The description for this field is not available.</value>
-        [DataMember(Name="credential", EmitDefaultValue=false)]
-        public string Credential { get; set; }
+        /// <value>A Payment Type Authentication Method is the means used to verify that the presenter of the Payment Type credential is an authorized user of the Payment Instrument. Examples: 3DSecure – Verified by Visa, 3DSecure – MasteCard Secure Code </value>
+        [DataMember(Name="authenticationMethod", EmitDefaultValue=false)]
+        public string AuthenticationMethod { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,11 +90,10 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformationPaymentType {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Method: ").Append(Method).Append("\n");
+            sb.Append("  SubTypeName: ").Append(SubTypeName).Append("\n");
             sb.Append("  FundingSource: ").Append(FundingSource).Append("\n");
-            sb.Append("  FundingSourceAffiliation: ").Append(FundingSourceAffiliation).Append("\n");
-            sb.Append("  Credential: ").Append(Credential).Append("\n");
+            sb.Append("  Method: ").Append(Method).Append("\n");
+            sb.Append("  AuthenticationMethod: ").Append(AuthenticationMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,14 +136,9 @@ namespace CyberSource.Model
                     this.Name.Equals(other.Name)
                 ) && 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
-                ) && 
-                (
-                    this.Method == other.Method ||
-                    this.Method != null &&
-                    this.Method.Equals(other.Method)
+                    this.SubTypeName == other.SubTypeName ||
+                    this.SubTypeName != null &&
+                    this.SubTypeName.Equals(other.SubTypeName)
                 ) && 
                 (
                     this.FundingSource == other.FundingSource ||
@@ -162,14 +146,14 @@ namespace CyberSource.Model
                     this.FundingSource.Equals(other.FundingSource)
                 ) && 
                 (
-                    this.FundingSourceAffiliation == other.FundingSourceAffiliation ||
-                    this.FundingSourceAffiliation != null &&
-                    this.FundingSourceAffiliation.Equals(other.FundingSourceAffiliation)
+                    this.Method == other.Method ||
+                    this.Method != null &&
+                    this.Method.Equals(other.Method)
                 ) && 
                 (
-                    this.Credential == other.Credential ||
-                    this.Credential != null &&
-                    this.Credential.Equals(other.Credential)
+                    this.AuthenticationMethod == other.AuthenticationMethod ||
+                    this.AuthenticationMethod != null &&
+                    this.AuthenticationMethod.Equals(other.AuthenticationMethod)
                 );
         }
 
@@ -186,16 +170,14 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
-                if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
-                if (this.Method != null)
-                    hash = hash * 59 + this.Method.GetHashCode();
+                if (this.SubTypeName != null)
+                    hash = hash * 59 + this.SubTypeName.GetHashCode();
                 if (this.FundingSource != null)
                     hash = hash * 59 + this.FundingSource.GetHashCode();
-                if (this.FundingSourceAffiliation != null)
-                    hash = hash * 59 + this.FundingSourceAffiliation.GetHashCode();
-                if (this.Credential != null)
-                    hash = hash * 59 + this.Credential.GetHashCode();
+                if (this.Method != null)
+                    hash = hash * 59 + this.Method.GetHashCode();
+                if (this.AuthenticationMethod != null)
+                    hash = hash * 59 + this.AuthenticationMethod.GetHashCode();
                 return hash;
             }
         }

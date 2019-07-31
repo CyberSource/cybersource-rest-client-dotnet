@@ -31,66 +31,17 @@ namespace CyberSource.Model
     public partial class UmsV1UsersGet200ResponseAccountInformation :  IEquatable<UmsV1UsersGet200ResponseAccountInformation>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum Active for "active"
-            /// </summary>
-            [EnumMember(Value = "active")]
-            Active,
-            
-            /// <summary>
-            /// Enum Inactive for "inactive"
-            /// </summary>
-            [EnumMember(Value = "inactive")]
-            Inactive,
-            
-            /// <summary>
-            /// Enum Locked for "locked"
-            /// </summary>
-            [EnumMember(Value = "locked")]
-            Locked,
-            
-            /// <summary>
-            /// Enum Disabled for "disabled"
-            /// </summary>
-            [EnumMember(Value = "disabled")]
-            Disabled,
-            
-            /// <summary>
-            /// Enum Forgotpassword for "forgotpassword"
-            /// </summary>
-            [EnumMember(Value = "forgotpassword")]
-            Forgotpassword,
-            
-            /// <summary>
-            /// Enum Deleted for "deleted"
-            /// </summary>
-            [EnumMember(Value = "deleted")]
-            Deleted
-        }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="UmsV1UsersGet200ResponseAccountInformation" /> class.
         /// </summary>
         /// <param name="UserName">UserName.</param>
         /// <param name="RoleId">RoleId.</param>
         /// <param name="Permissions">Permissions.</param>
-        /// <param name="Status">Status.</param>
+        /// <param name="Status">Valid values: - active - inactive - locked - disabled - forgotpassword - deleted .</param>
         /// <param name="CreatedTime">CreatedTime.</param>
         /// <param name="LastAccessTime">LastAccessTime.</param>
         /// <param name="LanguagePreference">LanguagePreference.</param>
         /// <param name="Timezone">Timezone.</param>
-        public UmsV1UsersGet200ResponseAccountInformation(string UserName = default(string), string RoleId = default(string), List<string> Permissions = default(List<string>), StatusEnum? Status = default(StatusEnum?), DateTime? CreatedTime = default(DateTime?), DateTime? LastAccessTime = default(DateTime?), string LanguagePreference = default(string), string Timezone = default(string))
+        public UmsV1UsersGet200ResponseAccountInformation(string UserName = default(string), string RoleId = default(string), List<string> Permissions = default(List<string>), string Status = default(string), DateTime? CreatedTime = default(DateTime?), DateTime? LastAccessTime = default(DateTime?), string LanguagePreference = default(string), string Timezone = default(string))
         {
             this.UserName = UserName;
             this.RoleId = RoleId;
@@ -120,6 +71,12 @@ namespace CyberSource.Model
         [DataMember(Name="permissions", EmitDefaultValue=false)]
         public List<string> Permissions { get; set; }
 
+        /// <summary>
+        /// Valid values: - active - inactive - locked - disabled - forgotpassword - deleted 
+        /// </summary>
+        /// <value>Valid values: - active - inactive - locked - disabled - forgotpassword - deleted </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedTime

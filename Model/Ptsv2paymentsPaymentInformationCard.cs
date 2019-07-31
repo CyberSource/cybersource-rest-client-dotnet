@@ -327,75 +327,75 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Number (string) maxLength
-            if(this.Number != null && this.Number.Length > 20)
+            if(this.Number != null && this.Number.Length >= 20)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than 20.", new [] { "Number" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than or equal to 20.", new [] { "Number" });
             }
 
             // ExpirationMonth (string) maxLength
-            if(this.ExpirationMonth != null && this.ExpirationMonth.Length > 2)
+            if(this.ExpirationMonth != null && this.ExpirationMonth.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationMonth, length must be less than 2.", new [] { "ExpirationMonth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationMonth, length must be less than or equal to 2.", new [] { "ExpirationMonth" });
             }
 
             // ExpirationYear (string) maxLength
-            if(this.ExpirationYear != null && this.ExpirationYear.Length > 4)
+            if(this.ExpirationYear != null && this.ExpirationYear.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationYear, length must be less than 4.", new [] { "ExpirationYear" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationYear, length must be less than or equal to 4.", new [] { "ExpirationYear" });
             }
 
             // UseAs (string) maxLength
-            if(this.UseAs != null && this.UseAs.Length > 20)
+            if(this.UseAs != null && this.UseAs.Length >= 20)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UseAs, length must be less than 20.", new [] { "UseAs" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UseAs, length must be less than or equal to 20.", new [] { "UseAs" });
             }
 
             // SourceAccountType (string) maxLength
-            if(this.SourceAccountType != null && this.SourceAccountType.Length > 20)
+            if(this.SourceAccountType != null && this.SourceAccountType.Length >= 20)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceAccountType, length must be less than 20.", new [] { "SourceAccountType" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceAccountType, length must be less than or equal to 20.", new [] { "SourceAccountType" });
             }
 
             // SecurityCode (string) maxLength
-            if(this.SecurityCode != null && this.SecurityCode.Length > 4)
+            if(this.SecurityCode != null && this.SecurityCode.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecurityCode, length must be less than 4.", new [] { "SecurityCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecurityCode, length must be less than or equal to 4.", new [] { "SecurityCode" });
             }
 
             // SecurityCodeIndicator (string) maxLength
-            if(this.SecurityCodeIndicator != null && this.SecurityCodeIndicator.Length > 1)
+            if(this.SecurityCodeIndicator != null && this.SecurityCodeIndicator.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecurityCodeIndicator, length must be less than 1.", new [] { "SecurityCodeIndicator" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecurityCodeIndicator, length must be less than or equal to 1.", new [] { "SecurityCodeIndicator" });
             }
 
             // AccountEncoderId (string) maxLength
-            if(this.AccountEncoderId != null && this.AccountEncoderId.Length > 3)
+            if(this.AccountEncoderId != null && this.AccountEncoderId.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountEncoderId, length must be less than 3.", new [] { "AccountEncoderId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountEncoderId, length must be less than or equal to 3.", new [] { "AccountEncoderId" });
             }
 
             // IssueNumber (string) maxLength
-            if(this.IssueNumber != null && this.IssueNumber.Length > 5)
+            if(this.IssueNumber != null && this.IssueNumber.Length >= 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IssueNumber, length must be less than 5.", new [] { "IssueNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IssueNumber, length must be less than or equal to 5.", new [] { "IssueNumber" });
             }
 
             // StartMonth (string) maxLength
-            if(this.StartMonth != null && this.StartMonth.Length > 2)
+            if(this.StartMonth != null && this.StartMonth.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartMonth, length must be less than 2.", new [] { "StartMonth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartMonth, length must be less than or equal to 2.", new [] { "StartMonth" });
             }
 
             // StartYear (string) maxLength
-            if(this.StartYear != null && this.StartYear.Length > 4)
+            if(this.StartYear != null && this.StartYear.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartYear, length must be less than 4.", new [] { "StartYear" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartYear, length must be less than or equal to 4.", new [] { "StartYear" });
             }
 
             // ProductName (string) maxLength
-            if(this.ProductName != null && this.ProductName.Length > 15)
+            if(this.ProductName != null && this.ProductName.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than 15.", new [] { "ProductName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than or equal to 15.", new [] { "ProductName" });
             }
 
             yield break;

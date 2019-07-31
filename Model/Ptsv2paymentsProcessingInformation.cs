@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Capture">Flag that specifies whether to also include capture service in the submitted request or not.  Possible values: - **true** - **false** (default).  (default to false).</param>
         /// <param name="ProcessorId">Value that identifies the processor/acquirer to use for the transaction. This value is supported only for **CyberSource through VisaNet**.  Contact CyberSource Customer Support to get the value for this field. .</param>
-        /// <param name="BusinessApplicationId">The description for this field is not available..</param>
+        /// <param name="BusinessApplicationId">Payouts transaction type. Required for OCT transactions. This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. **Note** When the request includes this field, this value overrides the information in your CyberSource account.  For valid values, see the &#x60;invoiceHeader_businessApplicationID&#x60; field description in [Payouts Using the Simple Order API.](http://apps.cybersource.com/library/documentation/dev_guides/payouts_SO/Payouts_SO_API.pdf) .</param>
         /// <param name="CommerceIndicator">Type of transaction. Some payment card companies use this information when determining discount rates. When you omit this field for **Ingenico ePayments**, the processor uses the default transaction type they have on file for you instead of the default value listed here. .</param>
         /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay. .</param>
         /// <param name="ReconciliationId">Please check with Cybersource customer support to see if your merchant account is configured correctly so you can include this field in your request. * For Payouts: max length for FDCCompass is String (22). .</param>
@@ -88,9 +88,9 @@ namespace CyberSource.Model
         public string ProcessorId { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Payouts transaction type. Required for OCT transactions. This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. **Note** When the request includes this field, this value overrides the information in your CyberSource account.  For valid values, see the &#x60;invoiceHeader_businessApplicationID&#x60; field description in [Payouts Using the Simple Order API.](http://apps.cybersource.com/library/documentation/dev_guides/payouts_SO/Payouts_SO_API.pdf) 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Payouts transaction type. Required for OCT transactions. This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. **Note** When the request includes this field, this value overrides the information in your CyberSource account.  For valid values, see the &#x60;invoiceHeader_businessApplicationID&#x60; field description in [Payouts Using the Simple Order API.](http://apps.cybersource.com/library/documentation/dev_guides/payouts_SO/Payouts_SO_API.pdf) </value>
         [DataMember(Name="businessApplicationId", EmitDefaultValue=false)]
         public string BusinessApplicationId { get; set; }
 
@@ -348,51 +348,51 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ProcessorId (string) maxLength
-            if(this.ProcessorId != null && this.ProcessorId.Length > 3)
+            if(this.ProcessorId != null && this.ProcessorId.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProcessorId, length must be less than 3.", new [] { "ProcessorId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProcessorId, length must be less than or equal to 3.", new [] { "ProcessorId" });
             }
 
             // CommerceIndicator (string) maxLength
-            if(this.CommerceIndicator != null && this.CommerceIndicator.Length > 20)
+            if(this.CommerceIndicator != null && this.CommerceIndicator.Length >= 20)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommerceIndicator, length must be less than 20.", new [] { "CommerceIndicator" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommerceIndicator, length must be less than or equal to 20.", new [] { "CommerceIndicator" });
             }
 
             // PaymentSolution (string) maxLength
-            if(this.PaymentSolution != null && this.PaymentSolution.Length > 12)
+            if(this.PaymentSolution != null && this.PaymentSolution.Length >= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentSolution, length must be less than 12.", new [] { "PaymentSolution" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentSolution, length must be less than or equal to 12.", new [] { "PaymentSolution" });
             }
 
             // ReconciliationId (string) maxLength
-            if(this.ReconciliationId != null && this.ReconciliationId.Length > 60)
+            if(this.ReconciliationId != null && this.ReconciliationId.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationId, length must be less than 60.", new [] { "ReconciliationId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationId, length must be less than or equal to 60.", new [] { "ReconciliationId" });
             }
 
             // LinkId (string) maxLength
-            if(this.LinkId != null && this.LinkId.Length > 26)
+            if(this.LinkId != null && this.LinkId.Length >= 26)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LinkId, length must be less than 26.", new [] { "LinkId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LinkId, length must be less than or equal to 26.", new [] { "LinkId" });
             }
 
             // PurchaseLevel (string) maxLength
-            if(this.PurchaseLevel != null && this.PurchaseLevel.Length > 1)
+            if(this.PurchaseLevel != null && this.PurchaseLevel.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseLevel, length must be less than 1.", new [] { "PurchaseLevel" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseLevel, length must be less than or equal to 1.", new [] { "PurchaseLevel" });
             }
 
             // ReportGroup (string) maxLength
-            if(this.ReportGroup != null && this.ReportGroup.Length > 25)
+            if(this.ReportGroup != null && this.ReportGroup.Length >= 25)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportGroup, length must be less than 25.", new [] { "ReportGroup" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportGroup, length must be less than or equal to 25.", new [] { "ReportGroup" });
             }
 
             // VisaCheckoutId (string) maxLength
-            if(this.VisaCheckoutId != null && this.VisaCheckoutId.Length > 48)
+            if(this.VisaCheckoutId != null && this.VisaCheckoutId.Length >= 48)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VisaCheckoutId, length must be less than 48.", new [] { "VisaCheckoutId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VisaCheckoutId, length must be less than or equal to 48.", new [] { "VisaCheckoutId" });
             }
 
             yield break;

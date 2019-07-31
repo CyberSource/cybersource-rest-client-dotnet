@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Tags (string) maxLength
-            if(this.Tags != null && this.Tags.Length > 1998)
+            if(this.Tags != null && this.Tags.Length >= 1998)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Tags, length must be less than 1998.", new [] { "Tags" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Tags, length must be less than or equal to 1998.", new [] { "Tags" });
             }
 
             yield break;

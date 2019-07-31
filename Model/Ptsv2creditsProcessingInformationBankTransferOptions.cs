@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2creditsProcessingInformationBankTransferOptions" /> class.
         /// </summary>
         /// <param name="CustomerMemo">Payment related information.  This information is included on the customer’s statement. .</param>
-        /// <param name="SecCode">Authorization method used for the transaction.  #### TeleCheck Accepts only the following values: - &#x60;PPD&#x60; - &#x60;TEL&#x60; - &#x60;WEB&#x60;  For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
+        /// <param name="SecCode">Specifies the authorization method for the transaction.  #### TeleCheck Accepts only the following values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry  For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         /// <param name="TerminalCity">City in which the terminal is located. If more than four alphanumeric characters are submitted, the transaction will be declined.  You cannot include any special characters. .</param>
         /// <param name="TerminalState">State in which the terminal is located. If more than two alphanumeric characters are submitted, the transaction will be declined.  You cannot include any special characters. .</param>
         /// <param name="EffectiveDate">Effective date for the transaction. The effective date must be within 45 days of the current day. If you do not include this value, CyberSource sets the effective date to the next business day.  Format: &#x60;MMDDYYYY&#x60;  Supported only for the CyberSource ACH Service. .</param>
@@ -59,9 +59,9 @@ namespace CyberSource.Model
         public string CustomerMemo { get; set; }
 
         /// <summary>
-        /// Authorization method used for the transaction.  #### TeleCheck Accepts only the following values: - &#x60;PPD&#x60; - &#x60;TEL&#x60; - &#x60;WEB&#x60;  For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        /// Specifies the authorization method for the transaction.  #### TeleCheck Accepts only the following values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry  For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
         /// </summary>
-        /// <value>Authorization method used for the transaction.  #### TeleCheck Accepts only the following values: - &#x60;PPD&#x60; - &#x60;TEL&#x60; - &#x60;WEB&#x60;  For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
+        /// <value>Specifies the authorization method for the transaction.  #### TeleCheck Accepts only the following values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry  For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
         [DataMember(Name="secCode", EmitDefaultValue=false)]
         public string SecCode { get; set; }
 
@@ -225,45 +225,45 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CustomerMemo (string) maxLength
-            if(this.CustomerMemo != null && this.CustomerMemo.Length > 80)
+            if(this.CustomerMemo != null && this.CustomerMemo.Length >= 80)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomerMemo, length must be less than 80.", new [] { "CustomerMemo" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomerMemo, length must be less than or equal to 80.", new [] { "CustomerMemo" });
             }
 
             // SecCode (string) maxLength
-            if(this.SecCode != null && this.SecCode.Length > 3)
+            if(this.SecCode != null && this.SecCode.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecCode, length must be less than 3.", new [] { "SecCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecCode, length must be less than or equal to 3.", new [] { "SecCode" });
             }
 
             // TerminalCity (string) maxLength
-            if(this.TerminalCity != null && this.TerminalCity.Length > 4)
+            if(this.TerminalCity != null && this.TerminalCity.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCity, length must be less than 4.", new [] { "TerminalCity" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCity, length must be less than or equal to 4.", new [] { "TerminalCity" });
             }
 
             // TerminalState (string) maxLength
-            if(this.TerminalState != null && this.TerminalState.Length > 2)
+            if(this.TerminalState != null && this.TerminalState.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalState, length must be less than 2.", new [] { "TerminalState" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalState, length must be less than or equal to 2.", new [] { "TerminalState" });
             }
 
             // EffectiveDate (string) maxLength
-            if(this.EffectiveDate != null && this.EffectiveDate.Length > 8)
+            if(this.EffectiveDate != null && this.EffectiveDate.Length >= 8)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveDate, length must be less than 8.", new [] { "EffectiveDate" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveDate, length must be less than or equal to 8.", new [] { "EffectiveDate" });
             }
 
             // PartialPaymentId (string) maxLength
-            if(this.PartialPaymentId != null && this.PartialPaymentId.Length > 25)
+            if(this.PartialPaymentId != null && this.PartialPaymentId.Length >= 25)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PartialPaymentId, length must be less than 25.", new [] { "PartialPaymentId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PartialPaymentId, length must be less than or equal to 25.", new [] { "PartialPaymentId" });
             }
 
             // SettlementMethod (string) maxLength
-            if(this.SettlementMethod != null && this.SettlementMethod.Length > 1)
+            if(this.SettlementMethod != null && this.SettlementMethod.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementMethod, length must be less than 1.", new [] { "SettlementMethod" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementMethod, length must be less than or equal to 1.", new [] { "SettlementMethod" });
             }
 
             yield break;

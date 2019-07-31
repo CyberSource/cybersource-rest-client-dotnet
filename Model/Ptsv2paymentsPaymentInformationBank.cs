@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsPaymentInformationBank" /> class.
         /// </summary>
         /// <param name="Account">Account.</param>
-        /// <param name="RoutingNumber">Bank routing number.  This is also called the transit number. .</param>
+        /// <param name="RoutingNumber">Bank routing number. This is also called the _transit number_.  For details, see &#x60;ecp_rdfi&#x60; request field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         public Ptsv2paymentsPaymentInformationBank(Ptsv2paymentsPaymentInformationBankAccount Account = default(Ptsv2paymentsPaymentInformationBankAccount), string RoutingNumber = default(string))
         {
             this.Account = Account;
@@ -48,9 +48,9 @@ namespace CyberSource.Model
         public Ptsv2paymentsPaymentInformationBankAccount Account { get; set; }
 
         /// <summary>
-        /// Bank routing number.  This is also called the transit number. 
+        /// Bank routing number. This is also called the _transit number_.  For details, see &#x60;ecp_rdfi&#x60; request field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
         /// </summary>
-        /// <value>Bank routing number.  This is also called the transit number. </value>
+        /// <value>Bank routing number. This is also called the _transit number_.  For details, see &#x60;ecp_rdfi&#x60; request field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
         [DataMember(Name="routingNumber", EmitDefaultValue=false)]
         public string RoutingNumber { get; set; }
 
@@ -139,9 +139,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // RoutingNumber (string) maxLength
-            if(this.RoutingNumber != null && this.RoutingNumber.Length > 9)
+            if(this.RoutingNumber != null && this.RoutingNumber.Length >= 9)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingNumber, length must be less than 9.", new [] { "RoutingNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingNumber, length must be less than or equal to 9.", new [] { "RoutingNumber" });
             }
 
             yield break;

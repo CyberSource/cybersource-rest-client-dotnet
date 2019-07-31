@@ -31,27 +31,6 @@ namespace CyberSource.Model
     public partial class PtsV2PaymentsVoidsPost201Response :  IEquatable<PtsV2PaymentsVoidsPost201Response>, IValidatableObject
     {
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - VOIDED 
-        /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - VOIDED </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum VOIDED for "VOIDED"
-            /// </summary>
-            [EnumMember(Value = "VOIDED")]
-            VOIDED
-        }
-
-        /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - VOIDED 
-        /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - VOIDED </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsVoidsPost201Response" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
@@ -60,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="Status">The status of the submitted transaction.  Possible values:  - VOIDED .</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="VoidAmountDetails">VoidAmountDetails.</param>
-        public PtsV2PaymentsVoidsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails VoidAmountDetails = default(PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails))
+        public PtsV2PaymentsVoidsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails VoidAmountDetails = default(PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails))
         {
             this.Links = Links;
             this.Id = Id;
@@ -90,6 +69,12 @@ namespace CyberSource.Model
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
+        /// <summary>
+        /// The status of the submitted transaction.  Possible values:  - VOIDED 
+        /// </summary>
+        /// <value>The status of the submitted transaction.  Possible values:  - VOIDED </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets ClientReferenceInformation
@@ -220,9 +205,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) maxLength
-            if(this.Id != null && this.Id.Length > 26)
+            if(this.Id != null && this.Id.Length >= 26)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 26.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than or equal to 26.", new [] { "Id" });
             }
 
             yield break;

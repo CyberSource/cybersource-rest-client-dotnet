@@ -174,21 +174,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Descriptor (string) maxLength
-            if(this.Descriptor != null && this.Descriptor.Length > 128)
+            if(this.Descriptor != null && this.Descriptor.Length >= 128)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Descriptor, length must be less than 128.", new [] { "Descriptor" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Descriptor, length must be less than or equal to 128.", new [] { "Descriptor" });
             }
 
             // Value (string) maxLength
-            if(this.Value != null && this.Value.Length > 3072)
+            if(this.Value != null && this.Value.Length >= 3072)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than 3072.", new [] { "Value" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than or equal to 3072.", new [] { "Value" });
             }
 
             // Encoding (string) maxLength
-            if(this.Encoding != null && this.Encoding.Length > 6)
+            if(this.Encoding != null && this.Encoding.Length >= 6)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Encoding, length must be less than 6.", new [] { "Encoding" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Encoding, length must be less than or equal to 6.", new [] { "Encoding" });
             }
 
             yield break;

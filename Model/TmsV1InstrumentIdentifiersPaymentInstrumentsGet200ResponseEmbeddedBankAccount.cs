@@ -31,53 +31,20 @@ namespace CyberSource.Model
     public partial class TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount :  IEquatable<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount>, IValidatableObject
     {
         /// <summary>
-        /// Checking account type. Possible values:   * C: checking   * S: savings (USD only)   * X: corporate checking (USD only)   * G: general ledger 
+        /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount" /> class.
         /// </summary>
-        /// <value>Checking account type. Possible values:   * C: checking   * S: savings (USD only)   * X: corporate checking (USD only)   * G: general ledger </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
+        /// <param name="Type">Checking account type. Possible values:   * C: checking   * S: savings (USD only)   * X: corporate checking (USD only)   * G: general ledger .</param>
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount(string Type = default(string))
         {
-            
-            /// <summary>
-            /// Enum Checking for "checking"
-            /// </summary>
-            [EnumMember(Value = "checking")]
-            Checking,
-            
-            /// <summary>
-            /// Enum Savings for "savings"
-            /// </summary>
-            [EnumMember(Value = "savings")]
-            Savings,
-            
-            /// <summary>
-            /// Enum Corporatechecking for "corporate checking"
-            /// </summary>
-            [EnumMember(Value = "corporate checking")]
-            Corporatechecking,
-            
-            /// <summary>
-            /// Enum Generalledger for "general ledger"
-            /// </summary>
-            [EnumMember(Value = "general ledger")]
-            Generalledger
+            this.Type = Type;
         }
-
+        
         /// <summary>
         /// Checking account type. Possible values:   * C: checking   * S: savings (USD only)   * X: corporate checking (USD only)   * G: general ledger 
         /// </summary>
         /// <value>Checking account type. Possible values:   * C: checking   * S: savings (USD only)   * X: corporate checking (USD only)   * G: general ledger </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeEnum? Type { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount" /> class.
-        /// </summary>
-        /// <param name="Type">Checking account type. Possible values:   * C: checking   * S: savings (USD only)   * X: corporate checking (USD only)   * G: general ledger .</param>
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount(TypeEnum? Type = default(TypeEnum?))
-        {
-            this.Type = Type;
-        }
-        
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

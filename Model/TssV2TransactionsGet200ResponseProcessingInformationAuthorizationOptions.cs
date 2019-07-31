@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AuthType (string) maxLength
-            if(this.AuthType != null && this.AuthType.Length > 15)
+            if(this.AuthType != null && this.AuthType.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthType, length must be less than 15.", new [] { "AuthType" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthType, length must be less than or equal to 15.", new [] { "AuthType" });
             }
 
             yield break;

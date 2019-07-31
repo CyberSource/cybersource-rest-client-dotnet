@@ -31,45 +31,6 @@ namespace CyberSource.Model
     public partial class FileDetail :  IEquatable<FileDetail>, IValidatableObject
     {
         /// <summary>
-        /// File extension
-        /// </summary>
-        /// <value>File extension</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MimeTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum ApplicationXml for "application/xml"
-            /// </summary>
-            [EnumMember(Value = "application/xml")]
-            ApplicationXml,
-            
-            /// <summary>
-            /// Enum TextCsv for "text/csv"
-            /// </summary>
-            [EnumMember(Value = "text/csv")]
-            TextCsv,
-            
-            /// <summary>
-            /// Enum ApplicationPdf for "application/pdf"
-            /// </summary>
-            [EnumMember(Value = "application/pdf")]
-            ApplicationPdf,
-            
-            /// <summary>
-            /// Enum ApplicationOctetstream for "application/octet-stream"
-            /// </summary>
-            [EnumMember(Value = "application/octet-stream")]
-            ApplicationOctetstream
-        }
-
-        /// <summary>
-        /// File extension
-        /// </summary>
-        /// <value>File extension</value>
-        [DataMember(Name="mimeType", EmitDefaultValue=false)]
-        public MimeTypeEnum? MimeType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="FileDetail" /> class.
         /// </summary>
         /// <param name="FileId">Unique identifier of a file.</param>
@@ -77,9 +38,9 @@ namespace CyberSource.Model
         /// <param name="CreatedTime">Date and time for the file in PST.</param>
         /// <param name="LastModifiedTime">Date and time for the file in PST.</param>
         /// <param name="Date">Date and time for the file in PST.</param>
-        /// <param name="MimeType">File extension.</param>
+        /// <param name="MimeType">&#39;File extension&#39;  Valid values: - &#39;application/xml&#39; - &#39;text/csv&#39; - &#39;application/pdf&#39; - &#39;application/octet-stream&#39; .</param>
         /// <param name="Size">Size of the file in bytes.</param>
-        public FileDetail(string FileId = default(string), string Name = default(string), DateTime? CreatedTime = default(DateTime?), DateTime? LastModifiedTime = default(DateTime?), DateTime? Date = default(DateTime?), MimeTypeEnum? MimeType = default(MimeTypeEnum?), int? Size = default(int?))
+        public FileDetail(string FileId = default(string), string Name = default(string), DateTime? CreatedTime = default(DateTime?), DateTime? LastModifiedTime = default(DateTime?), DateTime? Date = default(DateTime?), string MimeType = default(string), int? Size = default(int?))
         {
             this.FileId = FileId;
             this.Name = Name;
@@ -126,6 +87,12 @@ namespace CyberSource.Model
         [JsonConverter(typeof(SwaggerDateConverter))]
         public DateTime? Date { get; set; }
 
+        /// <summary>
+        /// &#39;File extension&#39;  Valid values: - &#39;application/xml&#39; - &#39;text/csv&#39; - &#39;application/pdf&#39; - &#39;application/octet-stream&#39; 
+        /// </summary>
+        /// <value>&#39;File extension&#39;  Valid values: - &#39;application/xml&#39; - &#39;text/csv&#39; - &#39;application/pdf&#39; - &#39;application/octet-stream&#39; </value>
+        [DataMember(Name="mimeType", EmitDefaultValue=false)]
+        public string MimeType { get; set; }
 
         /// <summary>
         /// Size of the file in bytes

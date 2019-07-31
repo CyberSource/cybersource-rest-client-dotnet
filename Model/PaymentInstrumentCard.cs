@@ -31,363 +31,6 @@ namespace CyberSource.Model
     public partial class PaymentInstrumentCard :  IEquatable<PaymentInstrumentCard>, IValidatableObject
     {
         /// <summary>
-        /// Type of credit card. Possible values:   * Visa (001)   * Mastercard (002) - Eurocard—European regional brand of Mastercard   * American Express (003)   * Discover (004)   * Diners Club (005)   * Carte Blanche (006)   * JCB (007)   * Optima (008)   * Twinpay Credit (011)   * Twinpay Debit (012)   * Walmart (013)   * EnRoute (014)   * Lowes consumer (015)   * Home Depot consumer (016)   * MBNA (017)   * Dicks Sportswear (018)   * Casual Corner (019)   * Sears (020)   * JAL (021)   * Disney (023)   * Maestro (024) - UK Domestic   * Sams Club consumer (025)   * Sams Club business (026)   * Nicos (027)   * Bill me later (028)   * Bebe (029)   * Restoration Hardware (030)   * Delta (031) — use this value only for Ingenico ePayments. For other processors, use 001 for all Visa card types.   * Solo (032)   * Visa Electron (033)   * Dankort (034)   * Laser (035)   * Carte Bleue (036) — formerly Cartes Bancaires   * Cartes Bancaires (036)   * Carta Si (037)   * pinless debit (038)   * encoded account (039)   * UATP (040)   * Household (041)   * Maestro (042) - International   * GE Money UK (043)   * Korean cards (044)   * Style (045)   * JCrew (046)   * PayEase China processing eWallet (047)   * PayEase China processing bank transfer (048)   * Meijer Private Label (049)   * Hipercard (050) — supported only by the Comercio Latino processor.   * Aura (051) — supported only by the Comercio Latino processor.   * Redecard (052)   * ORICO (053)   * Elo (054) — supported only by the Comercio Latino processor.   * Capital One Private Label (055)   * Synchrony Private Label (056)   * Costco Private Label (057)   * mada (060)   * China Union Pay (062)   * Falabella private label (063) 
-        /// </summary>
-        /// <value>Type of credit card. Possible values:   * Visa (001)   * Mastercard (002) - Eurocard—European regional brand of Mastercard   * American Express (003)   * Discover (004)   * Diners Club (005)   * Carte Blanche (006)   * JCB (007)   * Optima (008)   * Twinpay Credit (011)   * Twinpay Debit (012)   * Walmart (013)   * EnRoute (014)   * Lowes consumer (015)   * Home Depot consumer (016)   * MBNA (017)   * Dicks Sportswear (018)   * Casual Corner (019)   * Sears (020)   * JAL (021)   * Disney (023)   * Maestro (024) - UK Domestic   * Sams Club consumer (025)   * Sams Club business (026)   * Nicos (027)   * Bill me later (028)   * Bebe (029)   * Restoration Hardware (030)   * Delta (031) — use this value only for Ingenico ePayments. For other processors, use 001 for all Visa card types.   * Solo (032)   * Visa Electron (033)   * Dankort (034)   * Laser (035)   * Carte Bleue (036) — formerly Cartes Bancaires   * Cartes Bancaires (036)   * Carta Si (037)   * pinless debit (038)   * encoded account (039)   * UATP (040)   * Household (041)   * Maestro (042) - International   * GE Money UK (043)   * Korean cards (044)   * Style (045)   * JCrew (046)   * PayEase China processing eWallet (047)   * PayEase China processing bank transfer (048)   * Meijer Private Label (049)   * Hipercard (050) — supported only by the Comercio Latino processor.   * Aura (051) — supported only by the Comercio Latino processor.   * Redecard (052)   * ORICO (053)   * Elo (054) — supported only by the Comercio Latino processor.   * Capital One Private Label (055)   * Synchrony Private Label (056)   * Costco Private Label (057)   * mada (060)   * China Union Pay (062)   * Falabella private label (063) </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
-        {
-            
-            /// <summary>
-            /// Enum Visa for "visa"
-            /// </summary>
-            [EnumMember(Value = "visa")]
-            Visa,
-            
-            /// <summary>
-            /// Enum Mastercard for "mastercard"
-            /// </summary>
-            [EnumMember(Value = "mastercard")]
-            Mastercard,
-            
-            /// <summary>
-            /// Enum Americanexpress for "american express"
-            /// </summary>
-            [EnumMember(Value = "american express")]
-            Americanexpress,
-            
-            /// <summary>
-            /// Enum Discover for "discover"
-            /// </summary>
-            [EnumMember(Value = "discover")]
-            Discover,
-            
-            /// <summary>
-            /// Enum Dinersclub for "diners club"
-            /// </summary>
-            [EnumMember(Value = "diners club")]
-            Dinersclub,
-            
-            /// <summary>
-            /// Enum Carteblanche for "carte blanche"
-            /// </summary>
-            [EnumMember(Value = "carte blanche")]
-            Carteblanche,
-            
-            /// <summary>
-            /// Enum Jcb for "jcb"
-            /// </summary>
-            [EnumMember(Value = "jcb")]
-            Jcb,
-            
-            /// <summary>
-            /// Enum Optima for "optima"
-            /// </summary>
-            [EnumMember(Value = "optima")]
-            Optima,
-            
-            /// <summary>
-            /// Enum Twinpaycredit for "twinpay credit"
-            /// </summary>
-            [EnumMember(Value = "twinpay credit")]
-            Twinpaycredit,
-            
-            /// <summary>
-            /// Enum Twinpaydebit for "twinpay debit"
-            /// </summary>
-            [EnumMember(Value = "twinpay debit")]
-            Twinpaydebit,
-            
-            /// <summary>
-            /// Enum Walmart for "walmart"
-            /// </summary>
-            [EnumMember(Value = "walmart")]
-            Walmart,
-            
-            /// <summary>
-            /// Enum Enroute for "enroute"
-            /// </summary>
-            [EnumMember(Value = "enroute")]
-            Enroute,
-            
-            /// <summary>
-            /// Enum Lowesconsumer for "lowes consumer"
-            /// </summary>
-            [EnumMember(Value = "lowes consumer")]
-            Lowesconsumer,
-            
-            /// <summary>
-            /// Enum Homedepotconsumer for "home depot consumer"
-            /// </summary>
-            [EnumMember(Value = "home depot consumer")]
-            Homedepotconsumer,
-            
-            /// <summary>
-            /// Enum Mbna for "mbna"
-            /// </summary>
-            [EnumMember(Value = "mbna")]
-            Mbna,
-            
-            /// <summary>
-            /// Enum Dickssportswear for "dicks sportswear"
-            /// </summary>
-            [EnumMember(Value = "dicks sportswear")]
-            Dickssportswear,
-            
-            /// <summary>
-            /// Enum Casualcorner for "casual corner"
-            /// </summary>
-            [EnumMember(Value = "casual corner")]
-            Casualcorner,
-            
-            /// <summary>
-            /// Enum Sears for "sears"
-            /// </summary>
-            [EnumMember(Value = "sears")]
-            Sears,
-            
-            /// <summary>
-            /// Enum Jal for "jal"
-            /// </summary>
-            [EnumMember(Value = "jal")]
-            Jal,
-            
-            /// <summary>
-            /// Enum Disney for "disney"
-            /// </summary>
-            [EnumMember(Value = "disney")]
-            Disney,
-            
-            /// <summary>
-            /// Enum Maestroukdomestic for "maestro uk domestic"
-            /// </summary>
-            [EnumMember(Value = "maestro uk domestic")]
-            Maestroukdomestic,
-            
-            /// <summary>
-            /// Enum Samsclubconsumer for "sams club consumer"
-            /// </summary>
-            [EnumMember(Value = "sams club consumer")]
-            Samsclubconsumer,
-            
-            /// <summary>
-            /// Enum Samsclubbusiness for "sams club business"
-            /// </summary>
-            [EnumMember(Value = "sams club business")]
-            Samsclubbusiness,
-            
-            /// <summary>
-            /// Enum Nicos for "nicos"
-            /// </summary>
-            [EnumMember(Value = "nicos")]
-            Nicos,
-            
-            /// <summary>
-            /// Enum Billmelater for "bill me later"
-            /// </summary>
-            [EnumMember(Value = "bill me later")]
-            Billmelater,
-            
-            /// <summary>
-            /// Enum Bebe for "bebe"
-            /// </summary>
-            [EnumMember(Value = "bebe")]
-            Bebe,
-            
-            /// <summary>
-            /// Enum Restorationhardware for "restoration hardware"
-            /// </summary>
-            [EnumMember(Value = "restoration hardware")]
-            Restorationhardware,
-            
-            /// <summary>
-            /// Enum Deltaonline for "delta online"
-            /// </summary>
-            [EnumMember(Value = "delta online")]
-            Deltaonline,
-            
-            /// <summary>
-            /// Enum Solo for "solo"
-            /// </summary>
-            [EnumMember(Value = "solo")]
-            Solo,
-            
-            /// <summary>
-            /// Enum Visaelectron for "visa electron"
-            /// </summary>
-            [EnumMember(Value = "visa electron")]
-            Visaelectron,
-            
-            /// <summary>
-            /// Enum Dankort for "dankort"
-            /// </summary>
-            [EnumMember(Value = "dankort")]
-            Dankort,
-            
-            /// <summary>
-            /// Enum Laser for "laser"
-            /// </summary>
-            [EnumMember(Value = "laser")]
-            Laser,
-            
-            /// <summary>
-            /// Enum Cartebleue for "carte bleue"
-            /// </summary>
-            [EnumMember(Value = "carte bleue")]
-            Cartebleue,
-            
-            /// <summary>
-            /// Enum Cartasi for "carta si"
-            /// </summary>
-            [EnumMember(Value = "carta si")]
-            Cartasi,
-            
-            /// <summary>
-            /// Enum Pinlessdebit for "pinless debit"
-            /// </summary>
-            [EnumMember(Value = "pinless debit")]
-            Pinlessdebit,
-            
-            /// <summary>
-            /// Enum Encodedaccount for "encoded account"
-            /// </summary>
-            [EnumMember(Value = "encoded account")]
-            Encodedaccount,
-            
-            /// <summary>
-            /// Enum Uatp for "uatp"
-            /// </summary>
-            [EnumMember(Value = "uatp")]
-            Uatp,
-            
-            /// <summary>
-            /// Enum Household for "household"
-            /// </summary>
-            [EnumMember(Value = "household")]
-            Household,
-            
-            /// <summary>
-            /// Enum Maestrointernational for "maestro international"
-            /// </summary>
-            [EnumMember(Value = "maestro international")]
-            Maestrointernational,
-            
-            /// <summary>
-            /// Enum Gemoneyuk for "ge money uk"
-            /// </summary>
-            [EnumMember(Value = "ge money uk")]
-            Gemoneyuk,
-            
-            /// <summary>
-            /// Enum Koreancards for "korean cards"
-            /// </summary>
-            [EnumMember(Value = "korean cards")]
-            Koreancards,
-            
-            /// <summary>
-            /// Enum Style for "style"
-            /// </summary>
-            [EnumMember(Value = "style")]
-            Style,
-            
-            /// <summary>
-            /// Enum Jcrew for "jcrew"
-            /// </summary>
-            [EnumMember(Value = "jcrew")]
-            Jcrew,
-            
-            /// <summary>
-            /// Enum Payeasechinaprocessingewallet for "payease china processing ewallet"
-            /// </summary>
-            [EnumMember(Value = "payease china processing ewallet")]
-            Payeasechinaprocessingewallet,
-            
-            /// <summary>
-            /// Enum Payeasechinaprocessingbanktransfer for "payease china processing bank transfer"
-            /// </summary>
-            [EnumMember(Value = "payease china processing bank transfer")]
-            Payeasechinaprocessingbanktransfer,
-            
-            /// <summary>
-            /// Enum Meijerprivatelabel for "meijer private label"
-            /// </summary>
-            [EnumMember(Value = "meijer private label")]
-            Meijerprivatelabel,
-            
-            /// <summary>
-            /// Enum Hipercard for "hipercard"
-            /// </summary>
-            [EnumMember(Value = "hipercard")]
-            Hipercard,
-            
-            /// <summary>
-            /// Enum Aura for "aura"
-            /// </summary>
-            [EnumMember(Value = "aura")]
-            Aura,
-            
-            /// <summary>
-            /// Enum Redecard for "redecard"
-            /// </summary>
-            [EnumMember(Value = "redecard")]
-            Redecard,
-            
-            /// <summary>
-            /// Enum Orico for "orico"
-            /// </summary>
-            [EnumMember(Value = "orico")]
-            Orico,
-            
-            /// <summary>
-            /// Enum Elo for "elo"
-            /// </summary>
-            [EnumMember(Value = "elo")]
-            Elo,
-            
-            /// <summary>
-            /// Enum Capitaloneprivatelabel for "capital one private label"
-            /// </summary>
-            [EnumMember(Value = "capital one private label")]
-            Capitaloneprivatelabel,
-            
-            /// <summary>
-            /// Enum Synchronyprivatelabel for "synchrony private label"
-            /// </summary>
-            [EnumMember(Value = "synchrony private label")]
-            Synchronyprivatelabel,
-            
-            /// <summary>
-            /// Enum Chinaunionpay for "china union pay"
-            /// </summary>
-            [EnumMember(Value = "china union pay")]
-            Chinaunionpay,
-            
-            /// <summary>
-            /// Enum Costcoprivatelabel for "costco private label"
-            /// </summary>
-            [EnumMember(Value = "costco private label")]
-            Costcoprivatelabel,
-            
-            /// <summary>
-            /// Enum Mada for "mada"
-            /// </summary>
-            [EnumMember(Value = "mada")]
-            Mada,
-            
-            /// <summary>
-            /// Enum Falabellaprivatelabel for "falabella private label"
-            /// </summary>
-            [EnumMember(Value = "falabella private label")]
-            Falabellaprivatelabel
-        }
-
-        /// <summary>
-        /// Type of credit card. Possible values:   * Visa (001)   * Mastercard (002) - Eurocard—European regional brand of Mastercard   * American Express (003)   * Discover (004)   * Diners Club (005)   * Carte Blanche (006)   * JCB (007)   * Optima (008)   * Twinpay Credit (011)   * Twinpay Debit (012)   * Walmart (013)   * EnRoute (014)   * Lowes consumer (015)   * Home Depot consumer (016)   * MBNA (017)   * Dicks Sportswear (018)   * Casual Corner (019)   * Sears (020)   * JAL (021)   * Disney (023)   * Maestro (024) - UK Domestic   * Sams Club consumer (025)   * Sams Club business (026)   * Nicos (027)   * Bill me later (028)   * Bebe (029)   * Restoration Hardware (030)   * Delta (031) — use this value only for Ingenico ePayments. For other processors, use 001 for all Visa card types.   * Solo (032)   * Visa Electron (033)   * Dankort (034)   * Laser (035)   * Carte Bleue (036) — formerly Cartes Bancaires   * Cartes Bancaires (036)   * Carta Si (037)   * pinless debit (038)   * encoded account (039)   * UATP (040)   * Household (041)   * Maestro (042) - International   * GE Money UK (043)   * Korean cards (044)   * Style (045)   * JCrew (046)   * PayEase China processing eWallet (047)   * PayEase China processing bank transfer (048)   * Meijer Private Label (049)   * Hipercard (050) — supported only by the Comercio Latino processor.   * Aura (051) — supported only by the Comercio Latino processor.   * Redecard (052)   * ORICO (053)   * Elo (054) — supported only by the Comercio Latino processor.   * Capital One Private Label (055)   * Synchrony Private Label (056)   * Costco Private Label (057)   * mada (060)   * China Union Pay (062)   * Falabella private label (063) 
-        /// </summary>
-        /// <value>Type of credit card. Possible values:   * Visa (001)   * Mastercard (002) - Eurocard—European regional brand of Mastercard   * American Express (003)   * Discover (004)   * Diners Club (005)   * Carte Blanche (006)   * JCB (007)   * Optima (008)   * Twinpay Credit (011)   * Twinpay Debit (012)   * Walmart (013)   * EnRoute (014)   * Lowes consumer (015)   * Home Depot consumer (016)   * MBNA (017)   * Dicks Sportswear (018)   * Casual Corner (019)   * Sears (020)   * JAL (021)   * Disney (023)   * Maestro (024) - UK Domestic   * Sams Club consumer (025)   * Sams Club business (026)   * Nicos (027)   * Bill me later (028)   * Bebe (029)   * Restoration Hardware (030)   * Delta (031) — use this value only for Ingenico ePayments. For other processors, use 001 for all Visa card types.   * Solo (032)   * Visa Electron (033)   * Dankort (034)   * Laser (035)   * Carte Bleue (036) — formerly Cartes Bancaires   * Cartes Bancaires (036)   * Carta Si (037)   * pinless debit (038)   * encoded account (039)   * UATP (040)   * Household (041)   * Maestro (042) - International   * GE Money UK (043)   * Korean cards (044)   * Style (045)   * JCrew (046)   * PayEase China processing eWallet (047)   * PayEase China processing bank transfer (048)   * Meijer Private Label (049)   * Hipercard (050) — supported only by the Comercio Latino processor.   * Aura (051) — supported only by the Comercio Latino processor.   * Redecard (052)   * ORICO (053)   * Elo (054) — supported only by the Comercio Latino processor.   * Capital One Private Label (055)   * Synchrony Private Label (056)   * Costco Private Label (057)   * mada (060)   * China Union Pay (062)   * Falabella private label (063) </value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeEnum? Type { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PaymentInstrumentCard" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -396,13 +39,13 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PaymentInstrumentCard" /> class.
         /// </summary>
         /// <param name="ExpirationMonth">Two-digit month in which the credit card expires. Format: &#x60;MM&#x60; Possible values: &#x60;01&#x60; through &#x60;12&#x60;  This field is optional if your CyberSource account is configured for relaxed requirements for address data and expiration date. For more information about relaxed requirements, see the TMS REST API Developer Guide.  Important: It is your responsibility to determine whether a field is required for the transaction you are requesting. .</param>
-        /// <param name="ExpirationYear">Four-digit year in which the credit card expires. Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;.  **FDC Nashville Global and FDMS South** You can send in 2 digits or 4 digits. When you send in 2 digits, they must be the last 2 digits of the year.  This field is optional if your CyberSource account is configured for relaxed requirements for address data and expiration date. See Relaxed Requirements for Address Data and Expiration Date page.  Important: It is your responsibility to determine whether a field is required for the transaction you are requesting.&#39; .</param>
-        /// <param name="Type">Type of credit card. Possible values:   * Visa (001)   * Mastercard (002) - Eurocard—European regional brand of Mastercard   * American Express (003)   * Discover (004)   * Diners Club (005)   * Carte Blanche (006)   * JCB (007)   * Optima (008)   * Twinpay Credit (011)   * Twinpay Debit (012)   * Walmart (013)   * EnRoute (014)   * Lowes consumer (015)   * Home Depot consumer (016)   * MBNA (017)   * Dicks Sportswear (018)   * Casual Corner (019)   * Sears (020)   * JAL (021)   * Disney (023)   * Maestro (024) - UK Domestic   * Sams Club consumer (025)   * Sams Club business (026)   * Nicos (027)   * Bill me later (028)   * Bebe (029)   * Restoration Hardware (030)   * Delta (031) — use this value only for Ingenico ePayments. For other processors, use 001 for all Visa card types.   * Solo (032)   * Visa Electron (033)   * Dankort (034)   * Laser (035)   * Carte Bleue (036) — formerly Cartes Bancaires   * Cartes Bancaires (036)   * Carta Si (037)   * pinless debit (038)   * encoded account (039)   * UATP (040)   * Household (041)   * Maestro (042) - International   * GE Money UK (043)   * Korean cards (044)   * Style (045)   * JCrew (046)   * PayEase China processing eWallet (047)   * PayEase China processing bank transfer (048)   * Meijer Private Label (049)   * Hipercard (050) — supported only by the Comercio Latino processor.   * Aura (051) — supported only by the Comercio Latino processor.   * Redecard (052)   * ORICO (053)   * Elo (054) — supported only by the Comercio Latino processor.   * Capital One Private Label (055)   * Synchrony Private Label (056)   * Costco Private Label (057)   * mada (060)   * China Union Pay (062)   * Falabella private label (063)  (required).</param>
+        /// <param name="ExpirationYear">Four-digit year in which the credit card expires. Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;.  **FDC Nashville Global and FDMS South** You can send in 2 digits or 4 digits. When you send in 2 digits, they must be the last 2 digits of the year.  This field is optional if your CyberSource account is configured for relaxed requirements for address data and expiration date. For details, see [Relaxed Requirements for Address Data and Expiration Date.](https://www.cybersource.com/developers/integration_methods/relax_avs/).  **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.&#39; .</param>
+        /// <param name="Type">Type of credit card. Possible values:   * **visa** - - Visa (001)   * **mastercard** - - Mastercard (002) - Eurocard—European regional brand of Mastercard   * **american express** - - American Express (003)   * **discover** - - Discover (004)   * **diners club** - - Diners Club (005)   * **carte blanche** - - Carte Blanche (006)   * **jcb** - - JCB (007)   * **optima** - - Optima (008)   * **twinpay credit** - - Twinpay Credit (011)   * **twinpay debit** - - Twinpay Debit (012)   * **walmart** - - Walmart (013)   * **enroute** - - EnRoute (014)   * **lowes consumer** - - Lowes consumer (015)   * **home depot consumer** - - Home Depot consumer (016)   * **mbna** - - MBNA (017)   * **dicks sportswear** - - Dicks Sportswear (018)   * **casual corner** - - Casual Corner (019)   * **sears** - - Sears (020)   * **jal** - - JAL (021)   * **disney** - - Disney (023)   * **maestro uk domestic** - - Maestro (024) - UK Domestic   * **sams club consumer** - - Sams Club consumer (025)   * **sams club business** - - Sams Club business (026)   * **bill me later** - - Bill me later (028)   * **bebe** - - Bebe (029)   * **restoration hardware** - - Restoration Hardware (030)   * **delta online** - - Delta (031) — use this value only for Ingenico ePayments. For other processors, use 001 for all Visa card types.   * **solo** - - Solo (032)   * **visa electron** - - Visa Electron (033)   * **dankort** - - Dankort (034)   * **laser** - - Laser (035)   * **carte bleue** - - Carte Bleue (036) — formerly Cartes Bancaires   * **carta si** - - Carta Si (037)   * **pinless debit** - - pinless debit (038)   * **encoded account** - - encoded account (039)   * **uatp** - - UATP (040)   * **household** - - Household (041)   * **maestro international** - - Maestro (042) - International   * **ge money uk** - - GE Money UK (043)   * **korean cards** - - Korean cards (044)   * **style** - - Style (045)   * **jcrew** - - JCrew (046)   * **payease china processing ewallet** - - PayEase China processing eWallet (047)   * **payease china processing bank transfer** - - PayEase China processing bank transfer (048)   * **meijer private label** - - Meijer Private Label (049)   * **hipercard** - - Hipercard (050) — supported only by the Comercio Latino processor.   * **aura** - - Aura (051) — supported only by the Comercio Latino processor.   * **redecard** - - Redecard (052)   * **elo** - - Elo (054) — supported only by the Comercio Latino processor.   * **capital one private label** - - Capital One Private Label (055)   * **synchrony private label** - - Synchrony Private Label (056)   * **costco private label** - - Costco Private Label (057)   * **mada** - - mada (060)   * **china union pay** - - China Union Pay (062)   * **falabella private label** - - Falabella private label (063)  (required).</param>
         /// <param name="IssueNumber">Number of times a Maestro (UK Domestic) card has been issued to the account holder..</param>
         /// <param name="StartMonth">Month of the start of the Maestro (UK Domestic) card validity period.  Format: &#x60;MM&#x60;. Possible values: &#x60;01&#x60; through &#x60;12&#x60;. .</param>
         /// <param name="StartYear">Year of the start of the Maestro (UK Domestic) card validity period.  Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;. .</param>
         /// <param name="UseAs">Card Use As Field. Supported value of &#x60;pinless debit&#x60; only. Only for use with Pinless Debit tokens..</param>
-        public PaymentInstrumentCard(string ExpirationMonth = default(string), string ExpirationYear = default(string), TypeEnum? Type = default(TypeEnum?), string IssueNumber = default(string), string StartMonth = default(string), string StartYear = default(string), string UseAs = default(string))
+        public PaymentInstrumentCard(string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), string IssueNumber = default(string), string StartMonth = default(string), string StartYear = default(string), string UseAs = default(string))
         {
             // to ensure "Type" is required (not null)
             if (Type == null)
@@ -429,12 +72,18 @@ namespace CyberSource.Model
         public string ExpirationMonth { get; set; }
 
         /// <summary>
-        /// Four-digit year in which the credit card expires. Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;.  **FDC Nashville Global and FDMS South** You can send in 2 digits or 4 digits. When you send in 2 digits, they must be the last 2 digits of the year.  This field is optional if your CyberSource account is configured for relaxed requirements for address data and expiration date. See Relaxed Requirements for Address Data and Expiration Date page.  Important: It is your responsibility to determine whether a field is required for the transaction you are requesting.&#39; 
+        /// Four-digit year in which the credit card expires. Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;.  **FDC Nashville Global and FDMS South** You can send in 2 digits or 4 digits. When you send in 2 digits, they must be the last 2 digits of the year.  This field is optional if your CyberSource account is configured for relaxed requirements for address data and expiration date. For details, see [Relaxed Requirements for Address Data and Expiration Date.](https://www.cybersource.com/developers/integration_methods/relax_avs/).  **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.&#39; 
         /// </summary>
-        /// <value>Four-digit year in which the credit card expires. Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;.  **FDC Nashville Global and FDMS South** You can send in 2 digits or 4 digits. When you send in 2 digits, they must be the last 2 digits of the year.  This field is optional if your CyberSource account is configured for relaxed requirements for address data and expiration date. See Relaxed Requirements for Address Data and Expiration Date page.  Important: It is your responsibility to determine whether a field is required for the transaction you are requesting.&#39; </value>
+        /// <value>Four-digit year in which the credit card expires. Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;.  **FDC Nashville Global and FDMS South** You can send in 2 digits or 4 digits. When you send in 2 digits, they must be the last 2 digits of the year.  This field is optional if your CyberSource account is configured for relaxed requirements for address data and expiration date. For details, see [Relaxed Requirements for Address Data and Expiration Date.](https://www.cybersource.com/developers/integration_methods/relax_avs/).  **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.&#39; </value>
         [DataMember(Name="expirationYear", EmitDefaultValue=false)]
         public string ExpirationYear { get; set; }
 
+        /// <summary>
+        /// Type of credit card. Possible values:   * **visa** - - Visa (001)   * **mastercard** - - Mastercard (002) - Eurocard—European regional brand of Mastercard   * **american express** - - American Express (003)   * **discover** - - Discover (004)   * **diners club** - - Diners Club (005)   * **carte blanche** - - Carte Blanche (006)   * **jcb** - - JCB (007)   * **optima** - - Optima (008)   * **twinpay credit** - - Twinpay Credit (011)   * **twinpay debit** - - Twinpay Debit (012)   * **walmart** - - Walmart (013)   * **enroute** - - EnRoute (014)   * **lowes consumer** - - Lowes consumer (015)   * **home depot consumer** - - Home Depot consumer (016)   * **mbna** - - MBNA (017)   * **dicks sportswear** - - Dicks Sportswear (018)   * **casual corner** - - Casual Corner (019)   * **sears** - - Sears (020)   * **jal** - - JAL (021)   * **disney** - - Disney (023)   * **maestro uk domestic** - - Maestro (024) - UK Domestic   * **sams club consumer** - - Sams Club consumer (025)   * **sams club business** - - Sams Club business (026)   * **bill me later** - - Bill me later (028)   * **bebe** - - Bebe (029)   * **restoration hardware** - - Restoration Hardware (030)   * **delta online** - - Delta (031) — use this value only for Ingenico ePayments. For other processors, use 001 for all Visa card types.   * **solo** - - Solo (032)   * **visa electron** - - Visa Electron (033)   * **dankort** - - Dankort (034)   * **laser** - - Laser (035)   * **carte bleue** - - Carte Bleue (036) — formerly Cartes Bancaires   * **carta si** - - Carta Si (037)   * **pinless debit** - - pinless debit (038)   * **encoded account** - - encoded account (039)   * **uatp** - - UATP (040)   * **household** - - Household (041)   * **maestro international** - - Maestro (042) - International   * **ge money uk** - - GE Money UK (043)   * **korean cards** - - Korean cards (044)   * **style** - - Style (045)   * **jcrew** - - JCrew (046)   * **payease china processing ewallet** - - PayEase China processing eWallet (047)   * **payease china processing bank transfer** - - PayEase China processing bank transfer (048)   * **meijer private label** - - Meijer Private Label (049)   * **hipercard** - - Hipercard (050) — supported only by the Comercio Latino processor.   * **aura** - - Aura (051) — supported only by the Comercio Latino processor.   * **redecard** - - Redecard (052)   * **elo** - - Elo (054) — supported only by the Comercio Latino processor.   * **capital one private label** - - Capital One Private Label (055)   * **synchrony private label** - - Synchrony Private Label (056)   * **costco private label** - - Costco Private Label (057)   * **mada** - - mada (060)   * **china union pay** - - China Union Pay (062)   * **falabella private label** - - Falabella private label (063) 
+        /// </summary>
+        /// <value>Type of credit card. Possible values:   * **visa** - - Visa (001)   * **mastercard** - - Mastercard (002) - Eurocard—European regional brand of Mastercard   * **american express** - - American Express (003)   * **discover** - - Discover (004)   * **diners club** - - Diners Club (005)   * **carte blanche** - - Carte Blanche (006)   * **jcb** - - JCB (007)   * **optima** - - Optima (008)   * **twinpay credit** - - Twinpay Credit (011)   * **twinpay debit** - - Twinpay Debit (012)   * **walmart** - - Walmart (013)   * **enroute** - - EnRoute (014)   * **lowes consumer** - - Lowes consumer (015)   * **home depot consumer** - - Home Depot consumer (016)   * **mbna** - - MBNA (017)   * **dicks sportswear** - - Dicks Sportswear (018)   * **casual corner** - - Casual Corner (019)   * **sears** - - Sears (020)   * **jal** - - JAL (021)   * **disney** - - Disney (023)   * **maestro uk domestic** - - Maestro (024) - UK Domestic   * **sams club consumer** - - Sams Club consumer (025)   * **sams club business** - - Sams Club business (026)   * **bill me later** - - Bill me later (028)   * **bebe** - - Bebe (029)   * **restoration hardware** - - Restoration Hardware (030)   * **delta online** - - Delta (031) — use this value only for Ingenico ePayments. For other processors, use 001 for all Visa card types.   * **solo** - - Solo (032)   * **visa electron** - - Visa Electron (033)   * **dankort** - - Dankort (034)   * **laser** - - Laser (035)   * **carte bleue** - - Carte Bleue (036) — formerly Cartes Bancaires   * **carta si** - - Carta Si (037)   * **pinless debit** - - pinless debit (038)   * **encoded account** - - encoded account (039)   * **uatp** - - UATP (040)   * **household** - - Household (041)   * **maestro international** - - Maestro (042) - International   * **ge money uk** - - GE Money UK (043)   * **korean cards** - - Korean cards (044)   * **style** - - Style (045)   * **jcrew** - - JCrew (046)   * **payease china processing ewallet** - - PayEase China processing eWallet (047)   * **payease china processing bank transfer** - - PayEase China processing bank transfer (048)   * **meijer private label** - - Meijer Private Label (049)   * **hipercard** - - Hipercard (050) — supported only by the Comercio Latino processor.   * **aura** - - Aura (051) — supported only by the Comercio Latino processor.   * **redecard** - - Redecard (052)   * **elo** - - Elo (054) — supported only by the Comercio Latino processor.   * **capital one private label** - - Capital One Private Label (055)   * **synchrony private label** - - Synchrony Private Label (056)   * **costco private label** - - Costco Private Label (057)   * **mada** - - mada (060)   * **china union pay** - - China Union Pay (062)   * **falabella private label** - - Falabella private label (063) </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Number of times a Maestro (UK Domestic) card has been issued to the account holder.
@@ -589,63 +238,63 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ExpirationMonth (string) maxLength
-            if(this.ExpirationMonth != null && this.ExpirationMonth.Length > 2)
+            if(this.ExpirationMonth != null && this.ExpirationMonth.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationMonth, length must be less than 2.", new [] { "ExpirationMonth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationMonth, length must be less than or equal to 2.", new [] { "ExpirationMonth" });
             }
 
             // ExpirationMonth (string) minLength
-            if(this.ExpirationMonth != null && this.ExpirationMonth.Length < 2)
+            if(this.ExpirationMonth != null && this.ExpirationMonth.Length <= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationMonth, length must be greater than 2.", new [] { "ExpirationMonth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationMonth, length must be greater than or equal to 2.", new [] { "ExpirationMonth" });
             }
 
             // ExpirationYear (string) maxLength
-            if(this.ExpirationYear != null && this.ExpirationYear.Length > 4)
+            if(this.ExpirationYear != null && this.ExpirationYear.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationYear, length must be less than 4.", new [] { "ExpirationYear" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationYear, length must be less than or equal to 4.", new [] { "ExpirationYear" });
             }
 
             // ExpirationYear (string) minLength
-            if(this.ExpirationYear != null && this.ExpirationYear.Length < 4)
+            if(this.ExpirationYear != null && this.ExpirationYear.Length <= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationYear, length must be greater than 4.", new [] { "ExpirationYear" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationYear, length must be greater than or equal to 4.", new [] { "ExpirationYear" });
             }
 
             // IssueNumber (string) maxLength
-            if(this.IssueNumber != null && this.IssueNumber.Length > 2)
+            if(this.IssueNumber != null && this.IssueNumber.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IssueNumber, length must be less than 2.", new [] { "IssueNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IssueNumber, length must be less than or equal to 2.", new [] { "IssueNumber" });
             }
 
             // IssueNumber (string) minLength
-            if(this.IssueNumber != null && this.IssueNumber.Length < 1)
+            if(this.IssueNumber != null && this.IssueNumber.Length <= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IssueNumber, length must be greater than 1.", new [] { "IssueNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IssueNumber, length must be greater than or equal to 1.", new [] { "IssueNumber" });
             }
 
             // StartMonth (string) maxLength
-            if(this.StartMonth != null && this.StartMonth.Length > 2)
+            if(this.StartMonth != null && this.StartMonth.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartMonth, length must be less than 2.", new [] { "StartMonth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartMonth, length must be less than or equal to 2.", new [] { "StartMonth" });
             }
 
             // StartMonth (string) minLength
-            if(this.StartMonth != null && this.StartMonth.Length < 2)
+            if(this.StartMonth != null && this.StartMonth.Length <= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartMonth, length must be greater than 2.", new [] { "StartMonth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartMonth, length must be greater than or equal to 2.", new [] { "StartMonth" });
             }
 
             // StartYear (string) maxLength
-            if(this.StartYear != null && this.StartYear.Length > 4)
+            if(this.StartYear != null && this.StartYear.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartYear, length must be less than 4.", new [] { "StartYear" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartYear, length must be less than or equal to 4.", new [] { "StartYear" });
             }
 
             // StartYear (string) minLength
-            if(this.StartYear != null && this.StartYear.Length < 4)
+            if(this.StartYear != null && this.StartYear.Length <= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartYear, length must be greater than 4.", new [] { "StartYear" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartYear, length must be greater than or equal to 4.", new [] { "StartYear" });
             }
 
             yield break;

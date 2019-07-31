@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        /// <param name="MerchantDefinedInformation">The description for this field is not available..</param>
+        /// <param name="MerchantDefinedInformation">The object containing the custom data that the merchant defines. .</param>
         /// <param name="InstallmentInformation">InstallmentInformation.</param>
         public CapturePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidcapturesProcessingInformation ProcessingInformation = default(Ptsv2paymentsidcapturesProcessingInformation), Ptsv2paymentsidcapturesPaymentInformation PaymentInformation = default(Ptsv2paymentsidcapturesPaymentInformation), Ptsv2paymentsidcapturesOrderInformation OrderInformation = default(Ptsv2paymentsidcapturesOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsidcapturesMerchantInformation MerchantInformation = default(Ptsv2paymentsidcapturesMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidcapturesPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsidcapturesInstallmentInformation InstallmentInformation = default(Ptsv2paymentsidcapturesInstallmentInformation))
         {
@@ -114,9 +114,9 @@ namespace CyberSource.Model
         public Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// The object containing the custom data that the merchant defines. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The object containing the custom data that the merchant defines. </value>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
         public List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
 

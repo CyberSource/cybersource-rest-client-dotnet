@@ -140,9 +140,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ShippingMethod (string) maxLength
-            if(this.ShippingMethod != null && this.ShippingMethod.Length > 10)
+            if(this.ShippingMethod != null && this.ShippingMethod.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShippingMethod, length must be less than 10.", new [] { "ShippingMethod" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShippingMethod, length must be less than or equal to 10.", new [] { "ShippingMethod" });
             }
 
             yield break;

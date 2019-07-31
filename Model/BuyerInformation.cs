@@ -173,33 +173,33 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CompanyTaxID (string) maxLength
-            if(this.CompanyTaxID != null && this.CompanyTaxID.Length > 9)
+            if(this.CompanyTaxID != null && this.CompanyTaxID.Length >= 9)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompanyTaxID, length must be less than 9.", new [] { "CompanyTaxID" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompanyTaxID, length must be less than or equal to 9.", new [] { "CompanyTaxID" });
             }
 
             // Currency (string) maxLength
-            if(this.Currency != null && this.Currency.Length > 3)
+            if(this.Currency != null && this.Currency.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 3.", new [] { "Currency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than or equal to 3.", new [] { "Currency" });
             }
 
             // Currency (string) minLength
-            if(this.Currency != null && this.Currency.Length < 3)
+            if(this.Currency != null && this.Currency.Length <= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 3.", new [] { "Currency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than or equal to 3.", new [] { "Currency" });
             }
 
             // DateOBirth (string) maxLength
-            if(this.DateOBirth != null && this.DateOBirth.Length > 10)
+            if(this.DateOBirth != null && this.DateOBirth.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOBirth, length must be less than 10.", new [] { "DateOBirth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOBirth, length must be less than or equal to 10.", new [] { "DateOBirth" });
             }
 
             // DateOBirth (string) minLength
-            if(this.DateOBirth != null && this.DateOBirth.Length < 8)
+            if(this.DateOBirth != null && this.DateOBirth.Length <= 8)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOBirth, length must be greater than 8.", new [] { "DateOBirth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOBirth, length must be greater than or equal to 8.", new [] { "DateOBirth" });
             }
 
             yield break;

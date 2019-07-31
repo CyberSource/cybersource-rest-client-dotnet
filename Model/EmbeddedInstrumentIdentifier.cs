@@ -31,54 +31,6 @@ namespace CyberSource.Model
     public partial class EmbeddedInstrumentIdentifier :  IEquatable<EmbeddedInstrumentIdentifier>, IValidatableObject
     {
         /// <summary>
-        /// Describes type of token.
-        /// </summary>
-        /// <value>Describes type of token.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ObjectEnum
-        {
-            
-            /// <summary>
-            /// Enum InstrumentIdentifier for "instrumentIdentifier"
-            /// </summary>
-            [EnumMember(Value = "instrumentIdentifier")]
-            InstrumentIdentifier
-        }
-
-        /// <summary>
-        /// Current state of the token.
-        /// </summary>
-        /// <value>Current state of the token.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StateEnum
-        {
-            
-            /// <summary>
-            /// Enum ACTIVE for "ACTIVE"
-            /// </summary>
-            [EnumMember(Value = "ACTIVE")]
-            ACTIVE,
-            
-            /// <summary>
-            /// Enum CLOSED for "CLOSED"
-            /// </summary>
-            [EnumMember(Value = "CLOSED")]
-            CLOSED
-        }
-
-        /// <summary>
-        /// Describes type of token.
-        /// </summary>
-        /// <value>Describes type of token.</value>
-        [DataMember(Name="object", EmitDefaultValue=false)]
-        public ObjectEnum? _Object { get; set; }
-        /// <summary>
-        /// Current state of the token.
-        /// </summary>
-        /// <value>Current state of the token.</value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
-        public StateEnum? State { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedInstrumentIdentifier" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
@@ -103,7 +55,19 @@ namespace CyberSource.Model
         [DataMember(Name="_links", EmitDefaultValue=false)]
         public TmsV1InstrumentIdentifiersPost200ResponseLinks Links { get; set; }
 
+        /// <summary>
+        /// &#39;Describes type of token.&#39;  Valid values: - instrumentIdentifier 
+        /// </summary>
+        /// <value>&#39;Describes type of token.&#39;  Valid values: - instrumentIdentifier </value>
+        [DataMember(Name="object", EmitDefaultValue=false)]
+        public string _Object { get; private set; }
 
+        /// <summary>
+        /// &#39;Current state of the token.&#39;              Valid values: - ACTIVE - CLOSED 
+        /// </summary>
+        /// <value>&#39;Current state of the token.&#39;              Valid values: - ACTIVE - CLOSED </value>
+        [DataMember(Name="state", EmitDefaultValue=false)]
+        public string State { get; private set; }
 
         /// <summary>
         /// The ID of the existing instrument identifier to be linked to the newly created payment instrument.
@@ -269,15 +233,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) maxLength
-            if(this.Id != null && this.Id.Length > 32)
+            if(this.Id != null && this.Id.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 32.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than or equal to 32.", new [] { "Id" });
             }
 
             // Id (string) minLength
-            if(this.Id != null && this.Id.Length < 16)
+            if(this.Id != null && this.Id.Length <= 16)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 16.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than or equal to 16.", new [] { "Id" });
             }
 
             yield break;

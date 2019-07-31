@@ -208,21 +208,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // IpAddress (string) maxLength
-            if(this.IpAddress != null && this.IpAddress.Length > 15)
+            if(this.IpAddress != null && this.IpAddress.Length >= 48)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IpAddress, length must be less than 15.", new [] { "IpAddress" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IpAddress, length must be less than or equal to 48.", new [] { "IpAddress" });
             }
 
             // HostName (string) maxLength
-            if(this.HostName != null && this.HostName.Length > 60)
+            if(this.HostName != null && this.HostName.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HostName, length must be less than 60.", new [] { "HostName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HostName, length must be less than or equal to 60.", new [] { "HostName" });
             }
 
             // UserAgent (string) maxLength
-            if(this.UserAgent != null && this.UserAgent.Length > 40)
+            if(this.UserAgent != null && this.UserAgent.Length >= 40)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserAgent, length must be less than 40.", new [] { "UserAgent" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserAgent, length must be less than or equal to 40.", new [] { "UserAgent" });
             }
 
             yield break;

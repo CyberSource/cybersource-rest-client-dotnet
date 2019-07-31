@@ -31,34 +31,13 @@ namespace CyberSource.Model
     public partial class TssV2TransactionsPost400Response :  IEquatable<TssV2TransactionsPost400Response>, IValidatableObject
     {
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
-        /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum REQUEST for "INVALID_REQUEST"
-            /// </summary>
-            [EnumMember(Value = "INVALID_REQUEST")]
-            REQUEST
-        }
-
-        /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
-        /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost400Response" /> class.
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
         /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
-        public TssV2TransactionsPost400Response(string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
+        public TssV2TransactionsPost400Response(string SubmitTimeUtc = default(string), string Status = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
@@ -73,6 +52,12 @@ namespace CyberSource.Model
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
+        /// <summary>
+        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
+        /// </summary>
+        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// The detail message related to the status and reason listed above.

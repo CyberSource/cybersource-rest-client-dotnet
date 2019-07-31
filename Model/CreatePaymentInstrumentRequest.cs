@@ -31,54 +31,6 @@ namespace CyberSource.Model
     public partial class CreatePaymentInstrumentRequest :  IEquatable<CreatePaymentInstrumentRequest>, IValidatableObject
     {
         /// <summary>
-        /// Describes type of token.
-        /// </summary>
-        /// <value>Describes type of token.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ObjectEnum
-        {
-            
-            /// <summary>
-            /// Enum PaymentInstrument for "paymentInstrument"
-            /// </summary>
-            [EnumMember(Value = "paymentInstrument")]
-            PaymentInstrument
-        }
-
-        /// <summary>
-        /// Current state of the token.
-        /// </summary>
-        /// <value>Current state of the token.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StateEnum
-        {
-            
-            /// <summary>
-            /// Enum ACTIVE for "ACTIVE"
-            /// </summary>
-            [EnumMember(Value = "ACTIVE")]
-            ACTIVE,
-            
-            /// <summary>
-            /// Enum CLOSED for "CLOSED"
-            /// </summary>
-            [EnumMember(Value = "CLOSED")]
-            CLOSED
-        }
-
-        /// <summary>
-        /// Describes type of token.
-        /// </summary>
-        /// <value>Describes type of token.</value>
-        [DataMember(Name="object", EmitDefaultValue=false)]
-        public ObjectEnum? _Object { get; set; }
-        /// <summary>
-        /// Current state of the token.
-        /// </summary>
-        /// <value>Current state of the token.</value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
-        public StateEnum? State { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="CreatePaymentInstrumentRequest" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
@@ -116,7 +68,19 @@ namespace CyberSource.Model
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; private set; }
 
+        /// <summary>
+        /// &#39;Describes type of token.&#39;  Valid values: - paymentInstrument 
+        /// </summary>
+        /// <value>&#39;Describes type of token.&#39;  Valid values: - paymentInstrument </value>
+        [DataMember(Name="object", EmitDefaultValue=false)]
+        public string _Object { get; private set; }
 
+        /// <summary>
+        /// &#39;Current state of the token.&#39;  Valid values: - ACTIVE - CLOSED 
+        /// </summary>
+        /// <value>&#39;Current state of the token.&#39;  Valid values: - ACTIVE - CLOSED </value>
+        [DataMember(Name="state", EmitDefaultValue=false)]
+        public string State { get; private set; }
 
         /// <summary>
         /// Gets or Sets BankAccount

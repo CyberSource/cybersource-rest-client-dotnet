@@ -30,32 +30,6 @@ namespace CyberSource.Model
     [DataContract]
     public partial class ReportingV3ReportDefinitionsNameGet200Response :  IEquatable<ReportingV3ReportDefinitionsNameGet200Response>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets SupportedFormats
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SupportedFormatsEnum
-        {
-            
-            /// <summary>
-            /// Enum ApplicationXml for "application/xml"
-            /// </summary>
-            [EnumMember(Value = "application/xml")]
-            ApplicationXml,
-            
-            /// <summary>
-            /// Enum TextCsv for "text/csv"
-            /// </summary>
-            [EnumMember(Value = "text/csv")]
-            TextCsv
-        }
-
-        /// <summary>
-        /// Gets or Sets SupportedFormats
-        /// </summary>
-        [DataMember(Name="supportedFormats", EmitDefaultValue=false)]
-        public List<SupportedFormatsEnum> SupportedFormats { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3ReportDefinitionsNameGet200Response" /> class.
         /// </summary>
@@ -65,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="Attributes">Attributes.</param>
         /// <param name="SupportedFormats">SupportedFormats.</param>
         /// <param name="Description">Description.</param>
-        public ReportingV3ReportDefinitionsNameGet200Response(string Type = default(string), int? ReportDefinitionId = default(int?), string ReportDefintionName = default(string), List<ReportingV3ReportDefinitionsNameGet200ResponseAttributes> Attributes = default(List<ReportingV3ReportDefinitionsNameGet200ResponseAttributes>), List<SupportedFormatsEnum> SupportedFormats = default(List<SupportedFormatsEnum>), string Description = default(string))
+        public ReportingV3ReportDefinitionsNameGet200Response(string Type = default(string), int? ReportDefinitionId = default(int?), string ReportDefintionName = default(string), List<ReportingV3ReportDefinitionsNameGet200ResponseAttributes> Attributes = default(List<ReportingV3ReportDefinitionsNameGet200ResponseAttributes>), List<string> SupportedFormats = default(List<string>), string Description = default(string))
         {
             this.Type = Type;
             this.ReportDefinitionId = ReportDefinitionId;
@@ -99,6 +73,11 @@ namespace CyberSource.Model
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public List<ReportingV3ReportDefinitionsNameGet200ResponseAttributes> Attributes { get; set; }
 
+        /// <summary>
+        /// Gets or Sets SupportedFormats
+        /// </summary>
+        [DataMember(Name="supportedFormats", EmitDefaultValue=false)]
+        public List<string> SupportedFormats { get; set; }
 
         /// <summary>
         /// Gets or Sets Description

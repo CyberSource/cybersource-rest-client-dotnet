@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // PreviousTransactionId (string) maxLength
-            if(this.PreviousTransactionId != null && this.PreviousTransactionId.Length > 15)
+            if(this.PreviousTransactionId != null && this.PreviousTransactionId.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreviousTransactionId, length must be less than 15.", new [] { "PreviousTransactionId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreviousTransactionId, length must be less than or equal to 15.", new [] { "PreviousTransactionId" });
             }
 
             yield break;

@@ -81,12 +81,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'LastName'
         }
         /// <summary>
-        /// Test the property 'MiddelName'
+        /// Test the property 'MiddleName'
         /// </summary>
         [Test]
-        public void MiddelNameTest()
+        public void MiddleNameTest()
         {
-            // TODO unit test for the property 'MiddelName'
+            // TODO unit test for the property 'MiddleName'
         }
         /// <summary>
         /// Test the property 'NameSuffix'

@@ -71,7 +71,7 @@ No authorization required
 
 <a name="getsearch"></a>
 # **GetSearch**
-> TssV2TransactionsPost201Response GetSearch (string searchId)
+> TssV2TransactionsPost201Response1 GetSearch (string searchId)
 
 Get Search results
 
@@ -97,7 +97,7 @@ namespace Example
             try
             {
                 // Get Search results
-                TssV2TransactionsPost201Response result = apiInstance.GetSearch(searchId);
+                TssV2TransactionsPost201Response1 result = apiInstance.GetSearch(searchId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TssV2TransactionsPost201Response**](TssV2TransactionsPost201Response.md)
+[**TssV2TransactionsPost201Response1**](TssV2TransactionsPost201Response1.md)
 
 ### Authorization
 

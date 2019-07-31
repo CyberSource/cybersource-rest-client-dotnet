@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ReferenceNumber (string) maxLength
-            if(this.ReferenceNumber != null && this.ReferenceNumber.Length > 19)
+            if(this.ReferenceNumber != null && this.ReferenceNumber.Length >= 19)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceNumber, length must be less than 19.", new [] { "ReferenceNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceNumber, length must be less than or equal to 19.", new [] { "ReferenceNumber" });
             }
 
             yield break;

@@ -190,27 +190,27 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ActualFinalDestination (string) maxLength
-            if(this.ActualFinalDestination != null && this.ActualFinalDestination.Length > 3)
+            if(this.ActualFinalDestination != null && this.ActualFinalDestination.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ActualFinalDestination, length must be less than 3.", new [] { "ActualFinalDestination" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ActualFinalDestination, length must be less than or equal to 3.", new [] { "ActualFinalDestination" });
             }
 
             // CompleteRoute (string) maxLength
-            if(this.CompleteRoute != null && this.CompleteRoute.Length > 255)
+            if(this.CompleteRoute != null && this.CompleteRoute.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompleteRoute, length must be less than 255.", new [] { "CompleteRoute" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompleteRoute, length must be less than or equal to 255.", new [] { "CompleteRoute" });
             }
 
             // DepartureTime (string) maxLength
-            if(this.DepartureTime != null && this.DepartureTime.Length > 25)
+            if(this.DepartureTime != null && this.DepartureTime.Length >= 25)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DepartureTime, length must be less than 25.", new [] { "DepartureTime" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DepartureTime, length must be less than or equal to 25.", new [] { "DepartureTime" });
             }
 
             // JourneyType (string) maxLength
-            if(this.JourneyType != null && this.JourneyType.Length > 32)
+            if(this.JourneyType != null && this.JourneyType.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for JourneyType, length must be less than 32.", new [] { "JourneyType" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for JourneyType, length must be less than or equal to 32.", new [] { "JourneyType" });
             }
 
             yield break;

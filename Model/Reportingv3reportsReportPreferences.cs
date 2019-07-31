@@ -31,38 +31,11 @@ namespace CyberSource.Model
     public partial class Reportingv3reportsReportPreferences :  IEquatable<Reportingv3reportsReportPreferences>, IValidatableObject
     {
         /// <summary>
-        /// Specify the field naming convention to be followed in reports (applicable to only csv report formats
-        /// </summary>
-        /// <value>Specify the field naming convention to be followed in reports (applicable to only csv report formats</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum FieldNameConventionEnum
-        {
-            
-            /// <summary>
-            /// Enum SOAPI for "SOAPI"
-            /// </summary>
-            [EnumMember(Value = "SOAPI")]
-            SOAPI,
-            
-            /// <summary>
-            /// Enum SCMP for "SCMP"
-            /// </summary>
-            [EnumMember(Value = "SCMP")]
-            SCMP
-        }
-
-        /// <summary>
-        /// Specify the field naming convention to be followed in reports (applicable to only csv report formats
-        /// </summary>
-        /// <value>Specify the field naming convention to be followed in reports (applicable to only csv report formats</value>
-        [DataMember(Name="fieldNameConvention", EmitDefaultValue=false)]
-        public FieldNameConventionEnum? FieldNameConvention { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Reportingv3reportsReportPreferences" /> class.
         /// </summary>
         /// <param name="SignedAmounts">Indicator to determine whether negative sign infront of amount for all refunded transaction.</param>
-        /// <param name="FieldNameConvention">Specify the field naming convention to be followed in reports (applicable to only csv report formats.</param>
-        public Reportingv3reportsReportPreferences(bool? SignedAmounts = default(bool?), FieldNameConventionEnum? FieldNameConvention = default(FieldNameConventionEnum?))
+        /// <param name="FieldNameConvention">Specify the field naming convention to be followed in reports (applicable to only csv report formats)  Valid values: - SOAPI - SCMP .</param>
+        public Reportingv3reportsReportPreferences(bool? SignedAmounts = default(bool?), string FieldNameConvention = default(string))
         {
             this.SignedAmounts = SignedAmounts;
             this.FieldNameConvention = FieldNameConvention;
@@ -75,6 +48,12 @@ namespace CyberSource.Model
         [DataMember(Name="signedAmounts", EmitDefaultValue=false)]
         public bool? SignedAmounts { get; set; }
 
+        /// <summary>
+        /// Specify the field naming convention to be followed in reports (applicable to only csv report formats)  Valid values: - SOAPI - SCMP 
+        /// </summary>
+        /// <value>Specify the field naming convention to be followed in reports (applicable to only csv report formats)  Valid values: - SOAPI - SCMP </value>
+        [DataMember(Name="fieldNameConvention", EmitDefaultValue=false)]
+        public string FieldNameConvention { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

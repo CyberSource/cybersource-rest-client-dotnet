@@ -242,51 +242,51 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Type (string) maxLength
-            if(this.Type != null && this.Type.Length > 32)
+            if(this.Type != null && this.Type.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 32.", new [] { "Type" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than or equal to 32.", new [] { "Type" });
             }
 
             // Status (string) maxLength
-            if(this.Status != null && this.Status.Length > 32)
+            if(this.Status != null && this.Status.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Status, length must be less than 32.", new [] { "Status" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Status, length must be less than or equal to 32.", new [] { "Status" });
             }
 
             // Phone (string) maxLength
-            if(this.Phone != null && this.Phone.Length > 15)
+            if(this.Phone != null && this.Phone.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Phone, length must be less than 15.", new [] { "Phone" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Phone, length must be less than or equal to 15.", new [] { "Phone" });
             }
 
             // FirstName (string) maxLength
-            if(this.FirstName != null && this.FirstName.Length > 60)
+            if(this.FirstName != null && this.FirstName.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, length must be less than 60.", new [] { "FirstName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, length must be less than or equal to 60.", new [] { "FirstName" });
             }
 
             // LastName (string) maxLength
-            if(this.LastName != null && this.LastName.Length > 60)
+            if(this.LastName != null && this.LastName.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be less than 60.", new [] { "LastName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be less than or equal to 60.", new [] { "LastName" });
             }
 
             // Id (string) maxLength
-            if(this.Id != null && this.Id.Length > 40)
+            if(this.Id != null && this.Id.Length >= 40)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 40.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than or equal to 40.", new [] { "Id" });
             }
 
             // Email (string) maxLength
-            if(this.Email != null && this.Email.Length > 255)
+            if(this.Email != null && this.Email.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than 255.", new [] { "Email" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than or equal to 255.", new [] { "Email" });
             }
 
             // Nationality (string) maxLength
-            if(this.Nationality != null && this.Nationality.Length > 2)
+            if(this.Nationality != null && this.Nationality.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Nationality, length must be less than 2.", new [] { "Nationality" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Nationality, length must be less than or equal to 2.", new [] { "Nationality" });
             }
 
             yield break;
