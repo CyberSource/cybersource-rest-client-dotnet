@@ -53,8 +53,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
-        /// <returns>TssV2TransactionsPost201Response1</returns>
-        TssV2TransactionsPost201Response1 GetSearch (string searchId);
+        /// <returns>TssV2TransactionsPost201Response</returns>
+        TssV2TransactionsPost201Response GetSearch (string searchId);
 
         /// <summary>
         /// Get Search results
@@ -64,8 +64,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
-        /// <returns>ApiResponse of TssV2TransactionsPost201Response1</returns>
-        ApiResponse<TssV2TransactionsPost201Response1> GetSearchWithHttpInfo (string searchId);
+        /// <returns>ApiResponse of TssV2TransactionsPost201Response</returns>
+        ApiResponse<TssV2TransactionsPost201Response> GetSearchWithHttpInfo (string searchId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -97,8 +97,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
-        /// <returns>Task of TssV2TransactionsPost201Response1</returns>
-        System.Threading.Tasks.Task<TssV2TransactionsPost201Response1> GetSearchAsync (string searchId);
+        /// <returns>Task of TssV2TransactionsPost201Response</returns>
+        System.Threading.Tasks.Task<TssV2TransactionsPost201Response> GetSearchAsync (string searchId);
 
         /// <summary>
         /// Get Search results
@@ -108,8 +108,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
-        /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response1)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response1>> GetSearchAsyncWithHttpInfo (string searchId);
+        /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> GetSearchAsyncWithHttpInfo (string searchId);
         #endregion Asynchronous Operations
     }
 
@@ -372,10 +372,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
-        /// <returns>TssV2TransactionsPost201Response1</returns>
-        public TssV2TransactionsPost201Response1 GetSearch (string searchId)
+        /// <returns>TssV2TransactionsPost201Response</returns>
+        public TssV2TransactionsPost201Response GetSearch (string searchId)
         {
-             ApiResponse<TssV2TransactionsPost201Response1> localVarResponse = GetSearchWithHttpInfo(searchId);
+             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = GetSearchWithHttpInfo(searchId);
              return localVarResponse.Data;
         }
 
@@ -384,8 +384,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
-        /// <returns>ApiResponse of TssV2TransactionsPost201Response1</returns>
-        public ApiResponse< TssV2TransactionsPost201Response1 > GetSearchWithHttpInfo (string searchId)
+        /// <returns>ApiResponse of TssV2TransactionsPost201Response</returns>
+        public ApiResponse< TssV2TransactionsPost201Response > GetSearchWithHttpInfo (string searchId)
         {
             // verify the required parameter 'searchId' is set
             if (searchId == null)
@@ -429,9 +429,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<TssV2TransactionsPost201Response1>(localVarStatusCode,
+            return new ApiResponse<TssV2TransactionsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TssV2TransactionsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsPost201Response1)));
+                (TssV2TransactionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsPost201Response)));
         }
 
         /// <summary>
@@ -439,10 +439,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
-        /// <returns>Task of TssV2TransactionsPost201Response1</returns>
-        public async System.Threading.Tasks.Task<TssV2TransactionsPost201Response1> GetSearchAsync (string searchId)
+        /// <returns>Task of TssV2TransactionsPost201Response</returns>
+        public async System.Threading.Tasks.Task<TssV2TransactionsPost201Response> GetSearchAsync (string searchId)
         {
-             ApiResponse<TssV2TransactionsPost201Response1> localVarResponse = await GetSearchAsyncWithHttpInfo(searchId);
+             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = await GetSearchAsyncWithHttpInfo(searchId);
              return localVarResponse.Data;
 
         }
@@ -452,8 +452,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
-        /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response1)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response1>> GetSearchAsyncWithHttpInfo (string searchId)
+        /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> GetSearchAsyncWithHttpInfo (string searchId)
         {
             // verify the required parameter 'searchId' is set
             if (searchId == null)
@@ -497,9 +497,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<TssV2TransactionsPost201Response1>(localVarStatusCode,
+            return new ApiResponse<TssV2TransactionsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TssV2TransactionsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsPost201Response1)));
+                (TssV2TransactionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsPost201Response)));
         }
 
     }

@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string searchId = null;
             //var response = instance.GetSearch(searchId);
-            //Assert.IsInstanceOf<TssV2TransactionsPost201Response1> (response, "response is TssV2TransactionsPost201Response1");
+            //Assert.IsInstanceOf<TssV2TransactionsPost201Response> (response, "response is TssV2TransactionsPost201Response");
         }
         
     }
