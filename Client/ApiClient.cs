@@ -231,6 +231,12 @@ namespace CyberSource.Client
 			
 			RestClient.ClearHandlers();
 
+            if (Configuration.Proxy != null)
+            {
+                RestClient.Proxy = Configuration.Proxy.;
+            }
+
+
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
@@ -595,7 +601,12 @@ namespace CyberSource.Client
 
             //Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
-            RestClient = new RestClient("https://" + merchantConfig.HostName);            
+            RestClient = new RestClient("https://" + merchantConfig.HostName);  
+            
+            if (Configuration.Proxy != null)
+            {
+                RestClient.Proxy = Configuration.Proxy;
+            }
         }
     }
 }
