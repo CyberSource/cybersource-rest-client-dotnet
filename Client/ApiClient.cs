@@ -233,7 +233,7 @@ namespace CyberSource.Client
 
             if (Configuration.Proxy != null)
             {
-                RestClient.Proxy = Configuration.Proxy.;
+                RestClient.Proxy = Configuration.Proxy;
             }
 
 
@@ -597,6 +597,25 @@ namespace CyberSource.Client
 
                 if (merchantConfig.IsPostRequest || merchantConfig.IsPutRequest || merchantConfig.IsPatchRequest)
                     authenticationHeaders.Add("Digest", httpSign.Digest);
+            }
+
+            // Pull WebProxy settings from configuration.
+            if (Configuration.Proxy == null && !string.IsNullOrWhiteSpace(merchantConfig.ProxyAddress))
+            {
+                // TODO:  Suggest population of other WebProxy parameters:
+                // ByPassArrayList, ByPassList, ByPassProxyOnLocal, Credentials, UseDefaultCredentials.
+                // Requires update of AuthenticationSdk.core.MerchantConfig
+
+                Uri proxyUri = new Uri(merchantConfig.ProxyAddress);
+                var webProxy = new WebProxy(proxyUri);
+                int port = Convert.ToInt32(merchantConfig.ProxyPort);
+                if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyPort)
+                    && proxyUri.Port != port && port > 0)
+                {
+                    webProxy = new WebProxy(proxyUri.ToString(), port);
+                }
+
+                Configuration.AddWebProxy(webProxy);
             }
 
             //Set the Configuration
