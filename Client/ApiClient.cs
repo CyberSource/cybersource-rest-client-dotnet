@@ -231,6 +231,12 @@ namespace CyberSource.Client
 			
 			RestClient.ClearHandlers();
 
+            if (Configuration.Proxy != null)
+            {
+                RestClient.Proxy = Configuration.Proxy;
+            }
+
+
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
@@ -593,9 +599,33 @@ namespace CyberSource.Client
                     authenticationHeaders.Add("Digest", httpSign.Digest);
             }
 
+            // Pull WebProxy settings from configuration.
+            if (Configuration.Proxy == null && !string.IsNullOrWhiteSpace(merchantConfig.ProxyAddress))
+            {
+                // TODO:  Suggest population of other WebProxy parameters:
+                // ByPassArrayList, ByPassList, ByPassProxyOnLocal, Credentials, UseDefaultCredentials.
+                // Requires update of AuthenticationSdk.core.MerchantConfig
+
+                Uri proxyUri = new Uri(merchantConfig.ProxyAddress);
+                var webProxy = new WebProxy(proxyUri);
+                int port = Convert.ToInt32(merchantConfig.ProxyPort);
+                if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyPort)
+                    && proxyUri.Port != port && port > 0)
+                {
+                    webProxy = new WebProxy(proxyUri.ToString(), port);
+                }
+
+                Configuration.AddWebProxy(webProxy);
+            }
+
             //Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
-            RestClient = new RestClient("https://" + merchantConfig.HostName);            
+            RestClient = new RestClient("https://" + merchantConfig.HostName);  
+            
+            if (Configuration.Proxy != null)
+            {
+                RestClient.Proxy = Configuration.Proxy;
+            }
         }
     }
 }
