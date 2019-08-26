@@ -73,20 +73,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Self'
         }
         /// <summary>
-        /// Test the property 'Ancestor'
+        /// Test the property 'Documentation'
         /// </summary>
         [Test]
-        public void AncestorTest()
+        public void DocumentationTest()
         {
-            // TODO unit test for the property 'Ancestor'
+            // TODO unit test for the property 'Documentation'
         }
         /// <summary>
-        /// Test the property 'Successor'
+        /// Test the property 'Next'
         /// </summary>
         [Test]
-        public void SuccessorTest()
+        public void NextTest()
         {
-            // TODO unit test for the property 'Successor'
+            // TODO unit test for the property 'Next'
         }
 
     }

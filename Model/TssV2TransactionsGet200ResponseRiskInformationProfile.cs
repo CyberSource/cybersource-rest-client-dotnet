@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseRiskInformationProfile" /> class.
         /// </summary>
-        /// <param name="Name">The description for this field is not available..</param>
-        /// <param name="Decision">The description for this field is not available..</param>
+        /// <param name="Name">The name of the profile. .</param>
+        /// <param name="Decision">Decision returned by the profile; this field contains one of these values: - ACCEPT - REJECT - REVIEW .</param>
         public TssV2TransactionsGet200ResponseRiskInformationProfile(string Name = default(string), string Decision = default(string))
         {
             this.Name = Name;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The description for this field is not available.
+        /// The name of the profile. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The name of the profile. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Decision returned by the profile; this field contains one of these values: - ACCEPT - REJECT - REVIEW 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Decision returned by the profile; this field contains one of these values: - ACCEPT - REJECT - REVIEW </value>
         [DataMember(Name="decision", EmitDefaultValue=false)]
         public string Decision { get; set; }
 

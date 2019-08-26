@@ -35,11 +35,13 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Type">Type of Card.</param>
         /// <param name="Card">Card.</param>
+        /// <param name="BankAccount">BankAccount.</param>
         /// <param name="BillTo">BillTo.</param>
-        public InstrumentIdentifierEnrollableCard(string Type = default(string), Tmsv1instrumentidentifiersCard Card = default(Tmsv1instrumentidentifiersCard), Tmsv1instrumentidentifiersBillTo BillTo = default(Tmsv1instrumentidentifiersBillTo))
+        public InstrumentIdentifierEnrollableCard(string Type = default(string), Tmsv1instrumentidentifiersCard Card = default(Tmsv1instrumentidentifiersCard), Tmsv1instrumentidentifiersBankAccount BankAccount = default(Tmsv1instrumentidentifiersBankAccount), Tmsv1instrumentidentifiersBillTo BillTo = default(Tmsv1instrumentidentifiersBillTo))
         {
             this.Type = Type;
             this.Card = Card;
+            this.BankAccount = BankAccount;
             this.BillTo = BillTo;
         }
         
@@ -57,6 +59,12 @@ namespace CyberSource.Model
         public Tmsv1instrumentidentifiersCard Card { get; set; }
 
         /// <summary>
+        /// Gets or Sets BankAccount
+        /// </summary>
+        [DataMember(Name="BankAccount", EmitDefaultValue=false)]
+        public Tmsv1instrumentidentifiersBankAccount BankAccount { get; set; }
+
+        /// <summary>
         /// Gets or Sets BillTo
         /// </summary>
         [DataMember(Name="billTo", EmitDefaultValue=false)]
@@ -72,6 +80,7 @@ namespace CyberSource.Model
             sb.Append("class InstrumentIdentifierEnrollableCard {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
+            sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  BillTo: ").Append(BillTo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -120,6 +129,11 @@ namespace CyberSource.Model
                     this.Card.Equals(other.Card)
                 ) && 
                 (
+                    this.BankAccount == other.BankAccount ||
+                    this.BankAccount != null &&
+                    this.BankAccount.Equals(other.BankAccount)
+                ) && 
+                (
                     this.BillTo == other.BillTo ||
                     this.BillTo != null &&
                     this.BillTo.Equals(other.BillTo)
@@ -141,6 +155,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
+                if (this.BankAccount != null)
+                    hash = hash * 59 + this.BankAccount.GetHashCode();
                 if (this.BillTo != null)
                     hash = hash * 59 + this.BillTo.GetHashCode();
                 return hash;

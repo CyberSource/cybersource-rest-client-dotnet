@@ -72,6 +72,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Tags'
         }
+        /// <summary>
+        /// Test the property 'ChipValidationType'
+        /// </summary>
+        [Test]
+        public void ChipValidationTypeTest()
+        {
+            // TODO unit test for the property 'ChipValidationType'
+        }
+        /// <summary>
+        /// Test the property 'ChipValidationResult'
+        /// </summary>
+        [Test]
+        public void ChipValidationResultTest()
+        {
+            // TODO unit test for the property 'ChipValidationResult'
+        }
 
     }
 

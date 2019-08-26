@@ -33,13 +33,13 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsPaymentInformationFluidData" /> class.
         /// </summary>
-        /// <param name="Key">The encoded or encrypted value that a payment solution returns for an authorization request. For details about the valid values for a key, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html) .</param>
+        /// <param name="KeySerialNumber">The encoded or encrypted value that a payment solution returns for an authorization request. For details about the valid values for a key, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html) .</param>
         /// <param name="Descriptor">The identifier for a payment solution, which is sending the encrypted payment data to CyberSource for decryption. Valid values: - Samsung Pay: &#x60;RklEPUNPTU1PTi5TQU1TVU5HLklOQVBQLlBBWU1FTlQ&#x3D;&#x60; **NOTE**: For other payment solutions, the value may be specific to the customer&#39;s mobile device. For example, the descriptor for a Bluefin payment encryption would be a device-generated descriptor.  For details about the list of payment solution identifiers, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html).  For details about the encrypted payment data, see the &#x60;encrypted_payment_descriptor&#x60; field description in the [Card-Present Processing Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm). .</param>
         /// <param name="Value">Represents the encrypted payment data BLOB. The entry for this field is dependent on the payment solution a merchant uses.  For details, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html) for the specific payment- solution entry. .</param>
         /// <param name="Encoding">Encoding method used to encrypt the payment data.  Valid value: Base64 .</param>
-        public Ptsv2paymentsPaymentInformationFluidData(string Key = default(string), string Descriptor = default(string), string Value = default(string), string Encoding = default(string))
+        public Ptsv2paymentsPaymentInformationFluidData(string KeySerialNumber = default(string), string Descriptor = default(string), string Value = default(string), string Encoding = default(string))
         {
-            this.Key = Key;
+            this.KeySerialNumber = KeySerialNumber;
             this.Descriptor = Descriptor;
             this.Value = Value;
             this.Encoding = Encoding;
@@ -49,8 +49,8 @@ namespace CyberSource.Model
         /// The encoded or encrypted value that a payment solution returns for an authorization request. For details about the valid values for a key, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html) 
         /// </summary>
         /// <value>The encoded or encrypted value that a payment solution returns for an authorization request. For details about the valid values for a key, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html) </value>
-        [DataMember(Name="key", EmitDefaultValue=false)]
-        public string Key { get; set; }
+        [DataMember(Name="keySerialNumber", EmitDefaultValue=false)]
+        public string KeySerialNumber { get; set; }
 
         /// <summary>
         /// The identifier for a payment solution, which is sending the encrypted payment data to CyberSource for decryption. Valid values: - Samsung Pay: &#x60;RklEPUNPTU1PTi5TQU1TVU5HLklOQVBQLlBBWU1FTlQ&#x3D;&#x60; **NOTE**: For other payment solutions, the value may be specific to the customer&#39;s mobile device. For example, the descriptor for a Bluefin payment encryption would be a device-generated descriptor.  For details about the list of payment solution identifiers, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html).  For details about the encrypted payment data, see the &#x60;encrypted_payment_descriptor&#x60; field description in the [Card-Present Processing Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm). 
@@ -81,7 +81,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsPaymentInformationFluidData {\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  KeySerialNumber: ").Append(KeySerialNumber).Append("\n");
             sb.Append("  Descriptor: ").Append(Descriptor).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Encoding: ").Append(Encoding).Append("\n");
@@ -122,9 +122,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Key == other.Key ||
-                    this.Key != null &&
-                    this.Key.Equals(other.Key)
+                    this.KeySerialNumber == other.KeySerialNumber ||
+                    this.KeySerialNumber != null &&
+                    this.KeySerialNumber.Equals(other.KeySerialNumber)
                 ) && 
                 (
                     this.Descriptor == other.Descriptor ||
@@ -154,8 +154,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Key != null)
-                    hash = hash * 59 + this.Key.GetHashCode();
+                if (this.KeySerialNumber != null)
+                    hash = hash * 59 + this.KeySerialNumber.GetHashCode();
                 if (this.Descriptor != null)
                     hash = hash * 59 + this.Descriptor.GetHashCode();
                 if (this.Value != null)

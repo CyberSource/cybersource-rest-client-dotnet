@@ -65,6 +65,20 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test GetTransactionBatchDetails
+        /// </summary>
+        [Test]
+        public void GetTransactionBatchDetailsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string id = null;
+            //DateTime? uploadDate = null;
+            //string status = null;
+            //instance.GetTransactionBatchDetails(id, uploadDate, status);
+            
+        }
+        
+        /// <summary>
         /// Test GetTransactionBatchId
         /// </summary>
         [Test]

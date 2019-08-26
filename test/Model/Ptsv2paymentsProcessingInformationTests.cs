@@ -145,6 +145,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'VisaCheckoutId'
         }
         /// <summary>
+        /// Test the property 'IndustryDataType'
+        /// </summary>
+        [Test]
+        public void IndustryDataTypeTest()
+        {
+            // TODO unit test for the property 'IndustryDataType'
+        }
+        /// <summary>
         /// Test the property 'AuthorizationOptions'
         /// </summary>
         [Test]

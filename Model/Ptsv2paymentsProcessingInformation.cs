@@ -43,11 +43,12 @@ namespace CyberSource.Model
         /// <param name="PurchaseLevel">Set this field to 3 to indicate that the request includes Level III data..</param>
         /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  For details, see &#x60;report_group&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For details, see the &#x60;vc_order_id&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
+        /// <param name="IndustryDataType">Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - **airline** - **restaurant** .</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         /// <param name="CaptureOptions">CaptureOptions.</param>
         /// <param name="RecurringOptions">RecurringOptions.</param>
         /// <param name="BankTransferOptions">BankTransferOptions.</param>
-        public Ptsv2paymentsProcessingInformation(bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions))
+        public Ptsv2paymentsProcessingInformation(bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions))
         {
             // use default value if no "Capture" provided
             if (Capture == null)
@@ -67,6 +68,7 @@ namespace CyberSource.Model
             this.PurchaseLevel = PurchaseLevel;
             this.ReportGroup = ReportGroup;
             this.VisaCheckoutId = VisaCheckoutId;
+            this.IndustryDataType = IndustryDataType;
             this.AuthorizationOptions = AuthorizationOptions;
             this.CaptureOptions = CaptureOptions;
             this.RecurringOptions = RecurringOptions;
@@ -144,6 +146,13 @@ namespace CyberSource.Model
         public string VisaCheckoutId { get; set; }
 
         /// <summary>
+        /// Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - **airline** - **restaurant** 
+        /// </summary>
+        /// <value>Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - **airline** - **restaurant** </value>
+        [DataMember(Name="industryDataType", EmitDefaultValue=false)]
+        public string IndustryDataType { get; set; }
+
+        /// <summary>
         /// Gets or Sets AuthorizationOptions
         /// </summary>
         [DataMember(Name="authorizationOptions", EmitDefaultValue=false)]
@@ -185,6 +194,7 @@ namespace CyberSource.Model
             sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
             sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
             sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
+            sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
             sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
             sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
             sb.Append("  RecurringOptions: ").Append(RecurringOptions).Append("\n");
@@ -276,6 +286,11 @@ namespace CyberSource.Model
                     this.VisaCheckoutId.Equals(other.VisaCheckoutId)
                 ) && 
                 (
+                    this.IndustryDataType == other.IndustryDataType ||
+                    this.IndustryDataType != null &&
+                    this.IndustryDataType.Equals(other.IndustryDataType)
+                ) && 
+                (
                     this.AuthorizationOptions == other.AuthorizationOptions ||
                     this.AuthorizationOptions != null &&
                     this.AuthorizationOptions.Equals(other.AuthorizationOptions)
@@ -328,6 +343,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReportGroup.GetHashCode();
                 if (this.VisaCheckoutId != null)
                     hash = hash * 59 + this.VisaCheckoutId.GetHashCode();
+                if (this.IndustryDataType != null)
+                    hash = hash * 59 + this.IndustryDataType.GetHashCode();
                 if (this.AuthorizationOptions != null)
                     hash = hash * 59 + this.AuthorizationOptions.GetHashCode();
                 if (this.CaptureOptions != null)
@@ -393,6 +410,12 @@ namespace CyberSource.Model
             if(this.VisaCheckoutId != null && this.VisaCheckoutId.Length >= 48)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VisaCheckoutId, length must be less than or equal to 48.", new [] { "VisaCheckoutId" });
+            }
+
+            // IndustryDataType (string) maxLength
+            if(this.IndustryDataType != null && this.IndustryDataType.Length >= 10)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IndustryDataType, length must be less than or equal to 10.", new [] { "IndustryDataType" });
             }
 
             yield break;

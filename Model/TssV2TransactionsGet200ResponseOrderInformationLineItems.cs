@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="Quantity">For a payment or capture, this field is required when _productCode_ is not **default** or one of the values related to shipping and handling. .</param>
         /// <param name="UnitPrice">Per-item price of the product. This value cannot be negative. You can include a decimal point (.), but you cannot include any other special characters. CyberSource truncates the amount to the correct number of decimal places.  For processor-specific information, see the amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         /// <param name="FulfillmentType">The description for this field is not available..</param>
-        public TssV2TransactionsGet200ResponseOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), string TaxAmount = default(string), decimal? Quantity = default(decimal?), string UnitPrice = default(string), string FulfillmentType = default(string))
+        public TssV2TransactionsGet200ResponseOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), string TaxAmount = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string FulfillmentType = default(string))
         {
             this.ProductCode = ProductCode;
             this.ProductName = ProductName;
@@ -84,7 +84,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>For a payment or capture, this field is required when _productCode_ is not **default** or one of the values related to shipping and handling. </value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
-        public decimal? Quantity { get; set; }
+        public int? Quantity { get; set; }
 
         /// <summary>
         /// Per-item price of the product. This value cannot be negative. You can include a decimal point (.), but you cannot include any other special characters. CyberSource truncates the amount to the correct number of decimal places.  For processor-specific information, see the amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
@@ -248,14 +248,14 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than or equal to 15.", new [] { "TaxAmount" });
             }
 
-            // Quantity (decimal?) maximum
-            if(this.Quantity >= (decimal?)9999999999)
+            // Quantity (int?) maximum
+            if(this.Quantity >= (int?)999999999)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 9999999999.", new [] { "Quantity" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999999.", new [] { "Quantity" });
             }
 
-            // Quantity (decimal?) minimum
-            if(this.Quantity <= (decimal?)1)
+            // Quantity (int?) minimum
+            if(this.Quantity <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
             }

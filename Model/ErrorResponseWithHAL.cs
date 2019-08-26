@@ -28,7 +28,7 @@ namespace CyberSource.Model
     /// ErrorResponseWithHAL
     /// </summary>
     [DataContract]
-    public partial class ErrorResponseWithHAL : List<InlineResponse4001>,  IEquatable<ErrorResponseWithHAL>, IValidatableObject
+    public partial class ErrorResponseWithHAL : List<InlineResponse400>,  IEquatable<ErrorResponseWithHAL>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponseWithHAL" /> class.

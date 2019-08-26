@@ -1,0 +1,8 @@
+            var localVarPath = $"/reporting/v3/payment-batch-summaries?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
+			
+			if (organizationId != null && localVarPath != null) localVarPath = $"{localVarPath}&organizationId={organizationId}";
+            if (rollUp != null && localVarPath != null) localVarPath = $"{localVarPath}&rollUp={rollUp}";
+            if (breakdown != null && localVarPath != null) localVarPath = $"{localVarPath}&breakdown={breakdown}";
+            if (startDayOfWeek != null && localVarPath != null) localVarPath = $"{localVarPath}&startDayOfWeek={startDayOfWeek}";
+			
+			

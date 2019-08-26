@@ -65,12 +65,12 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Key'
+        /// Test the property 'KeySerialNumber'
         /// </summary>
         [Test]
-        public void KeyTest()
+        public void KeySerialNumberTest()
         {
-            // TODO unit test for the property 'Key'
+            // TODO unit test for the property 'KeySerialNumber'
         }
         /// <summary>
         /// Test the property 'Descriptor'

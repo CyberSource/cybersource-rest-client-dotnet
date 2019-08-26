@@ -81,6 +81,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Card'
         }
         /// <summary>
+        /// Test the property 'BankAccount'
+        /// </summary>
+        [Test]
+        public void BankAccountTest()
+        {
+            // TODO unit test for the property 'BankAccount'
+        }
+        /// <summary>
         /// Test the property 'BillTo'
         /// </summary>
         [Test]

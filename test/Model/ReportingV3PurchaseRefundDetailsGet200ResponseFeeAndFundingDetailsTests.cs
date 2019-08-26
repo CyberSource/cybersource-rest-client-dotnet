@@ -81,6 +81,30 @@ namespace CyberSource.Test
             // TODO unit test for the property 'InterchangePerItemFee'
         }
         /// <summary>
+        /// Test the property 'InterchangeDescription'
+        /// </summary>
+        [Test]
+        public void InterchangeDescriptionTest()
+        {
+            // TODO unit test for the property 'InterchangeDescription'
+        }
+        /// <summary>
+        /// Test the property 'InterchangePercentage'
+        /// </summary>
+        [Test]
+        public void InterchangePercentageTest()
+        {
+            // TODO unit test for the property 'InterchangePercentage'
+        }
+        /// <summary>
+        /// Test the property 'InterchangePercentageAmount'
+        /// </summary>
+        [Test]
+        public void InterchangePercentageAmountTest()
+        {
+            // TODO unit test for the property 'InterchangePercentageAmount'
+        }
+        /// <summary>
         /// Test the property 'DiscountPercentage'
         /// </summary>
         [Test]
