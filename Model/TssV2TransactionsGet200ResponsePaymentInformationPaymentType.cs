@@ -36,9 +36,9 @@ namespace CyberSource.Model
         /// <param name="Name">A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. .</param>
         /// <param name="SubTypeName">SubType Name is detail information about Payment Type. Examples: For Card, if Credit or Debit or PrePaid. For Bank Transfer, if Online Bank Transfer or Wire Transfers. .</param>
         /// <param name="FundingSource">FundingSource.</param>
-        /// <param name="Method">Method.</param>
+        /// <param name="Method">A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal.</param>
         /// <param name="AuthenticationMethod">A Payment Type Authentication Method is the means used to verify that the presenter of the Payment Type credential is an authorized user of the Payment Instrument. Examples: 3DSecure – Verified by Visa, 3DSecure – MasteCard Secure Code .</param>
-        public TssV2TransactionsGet200ResponsePaymentInformationPaymentType(string Name = default(string), string SubTypeName = default(string), TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeFundingSource FundingSource = default(TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeFundingSource), TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeMethod Method = default(TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeMethod), string AuthenticationMethod = default(string))
+        public TssV2TransactionsGet200ResponsePaymentInformationPaymentType(string Name = default(string), string SubTypeName = default(string), TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeFundingSource FundingSource = default(TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeFundingSource), string Method = default(string), string AuthenticationMethod = default(string))
         {
             this.Name = Name;
             this.SubTypeName = SubTypeName;
@@ -68,10 +68,11 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeFundingSource FundingSource { get; set; }
 
         /// <summary>
-        /// Gets or Sets Method
+        /// A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal
         /// </summary>
+        /// <value>A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal</value>
         [DataMember(Name="method", EmitDefaultValue=false)]
-        public TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeMethod Method { get; set; }
+        public string Method { get; set; }
 
         /// <summary>
         /// A Payment Type Authentication Method is the means used to verify that the presenter of the Payment Type credential is an authorized user of the Payment Instrument. Examples: 3DSecure – Verified by Visa, 3DSecure – MasteCard Secure Code 

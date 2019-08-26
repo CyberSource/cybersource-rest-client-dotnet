@@ -34,8 +34,8 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType" /> class.
         /// </summary>
         /// <param name="Name">A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. .</param>
-        /// <param name="Method">Method.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType(string Name = default(string), TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeMethod Method = default(TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeMethod))
+        /// <param name="Method">A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal.</param>
+        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType(string Name = default(string), string Method = default(string))
         {
             this.Name = Name;
             this.Method = Method;
@@ -49,10 +49,11 @@ namespace CyberSource.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Method
+        /// A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal
         /// </summary>
+        /// <value>A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal</value>
         [DataMember(Name="method", EmitDefaultValue=false)]
-        public TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeMethod Method { get; set; }
+        public string Method { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
