@@ -28,15 +28,15 @@ namespace CyberSource.Model
     /// Provide validation failed input field details
     /// </summary>
     [DataContract]
-    public partial class InlineResponse400Fields :  IEquatable<InlineResponse400Fields>, IValidatableObject
+    public partial class InlineResponse4001Fields :  IEquatable<InlineResponse4001Fields>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse400Fields" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse4001Fields" /> class.
         /// </summary>
         /// <param name="Path">Path of the failed property.</param>
         /// <param name="Message">Error description about validation failed field.</param>
         /// <param name="LocalizationKey">Localized Key Name.</param>
-        public InlineResponse400Fields(string Path = default(string), string Message = default(string), string LocalizationKey = default(string))
+        public InlineResponse4001Fields(string Path = default(string), string Message = default(string), string LocalizationKey = default(string))
         {
             this.Path = Path;
             this.Message = Message;
@@ -71,7 +71,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse400Fields {\n");
+            sb.Append("class InlineResponse4001Fields {\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  LocalizationKey: ").Append(LocalizationKey).Append("\n");
@@ -96,15 +96,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as InlineResponse400Fields);
+            return this.Equals(obj as InlineResponse4001Fields);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse400Fields instances are equal
+        /// Returns true if InlineResponse4001Fields instances are equal
         /// </summary>
-        /// <param name="other">Instance of InlineResponse400Fields to be compared</param>
+        /// <param name="other">Instance of InlineResponse4001Fields to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse400Fields other)
+        public bool Equals(InlineResponse4001Fields other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

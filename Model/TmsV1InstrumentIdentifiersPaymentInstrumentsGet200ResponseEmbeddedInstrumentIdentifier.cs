@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="BankAccount">BankAccount.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="Metadata">Metadata.</param>
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedInstrumentIdentifier(TmsV1InstrumentIdentifiersPost200ResponseLinks Links = default(TmsV1InstrumentIdentifiersPost200ResponseLinks), string Id = default(string), TmsV1InstrumentIdentifiersPost200ResponseCard Card = default(TmsV1InstrumentIdentifiersPost200ResponseCard), TmsV1InstrumentIdentifiersPost200ResponseBankAccount BankAccount = default(TmsV1InstrumentIdentifiersPost200ResponseBankAccount), TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation ProcessingInformation = default(TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation), TmsV1InstrumentIdentifiersPost200ResponseMetadata Metadata = default(TmsV1InstrumentIdentifiersPost200ResponseMetadata))
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedInstrumentIdentifier(TmsV1InstrumentIdentifiersPost200ResponseLinks Links = default(TmsV1InstrumentIdentifiersPost200ResponseLinks), string Id = default(string), TmsV1InstrumentIdentifiersPost200ResponseCard Card = default(TmsV1InstrumentIdentifiersPost200ResponseCard), Tmsv1instrumentidentifiersBankAccount BankAccount = default(Tmsv1instrumentidentifiersBankAccount), TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation ProcessingInformation = default(TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation), TmsV1InstrumentIdentifiersPost200ResponseMetadata Metadata = default(TmsV1InstrumentIdentifiersPost200ResponseMetadata))
         {
             this.Links = Links;
             this.Id = Id;
@@ -63,9 +63,9 @@ namespace CyberSource.Model
         public string _Object { get; private set; }
 
         /// <summary>
-        /// &#39;Current state of the token.&#39;              Valid values: - ACTIVE - CLOSED 
+        /// &#39;Current state of the token.&#39;  Valid values: - ACTIVE - CLOSED 
         /// </summary>
-        /// <value>&#39;Current state of the token.&#39;              Valid values: - ACTIVE - CLOSED </value>
+        /// <value>&#39;Current state of the token.&#39;  Valid values: - ACTIVE - CLOSED </value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; private set; }
 
@@ -86,7 +86,7 @@ namespace CyberSource.Model
         /// Gets or Sets BankAccount
         /// </summary>
         [DataMember(Name="bankAccount", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPost200ResponseBankAccount BankAccount { get; set; }
+        public Tmsv1instrumentidentifiersBankAccount BankAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation

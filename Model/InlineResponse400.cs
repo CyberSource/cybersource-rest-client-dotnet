@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Error Bean
+    /// InlineResponse400
     /// </summary>
     [DataContract]
     public partial class InlineResponse400 :  IEquatable<InlineResponse400>, IValidatableObject
@@ -33,84 +33,34 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse400" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InlineResponse400() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse400" /> class.
-        /// </summary>
-        /// <param name="Code">Error code (required).</param>
-        /// <param name="Message">Error message (required).</param>
-        /// <param name="LocalizationKey">Localization Key Name.</param>
-        /// <param name="CorrelationId">Correlation Id.</param>
-        /// <param name="Detail">Error Detail.</param>
-        /// <param name="Fields">Error fields List.</param>
-        public InlineResponse400(string Code = default(string), string Message = default(string), string LocalizationKey = default(string), string CorrelationId = default(string), string Detail = default(string), List<InlineResponse400Fields> Fields = default(List<InlineResponse400Fields>))
+        /// <param name="Type">Type.</param>
+        /// <param name="Message">The detailed message related to the type stated above..</param>
+        /// <param name="Details">Details.</param>
+        public InlineResponse400(string Type = default(string), string Message = default(string), Tmsv1instrumentidentifiersDetails Details = default(Tmsv1instrumentidentifiersDetails))
         {
-            // to ensure "Code" is required (not null)
-            if (Code == null)
-            {
-                throw new InvalidDataException("Code is a required property for InlineResponse400 and cannot be null");
-            }
-            else
-            {
-                this.Code = Code;
-            }
-            // to ensure "Message" is required (not null)
-            if (Message == null)
-            {
-                throw new InvalidDataException("Message is a required property for InlineResponse400 and cannot be null");
-            }
-            else
-            {
-                this.Message = Message;
-            }
-            this.LocalizationKey = LocalizationKey;
-            this.CorrelationId = CorrelationId;
-            this.Detail = Detail;
-            this.Fields = Fields;
+            this.Type = Type;
+            this.Message = Message;
+            this.Details = Details;
         }
         
         /// <summary>
-        /// Error code
+        /// Gets or Sets Type
         /// </summary>
-        /// <value>Error code</value>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public string Code { get; set; }
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
-        /// Error message
+        /// The detailed message related to the type stated above.
         /// </summary>
-        /// <value>Error message</value>
+        /// <value>The detailed message related to the type stated above.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Localization Key Name
+        /// Gets or Sets Details
         /// </summary>
-        /// <value>Localization Key Name</value>
-        [DataMember(Name="localizationKey", EmitDefaultValue=false)]
-        public string LocalizationKey { get; set; }
-
-        /// <summary>
-        /// Correlation Id
-        /// </summary>
-        /// <value>Correlation Id</value>
-        [DataMember(Name="correlationId", EmitDefaultValue=false)]
-        public string CorrelationId { get; set; }
-
-        /// <summary>
-        /// Error Detail
-        /// </summary>
-        /// <value>Error Detail</value>
-        [DataMember(Name="detail", EmitDefaultValue=false)]
-        public string Detail { get; set; }
-
-        /// <summary>
-        /// Error fields List
-        /// </summary>
-        /// <value>Error fields List</value>
-        [DataMember(Name="fields", EmitDefaultValue=false)]
-        public List<InlineResponse400Fields> Fields { get; set; }
+        [DataMember(Name="details", EmitDefaultValue=false)]
+        public Tmsv1instrumentidentifiersDetails Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -120,12 +70,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse400 {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  LocalizationKey: ").Append(LocalizationKey).Append("\n");
-            sb.Append("  CorrelationId: ").Append(CorrelationId).Append("\n");
-            sb.Append("  Detail: ").Append(Detail).Append("\n");
-            sb.Append("  Fields: ").Append(Fields).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -163,9 +110,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Code == other.Code ||
-                    this.Code != null &&
-                    this.Code.Equals(other.Code)
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -173,24 +120,9 @@ namespace CyberSource.Model
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.LocalizationKey == other.LocalizationKey ||
-                    this.LocalizationKey != null &&
-                    this.LocalizationKey.Equals(other.LocalizationKey)
-                ) && 
-                (
-                    this.CorrelationId == other.CorrelationId ||
-                    this.CorrelationId != null &&
-                    this.CorrelationId.Equals(other.CorrelationId)
-                ) && 
-                (
-                    this.Detail == other.Detail ||
-                    this.Detail != null &&
-                    this.Detail.Equals(other.Detail)
-                ) && 
-                (
-                    this.Fields == other.Fields ||
-                    this.Fields != null &&
-                    this.Fields.SequenceEqual(other.Fields)
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.Equals(other.Details)
                 );
         }
 
@@ -205,18 +137,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
-                if (this.LocalizationKey != null)
-                    hash = hash * 59 + this.LocalizationKey.GetHashCode();
-                if (this.CorrelationId != null)
-                    hash = hash * 59 + this.CorrelationId.GetHashCode();
-                if (this.Detail != null)
-                    hash = hash * 59 + this.Detail.GetHashCode();
-                if (this.Fields != null)
-                    hash = hash * 59 + this.Fields.GetHashCode();
+                if (this.Details != null)
+                    hash = hash * 59 + this.Details.GetHashCode();
                 return hash;
             }
         }

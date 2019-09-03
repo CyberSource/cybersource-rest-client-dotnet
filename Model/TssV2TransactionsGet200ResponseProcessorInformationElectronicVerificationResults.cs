@@ -35,8 +35,8 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Email">Mapped Electronic Verification response code for the customer’s email address.  For details, see &#x60;auth_ev_email&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         /// <param name="EmailRaw">Raw Electronic Verification response code from the processor for the customer’s email address..</param>
-        /// <param name="Name">The description for this field is not available. .</param>
-        /// <param name="NameRaw">The description for this field is not available..</param>
+        /// <param name="Name">Mapped Electronic Verification response code for the customer’s name. .</param>
+        /// <param name="NameRaw">Raw Electronic Verification response code from the processor for the customer’s name. .</param>
         /// <param name="PhoneNumber">Mapped Electronic Verification response code for the customer’s phone number.  For details, see &#x60;auth_ev_phone_number&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         /// <param name="PhoneNumberRaw">Raw Electronic Verification response code from the processor for the customer’s phone number..</param>
         /// <param name="Street">Mapped Electronic Verification response code for the customer’s street address.  For details, see &#x60;auth_ev_street&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
@@ -72,16 +72,16 @@ namespace CyberSource.Model
         public string EmailRaw { get; set; }
 
         /// <summary>
-        /// The description for this field is not available. 
+        /// Mapped Electronic Verification response code for the customer’s name. 
         /// </summary>
-        /// <value>The description for this field is not available. </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s name. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Raw Electronic Verification response code from the processor for the customer’s name. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Raw Electronic Verification response code from the processor for the customer’s name. </value>
         [DataMember(Name="nameRaw", EmitDefaultValue=false)]
         public string NameRaw { get; set; }
 

@@ -25,17 +25,17 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// TmsV1InstrumentIdentifiersPost200ResponseBankAccount
+    /// Tmsv1instrumentidentifiersBankAccount
     /// </summary>
     [DataContract]
-    public partial class TmsV1InstrumentIdentifiersPost200ResponseBankAccount :  IEquatable<TmsV1InstrumentIdentifiersPost200ResponseBankAccount>, IValidatableObject
+    public partial class Tmsv1instrumentidentifiersBankAccount :  IEquatable<Tmsv1instrumentidentifiersBankAccount>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersPost200ResponseBankAccount" /> class.
+        /// Initializes a new instance of the <see cref="Tmsv1instrumentidentifiersBankAccount" /> class.
         /// </summary>
         /// <param name="Number">Checking account number..</param>
         /// <param name="RoutingNumber">Routing number..</param>
-        public TmsV1InstrumentIdentifiersPost200ResponseBankAccount(string Number = default(string), string RoutingNumber = default(string))
+        public Tmsv1instrumentidentifiersBankAccount(string Number = default(string), string RoutingNumber = default(string))
         {
             this.Number = Number;
             this.RoutingNumber = RoutingNumber;
@@ -62,7 +62,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TmsV1InstrumentIdentifiersPost200ResponseBankAccount {\n");
+            sb.Append("class Tmsv1instrumentidentifiersBankAccount {\n");
             sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
             sb.Append("}\n");
@@ -86,15 +86,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TmsV1InstrumentIdentifiersPost200ResponseBankAccount);
+            return this.Equals(obj as Tmsv1instrumentidentifiersBankAccount);
         }
 
         /// <summary>
-        /// Returns true if TmsV1InstrumentIdentifiersPost200ResponseBankAccount instances are equal
+        /// Returns true if Tmsv1instrumentidentifiersBankAccount instances are equal
         /// </summary>
-        /// <param name="other">Instance of TmsV1InstrumentIdentifiersPost200ResponseBankAccount to be compared</param>
+        /// <param name="other">Instance of Tmsv1instrumentidentifiersBankAccount to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TmsV1InstrumentIdentifiersPost200ResponseBankAccount other)
+        public bool Equals(Tmsv1instrumentidentifiersBankAccount other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

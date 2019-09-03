@@ -29,11 +29,29 @@ powershell -Command "(Get-Content ..\src\CyberSource\Model\ReportingV3ReportSubs
 
 
 rem For Converting the datetime values to string while appending them to the localVarPath and commenting out the values being set in query params obj
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[388] = $fileContents[388] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' ; $fileContents[462] = $fileContents[462] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[585] = $fileContents[585] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}' ; $fileContents[659] = $fileContents[659] -replace '/pts/v1/transaction-batches', '/pts/v1/transaction-batches?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'; $fileContents[301] = $fileContents[301] -replace '/pts/v1/transaction-batch-details/{id}', '/pts/v1/transaction-batch-details/{id}?uploadDate={uploadDate.Value.ToString(\"yyyy-MM-dd\")}&status={status}'; $fileContents[375] = $fileContents[375] -replace '/pts/v1/transaction-batch-details/{id}', '/pts/v1/transaction-batch-details/{id}?uploadDate={uploadDate.Value.ToString(\"yyyy-MM-dd\")}&status={status}'; $fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(uploadDate != null\)', '//if (uploadDate != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'if \(status != null\)', '//if (status != null)' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs) ; $fileContents[235] = (get-content PaymentBatchSummariesFix.txt); $fileContents[321] = (get-content PaymentBatchSummariesFix.txt); $fileContents|Set-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs) | ForEach-Object { $_ -replace 'if \(endTime != null\)', '//if (endTime != null)' } | Set-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs) | ForEach-Object { $_ -replace 'if \(organizationId != null\)', '//if (organizationId != null)' } | Set-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs) | ForEach-Object { $_ -replace 'if \(rollUp != null\)', '//if (rollUp != null)' } | Set-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs) | ForEach-Object { $_ -replace 'if \(breakdown != null\)', '//if (breakdown != null)' } | Set-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs"
+
+powershell -Command "(Get-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs) | ForEach-Object { $_ -replace 'if \(startDayOfWeek != null\)', '//if (startDayOfWeek != null)' } | Set-Content ..\src\CyberSource\Api\PaymentBatchSummariesApi.cs"
 
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[259] = $fileContents[259] -replace 'null', 'localVarResponse.Content' ;  $fileContents[336] = $fileContents[336] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
 
@@ -75,7 +93,7 @@ powershell -Command "(Get-Content ..\src\CyberSource\Api\NotificationOfChangesAp
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) | ForEach-Object { $_ -replace '/reporting/v3/conversion-details', '/reporting/v3/conversion-details?startTime={startTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}&endTime={endTime.Value.ToString(\"yyyy-MM-ddTHH:mm:ssZ\")}'} | Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
 
-powershell -Command "$fileContents = (Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) ; $fileContents[295] = (get-content OrganizationIdFix.txt); $fileContents[218] = (get-content OrganizationIdFix.txt); $fileContents|Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
+powershell -Command "$fileContents = (Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) ; $fileContents[296] = (get-content OrganizationIdFix.txt); $fileContents[218] = (get-content OrganizationIdFix.txt); $fileContents|Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs) | ForEach-Object { $_ -replace 'if \(startTime != null\)', '//if (startTime != null)' } | Set-Content ..\src\CyberSource\Api\ConversionDetailsApi.cs"
 

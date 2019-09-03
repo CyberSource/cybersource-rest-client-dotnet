@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="CaptureSequenceNumber">Capture number when requesting multiple partial captures for one authorization. Used along with &#x60;totalCaptureCount&#x60; to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber_ &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; .</param>
         /// <param name="TotalCaptureCount">Total number of captures when requesting multiple partial captures for one payment. Used along with &#x60;captureSequenceNumber&#x60; field to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; .</param>
-        public Ptsv2paymentsidcapturesProcessingInformationCaptureOptions(decimal? CaptureSequenceNumber = default(decimal?), decimal? TotalCaptureCount = default(decimal?))
+        public Ptsv2paymentsidcapturesProcessingInformationCaptureOptions(int? CaptureSequenceNumber = default(int?), int? TotalCaptureCount = default(int?))
         {
             this.CaptureSequenceNumber = CaptureSequenceNumber;
             this.TotalCaptureCount = TotalCaptureCount;
@@ -46,14 +46,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Capture number when requesting multiple partial captures for one authorization. Used along with &#x60;totalCaptureCount&#x60; to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber_ &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; </value>
         [DataMember(Name="captureSequenceNumber", EmitDefaultValue=false)]
-        public decimal? CaptureSequenceNumber { get; set; }
+        public int? CaptureSequenceNumber { get; set; }
 
         /// <summary>
         /// Total number of captures when requesting multiple partial captures for one payment. Used along with &#x60;captureSequenceNumber&#x60; field to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; 
         /// </summary>
         /// <value>Total number of captures when requesting multiple partial captures for one payment. Used along with &#x60;captureSequenceNumber&#x60; field to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; </value>
         [DataMember(Name="totalCaptureCount", EmitDefaultValue=false)]
-        public decimal? TotalCaptureCount { get; set; }
+        public int? TotalCaptureCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -139,26 +139,26 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CaptureSequenceNumber (decimal?) maximum
-            if(this.CaptureSequenceNumber >= (decimal?)99)
+            // CaptureSequenceNumber (int?) maximum
+            if(this.CaptureSequenceNumber >= (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CaptureSequenceNumber, must be a value less than or equal to 99.", new [] { "CaptureSequenceNumber" });
             }
 
-            // CaptureSequenceNumber (decimal?) minimum
-            if(this.CaptureSequenceNumber <= (decimal?)1)
+            // CaptureSequenceNumber (int?) minimum
+            if(this.CaptureSequenceNumber <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CaptureSequenceNumber, must be a value greater than or equal to 1.", new [] { "CaptureSequenceNumber" });
             }
 
-            // TotalCaptureCount (decimal?) maximum
-            if(this.TotalCaptureCount >= (decimal?)99)
+            // TotalCaptureCount (int?) maximum
+            if(this.TotalCaptureCount >= (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCaptureCount, must be a value less than or equal to 99.", new [] { "TotalCaptureCount" });
             }
 
-            // TotalCaptureCount (decimal?) minimum
-            if(this.TotalCaptureCount <= (decimal?)1)
+            // TotalCaptureCount (int?) minimum
+            if(this.TotalCaptureCount <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCaptureCount, must be a value greater than or equal to 1.", new [] { "TotalCaptureCount" });
             }

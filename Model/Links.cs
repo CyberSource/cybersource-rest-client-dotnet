@@ -34,32 +34,32 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Links" /> class.
         /// </summary>
         /// <param name="Self">Self.</param>
-        /// <param name="Ancestor">Ancestor.</param>
-        /// <param name="Successor">Successor.</param>
-        public Links(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Self = default(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf), TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Ancestor = default(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf), TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Successor = default(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf))
+        /// <param name="Documentation">Documentation.</param>
+        /// <param name="Next">Next.</param>
+        public Links(InlineResponseDefaultLinksNext Self = default(InlineResponseDefaultLinksNext), List<InlineResponseDefaultLinksNext> Documentation = default(List<InlineResponseDefaultLinksNext>), List<InlineResponseDefaultLinksNext> Next = default(List<InlineResponseDefaultLinksNext>))
         {
             this.Self = Self;
-            this.Ancestor = Ancestor;
-            this.Successor = Successor;
+            this.Documentation = Documentation;
+            this.Next = Next;
         }
         
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
         [DataMember(Name="self", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Self { get; set; }
+        public InlineResponseDefaultLinksNext Self { get; set; }
 
         /// <summary>
-        /// Gets or Sets Ancestor
+        /// Gets or Sets Documentation
         /// </summary>
-        [DataMember(Name="ancestor", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Ancestor { get; set; }
+        [DataMember(Name="documentation", EmitDefaultValue=false)]
+        public List<InlineResponseDefaultLinksNext> Documentation { get; set; }
 
         /// <summary>
-        /// Gets or Sets Successor
+        /// Gets or Sets Next
         /// </summary>
-        [DataMember(Name="successor", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Successor { get; set; }
+        [DataMember(Name="next", EmitDefaultValue=false)]
+        public List<InlineResponseDefaultLinksNext> Next { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,8 +70,8 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Links {\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  Ancestor: ").Append(Ancestor).Append("\n");
-            sb.Append("  Successor: ").Append(Successor).Append("\n");
+            sb.Append("  Documentation: ").Append(Documentation).Append("\n");
+            sb.Append("  Next: ").Append(Next).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,14 +114,14 @@ namespace CyberSource.Model
                     this.Self.Equals(other.Self)
                 ) && 
                 (
-                    this.Ancestor == other.Ancestor ||
-                    this.Ancestor != null &&
-                    this.Ancestor.Equals(other.Ancestor)
+                    this.Documentation == other.Documentation ||
+                    this.Documentation != null &&
+                    this.Documentation.SequenceEqual(other.Documentation)
                 ) && 
                 (
-                    this.Successor == other.Successor ||
-                    this.Successor != null &&
-                    this.Successor.Equals(other.Successor)
+                    this.Next == other.Next ||
+                    this.Next != null &&
+                    this.Next.SequenceEqual(other.Next)
                 );
         }
 
@@ -138,10 +138,10 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Self != null)
                     hash = hash * 59 + this.Self.GetHashCode();
-                if (this.Ancestor != null)
-                    hash = hash * 59 + this.Ancestor.GetHashCode();
-                if (this.Successor != null)
-                    hash = hash * 59 + this.Successor.GetHashCode();
+                if (this.Documentation != null)
+                    hash = hash * 59 + this.Documentation.GetHashCode();
+                if (this.Next != null)
+                    hash = hash * 59 + this.Next.GetHashCode();
                 return hash;
             }
         }
