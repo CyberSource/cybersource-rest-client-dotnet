@@ -281,6 +281,8 @@ namespace {{packageName}}.Client
             {{/supportsUWP}}
             {{/netStandard}}
             InterceptResponse(request, response);
+			
+			Configuration.DefaultHeader.Clear();
             
             var httpResponseStatusCode = (int)response.StatusCode;
             var httpResponseHeaders = response.Headers;

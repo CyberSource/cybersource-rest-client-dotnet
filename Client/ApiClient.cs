@@ -234,6 +234,8 @@ namespace CyberSource.Client
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
+
+            Configuration.DefaultHeader.Clear();
             
             var httpResponseStatusCode = (int)response.StatusCode;
             var httpResponseHeaders = response.Headers;
