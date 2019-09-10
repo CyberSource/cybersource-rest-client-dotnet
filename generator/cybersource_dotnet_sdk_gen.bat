@@ -12,6 +12,8 @@ powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SecureF
 
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[259] = $fileContents[259] -replace 'null', 'localVarResponse.Content' ;  $fileContents[336] = $fileContents[336] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
 
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[344] = $fileContents[344] -replace 'null', 'localVarResponse.Content' ;  $fileContents[418] = $fileContents[418] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+
 rem Accept Type and Content Type Changes
 
 REM Should be fixed by change in spec files. Need review 
