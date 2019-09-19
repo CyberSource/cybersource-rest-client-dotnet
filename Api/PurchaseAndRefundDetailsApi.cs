@@ -244,8 +244,18 @@ namespace CyberSource.Api
             // verify the required parameter 'endTime' is set
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
+            
+            StringBuilder localVarPathStringBuilder = new StringBuilder();
+            localVarPathStringBuilder.Append($"/reporting/v3/purchase-refund-details?startTime={fromDate.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={toDate.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}");
 
-            var localVarPath = $"/reporting/v3/purchase-refund-details?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&organizationId={organizationId}&paymentSubtype={paymentSubtype}&viewBy={viewBy}&groupName={groupName}&offset={offset}&limit={limit}";
+            if (organizationId != null) { localVarPathStringBuilder.Append($"&organizationId={organizationId}");}
+            if (paymentSubtype != null) { localVarPathStringBuilder.Append($"&paymentSubtype={paymentSubtype}"); }
+            if (viewBy != null) { localVarPathStringBuilder.Append($"&viewBy={viewBy}"); }
+            if (groupName != null) { localVarPathStringBuilder.Append($"&groupName ={ groupName}"); }
+            if (offset != null) { localVarPathStringBuilder.Append($"&offset={offset}"); }
+            if (limit != null) { localVarPathStringBuilder.Append($"&limit={limit}"); }
+
+            var localVarPath = localVarPathStringBuilder.ToString();
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -337,7 +347,17 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
 
-            var localVarPath = $"/reporting/v3/purchase-refund-details?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&organizationId={organizationId}&paymentSubtype={paymentSubtype}&viewBy={viewBy}&groupName={groupName}&offset={offset}&limit={limit}";
+            StringBuilder localVarPathStringBuilder = new StringBuilder();
+            localVarPathStringBuilder.Append($"/reporting/v3/purchase-refund-details?startTime={fromDate.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={toDate.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}");
+
+            if (organizationId != null) { localVarPathStringBuilder.Append($"&organizationId={organizationId}");}
+            if (paymentSubtype != null) { localVarPathStringBuilder.Append($"&paymentSubtype={paymentSubtype}"); }
+            if (viewBy != null) { localVarPathStringBuilder.Append($"&viewBy={viewBy}"); }
+            if (groupName != null) { localVarPathStringBuilder.Append($"&groupName ={ groupName}"); }
+            if (offset != null) { localVarPathStringBuilder.Append($"&offset={offset}"); }
+            if (limit != null) { localVarPathStringBuilder.Append($"&limit={limit}"); }
+
+            var localVarPath = localVarPathStringBuilder.ToString();
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
