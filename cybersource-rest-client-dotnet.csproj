@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 CyberSource Merged Spec
 
@@ -9,7 +9,6 @@ OpenAPI spec version: 0.0.1
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C140CBF9-B64B-4664-B16A-8F4726970EBC}</ProjectGuid>
@@ -40,7 +39,7 @@ OpenAPI spec version: 0.0.1
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-	<Reference Include="System.Web" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -48,28 +47,29 @@ OpenAPI spec version: 0.0.1
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
-	<Reference Include="AuthenticationSdk">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.4\lib\AuthenticationSdk.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-        <HintPath>packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
+      <HintPath>packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs"
-             Exclude="obj\**;test\**" />
+    <Compile Include="**\*.cs" Exclude="obj\**;test\**" />
   </ItemGroup>
   <ItemGroup>
-      <None Include="packages.config" />
-	  <None Include="cybersource-rest-client-dotnet.nuspec" />
-	  <None Include="README.md" />
+    <None Include="packages.config" />
+    <None Include="cybersource-rest-client-dotnet.nuspec" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-	<Content Include="license.txt" />
+    <Content Include="license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cybersource-rest-auth-dotnet\src\References\AuthenticationSdk\AuthenticationSdk\AuthenticationSdk.csproj">
+      <Project>{910f28d1-8bd0-4359-aacb-b96c04cf68e8}</Project>
+      <Name>AuthenticationSdk</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
-

@@ -231,6 +231,11 @@ namespace CyberSource.Client
 			
 			RestClient.ClearHandlers();
 
+            if (Configuration.Proxy != null)
+            {
+                RestClient.Proxy = Configuration.Proxy;
+            }
+
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
@@ -595,9 +600,49 @@ namespace CyberSource.Client
                     authenticationHeaders.Add("Digest", httpSign.Digest);
             }
 
+            if (Configuration.Proxy == null && !string.IsNullOrWhiteSpace(merchantConfig.ProxyAddress))
+            {
+                Uri proxyUri = new Uri(merchantConfig.ProxyAddress);
+                WebProxy webProxy;
+                
+                if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyPort))
+                {
+                    int proxyPort = Convert.ToInt32(merchantConfig.ProxyPort);
+                    
+                    if (proxyUri.Port != proxyPort && proxyPort > 0)
+                    {
+                        webProxy = new WebProxy(proxyUri.ToString(), proxyPort);
+
+                        if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyUsername) && !string.IsNullOrWhiteSpace(merchantConfig.ProxyPassword))
+                        {
+                            var proxyCredentials = new NetworkCredential(merchantConfig.ProxyUsername, merchantConfig.ProxyPassword);
+
+                            webProxy.Credentials = proxyCredentials;
+                        }
+
+                        if (merchantConfig.ProxyBypassList.Length != 0)
+                        {
+                            webProxy.BypassList = merchantConfig.ProxyBypassList;
+                        }
+
+                        if (merchantConfig.ProxyBypassOnLocal)
+                        {
+                            webProxy.BypassProxyOnLocal = merchantConfig.ProxyBypassOnLocal;
+                        }
+                        
+                        Configuration.AddWebProxy(webProxy);
+                    }
+                }
+            }
+
             //Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
-            RestClient = new RestClient("https://" + merchantConfig.HostName);            
+            RestClient = new RestClient("https://" + merchantConfig.HostName);         
+            
+            if (Configuration.Proxy != null)
+            {
+                RestClient.Proxy = Configuration.Proxy;
+            }
         }
     }
 }
