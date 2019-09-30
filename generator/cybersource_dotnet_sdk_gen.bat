@@ -14,11 +14,6 @@ powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportD
 
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[344] = $fileContents[344] -replace 'null', 'localVarResponse.Content' ;  $fileContents[418] = $fileContents[418] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
-rem Accept Type and Content Type Changes
-
-REM Should be fixed by change in spec files. Need review 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SearchTransactionsApi.cs) ; $fileContents[409] = ''; $fileContents|Set-Content ..\src\CyberSource\Api\SearchTransactionsApi.cs"
-
 rem For changing nuspec filename in csproj file
 powershell -Command "(Get-Content ..\src\CyberSource\CyberSource.csproj) | ForEach-Object { $_ -replace '<None Include=\"CyberSource.nuspec\" />', '<None Include=\"cybersource-rest-client-dotnet.nuspec\" />' } | Set-Content ..\src\CyberSource\CyberSource.csproj"
 
@@ -38,6 +33,7 @@ powershell Rename-Item ..\CyberSource.sln cybersource-rest-client-dotnet.sln
 
 xcopy ..\src\cybersource ..\ /s /e /y /exclude:excludelist.txt
 git checkout ..\README.md
+git checkout ..\test\packages.config
 md ..\test
 xcopy ..\src\cybersource.test ..\test /s /e /y
 
