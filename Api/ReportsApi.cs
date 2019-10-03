@@ -31,10 +31,10 @@ namespace CyberSource.Api
         /// Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        void CreateReport (RequestBody requestBody, string organizationId = null);
+        void CreateReport (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null);
 
         /// <summary>
         /// Create Adhoc Report
@@ -43,10 +43,10 @@ namespace CyberSource.Api
         /// Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateReportWithHttpInfo (RequestBody requestBody, string organizationId = null);
+        ApiResponse<Object> CreateReportWithHttpInfo (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null);
         /// <summary>
         /// Get Report based on reportId
         /// </summary>
@@ -116,10 +116,10 @@ namespace CyberSource.Api
         /// Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateReportAsync (RequestBody requestBody, string organizationId = null);
+        System.Threading.Tasks.Task CreateReportAsync (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null);
 
         /// <summary>
         /// Create Adhoc Report
@@ -128,10 +128,10 @@ namespace CyberSource.Api
         /// Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo (RequestBody requestBody, string organizationId = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null);
         /// <summary>
         /// Get Report based on reportId
         /// </summary>
@@ -304,26 +304,26 @@ namespace CyberSource.Api
         /// Create Adhoc Report Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        public void CreateReport (RequestBody requestBody, string organizationId = null)
+        public void CreateReport (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
-             CreateReportWithHttpInfo(requestBody, organizationId);
+             CreateReportWithHttpInfo(createAdhocReportRequest, organizationId);
         }
 
         /// <summary>
         /// Create Adhoc Report Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateReportWithHttpInfo (RequestBody requestBody, string organizationId = null)
+        public ApiResponse<Object> CreateReportWithHttpInfo (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling ReportsApi->CreateReport");
+            // verify the required parameter 'createAdhocReportRequest' is set
+            if (createAdhocReportRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createAdhocReportRequest' when calling ReportsApi->CreateReport");
 
             var localVarPath = $"/reporting/v3/reports";
             var localVarPathParams = new Dictionary<String, String>();
@@ -348,13 +348,13 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (requestBody != null && requestBody.GetType() != typeof(byte[]))
+            if (createAdhocReportRequest != null && createAdhocReportRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(createAdhocReportRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = requestBody; // byte array
+                localVarPostBody = createAdhocReportRequest; // byte array
             }
 
 
@@ -380,12 +380,12 @@ namespace CyberSource.Api
         /// Create Adhoc Report Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateReportAsync (RequestBody requestBody, string organizationId = null)
+        public async System.Threading.Tasks.Task CreateReportAsync (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
-             await CreateReportAsyncWithHttpInfo(requestBody, organizationId);
+             await CreateReportAsyncWithHttpInfo(createAdhocReportRequest, organizationId);
 
         }
 
@@ -393,14 +393,14 @@ namespace CyberSource.Api
         /// Create Adhoc Report Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo (RequestBody requestBody, string organizationId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling ReportsApi->CreateReport");
+            // verify the required parameter 'createAdhocReportRequest' is set
+            if (createAdhocReportRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createAdhocReportRequest' when calling ReportsApi->CreateReport");
 
             var localVarPath = $"/reporting/v3/reports";
             var localVarPathParams = new Dictionary<String, String>();
@@ -425,13 +425,13 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (requestBody != null && requestBody.GetType() != typeof(byte[]))
+            if (createAdhocReportRequest != null && createAdhocReportRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(createAdhocReportRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = requestBody; // byte array
+                localVarPostBody = createAdhocReportRequest; // byte array
             }
 
 
@@ -643,27 +643,6 @@ namespace CyberSource.Api
                 throw new ApiException(400, "Missing required parameter 'timeQueryType' when calling ReportsApi->SearchReports");
 
             var localVarPath = $"/reporting/v3/reports";
-			if (!string.IsNullOrEmpty(organizationId))
-                localVarPath += $"?organizationId={organizationId}";
-
-            localVarPath += $"&startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
-            localVarPath += $"&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
-            localVarPath += $"&timeQueryType={timeQueryType}";
-
-            if (!string.IsNullOrEmpty(reportMimeType))
-                localVarPath += $"&reportMimeType={reportMimeType}";
-
-            if (!string.IsNullOrEmpty(reportFrequency))
-                localVarPath += $"&reportFrequency={reportFrequency}";
-
-            if (!string.IsNullOrEmpty(reportName))
-                localVarPath += $"&reportName={reportName}";
-
-            if (!string.IsNullOrEmpty(reportDefinitionId.ToString()))
-                localVarPath += $"&reportDefinitionId={reportDefinitionId}";
-
-            if (!string.IsNullOrEmpty(reportStatus))
-                localVarPath += $"&reportStatus={reportStatus}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -685,15 +664,15 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-
-
-
-
-
-
-
-
-
+            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
+            if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
+            if (timeQueryType != null) localVarQueryParams.Add("timeQueryType", Configuration.ApiClient.ParameterToString(timeQueryType)); // query parameter
+            if (reportMimeType != null) localVarQueryParams.Add("reportMimeType", Configuration.ApiClient.ParameterToString(reportMimeType)); // query parameter
+            if (reportFrequency != null) localVarQueryParams.Add("reportFrequency", Configuration.ApiClient.ParameterToString(reportFrequency)); // query parameter
+            if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
+            if (reportDefinitionId != null) localVarQueryParams.Add("reportDefinitionId", Configuration.ApiClient.ParameterToString(reportDefinitionId)); // query parameter
+            if (reportStatus != null) localVarQueryParams.Add("reportStatus", Configuration.ApiClient.ParameterToString(reportStatus)); // query parameter
 
 
             // make the HTTP request

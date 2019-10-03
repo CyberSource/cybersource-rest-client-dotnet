@@ -71,9 +71,9 @@ namespace CyberSource.Test
         public void CreateSubscriptionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //RequestBody1 requestBody = null;
+            //CreateReportSubscriptionRequest createReportSubscriptionRequest = null;
             //string organizationId = null;
-            //instance.CreateSubscription(requestBody, organizationId);
+            //instance.CreateSubscription(createReportSubscriptionRequest, organizationId);
             
         }
         

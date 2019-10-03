@@ -28,31 +28,16 @@ namespace CyberSource.Model
     /// ErrorResponse
     /// </summary>
     [DataContract]
-    public partial class ErrorResponse :  IEquatable<ErrorResponse>, IValidatableObject
+    public partial class ErrorResponse : List<InlineResponse4001>,  IEquatable<ErrorResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponse" /> class.
         /// </summary>
-        /// <param name="ResponseStatus">ResponseStatus.</param>
-        /// <param name="Links">Links.</param>
-        public ErrorResponse(InlineResponseDefaultResponseStatus ResponseStatus = default(InlineResponseDefaultResponseStatus), InlineResponseDefaultLinks Links = default(InlineResponseDefaultLinks))
+        [JsonConstructorAttribute]
+        public ErrorResponse()
         {
-            this.ResponseStatus = ResponseStatus;
-            this.Links = Links;
         }
         
-        /// <summary>
-        /// Gets or Sets ResponseStatus
-        /// </summary>
-        [DataMember(Name="responseStatus", EmitDefaultValue=false)]
-        public InlineResponseDefaultResponseStatus ResponseStatus { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Links
-        /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public InlineResponseDefaultLinks Links { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -61,8 +46,6 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ErrorResponse {\n");
-            sb.Append("  ResponseStatus: ").Append(ResponseStatus).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,17 +81,7 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
-                (
-                    this.ResponseStatus == other.ResponseStatus ||
-                    this.ResponseStatus != null &&
-                    this.ResponseStatus.Equals(other.ResponseStatus)
-                ) && 
-                (
-                    this.Links == other.Links ||
-                    this.Links != null &&
-                    this.Links.Equals(other.Links)
-                );
+            return false;
         }
 
         /// <summary>
@@ -122,10 +95,6 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.ResponseStatus != null)
-                    hash = hash * 59 + this.ResponseStatus.GetHashCode();
-                if (this.Links != null)
-                    hash = hash * 59 + this.Links.GetHashCode();
                 return hash;
             }
         }

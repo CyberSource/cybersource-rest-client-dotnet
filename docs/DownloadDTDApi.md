@@ -4,16 +4,16 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDTDV2**](DownloadDTDApi.md#getdtdv2) | **GET** /dtds/{reportDefinitionNameVersion} | Used to download DTDs for reports
+[**GetDTDV2**](DownloadDTDApi.md#getdtdv2) | **GET** /dtds/{reportDefinitionNameVersion} | Download DTD for report
 
 
 <a name="getdtdv2"></a>
 # **GetDTDV2**
 > void GetDTDV2 (string reportDefinitionNameVersion)
 
-Used to download DTDs for reports
+Download DTD for report
 
-Downloads DTDs for reports on no-auth.
+Used to download DTDs for reports on no-auth.
 
 ### Example
 ```csharp
@@ -34,7 +34,7 @@ namespace Example
 
             try
             {
-                // Used to download DTDs for reports
+                // Download DTD for report
                 apiInstance.GetDTDV2(reportDefinitionNameVersion);
             }
             catch (Exception e)

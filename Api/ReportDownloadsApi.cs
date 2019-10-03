@@ -238,7 +238,7 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate.Value.ToString("yyyy-MM-dd"))); // query parameter
+            if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate)); // query parameter
             if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
 
 
@@ -315,7 +315,7 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate.Value.ToString("yyyy-MM-dd"))); // query parameter
+            if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate)); // query parameter
             if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
 
 

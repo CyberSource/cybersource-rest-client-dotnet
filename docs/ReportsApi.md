@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="createreport"></a>
 # **CreateReport**
-> void CreateReport (RequestBody requestBody, string organizationId = null)
+> void CreateReport (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
 
 Create Adhoc Report
 
@@ -32,13 +32,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new ReportsApi();
-            var requestBody = new RequestBody(); // RequestBody | Report subscription request payload
+            var createAdhocReportRequest = new CreateAdhocReportRequest(); // CreateAdhocReportRequest | Report subscription request payload
             var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
 
             try
             {
                 // Create Adhoc Report
-                apiInstance.CreateReport(requestBody, organizationId);
+                apiInstance.CreateReport(createAdhocReportRequest, organizationId);
             }
             catch (Exception e)
             {
@@ -53,7 +53,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**RequestBody**](RequestBody.md)| Report subscription request payload | 
+ **createAdhocReportRequest** | [**CreateAdhocReportRequest**](CreateAdhocReportRequest.md)| Report subscription request payload | 
  **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
 
 ### Return type

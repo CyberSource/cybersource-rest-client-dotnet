@@ -4,16 +4,16 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetTransactionBatchDetails**](TransactionBatchesApi.md#gettransactionbatchdetails) | **GET** /pts/v1/transaction-batch-details/{id} | Get transaction details for a given batch id 
+[**GetTransactionBatchDetails**](TransactionBatchesApi.md#gettransactionbatchdetails) | **GET** /pts/v1/transaction-batch-details/{id} | Get transaction details for a given batch id
 [**GetTransactionBatchId**](TransactionBatchesApi.md#gettransactionbatchid) | **GET** /pts/v1/transaction-batches/{id} | Get individual batch file
 [**GetTransactionBatches**](TransactionBatchesApi.md#gettransactionbatches) | **GET** /pts/v1/transaction-batches | Get a list of batch files
 
 
 <a name="gettransactionbatchdetails"></a>
 # **GetTransactionBatchDetails**
-> void GetTransactionBatchDetails (string id, DateTime? uploadDate = null, string status = null)
+> void GetTransactionBatchDetails (string id)
 
-Get transaction details for a given batch id 
+Get transaction details for a given batch id
 
 Provides real-time detailed status information about the transactions  that you previously uploaded in the Business Center or processed with  the Offline Transaction File Submission service. 
 
@@ -33,13 +33,11 @@ namespace Example
         {
             var apiInstance = new TransactionBatchesApi();
             var id = id_example;  // string | The batch id assigned for the template.
-            var uploadDate = 2013-10-20;  // DateTime? | Date in which the original batch file was uploaded. Date must be in ISO-8601 format. Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14) **Example date format:**  - yyyy-MM-dd  (optional) 
-            var status = status_example;  // string | Allows you to filter by rejected response.  Valid values: - Rejected  (optional) 
 
             try
             {
-                // Get transaction details for a given batch id 
-                apiInstance.GetTransactionBatchDetails(id, uploadDate, status);
+                // Get transaction details for a given batch id
+                apiInstance.GetTransactionBatchDetails(id);
             }
             catch (Exception e)
             {
@@ -55,8 +53,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The batch id assigned for the template. | 
- **uploadDate** | **DateTime?**| Date in which the original batch file was uploaded. Date must be in ISO-8601 format. Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14) **Example date format:**  - yyyy-MM-dd  | [optional] 
- **status** | **string**| Allows you to filter by rejected response.  Valid values: - Rejected  | [optional] 
 
 ### Return type
 

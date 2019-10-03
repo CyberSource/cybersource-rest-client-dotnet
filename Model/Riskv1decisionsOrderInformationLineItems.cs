@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="Gift">Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. .</param>
         /// <param name="DistributorProductSku">Product’s identifier code. This field is inserted into the outgoing message without being parsed or formatted. This field is included as Distributor product SKU (Offer) in the list of API fields with which you can create custom rules. .</param>
         /// <param name="Passenger">Passenger.</param>
-        public Riskv1decisionsOrderInformationLineItems(string UnitPrice = default(string), decimal? Quantity = default(decimal?), string ProductSKU = default(string), string ProductRisk = default(string), string ProductName = default(string), string ProductCode = default(string), bool? Gift = default(bool?), string DistributorProductSku = default(string), Riskv1decisionsOrderInformationPassenger Passenger = default(Riskv1decisionsOrderInformationPassenger))
+        public Riskv1decisionsOrderInformationLineItems(string UnitPrice = default(string), int? Quantity = default(int?), string ProductSKU = default(string), string ProductRisk = default(string), string ProductName = default(string), string ProductCode = default(string), bool? Gift = default(bool?), string DistributorProductSku = default(string), Riskv1decisionsOrderInformationPassenger Passenger = default(Riskv1decisionsOrderInformationPassenger))
         {
             this.UnitPrice = UnitPrice;
             this.Quantity = Quantity;
@@ -67,7 +67,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Number of units for this order.  The default is &#x60;1&#x60;. For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling.  When orderInformation.lineItems[].productCode is \&quot;gift_card\&quot;, this is the total count of individual prepaid gift cards purchased. </value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
-        public decimal? Quantity { get; set; }
+        public int? Quantity { get; set; }
 
         /// <summary>
         /// Stock Keeping Unit (SKU) code for the product.  For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. 
@@ -263,14 +263,14 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than or equal to 15.", new [] { "UnitPrice" });
             }
 
-            // Quantity (decimal?) maximum
-            if(this.Quantity >= (decimal?)9999999999)
+            // Quantity (int?) maximum
+            if(this.Quantity >= (int?)999999999)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 9999999999.", new [] { "Quantity" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999999.", new [] { "Quantity" });
             }
 
-            // Quantity (decimal?) minimum
-            if(this.Quantity <= (decimal?)1)
+            // Quantity (int?) minimum
+            if(this.Quantity <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
             }

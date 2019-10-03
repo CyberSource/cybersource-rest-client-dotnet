@@ -25,44 +25,26 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Provide validation failed input field details
+    /// Ptsv2paymentsPaymentInformationPaymentTypeMethod
     /// </summary>
     [DataContract]
-    public partial class InlineResponse4001Fields :  IEquatable<InlineResponse4001Fields>, IValidatableObject
+    public partial class Ptsv2paymentsPaymentInformationPaymentTypeMethod :  IEquatable<Ptsv2paymentsPaymentInformationPaymentTypeMethod>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse4001Fields" /> class.
+        /// Initializes a new instance of the <see cref="Ptsv2paymentsPaymentInformationPaymentTypeMethod" /> class.
         /// </summary>
-        /// <param name="Path">Path of the failed property.</param>
-        /// <param name="Message">Error description about validation failed field.</param>
-        /// <param name="LocalizationKey">Localized Key Name.</param>
-        public InlineResponse4001Fields(string Path = default(string), string Message = default(string), string LocalizationKey = default(string))
+        /// <param name="Name">A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal .</param>
+        public Ptsv2paymentsPaymentInformationPaymentTypeMethod(string Name = default(string))
         {
-            this.Path = Path;
-            this.Message = Message;
-            this.LocalizationKey = LocalizationKey;
+            this.Name = Name;
         }
         
         /// <summary>
-        /// Path of the failed property
+        /// A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal 
         /// </summary>
-        /// <value>Path of the failed property</value>
-        [DataMember(Name="path", EmitDefaultValue=false)]
-        public string Path { get; set; }
-
-        /// <summary>
-        /// Error description about validation failed field
-        /// </summary>
-        /// <value>Error description about validation failed field</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// Localized Key Name
-        /// </summary>
-        /// <value>Localized Key Name</value>
-        [DataMember(Name="localizationKey", EmitDefaultValue=false)]
-        public string LocalizationKey { get; set; }
+        /// <value>A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal </value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,10 +53,8 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse4001Fields {\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  LocalizationKey: ").Append(LocalizationKey).Append("\n");
+            sb.Append("class Ptsv2paymentsPaymentInformationPaymentTypeMethod {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,15 +76,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as InlineResponse4001Fields);
+            return this.Equals(obj as Ptsv2paymentsPaymentInformationPaymentTypeMethod);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse4001Fields instances are equal
+        /// Returns true if Ptsv2paymentsPaymentInformationPaymentTypeMethod instances are equal
         /// </summary>
-        /// <param name="other">Instance of InlineResponse4001Fields to be compared</param>
+        /// <param name="other">Instance of Ptsv2paymentsPaymentInformationPaymentTypeMethod to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse4001Fields other)
+        public bool Equals(Ptsv2paymentsPaymentInformationPaymentTypeMethod other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -112,19 +92,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Path == other.Path ||
-                    this.Path != null &&
-                    this.Path.Equals(other.Path)
-                ) && 
-                (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
-                ) && 
-                (
-                    this.LocalizationKey == other.LocalizationKey ||
-                    this.LocalizationKey != null &&
-                    this.LocalizationKey.Equals(other.LocalizationKey)
+                    this.Name == other.Name ||
+                    this.Name != null &&
+                    this.Name.Equals(other.Name)
                 );
         }
 
@@ -139,12 +109,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Path != null)
-                    hash = hash * 59 + this.Path.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
-                if (this.LocalizationKey != null)
-                    hash = hash * 59 + this.LocalizationKey.GetHashCode();
+                if (this.Name != null)
+                    hash = hash * 59 + this.Name.GetHashCode();
                 return hash;
             }
         }

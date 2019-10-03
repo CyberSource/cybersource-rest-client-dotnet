@@ -25,94 +25,162 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// RequestBody
+    /// CreateReportSubscriptionRequest
     /// </summary>
     [DataContract]
-    public partial class RequestBody :  IEquatable<RequestBody>, IValidatableObject
+    public partial class CreateReportSubscriptionRequest :  IEquatable<CreateReportSubscriptionRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RequestBody" /> class.
+        /// Initializes a new instance of the <see cref="CreateReportSubscriptionRequest" /> class.
         /// </summary>
-        /// <param name="OrganizationId">Valid CyberSource Organization Id.</param>
-        /// <param name="ReportDefinitionName">ReportDefinitionName.</param>
-        /// <param name="ReportFields">List of fields which needs to get included in a report.</param>
-        /// <param name="ReportMimeType">&#39;Format of the report&#39;                  Valid values: - application/xml - text/csv .</param>
-        /// <param name="ReportName">Name of the report.</param>
-        /// <param name="Timezone">Timezone of the report.</param>
-        /// <param name="ReportStartTime">Start time of the report.</param>
-        /// <param name="ReportEndTime">End time of the report.</param>
+        [JsonConstructorAttribute]
+        protected CreateReportSubscriptionRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateReportSubscriptionRequest" /> class.
+        /// </summary>
+        /// <param name="OrganizationId">Valid CyberSource organizationId.</param>
+        /// <param name="ReportDefinitionName">Valid Report Definition Name (required).</param>
+        /// <param name="ReportFields">ReportFields (required).</param>
+        /// <param name="ReportMimeType">Valid values: - application/xml - text/csv  (required).</param>
+        /// <param name="ReportFrequency">&#39;The frequency for which subscription is created.&#39;  Valid values: - &#39;DAILY&#39; - &#39;WEEKLY&#39; - &#39;MONTHLY&#39; - &#39;ADHOC&#39;  (required).</param>
+        /// <param name="ReportName">ReportName (required).</param>
+        /// <param name="Timezone">Timezone (required).</param>
+        /// <param name="StartTime">The hour at which the report generation should start. It should be in hhmm format. (required).</param>
+        /// <param name="StartDay">This is the start day if the frequency is WEEKLY or MONTHLY. The value varies from 1-7 for WEEKLY and 1-31 for MONTHLY. For WEEKLY 1 means Sunday and 7 means Saturday. By default the value is 1..</param>
         /// <param name="ReportFilters">List of filters to apply.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
-        /// <param name="GroupName">Specifies the group name.</param>
-        public RequestBody(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), string ReportMimeType = default(string), string ReportName = default(string), string Timezone = default(string), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupName = default(string))
+        /// <param name="GroupName">Valid GroupName.</param>
+        public CreateReportSubscriptionRequest(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), string ReportMimeType = default(string), string ReportFrequency = default(string), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupName = default(string))
         {
+            // to ensure "ReportDefinitionName" is required (not null)
+            if (ReportDefinitionName == null)
+            {
+                throw new InvalidDataException("ReportDefinitionName is a required property for CreateReportSubscriptionRequest and cannot be null");
+            }
+            else
+            {
+                this.ReportDefinitionName = ReportDefinitionName;
+            }
+            // to ensure "ReportFields" is required (not null)
+            if (ReportFields == null)
+            {
+                throw new InvalidDataException("ReportFields is a required property for CreateReportSubscriptionRequest and cannot be null");
+            }
+            else
+            {
+                this.ReportFields = ReportFields;
+            }
+            // to ensure "ReportMimeType" is required (not null)
+            if (ReportMimeType == null)
+            {
+                throw new InvalidDataException("ReportMimeType is a required property for CreateReportSubscriptionRequest and cannot be null");
+            }
+            else
+            {
+                this.ReportMimeType = ReportMimeType;
+            }
+            // to ensure "ReportFrequency" is required (not null)
+            if (ReportFrequency == null)
+            {
+                throw new InvalidDataException("ReportFrequency is a required property for CreateReportSubscriptionRequest and cannot be null");
+            }
+            else
+            {
+                this.ReportFrequency = ReportFrequency;
+            }
+            // to ensure "ReportName" is required (not null)
+            if (ReportName == null)
+            {
+                throw new InvalidDataException("ReportName is a required property for CreateReportSubscriptionRequest and cannot be null");
+            }
+            else
+            {
+                this.ReportName = ReportName;
+            }
+            // to ensure "Timezone" is required (not null)
+            if (Timezone == null)
+            {
+                throw new InvalidDataException("Timezone is a required property for CreateReportSubscriptionRequest and cannot be null");
+            }
+            else
+            {
+                this.Timezone = Timezone;
+            }
+            // to ensure "StartTime" is required (not null)
+            if (StartTime == null)
+            {
+                throw new InvalidDataException("StartTime is a required property for CreateReportSubscriptionRequest and cannot be null");
+            }
+            else
+            {
+                this.StartTime = StartTime;
+            }
             this.OrganizationId = OrganizationId;
-            this.ReportDefinitionName = ReportDefinitionName;
-            this.ReportFields = ReportFields;
-            this.ReportMimeType = ReportMimeType;
-            this.ReportName = ReportName;
-            this.Timezone = Timezone;
-            this.ReportStartTime = ReportStartTime;
-            this.ReportEndTime = ReportEndTime;
+            this.StartDay = StartDay;
             this.ReportFilters = ReportFilters;
             this.ReportPreferences = ReportPreferences;
             this.GroupName = GroupName;
         }
         
         /// <summary>
-        /// Valid CyberSource Organization Id
+        /// Valid CyberSource organizationId
         /// </summary>
-        /// <value>Valid CyberSource Organization Id</value>
+        /// <value>Valid CyberSource organizationId</value>
         [DataMember(Name="organizationId", EmitDefaultValue=false)]
         public string OrganizationId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReportDefinitionName
+        /// Valid Report Definition Name
         /// </summary>
+        /// <value>Valid Report Definition Name</value>
         [DataMember(Name="reportDefinitionName", EmitDefaultValue=false)]
         public string ReportDefinitionName { get; set; }
 
         /// <summary>
-        /// List of fields which needs to get included in a report
+        /// Gets or Sets ReportFields
         /// </summary>
-        /// <value>List of fields which needs to get included in a report</value>
         [DataMember(Name="reportFields", EmitDefaultValue=false)]
         public List<string> ReportFields { get; set; }
 
         /// <summary>
-        /// &#39;Format of the report&#39;                  Valid values: - application/xml - text/csv 
+        /// Valid values: - application/xml - text/csv 
         /// </summary>
-        /// <value>&#39;Format of the report&#39;                  Valid values: - application/xml - text/csv </value>
+        /// <value>Valid values: - application/xml - text/csv </value>
         [DataMember(Name="reportMimeType", EmitDefaultValue=false)]
         public string ReportMimeType { get; set; }
 
         /// <summary>
-        /// Name of the report
+        /// &#39;The frequency for which subscription is created.&#39;  Valid values: - &#39;DAILY&#39; - &#39;WEEKLY&#39; - &#39;MONTHLY&#39; - &#39;ADHOC&#39; 
         /// </summary>
-        /// <value>Name of the report</value>
+        /// <value>&#39;The frequency for which subscription is created.&#39;  Valid values: - &#39;DAILY&#39; - &#39;WEEKLY&#39; - &#39;MONTHLY&#39; - &#39;ADHOC&#39; </value>
+        [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
+        public string ReportFrequency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReportName
+        /// </summary>
         [DataMember(Name="reportName", EmitDefaultValue=false)]
         public string ReportName { get; set; }
 
         /// <summary>
-        /// Timezone of the report
+        /// Gets or Sets Timezone
         /// </summary>
-        /// <value>Timezone of the report</value>
         [DataMember(Name="timezone", EmitDefaultValue=false)]
         public string Timezone { get; set; }
 
         /// <summary>
-        /// Start time of the report
+        /// The hour at which the report generation should start. It should be in hhmm format.
         /// </summary>
-        /// <value>Start time of the report</value>
-        [DataMember(Name="reportStartTime", EmitDefaultValue=false)]
-        public DateTime? ReportStartTime { get; set; }
+        /// <value>The hour at which the report generation should start. It should be in hhmm format.</value>
+        [DataMember(Name="startTime", EmitDefaultValue=false)]
+        public string StartTime { get; set; }
 
         /// <summary>
-        /// End time of the report
+        /// This is the start day if the frequency is WEEKLY or MONTHLY. The value varies from 1-7 for WEEKLY and 1-31 for MONTHLY. For WEEKLY 1 means Sunday and 7 means Saturday. By default the value is 1.
         /// </summary>
-        /// <value>End time of the report</value>
-        [DataMember(Name="reportEndTime", EmitDefaultValue=false)]
-        public DateTime? ReportEndTime { get; set; }
+        /// <value>This is the start day if the frequency is WEEKLY or MONTHLY. The value varies from 1-7 for WEEKLY and 1-31 for MONTHLY. For WEEKLY 1 means Sunday and 7 means Saturday. By default the value is 1.</value>
+        [DataMember(Name="startDay", EmitDefaultValue=false)]
+        public int? StartDay { get; set; }
 
         /// <summary>
         /// List of filters to apply
@@ -128,9 +196,9 @@ namespace CyberSource.Model
         public Reportingv3reportsReportPreferences ReportPreferences { get; set; }
 
         /// <summary>
-        /// Specifies the group name
+        /// Valid GroupName
         /// </summary>
-        /// <value>Specifies the group name</value>
+        /// <value>Valid GroupName</value>
         [DataMember(Name="groupName", EmitDefaultValue=false)]
         public string GroupName { get; set; }
 
@@ -141,15 +209,16 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RequestBody {\n");
+            sb.Append("class CreateReportSubscriptionRequest {\n");
             sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
             sb.Append("  ReportDefinitionName: ").Append(ReportDefinitionName).Append("\n");
             sb.Append("  ReportFields: ").Append(ReportFields).Append("\n");
             sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
+            sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
             sb.Append("  ReportName: ").Append(ReportName).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
-            sb.Append("  ReportStartTime: ").Append(ReportStartTime).Append("\n");
-            sb.Append("  ReportEndTime: ").Append(ReportEndTime).Append("\n");
+            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            sb.Append("  StartDay: ").Append(StartDay).Append("\n");
             sb.Append("  ReportFilters: ").Append(ReportFilters).Append("\n");
             sb.Append("  ReportPreferences: ").Append(ReportPreferences).Append("\n");
             sb.Append("  GroupName: ").Append(GroupName).Append("\n");
@@ -174,15 +243,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as RequestBody);
+            return this.Equals(obj as CreateReportSubscriptionRequest);
         }
 
         /// <summary>
-        /// Returns true if RequestBody instances are equal
+        /// Returns true if CreateReportSubscriptionRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of RequestBody to be compared</param>
+        /// <param name="other">Instance of CreateReportSubscriptionRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RequestBody other)
+        public bool Equals(CreateReportSubscriptionRequest other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -210,6 +279,11 @@ namespace CyberSource.Model
                     this.ReportMimeType.Equals(other.ReportMimeType)
                 ) && 
                 (
+                    this.ReportFrequency == other.ReportFrequency ||
+                    this.ReportFrequency != null &&
+                    this.ReportFrequency.Equals(other.ReportFrequency)
+                ) && 
+                (
                     this.ReportName == other.ReportName ||
                     this.ReportName != null &&
                     this.ReportName.Equals(other.ReportName)
@@ -220,14 +294,14 @@ namespace CyberSource.Model
                     this.Timezone.Equals(other.Timezone)
                 ) && 
                 (
-                    this.ReportStartTime == other.ReportStartTime ||
-                    this.ReportStartTime != null &&
-                    this.ReportStartTime.Equals(other.ReportStartTime)
+                    this.StartTime == other.StartTime ||
+                    this.StartTime != null &&
+                    this.StartTime.Equals(other.StartTime)
                 ) && 
                 (
-                    this.ReportEndTime == other.ReportEndTime ||
-                    this.ReportEndTime != null &&
-                    this.ReportEndTime.Equals(other.ReportEndTime)
+                    this.StartDay == other.StartDay ||
+                    this.StartDay != null &&
+                    this.StartDay.Equals(other.StartDay)
                 ) && 
                 (
                     this.ReportFilters == other.ReportFilters ||
@@ -265,14 +339,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReportFields.GetHashCode();
                 if (this.ReportMimeType != null)
                     hash = hash * 59 + this.ReportMimeType.GetHashCode();
+                if (this.ReportFrequency != null)
+                    hash = hash * 59 + this.ReportFrequency.GetHashCode();
                 if (this.ReportName != null)
                     hash = hash * 59 + this.ReportName.GetHashCode();
                 if (this.Timezone != null)
                     hash = hash * 59 + this.Timezone.GetHashCode();
-                if (this.ReportStartTime != null)
-                    hash = hash * 59 + this.ReportStartTime.GetHashCode();
-                if (this.ReportEndTime != null)
-                    hash = hash * 59 + this.ReportEndTime.GetHashCode();
+                if (this.StartTime != null)
+                    hash = hash * 59 + this.StartTime.GetHashCode();
+                if (this.StartDay != null)
+                    hash = hash * 59 + this.StartDay.GetHashCode();
                 if (this.ReportFilters != null)
                     hash = hash * 59 + this.ReportFilters.GetHashCode();
                 if (this.ReportPreferences != null)
@@ -335,8 +411,20 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportName, must match a pattern of " + regexReportName, new [] { "ReportName" });
             }
 
+            // StartDay (int?) maximum
+            if(this.StartDay >= (int?)31)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value less than or equal to 31.", new [] { "StartDay" });
+            }
+
+            // StartDay (int?) minimum
+            if(this.StartDay <= (int?)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value greater than or equal to 1.", new [] { "StartDay" });
+            }
+
             // GroupName (string) pattern
-            Regex regexGroupName = new Regex(@"[0-9]*", RegexOptions.CultureInvariant);
+            Regex regexGroupName = new Regex(@"[a-zA-Z0-9-_ ]+", RegexOptions.CultureInvariant);
             if (false == regexGroupName.Match(this.GroupName).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GroupName, must match a pattern of " + regexGroupName, new [] { "GroupName" });

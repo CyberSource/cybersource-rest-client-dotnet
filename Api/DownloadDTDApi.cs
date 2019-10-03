@@ -24,10 +24,10 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Used to download DTDs for reports
+        /// Download DTD for report
         /// </summary>
         /// <remarks>
-        /// Downloads DTDs for reports on no-auth.
+        /// Used to download DTDs for reports on no-auth.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of DTD file to download. Some DTDs only have one version. In that case version name is not needed. Some example values are ctdr-1.0, tdr, pbdr-1.1</param>
@@ -35,10 +35,10 @@ namespace CyberSource.Api
         void GetDTDV2 (string reportDefinitionNameVersion);
 
         /// <summary>
-        /// Used to download DTDs for reports
+        /// Download DTD for report
         /// </summary>
         /// <remarks>
-        /// Downloads DTDs for reports on no-auth.
+        /// Used to download DTDs for reports on no-auth.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of DTD file to download. Some DTDs only have one version. In that case version name is not needed. Some example values are ctdr-1.0, tdr, pbdr-1.1</param>
@@ -47,10 +47,10 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Used to download DTDs for reports
+        /// Download DTD for report
         /// </summary>
         /// <remarks>
-        /// Downloads DTDs for reports on no-auth.
+        /// Used to download DTDs for reports on no-auth.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of DTD file to download. Some DTDs only have one version. In that case version name is not needed. Some example values are ctdr-1.0, tdr, pbdr-1.1</param>
@@ -58,10 +58,10 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task GetDTDV2Async (string reportDefinitionNameVersion);
 
         /// <summary>
-        /// Used to download DTDs for reports
+        /// Download DTD for report
         /// </summary>
         /// <remarks>
-        /// Downloads DTDs for reports on no-auth.
+        /// Used to download DTDs for reports on no-auth.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of DTD file to download. Some DTDs only have one version. In that case version name is not needed. Some example values are ctdr-1.0, tdr, pbdr-1.1</param>
@@ -176,7 +176,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Used to download DTDs for reports Downloads DTDs for reports on no-auth.
+        /// Download DTD for report Used to download DTDs for reports on no-auth.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of DTD file to download. Some DTDs only have one version. In that case version name is not needed. Some example values are ctdr-1.0, tdr, pbdr-1.1</param>
@@ -187,7 +187,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Used to download DTDs for reports Downloads DTDs for reports on no-auth.
+        /// Download DTD for report Used to download DTDs for reports on no-auth.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of DTD file to download. Some DTDs only have one version. In that case version name is not needed. Some example values are ctdr-1.0, tdr, pbdr-1.1</param>
@@ -242,7 +242,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Used to download DTDs for reports Downloads DTDs for reports on no-auth.
+        /// Download DTD for report Used to download DTDs for reports on no-auth.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of DTD file to download. Some DTDs only have one version. In that case version name is not needed. Some example values are ctdr-1.0, tdr, pbdr-1.1</param>
@@ -254,7 +254,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Used to download DTDs for reports Downloads DTDs for reports on no-auth.
+        /// Download DTD for report Used to download DTDs for reports on no-auth.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of DTD file to download. Some DTDs only have one version. In that case version name is not needed. Some example values are ctdr-1.0, tdr, pbdr-1.1</param>

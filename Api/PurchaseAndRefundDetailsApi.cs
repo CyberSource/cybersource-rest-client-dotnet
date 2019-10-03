@@ -245,7 +245,7 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
 
-            var localVarPath = $"/reporting/v3/purchase-refund-details?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&organizationId={organizationId}&paymentSubtype={paymentSubtype}&viewBy={viewBy}&groupName={groupName}&offset={offset}&limit={limit}";
+            var localVarPath = $"/reporting/v3/purchase-refund-details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -267,14 +267,14 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            //if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
-            //if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
-            //if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            //if (paymentSubtype != null) localVarQueryParams.Add("paymentSubtype", Configuration.ApiClient.ParameterToString(paymentSubtype)); // query parameter
-            //if (viewBy != null) localVarQueryParams.Add("viewBy", Configuration.ApiClient.ParameterToString(viewBy)); // query parameter
-            //if (groupName != null) localVarQueryParams.Add("groupName", Configuration.ApiClient.ParameterToString(groupName)); // query parameter
-            //if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            //if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
+            if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
+            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (paymentSubtype != null) localVarQueryParams.Add("paymentSubtype", Configuration.ApiClient.ParameterToString(paymentSubtype)); // query parameter
+            if (viewBy != null) localVarQueryParams.Add("viewBy", Configuration.ApiClient.ParameterToString(viewBy)); // query parameter
+            if (groupName != null) localVarQueryParams.Add("groupName", Configuration.ApiClient.ParameterToString(groupName)); // query parameter
+            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
 
 
             // make the HTTP request
@@ -337,7 +337,7 @@ namespace CyberSource.Api
             if (endTime == null)
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
 
-            var localVarPath = $"/reporting/v3/purchase-refund-details?startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}&organizationId={organizationId}&paymentSubtype={paymentSubtype}&viewBy={viewBy}&groupName={groupName}&offset={offset}&limit={limit}";
+            var localVarPath = $"/reporting/v3/purchase-refund-details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -359,14 +359,14 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            //if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
-            //if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
-            //if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            //if (paymentSubtype != null) localVarQueryParams.Add("paymentSubtype", Configuration.ApiClient.ParameterToString(paymentSubtype)); // query parameter
-            //if (viewBy != null) localVarQueryParams.Add("viewBy", Configuration.ApiClient.ParameterToString(viewBy)); // query parameter
-            //if (groupName != null) localVarQueryParams.Add("groupName", Configuration.ApiClient.ParameterToString(groupName)); // query parameter
-            //if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            //if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
+            if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
+            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (paymentSubtype != null) localVarQueryParams.Add("paymentSubtype", Configuration.ApiClient.ParameterToString(paymentSubtype)); // query parameter
+            if (viewBy != null) localVarQueryParams.Add("viewBy", Configuration.ApiClient.ParameterToString(viewBy)); // query parameter
+            if (groupName != null) localVarQueryParams.Add("groupName", Configuration.ApiClient.ParameterToString(groupName)); // query parameter
+            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
 
 
             // make the HTTP request

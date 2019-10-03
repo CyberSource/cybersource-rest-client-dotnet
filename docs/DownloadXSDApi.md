@@ -4,16 +4,16 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetXSDV2**](DownloadXSDApi.md#getxsdv2) | **GET** /xsds/{reportDefinitionNameVersion} | Used to download XSDs for reports
+[**GetXSDV2**](DownloadXSDApi.md#getxsdv2) | **GET** /xsds/{reportDefinitionNameVersion} | Download XSD for report
 
 
 <a name="getxsdv2"></a>
 # **GetXSDV2**
 > void GetXSDV2 (string reportDefinitionNameVersion)
 
-Used to download XSDs for reports
+Download XSD for report
 
-Downloads XSDs for reports on no-auth.
+Used to download XSDs for reports on no-auth.
 
 ### Example
 ```csharp
@@ -34,7 +34,7 @@ namespace Example
 
             try
             {
-                // Used to download XSDs for reports
+                // Download XSD for report
                 apiInstance.GetXSDV2(reportDefinitionNameVersion);
             }
             catch (Exception e)
