@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="createsubscription"></a>
 # **CreateSubscription**
-> void CreateSubscription (RequestBody1 requestBody, string organizationId = null)
+> void CreateSubscription (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null)
 
 Create Report Subscription for a report name by organization
 
@@ -33,13 +33,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new ReportSubscriptionsApi();
-            var requestBody = new RequestBody1(); // RequestBody1 | Report subscription request payload
+            var createReportSubscriptionRequest = new CreateReportSubscriptionRequest(); // CreateReportSubscriptionRequest | Report subscription request payload
             var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
 
             try
             {
                 // Create Report Subscription for a report name by organization
-                apiInstance.CreateSubscription(requestBody, organizationId);
+                apiInstance.CreateSubscription(createReportSubscriptionRequest, organizationId);
             }
             catch (Exception e)
             {
@@ -54,7 +54,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**RequestBody1**](RequestBody1.md)| Report subscription request payload | 
+ **createReportSubscriptionRequest** | [**CreateReportSubscriptionRequest**](CreateReportSubscriptionRequest.md)| Report subscription request payload | 
  **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
 
 ### Return type

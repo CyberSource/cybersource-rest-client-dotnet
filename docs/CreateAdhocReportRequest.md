@@ -1,4 +1,4 @@
-# CyberSource.Model.RequestBody
+# CyberSource.Model.CreateAdhocReportRequest
 ## Properties
 
 Name | Type | Description | Notes

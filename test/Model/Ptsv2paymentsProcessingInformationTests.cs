@@ -184,6 +184,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'BankTransferOptions'
         }
+        /// <summary>
+        /// Test the property 'PurchaseOptions'
+        /// </summary>
+        [Test]
+        public void PurchaseOptionsTest()
+        {
+            // TODO unit test for the property 'PurchaseOptions'
+        }
+        /// <summary>
+        /// Test the property 'ElectronicBenefitsTransfer'
+        /// </summary>
+        [Test]
+        public void ElectronicBenefitsTransferTest()
+        {
+            // TODO unit test for the property 'ElectronicBenefitsTransfer'
+        }
 
     }
 

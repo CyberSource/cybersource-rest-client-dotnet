@@ -44,7 +44,9 @@ namespace CyberSource.Model
         /// <param name="IndustryDataType">Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - **airline** - **restaurant** .</param>
         /// <param name="RecurringOptions">RecurringOptions.</param>
         /// <param name="BankTransferOptions">BankTransferOptions.</param>
-        public Ptsv2creditsProcessingInformation(string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions))
+        /// <param name="PurchaseOptions">PurchaseOptions.</param>
+        /// <param name="ElectronicBenefitsTransfer">ElectronicBenefitsTransfer.</param>
+        public Ptsv2creditsProcessingInformation(string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer))
         {
             this.CommerceIndicator = CommerceIndicator;
             this.ProcessorId = ProcessorId;
@@ -57,6 +59,8 @@ namespace CyberSource.Model
             this.IndustryDataType = IndustryDataType;
             this.RecurringOptions = RecurringOptions;
             this.BankTransferOptions = BankTransferOptions;
+            this.PurchaseOptions = PurchaseOptions;
+            this.ElectronicBenefitsTransfer = ElectronicBenefitsTransfer;
         }
         
         /// <summary>
@@ -135,6 +139,18 @@ namespace CyberSource.Model
         public Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions { get; set; }
 
         /// <summary>
+        /// Gets or Sets PurchaseOptions
+        /// </summary>
+        [DataMember(Name="purchaseOptions", EmitDefaultValue=false)]
+        public Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ElectronicBenefitsTransfer
+        /// </summary>
+        [DataMember(Name="electronicBenefitsTransfer", EmitDefaultValue=false)]
+        public Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -153,6 +169,8 @@ namespace CyberSource.Model
             sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
             sb.Append("  RecurringOptions: ").Append(RecurringOptions).Append("\n");
             sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
+            sb.Append("  PurchaseOptions: ").Append(PurchaseOptions).Append("\n");
+            sb.Append("  ElectronicBenefitsTransfer: ").Append(ElectronicBenefitsTransfer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -243,6 +261,16 @@ namespace CyberSource.Model
                     this.BankTransferOptions == other.BankTransferOptions ||
                     this.BankTransferOptions != null &&
                     this.BankTransferOptions.Equals(other.BankTransferOptions)
+                ) && 
+                (
+                    this.PurchaseOptions == other.PurchaseOptions ||
+                    this.PurchaseOptions != null &&
+                    this.PurchaseOptions.Equals(other.PurchaseOptions)
+                ) && 
+                (
+                    this.ElectronicBenefitsTransfer == other.ElectronicBenefitsTransfer ||
+                    this.ElectronicBenefitsTransfer != null &&
+                    this.ElectronicBenefitsTransfer.Equals(other.ElectronicBenefitsTransfer)
                 );
         }
 
@@ -279,6 +307,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RecurringOptions.GetHashCode();
                 if (this.BankTransferOptions != null)
                     hash = hash * 59 + this.BankTransferOptions.GetHashCode();
+                if (this.PurchaseOptions != null)
+                    hash = hash * 59 + this.PurchaseOptions.GetHashCode();
+                if (this.ElectronicBenefitsTransfer != null)
+                    hash = hash * 59 + this.ElectronicBenefitsTransfer.GetHashCode();
                 return hash;
             }
         }

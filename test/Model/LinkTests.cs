@@ -72,22 +72,6 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Href'
         }
-        /// <summary>
-        /// Test the property 'Title'
-        /// </summary>
-        [Test]
-        public void TitleTest()
-        {
-            // TODO unit test for the property 'Title'
-        }
-        /// <summary>
-        /// Test the property 'Method'
-        /// </summary>
-        [Test]
-        public void MethodTest()
-        {
-            // TODO unit test for the property 'Method'
-        }
 
     }
 

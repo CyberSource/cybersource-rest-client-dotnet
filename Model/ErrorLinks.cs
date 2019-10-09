@@ -33,21 +33,21 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorLinks" /> class.
         /// </summary>
-        /// <param name="Self">Self.</param>
-        /// <param name="Documentation">Documentation.</param>
         /// <param name="Next">Next.</param>
-        public ErrorLinks(InlineResponseDefaultLinksNext Self = default(InlineResponseDefaultLinksNext), List<InlineResponseDefaultLinksNext> Documentation = default(List<InlineResponseDefaultLinksNext>), List<InlineResponseDefaultLinksNext> Next = default(List<InlineResponseDefaultLinksNext>))
+        /// <param name="Documentation">Documentation.</param>
+        /// <param name="Self">Self.</param>
+        public ErrorLinks(List<InlineResponseDefaultLinksNext> Next = default(List<InlineResponseDefaultLinksNext>), List<InlineResponseDefaultLinksNext> Documentation = default(List<InlineResponseDefaultLinksNext>), InlineResponseDefaultLinksNext Self = default(InlineResponseDefaultLinksNext))
         {
-            this.Self = Self;
-            this.Documentation = Documentation;
             this.Next = Next;
+            this.Documentation = Documentation;
+            this.Self = Self;
         }
         
         /// <summary>
-        /// Gets or Sets Self
+        /// Gets or Sets Next
         /// </summary>
-        [DataMember(Name="self", EmitDefaultValue=false)]
-        public InlineResponseDefaultLinksNext Self { get; set; }
+        [DataMember(Name="next", EmitDefaultValue=false)]
+        public List<InlineResponseDefaultLinksNext> Next { get; set; }
 
         /// <summary>
         /// Gets or Sets Documentation
@@ -56,10 +56,10 @@ namespace CyberSource.Model
         public List<InlineResponseDefaultLinksNext> Documentation { get; set; }
 
         /// <summary>
-        /// Gets or Sets Next
+        /// Gets or Sets Self
         /// </summary>
-        [DataMember(Name="next", EmitDefaultValue=false)]
-        public List<InlineResponseDefaultLinksNext> Next { get; set; }
+        [DataMember(Name="self", EmitDefaultValue=false)]
+        public InlineResponseDefaultLinksNext Self { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ErrorLinks {\n");
-            sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  Documentation: ").Append(Documentation).Append("\n");
             sb.Append("  Next: ").Append(Next).Append("\n");
+            sb.Append("  Documentation: ").Append(Documentation).Append("\n");
+            sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,9 +109,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Self == other.Self ||
-                    this.Self != null &&
-                    this.Self.Equals(other.Self)
+                    this.Next == other.Next ||
+                    this.Next != null &&
+                    this.Next.SequenceEqual(other.Next)
                 ) && 
                 (
                     this.Documentation == other.Documentation ||
@@ -119,9 +119,9 @@ namespace CyberSource.Model
                     this.Documentation.SequenceEqual(other.Documentation)
                 ) && 
                 (
-                    this.Next == other.Next ||
-                    this.Next != null &&
-                    this.Next.SequenceEqual(other.Next)
+                    this.Self == other.Self ||
+                    this.Self != null &&
+                    this.Self.Equals(other.Self)
                 );
         }
 
@@ -136,12 +136,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Self != null)
-                    hash = hash * 59 + this.Self.GetHashCode();
-                if (this.Documentation != null)
-                    hash = hash * 59 + this.Documentation.GetHashCode();
                 if (this.Next != null)
                     hash = hash * 59 + this.Next.GetHashCode();
+                if (this.Documentation != null)
+                    hash = hash * 59 + this.Documentation.GetHashCode();
+                if (this.Self != null)
+                    hash = hash * 59 + this.Self.GetHashCode();
                 return hash;
             }
         }

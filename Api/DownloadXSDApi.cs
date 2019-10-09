@@ -24,10 +24,10 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Used to download XSDs for reports
+        /// Download XSD for report
         /// </summary>
         /// <remarks>
-        /// Downloads XSDs for reports on no-auth.
+        /// Used to download XSDs for reports on no-auth.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of XSD file to download. Some XSDs only have one version. In that case version name is not needed. Some example values are DecisionManagerDetailReport, DecisionManagerTypes</param>
@@ -35,10 +35,10 @@ namespace CyberSource.Api
         void GetXSDV2 (string reportDefinitionNameVersion);
 
         /// <summary>
-        /// Used to download XSDs for reports
+        /// Download XSD for report
         /// </summary>
         /// <remarks>
-        /// Downloads XSDs for reports on no-auth.
+        /// Used to download XSDs for reports on no-auth.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of XSD file to download. Some XSDs only have one version. In that case version name is not needed. Some example values are DecisionManagerDetailReport, DecisionManagerTypes</param>
@@ -47,10 +47,10 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Used to download XSDs for reports
+        /// Download XSD for report
         /// </summary>
         /// <remarks>
-        /// Downloads XSDs for reports on no-auth.
+        /// Used to download XSDs for reports on no-auth.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of XSD file to download. Some XSDs only have one version. In that case version name is not needed. Some example values are DecisionManagerDetailReport, DecisionManagerTypes</param>
@@ -58,10 +58,10 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task GetXSDV2Async (string reportDefinitionNameVersion);
 
         /// <summary>
-        /// Used to download XSDs for reports
+        /// Download XSD for report
         /// </summary>
         /// <remarks>
-        /// Downloads XSDs for reports on no-auth.
+        /// Used to download XSDs for reports on no-auth.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of XSD file to download. Some XSDs only have one version. In that case version name is not needed. Some example values are DecisionManagerDetailReport, DecisionManagerTypes</param>
@@ -176,7 +176,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Used to download XSDs for reports Downloads XSDs for reports on no-auth.
+        /// Download XSD for report Used to download XSDs for reports on no-auth.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of XSD file to download. Some XSDs only have one version. In that case version name is not needed. Some example values are DecisionManagerDetailReport, DecisionManagerTypes</param>
@@ -187,7 +187,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Used to download XSDs for reports Downloads XSDs for reports on no-auth.
+        /// Download XSD for report Used to download XSDs for reports on no-auth.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of XSD file to download. Some XSDs only have one version. In that case version name is not needed. Some example values are DecisionManagerDetailReport, DecisionManagerTypes</param>
@@ -242,7 +242,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Used to download XSDs for reports Downloads XSDs for reports on no-auth.
+        /// Download XSD for report Used to download XSDs for reports on no-auth.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of XSD file to download. Some XSDs only have one version. In that case version name is not needed. Some example values are DecisionManagerDetailReport, DecisionManagerTypes</param>
@@ -254,7 +254,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Used to download XSDs for reports Downloads XSDs for reports on no-auth.
+        /// Download XSD for report Used to download XSDs for reports on no-auth.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionNameVersion">Name and version of XSD file to download. Some XSDs only have one version. In that case version name is not needed. Some example values are DecisionManagerDetailReport, DecisionManagerTypes</param>

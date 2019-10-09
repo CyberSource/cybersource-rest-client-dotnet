@@ -72,9 +72,7 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
-            //DateTime? uploadDate = null;
-            //string status = null;
-            //instance.GetTransactionBatchDetails(id, uploadDate, status);
+            //instance.GetTransactionBatchDetails(id);
             
         }
         

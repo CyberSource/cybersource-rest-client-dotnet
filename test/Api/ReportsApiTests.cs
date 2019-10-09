@@ -71,9 +71,9 @@ namespace CyberSource.Test
         public void CreateReportTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //RequestBody requestBody = null;
+            //CreateAdhocReportRequest createAdhocReportRequest = null;
             //string organizationId = null;
-            //instance.CreateReport(requestBody, organizationId);
+            //instance.CreateReport(createAdhocReportRequest, organizationId);
             
         }
         

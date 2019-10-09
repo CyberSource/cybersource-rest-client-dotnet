@@ -248,6 +248,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'OriginalCurrency'
         }
+        /// <summary>
+        /// Test the property 'CashbackAmount'
+        /// </summary>
+        [Test]
+        public void CashbackAmountTest()
+        {
+            // TODO unit test for the property 'CashbackAmount'
+        }
 
     }
 

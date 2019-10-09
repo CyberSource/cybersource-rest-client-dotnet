@@ -52,7 +52,8 @@ namespace CyberSource.Model
         /// <param name="TaxDetails">TaxDetails.</param>
         /// <param name="ServiceFeeAmount">Service fee. Required for service fee transactions. .</param>
         /// <param name="OriginalCurrency">Your local pricing currency code.  For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;original_currency&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  For details about converting a foreign cardholder’s purchase from your local pricing currency to the cardholder’s billing currency, see the [Dynamic Currency Conversion with a Third Party Provider Guide.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm). .</param>
-        public Ptsv2paymentsidcapturesOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string DiscountAmount = default(string), string DutyAmount = default(string), string GratuityAmount = default(string), string TaxAmount = default(string), string NationalTaxIncluded = default(string), string TaxAppliedAfterDiscount = default(string), string TaxAppliedLevel = default(string), string TaxTypeCode = default(string), string FreightAmount = default(string), string ForeignAmount = default(string), string ForeignCurrency = default(string), string ExchangeRate = default(string), string ExchangeRateTimeStamp = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts> AmexAdditionalAmounts = default(List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts>), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string ServiceFeeAmount = default(string), string OriginalCurrency = default(string))
+        /// <param name="CashbackAmount">Cashback amount requested by the customer. If a cashback amount is included in the request, it must be included in the orderInformation.amountDetails.totalAmount value. .</param>
+        public Ptsv2paymentsidcapturesOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string DiscountAmount = default(string), string DutyAmount = default(string), string GratuityAmount = default(string), string TaxAmount = default(string), string NationalTaxIncluded = default(string), string TaxAppliedAfterDiscount = default(string), string TaxAppliedLevel = default(string), string TaxTypeCode = default(string), string FreightAmount = default(string), string ForeignAmount = default(string), string ForeignCurrency = default(string), string ExchangeRate = default(string), string ExchangeRateTimeStamp = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts> AmexAdditionalAmounts = default(List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts>), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string ServiceFeeAmount = default(string), string OriginalCurrency = default(string), string CashbackAmount = default(string))
         {
             this.TotalAmount = TotalAmount;
             this.Currency = Currency;
@@ -73,6 +74,7 @@ namespace CyberSource.Model
             this.TaxDetails = TaxDetails;
             this.ServiceFeeAmount = ServiceFeeAmount;
             this.OriginalCurrency = OriginalCurrency;
+            this.CashbackAmount = CashbackAmount;
         }
         
         /// <summary>
@@ -207,6 +209,13 @@ namespace CyberSource.Model
         public string OriginalCurrency { get; set; }
 
         /// <summary>
+        /// Cashback amount requested by the customer. If a cashback amount is included in the request, it must be included in the orderInformation.amountDetails.totalAmount value. 
+        /// </summary>
+        /// <value>Cashback amount requested by the customer. If a cashback amount is included in the request, it must be included in the orderInformation.amountDetails.totalAmount value. </value>
+        [DataMember(Name="cashbackAmount", EmitDefaultValue=false)]
+        public string CashbackAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -233,6 +242,7 @@ namespace CyberSource.Model
             sb.Append("  TaxDetails: ").Append(TaxDetails).Append("\n");
             sb.Append("  ServiceFeeAmount: ").Append(ServiceFeeAmount).Append("\n");
             sb.Append("  OriginalCurrency: ").Append(OriginalCurrency).Append("\n");
+            sb.Append("  CashbackAmount: ").Append(CashbackAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -363,6 +373,11 @@ namespace CyberSource.Model
                     this.OriginalCurrency == other.OriginalCurrency ||
                     this.OriginalCurrency != null &&
                     this.OriginalCurrency.Equals(other.OriginalCurrency)
+                ) && 
+                (
+                    this.CashbackAmount == other.CashbackAmount ||
+                    this.CashbackAmount != null &&
+                    this.CashbackAmount.Equals(other.CashbackAmount)
                 );
         }
 
@@ -415,6 +430,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ServiceFeeAmount.GetHashCode();
                 if (this.OriginalCurrency != null)
                     hash = hash * 59 + this.OriginalCurrency.GetHashCode();
+                if (this.CashbackAmount != null)
+                    hash = hash * 59 + this.CashbackAmount.GetHashCode();
                 return hash;
             }
         }
@@ -526,6 +543,12 @@ namespace CyberSource.Model
             if(this.OriginalCurrency != null && this.OriginalCurrency.Length >= 15)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginalCurrency, length must be less than or equal to 15.", new [] { "OriginalCurrency" });
+            }
+
+            // CashbackAmount (string) maxLength
+            if(this.CashbackAmount != null && this.CashbackAmount.Length >= 13)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CashbackAmount, length must be less than or equal to 13.", new [] { "CashbackAmount" });
             }
 
             yield break;

@@ -1,11 +1,9 @@
-# CyberSource.Model.InlineResponse4001Fields
+# CyberSource.Model.Ptsv2paymentsPaymentInformationPaymentTypeMethod
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Path** | **string** | Path of the failed property | [optional] 
-**Message** | **string** | Error description about validation failed field | [optional] 
-**LocalizationKey** | **string** | Localized Key Name | [optional] 
+**Name** | **string** | A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

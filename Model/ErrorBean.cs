@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="CorrelationId">Correlation Id.</param>
         /// <param name="Detail">Error Detail.</param>
         /// <param name="Fields">Error fields List.</param>
-        public ErrorBean(string Code = default(string), string Message = default(string), string LocalizationKey = default(string), string CorrelationId = default(string), string Detail = default(string), List<InlineResponse4001Fields> Fields = default(List<InlineResponse4001Fields>))
+        public ErrorBean(string Code = default(string), string Message = default(string), string LocalizationKey = default(string), string CorrelationId = default(string), string Detail = default(string), List<InlineResponse400Fields> Fields = default(List<InlineResponse400Fields>))
         {
             // to ensure "Code" is required (not null)
             if (Code == null)
@@ -110,7 +110,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Error fields List</value>
         [DataMember(Name="fields", EmitDefaultValue=false)]
-        public List<InlineResponse4001Fields> Fields { get; set; }
+        public List<InlineResponse400Fields> Fields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

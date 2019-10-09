@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="ReportFilters">List of filters to apply.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
         /// <param name="GroupId">Id for the selected group..</param>
-        public ReportingV3ReportSubscriptionsGet200ResponseSubscriptions(string OrganizationId = default(string), string ReportDefinitionId = default(string), string ReportDefinitionName = default(string), string ReportMimeType = default(string), string ReportFrequency = default(string), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), List<string> ReportFields = default(List<string>), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupId = default(string))
+        public ReportingV3ReportSubscriptionsGet200ResponseSubscriptions(string OrganizationId = default(string), string ReportDefinitionId = default(string), string ReportDefinitionName = default(string), string ReportMimeType = default(string), string ReportFrequency = default(string), string ReportName = default(string), string Timezone = default(string), DateTime? StartTime = default(DateTime?), int? StartDay = default(int?), List<string> ReportFields = default(List<string>), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupId = default(string))
         {
             this.OrganizationId = OrganizationId;
             this.ReportDefinitionId = ReportDefinitionId;
@@ -117,7 +117,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Start Time</value>
         [DataMember(Name="startTime", EmitDefaultValue=false)]
-        public string StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
         /// <summary>
         /// Start Day
