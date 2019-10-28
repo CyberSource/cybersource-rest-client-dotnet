@@ -684,16 +684,6 @@ namespace {{packageName}}.Client
 
                             webProxy.Credentials = proxyCredentials;
                         }
-
-                        if (merchantConfig.ProxyBypassList.Length != 0)
-                        {
-                            webProxy.BypassList = merchantConfig.ProxyBypassList;
-                        }
-
-                        if (merchantConfig.ProxyBypassOnLocal)
-                        {
-                            webProxy.BypassProxyOnLocal = merchantConfig.ProxyBypassOnLocal;
-                        }
                         
                         Configuration.AddWebProxy(webProxy);
                     }
