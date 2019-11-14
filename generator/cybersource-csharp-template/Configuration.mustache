@@ -48,6 +48,13 @@ namespace {{packageName}}.Client
             Password = password;
             AccessToken = accessToken;
             UserAgent = userAgent;
+			
+			if (merchConfigDictObj != null)
+            {
+                WebProxy proxy = new WebProxy(merchConfigDictObj["proxyAddress"], int.Parse(merchConfigDictObj["proxyPort"]));
+                proxy.Credentials = new NetworkCredential(merchConfigDictObj["proxyUsername"], merchConfigDictObj["proxyPassword"]);
+                AddWebProxy(proxy);
+            }
 
             if (defaultHeader != null)
                 DefaultHeader = defaultHeader;
