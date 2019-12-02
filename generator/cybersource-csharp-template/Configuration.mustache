@@ -49,6 +49,13 @@ namespace {{packageName}}.Client
             AccessToken = accessToken;
             UserAgent = userAgent;
 
+            ClientId = GetClientId();
+
+            if (merchConfigDictObj != null)
+            {
+                SolutionId = merchConfigDictObj.ContainsKey("solutionID") ? merchConfigDictObj["solutionID"] : null;
+            }
+
             if (defaultHeader != null)
                 DefaultHeader = defaultHeader;
             if (apiKey != null)
@@ -60,7 +67,6 @@ namespace {{packageName}}.Client
             DateTimeFormat = dateTimeFormat;
             Timeout = {{#netStandard}}TimeSpan.FromMilliseconds({{/netStandard}}timeout{{#netStandard}}){{/netStandard}};
             MerchantConfigDictionaryObj = merchConfigDictObj;
-            ClientId = GetClientId();
         }
 
         private string GetClientId()
@@ -238,6 +244,12 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <value>The Client ID.</value>
         public String ClientId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Solution ID for SDK auditing and/or reporting.
+        /// </summary>
+        /// <value>The Solution ID.</value>
+        public String SolutionId { get; set; }
 
         /// <summary>
         /// Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.

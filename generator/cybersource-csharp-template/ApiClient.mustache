@@ -678,6 +678,11 @@ namespace {{packageName}}.Client
             {
                 authenticationHeaders.Add("v-c-client-id", Configuration.ClientId);
             }
+
+            if (!string.IsNullOrEmpty(Configuration.SolutionId))
+            {
+                authenticationHeaders.Add("v-c-solution-id", Configuration.SolutionId);
+            }
             
             //Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
