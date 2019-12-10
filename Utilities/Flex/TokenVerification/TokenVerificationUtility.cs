@@ -1,18 +1,16 @@
-﻿using FlexServerSDK.Exception;
-using FlexServerSDK.Model;
+﻿using CyberSource.Utilities.Flex.Exception;
+using CyberSource.Utilities.Flex.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CyberSource.Utilities.Flex.TokenVerification
 {
-    public static class TokenVerificationUtility
+    public class TokenVerificationUtility
     {
-        public static bool Verify(FlexPublicKey flexKey, IDictionary<string, string> postParameters)
+        public bool Verify(FlexPublicKey flexKey, IDictionary<string, string> postParameters)
         {
             var publicKeyStr = flexKey.der.publicKey;
             RSAParameters publicKey = DecodePublicKey(Convert.FromBase64String(publicKeyStr)).ExportParameters(false);
@@ -52,11 +50,11 @@ namespace CyberSource.Utilities.Flex.TokenVerification
                 }
                 catch (CryptographicException e)
                 {
-                    throw new FlexSDKInternalException("Error validating signature", e);
+                    throw new FlexInternalException("Error validating signature", e);
                 }
                 catch (System.Exception e)
                 {
-                    throw new FlexSDKInternalException("Error validating signature", e);
+                    throw new FlexInternalException("Error validating signature", e);
                 }
                 finally
                 {
@@ -196,7 +194,7 @@ namespace CyberSource.Utilities.Flex.TokenVerification
                 rsa.ImportParameters(rsaKeyInfo);
                 return rsa;
             }
-            catch (Exception)
+            catch (System.Exception)
             {
                 return null;
             }
