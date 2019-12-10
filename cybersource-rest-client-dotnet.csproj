@@ -68,8 +68,5 @@ OpenAPI spec version: 0.0.1
   <ItemGroup>
     <Content Include="license.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utilities\Flex\Model\" />
-  </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
