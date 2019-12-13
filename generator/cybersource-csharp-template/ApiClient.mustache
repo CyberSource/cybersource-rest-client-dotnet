@@ -266,7 +266,7 @@ namespace {{packageName}}.Client
             RestClient.UserAgent = Configuration.UserAgent;
             
             RestClient.ClearHandlers();
-            
+
             if (Configuration.Proxy != null)
             {
                 RestClient.Proxy = Configuration.Proxy;
@@ -668,6 +668,16 @@ namespace {{packageName}}.Client
                 if (merchantConfig.IsPostRequest || merchantConfig.IsPutRequest || merchantConfig.IsPatchRequest)
                     authenticationHeaders.Add("Digest", httpSign.Digest);
             }
+
+            if (!string.IsNullOrEmpty(Configuration.ClientId))
+            {
+                authenticationHeaders.Add("v-c-client-id", Configuration.ClientId);
+            }
+
+            // if (!string.IsNullOrEmpty(Configuration.SolutionId))
+            // {
+            //     authenticationHeaders.Add("v-c-solution-id", Configuration.SolutionId);
+            // }
             
             if (Configuration.Proxy == null && bool.Parse(merchantConfig.UseProxy))
             {
@@ -691,7 +701,7 @@ namespace {{packageName}}.Client
             if (Configuration.Proxy != null)
             {
                 RestClient.Proxy = Configuration.Proxy;
-            }           
+            }
         }
     }
 }

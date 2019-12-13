@@ -50,6 +50,13 @@ namespace {{packageName}}.Client
             AccessToken = accessToken;
             UserAgent = userAgent;
 
+            ClientId = GetClientId();
+
+            if (merchConfigDictObj != null)
+            {
+                SolutionId = merchConfigDictObj.ContainsKey("solutionID") ? merchConfigDictObj["solutionID"] : null;
+            }
+
             if (merchConfigDictObj != null)
             {
                 if (bool.Parse(merchConfigDictObj["useProxy"])) {
@@ -78,6 +85,15 @@ namespace {{packageName}}.Client
             DateTimeFormat = dateTimeFormat;
             Timeout = {{#netStandard}}TimeSpan.FromMilliseconds({{/netStandard}}timeout{{#netStandard}}){{/netStandard}};
             MerchantConfigDictionaryObj = merchConfigDictObj;
+        }
+
+        private string GetClientId()
+        {
+            var assembly = typeof(Configuration).Assembly;
+
+            var assemblyVersion = AssemblyHelper.GetAssemblyAttribute<AssemblyFileVersionAttribute>(assembly).Version;
+
+            return "cybs-rest-sdk-dotnet-" + assemblyVersion;
         }
 
         /// <summary>
@@ -251,6 +267,18 @@ namespace {{packageName}}.Client
         public Dictionary<String, String> ApiKey = new Dictionary<String, String>();
 
         /// <summary>
+        /// Gets or sets the Client ID for SDK auditing and/or reporting.
+        /// </summary>
+        /// <value>The Client ID.</value>
+        public String ClientId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Solution ID for SDK auditing and/or reporting.
+        /// </summary>
+        /// <value>The Solution ID.</value>
+        public String SolutionId { get; set; }
+
+        /// <summary>
         /// Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
         /// </summary>
         /// <value>The prefix of the API key.</value>
@@ -371,6 +399,17 @@ namespace {{packageName}}.Client
             report += "    SDK Package Version: {{{packageVersion}}}\n";
 
             return report;
+        }
+    }
+
+    public static class AssemblyHelper
+    {
+        public static T GetAssemblyAttribute<T>(this System.Reflection.Assembly ass) where T : Attribute
+        {
+            object[] attributes = ass.GetCustomAttributes(typeof(T), false);
+            if (attributes == null || attributes.Length == 0)
+                return null;
+            return attributes.OfType<T>().SingleOrDefault();
         }
     }
 }
