@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Net;
 
 namespace {{packageName}}.Client
 {
@@ -54,6 +55,23 @@ namespace {{packageName}}.Client
             if (merchConfigDictObj != null)
             {
                 SolutionId = merchConfigDictObj.ContainsKey("solutionID") ? merchConfigDictObj["solutionID"] : null;
+            }
+
+            if (merchConfigDictObj != null)
+            {
+                if (bool.Parse(merchConfigDictObj["useProxy"])) {
+                    int proxyPortTest;
+
+                    if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyAddress"]) && int.TryParse(merchConfigDictObj["proxyPort"], out proxyPortTest)) {
+                        WebProxy proxy = new WebProxy(merchConfigDictObj["proxyAddress"], proxyPortTest);
+                        
+                        if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyUsername"]) && !string.IsNullOrWhiteSpace(merchConfigDictObj["proxyPassword"])) {
+                            proxy.Credentials = new NetworkCredential(merchConfigDictObj["proxyUsername"], merchConfigDictObj["proxyPassword"]);
+                        }
+                        
+                        AddWebProxy(proxy);
+                    }
+                }
             }
 
             if (defaultHeader != null)
@@ -204,6 +222,15 @@ namespace {{packageName}}.Client
         }
         
         /// <summary>
+        /// Gets or sets the web proxy for the request.
+        /// </summary>
+        /// <param name="proxy">The proxy object.</param>
+        public void AddWebProxy(WebProxy proxy)
+        {
+            Proxy = proxy;
+        }
+        
+        /// <summary>
         /// Gets or sets the Merchant Config Dictionary Object (key/value pairs).
         /// </summary>
         /// <value>Merchant Config Dictionary Object</value>
@@ -256,6 +283,12 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <value>The prefix of the API key.</value>
         public Dictionary<String, String> ApiKeyPrefix = new Dictionary<String, String>();
+
+        /// <summary>
+        /// Gets or sets the proxy object to use for the requests.
+        /// </summary>
+        /// <value>The proxy object.</value>
+        public WebProxy Proxy { get; set; }
 
         /// <summary>
         /// Get the API key with prefix.
