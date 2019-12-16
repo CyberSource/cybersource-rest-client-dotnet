@@ -128,6 +128,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AdministrativeArea'
         }
+        /// <summary>
+        /// Test the property 'Url'
+        /// </summary>
+        [Test]
+        public void UrlTest()
+        {
+            // TODO unit test for the property 'Url'
+        }
 
     }
 

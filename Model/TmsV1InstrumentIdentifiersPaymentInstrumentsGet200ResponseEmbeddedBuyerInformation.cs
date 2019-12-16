@@ -35,13 +35,13 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="CompanyTaxID">Tax identifier for the customer’s company.  **Important**: Contact your TeleCheck representative to find out whether this field is required or optional. .</param>
         /// <param name="Currency">Currency used by the customer. Accepts input in the ISO 4217 standard, stores as ISO 4217 Alpha..</param>
-        /// <param name="DateOBirth">Date of birth of the customer.  Format: &#x60;YYYY-MM-DD&#x60; or &#x60;YYYYMMDD&#x60; .</param>
+        /// <param name="DateOfBirth">Date of birth of the customer.  Format: &#x60;YYYY-MM-DD&#x60; or &#x60;YYYYMMDD&#x60; .</param>
         /// <param name="PersonalIdentification">PersonalIdentification.</param>
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation(string CompanyTaxID = default(string), string Currency = default(string), string DateOBirth = default(string), List<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification> PersonalIdentification = default(List<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification>))
+        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation(string CompanyTaxID = default(string), string Currency = default(string), string DateOfBirth = default(string), List<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification> PersonalIdentification = default(List<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationPersonalIdentification>))
         {
             this.CompanyTaxID = CompanyTaxID;
             this.Currency = Currency;
-            this.DateOBirth = DateOBirth;
+            this.DateOfBirth = DateOfBirth;
             this.PersonalIdentification = PersonalIdentification;
         }
         
@@ -63,8 +63,8 @@ namespace CyberSource.Model
         /// Date of birth of the customer.  Format: &#x60;YYYY-MM-DD&#x60; or &#x60;YYYYMMDD&#x60; 
         /// </summary>
         /// <value>Date of birth of the customer.  Format: &#x60;YYYY-MM-DD&#x60; or &#x60;YYYYMMDD&#x60; </value>
-        [DataMember(Name="dateOBirth", EmitDefaultValue=false)]
-        public string DateOBirth { get; set; }
+        [DataMember(Name="dateOfBirth", EmitDefaultValue=false)]
+        public string DateOfBirth { get; set; }
 
         /// <summary>
         /// Gets or Sets PersonalIdentification
@@ -82,7 +82,7 @@ namespace CyberSource.Model
             sb.Append("class TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation {\n");
             sb.Append("  CompanyTaxID: ").Append(CompanyTaxID).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  DateOBirth: ").Append(DateOBirth).Append("\n");
+            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
             sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -131,9 +131,9 @@ namespace CyberSource.Model
                     this.Currency.Equals(other.Currency)
                 ) && 
                 (
-                    this.DateOBirth == other.DateOBirth ||
-                    this.DateOBirth != null &&
-                    this.DateOBirth.Equals(other.DateOBirth)
+                    this.DateOfBirth == other.DateOfBirth ||
+                    this.DateOfBirth != null &&
+                    this.DateOfBirth.Equals(other.DateOfBirth)
                 ) && 
                 (
                     this.PersonalIdentification == other.PersonalIdentification ||
@@ -157,8 +157,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CompanyTaxID.GetHashCode();
                 if (this.Currency != null)
                     hash = hash * 59 + this.Currency.GetHashCode();
-                if (this.DateOBirth != null)
-                    hash = hash * 59 + this.DateOBirth.GetHashCode();
+                if (this.DateOfBirth != null)
+                    hash = hash * 59 + this.DateOfBirth.GetHashCode();
                 if (this.PersonalIdentification != null)
                     hash = hash * 59 + this.PersonalIdentification.GetHashCode();
                 return hash;
@@ -190,16 +190,16 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than or equal to 3.", new [] { "Currency" });
             }
 
-            // DateOBirth (string) maxLength
-            if(this.DateOBirth != null && this.DateOBirth.Length >= 10)
+            // DateOfBirth (string) maxLength
+            if(this.DateOfBirth != null && this.DateOfBirth.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOBirth, length must be less than or equal to 10.", new [] { "DateOBirth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOfBirth, length must be less than or equal to 10.", new [] { "DateOfBirth" });
             }
 
-            // DateOBirth (string) minLength
-            if(this.DateOBirth != null && this.DateOBirth.Length <= 8)
+            // DateOfBirth (string) minLength
+            if(this.DateOfBirth != null && this.DateOfBirth.Length <= 8)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOBirth, length must be greater than or equal to 8.", new [] { "DateOBirth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOfBirth, length must be greater than or equal to 8.", new [] { "DateOfBirth" });
             }
 
             yield break;

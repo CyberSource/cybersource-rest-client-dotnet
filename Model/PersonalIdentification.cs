@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PersonalIdentification" /> class.
         /// </summary>
         /// <param name="Id">Customer&#39;s identification number.  **Important**: Contact your TeleCheck representative to learn whether this field is required or optional. .</param>
-        /// <param name="Type">Type of personal identification. **Important**: Contact your TeleCheck representative to learn whether this field is required or optional.  Valid values: - driver license .</param>
+        /// <param name="Type">Type of personal identification.  **Important**: Contact your TeleCheck representative to learn whether this field is required or optional.  Valid values: - driver license .</param>
         /// <param name="IssuedBy">IssuedBy.</param>
         public PersonalIdentification(string Id = default(string), string Type = default(string), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationIssuedBy IssuedBy = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformationIssuedBy))
         {
@@ -51,9 +51,9 @@ namespace CyberSource.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Type of personal identification. **Important**: Contact your TeleCheck representative to learn whether this field is required or optional.  Valid values: - driver license 
+        /// Type of personal identification.  **Important**: Contact your TeleCheck representative to learn whether this field is required or optional.  Valid values: - driver license 
         /// </summary>
-        /// <value>Type of personal identification. **Important**: Contact your TeleCheck representative to learn whether this field is required or optional.  Valid values: - driver license </value>
+        /// <value>Type of personal identification.  **Important**: Contact your TeleCheck representative to learn whether this field is required or optional.  Valid values: - driver license </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

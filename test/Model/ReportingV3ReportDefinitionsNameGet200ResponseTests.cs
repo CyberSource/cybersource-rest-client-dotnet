@@ -112,6 +112,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Description'
         }
+        /// <summary>
+        /// Test the property 'DefaultSettings'
+        /// </summary>
+        [Test]
+        public void DefaultSettingsTest()
+        {
+            // TODO unit test for the property 'DefaultSettings'
+        }
+        /// <summary>
+        /// Test the property 'SubscriptionType'
+        /// </summary>
+        [Test]
+        public void SubscriptionTypeTest()
+        {
+            // TODO unit test for the property 'SubscriptionType'
+        }
 
     }
 

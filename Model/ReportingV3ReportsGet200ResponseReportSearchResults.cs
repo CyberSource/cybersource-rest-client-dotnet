@@ -33,11 +33,12 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3ReportsGet200ResponseReportSearchResults" /> class.
         /// </summary>
+        /// <param name="Link">Link.</param>
         /// <param name="ReportDefinitionId">Unique Report Identifier of each report type.</param>
         /// <param name="ReportName">Name of the report specified by merchant while creating the report.</param>
-        /// <param name="ReportMimeType">Format of the report to get generated  Valid values: - application/xml - text/csv .</param>
-        /// <param name="ReportFrequency">Frequency of the report to get generated  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC .</param>
-        /// <param name="Status">Status of the report  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA .</param>
+        /// <param name="ReportMimeType">Format of the report to get generated Valid Values: - application/xml - text/csv .</param>
+        /// <param name="ReportFrequency">Frequency of the report to get generated Valid Values: - DAILY - WEEKLY - MONTHLY - ADHOC .</param>
+        /// <param name="Status">Status of the report Valid Values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA .</param>
         /// <param name="ReportStartTime">Specifies the report start time in ISO 8601 format.</param>
         /// <param name="ReportEndTime">Specifies the report end time in ISO 8601 format.</param>
         /// <param name="Timezone">Time Zone.</param>
@@ -48,8 +49,9 @@ namespace CyberSource.Model
         /// <param name="ReportCompletedTime">Specifies the time of the report completed the generation  in ISO 8601 format.</param>
         /// <param name="SubscriptionType">Specifies whether the subscription created is either Custom, Standard or Classic .</param>
         /// <param name="GroupId">Id for selected group..</param>
-        public ReportingV3ReportsGet200ResponseReportSearchResults(string ReportDefinitionId = default(string), string ReportName = default(string), string ReportMimeType = default(string), string ReportFrequency = default(string), string Status = default(string), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), string Timezone = default(string), string ReportId = default(string), string OrganizationId = default(string), DateTime? QueuedTime = default(DateTime?), DateTime? ReportGeneratingTime = default(DateTime?), DateTime? ReportCompletedTime = default(DateTime?), string SubscriptionType = default(string), string GroupId = default(string))
+        public ReportingV3ReportsGet200ResponseReportSearchResults(ReportingV3ReportsGet200ResponseLink Link = default(ReportingV3ReportsGet200ResponseLink), string ReportDefinitionId = default(string), string ReportName = default(string), string ReportMimeType = default(string), string ReportFrequency = default(string), string Status = default(string), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), string Timezone = default(string), string ReportId = default(string), string OrganizationId = default(string), DateTime? QueuedTime = default(DateTime?), DateTime? ReportGeneratingTime = default(DateTime?), DateTime? ReportCompletedTime = default(DateTime?), string SubscriptionType = default(string), string GroupId = default(string))
         {
+            this.Link = Link;
             this.ReportDefinitionId = ReportDefinitionId;
             this.ReportName = ReportName;
             this.ReportMimeType = ReportMimeType;
@@ -68,6 +70,12 @@ namespace CyberSource.Model
         }
         
         /// <summary>
+        /// Gets or Sets Link
+        /// </summary>
+        [DataMember(Name="_link", EmitDefaultValue=false)]
+        public ReportingV3ReportsGet200ResponseLink Link { get; set; }
+
+        /// <summary>
         /// Unique Report Identifier of each report type
         /// </summary>
         /// <value>Unique Report Identifier of each report type</value>
@@ -82,23 +90,23 @@ namespace CyberSource.Model
         public string ReportName { get; set; }
 
         /// <summary>
-        /// Format of the report to get generated  Valid values: - application/xml - text/csv 
+        /// Format of the report to get generated Valid Values: - application/xml - text/csv 
         /// </summary>
-        /// <value>Format of the report to get generated  Valid values: - application/xml - text/csv </value>
+        /// <value>Format of the report to get generated Valid Values: - application/xml - text/csv </value>
         [DataMember(Name="reportMimeType", EmitDefaultValue=false)]
         public string ReportMimeType { get; set; }
 
         /// <summary>
-        /// Frequency of the report to get generated  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC 
+        /// Frequency of the report to get generated Valid Values: - DAILY - WEEKLY - MONTHLY - ADHOC 
         /// </summary>
-        /// <value>Frequency of the report to get generated  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC </value>
+        /// <value>Frequency of the report to get generated Valid Values: - DAILY - WEEKLY - MONTHLY - ADHOC </value>
         [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
         public string ReportFrequency { get; set; }
 
         /// <summary>
-        /// Status of the report  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA 
+        /// Status of the report Valid Values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA 
         /// </summary>
-        /// <value>Status of the report  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA </value>
+        /// <value>Status of the report Valid Values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
@@ -180,6 +188,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3ReportsGet200ResponseReportSearchResults {\n");
+            sb.Append("  Link: ").Append(Link).Append("\n");
             sb.Append("  ReportDefinitionId: ").Append(ReportDefinitionId).Append("\n");
             sb.Append("  ReportName: ").Append(ReportName).Append("\n");
             sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
@@ -231,6 +240,11 @@ namespace CyberSource.Model
                 return false;
 
             return 
+                (
+                    this.Link == other.Link ||
+                    this.Link != null &&
+                    this.Link.Equals(other.Link)
+                ) && 
                 (
                     this.ReportDefinitionId == other.ReportDefinitionId ||
                     this.ReportDefinitionId != null &&
@@ -319,6 +333,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Link != null)
+                    hash = hash * 59 + this.Link.GetHashCode();
                 if (this.ReportDefinitionId != null)
                     hash = hash * 59 + this.ReportDefinitionId.GetHashCode();
                 if (this.ReportName != null)

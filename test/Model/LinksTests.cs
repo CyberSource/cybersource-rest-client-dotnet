@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Self'
         }
         /// <summary>
+        /// Test the property 'PaymentInstruments'
+        /// </summary>
+        [Test]
+        public void PaymentInstrumentsTest()
+        {
+            // TODO unit test for the property 'PaymentInstruments'
+        }
+        /// <summary>
         /// Test the property 'Ancestor'
         /// </summary>
         [Test]

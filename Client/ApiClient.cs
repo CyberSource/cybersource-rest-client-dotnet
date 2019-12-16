@@ -132,14 +132,14 @@ namespace CyberSource.Client
                     firstQueryParam = false;
                 }
             }
-			
-			var request = new RestRequest(path, method);
+            
+            var request = new RestRequest(path, method);
 
             // add path parameter, if any
             foreach(var param in pathParams)
                 request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
 
-			// add header parameter, if any
+            // add header parameter, if any
             // 2. passed to this function
             foreach (var param in headerParams)
             {
@@ -228,14 +228,19 @@ namespace CyberSource.Client
             RestClient.Timeout = Configuration.Timeout;
             // set user agent
             RestClient.UserAgent = Configuration.UserAgent;
-			
-			RestClient.ClearHandlers();
+            
+            RestClient.ClearHandlers();
+
+            if (Configuration.Proxy != null)
+            {
+                RestClient.Proxy = Configuration.Proxy;
+            }            
 
             InterceptRequest(request);
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
-			
-			Configuration.DefaultHeader.Clear();
+            
+            Configuration.DefaultHeader.Clear();
             
             var httpResponseStatusCode = (int)response.StatusCode;
             var httpResponseHeaders = response.Headers;
@@ -325,7 +330,7 @@ namespace CyberSource.Client
         public string ParameterToString(object obj)
         {
             if (obj is DateTime) {
-				string outDateTime = null;
+                string outDateTime = null;
 
                 if (((DateTime)obj).TimeOfDay.CompareTo(new TimeSpan(0, 0, 0)) == 0) {
                     outDateTime = ((DateTime?)obj).Value.ToString("yyyy-MM-dd");
@@ -334,22 +339,12 @@ namespace CyberSource.Client
                 {
                     outDateTime = ((DateTime?)obj).Value.ToString("yyyy-MM-ddTHH:mm:ssZ");
                 }
-				
-				return outDateTime;
-			
-			
-				// Return a formatted date string - Can be customized with Configuration.DateTimeFormat
-                // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
-                // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
-                // For example: 2009-06-15T13:45:30.0000000
-                // return ((DateTime)obj).ToString (Configuration.DateTimeFormat);
-			}
-            else if (obj is DateTimeOffset)
-                // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
-                // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
-                // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
-                // For example: 2009-06-15T13:45:30.0000000
+                
+                return outDateTime;
+            }
+            else if (obj is DateTimeOffset) {
                 return ((DateTimeOffset)obj).ToString (Configuration.DateTimeFormat);
+            }
             else if (obj is IList)
             {
                 var flattenedString = new StringBuilder();
@@ -571,9 +566,9 @@ namespace CyberSource.Client
                 return filename;
             }
         }
-		
-		/// Calling the Authentication SDK to Generate Request Headers necessary for Authentication		
-		public void CallAuthenticationHeaders(string requestType, string requestTarget, string requestJsonData = null)
+        
+        /// Calling the Authentication SDK to Generate Request Headers necessary for Authentication        
+        public void CallAuthenticationHeaders(string requestType, string requestTarget, string requestJsonData = null)
         {
             requestTarget = Uri.EscapeUriString(requestTarget);
 
@@ -609,9 +604,44 @@ namespace CyberSource.Client
                     authenticationHeaders.Add("Digest", httpSign.Digest);
             }
 
+            if (!string.IsNullOrEmpty(Configuration.ClientId))
+            {
+                authenticationHeaders.Add("v-c-client-id", Configuration.ClientId);
+            }
+
+            // if (!string.IsNullOrEmpty(Configuration.SolutionId))
+            // {
+            //     authenticationHeaders.Add("v-c-solution-id", Configuration.SolutionId);
+            // }
+            
+            if (Configuration.Proxy == null && merchantConfig.UseProxy != null) 
+            {
+                if (bool.Parse(merchantConfig.UseProxy))
+                {
+                    int proxyPortTest;
+
+                    if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyAddress) && int.TryParse(merchantConfig.ProxyPort, out proxyPortTest))
+                    {
+                        WebProxy proxy = new WebProxy(merchantConfig.ProxyAddress, proxyPortTest);
+
+                        if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyUsername) && !string.IsNullOrWhiteSpace(merchantConfig.ProxyPassword))
+                        {
+                            proxy.Credentials = new NetworkCredential(merchantConfig.ProxyUsername, merchantConfig.ProxyPassword);
+                        }
+
+                        Configuration.AddWebProxy(proxy);
+                    } 
+                }
+            }
+
             //Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
-            RestClient = new RestClient("https://" + merchantConfig.HostName);            
+            RestClient = new RestClient("https://" + merchantConfig.HostName);
+            
+            if (Configuration.Proxy != null)
+            {
+                RestClient.Proxy = Configuration.Proxy;
+            }
         }
     }
 }

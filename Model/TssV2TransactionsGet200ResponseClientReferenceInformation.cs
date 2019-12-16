@@ -34,9 +34,9 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseClientReferenceInformation" /> class.
         /// </summary>
         /// <param name="Code">Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  For information about tracking orders, see \&quot;Tracking and Reconciling Your Orders\&quot; in [Getting Started with CyberSource Advanced for the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Getting_Started_SCMP/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. .</param>
-        /// <param name="ApplicationVersion">The description for this field is not available..</param>
-        /// <param name="ApplicationName">The application name of client which is used to submit the request..</param>
-        /// <param name="ApplicationUser">The description for this field is not available..</param>
+        /// <param name="ApplicationVersion">Version of the CyberSource application or integration used for a transaction. .</param>
+        /// <param name="ApplicationName">The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. .</param>
+        /// <param name="ApplicationUser">The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. .</param>
         /// <param name="Comments">Brief description of the order or any comment you wish to add to the order..</param>
         public TssV2TransactionsGet200ResponseClientReferenceInformation(string Code = default(string), string ApplicationVersion = default(string), string ApplicationName = default(string), string ApplicationUser = default(string), string Comments = default(string))
         {
@@ -55,23 +55,23 @@ namespace CyberSource.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Version of the CyberSource application or integration used for a transaction. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Version of the CyberSource application or integration used for a transaction. </value>
         [DataMember(Name="applicationVersion", EmitDefaultValue=false)]
         public string ApplicationVersion { get; set; }
 
         /// <summary>
-        /// The application name of client which is used to submit the request.
+        /// The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. 
         /// </summary>
-        /// <value>The application name of client which is used to submit the request.</value>
+        /// <value>The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. </value>
         [DataMember(Name="applicationName", EmitDefaultValue=false)]
         public string ApplicationName { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. </value>
         [DataMember(Name="applicationUser", EmitDefaultValue=false)]
         public string ApplicationUser { get; set; }
 

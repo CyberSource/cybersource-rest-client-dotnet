@@ -82,7 +82,7 @@ namespace CyberSource.Api
         /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
@@ -101,7 +101,7 @@ namespace CyberSource.Api
         /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
@@ -167,7 +167,7 @@ namespace CyberSource.Api
         /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
@@ -186,7 +186,7 @@ namespace CyberSource.Api
         /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
@@ -605,7 +605,7 @@ namespace CyberSource.Api
         /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
@@ -625,7 +625,7 @@ namespace CyberSource.Api
         /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
@@ -702,7 +702,7 @@ namespace CyberSource.Api
         /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
@@ -723,7 +723,7 @@ namespace CyberSource.Api
         /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
         /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>

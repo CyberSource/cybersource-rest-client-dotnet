@@ -33,7 +33,6 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreatePaymentInstrumentRequest" /> class.
         /// </summary>
-        /// <param name="Links">Links.</param>
         /// <param name="BankAccount">BankAccount.</param>
         /// <param name="Card">Card.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
@@ -42,9 +41,8 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="MetaData">MetaData.</param>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
-        public CreatePaymentInstrumentRequest(TmsV1InstrumentIdentifiersPost200ResponseLinks Links = default(TmsV1InstrumentIdentifiersPost200ResponseLinks), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount BankAccount = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard Card = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation BuyerInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo BillTo = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation ProcessingInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation MerchantInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation), TmsV1InstrumentIdentifiersPost200ResponseMetadata MetaData = default(TmsV1InstrumentIdentifiersPost200ResponseMetadata), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedInstrumentIdentifier InstrumentIdentifier = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedInstrumentIdentifier))
+        public CreatePaymentInstrumentRequest(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount BankAccount = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard Card = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation BuyerInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo BillTo = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation ProcessingInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation MerchantInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation), TmsV1InstrumentIdentifiersPost200ResponseMetadata MetaData = default(TmsV1InstrumentIdentifiersPost200ResponseMetadata), Tmsv1paymentinstrumentsInstrumentIdentifier InstrumentIdentifier = default(Tmsv1paymentinstrumentsInstrumentIdentifier))
         {
-            this.Links = Links;
             this.BankAccount = BankAccount;
             this.Card = Card;
             this.BuyerInformation = BuyerInformation;
@@ -55,33 +53,6 @@ namespace CyberSource.Model
             this.InstrumentIdentifier = InstrumentIdentifier;
         }
         
-        /// <summary>
-        /// Gets or Sets Links
-        /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPost200ResponseLinks Links { get; set; }
-
-        /// <summary>
-        /// Unique identification number assigned by CyberSource to the submitted request.
-        /// </summary>
-        /// <value>Unique identification number assigned by CyberSource to the submitted request.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; private set; }
-
-        /// <summary>
-        /// &#39;Describes type of token.&#39;  Valid values: - paymentInstrument 
-        /// </summary>
-        /// <value>&#39;Describes type of token.&#39;  Valid values: - paymentInstrument </value>
-        [DataMember(Name="object", EmitDefaultValue=false)]
-        public string _Object { get; private set; }
-
-        /// <summary>
-        /// &#39;Current state of the token.&#39;  Valid values: - ACTIVE - CLOSED 
-        /// </summary>
-        /// <value>&#39;Current state of the token.&#39;  Valid values: - ACTIVE - CLOSED </value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
-        public string State { get; private set; }
-
         /// <summary>
         /// Gets or Sets BankAccount
         /// </summary>
@@ -128,7 +99,7 @@ namespace CyberSource.Model
         /// Gets or Sets InstrumentIdentifier
         /// </summary>
         [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedInstrumentIdentifier InstrumentIdentifier { get; set; }
+        public Tmsv1paymentinstrumentsInstrumentIdentifier InstrumentIdentifier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -138,10 +109,6 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CreatePaymentInstrumentRequest {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  _Object: ").Append(_Object).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
@@ -186,26 +153,6 @@ namespace CyberSource.Model
                 return false;
 
             return 
-                (
-                    this.Links == other.Links ||
-                    this.Links != null &&
-                    this.Links.Equals(other.Links)
-                ) && 
-                (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
-                ) && 
-                (
-                    this._Object == other._Object ||
-                    this._Object != null &&
-                    this._Object.Equals(other._Object)
-                ) && 
-                (
-                    this.State == other.State ||
-                    this.State != null &&
-                    this.State.Equals(other.State)
-                ) && 
                 (
                     this.BankAccount == other.BankAccount ||
                     this.BankAccount != null &&
@@ -259,14 +206,6 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Links != null)
-                    hash = hash * 59 + this.Links.GetHashCode();
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
-                if (this._Object != null)
-                    hash = hash * 59 + this._Object.GetHashCode();
-                if (this.State != null)
-                    hash = hash * 59 + this.State.GetHashCode();
                 if (this.BankAccount != null)
                     hash = hash * 59 + this.BankAccount.GetHashCode();
                 if (this.Card != null)

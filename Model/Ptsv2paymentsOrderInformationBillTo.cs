@@ -50,9 +50,10 @@ namespace CyberSource.Model
         /// <param name="District">Customer’s neighborhood, community, or region (a barrio in Brazil) within the city or municipality. This field is available only on **Cielo**. .</param>
         /// <param name="BuildingNumber">Building number in the street address.  For example, if the street address is: Rua da Quitanda 187 then the building number is 187.  This field is supported only for:  - Cielo transactions.  - Redecard customer validation with CyberSource Latin American Processing. .</param>
         /// <param name="Email">Customer&#39;s email address, including the full domain name.  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.  For processor-specific information, see the &#x60;customer_email&#x60; request-level field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  #### Invoicing Email address for the customer for sending the invoice. If the invoice is in SENT status and email is updated, the old email customer payment link won&#39;t work and you must resend the invoice with the new payment link. .</param>
+        /// <param name="EmailDomain">Email domain of the customer. The domain of the email address comprises all characters that follow the @ symbol, such as mail.example.com. For the Risk Update service, if the email address and the domain are sent in the request, the domain supersedes the email address. .</param>
         /// <param name="PhoneNumber">Customer’s phone number.  #### For Payouts: This field may be sent only for FDC Compass.  CyberSource recommends that you include the country code when the order is from outside the U.S.  For processor-specific information, see the customer_phone field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks. .</param>
         /// <param name="PhoneType">Customer&#39;s phone number type.  #### For Payouts: This field may be sent only for FDC Compass.  Possible Values: * day * home * night * work .</param>
-        public Ptsv2paymentsOrderInformationBillTo(string FirstName = default(string), string LastName = default(string), string MiddleName = default(string), string NameSuffix = default(string), string Title = default(string), string Company = default(string), string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string Email = default(string), string PhoneNumber = default(string), string PhoneType = default(string))
+        public Ptsv2paymentsOrderInformationBillTo(string FirstName = default(string), string LastName = default(string), string MiddleName = default(string), string NameSuffix = default(string), string Title = default(string), string Company = default(string), string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string Email = default(string), string EmailDomain = default(string), string PhoneNumber = default(string), string PhoneType = default(string))
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
@@ -71,6 +72,7 @@ namespace CyberSource.Model
             this.District = District;
             this.BuildingNumber = BuildingNumber;
             this.Email = Email;
+            this.EmailDomain = EmailDomain;
             this.PhoneNumber = PhoneNumber;
             this.PhoneType = PhoneType;
         }
@@ -195,6 +197,13 @@ namespace CyberSource.Model
         public string Email { get; set; }
 
         /// <summary>
+        /// Email domain of the customer. The domain of the email address comprises all characters that follow the @ symbol, such as mail.example.com. For the Risk Update service, if the email address and the domain are sent in the request, the domain supersedes the email address. 
+        /// </summary>
+        /// <value>Email domain of the customer. The domain of the email address comprises all characters that follow the @ symbol, such as mail.example.com. For the Risk Update service, if the email address and the domain are sent in the request, the domain supersedes the email address. </value>
+        [DataMember(Name="emailDomain", EmitDefaultValue=false)]
+        public string EmailDomain { get; set; }
+
+        /// <summary>
         /// Customer’s phone number.  #### For Payouts: This field may be sent only for FDC Compass.  CyberSource recommends that you include the country code when the order is from outside the U.S.  For processor-specific information, see the customer_phone field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks. 
         /// </summary>
         /// <value>Customer’s phone number.  #### For Payouts: This field may be sent only for FDC Compass.  CyberSource recommends that you include the country code when the order is from outside the U.S.  For processor-specific information, see the customer_phone field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks. </value>
@@ -233,6 +242,7 @@ namespace CyberSource.Model
             sb.Append("  District: ").Append(District).Append("\n");
             sb.Append("  BuildingNumber: ").Append(BuildingNumber).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  EmailDomain: ").Append(EmailDomain).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  PhoneType: ").Append(PhoneType).Append("\n");
             sb.Append("}\n");
@@ -357,6 +367,11 @@ namespace CyberSource.Model
                     this.Email.Equals(other.Email)
                 ) && 
                 (
+                    this.EmailDomain == other.EmailDomain ||
+                    this.EmailDomain != null &&
+                    this.EmailDomain.Equals(other.EmailDomain)
+                ) && 
+                (
                     this.PhoneNumber == other.PhoneNumber ||
                     this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(other.PhoneNumber)
@@ -413,6 +428,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BuildingNumber.GetHashCode();
                 if (this.Email != null)
                     hash = hash * 59 + this.Email.GetHashCode();
+                if (this.EmailDomain != null)
+                    hash = hash * 59 + this.EmailDomain.GetHashCode();
                 if (this.PhoneNumber != null)
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 if (this.PhoneType != null)
@@ -528,6 +545,12 @@ namespace CyberSource.Model
             if(this.Email != null && this.Email.Length >= 255)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than or equal to 255.", new [] { "Email" });
+            }
+
+            // EmailDomain (string) maxLength
+            if(this.EmailDomain != null && this.EmailDomain.Length >= 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EmailDomain, length must be less than or equal to 100.", new [] { "EmailDomain" });
             }
 
             // PhoneNumber (string) maxLength

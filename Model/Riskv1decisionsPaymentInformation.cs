@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Card">Card.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
-        public Riskv1decisionsPaymentInformation(Riskv1decisionsPaymentInformationCard Card = default(Riskv1decisionsPaymentInformationCard), Riskv1decisionsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1decisionsPaymentInformationTokenizedCard))
+        /// <param name="Bank">Bank.</param>
+        public Riskv1decisionsPaymentInformation(Riskv1decisionsPaymentInformationCard Card = default(Riskv1decisionsPaymentInformationCard), Riskv1decisionsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1decisionsPaymentInformationTokenizedCard), Riskv1decisionsPaymentInformationBank Bank = default(Riskv1decisionsPaymentInformationBank))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
+            this.Bank = Bank;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace CyberSource.Model
         public Riskv1decisionsPaymentInformationTokenizedCard TokenizedCard { get; set; }
 
         /// <summary>
+        /// Gets or Sets Bank
+        /// </summary>
+        [DataMember(Name="bank", EmitDefaultValue=false)]
+        public Riskv1decisionsPaymentInformationBank Bank { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace CyberSource.Model
             sb.Append("class Riskv1decisionsPaymentInformation {\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
+            sb.Append("  Bank: ").Append(Bank).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +117,11 @@ namespace CyberSource.Model
                     this.TokenizedCard == other.TokenizedCard ||
                     this.TokenizedCard != null &&
                     this.TokenizedCard.Equals(other.TokenizedCard)
+                ) && 
+                (
+                    this.Bank == other.Bank ||
+                    this.Bank != null &&
+                    this.Bank.Equals(other.Bank)
                 );
         }
 
@@ -126,6 +140,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.TokenizedCard != null)
                     hash = hash * 59 + this.TokenizedCard.GetHashCode();
+                if (this.Bank != null)
+                    hash = hash * 59 + this.Bank.GetHashCode();
                 return hash;
             }
         }

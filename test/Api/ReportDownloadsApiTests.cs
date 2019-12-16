@@ -74,7 +74,8 @@ namespace CyberSource.Test
             //DateTime? reportDate = null;
             //string reportName = null;
             //string organizationId = null;
-            //instance.DownloadReport(reportDate, reportName, organizationId);
+            //string reportTime = null;
+            //instance.DownloadReport(reportDate, reportName, organizationId, reportTime);
             
         }
         

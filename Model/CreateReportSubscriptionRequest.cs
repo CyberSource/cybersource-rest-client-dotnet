@@ -42,7 +42,8 @@ namespace CyberSource.Model
         /// <param name="ReportDefinitionName">Valid Report Definition Name (required).</param>
         /// <param name="ReportFields">ReportFields (required).</param>
         /// <param name="ReportMimeType">Valid values: - application/xml - text/csv  (required).</param>
-        /// <param name="ReportFrequency">&#39;The frequency for which subscription is created.&#39;  Valid values: - &#39;DAILY&#39; - &#39;WEEKLY&#39; - &#39;MONTHLY&#39; - &#39;ADHOC&#39;  (required).</param>
+        /// <param name="ReportFrequency">&#39;The frequency for which subscription is created.&#39;  Valid Values:   - &#39;DAILY&#39;   - &#39;WEEKLY&#39;   - &#39;MONTHLY&#39;   - &#39;USER_DEFINED&#39;  (required).</param>
+        /// <param name="ReportInterval">If the reportFrequency is User-defined, reportInterval should be in **ISO 8601 time format** Please refer the following link to know more about ISO 8601 format.[Rfc Time Format](https://en.wikipedia.org/wiki/ISO_8601#Durations)  **Example time format for 2 hours and 30 Mins:**   - PT2H30M **NOTE: Do not document reportInterval field in developer center** .</param>
         /// <param name="ReportName">ReportName (required).</param>
         /// <param name="Timezone">Timezone (required).</param>
         /// <param name="StartTime">The hour at which the report generation should start. It should be in hhmm format. (required).</param>
@@ -50,7 +51,7 @@ namespace CyberSource.Model
         /// <param name="ReportFilters">List of filters to apply.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
         /// <param name="GroupName">Valid GroupName.</param>
-        public CreateReportSubscriptionRequest(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), string ReportMimeType = default(string), string ReportFrequency = default(string), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupName = default(string))
+        public CreateReportSubscriptionRequest(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), string ReportMimeType = default(string), string ReportFrequency = default(string), string ReportInterval = default(string), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupName = default(string))
         {
             // to ensure "ReportDefinitionName" is required (not null)
             if (ReportDefinitionName == null)
@@ -116,6 +117,7 @@ namespace CyberSource.Model
                 this.StartTime = StartTime;
             }
             this.OrganizationId = OrganizationId;
+            this.ReportInterval = ReportInterval;
             this.StartDay = StartDay;
             this.ReportFilters = ReportFilters;
             this.ReportPreferences = ReportPreferences;
@@ -150,11 +152,18 @@ namespace CyberSource.Model
         public string ReportMimeType { get; set; }
 
         /// <summary>
-        /// &#39;The frequency for which subscription is created.&#39;  Valid values: - &#39;DAILY&#39; - &#39;WEEKLY&#39; - &#39;MONTHLY&#39; - &#39;ADHOC&#39; 
+        /// &#39;The frequency for which subscription is created.&#39;  Valid Values:   - &#39;DAILY&#39;   - &#39;WEEKLY&#39;   - &#39;MONTHLY&#39;   - &#39;USER_DEFINED&#39; 
         /// </summary>
-        /// <value>&#39;The frequency for which subscription is created.&#39;  Valid values: - &#39;DAILY&#39; - &#39;WEEKLY&#39; - &#39;MONTHLY&#39; - &#39;ADHOC&#39; </value>
+        /// <value>&#39;The frequency for which subscription is created.&#39;  Valid Values:   - &#39;DAILY&#39;   - &#39;WEEKLY&#39;   - &#39;MONTHLY&#39;   - &#39;USER_DEFINED&#39; </value>
         [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
         public string ReportFrequency { get; set; }
+
+        /// <summary>
+        /// If the reportFrequency is User-defined, reportInterval should be in **ISO 8601 time format** Please refer the following link to know more about ISO 8601 format.[Rfc Time Format](https://en.wikipedia.org/wiki/ISO_8601#Durations)  **Example time format for 2 hours and 30 Mins:**   - PT2H30M **NOTE: Do not document reportInterval field in developer center** 
+        /// </summary>
+        /// <value>If the reportFrequency is User-defined, reportInterval should be in **ISO 8601 time format** Please refer the following link to know more about ISO 8601 format.[Rfc Time Format](https://en.wikipedia.org/wiki/ISO_8601#Durations)  **Example time format for 2 hours and 30 Mins:**   - PT2H30M **NOTE: Do not document reportInterval field in developer center** </value>
+        [DataMember(Name="reportInterval", EmitDefaultValue=false)]
+        public string ReportInterval { get; set; }
 
         /// <summary>
         /// Gets or Sets ReportName
@@ -215,6 +224,7 @@ namespace CyberSource.Model
             sb.Append("  ReportFields: ").Append(ReportFields).Append("\n");
             sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
             sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
+            sb.Append("  ReportInterval: ").Append(ReportInterval).Append("\n");
             sb.Append("  ReportName: ").Append(ReportName).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
@@ -284,6 +294,11 @@ namespace CyberSource.Model
                     this.ReportFrequency.Equals(other.ReportFrequency)
                 ) && 
                 (
+                    this.ReportInterval == other.ReportInterval ||
+                    this.ReportInterval != null &&
+                    this.ReportInterval.Equals(other.ReportInterval)
+                ) && 
+                (
                     this.ReportName == other.ReportName ||
                     this.ReportName != null &&
                     this.ReportName.Equals(other.ReportName)
@@ -341,6 +356,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReportMimeType.GetHashCode();
                 if (this.ReportFrequency != null)
                     hash = hash * 59 + this.ReportFrequency.GetHashCode();
+                if (this.ReportInterval != null)
+                    hash = hash * 59 + this.ReportInterval.GetHashCode();
                 if (this.ReportName != null)
                     hash = hash * 59 + this.ReportName.GetHashCode();
                 if (this.Timezone != null)
@@ -390,6 +407,13 @@ namespace CyberSource.Model
             if (false == regexReportDefinitionName.Match(this.ReportDefinitionName).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportDefinitionName, must match a pattern of " + regexReportDefinitionName, new [] { "ReportDefinitionName" });
+            }
+
+            // ReportInterval (string) pattern
+            Regex regexReportInterval = new Regex(@"^PT((([1-9]|1[0-9]|2[0-3])H(([1-9]|[1-4][0-9]|5[0-9])M)?)|((([1-9]|1[0-9]|2[0-3])H)?([1-9]|[1-4][0-9]|5[0-9])M))$", RegexOptions.CultureInvariant);
+            if (false == regexReportInterval.Match(this.ReportInterval).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportInterval, must match a pattern of " + regexReportInterval, new [] { "ReportInterval" });
             }
 
             // ReportName (string) maxLength

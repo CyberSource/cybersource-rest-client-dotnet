@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Profile">Profile.</param>
         /// <param name="EventType">Specifies one of the following types of events: - login - account_creation - account_update For regular payment transactions, do not send this field. .</param>
-        public Riskv1decisionsRiskInformation(Riskv1decisionsRiskInformationProfile Profile = default(Riskv1decisionsRiskInformationProfile), string EventType = default(string))
+        /// <param name="MarkingDetails">MarkingDetails.</param>
+        public Riskv1decisionsRiskInformation(Riskv1decisionsRiskInformationProfile Profile = default(Riskv1decisionsRiskInformationProfile), string EventType = default(string), Riskv1decisionsRiskInformationMarkingDetails MarkingDetails = default(Riskv1decisionsRiskInformationMarkingDetails))
         {
             this.Profile = Profile;
             this.EventType = EventType;
+            this.MarkingDetails = MarkingDetails;
         }
         
         /// <summary>
@@ -55,6 +57,12 @@ namespace CyberSource.Model
         public string EventType { get; set; }
 
         /// <summary>
+        /// Gets or Sets MarkingDetails
+        /// </summary>
+        [DataMember(Name="markingDetails", EmitDefaultValue=false)]
+        public Riskv1decisionsRiskInformationMarkingDetails MarkingDetails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +72,7 @@ namespace CyberSource.Model
             sb.Append("class Riskv1decisionsRiskInformation {\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
+            sb.Append("  MarkingDetails: ").Append(MarkingDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +118,11 @@ namespace CyberSource.Model
                     this.EventType == other.EventType ||
                     this.EventType != null &&
                     this.EventType.Equals(other.EventType)
+                ) && 
+                (
+                    this.MarkingDetails == other.MarkingDetails ||
+                    this.MarkingDetails != null &&
+                    this.MarkingDetails.Equals(other.MarkingDetails)
                 );
         }
 
@@ -127,6 +141,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Profile.GetHashCode();
                 if (this.EventType != null)
                     hash = hash * 59 + this.EventType.GetHashCode();
+                if (this.MarkingDetails != null)
+                    hash = hash * 59 + this.MarkingDetails.GetHashCode();
                 return hash;
             }
         }
