@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Net;
 
 namespace CyberSource.Client
 {
@@ -194,6 +195,11 @@ namespace CyberSource.Client
             ApiKeyPrefix[key] = value;
         }
 		
+        public void AddWebProxy(WebProxy proxy)
+        {
+            Proxy = proxy;
+        }
+
 		/// <summary>
         /// Gets or sets the Merchant Config Dictionary Object (key/value pairs).
         /// </summary>
@@ -235,6 +241,8 @@ namespace CyberSource.Client
         /// </summary>
         /// <value>The prefix of the API key.</value>
         public Dictionary<String, String> ApiKeyPrefix = new Dictionary<String, String>();
+
+        public WebProxy Proxy { get; set; }
 
         /// <summary>
         /// Get the API key with prefix.
