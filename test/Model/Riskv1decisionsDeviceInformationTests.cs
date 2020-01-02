@@ -81,6 +81,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'IpAddress'
         }
         /// <summary>
+        /// Test the property 'NetworkIpAddress'
+        /// </summary>
+        [Test]
+        public void NetworkIpAddressTest()
+        {
+            // TODO unit test for the property 'NetworkIpAddress'
+        }
+        /// <summary>
         /// Test the property 'HostName'
         /// </summary>
         [Test]

@@ -33,25 +33,25 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType" /> class.
         /// </summary>
-        /// <param name="Name">A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. Possible values: - &#x60;CARD&#x60; (use this for a PIN debit transaction) .</param>
-        /// <param name="Method">A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType(string Name = default(string), string Method = default(string))
+        /// <param name="Type">Indicates the payment type used in this payment transaction. Example: credit card, check.</param>
+        /// <param name="Method">Indicates the payment method used in this payment transaction..</param>
+        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType(string Type = default(string), string Method = default(string))
         {
-            this.Name = Name;
+            this.Type = Type;
             this.Method = Method;
         }
         
         /// <summary>
-        /// A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. Possible values: - &#x60;CARD&#x60; (use this for a PIN debit transaction) 
+        /// Indicates the payment type used in this payment transaction. Example: credit card, check
         /// </summary>
-        /// <value>A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. Possible values: - &#x60;CARD&#x60; (use this for a PIN debit transaction) </value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
+        /// <value>Indicates the payment type used in this payment transaction. Example: credit card, check</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
-        /// A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal
+        /// Indicates the payment method used in this payment transaction.
         /// </summary>
-        /// <value>A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal</value>
+        /// <value>Indicates the payment method used in this payment transaction.</value>
         [DataMember(Name="method", EmitDefaultValue=false)]
         public string Method { get; set; }
 
@@ -63,7 +63,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -102,9 +102,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
                 ) && 
                 (
                     this.Method == other.Method ||
@@ -124,8 +124,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Method != null)
                     hash = hash * 59 + this.Method.GetHashCode();
                 return hash;

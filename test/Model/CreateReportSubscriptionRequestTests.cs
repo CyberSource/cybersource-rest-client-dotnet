@@ -105,6 +105,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ReportFrequency'
         }
         /// <summary>
+        /// Test the property 'ReportInterval'
+        /// </summary>
+        [Test]
+        public void ReportIntervalTest()
+        {
+            // TODO unit test for the property 'ReportInterval'
+        }
+        /// <summary>
         /// Test the property 'ReportName'
         /// </summary>
         [Test]

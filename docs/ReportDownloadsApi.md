@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="downloadreport"></a>
 # **DownloadReport**
-> void DownloadReport (DateTime? reportDate, string reportName, string organizationId = null)
+> void DownloadReport (DateTime? reportDate, string reportName, string organizationId = null, string reportTime = null)
 
 Download a report
 
@@ -33,11 +33,12 @@ namespace Example
             var reportDate = 2013-10-20;  // DateTime? | Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd 
             var reportName = reportName_example;  // string | Name of the report to download
             var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
+            var reportTime = reportTime_example;  // string | Valid time on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Time Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example time format:**   - hh:mm:ss±hh:mm  (optional) 
 
             try
             {
                 // Download a report
-                apiInstance.DownloadReport(reportDate, reportName, organizationId);
+                apiInstance.DownloadReport(reportDate, reportName, organizationId, reportTime);
             }
             catch (Exception e)
             {
@@ -55,6 +56,7 @@ Name | Type | Description  | Notes
  **reportDate** | **DateTime?**| Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd  | 
  **reportName** | **string**| Name of the report to download | 
  **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
+ **reportTime** | **string**| Valid time on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Time Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example time format:**   - hh:mm:ss±hh:mm  | [optional] 
 
 ### Return type
 

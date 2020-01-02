@@ -137,6 +137,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Email'
         }
         /// <summary>
+        /// Test the property 'EmailDomain'
+        /// </summary>
+        [Test]
+        public void EmailDomainTest()
+        {
+            // TODO unit test for the property 'EmailDomain'
+        }
+        /// <summary>
         /// Test the property 'PostalCode'
         /// </summary>
         [Test]

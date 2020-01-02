@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Number">Credit card number (PAN)..</param>
         /// <param name="ExpirationMonth">Card expiration month.  Format: &#x60;MM&#x60;. Possible values: &#x60;01&#x60; through &#x60;12&#x60;. .</param>
-        /// <param name="ExpirationYear">Card expiration year.  Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;. .</param>
+        /// <param name="ExpirationYear">Card expiration year. Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;. .</param>
         /// <param name="SecurityCode">Card security code..</param>
         public Tmsv1instrumentidentifiersCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string SecurityCode = default(string))
         {
@@ -60,9 +60,9 @@ namespace CyberSource.Model
         public string ExpirationMonth { get; set; }
 
         /// <summary>
-        /// Card expiration year.  Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;. 
+        /// Card expiration year. Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;. 
         /// </summary>
-        /// <value>Card expiration year.  Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;. </value>
+        /// <value>Card expiration year. Format: &#x60;YYYY&#x60;. Possible values: &#x60;1900&#x60; through &#x60;2099&#x60;. </value>
         [DataMember(Name="expirationYear", EmitDefaultValue=false)]
         public string ExpirationYear { get; set; }
 

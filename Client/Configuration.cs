@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Net;
 
 namespace CyberSource.Client
 {
@@ -36,7 +37,7 @@ namespace CyberSource.Client
         /// <param name="dateTimeFormat">DateTime format string</param>
         /// <param name="timeout">HTTP connection timeout (in milliseconds)</param>
         /// <param name="userAgent">HTTP user agent</param>
-		/// <param name="merchConfigDictObj">Dictiory Object for Merchant Config</param>
+        /// <param name="merchConfigDictObj">Dictiory Object for Merchant Config</param>
         public Configuration(ApiClient apiClient = null,
                              Dictionary<String, String> defaultHeader = null,
                              string username = null,
@@ -48,7 +49,7 @@ namespace CyberSource.Client
                              string dateTimeFormat = null,
                              int timeout = 100000,
                              string userAgent = "Swagger-Codegen/1.0.0/csharp",
-							 IReadOnlyDictionary<string, string> merchConfigDictObj = null
+                             IReadOnlyDictionary<string, string> merchConfigDictObj = null
                             )
         {
             setApiClientUsingDefault(apiClient);
@@ -57,6 +58,34 @@ namespace CyberSource.Client
             Password = password;
             AccessToken = accessToken;
             UserAgent = userAgent;
+
+            ClientId = GetClientId();
+
+            if (merchConfigDictObj != null)
+            {
+                SolutionId = merchConfigDictObj.ContainsKey("solutionID") ? merchConfigDictObj["solutionID"] : null;
+            }
+
+            if (merchConfigDictObj != null)
+            {
+                if (merchConfigDictObj.ContainsKey("useProxy"))
+				{
+					if (bool.Parse(merchConfigDictObj["useProxy"])) 
+					{
+						int proxyPortTest;
+
+						if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyAddress"]) && int.TryParse(merchConfigDictObj["proxyPort"], out proxyPortTest)) {
+							WebProxy proxy = new WebProxy(merchConfigDictObj["proxyAddress"], proxyPortTest);
+							
+							if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyUsername"]) && !string.IsNullOrWhiteSpace(merchConfigDictObj["proxyPassword"])) {
+								proxy.Credentials = new NetworkCredential(merchConfigDictObj["proxyUsername"], merchConfigDictObj["proxyPassword"]);
+							}
+							
+							AddWebProxy(proxy);
+						}
+					}
+                }
+            }
 
             if (defaultHeader != null)
                 DefaultHeader = defaultHeader;
@@ -68,7 +97,16 @@ namespace CyberSource.Client
             TempFolderPath = tempFolderPath;
             DateTimeFormat = dateTimeFormat;
             Timeout = timeout;
-			MerchantConfigDictionaryObj = merchConfigDictObj;
+            MerchantConfigDictionaryObj = merchConfigDictObj;
+        }
+
+        private string GetClientId()
+        {
+            var assembly = typeof(Configuration).Assembly;
+
+            var assemblyVersion = AssemblyHelper.GetAssemblyAttribute<AssemblyFileVersionAttribute>(assembly).Version;
+
+            return "cybs-rest-sdk-dotnet-" + assemblyVersion;
         }
 
         /// <summary>
@@ -193,13 +231,22 @@ namespace CyberSource.Client
         {
             ApiKeyPrefix[key] = value;
         }
-		
-		/// <summary>
+
+        /// <summary>
+        /// Gets or sets the web proxy for the request.
+        /// </summary>
+        /// <param name="proxy">The proxy object.</param>
+        public void AddWebProxy(WebProxy proxy)
+        {
+            Proxy = proxy;
+        }
+        
+        /// <summary>
         /// Gets or sets the Merchant Config Dictionary Object (key/value pairs).
         /// </summary>
         /// <value>Merchant Config Dictionary Object</value>
         public IReadOnlyDictionary<string, string> MerchantConfigDictionaryObj { get; set; }
-		
+        
         /// <summary>
         /// Gets or sets the HTTP user agent.
         /// </summary>
@@ -231,10 +278,28 @@ namespace CyberSource.Client
         public Dictionary<String, String> ApiKey = new Dictionary<String, String>();
 
         /// <summary>
+        /// Gets or sets the Client ID for SDK auditing and/or reporting.
+        /// </summary>
+        /// <value>The Client ID.</value>
+        public String ClientId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Solution ID for SDK auditing and/or reporting.
+        /// </summary>
+        /// <value>The Solution ID.</value>
+        public String SolutionId { get; set; }
+
+        /// <summary>
         /// Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
         /// </summary>
         /// <value>The prefix of the API key.</value>
         public Dictionary<String, String> ApiKeyPrefix = new Dictionary<String, String>();
+
+        /// <summary>
+        /// Gets or sets the proxy object to use for the requests.
+        /// </summary>
+        /// <value>The proxy object.</value>
+        public WebProxy Proxy { get; set; }
 
         /// <summary>
         /// Get the API key with prefix.
@@ -338,6 +403,17 @@ namespace CyberSource.Client
             report += "    SDK Package Version: 1.0.0\n";
 
             return report;
+        }
+    }
+
+    public static class AssemblyHelper
+    {
+        public static T GetAssemblyAttribute<T>(this System.Reflection.Assembly ass) where T : Attribute
+        {
+            object[] attributes = ass.GetCustomAttributes(typeof(T), false);
+            if (attributes == null || attributes.Length == 0)
+                return null;
+            return attributes.OfType<T>().SingleOrDefault();
         }
     }
 }

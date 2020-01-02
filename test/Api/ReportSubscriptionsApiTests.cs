@@ -112,6 +112,19 @@ namespace CyberSource.Test
             //Assert.IsInstanceOf<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> (response, "response is ReportingV3ReportSubscriptionsGet200ResponseSubscriptions");
         }
         
+        /// <summary>
+        /// Test ReportingV3PredefinedReportSubscriptionsPut
+        /// </summary>
+        [Test]
+        public void ReportingV3PredefinedReportSubscriptionsPutTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean = null;
+            //string organizationId = null;
+            //instance.ReportingV3PredefinedReportSubscriptionsPut(predefinedSubscriptionRequestBean, organizationId);
+            
+        }
+        
     }
 
 }

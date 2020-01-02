@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Model409Links" /> class.
         /// </summary>
         /// <param name="PaymentInstruments">PaymentInstruments.</param>
-        public Model409Links(TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments PaymentInstruments = default(TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments))
+        public Model409Links(TmsV1InstrumentIdentifiersPost200ResponseLinksPaymentInstruments PaymentInstruments = default(TmsV1InstrumentIdentifiersPost200ResponseLinksPaymentInstruments))
         {
             this.PaymentInstruments = PaymentInstruments;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentInstruments
         /// </summary>
         [DataMember(Name="paymentInstruments", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersDelete409ResponseLinksPaymentInstruments PaymentInstruments { get; set; }
+        public TmsV1InstrumentIdentifiersPost200ResponseLinksPaymentInstruments PaymentInstruments { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

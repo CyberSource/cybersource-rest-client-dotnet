@@ -72,8 +72,10 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string reportDefinitionName = null;
+            //string subscriptionType = null;
+            //string reportMimeType = null;
             //string organizationId = null;
-            //var response = instance.GetResourceInfoByReportDefinition(reportDefinitionName, organizationId);
+            //var response = instance.GetResourceInfoByReportDefinition(reportDefinitionName, subscriptionType, reportMimeType, organizationId);
             //Assert.IsInstanceOf<ReportingV3ReportDefinitionsNameGet200Response> (response, "response is ReportingV3ReportDefinitionsNameGet200Response");
         }
         
@@ -84,8 +86,9 @@ namespace CyberSource.Test
         public void GetResourceV2InfoTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string subscriptionType = null;
             //string organizationId = null;
-            //var response = instance.GetResourceV2Info(organizationId);
+            //var response = instance.GetResourceV2Info(subscriptionType, organizationId);
             //Assert.IsInstanceOf<ReportingV3ReportDefinitionsGet200Response> (response, "response is ReportingV3ReportDefinitionsGet200Response");
         }
         

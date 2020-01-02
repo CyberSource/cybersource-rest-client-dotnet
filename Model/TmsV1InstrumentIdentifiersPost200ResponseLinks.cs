@@ -34,11 +34,13 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TmsV1InstrumentIdentifiersPost200ResponseLinks" /> class.
         /// </summary>
         /// <param name="Self">Self.</param>
+        /// <param name="PaymentInstruments">PaymentInstruments.</param>
         /// <param name="Ancestor">Ancestor.</param>
         /// <param name="Successor">Successor.</param>
-        public TmsV1InstrumentIdentifiersPost200ResponseLinks(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Self = default(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf), TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Ancestor = default(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf), TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Successor = default(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf))
+        public TmsV1InstrumentIdentifiersPost200ResponseLinks(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Self = default(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf), TmsV1InstrumentIdentifiersPost200ResponseLinksPaymentInstruments PaymentInstruments = default(TmsV1InstrumentIdentifiersPost200ResponseLinksPaymentInstruments), TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Ancestor = default(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf), TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Successor = default(TmsV1InstrumentIdentifiersPost200ResponseLinksSelf))
         {
             this.Self = Self;
+            this.PaymentInstruments = PaymentInstruments;
             this.Ancestor = Ancestor;
             this.Successor = Successor;
         }
@@ -48,6 +50,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="self", EmitDefaultValue=false)]
         public TmsV1InstrumentIdentifiersPost200ResponseLinksSelf Self { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentInstruments
+        /// </summary>
+        [DataMember(Name="paymentInstruments", EmitDefaultValue=false)]
+        public TmsV1InstrumentIdentifiersPost200ResponseLinksPaymentInstruments PaymentInstruments { get; set; }
 
         /// <summary>
         /// Gets or Sets Ancestor
@@ -70,6 +78,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class TmsV1InstrumentIdentifiersPost200ResponseLinks {\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
+            sb.Append("  PaymentInstruments: ").Append(PaymentInstruments).Append("\n");
             sb.Append("  Ancestor: ").Append(Ancestor).Append("\n");
             sb.Append("  Successor: ").Append(Successor).Append("\n");
             sb.Append("}\n");
@@ -114,6 +123,11 @@ namespace CyberSource.Model
                     this.Self.Equals(other.Self)
                 ) && 
                 (
+                    this.PaymentInstruments == other.PaymentInstruments ||
+                    this.PaymentInstruments != null &&
+                    this.PaymentInstruments.Equals(other.PaymentInstruments)
+                ) && 
+                (
                     this.Ancestor == other.Ancestor ||
                     this.Ancestor != null &&
                     this.Ancestor.Equals(other.Ancestor)
@@ -138,6 +152,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Self != null)
                     hash = hash * 59 + this.Self.GetHashCode();
+                if (this.PaymentInstruments != null)
+                    hash = hash * 59 + this.PaymentInstruments.GetHashCode();
                 if (this.Ancestor != null)
                     hash = hash * 59 + this.Ancestor.GetHashCode();
                 if (this.Successor != null)

@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// <param name="ReturnsAccepted">Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. .</param>
         /// <param name="LineItems">This array contains detailed information about individual products in the order..</param>
         /// <param name="BillTo">BillTo.</param>
-        public Riskv1decisionsOrderInformation(Riskv1decisionsOrderInformationAmountDetails AmountDetails = default(Riskv1decisionsOrderInformationAmountDetails), Riskv1decisionsOrderInformationShippingDetails ShippingDetails = default(Riskv1decisionsOrderInformationShippingDetails), Riskv1decisionsOrderInformationShipTo ShipTo = default(Riskv1decisionsOrderInformationShipTo), bool? ReturnsAccepted = default(bool?), List<Riskv1decisionsOrderInformationLineItems> LineItems = default(List<Riskv1decisionsOrderInformationLineItems>), Riskv1decisionsOrderInformationBillTo BillTo = default(Riskv1decisionsOrderInformationBillTo))
+        /// <param name="Address">Address.</param>
+        public Riskv1decisionsOrderInformation(Riskv1decisionsOrderInformationAmountDetails AmountDetails = default(Riskv1decisionsOrderInformationAmountDetails), Riskv1decisionsOrderInformationShippingDetails ShippingDetails = default(Riskv1decisionsOrderInformationShippingDetails), Riskv1decisionsOrderInformationShipTo ShipTo = default(Riskv1decisionsOrderInformationShipTo), bool? ReturnsAccepted = default(bool?), List<Riskv1decisionsOrderInformationLineItems> LineItems = default(List<Riskv1decisionsOrderInformationLineItems>), Riskv1decisionsOrderInformationBillTo BillTo = default(Riskv1decisionsOrderInformationBillTo), Riskv1decisionsOrderInformationAddress Address = default(Riskv1decisionsOrderInformationAddress))
         {
             this.AmountDetails = AmountDetails;
             this.ShippingDetails = ShippingDetails;
@@ -47,6 +48,7 @@ namespace CyberSource.Model
             this.ReturnsAccepted = ReturnsAccepted;
             this.LineItems = LineItems;
             this.BillTo = BillTo;
+            this.Address = Address;
         }
         
         /// <summary>
@@ -88,6 +90,12 @@ namespace CyberSource.Model
         public Riskv1decisionsOrderInformationBillTo BillTo { get; set; }
 
         /// <summary>
+        /// Gets or Sets Address
+        /// </summary>
+        [DataMember(Name="address", EmitDefaultValue=false)]
+        public Riskv1decisionsOrderInformationAddress Address { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -101,6 +109,7 @@ namespace CyberSource.Model
             sb.Append("  ReturnsAccepted: ").Append(ReturnsAccepted).Append("\n");
             sb.Append("  LineItems: ").Append(LineItems).Append("\n");
             sb.Append("  BillTo: ").Append(BillTo).Append("\n");
+            sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -166,6 +175,11 @@ namespace CyberSource.Model
                     this.BillTo == other.BillTo ||
                     this.BillTo != null &&
                     this.BillTo.Equals(other.BillTo)
+                ) && 
+                (
+                    this.Address == other.Address ||
+                    this.Address != null &&
+                    this.Address.Equals(other.Address)
                 );
         }
 
@@ -192,6 +206,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.LineItems.GetHashCode();
                 if (this.BillTo != null)
                     hash = hash * 59 + this.BillTo.GetHashCode();
+                if (this.Address != null)
+                    hash = hash * 59 + this.Address.GetHashCode();
                 return hash;
             }
         }

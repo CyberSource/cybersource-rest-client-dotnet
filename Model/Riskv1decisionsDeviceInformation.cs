@@ -35,14 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="CookiesAccepted">Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. .</param>
         /// <param name="IpAddress">IP address of the customer. .</param>
+        /// <param name="NetworkIpAddress">Network IP address of the customer (for example, 10.1.27). A network IP address includes up to 256 IP addresses. .</param>
         /// <param name="HostName">DNS resolved hostname from &#x60;ipAddress&#x60;..</param>
         /// <param name="FingerprintSessionId">Field that contains the session ID that you send to Decision Manager to obtain the device fingerprint information. The string can contain uppercase and lowercase letters, digits, hyphen (-), and underscore (_). However, do not use the same uppercase and lowercase letters to indicate different session IDs.  The session ID must be unique for each merchant ID. You can use any string that you are already generating, such as an order number or web session ID.  The session ID must be unique for each page load, regardless of an individual’s web session ID. If a user navigates to a profiled page and is assigned a web session, navigates away from the profiled page, then navigates back to the profiled page, the generated session ID should be different and unique. You may use a web session ID, but it is preferable to use an application GUID (Globally Unique Identifier). This measure ensures that a unique ID is generated every time the page is loaded, even if it is the same user reloading the page. .</param>
         /// <param name="HttpBrowserEmail">Email address set in the customer’s browser, which may differ from customer email. .</param>
         /// <param name="UserAgent">Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. .</param>
-        public Riskv1decisionsDeviceInformation(string CookiesAccepted = default(string), string IpAddress = default(string), string HostName = default(string), string FingerprintSessionId = default(string), string HttpBrowserEmail = default(string), string UserAgent = default(string))
+        public Riskv1decisionsDeviceInformation(string CookiesAccepted = default(string), string IpAddress = default(string), string NetworkIpAddress = default(string), string HostName = default(string), string FingerprintSessionId = default(string), string HttpBrowserEmail = default(string), string UserAgent = default(string))
         {
             this.CookiesAccepted = CookiesAccepted;
             this.IpAddress = IpAddress;
+            this.NetworkIpAddress = NetworkIpAddress;
             this.HostName = HostName;
             this.FingerprintSessionId = FingerprintSessionId;
             this.HttpBrowserEmail = HttpBrowserEmail;
@@ -62,6 +64,13 @@ namespace CyberSource.Model
         /// <value>IP address of the customer. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
+
+        /// <summary>
+        /// Network IP address of the customer (for example, 10.1.27). A network IP address includes up to 256 IP addresses. 
+        /// </summary>
+        /// <value>Network IP address of the customer (for example, 10.1.27). A network IP address includes up to 256 IP addresses. </value>
+        [DataMember(Name="networkIpAddress", EmitDefaultValue=false)]
+        public string NetworkIpAddress { get; set; }
 
         /// <summary>
         /// DNS resolved hostname from &#x60;ipAddress&#x60;.
@@ -101,6 +110,7 @@ namespace CyberSource.Model
             sb.Append("class Riskv1decisionsDeviceInformation {\n");
             sb.Append("  CookiesAccepted: ").Append(CookiesAccepted).Append("\n");
             sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
+            sb.Append("  NetworkIpAddress: ").Append(NetworkIpAddress).Append("\n");
             sb.Append("  HostName: ").Append(HostName).Append("\n");
             sb.Append("  FingerprintSessionId: ").Append(FingerprintSessionId).Append("\n");
             sb.Append("  HttpBrowserEmail: ").Append(HttpBrowserEmail).Append("\n");
@@ -152,6 +162,11 @@ namespace CyberSource.Model
                     this.IpAddress.Equals(other.IpAddress)
                 ) && 
                 (
+                    this.NetworkIpAddress == other.NetworkIpAddress ||
+                    this.NetworkIpAddress != null &&
+                    this.NetworkIpAddress.Equals(other.NetworkIpAddress)
+                ) && 
+                (
                     this.HostName == other.HostName ||
                     this.HostName != null &&
                     this.HostName.Equals(other.HostName)
@@ -188,6 +203,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CookiesAccepted.GetHashCode();
                 if (this.IpAddress != null)
                     hash = hash * 59 + this.IpAddress.GetHashCode();
+                if (this.NetworkIpAddress != null)
+                    hash = hash * 59 + this.NetworkIpAddress.GetHashCode();
                 if (this.HostName != null)
                     hash = hash * 59 + this.HostName.GetHashCode();
                 if (this.FingerprintSessionId != null)
@@ -211,6 +228,12 @@ namespace CyberSource.Model
             if(this.IpAddress != null && this.IpAddress.Length >= 48)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IpAddress, length must be less than or equal to 48.", new [] { "IpAddress" });
+            }
+
+            // NetworkIpAddress (string) maxLength
+            if(this.NetworkIpAddress != null && this.NetworkIpAddress.Length >= 11)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetworkIpAddress, length must be less than or equal to 11.", new [] { "NetworkIpAddress" });
             }
 
             // HostName (string) maxLength

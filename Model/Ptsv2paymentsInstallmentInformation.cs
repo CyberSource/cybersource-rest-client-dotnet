@@ -311,6 +311,30 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCount, must be a value less than or equal to 99.", new [] { "TotalCount" });
             }
 
+            // FirstInstallmentDate (string) maxLength
+            if(this.FirstInstallmentDate != null && this.FirstInstallmentDate.Length >= 6)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstInstallmentDate, length must be less than or equal to 6.", new [] { "FirstInstallmentDate" });
+            }
+
+            // InvoiceData (string) maxLength
+            if(this.InvoiceData != null && this.InvoiceData.Length >= 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvoiceData, length must be less than or equal to 20.", new [] { "InvoiceData" });
+            }
+
+            // PaymentType (string) maxLength
+            if(this.PaymentType != null && this.PaymentType.Length >= 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentType, length must be less than or equal to 1.", new [] { "PaymentType" });
+            }
+
+            // EligibilityInquiry (string) maxLength
+            if(this.EligibilityInquiry != null && this.EligibilityInquiry.Length >= 9)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EligibilityInquiry, length must be less than or equal to 9.", new [] { "EligibilityInquiry" });
+            }
+
             yield break;
         }
     }

@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseApplicationInformationApplications" /> class.
         /// </summary>
-        /// <param name="Name">The CyberSource payment application processed for the transaction. .</param>
+        /// <param name="Name">The name of the CyberSource transaction type (such as CC settlement or CC authorization) that the merchant wants to process in a transaction request. More than one transaction type can included in a transaction request. Each transaction type separately returns their own status, reasonCode, rCode, and rFlag messages. .</param>
         /// <param name="Status">The description for this field is not available..</param>
         /// <param name="ReasonCode">3-digit reason code that indicates why the customer profile payment succeeded or failed..</param>
         /// <param name="RCode">Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful. .</param>
@@ -54,9 +54,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The CyberSource payment application processed for the transaction. 
+        /// The name of the CyberSource transaction type (such as CC settlement or CC authorization) that the merchant wants to process in a transaction request. More than one transaction type can included in a transaction request. Each transaction type separately returns their own status, reasonCode, rCode, and rFlag messages. 
         /// </summary>
-        /// <value>The CyberSource payment application processed for the transaction. </value>
+        /// <value>The name of the CyberSource transaction type (such as CC settlement or CC authorization) that the merchant wants to process in a transaction request. More than one transaction type can included in a transaction request. Each transaction type separately returns their own status, reasonCode, rCode, and rFlag messages. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 

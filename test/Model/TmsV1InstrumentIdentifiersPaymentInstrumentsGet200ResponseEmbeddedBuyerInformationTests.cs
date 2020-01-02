@@ -81,12 +81,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Currency'
         }
         /// <summary>
-        /// Test the property 'DateOBirth'
+        /// Test the property 'DateOfBirth'
         /// </summary>
         [Test]
-        public void DateOBirthTest()
+        public void DateOfBirthTest()
         {
-            // TODO unit test for the property 'DateOBirth'
+            // TODO unit test for the property 'DateOfBirth'
         }
         /// <summary>
         /// Test the property 'PersonalIdentification'

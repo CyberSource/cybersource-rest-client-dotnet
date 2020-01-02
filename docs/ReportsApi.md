@@ -162,7 +162,7 @@ namespace Example
             var timeQueryType = timeQueryType_example;  // string | Specify time you would like to search  Valid values: - reportTimeFrame - executedTime 
             var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
             var reportMimeType = reportMimeType_example;  // string | Valid Report Format  Valid values: - application/xml - text/csv  (optional) 
-            var reportFrequency = reportFrequency_example;  // string | Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC  (optional) 
+            var reportFrequency = reportFrequency_example;  // string | Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional) 
             var reportName = reportName_example;  // string | Valid Report Name (optional) 
             var reportDefinitionId = 56;  // int? | Valid Report Definition Id (optional) 
             var reportStatus = reportStatus_example;  // string | Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional) 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
  **timeQueryType** | **string**| Specify time you would like to search  Valid values: - reportTimeFrame - executedTime  | 
  **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
  **reportMimeType** | **string**| Valid Report Format  Valid values: - application/xml - text/csv  | [optional] 
- **reportFrequency** | **string**| Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC  | [optional] 
+ **reportFrequency** | **string**| Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  | [optional] 
  **reportName** | **string**| Valid Report Name | [optional] 
  **reportDefinitionId** | **int?**| Valid Report Definition Id | [optional] 
  **reportStatus** | **string**| Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  | [optional] 

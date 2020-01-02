@@ -108,6 +108,29 @@ namespace CyberSource.Api
         /// <param name="reportName">Name of the Report to Retrieve</param>
         /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
         ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionWithHttpInfo (string reportName);
+        /// <summary>
+        /// Create a Standard or Classic subscription
+        /// </summary>
+        /// <remarks>
+        /// Create or update an already existing classic or standard subscription. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <returns></returns>
+        void ReportingV3PredefinedReportSubscriptionsPut (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null);
+
+        /// <summary>
+        /// Create a Standard or Classic subscription
+        /// </summary>
+        /// <remarks>
+        /// Create or update an already existing classic or standard subscription. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ReportingV3PredefinedReportSubscriptionsPutWithHttpInfo (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -194,6 +217,29 @@ namespace CyberSource.Api
         /// <param name="reportName">Name of the Report to Retrieve</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200ResponseSubscriptions)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>> GetSubscriptionAsyncWithHttpInfo (string reportName);
+        /// <summary>
+        /// Create a Standard or Classic subscription
+        /// </summary>
+        /// <remarks>
+        /// Create or update an already existing classic or standard subscription. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ReportingV3PredefinedReportSubscriptionsPutAsync (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null);
+
+        /// <summary>
+        /// Create a Standard or Classic subscription
+        /// </summary>
+        /// <remarks>
+        /// Create or update an already existing classic or standard subscription. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ReportingV3PredefinedReportSubscriptionsPutAsyncWithHttpInfo (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null);
         #endregion Asynchronous Operations
     }
 
@@ -844,6 +890,159 @@ namespace CyberSource.Api
             return new ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ReportingV3ReportSubscriptionsGet200ResponseSubscriptions) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportSubscriptionsGet200ResponseSubscriptions)));
+        }
+
+        /// <summary>
+        /// Create a Standard or Classic subscription Create or update an already existing classic or standard subscription. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <returns></returns>
+        public void ReportingV3PredefinedReportSubscriptionsPut (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
+        {
+             ReportingV3PredefinedReportSubscriptionsPutWithHttpInfo(predefinedSubscriptionRequestBean, organizationId);
+        }
+
+        /// <summary>
+        /// Create a Standard or Classic subscription Create or update an already existing classic or standard subscription. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> ReportingV3PredefinedReportSubscriptionsPutWithHttpInfo (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
+        {
+            // verify the required parameter 'predefinedSubscriptionRequestBean' is set
+            if (predefinedSubscriptionRequestBean == null)
+                throw new ApiException(400, "Missing required parameter 'predefinedSubscriptionRequestBean' when calling ReportSubscriptionsApi->ReportingV3PredefinedReportSubscriptionsPut");
+
+            var localVarPath = $"/reporting/v3/predefined-report-subscriptions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (predefinedSubscriptionRequestBean != null && predefinedSubscriptionRequestBean.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(predefinedSubscriptionRequestBean); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = predefinedSubscriptionRequestBean; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReportingV3PredefinedReportSubscriptionsPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Create a Standard or Classic subscription Create or update an already existing classic or standard subscription. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ReportingV3PredefinedReportSubscriptionsPutAsync (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
+        {
+             await ReportingV3PredefinedReportSubscriptionsPutAsyncWithHttpInfo(predefinedSubscriptionRequestBean, organizationId);
+
+        }
+
+        /// <summary>
+        /// Create a Standard or Classic subscription Create or update an already existing classic or standard subscription. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
+        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ReportingV3PredefinedReportSubscriptionsPutAsyncWithHttpInfo (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
+        {
+            // verify the required parameter 'predefinedSubscriptionRequestBean' is set
+            if (predefinedSubscriptionRequestBean == null)
+                throw new ApiException(400, "Missing required parameter 'predefinedSubscriptionRequestBean' when calling ReportSubscriptionsApi->ReportingV3PredefinedReportSubscriptionsPut");
+
+            var localVarPath = $"/reporting/v3/predefined-report-subscriptions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (predefinedSubscriptionRequestBean != null && predefinedSubscriptionRequestBean.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(predefinedSubscriptionRequestBean); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = predefinedSubscriptionRequestBean; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReportingV3PredefinedReportSubscriptionsPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
     }

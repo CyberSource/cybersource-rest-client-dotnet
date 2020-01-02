@@ -59,18 +59,22 @@ namespace {{packageName}}.Client
 
             if (merchConfigDictObj != null)
             {
-                if (bool.Parse(merchConfigDictObj["useProxy"])) {
-                    int proxyPortTest;
+                if (merchConfigDictObj.ContainsKey("useProxy"))
+				{
+					if (bool.Parse(merchConfigDictObj["useProxy"])) 
+					{
+						int proxyPortTest;
 
-                    if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyAddress"]) && int.TryParse(merchConfigDictObj["proxyPort"], out proxyPortTest)) {
-                        WebProxy proxy = new WebProxy(merchConfigDictObj["proxyAddress"], proxyPortTest);
-                        
-                        if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyUsername"]) && !string.IsNullOrWhiteSpace(merchConfigDictObj["proxyPassword"])) {
-                            proxy.Credentials = new NetworkCredential(merchConfigDictObj["proxyUsername"], merchConfigDictObj["proxyPassword"]);
-                        }
-                        
-                        AddWebProxy(proxy);
-                    }
+						if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyAddress"]) && int.TryParse(merchConfigDictObj["proxyPort"], out proxyPortTest)) {
+							WebProxy proxy = new WebProxy(merchConfigDictObj["proxyAddress"], proxyPortTest);
+							
+							if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyUsername"]) && !string.IsNullOrWhiteSpace(merchConfigDictObj["proxyPassword"])) {
+								proxy.Credentials = new NetworkCredential(merchConfigDictObj["proxyUsername"], merchConfigDictObj["proxyPassword"]);
+							}
+							
+							AddWebProxy(proxy);
+						}
+					}
                 }
             }
 

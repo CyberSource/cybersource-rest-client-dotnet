@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getresourceinfobyreportdefinition"></a>
 # **GetResourceInfoByReportDefinition**
-> ReportingV3ReportDefinitionsNameGet200Response GetResourceInfoByReportDefinition (string reportDefinitionName, string organizationId = null)
+> ReportingV3ReportDefinitionsNameGet200Response GetResourceInfoByReportDefinition (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null)
 
 Get report definition
 
@@ -32,12 +32,14 @@ namespace Example
         {
             var apiInstance = new ReportDefinitionsApi();
             var reportDefinitionName = reportDefinitionName_example;  // string | Name of the Report definition to retrieve
+            var subscriptionType = subscriptionType_example;  // string | The subscription type for which report definition is required. By default the type will be CUSTOM. Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional) 
+            var reportMimeType = reportMimeType_example;  // string | The format for which the report definition is required. By default the value will be CSV. Valid Values: - application/xml - text/csv  (optional) 
             var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
 
             try
             {
                 // Get report definition
-                ReportingV3ReportDefinitionsNameGet200Response result = apiInstance.GetResourceInfoByReportDefinition(reportDefinitionName, organizationId);
+                ReportingV3ReportDefinitionsNameGet200Response result = apiInstance.GetResourceInfoByReportDefinition(reportDefinitionName, subscriptionType, reportMimeType, organizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -54,6 +56,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reportDefinitionName** | **string**| Name of the Report definition to retrieve | 
+ **subscriptionType** | **string**| The subscription type for which report definition is required. By default the type will be CUSTOM. Valid Values: - CLASSIC - CUSTOM - STANDARD  | [optional] 
+ **reportMimeType** | **string**| The format for which the report definition is required. By default the value will be CSV. Valid Values: - application/xml - text/csv  | [optional] 
  **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
 
 ### Return type
@@ -73,7 +77,7 @@ No authorization required
 
 <a name="getresourcev2info"></a>
 # **GetResourceV2Info**
-> ReportingV3ReportDefinitionsGet200Response GetResourceV2Info (string organizationId = null)
+> ReportingV3ReportDefinitionsGet200Response GetResourceV2Info (string subscriptionType = null, string organizationId = null)
 
 Get reporting resource information
 
@@ -94,12 +98,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new ReportDefinitionsApi();
+            var subscriptionType = subscriptionType_example;  // string | Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional) 
             var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
 
             try
             {
                 // Get reporting resource information
-                ReportingV3ReportDefinitionsGet200Response result = apiInstance.GetResourceV2Info(organizationId);
+                ReportingV3ReportDefinitionsGet200Response result = apiInstance.GetResourceV2Info(subscriptionType, organizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -115,6 +120,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **subscriptionType** | **string**| Valid Values: - CLASSIC - CUSTOM - STANDARD  | [optional] 
  **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
 
 ### Return type
