@@ -41,7 +41,9 @@ namespace CyberSource.Model
         /// <param name="IssueNumber">Number of times a Maestro (UK Domestic) card has been issued to the account holder. The card might or might not have an issue number. The number can consist of one or two digits, and the first digit might be a zero. When you include this value in your request, include exactly what is printed on the card. A value of 2 is different than a value of 02. Do not include the field, even with a blank value, if the card is not a Maestro (UK Domestic) card.  **Note** The issue number is not required for Maestro (UK Domestic) transactions. .</param>
         /// <param name="StartMonth">Month of the start of the Maestro (UK Domestic) card validity period. Do not include the field, even with a blank value, if the card is not a Maestro (UK Domestic) card. &#x60;Format: MM&#x60;. Possible values: 01 through 12.  **Note** The start date is not required for Maestro (UK Domestic) transactions. .</param>
         /// <param name="StartYear">Year of the start of the Maestro (UK Domestic) card validity period. Do not include the field, even with a blank value, if the card is not a Maestro (UK Domestic) card. &#x60;Format: YYYY&#x60;.  **Note** The start date is not required for Maestro (UK Domestic) transactions. .</param>
-        public Ptsv2paymentsidrefundsPaymentInformationCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), string AccountEncoderId = default(string), string IssueNumber = default(string), string StartMonth = default(string), string StartYear = default(string))
+        /// <param name="SourceAccountType">Flag that specifies the type of account associated with the card. The cardholder provides this information during the payment process.  This field is required in the following cases:   - Debit transactions on Cielo and Comercio Latino.   - Transactions with Brazilian-issued cards on CyberSource through VisaNet.   - Applicable only for CyberSource through VisaNet (CtV).      **Note** Combo cards in Brazil contain credit and debit functionality in a single card. Visa systems use a credit bank identification number (BIN) for this type of card. Using the BIN to determine whether a card is debit or credit can cause transactions with these cards to be processed incorrectly. CyberSource strongly recommends that you include this field for combo card transactions.  Possible values include the following.   - &#x60;CHECKING&#x60;: Checking account  - &#x60;CREDIT&#x60;: Credit card account  - &#x60;SAVING&#x60;: Saving account  - &#x60;LINE_OF_CREDIT&#x60;: Line of credit or credit portion of combo card  - &#x60;PREPAID&#x60;: Prepaid card account or prepaid portion of combo card  - &#x60;UNIVERSAL&#x60;: Universal account .</param>
+        /// <param name="SourceAccountTypeDetails">Type of account that is being used when the value for the override_payment_method field is line of credit (LI) or prepaid card (PP). Possible values for line of credit: - &#x60;AGRC&#x60;: Visa Agro Custeio - &#x60;AGRE&#x60;: Visa Agro Electron - &#x60;AGRI&#x60;: Visa Agro Investimento - &#x60;AGRO&#x60;: Visa Agro Possible values for prepaid card: - &#x60;VVA&#x60;: Visa Vale Alimentacao - &#x60;VVF&#x60;: Visa Vale Flex - &#x60;VVR&#x60;: Visa Vale Refeicao This field is supported only for combo card transactions in Brazil on CyberSource through VisaNet. The value for this field corresponds to the following data in the TC 33 capture file5: Record: CP07 TCR0, Position: 44-47, Field: Account Accessed .</param>
+        public Ptsv2paymentsidrefundsPaymentInformationCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), string AccountEncoderId = default(string), string IssueNumber = default(string), string StartMonth = default(string), string StartYear = default(string), string SourceAccountType = default(string), string SourceAccountTypeDetails = default(string))
         {
             this.Number = Number;
             this.ExpirationMonth = ExpirationMonth;
@@ -51,6 +53,8 @@ namespace CyberSource.Model
             this.IssueNumber = IssueNumber;
             this.StartMonth = StartMonth;
             this.StartYear = StartYear;
+            this.SourceAccountType = SourceAccountType;
+            this.SourceAccountTypeDetails = SourceAccountTypeDetails;
         }
         
         /// <summary>
@@ -110,6 +114,20 @@ namespace CyberSource.Model
         public string StartYear { get; set; }
 
         /// <summary>
+        /// Flag that specifies the type of account associated with the card. The cardholder provides this information during the payment process.  This field is required in the following cases:   - Debit transactions on Cielo and Comercio Latino.   - Transactions with Brazilian-issued cards on CyberSource through VisaNet.   - Applicable only for CyberSource through VisaNet (CtV).      **Note** Combo cards in Brazil contain credit and debit functionality in a single card. Visa systems use a credit bank identification number (BIN) for this type of card. Using the BIN to determine whether a card is debit or credit can cause transactions with these cards to be processed incorrectly. CyberSource strongly recommends that you include this field for combo card transactions.  Possible values include the following.   - &#x60;CHECKING&#x60;: Checking account  - &#x60;CREDIT&#x60;: Credit card account  - &#x60;SAVING&#x60;: Saving account  - &#x60;LINE_OF_CREDIT&#x60;: Line of credit or credit portion of combo card  - &#x60;PREPAID&#x60;: Prepaid card account or prepaid portion of combo card  - &#x60;UNIVERSAL&#x60;: Universal account 
+        /// </summary>
+        /// <value>Flag that specifies the type of account associated with the card. The cardholder provides this information during the payment process.  This field is required in the following cases:   - Debit transactions on Cielo and Comercio Latino.   - Transactions with Brazilian-issued cards on CyberSource through VisaNet.   - Applicable only for CyberSource through VisaNet (CtV).      **Note** Combo cards in Brazil contain credit and debit functionality in a single card. Visa systems use a credit bank identification number (BIN) for this type of card. Using the BIN to determine whether a card is debit or credit can cause transactions with these cards to be processed incorrectly. CyberSource strongly recommends that you include this field for combo card transactions.  Possible values include the following.   - &#x60;CHECKING&#x60;: Checking account  - &#x60;CREDIT&#x60;: Credit card account  - &#x60;SAVING&#x60;: Saving account  - &#x60;LINE_OF_CREDIT&#x60;: Line of credit or credit portion of combo card  - &#x60;PREPAID&#x60;: Prepaid card account or prepaid portion of combo card  - &#x60;UNIVERSAL&#x60;: Universal account </value>
+        [DataMember(Name="sourceAccountType", EmitDefaultValue=false)]
+        public string SourceAccountType { get; set; }
+
+        /// <summary>
+        /// Type of account that is being used when the value for the override_payment_method field is line of credit (LI) or prepaid card (PP). Possible values for line of credit: - &#x60;AGRC&#x60;: Visa Agro Custeio - &#x60;AGRE&#x60;: Visa Agro Electron - &#x60;AGRI&#x60;: Visa Agro Investimento - &#x60;AGRO&#x60;: Visa Agro Possible values for prepaid card: - &#x60;VVA&#x60;: Visa Vale Alimentacao - &#x60;VVF&#x60;: Visa Vale Flex - &#x60;VVR&#x60;: Visa Vale Refeicao This field is supported only for combo card transactions in Brazil on CyberSource through VisaNet. The value for this field corresponds to the following data in the TC 33 capture file5: Record: CP07 TCR0, Position: 44-47, Field: Account Accessed 
+        /// </summary>
+        /// <value>Type of account that is being used when the value for the override_payment_method field is line of credit (LI) or prepaid card (PP). Possible values for line of credit: - &#x60;AGRC&#x60;: Visa Agro Custeio - &#x60;AGRE&#x60;: Visa Agro Electron - &#x60;AGRI&#x60;: Visa Agro Investimento - &#x60;AGRO&#x60;: Visa Agro Possible values for prepaid card: - &#x60;VVA&#x60;: Visa Vale Alimentacao - &#x60;VVF&#x60;: Visa Vale Flex - &#x60;VVR&#x60;: Visa Vale Refeicao This field is supported only for combo card transactions in Brazil on CyberSource through VisaNet. The value for this field corresponds to the following data in the TC 33 capture file5: Record: CP07 TCR0, Position: 44-47, Field: Account Accessed </value>
+        [DataMember(Name="sourceAccountTypeDetails", EmitDefaultValue=false)]
+        public string SourceAccountTypeDetails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +143,8 @@ namespace CyberSource.Model
             sb.Append("  IssueNumber: ").Append(IssueNumber).Append("\n");
             sb.Append("  StartMonth: ").Append(StartMonth).Append("\n");
             sb.Append("  StartYear: ").Append(StartYear).Append("\n");
+            sb.Append("  SourceAccountType: ").Append(SourceAccountType).Append("\n");
+            sb.Append("  SourceAccountTypeDetails: ").Append(SourceAccountTypeDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +220,16 @@ namespace CyberSource.Model
                     this.StartYear == other.StartYear ||
                     this.StartYear != null &&
                     this.StartYear.Equals(other.StartYear)
+                ) && 
+                (
+                    this.SourceAccountType == other.SourceAccountType ||
+                    this.SourceAccountType != null &&
+                    this.SourceAccountType.Equals(other.SourceAccountType)
+                ) && 
+                (
+                    this.SourceAccountTypeDetails == other.SourceAccountTypeDetails ||
+                    this.SourceAccountTypeDetails != null &&
+                    this.SourceAccountTypeDetails.Equals(other.SourceAccountTypeDetails)
                 );
         }
 
@@ -230,6 +260,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.StartMonth.GetHashCode();
                 if (this.StartYear != null)
                     hash = hash * 59 + this.StartYear.GetHashCode();
+                if (this.SourceAccountType != null)
+                    hash = hash * 59 + this.SourceAccountType.GetHashCode();
+                if (this.SourceAccountTypeDetails != null)
+                    hash = hash * 59 + this.SourceAccountTypeDetails.GetHashCode();
                 return hash;
             }
         }
@@ -281,6 +315,18 @@ namespace CyberSource.Model
             if(this.StartYear != null && this.StartYear.Length >= 4)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartYear, length must be less than or equal to 4.", new [] { "StartYear" });
+            }
+
+            // SourceAccountType (string) maxLength
+            if(this.SourceAccountType != null && this.SourceAccountType.Length >= 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceAccountType, length must be less than or equal to 20.", new [] { "SourceAccountType" });
+            }
+
+            // SourceAccountTypeDetails (string) maxLength
+            if(this.SourceAccountTypeDetails != null && this.SourceAccountTypeDetails.Length >= 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceAccountTypeDetails, length must be less than or equal to 4.", new [] { "SourceAccountTypeDetails" });
             }
 
             yield break;

@@ -614,23 +614,23 @@ namespace CyberSource.Client
             //     authenticationHeaders.Add("v-c-solution-id", Configuration.SolutionId);
             // }
             
-            if (Configuration.Proxy == null && merchantConfig.UseProxy != null) 
+            if (Configuration.Proxy == null && merchantConfig.UseProxy != null)
             {
                 if (bool.Parse(merchantConfig.UseProxy))
                 {
                     int proxyPortTest;
 
-                    if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyAddress) && int.TryParse(merchantConfig.ProxyPort, out proxyPortTest))
-                    {
+                    if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyAddress) && int.TryParse(merchantConfig.ProxyPort, out proxyPortTest)) 
+					{
                         WebProxy proxy = new WebProxy(merchantConfig.ProxyAddress, proxyPortTest);
-
-                        if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyUsername) && !string.IsNullOrWhiteSpace(merchantConfig.ProxyPassword))
-                        {
+                        
+                        if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyUsername) && !string.IsNullOrWhiteSpace(merchantConfig.ProxyPassword)) 
+						{
                             proxy.Credentials = new NetworkCredential(merchantConfig.ProxyUsername, merchantConfig.ProxyPassword);
                         }
-
+                        
                         Configuration.AddWebProxy(proxy);
-                    } 
+                    }
                 }
             }
 

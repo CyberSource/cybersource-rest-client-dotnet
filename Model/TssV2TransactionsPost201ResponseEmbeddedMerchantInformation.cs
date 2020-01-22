@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedMerchantInformation" /> class.
         /// </summary>
-        /// <param name="ResellerId">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource..</param>
+        /// <param name="ResellerId">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. .</param>
         public TssV2TransactionsPost201ResponseEmbeddedMerchantInformation(string ResellerId = default(string))
         {
             this.ResellerId = ResellerId;
         }
         
         /// <summary>
-        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.
+        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. 
         /// </summary>
-        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.</value>
+        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. </value>
         [DataMember(Name="resellerId", EmitDefaultValue=false)]
         public string ResellerId { get; set; }
 

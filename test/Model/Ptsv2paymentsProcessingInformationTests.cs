@@ -200,6 +200,62 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ElectronicBenefitsTransfer'
         }
+        /// <summary>
+        /// Test the property 'LoanOptions'
+        /// </summary>
+        [Test]
+        public void LoanOptionsTest()
+        {
+            // TODO unit test for the property 'LoanOptions'
+        }
+        /// <summary>
+        /// Test the property 'WalletType'
+        /// </summary>
+        [Test]
+        public void WalletTypeTest()
+        {
+            // TODO unit test for the property 'WalletType'
+        }
+        /// <summary>
+        /// Test the property 'NationalNetDomesticData'
+        /// </summary>
+        [Test]
+        public void NationalNetDomesticDataTest()
+        {
+            // TODO unit test for the property 'NationalNetDomesticData'
+        }
+        /// <summary>
+        /// Test the property 'JapanPaymentOptions'
+        /// </summary>
+        [Test]
+        public void JapanPaymentOptionsTest()
+        {
+            // TODO unit test for the property 'JapanPaymentOptions'
+        }
+        /// <summary>
+        /// Test the property 'MobileRemotePaymentType'
+        /// </summary>
+        [Test]
+        public void MobileRemotePaymentTypeTest()
+        {
+            // TODO unit test for the property 'MobileRemotePaymentType'
+        }
+        /// <summary>
+        /// Test the property 'ExtendedCreditTotalCount'
+        /// </summary>
+        [Test]
+        public void ExtendedCreditTotalCountTest()
+        {
+            // TODO unit test for the property 'ExtendedCreditTotalCount'
+        }
+        /// <summary>
+        /// Test the property 'NetworkRoutingOrder'
+        /// </summary>
+        [Test]
+        public void NetworkRoutingOrderTest()
+        {
+            // TODO unit test for the property 'NetworkRoutingOrder'
+        }
 
     }
 

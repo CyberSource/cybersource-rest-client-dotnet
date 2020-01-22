@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="GeneratePublicKeyRequest" /> class.
         /// </summary>
         /// <param name="EncryptionType">How the card number should be encrypted in the subsequent Tokenize Card request. Possible values are RsaOaep256 or None (if using this value the card number must be in plain text when included in the Tokenize Card request). The Tokenize Card request uses a secure connection (TLS 1.2+) regardless of what encryption type is specified. (required).</param>
-        public GeneratePublicKeyRequest(string EncryptionType = default(string))
+        /// <param name="TargetOrigin">The merchant origin (e.g. https://example.com) used to integrate with Flex API. Required to comply with CORS and CSP standards..</param>
+        public GeneratePublicKeyRequest(string EncryptionType = default(string), string TargetOrigin = default(string))
         {
             // to ensure "EncryptionType" is required (not null)
             if (EncryptionType == null)
@@ -50,6 +51,7 @@ namespace CyberSource.Model
             {
                 this.EncryptionType = EncryptionType;
             }
+            this.TargetOrigin = TargetOrigin;
         }
         
         /// <summary>
@@ -60,6 +62,13 @@ namespace CyberSource.Model
         public string EncryptionType { get; set; }
 
         /// <summary>
+        /// The merchant origin (e.g. https://example.com) used to integrate with Flex API. Required to comply with CORS and CSP standards.
+        /// </summary>
+        /// <value>The merchant origin (e.g. https://example.com) used to integrate with Flex API. Required to comply with CORS and CSP standards.</value>
+        [DataMember(Name="targetOrigin", EmitDefaultValue=false)]
+        public string TargetOrigin { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +77,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class GeneratePublicKeyRequest {\n");
             sb.Append("  EncryptionType: ").Append(EncryptionType).Append("\n");
+            sb.Append("  TargetOrigin: ").Append(TargetOrigin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +118,11 @@ namespace CyberSource.Model
                     this.EncryptionType == other.EncryptionType ||
                     this.EncryptionType != null &&
                     this.EncryptionType.Equals(other.EncryptionType)
+                ) && 
+                (
+                    this.TargetOrigin == other.TargetOrigin ||
+                    this.TargetOrigin != null &&
+                    this.TargetOrigin.Equals(other.TargetOrigin)
                 );
         }
 
@@ -124,6 +139,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.EncryptionType != null)
                     hash = hash * 59 + this.EncryptionType.GetHashCode();
+                if (this.TargetOrigin != null)
+                    hash = hash * 59 + this.TargetOrigin.GetHashCode();
                 return hash;
             }
         }

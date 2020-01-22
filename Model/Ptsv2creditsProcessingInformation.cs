@@ -41,12 +41,17 @@ namespace CyberSource.Model
         /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  For details, see &#x60;report_group&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For details, see the &#x60;vc_order_id&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         /// <param name="PurchaseLevel">Set this field to 3 to indicate that the request includes Level III data..</param>
-        /// <param name="IndustryDataType">Flag that indicates whether the transaction includes airline or restaurant data.  To send the data in a transaction request to the processor, you must set this field to &#x60;airline&#x60; or &#x60;restaurant&#x60;.  **Note** If you do not set this field to one of the possible values, CyberSource does not send any data to the processor.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; .</param>
+        /// <param name="IndustryDataType">Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; .</param>
+        /// <param name="WalletType">This field carries the wallet type in authorization requests and credit requests. Possible value are: - &#x60;101&#x60;: Masterpass remote payment. The customer created the wallet by manually interacting with a customer-controlled device such as a computer, tablet, or phone. This value is supported only for Masterpass transactions on Chase Paymentech Solutions and CyberSource through VisaNet. - &#x60;102&#x60;: Masterpass remote near field communication (NFC) payment. The customer created the wallet by tapping a PayPass card or customer-controlled device at a contactless card reader. This value is supported only for card-present Masterpass transactions on CyberSource through VisaNet. - &#x60;103&#x60;: Masterpass Apple Pay payment. The payment was made with a combination of Masterpass and Apple Pay. This value is supported only for Masterpass Apple Pay transactions on CyberSource through VisaNet. - &#x60;216&#x60;: Masterpass Google Pay payment. The payment was made with a combination of Masterpass and Google Pay. This value is supported only for Masterpass Google Pay transactions on CyberSource through VisaNet. - &#x60;217&#x60;: Masterpass Samsung Pay payment. The payment was made with a combination of Masterpass and Samsung Pay. This value is supported only for Masterpass Samsung Pay transactions on CyberSource through VisaNet. - &#x60;SDW&#x60;: Staged digital wallet. An issuer or operator created the wallet. This value is supported only for Masterpass transactions on Chase Paymentech Solutions. - &#x60;VCIND&#x60;: Visa Checkout payment. This value is supported only on CyberSource through VisaNet, FDC Compass, FDC Nashville Global, FDI Australia, and TSYS Acquiring Solutions. See Getting Started with Visa Checkout. For Visa Checkout transactions, the way CyberSource processes the value for this field depends on the processor. See the Visa Checkout section below. For all other values, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. Masterpass (101, 102, 103, 216, and 217): The Masterpass platform generates the wallet type value and passes it to you along with the customer’s checkout information.  Visa Checkout: This field is optional for Visa Checkout authorizations on FDI Australia. For all other processors, this field is required for Visa Checkout authorizations. For Visa Checkout transactions on the following processors, CyberSource sends the value that the processor expects for this field:FDC Compass,FDC Nashville Global,FDI Australia,TSYS Acquiring Solutions For all other processors, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. For incremental authorizations, this field is supported only for Mastercard and the supported values are 101 and 102. Payment card companies can introduce new values without notice. Your order management system should be able to process new values without problems.  CyberSource through VisaNet When the value for this field is 101, 102, 103, 216, or 217, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR6, Position: 88-90,  Field: Mastercard Wallet Identifier. When the value for this field is VCIND, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR8, Position: 72-76, Field: Agent Unique ID. .</param>
+        /// <param name="NationalNetDomesticData">Supplementary domestic transaction information provided by the acquirer for National Net Settlement Service (NNSS) transactions. NNSS is a settlement service that Visa provides. For transactions on CyberSource through VisaNet in countries that subscribe to NNSS: VisaNet clears transactions; VisaNet transfers funds to the acquirer after deducting processing fees and interchange fees. VisaNet settles transactions in the local pricing currency through a local financial institution. This field is supported only on CyberSource through VisaNet for domestic data in Colombia .</param>
+        /// <param name="NetworkRoutingOrder">On PIN Debit Gateways: This U.S.-only field is optionally used by  participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for any of the networks specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on the issuer’s preference. If an issuer preference exists for more than one of the specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on the acquirer’s routing priorities. .</param>
         /// <param name="RecurringOptions">RecurringOptions.</param>
         /// <param name="BankTransferOptions">BankTransferOptions.</param>
         /// <param name="PurchaseOptions">PurchaseOptions.</param>
         /// <param name="ElectronicBenefitsTransfer">ElectronicBenefitsTransfer.</param>
-        public Ptsv2creditsProcessingInformation(string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer))
+        /// <param name="LoanOptions">LoanOptions.</param>
+        /// <param name="JapanPaymentOptions">JapanPaymentOptions.</param>
+        public Ptsv2creditsProcessingInformation(string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), string WalletType = default(string), string NationalNetDomesticData = default(string), string NetworkRoutingOrder = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2creditsProcessingInformationJapanPaymentOptions))
         {
             this.CommerceIndicator = CommerceIndicator;
             this.ProcessorId = ProcessorId;
@@ -57,10 +62,15 @@ namespace CyberSource.Model
             this.VisaCheckoutId = VisaCheckoutId;
             this.PurchaseLevel = PurchaseLevel;
             this.IndustryDataType = IndustryDataType;
+            this.WalletType = WalletType;
+            this.NationalNetDomesticData = NationalNetDomesticData;
+            this.NetworkRoutingOrder = NetworkRoutingOrder;
             this.RecurringOptions = RecurringOptions;
             this.BankTransferOptions = BankTransferOptions;
             this.PurchaseOptions = PurchaseOptions;
             this.ElectronicBenefitsTransfer = ElectronicBenefitsTransfer;
+            this.LoanOptions = LoanOptions;
+            this.JapanPaymentOptions = JapanPaymentOptions;
         }
         
         /// <summary>
@@ -120,11 +130,32 @@ namespace CyberSource.Model
         public string PurchaseLevel { get; set; }
 
         /// <summary>
-        /// Flag that indicates whether the transaction includes airline or restaurant data.  To send the data in a transaction request to the processor, you must set this field to &#x60;airline&#x60; or &#x60;restaurant&#x60;.  **Note** If you do not set this field to one of the possible values, CyberSource does not send any data to the processor.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; 
+        /// Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; 
         /// </summary>
-        /// <value>Flag that indicates whether the transaction includes airline or restaurant data.  To send the data in a transaction request to the processor, you must set this field to &#x60;airline&#x60; or &#x60;restaurant&#x60;.  **Note** If you do not set this field to one of the possible values, CyberSource does not send any data to the processor.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; </value>
+        /// <value>Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; </value>
         [DataMember(Name="industryDataType", EmitDefaultValue=false)]
         public string IndustryDataType { get; set; }
+
+        /// <summary>
+        /// This field carries the wallet type in authorization requests and credit requests. Possible value are: - &#x60;101&#x60;: Masterpass remote payment. The customer created the wallet by manually interacting with a customer-controlled device such as a computer, tablet, or phone. This value is supported only for Masterpass transactions on Chase Paymentech Solutions and CyberSource through VisaNet. - &#x60;102&#x60;: Masterpass remote near field communication (NFC) payment. The customer created the wallet by tapping a PayPass card or customer-controlled device at a contactless card reader. This value is supported only for card-present Masterpass transactions on CyberSource through VisaNet. - &#x60;103&#x60;: Masterpass Apple Pay payment. The payment was made with a combination of Masterpass and Apple Pay. This value is supported only for Masterpass Apple Pay transactions on CyberSource through VisaNet. - &#x60;216&#x60;: Masterpass Google Pay payment. The payment was made with a combination of Masterpass and Google Pay. This value is supported only for Masterpass Google Pay transactions on CyberSource through VisaNet. - &#x60;217&#x60;: Masterpass Samsung Pay payment. The payment was made with a combination of Masterpass and Samsung Pay. This value is supported only for Masterpass Samsung Pay transactions on CyberSource through VisaNet. - &#x60;SDW&#x60;: Staged digital wallet. An issuer or operator created the wallet. This value is supported only for Masterpass transactions on Chase Paymentech Solutions. - &#x60;VCIND&#x60;: Visa Checkout payment. This value is supported only on CyberSource through VisaNet, FDC Compass, FDC Nashville Global, FDI Australia, and TSYS Acquiring Solutions. See Getting Started with Visa Checkout. For Visa Checkout transactions, the way CyberSource processes the value for this field depends on the processor. See the Visa Checkout section below. For all other values, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. Masterpass (101, 102, 103, 216, and 217): The Masterpass platform generates the wallet type value and passes it to you along with the customer’s checkout information.  Visa Checkout: This field is optional for Visa Checkout authorizations on FDI Australia. For all other processors, this field is required for Visa Checkout authorizations. For Visa Checkout transactions on the following processors, CyberSource sends the value that the processor expects for this field:FDC Compass,FDC Nashville Global,FDI Australia,TSYS Acquiring Solutions For all other processors, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. For incremental authorizations, this field is supported only for Mastercard and the supported values are 101 and 102. Payment card companies can introduce new values without notice. Your order management system should be able to process new values without problems.  CyberSource through VisaNet When the value for this field is 101, 102, 103, 216, or 217, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR6, Position: 88-90,  Field: Mastercard Wallet Identifier. When the value for this field is VCIND, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR8, Position: 72-76, Field: Agent Unique ID. 
+        /// </summary>
+        /// <value>This field carries the wallet type in authorization requests and credit requests. Possible value are: - &#x60;101&#x60;: Masterpass remote payment. The customer created the wallet by manually interacting with a customer-controlled device such as a computer, tablet, or phone. This value is supported only for Masterpass transactions on Chase Paymentech Solutions and CyberSource through VisaNet. - &#x60;102&#x60;: Masterpass remote near field communication (NFC) payment. The customer created the wallet by tapping a PayPass card or customer-controlled device at a contactless card reader. This value is supported only for card-present Masterpass transactions on CyberSource through VisaNet. - &#x60;103&#x60;: Masterpass Apple Pay payment. The payment was made with a combination of Masterpass and Apple Pay. This value is supported only for Masterpass Apple Pay transactions on CyberSource through VisaNet. - &#x60;216&#x60;: Masterpass Google Pay payment. The payment was made with a combination of Masterpass and Google Pay. This value is supported only for Masterpass Google Pay transactions on CyberSource through VisaNet. - &#x60;217&#x60;: Masterpass Samsung Pay payment. The payment was made with a combination of Masterpass and Samsung Pay. This value is supported only for Masterpass Samsung Pay transactions on CyberSource through VisaNet. - &#x60;SDW&#x60;: Staged digital wallet. An issuer or operator created the wallet. This value is supported only for Masterpass transactions on Chase Paymentech Solutions. - &#x60;VCIND&#x60;: Visa Checkout payment. This value is supported only on CyberSource through VisaNet, FDC Compass, FDC Nashville Global, FDI Australia, and TSYS Acquiring Solutions. See Getting Started with Visa Checkout. For Visa Checkout transactions, the way CyberSource processes the value for this field depends on the processor. See the Visa Checkout section below. For all other values, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. Masterpass (101, 102, 103, 216, and 217): The Masterpass platform generates the wallet type value and passes it to you along with the customer’s checkout information.  Visa Checkout: This field is optional for Visa Checkout authorizations on FDI Australia. For all other processors, this field is required for Visa Checkout authorizations. For Visa Checkout transactions on the following processors, CyberSource sends the value that the processor expects for this field:FDC Compass,FDC Nashville Global,FDI Australia,TSYS Acquiring Solutions For all other processors, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. For incremental authorizations, this field is supported only for Mastercard and the supported values are 101 and 102. Payment card companies can introduce new values without notice. Your order management system should be able to process new values without problems.  CyberSource through VisaNet When the value for this field is 101, 102, 103, 216, or 217, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR6, Position: 88-90,  Field: Mastercard Wallet Identifier. When the value for this field is VCIND, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR8, Position: 72-76, Field: Agent Unique ID. </value>
+        [DataMember(Name="walletType", EmitDefaultValue=false)]
+        public string WalletType { get; set; }
+
+        /// <summary>
+        /// Supplementary domestic transaction information provided by the acquirer for National Net Settlement Service (NNSS) transactions. NNSS is a settlement service that Visa provides. For transactions on CyberSource through VisaNet in countries that subscribe to NNSS: VisaNet clears transactions; VisaNet transfers funds to the acquirer after deducting processing fees and interchange fees. VisaNet settles transactions in the local pricing currency through a local financial institution. This field is supported only on CyberSource through VisaNet for domestic data in Colombia 
+        /// </summary>
+        /// <value>Supplementary domestic transaction information provided by the acquirer for National Net Settlement Service (NNSS) transactions. NNSS is a settlement service that Visa provides. For transactions on CyberSource through VisaNet in countries that subscribe to NNSS: VisaNet clears transactions; VisaNet transfers funds to the acquirer after deducting processing fees and interchange fees. VisaNet settles transactions in the local pricing currency through a local financial institution. This field is supported only on CyberSource through VisaNet for domestic data in Colombia </value>
+        [DataMember(Name="nationalNetDomesticData", EmitDefaultValue=false)]
+        public string NationalNetDomesticData { get; set; }
+
+        /// <summary>
+        /// On PIN Debit Gateways: This U.S.-only field is optionally used by  participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for any of the networks specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on the issuer’s preference. If an issuer preference exists for more than one of the specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on the acquirer’s routing priorities. 
+        /// </summary>
+        /// <value>On PIN Debit Gateways: This U.S.-only field is optionally used by  participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for any of the networks specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on the issuer’s preference. If an issuer preference exists for more than one of the specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on the acquirer’s routing priorities. </value>
+        [DataMember(Name="networkRoutingOrder", EmitDefaultValue=false)]
+        public string NetworkRoutingOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets RecurringOptions
@@ -151,6 +182,18 @@ namespace CyberSource.Model
         public Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer { get; set; }
 
         /// <summary>
+        /// Gets or Sets LoanOptions
+        /// </summary>
+        [DataMember(Name="loanOptions", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessingInformationLoanOptions LoanOptions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets JapanPaymentOptions
+        /// </summary>
+        [DataMember(Name="japanPaymentOptions", EmitDefaultValue=false)]
+        public Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -167,10 +210,15 @@ namespace CyberSource.Model
             sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
             sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
             sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
+            sb.Append("  WalletType: ").Append(WalletType).Append("\n");
+            sb.Append("  NationalNetDomesticData: ").Append(NationalNetDomesticData).Append("\n");
+            sb.Append("  NetworkRoutingOrder: ").Append(NetworkRoutingOrder).Append("\n");
             sb.Append("  RecurringOptions: ").Append(RecurringOptions).Append("\n");
             sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
             sb.Append("  PurchaseOptions: ").Append(PurchaseOptions).Append("\n");
             sb.Append("  ElectronicBenefitsTransfer: ").Append(ElectronicBenefitsTransfer).Append("\n");
+            sb.Append("  LoanOptions: ").Append(LoanOptions).Append("\n");
+            sb.Append("  JapanPaymentOptions: ").Append(JapanPaymentOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -253,6 +301,21 @@ namespace CyberSource.Model
                     this.IndustryDataType.Equals(other.IndustryDataType)
                 ) && 
                 (
+                    this.WalletType == other.WalletType ||
+                    this.WalletType != null &&
+                    this.WalletType.Equals(other.WalletType)
+                ) && 
+                (
+                    this.NationalNetDomesticData == other.NationalNetDomesticData ||
+                    this.NationalNetDomesticData != null &&
+                    this.NationalNetDomesticData.Equals(other.NationalNetDomesticData)
+                ) && 
+                (
+                    this.NetworkRoutingOrder == other.NetworkRoutingOrder ||
+                    this.NetworkRoutingOrder != null &&
+                    this.NetworkRoutingOrder.Equals(other.NetworkRoutingOrder)
+                ) && 
+                (
                     this.RecurringOptions == other.RecurringOptions ||
                     this.RecurringOptions != null &&
                     this.RecurringOptions.Equals(other.RecurringOptions)
@@ -271,6 +334,16 @@ namespace CyberSource.Model
                     this.ElectronicBenefitsTransfer == other.ElectronicBenefitsTransfer ||
                     this.ElectronicBenefitsTransfer != null &&
                     this.ElectronicBenefitsTransfer.Equals(other.ElectronicBenefitsTransfer)
+                ) && 
+                (
+                    this.LoanOptions == other.LoanOptions ||
+                    this.LoanOptions != null &&
+                    this.LoanOptions.Equals(other.LoanOptions)
+                ) && 
+                (
+                    this.JapanPaymentOptions == other.JapanPaymentOptions ||
+                    this.JapanPaymentOptions != null &&
+                    this.JapanPaymentOptions.Equals(other.JapanPaymentOptions)
                 );
         }
 
@@ -303,6 +376,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PurchaseLevel.GetHashCode();
                 if (this.IndustryDataType != null)
                     hash = hash * 59 + this.IndustryDataType.GetHashCode();
+                if (this.WalletType != null)
+                    hash = hash * 59 + this.WalletType.GetHashCode();
+                if (this.NationalNetDomesticData != null)
+                    hash = hash * 59 + this.NationalNetDomesticData.GetHashCode();
+                if (this.NetworkRoutingOrder != null)
+                    hash = hash * 59 + this.NetworkRoutingOrder.GetHashCode();
                 if (this.RecurringOptions != null)
                     hash = hash * 59 + this.RecurringOptions.GetHashCode();
                 if (this.BankTransferOptions != null)
@@ -311,6 +390,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PurchaseOptions.GetHashCode();
                 if (this.ElectronicBenefitsTransfer != null)
                     hash = hash * 59 + this.ElectronicBenefitsTransfer.GetHashCode();
+                if (this.LoanOptions != null)
+                    hash = hash * 59 + this.LoanOptions.GetHashCode();
+                if (this.JapanPaymentOptions != null)
+                    hash = hash * 59 + this.JapanPaymentOptions.GetHashCode();
                 return hash;
             }
         }
@@ -371,9 +454,27 @@ namespace CyberSource.Model
             }
 
             // IndustryDataType (string) maxLength
-            if(this.IndustryDataType != null && this.IndustryDataType.Length >= 10)
+            if(this.IndustryDataType != null && this.IndustryDataType.Length >= 20)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IndustryDataType, length must be less than or equal to 10.", new [] { "IndustryDataType" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IndustryDataType, length must be less than or equal to 20.", new [] { "IndustryDataType" });
+            }
+
+            // WalletType (string) maxLength
+            if(this.WalletType != null && this.WalletType.Length >= 5)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WalletType, length must be less than or equal to 5.", new [] { "WalletType" });
+            }
+
+            // NationalNetDomesticData (string) maxLength
+            if(this.NationalNetDomesticData != null && this.NationalNetDomesticData.Length >= 123)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NationalNetDomesticData, length must be less than or equal to 123.", new [] { "NationalNetDomesticData" });
+            }
+
+            // NetworkRoutingOrder (string) maxLength
+            if(this.NetworkRoutingOrder != null && this.NetworkRoutingOrder.Length >= 30)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetworkRoutingOrder, length must be less than or equal to 30.", new [] { "NetworkRoutingOrder" });
             }
 
             yield break;

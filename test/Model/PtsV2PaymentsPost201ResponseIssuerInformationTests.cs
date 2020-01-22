@@ -81,6 +81,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'DiscretionaryData'
         }
         /// <summary>
+        /// Test the property 'CountrySpecificDiscretionaryData'
+        /// </summary>
+        [Test]
+        public void CountrySpecificDiscretionaryDataTest()
+        {
+            // TODO unit test for the property 'CountrySpecificDiscretionaryData'
+        }
+        /// <summary>
         /// Test the property 'ResponseCode'
         /// </summary>
         [Test]

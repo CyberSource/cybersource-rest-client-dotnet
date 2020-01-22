@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'EncryptionType'
         }
+        /// <summary>
+        /// Test the property 'TargetOrigin'
+        /// </summary>
+        [Test]
+        public void TargetOriginTest()
+        {
+            // TODO unit test for the property 'TargetOrigin'
+        }
 
     }
 

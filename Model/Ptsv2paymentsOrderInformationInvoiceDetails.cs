@@ -46,7 +46,8 @@ namespace CyberSource.Model
         /// <param name="TransactionAdviceAddendum">TransactionAdviceAddendum.</param>
         /// <param name="ReferenceDataCode">Code that identifies the value of the &#x60;referenceDataNumber&#x60; field.  For the possible values, see \&quot;Reference Data Codes\&quot; in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm).  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
         /// <param name="ReferenceDataNumber">Reference number. The meaning of this value is identified by the value of the &#x60;referenceDataCode&#x60; field.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
-        public Ptsv2paymentsOrderInformationInvoiceDetails(string InvoiceNumber = default(string), string BarcodeNumber = default(string), string ExpirationDate = default(string), string PurchaseOrderNumber = default(string), string PurchaseOrderDate = default(string), string PurchaseContactName = default(string), bool? Taxable = default(bool?), string VatInvoiceReferenceNumber = default(string), string CommodityCode = default(string), int? MerchandiseCode = default(int?), List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum> TransactionAdviceAddendum = default(List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum>), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string))
+        /// <param name="SalesSlipNumber">Transaction identifier that CyberSource generates. You have the option of printing the sales slip number on the receipt. This field is supported only on Cybersource through Visanet and JCN gateway. .</param>
+        public Ptsv2paymentsOrderInformationInvoiceDetails(string InvoiceNumber = default(string), string BarcodeNumber = default(string), string ExpirationDate = default(string), string PurchaseOrderNumber = default(string), string PurchaseOrderDate = default(string), string PurchaseContactName = default(string), bool? Taxable = default(bool?), string VatInvoiceReferenceNumber = default(string), string CommodityCode = default(string), int? MerchandiseCode = default(int?), List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum> TransactionAdviceAddendum = default(List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum>), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), int? SalesSlipNumber = default(int?))
         {
             this.InvoiceNumber = InvoiceNumber;
             this.BarcodeNumber = BarcodeNumber;
@@ -61,6 +62,7 @@ namespace CyberSource.Model
             this.TransactionAdviceAddendum = TransactionAdviceAddendum;
             this.ReferenceDataCode = ReferenceDataCode;
             this.ReferenceDataNumber = ReferenceDataNumber;
+            this.SalesSlipNumber = SalesSlipNumber;
         }
         
         /// <summary>
@@ -154,6 +156,13 @@ namespace CyberSource.Model
         public string ReferenceDataNumber { get; set; }
 
         /// <summary>
+        /// Transaction identifier that CyberSource generates. You have the option of printing the sales slip number on the receipt. This field is supported only on Cybersource through Visanet and JCN gateway. 
+        /// </summary>
+        /// <value>Transaction identifier that CyberSource generates. You have the option of printing the sales slip number on the receipt. This field is supported only on Cybersource through Visanet and JCN gateway. </value>
+        [DataMember(Name="salesSlipNumber", EmitDefaultValue=false)]
+        public int? SalesSlipNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -174,6 +183,7 @@ namespace CyberSource.Model
             sb.Append("  TransactionAdviceAddendum: ").Append(TransactionAdviceAddendum).Append("\n");
             sb.Append("  ReferenceDataCode: ").Append(ReferenceDataCode).Append("\n");
             sb.Append("  ReferenceDataNumber: ").Append(ReferenceDataNumber).Append("\n");
+            sb.Append("  SalesSlipNumber: ").Append(SalesSlipNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -274,6 +284,11 @@ namespace CyberSource.Model
                     this.ReferenceDataNumber == other.ReferenceDataNumber ||
                     this.ReferenceDataNumber != null &&
                     this.ReferenceDataNumber.Equals(other.ReferenceDataNumber)
+                ) && 
+                (
+                    this.SalesSlipNumber == other.SalesSlipNumber ||
+                    this.SalesSlipNumber != null &&
+                    this.SalesSlipNumber.Equals(other.SalesSlipNumber)
                 );
         }
 
@@ -314,6 +329,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReferenceDataCode.GetHashCode();
                 if (this.ReferenceDataNumber != null)
                     hash = hash * 59 + this.ReferenceDataNumber.GetHashCode();
+                if (this.SalesSlipNumber != null)
+                    hash = hash * 59 + this.SalesSlipNumber.GetHashCode();
                 return hash;
             }
         }
@@ -365,6 +382,12 @@ namespace CyberSource.Model
             if(this.ReferenceDataNumber != null && this.ReferenceDataNumber.Length >= 30)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataNumber, length must be less than or equal to 30.", new [] { "ReferenceDataNumber" });
+            }
+
+            // SalesSlipNumber (int?) maximum
+            if(this.SalesSlipNumber >= (int?)99999)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SalesSlipNumber, must be a value less than or equal to 99999.", new [] { "SalesSlipNumber" });
             }
 
             yield break;

@@ -35,12 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Card">Card.</param>
         /// <param name="Bank">Bank.</param>
+        /// <param name="TokenizedCard">TokenizedCard.</param>
+        /// <param name="FluidData">FluidData.</param>
         /// <param name="Customer">Customer.</param>
         /// <param name="PaymentType">PaymentType.</param>
-        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType))
+        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType))
         {
             this.Card = Card;
             this.Bank = Bank;
+            this.TokenizedCard = TokenizedCard;
+            this.FluidData = FluidData;
             this.Customer = Customer;
             this.PaymentType = PaymentType;
         }
@@ -56,6 +60,18 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="bank", EmitDefaultValue=false)]
         public Ptsv2paymentsPaymentInformationBank Bank { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenizedCard
+        /// </summary>
+        [DataMember(Name="tokenizedCard", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FluidData
+        /// </summary>
+        [DataMember(Name="fluidData", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationFluidData FluidData { get; set; }
 
         /// <summary>
         /// Gets or Sets Customer
@@ -79,6 +95,8 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsidrefundsPaymentInformation {\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  Bank: ").Append(Bank).Append("\n");
+            sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
+            sb.Append("  FluidData: ").Append(FluidData).Append("\n");
             sb.Append("  Customer: ").Append(Customer).Append("\n");
             sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("}\n");
@@ -128,6 +146,16 @@ namespace CyberSource.Model
                     this.Bank.Equals(other.Bank)
                 ) && 
                 (
+                    this.TokenizedCard == other.TokenizedCard ||
+                    this.TokenizedCard != null &&
+                    this.TokenizedCard.Equals(other.TokenizedCard)
+                ) && 
+                (
+                    this.FluidData == other.FluidData ||
+                    this.FluidData != null &&
+                    this.FluidData.Equals(other.FluidData)
+                ) && 
+                (
                     this.Customer == other.Customer ||
                     this.Customer != null &&
                     this.Customer.Equals(other.Customer)
@@ -154,6 +182,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.Bank != null)
                     hash = hash * 59 + this.Bank.GetHashCode();
+                if (this.TokenizedCard != null)
+                    hash = hash * 59 + this.TokenizedCard.GetHashCode();
+                if (this.FluidData != null)
+                    hash = hash * 59 + this.FluidData.GetHashCode();
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
                 if (this.PaymentType != null)

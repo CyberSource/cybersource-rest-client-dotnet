@@ -128,6 +128,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'StartYear'
         }
+        /// <summary>
+        /// Test the property 'SourceAccountType'
+        /// </summary>
+        [Test]
+        public void SourceAccountTypeTest()
+        {
+            // TODO unit test for the property 'SourceAccountType'
+        }
+        /// <summary>
+        /// Test the property 'SourceAccountTypeDetails'
+        /// </summary>
+        [Test]
+        public void SourceAccountTypeDetailsTest()
+        {
+            // TODO unit test for the property 'SourceAccountTypeDetails'
+        }
 
     }
 

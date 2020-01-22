@@ -120,6 +120,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'RecurringOptions'
         }
+        /// <summary>
+        /// Test the property 'IndustryDataType'
+        /// </summary>
+        [Test]
+        public void IndustryDataTypeTest()
+        {
+            // TODO unit test for the property 'IndustryDataType'
+        }
 
     }
 

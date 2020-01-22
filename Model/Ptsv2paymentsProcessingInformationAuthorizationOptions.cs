@@ -45,7 +45,8 @@ namespace CyberSource.Model
         /// <param name="Initiator">Initiator.</param>
         /// <param name="BillPayment">Flag that indicates that this is a payment for a bill or for an existing contractual loan. For processor-specific details, see the &#x60;bill_payment&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  Possible values: - &#x60;true&#x60;: Bill payment or loan payment. - &#x60;false&#x60; (default): Not a bill payment or loan payment. .</param>
         /// <param name="BillPaymentType">Reason for the payment.  Possible values: - 001: Utility payment - 002: Government services - 003: Mobile phone top-up - 004: Coupon payment  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR0 - Position: 48-50 - Field: Bill Payment Transaction Type Identifier  This field is supported only for bill payments in Brazil with Mastercard on CyberSource through VisaNet.  **Note** For details about Mastercard bill payments or bill payments with Visa, see &#x60;bill_payment_type&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
-        public Ptsv2paymentsProcessingInformationAuthorizationOptions(string AuthType = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), bool? IgnoreCvResult = false, Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator Initiator = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string))
+        /// <param name="RedemptionInquiry">Flag that indicates the payment request is a redemption inquiry.  Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
+        public Ptsv2paymentsProcessingInformationAuthorizationOptions(string AuthType = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), bool? IgnoreCvResult = false, Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator Initiator = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string), bool? RedemptionInquiry = default(bool?))
         {
             this.AuthType = AuthType;
             this.VerbalAuthCode = VerbalAuthCode;
@@ -75,6 +76,7 @@ namespace CyberSource.Model
             this.Initiator = Initiator;
             this.BillPayment = BillPayment;
             this.BillPaymentType = BillPaymentType;
+            this.RedemptionInquiry = RedemptionInquiry;
         }
         
         /// <summary>
@@ -161,6 +163,13 @@ namespace CyberSource.Model
         public string BillPaymentType { get; set; }
 
         /// <summary>
+        /// Flag that indicates the payment request is a redemption inquiry.  Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>Flag that indicates the payment request is a redemption inquiry.  Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; </value>
+        [DataMember(Name="redemptionInquiry", EmitDefaultValue=false)]
+        public bool? RedemptionInquiry { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,6 +189,7 @@ namespace CyberSource.Model
             sb.Append("  Initiator: ").Append(Initiator).Append("\n");
             sb.Append("  BillPayment: ").Append(BillPayment).Append("\n");
             sb.Append("  BillPaymentType: ").Append(BillPaymentType).Append("\n");
+            sb.Append("  RedemptionInquiry: ").Append(RedemptionInquiry).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -275,6 +285,11 @@ namespace CyberSource.Model
                     this.BillPaymentType == other.BillPaymentType ||
                     this.BillPaymentType != null &&
                     this.BillPaymentType.Equals(other.BillPaymentType)
+                ) && 
+                (
+                    this.RedemptionInquiry == other.RedemptionInquiry ||
+                    this.RedemptionInquiry != null &&
+                    this.RedemptionInquiry.Equals(other.RedemptionInquiry)
                 );
         }
 
@@ -313,6 +328,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BillPayment.GetHashCode();
                 if (this.BillPaymentType != null)
                     hash = hash * 59 + this.BillPaymentType.GetHashCode();
+                if (this.RedemptionInquiry != null)
+                    hash = hash * 59 + this.RedemptionInquiry.GetHashCode();
                 return hash;
             }
         }

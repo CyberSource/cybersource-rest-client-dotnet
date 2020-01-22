@@ -52,9 +52,9 @@ namespace CyberSource.Api
         /// This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
+        /// <param name="validateRequest"></param>
         /// <returns>RiskV1AuthenticationResultsPost201Response</returns>
-        RiskV1AuthenticationResultsPost201Response ValidateAuthenticationResults (Request request);
+        RiskV1AuthenticationResultsPost201Response ValidateAuthenticationResults (ValidateRequest validateRequest);
 
         /// <summary>
         /// Validate authentication results
@@ -63,9 +63,9 @@ namespace CyberSource.Api
         /// This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
+        /// <param name="validateRequest"></param>
         /// <returns>ApiResponse of RiskV1AuthenticationResultsPost201Response</returns>
-        ApiResponse<RiskV1AuthenticationResultsPost201Response> ValidateAuthenticationResultsWithHttpInfo (Request request);
+        ApiResponse<RiskV1AuthenticationResultsPost201Response> ValidateAuthenticationResultsWithHttpInfo (ValidateRequest validateRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -96,9 +96,9 @@ namespace CyberSource.Api
         /// This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
+        /// <param name="validateRequest"></param>
         /// <returns>Task of RiskV1AuthenticationResultsPost201Response</returns>
-        System.Threading.Tasks.Task<RiskV1AuthenticationResultsPost201Response> ValidateAuthenticationResultsAsync (Request request);
+        System.Threading.Tasks.Task<RiskV1AuthenticationResultsPost201Response> ValidateAuthenticationResultsAsync (ValidateRequest validateRequest);
 
         /// <summary>
         /// Validate authentication results
@@ -107,9 +107,9 @@ namespace CyberSource.Api
         /// This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
+        /// <param name="validateRequest"></param>
         /// <returns>Task of ApiResponse (RiskV1AuthenticationResultsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RiskV1AuthenticationResultsPost201Response>> ValidateAuthenticationResultsAsyncWithHttpInfo (Request request);
+        System.Threading.Tasks.Task<ApiResponse<RiskV1AuthenticationResultsPost201Response>> ValidateAuthenticationResultsAsyncWithHttpInfo (ValidateRequest validateRequest);
         #endregion Asynchronous Operations
     }
 
@@ -371,11 +371,11 @@ namespace CyberSource.Api
         /// Validate authentication results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
+        /// <param name="validateRequest"></param>
         /// <returns>RiskV1AuthenticationResultsPost201Response</returns>
-        public RiskV1AuthenticationResultsPost201Response ValidateAuthenticationResults (Request request)
+        public RiskV1AuthenticationResultsPost201Response ValidateAuthenticationResults (ValidateRequest validateRequest)
         {
-             ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = ValidateAuthenticationResultsWithHttpInfo(request);
+             ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = ValidateAuthenticationResultsWithHttpInfo(validateRequest);
              return localVarResponse.Data;
         }
 
@@ -383,13 +383,13 @@ namespace CyberSource.Api
         /// Validate authentication results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
+        /// <param name="validateRequest"></param>
         /// <returns>ApiResponse of RiskV1AuthenticationResultsPost201Response</returns>
-        public ApiResponse< RiskV1AuthenticationResultsPost201Response > ValidateAuthenticationResultsWithHttpInfo (Request request)
+        public ApiResponse< RiskV1AuthenticationResultsPost201Response > ValidateAuthenticationResultsWithHttpInfo (ValidateRequest validateRequest)
         {
-            // verify the required parameter 'request' is set
-            if (request == null)
-                throw new ApiException(400, "Missing required parameter 'request' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
+            // verify the required parameter 'validateRequest' is set
+            if (validateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
 
             var localVarPath = $"/risk/v1/authentication-results";
             var localVarPathParams = new Dictionary<String, String>();
@@ -413,13 +413,13 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (request != null && request.GetType() != typeof(byte[]))
+            if (validateRequest != null && validateRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(request); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(validateRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = request; // byte array
+                localVarPostBody = validateRequest; // byte array
             }
 
 
@@ -445,11 +445,11 @@ namespace CyberSource.Api
         /// Validate authentication results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
+        /// <param name="validateRequest"></param>
         /// <returns>Task of RiskV1AuthenticationResultsPost201Response</returns>
-        public async System.Threading.Tasks.Task<RiskV1AuthenticationResultsPost201Response> ValidateAuthenticationResultsAsync (Request request)
+        public async System.Threading.Tasks.Task<RiskV1AuthenticationResultsPost201Response> ValidateAuthenticationResultsAsync (ValidateRequest validateRequest)
         {
-             ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = await ValidateAuthenticationResultsAsyncWithHttpInfo(request);
+             ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = await ValidateAuthenticationResultsAsyncWithHttpInfo(validateRequest);
              return localVarResponse.Data;
 
         }
@@ -458,13 +458,13 @@ namespace CyberSource.Api
         /// Validate authentication results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
+        /// <param name="validateRequest"></param>
         /// <returns>Task of ApiResponse (RiskV1AuthenticationResultsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RiskV1AuthenticationResultsPost201Response>> ValidateAuthenticationResultsAsyncWithHttpInfo (Request request)
+        public async System.Threading.Tasks.Task<ApiResponse<RiskV1AuthenticationResultsPost201Response>> ValidateAuthenticationResultsAsyncWithHttpInfo (ValidateRequest validateRequest)
         {
-            // verify the required parameter 'request' is set
-            if (request == null)
-                throw new ApiException(400, "Missing required parameter 'request' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
+            // verify the required parameter 'validateRequest' is set
+            if (validateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
 
             var localVarPath = $"/risk/v1/authentication-results";
             var localVarPathParams = new Dictionary<String, String>();
@@ -488,13 +488,13 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (request != null && request.GetType() != typeof(byte[]))
+            if (validateRequest != null && validateRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(request); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(validateRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = request; // byte array
+                localVarPostBody = validateRequest; // byte array
             }
 
 

@@ -25,19 +25,19 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Request
+    /// ValidateRequest
     /// </summary>
     [DataContract]
-    public partial class Request :  IEquatable<Request>, IValidatableObject
+    public partial class ValidateRequest :  IEquatable<ValidateRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Request" /> class.
+        /// Initializes a new instance of the <see cref="ValidateRequest" /> class.
         /// </summary>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
-        public Request(Riskv1authenticationsClientReferenceInformation ClientReferenceInformation = default(Riskv1authenticationsClientReferenceInformation), Riskv1authenticationresultsOrderInformation OrderInformation = default(Riskv1authenticationresultsOrderInformation), Riskv1authenticationresultsPaymentInformation PaymentInformation = default(Riskv1authenticationresultsPaymentInformation), Riskv1authenticationresultsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1authenticationresultsConsumerAuthenticationInformation))
+        public ValidateRequest(Riskv1authenticationsClientReferenceInformation ClientReferenceInformation = default(Riskv1authenticationsClientReferenceInformation), Riskv1authenticationresultsOrderInformation OrderInformation = default(Riskv1authenticationresultsOrderInformation), Riskv1authenticationresultsPaymentInformation PaymentInformation = default(Riskv1authenticationresultsPaymentInformation), Riskv1authenticationresultsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1authenticationresultsConsumerAuthenticationInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
@@ -76,7 +76,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Request {\n");
+            sb.Append("class ValidateRequest {\n");
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
@@ -102,15 +102,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Request);
+            return this.Equals(obj as ValidateRequest);
         }
 
         /// <summary>
-        /// Returns true if Request instances are equal
+        /// Returns true if ValidateRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of Request to be compared</param>
+        /// <param name="other">Instance of ValidateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Request other)
+        public bool Equals(ValidateRequest other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

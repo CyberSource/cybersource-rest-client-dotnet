@@ -144,6 +144,30 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'EligibilityInquiry'
         }
+        /// <summary>
+        /// Test the property 'GracePeriodDuration'
+        /// </summary>
+        [Test]
+        public void GracePeriodDurationTest()
+        {
+            // TODO unit test for the property 'GracePeriodDuration'
+        }
+        /// <summary>
+        /// Test the property 'GracePeriodDurationType'
+        /// </summary>
+        [Test]
+        public void GracePeriodDurationTypeTest()
+        {
+            // TODO unit test for the property 'GracePeriodDurationType'
+        }
+        /// <summary>
+        /// Test the property 'FirstInstallmentAmount'
+        /// </summary>
+        [Test]
+        public void FirstInstallmentAmountTest()
+        {
+            // TODO unit test for the property 'FirstInstallmentAmount'
+        }
 
     }
 

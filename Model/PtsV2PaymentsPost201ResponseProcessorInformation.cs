@@ -54,14 +54,13 @@ namespace CyberSource.Model
         /// <param name="PaymentAccountReferenceNumber">Visa-generated reference number that identifies a card-present transaction for which you provided one of the following:   - Visa primary account number (PAN)  - Visa-generated token for a PAN  This reference number serves as a link to the cardholder account and to all transactions for that account. .</param>
         /// <param name="TransactionIntegrityCode">Transaction integrity classification provided by Mastercard. This value specifies Mastercard’s evaluation of the transaction’s safety and security. This field is returned only for **CyberSource through VisaNet**.  For card-present transactions, possible values:   - &#x60;A1&#x60;: EMV or token in a secure, trusted environment  - &#x60;B1&#x60;: EMV or chip equivalent  - &#x60;C1&#x60;: Magnetic stripe  - &#x60;E1&#x60;: Key entered  - &#x60;U0&#x60;: Unclassified  For card-not-present transactions, possible values:   - &#x60;A2&#x60;: Digital transactions  - &#x60;B2&#x60;: Authenticated checkout  - &#x60;C2&#x60;: Transaction validation  - &#x60;D2&#x60;: Enhanced data  - &#x60;E2&#x60;: Generic messaging  - &#x60;U0&#x60;: Unclassified  For information about these values, contact Mastercard or your acquirer.  #### CyberSource through VisaNet  The value for this field corresponds to the following data in the TC 33 capture file,&lt;sup&gt;1&lt;/sup&gt;: - Record: CP01 TCR6 - Position: 136-137 - Field: Mastercard Transaction Integrity Classification  &lt;sup&gt;1&lt;/sup&gt; The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant’s acquirer, who uses this information to facilitate end-of-day clearing processing with payment networks. .</param>
         /// <param name="AmexVerbalAuthReferenceNumber">Referral response number for a verbal authorization with FDMS Nashville when using an American Express card. Give this number to American Express when you call them for the verbal authorization. .</param>
-        /// <param name="SalesSlipNumber">Transaction identifier that CyberSource generates. You have the option of printing the sales slip number on the receipt.  This field is supported only for **JCN Gateway**. .</param>
         /// <param name="MasterCardServiceCode">Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 133-134 - Field: Mastercard Merchant on-behalf service. **Note** This field is returned only for CyberSource through VisaNet. .</param>
         /// <param name="MasterCardServiceReplyCode">Result of the Mastercard card-on-file token service. Mastercard provides this value to CyberSource.  Possible values:   - &#x60;C&#x60;: Service completed successfully.  - &#x60;F&#x60;: One of the following:    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 81 for an authorization or      authorization reversal.    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 01 for a tokenized request.    - Token requestor ID is missing or formatted incorrectly.  - &#x60;I&#x60;: One of the following:    - Invalid token requestor ID.    - Suspended or deactivated token.    - Invalid token (not in mapping table).  - &#x60;T&#x60;: Invalid combination of token requestor ID and token.  - &#x60;U&#x60;: Expired token.  - &#x60;W&#x60;: Primary account number (PAN) listed in electronic warning bulletin.  **Note** This field is returned only for **CyberSource through VisaNet**. .</param>
         /// <param name="MasterCardAuthenticationType">Type of authentication for which the transaction qualifies as determined by the Mastercard authentication service, which confirms the identity of the cardholder. Mastercard provides this value to CyberSource.  Possible values:   - &#x60;1&#x60;: Transaction qualifies for Mastercard authentication type 1.  - &#x60;2&#x60;: Transaction qualifies for Mastercard authentication type 2.  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 132 - Field: Mastercard Member Defined service. **Note** This field is returned only for CyberSource through VisaNet. .</param>
         /// <param name="Name">Name of the Processor. .</param>
         /// <param name="Routing">Routing.</param>
         /// <param name="MerchantNumber">Identifier that was assigned to you by your acquirer.  This value must be printed on the receipt.  This field is supported only on **American Express Direct**, **FDC Nashville Global**, and **SIX**. .</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ProviderTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), int? SalesSlipNumber = default(int?), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string))
+        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ProviderTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string))
         {
             this.AuthIndicator = AuthIndicator;
             this.ApprovalCode = ApprovalCode;
@@ -84,7 +83,6 @@ namespace CyberSource.Model
             this.PaymentAccountReferenceNumber = PaymentAccountReferenceNumber;
             this.TransactionIntegrityCode = TransactionIntegrityCode;
             this.AmexVerbalAuthReferenceNumber = AmexVerbalAuthReferenceNumber;
-            this.SalesSlipNumber = SalesSlipNumber;
             this.MasterCardServiceCode = MasterCardServiceCode;
             this.MasterCardServiceReplyCode = MasterCardServiceReplyCode;
             this.MasterCardAuthenticationType = MasterCardAuthenticationType;
@@ -234,13 +232,6 @@ namespace CyberSource.Model
         public string AmexVerbalAuthReferenceNumber { get; set; }
 
         /// <summary>
-        /// Transaction identifier that CyberSource generates. You have the option of printing the sales slip number on the receipt.  This field is supported only for **JCN Gateway**. 
-        /// </summary>
-        /// <value>Transaction identifier that CyberSource generates. You have the option of printing the sales slip number on the receipt.  This field is supported only for **JCN Gateway**. </value>
-        [DataMember(Name="salesSlipNumber", EmitDefaultValue=false)]
-        public int? SalesSlipNumber { get; set; }
-
-        /// <summary>
         /// Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 133-134 - Field: Mastercard Merchant on-behalf service. **Note** This field is returned only for CyberSource through VisaNet. 
         /// </summary>
         /// <value>Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 133-134 - Field: Mastercard Merchant on-behalf service. **Note** This field is returned only for CyberSource through VisaNet. </value>
@@ -310,7 +301,6 @@ namespace CyberSource.Model
             sb.Append("  PaymentAccountReferenceNumber: ").Append(PaymentAccountReferenceNumber).Append("\n");
             sb.Append("  TransactionIntegrityCode: ").Append(TransactionIntegrityCode).Append("\n");
             sb.Append("  AmexVerbalAuthReferenceNumber: ").Append(AmexVerbalAuthReferenceNumber).Append("\n");
-            sb.Append("  SalesSlipNumber: ").Append(SalesSlipNumber).Append("\n");
             sb.Append("  MasterCardServiceCode: ").Append(MasterCardServiceCode).Append("\n");
             sb.Append("  MasterCardServiceReplyCode: ").Append(MasterCardServiceReplyCode).Append("\n");
             sb.Append("  MasterCardAuthenticationType: ").Append(MasterCardAuthenticationType).Append("\n");
@@ -459,11 +449,6 @@ namespace CyberSource.Model
                     this.AmexVerbalAuthReferenceNumber.Equals(other.AmexVerbalAuthReferenceNumber)
                 ) && 
                 (
-                    this.SalesSlipNumber == other.SalesSlipNumber ||
-                    this.SalesSlipNumber != null &&
-                    this.SalesSlipNumber.Equals(other.SalesSlipNumber)
-                ) && 
-                (
                     this.MasterCardServiceCode == other.MasterCardServiceCode ||
                     this.MasterCardServiceCode != null &&
                     this.MasterCardServiceCode.Equals(other.MasterCardServiceCode)
@@ -548,8 +533,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionIntegrityCode.GetHashCode();
                 if (this.AmexVerbalAuthReferenceNumber != null)
                     hash = hash * 59 + this.AmexVerbalAuthReferenceNumber.GetHashCode();
-                if (this.SalesSlipNumber != null)
-                    hash = hash * 59 + this.SalesSlipNumber.GetHashCode();
                 if (this.MasterCardServiceCode != null)
                     hash = hash * 59 + this.MasterCardServiceCode.GetHashCode();
                 if (this.MasterCardServiceReplyCode != null)
@@ -637,12 +620,6 @@ namespace CyberSource.Model
             if(this.AmexVerbalAuthReferenceNumber != null && this.AmexVerbalAuthReferenceNumber.Length >= 6)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmexVerbalAuthReferenceNumber, length must be less than or equal to 6.", new [] { "AmexVerbalAuthReferenceNumber" });
-            }
-
-            // SalesSlipNumber (int?) maximum
-            if(this.SalesSlipNumber >= (int?)99999)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SalesSlipNumber, must be a value less than or equal to 99999.", new [] { "SalesSlipNumber" });
             }
 
             // MasterCardServiceCode (string) maxLength

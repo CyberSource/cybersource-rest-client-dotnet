@@ -113,6 +113,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'SourceAccountType'
         }
         /// <summary>
+        /// Test the property 'SourceAccountTypeDetails'
+        /// </summary>
+        [Test]
+        public void SourceAccountTypeDetailsTest()
+        {
+            // TODO unit test for the property 'SourceAccountTypeDetails'
+        }
+        /// <summary>
         /// Test the property 'SecurityCode'
         /// </summary>
         [Test]

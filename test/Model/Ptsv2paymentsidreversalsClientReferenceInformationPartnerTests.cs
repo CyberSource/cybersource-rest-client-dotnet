@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'SolutionId'
         }
+        /// <summary>
+        /// Test the property 'ThirdPartyCertificationNumber'
+        /// </summary>
+        [Test]
+        public void ThirdPartyCertificationNumberTest()
+        {
+            // TODO unit test for the property 'ThirdPartyCertificationNumber'
+        }
 
     }
 

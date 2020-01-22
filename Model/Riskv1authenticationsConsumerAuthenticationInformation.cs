@@ -40,37 +40,27 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="StrongAuthentication">StrongAuthentication.</param>
         /// <param name="AuthenticationType">Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. .</param>
-        /// <param name="AcsRenderingType">Identifies the UI Type the ACS will use to complete the challenge. **NOTE**: Only available for App transactions using the Cardinal Mobile SDK. .</param>
-        /// <param name="AcsTransactionId">Unique transaction identifier assigned by the ACS to identify a single transaction. .</param>
         /// <param name="AcsWindowSize">An override field that a merchant can pass in to set the challenge window size to display to the end cardholder.  The ACS (Active Control Server) will reply with content that is formatted appropriately to this window size to allow for the best user experience.  The sizes are width x height in pixels of the window displayed in the cardholder browser window.  01 - 250x400  02 - 390x400  03 - 500x600  04 - 600x400  05 - Full page .</param>
         /// <param name="AlternateAuthenticationData">Data that documents and supports a specific authentication process. .</param>
         /// <param name="AlternateAuthenticationDate">Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM .</param>
         /// <param name="AlternateAuthenticationMethod">Mechanism used by the cardholder to authenticate to the 3D Secure requestor. Possible values: - &#x60;01&#x60;: No authentication occurred - &#x60;02&#x60;: Login using merchant system credentials - &#x60;03&#x60;: Login using Federated ID - &#x60;04&#x60;: Login using issuer credentials - &#x60;05&#x60;: Login using third-party authenticator - &#x60;06&#x60;: Login using FIDO Authenticator .</param>
         /// <param name="AuthenticationDate">The date/time of the authentication at the 3DS servers. RISK update authorization service in auth request payload with value returned in &#x60;consumerAuthenticationInformation.alternateAuthenticationData&#x60; if merchant calls via CYBS or field can be provided by merchant in authorization request if calling an external 3DS provider. .</param>
         /// <param name="AuthenticationTransactionId">Payer authentication transaction identifier passed to link the check enrollment and validate authentication messages. **Note**: Required for Standard integration for enroll service. Required for Hybrid integration for validate service. .</param>
-        /// <param name="AuthorizationPayload">The Base64 encoded JSON Payload of CB specific Authorization Values returned in the challenge Flow .</param>
-        /// <param name="CardholderMessage">Text provided by the ACS/Issuer to Cardholder during a Frictionless or Decoupled transaction.The Issuer can provide information to Cardholder. For example, “Additional authentication is needed for this transaction, please contact (Issuer Name) at xxx-xxx-xxxx.”. The Issuing Bank can optionally support this value. .</param>
         /// <param name="ChallengeCancelCode">An indicator as to why the transaction was canceled. Possible Values:  - &#x60;01&#x60;: Cardholder selected Cancel. - &#x60;02&#x60;: Reserved for future EMVCo use (values invalid until defined by EMVCo). - &#x60;03&#x60;: Transaction Timed Out—Decoupled Authentication - &#x60;04&#x60;: Transaction timed out at ACS—other timeouts - &#x60;05&#x60;: Transaction Timed out at ACS - First CReq not received by ACS - &#x60;06&#x60;: Transaction Error - &#x60;07&#x60;: Unknown - &#x60;08&#x60;: Transaction Timed Out at SDK .</param>
         /// <param name="ChallengeCode">Possible values: - &#x60;01&#x60;: No preference - &#x60;02&#x60;: No challenge request - &#x60;03&#x60;: Challenge requested (3D Secure requestor preference) - &#x60;04&#x60;: Challenge requested (mandate) - &#x60;05&#x60;: No challenge requested (transactional risk analysis is already performed) - &#x60;06&#x60;: No challenge requested (Data share only) - &#x60;07&#x60;: No challenge requested (strong consumer authentication is already performed) - &#x60;08&#x60;: No challenge requested (utilize whitelist exemption if no challenge required) - &#x60;09&#x60;: Challenge requested (whitelist prompt requested if challenge required) **Note** This field will default to &#x60;01&#x60; on merchant configuration and can be overridden by the merchant. EMV 3D Secure version 2.1.0 supports values &#x60;01-04&#x60;. Version 2.2.0 supports values &#x60;01-09&#x60;.  For details, see &#x60;pa_challenge_code&#x60; field description in [CyberSource Payer Authentication Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Payer_Authentication_SCMP_API/html) .</param>
-        /// <param name="ChallengeRequired">Indicates whether a challenge is required in order to complete authentication. **Note** Regional mandates might determine that a challenge is required.  Possible values: - &#x60;Y&#x60;: Challenge required - &#x60;N&#x60;: Challenge not required **Note**  Used by the Hybrid integration. .</param>
         /// <param name="ChallengeStatus">The &#x60;consumerAuthenticationInformation.challengeCode&#x60; indicates the authentication type/level, or challenge, that was presented to the cardholder at checkout by the merchant when calling the Carte Bancaire 3DS servers via CYBS RISK services. It conveys to the issuer the alternative authentication methods that the consumer used. .</param>
         /// <param name="CustomerCardAlias">An alias that uniquely identifies the customer&#39;s account and credit card on file. Note This field is required if Tokenization is enabled in the merchant profile settings. .</param>
         /// <param name="DecoupledAuthenticationIndicator">Indicates whether the 3DS Requestor requests the ACS to utilize Decoupled Authentication and agrees to utilize Decoupled Authentication if the ACS confirms its use.  Possible Values:  Y - Decoupled Authentication is supported and preferred if challenge is necessary  N - Do not use Decoupled Authentication  **Default Value**: N .</param>
         /// <param name="DecoupledAuthenticationMaxTime">Indicates the maximum amount of time that the 3DS Requestor will wait for an ACS (Active control server) to provide the results of a Decoupled Authentication transaction (in minutes). Possible Values: Numeric values between 1 and 10080 accepted. .</param>
         /// <param name="DefaultCard">Indicates that the card being used is the one designated as the primary payment card for purchase. Recommended for Discover ProtectBuy. .</param>
         /// <param name="DeviceChannel">Determines the channel that the transaction came through. Possible Values: SDK/Browser/3RI. 3RI - 3DS request initiated. .</param>
-        /// <param name="DirectoryServerErrorCode">The directory server error code indicating a problem with this transaction. .</param>
-        /// <param name="DirectoryServerErrorDescription">Directory server text and additional detail about the error for this transaction. .</param>
-        /// <param name="EffectiveAuthenticationType">This field describes the type of 3DS transaction flow that took place.  It can be one of three possible flows; CH - Challenge FR - Frictionless FD - Frictionless with delegation, (challenge not generated by the issuer but by the scheme on behalf of the issuer). .</param>
         /// <param name="InstallmentTotalCount">An integer value greater than 1 indicating the max number of permitted authorizations for installment payments. **Note** This is required if the merchant and cardholder have agreed to installment payments. .</param>
-        /// <param name="Ivr">Ivr.</param>
         /// <param name="MerchantFraudRate">Calculated by merchants as per PSD2** RTS** (EEA** card fraud divided by all EEA card volumes). Possible Values: 1 &#x3D; Represents fraud rate &lt;&#x3D;1  2 &#x3D; Represents fraud rate &gt;1 and &lt;&#x3D;6  3 &#x3D; Represents fraud rate &gt;6 and &lt;&#x3D;13  4 &#x3D; Represents fraud rate &gt;13 and &lt;&#x3D;25  5 &#x3D; Represents fraud rate &gt;25  EEA** &#x3D; European Economic Area RTS** &#x3D; Regulatory Technical Standards PSD2** &#x3D; Payment Services Directive .</param>
         /// <param name="MarketingOptIn">Indicates whether the customer has opted in for marketing offers. Recommended for Discover ProtectBuy. .</param>
         /// <param name="MarketingSource">Indicates origin of the marketing offer. Recommended for Discover ProtectBuy. .</param>
         /// <param name="Mcc">Merchant category code. **Important** Required only for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions.  (required).</param>
         /// <param name="MerchantScore">Risk Score provided by merchants. This is specific for CB transactions. .</param>
         /// <param name="MessageCategory">Category of the message for a specific use case. Possible values:  - &#x60;01&#x60;: PA- payment authentication - &#x60;02&#x60;: NPA- non-payment authentication - &#x60;03-79&#x60;: Reserved for EMVCo future use (values invalid until defined by EMVCo) - &#x60;80-99&#x60;: Reserved for DS use .</param>
-        /// <param name="NetworkScore">The global score calculated by the CB scoring platform and returned to merchants. .</param>
         /// <param name="NpaCode">Non-Payer Authentication Indicator. Possible values: - &#x60;01&#x60;: Add card - &#x60;02&#x60;: Maintain card information - &#x60;03&#x60;: Cardholder verification for EMV token - &#x60;04-80&#x60; Reserved for EMVCo - &#x60;80-90&#x60; Reserved DS .</param>
         /// <param name="OverridePaymentMethod">Specifies the Brazilian payment account type used for the transaction. This field overrides other payment types that might be specified in the request. Use one of the following values for this field: - &#x60;NA&#x60;: Not applicable. Do not override other payment types that are specified in the request. - &#x60;CR&#x60;: Credit card. - &#x60;DB&#x60;: Debit card. - &#x60;VSAVR&#x60;: Visa Vale Refeicao - &#x60;VSAVA&#x60;: Visa Vale Alimentacao **Important** Required only for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
         /// <param name="OverrideCountryCode">Two-character ISO standard Country Codes.  (required).</param>
@@ -84,15 +74,10 @@ namespace CyberSource.Model
         /// <param name="RequestorName">Cardinal&#39;s directory server assigned 3DS Requestor Name value.</param>
         /// <param name="ReferenceId">Reference ID that corresponds to the device fingerprinting data that was collected previously. Note Required for Hybrid integration.  (required).</param>
         /// <param name="SdkMaxTimeout">This field indicates the maximum amount of time for all 3DS 2.0 messages to be communicated between all components (in minutes).  Possible Values:  Greater than or equal to 05 (05 is the minimum timeout to set)  Cardinal Default is set to 15  NOTE: This field is a required 3DS 2.0 field and Cardinal sends in a default of 15 if nothing is passed .</param>
-        /// <param name="SdkTransactionId">SDK unique transaction identifier that is generated on each new transaction. .</param>
         /// <param name="SecureCorporatePaymentIndicator">Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies. Possible Values : 0/1 .</param>
-        /// <param name="SignedParesStatusReason">Provides additional information as to why the PAResStatus has a specific value. .</param>
-        /// <param name="StepUpUrl">The fully qualified URL that the merchant uses to post a form to the cardholder in order to complete the Consumer Authentication transaction for the Cardinal Cruise API integration. .</param>
-        /// <param name="ThreeDSServerTransactionId">Unique transaction identifier assigned by the 3DS Server to identify a single transaction. .</param>
         /// <param name="TransactionMode">Transaction mode identifier. Identifies the channel from which the transaction originates. Possible values:  - &#x60;M&#x60;: MOTO (Mail Order Telephone Order) - &#x60;R&#x60;: Retail - &#x60;S&#x60;: eCommerce - &#x60;P&#x60;: Mobile Device - &#x60;T&#x60;: Tablet  (required).</param>
         /// <param name="WhiteListStatus">Enables the communication of trusted beneficiary/whitelist status between the ACS, the DS and the 3DS Requestor.  Possible Values:  Y - 3DS Requestor is whitelisted by cardholder  N - 3DS Requestor is not whitelisted by cardholder .</param>
-        /// <param name="WhiteListStatusSource">This data element will be populated by the system setting Whitelist Status. Possible Values: 01 - 3DS/ Server/ 02 – DS/03 - ACS .</param>
-        public Riskv1authenticationsConsumerAuthenticationInformation(Riskv1authenticationsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Riskv1authenticationsConsumerAuthenticationInformationStrongAuthentication), string AuthenticationType = default(string), string AcsRenderingType = default(string), string AcsTransactionId = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), string AuthorizationPayload = default(string), string CardholderMessage = default(string), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeRequired = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), string DirectoryServerErrorCode = default(string), string DirectoryServerErrorDescription = default(string), string EffectiveAuthenticationType = default(string), int? InstallmentTotalCount = default(int?), Riskv1authenticationsConsumerAuthenticationInformationIvr Ivr = default(Riskv1authenticationsConsumerAuthenticationInformationIvr), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NetworkScore = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SdkTransactionId = default(string), string SecureCorporatePaymentIndicator = default(string), string SignedParesStatusReason = default(string), string StepUpUrl = default(string), string ThreeDSServerTransactionId = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string), string WhiteListStatusSource = default(string))
+        public Riskv1authenticationsConsumerAuthenticationInformation(Riskv1authenticationsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Riskv1authenticationsConsumerAuthenticationInformationStrongAuthentication), string AuthenticationType = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string))
         {
             // to ensure "Mcc" is required (not null)
             if (Mcc == null)
@@ -132,36 +117,26 @@ namespace CyberSource.Model
             }
             this.StrongAuthentication = StrongAuthentication;
             this.AuthenticationType = AuthenticationType;
-            this.AcsRenderingType = AcsRenderingType;
-            this.AcsTransactionId = AcsTransactionId;
             this.AcsWindowSize = AcsWindowSize;
             this.AlternateAuthenticationData = AlternateAuthenticationData;
             this.AlternateAuthenticationDate = AlternateAuthenticationDate;
             this.AlternateAuthenticationMethod = AlternateAuthenticationMethod;
             this.AuthenticationDate = AuthenticationDate;
             this.AuthenticationTransactionId = AuthenticationTransactionId;
-            this.AuthorizationPayload = AuthorizationPayload;
-            this.CardholderMessage = CardholderMessage;
             this.ChallengeCancelCode = ChallengeCancelCode;
             this.ChallengeCode = ChallengeCode;
-            this.ChallengeRequired = ChallengeRequired;
             this.ChallengeStatus = ChallengeStatus;
             this.CustomerCardAlias = CustomerCardAlias;
             this.DecoupledAuthenticationIndicator = DecoupledAuthenticationIndicator;
             this.DecoupledAuthenticationMaxTime = DecoupledAuthenticationMaxTime;
             this.DefaultCard = DefaultCard;
             this.DeviceChannel = DeviceChannel;
-            this.DirectoryServerErrorCode = DirectoryServerErrorCode;
-            this.DirectoryServerErrorDescription = DirectoryServerErrorDescription;
-            this.EffectiveAuthenticationType = EffectiveAuthenticationType;
             this.InstallmentTotalCount = InstallmentTotalCount;
-            this.Ivr = Ivr;
             this.MerchantFraudRate = MerchantFraudRate;
             this.MarketingOptIn = MarketingOptIn;
             this.MarketingSource = MarketingSource;
             this.MerchantScore = MerchantScore;
             this.MessageCategory = MessageCategory;
-            this.NetworkScore = NetworkScore;
             this.NpaCode = NpaCode;
             this.OverridePaymentMethod = OverridePaymentMethod;
             this.PriorAuthenticationData = PriorAuthenticationData;
@@ -173,13 +148,8 @@ namespace CyberSource.Model
             this.RequestorInitiatedAuthenticationIndicator = RequestorInitiatedAuthenticationIndicator;
             this.RequestorName = RequestorName;
             this.SdkMaxTimeout = SdkMaxTimeout;
-            this.SdkTransactionId = SdkTransactionId;
             this.SecureCorporatePaymentIndicator = SecureCorporatePaymentIndicator;
-            this.SignedParesStatusReason = SignedParesStatusReason;
-            this.StepUpUrl = StepUpUrl;
-            this.ThreeDSServerTransactionId = ThreeDSServerTransactionId;
             this.WhiteListStatus = WhiteListStatus;
-            this.WhiteListStatusSource = WhiteListStatusSource;
         }
         
         /// <summary>
@@ -194,20 +164,6 @@ namespace CyberSource.Model
         /// <value>Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. </value>
         [DataMember(Name="authenticationType", EmitDefaultValue=false)]
         public string AuthenticationType { get; set; }
-
-        /// <summary>
-        /// Identifies the UI Type the ACS will use to complete the challenge. **NOTE**: Only available for App transactions using the Cardinal Mobile SDK. 
-        /// </summary>
-        /// <value>Identifies the UI Type the ACS will use to complete the challenge. **NOTE**: Only available for App transactions using the Cardinal Mobile SDK. </value>
-        [DataMember(Name="acsRenderingType", EmitDefaultValue=false)]
-        public string AcsRenderingType { get; set; }
-
-        /// <summary>
-        /// Unique transaction identifier assigned by the ACS to identify a single transaction. 
-        /// </summary>
-        /// <value>Unique transaction identifier assigned by the ACS to identify a single transaction. </value>
-        [DataMember(Name="acsTransactionId", EmitDefaultValue=false)]
-        public string AcsTransactionId { get; set; }
 
         /// <summary>
         /// An override field that a merchant can pass in to set the challenge window size to display to the end cardholder.  The ACS (Active Control Server) will reply with content that is formatted appropriately to this window size to allow for the best user experience.  The sizes are width x height in pixels of the window displayed in the cardholder browser window.  01 - 250x400  02 - 390x400  03 - 500x600  04 - 600x400  05 - Full page 
@@ -252,20 +208,6 @@ namespace CyberSource.Model
         public string AuthenticationTransactionId { get; set; }
 
         /// <summary>
-        /// The Base64 encoded JSON Payload of CB specific Authorization Values returned in the challenge Flow 
-        /// </summary>
-        /// <value>The Base64 encoded JSON Payload of CB specific Authorization Values returned in the challenge Flow </value>
-        [DataMember(Name="authorizationPayload", EmitDefaultValue=false)]
-        public string AuthorizationPayload { get; set; }
-
-        /// <summary>
-        /// Text provided by the ACS/Issuer to Cardholder during a Frictionless or Decoupled transaction.The Issuer can provide information to Cardholder. For example, “Additional authentication is needed for this transaction, please contact (Issuer Name) at xxx-xxx-xxxx.”. The Issuing Bank can optionally support this value. 
-        /// </summary>
-        /// <value>Text provided by the ACS/Issuer to Cardholder during a Frictionless or Decoupled transaction.The Issuer can provide information to Cardholder. For example, “Additional authentication is needed for this transaction, please contact (Issuer Name) at xxx-xxx-xxxx.”. The Issuing Bank can optionally support this value. </value>
-        [DataMember(Name="cardholderMessage", EmitDefaultValue=false)]
-        public string CardholderMessage { get; set; }
-
-        /// <summary>
         /// An indicator as to why the transaction was canceled. Possible Values:  - &#x60;01&#x60;: Cardholder selected Cancel. - &#x60;02&#x60;: Reserved for future EMVCo use (values invalid until defined by EMVCo). - &#x60;03&#x60;: Transaction Timed Out—Decoupled Authentication - &#x60;04&#x60;: Transaction timed out at ACS—other timeouts - &#x60;05&#x60;: Transaction Timed out at ACS - First CReq not received by ACS - &#x60;06&#x60;: Transaction Error - &#x60;07&#x60;: Unknown - &#x60;08&#x60;: Transaction Timed Out at SDK 
         /// </summary>
         /// <value>An indicator as to why the transaction was canceled. Possible Values:  - &#x60;01&#x60;: Cardholder selected Cancel. - &#x60;02&#x60;: Reserved for future EMVCo use (values invalid until defined by EMVCo). - &#x60;03&#x60;: Transaction Timed Out—Decoupled Authentication - &#x60;04&#x60;: Transaction timed out at ACS—other timeouts - &#x60;05&#x60;: Transaction Timed out at ACS - First CReq not received by ACS - &#x60;06&#x60;: Transaction Error - &#x60;07&#x60;: Unknown - &#x60;08&#x60;: Transaction Timed Out at SDK </value>
@@ -278,13 +220,6 @@ namespace CyberSource.Model
         /// <value>Possible values: - &#x60;01&#x60;: No preference - &#x60;02&#x60;: No challenge request - &#x60;03&#x60;: Challenge requested (3D Secure requestor preference) - &#x60;04&#x60;: Challenge requested (mandate) - &#x60;05&#x60;: No challenge requested (transactional risk analysis is already performed) - &#x60;06&#x60;: No challenge requested (Data share only) - &#x60;07&#x60;: No challenge requested (strong consumer authentication is already performed) - &#x60;08&#x60;: No challenge requested (utilize whitelist exemption if no challenge required) - &#x60;09&#x60;: Challenge requested (whitelist prompt requested if challenge required) **Note** This field will default to &#x60;01&#x60; on merchant configuration and can be overridden by the merchant. EMV 3D Secure version 2.1.0 supports values &#x60;01-04&#x60;. Version 2.2.0 supports values &#x60;01-09&#x60;.  For details, see &#x60;pa_challenge_code&#x60; field description in [CyberSource Payer Authentication Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Payer_Authentication_SCMP_API/html) </value>
         [DataMember(Name="challengeCode", EmitDefaultValue=false)]
         public string ChallengeCode { get; set; }
-
-        /// <summary>
-        /// Indicates whether a challenge is required in order to complete authentication. **Note** Regional mandates might determine that a challenge is required.  Possible values: - &#x60;Y&#x60;: Challenge required - &#x60;N&#x60;: Challenge not required **Note**  Used by the Hybrid integration. 
-        /// </summary>
-        /// <value>Indicates whether a challenge is required in order to complete authentication. **Note** Regional mandates might determine that a challenge is required.  Possible values: - &#x60;Y&#x60;: Challenge required - &#x60;N&#x60;: Challenge not required **Note**  Used by the Hybrid integration. </value>
-        [DataMember(Name="challengeRequired", EmitDefaultValue=false)]
-        public string ChallengeRequired { get; set; }
 
         /// <summary>
         /// The &#x60;consumerAuthenticationInformation.challengeCode&#x60; indicates the authentication type/level, or challenge, that was presented to the cardholder at checkout by the merchant when calling the Carte Bancaire 3DS servers via CYBS RISK services. It conveys to the issuer the alternative authentication methods that the consumer used. 
@@ -329,38 +264,11 @@ namespace CyberSource.Model
         public string DeviceChannel { get; set; }
 
         /// <summary>
-        /// The directory server error code indicating a problem with this transaction. 
-        /// </summary>
-        /// <value>The directory server error code indicating a problem with this transaction. </value>
-        [DataMember(Name="directoryServerErrorCode", EmitDefaultValue=false)]
-        public string DirectoryServerErrorCode { get; set; }
-
-        /// <summary>
-        /// Directory server text and additional detail about the error for this transaction. 
-        /// </summary>
-        /// <value>Directory server text and additional detail about the error for this transaction. </value>
-        [DataMember(Name="directoryServerErrorDescription", EmitDefaultValue=false)]
-        public string DirectoryServerErrorDescription { get; set; }
-
-        /// <summary>
-        /// This field describes the type of 3DS transaction flow that took place.  It can be one of three possible flows; CH - Challenge FR - Frictionless FD - Frictionless with delegation, (challenge not generated by the issuer but by the scheme on behalf of the issuer). 
-        /// </summary>
-        /// <value>This field describes the type of 3DS transaction flow that took place.  It can be one of three possible flows; CH - Challenge FR - Frictionless FD - Frictionless with delegation, (challenge not generated by the issuer but by the scheme on behalf of the issuer). </value>
-        [DataMember(Name="effectiveAuthenticationType", EmitDefaultValue=false)]
-        public string EffectiveAuthenticationType { get; set; }
-
-        /// <summary>
         /// An integer value greater than 1 indicating the max number of permitted authorizations for installment payments. **Note** This is required if the merchant and cardholder have agreed to installment payments. 
         /// </summary>
         /// <value>An integer value greater than 1 indicating the max number of permitted authorizations for installment payments. **Note** This is required if the merchant and cardholder have agreed to installment payments. </value>
         [DataMember(Name="installmentTotalCount", EmitDefaultValue=false)]
         public int? InstallmentTotalCount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Ivr
-        /// </summary>
-        [DataMember(Name="ivr", EmitDefaultValue=false)]
-        public Riskv1authenticationsConsumerAuthenticationInformationIvr Ivr { get; set; }
 
         /// <summary>
         /// Calculated by merchants as per PSD2** RTS** (EEA** card fraud divided by all EEA card volumes). Possible Values: 1 &#x3D; Represents fraud rate &lt;&#x3D;1  2 &#x3D; Represents fraud rate &gt;1 and &lt;&#x3D;6  3 &#x3D; Represents fraud rate &gt;6 and &lt;&#x3D;13  4 &#x3D; Represents fraud rate &gt;13 and &lt;&#x3D;25  5 &#x3D; Represents fraud rate &gt;25  EEA** &#x3D; European Economic Area RTS** &#x3D; Regulatory Technical Standards PSD2** &#x3D; Payment Services Directive 
@@ -403,13 +311,6 @@ namespace CyberSource.Model
         /// <value>Category of the message for a specific use case. Possible values:  - &#x60;01&#x60;: PA- payment authentication - &#x60;02&#x60;: NPA- non-payment authentication - &#x60;03-79&#x60;: Reserved for EMVCo future use (values invalid until defined by EMVCo) - &#x60;80-99&#x60;: Reserved for DS use </value>
         [DataMember(Name="messageCategory", EmitDefaultValue=false)]
         public string MessageCategory { get; set; }
-
-        /// <summary>
-        /// The global score calculated by the CB scoring platform and returned to merchants. 
-        /// </summary>
-        /// <value>The global score calculated by the CB scoring platform and returned to merchants. </value>
-        [DataMember(Name="networkScore", EmitDefaultValue=false)]
-        public string NetworkScore { get; set; }
 
         /// <summary>
         /// Non-Payer Authentication Indicator. Possible values: - &#x60;01&#x60;: Add card - &#x60;02&#x60;: Maintain card information - &#x60;03&#x60;: Cardholder verification for EMV token - &#x60;04-80&#x60; Reserved for EMVCo - &#x60;80-90&#x60; Reserved DS 
@@ -503,39 +404,11 @@ namespace CyberSource.Model
         public string SdkMaxTimeout { get; set; }
 
         /// <summary>
-        /// SDK unique transaction identifier that is generated on each new transaction. 
-        /// </summary>
-        /// <value>SDK unique transaction identifier that is generated on each new transaction. </value>
-        [DataMember(Name="sdkTransactionId", EmitDefaultValue=false)]
-        public string SdkTransactionId { get; set; }
-
-        /// <summary>
         /// Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies. Possible Values : 0/1 
         /// </summary>
         /// <value>Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies. Possible Values : 0/1 </value>
         [DataMember(Name="secureCorporatePaymentIndicator", EmitDefaultValue=false)]
         public string SecureCorporatePaymentIndicator { get; set; }
-
-        /// <summary>
-        /// Provides additional information as to why the PAResStatus has a specific value. 
-        /// </summary>
-        /// <value>Provides additional information as to why the PAResStatus has a specific value. </value>
-        [DataMember(Name="signedParesStatusReason", EmitDefaultValue=false)]
-        public string SignedParesStatusReason { get; set; }
-
-        /// <summary>
-        /// The fully qualified URL that the merchant uses to post a form to the cardholder in order to complete the Consumer Authentication transaction for the Cardinal Cruise API integration. 
-        /// </summary>
-        /// <value>The fully qualified URL that the merchant uses to post a form to the cardholder in order to complete the Consumer Authentication transaction for the Cardinal Cruise API integration. </value>
-        [DataMember(Name="stepUpUrl", EmitDefaultValue=false)]
-        public string StepUpUrl { get; set; }
-
-        /// <summary>
-        /// Unique transaction identifier assigned by the 3DS Server to identify a single transaction. 
-        /// </summary>
-        /// <value>Unique transaction identifier assigned by the 3DS Server to identify a single transaction. </value>
-        [DataMember(Name="threeDSServerTransactionId", EmitDefaultValue=false)]
-        public string ThreeDSServerTransactionId { get; set; }
 
         /// <summary>
         /// Transaction mode identifier. Identifies the channel from which the transaction originates. Possible values:  - &#x60;M&#x60;: MOTO (Mail Order Telephone Order) - &#x60;R&#x60;: Retail - &#x60;S&#x60;: eCommerce - &#x60;P&#x60;: Mobile Device - &#x60;T&#x60;: Tablet 
@@ -552,13 +425,6 @@ namespace CyberSource.Model
         public string WhiteListStatus { get; set; }
 
         /// <summary>
-        /// This data element will be populated by the system setting Whitelist Status. Possible Values: 01 - 3DS/ Server/ 02 – DS/03 - ACS 
-        /// </summary>
-        /// <value>This data element will be populated by the system setting Whitelist Status. Possible Values: 01 - 3DS/ Server/ 02 – DS/03 - ACS </value>
-        [DataMember(Name="whiteListStatusSource", EmitDefaultValue=false)]
-        public string WhiteListStatusSource { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -568,37 +434,27 @@ namespace CyberSource.Model
             sb.Append("class Riskv1authenticationsConsumerAuthenticationInformation {\n");
             sb.Append("  StrongAuthentication: ").Append(StrongAuthentication).Append("\n");
             sb.Append("  AuthenticationType: ").Append(AuthenticationType).Append("\n");
-            sb.Append("  AcsRenderingType: ").Append(AcsRenderingType).Append("\n");
-            sb.Append("  AcsTransactionId: ").Append(AcsTransactionId).Append("\n");
             sb.Append("  AcsWindowSize: ").Append(AcsWindowSize).Append("\n");
             sb.Append("  AlternateAuthenticationData: ").Append(AlternateAuthenticationData).Append("\n");
             sb.Append("  AlternateAuthenticationDate: ").Append(AlternateAuthenticationDate).Append("\n");
             sb.Append("  AlternateAuthenticationMethod: ").Append(AlternateAuthenticationMethod).Append("\n");
             sb.Append("  AuthenticationDate: ").Append(AuthenticationDate).Append("\n");
             sb.Append("  AuthenticationTransactionId: ").Append(AuthenticationTransactionId).Append("\n");
-            sb.Append("  AuthorizationPayload: ").Append(AuthorizationPayload).Append("\n");
-            sb.Append("  CardholderMessage: ").Append(CardholderMessage).Append("\n");
             sb.Append("  ChallengeCancelCode: ").Append(ChallengeCancelCode).Append("\n");
             sb.Append("  ChallengeCode: ").Append(ChallengeCode).Append("\n");
-            sb.Append("  ChallengeRequired: ").Append(ChallengeRequired).Append("\n");
             sb.Append("  ChallengeStatus: ").Append(ChallengeStatus).Append("\n");
             sb.Append("  CustomerCardAlias: ").Append(CustomerCardAlias).Append("\n");
             sb.Append("  DecoupledAuthenticationIndicator: ").Append(DecoupledAuthenticationIndicator).Append("\n");
             sb.Append("  DecoupledAuthenticationMaxTime: ").Append(DecoupledAuthenticationMaxTime).Append("\n");
             sb.Append("  DefaultCard: ").Append(DefaultCard).Append("\n");
             sb.Append("  DeviceChannel: ").Append(DeviceChannel).Append("\n");
-            sb.Append("  DirectoryServerErrorCode: ").Append(DirectoryServerErrorCode).Append("\n");
-            sb.Append("  DirectoryServerErrorDescription: ").Append(DirectoryServerErrorDescription).Append("\n");
-            sb.Append("  EffectiveAuthenticationType: ").Append(EffectiveAuthenticationType).Append("\n");
             sb.Append("  InstallmentTotalCount: ").Append(InstallmentTotalCount).Append("\n");
-            sb.Append("  Ivr: ").Append(Ivr).Append("\n");
             sb.Append("  MerchantFraudRate: ").Append(MerchantFraudRate).Append("\n");
             sb.Append("  MarketingOptIn: ").Append(MarketingOptIn).Append("\n");
             sb.Append("  MarketingSource: ").Append(MarketingSource).Append("\n");
             sb.Append("  Mcc: ").Append(Mcc).Append("\n");
             sb.Append("  MerchantScore: ").Append(MerchantScore).Append("\n");
             sb.Append("  MessageCategory: ").Append(MessageCategory).Append("\n");
-            sb.Append("  NetworkScore: ").Append(NetworkScore).Append("\n");
             sb.Append("  NpaCode: ").Append(NpaCode).Append("\n");
             sb.Append("  OverridePaymentMethod: ").Append(OverridePaymentMethod).Append("\n");
             sb.Append("  OverrideCountryCode: ").Append(OverrideCountryCode).Append("\n");
@@ -612,14 +468,9 @@ namespace CyberSource.Model
             sb.Append("  RequestorName: ").Append(RequestorName).Append("\n");
             sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
             sb.Append("  SdkMaxTimeout: ").Append(SdkMaxTimeout).Append("\n");
-            sb.Append("  SdkTransactionId: ").Append(SdkTransactionId).Append("\n");
             sb.Append("  SecureCorporatePaymentIndicator: ").Append(SecureCorporatePaymentIndicator).Append("\n");
-            sb.Append("  SignedParesStatusReason: ").Append(SignedParesStatusReason).Append("\n");
-            sb.Append("  StepUpUrl: ").Append(StepUpUrl).Append("\n");
-            sb.Append("  ThreeDSServerTransactionId: ").Append(ThreeDSServerTransactionId).Append("\n");
             sb.Append("  TransactionMode: ").Append(TransactionMode).Append("\n");
             sb.Append("  WhiteListStatus: ").Append(WhiteListStatus).Append("\n");
-            sb.Append("  WhiteListStatusSource: ").Append(WhiteListStatusSource).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -667,16 +518,6 @@ namespace CyberSource.Model
                     this.AuthenticationType.Equals(other.AuthenticationType)
                 ) && 
                 (
-                    this.AcsRenderingType == other.AcsRenderingType ||
-                    this.AcsRenderingType != null &&
-                    this.AcsRenderingType.Equals(other.AcsRenderingType)
-                ) && 
-                (
-                    this.AcsTransactionId == other.AcsTransactionId ||
-                    this.AcsTransactionId != null &&
-                    this.AcsTransactionId.Equals(other.AcsTransactionId)
-                ) && 
-                (
                     this.AcsWindowSize == other.AcsWindowSize ||
                     this.AcsWindowSize != null &&
                     this.AcsWindowSize.Equals(other.AcsWindowSize)
@@ -707,16 +548,6 @@ namespace CyberSource.Model
                     this.AuthenticationTransactionId.Equals(other.AuthenticationTransactionId)
                 ) && 
                 (
-                    this.AuthorizationPayload == other.AuthorizationPayload ||
-                    this.AuthorizationPayload != null &&
-                    this.AuthorizationPayload.Equals(other.AuthorizationPayload)
-                ) && 
-                (
-                    this.CardholderMessage == other.CardholderMessage ||
-                    this.CardholderMessage != null &&
-                    this.CardholderMessage.Equals(other.CardholderMessage)
-                ) && 
-                (
                     this.ChallengeCancelCode == other.ChallengeCancelCode ||
                     this.ChallengeCancelCode != null &&
                     this.ChallengeCancelCode.Equals(other.ChallengeCancelCode)
@@ -725,11 +556,6 @@ namespace CyberSource.Model
                     this.ChallengeCode == other.ChallengeCode ||
                     this.ChallengeCode != null &&
                     this.ChallengeCode.Equals(other.ChallengeCode)
-                ) && 
-                (
-                    this.ChallengeRequired == other.ChallengeRequired ||
-                    this.ChallengeRequired != null &&
-                    this.ChallengeRequired.Equals(other.ChallengeRequired)
                 ) && 
                 (
                     this.ChallengeStatus == other.ChallengeStatus ||
@@ -762,29 +588,9 @@ namespace CyberSource.Model
                     this.DeviceChannel.Equals(other.DeviceChannel)
                 ) && 
                 (
-                    this.DirectoryServerErrorCode == other.DirectoryServerErrorCode ||
-                    this.DirectoryServerErrorCode != null &&
-                    this.DirectoryServerErrorCode.Equals(other.DirectoryServerErrorCode)
-                ) && 
-                (
-                    this.DirectoryServerErrorDescription == other.DirectoryServerErrorDescription ||
-                    this.DirectoryServerErrorDescription != null &&
-                    this.DirectoryServerErrorDescription.Equals(other.DirectoryServerErrorDescription)
-                ) && 
-                (
-                    this.EffectiveAuthenticationType == other.EffectiveAuthenticationType ||
-                    this.EffectiveAuthenticationType != null &&
-                    this.EffectiveAuthenticationType.Equals(other.EffectiveAuthenticationType)
-                ) && 
-                (
                     this.InstallmentTotalCount == other.InstallmentTotalCount ||
                     this.InstallmentTotalCount != null &&
                     this.InstallmentTotalCount.Equals(other.InstallmentTotalCount)
-                ) && 
-                (
-                    this.Ivr == other.Ivr ||
-                    this.Ivr != null &&
-                    this.Ivr.Equals(other.Ivr)
                 ) && 
                 (
                     this.MerchantFraudRate == other.MerchantFraudRate ||
@@ -815,11 +621,6 @@ namespace CyberSource.Model
                     this.MessageCategory == other.MessageCategory ||
                     this.MessageCategory != null &&
                     this.MessageCategory.Equals(other.MessageCategory)
-                ) && 
-                (
-                    this.NetworkScore == other.NetworkScore ||
-                    this.NetworkScore != null &&
-                    this.NetworkScore.Equals(other.NetworkScore)
                 ) && 
                 (
                     this.NpaCode == other.NpaCode ||
@@ -887,29 +688,9 @@ namespace CyberSource.Model
                     this.SdkMaxTimeout.Equals(other.SdkMaxTimeout)
                 ) && 
                 (
-                    this.SdkTransactionId == other.SdkTransactionId ||
-                    this.SdkTransactionId != null &&
-                    this.SdkTransactionId.Equals(other.SdkTransactionId)
-                ) && 
-                (
                     this.SecureCorporatePaymentIndicator == other.SecureCorporatePaymentIndicator ||
                     this.SecureCorporatePaymentIndicator != null &&
                     this.SecureCorporatePaymentIndicator.Equals(other.SecureCorporatePaymentIndicator)
-                ) && 
-                (
-                    this.SignedParesStatusReason == other.SignedParesStatusReason ||
-                    this.SignedParesStatusReason != null &&
-                    this.SignedParesStatusReason.Equals(other.SignedParesStatusReason)
-                ) && 
-                (
-                    this.StepUpUrl == other.StepUpUrl ||
-                    this.StepUpUrl != null &&
-                    this.StepUpUrl.Equals(other.StepUpUrl)
-                ) && 
-                (
-                    this.ThreeDSServerTransactionId == other.ThreeDSServerTransactionId ||
-                    this.ThreeDSServerTransactionId != null &&
-                    this.ThreeDSServerTransactionId.Equals(other.ThreeDSServerTransactionId)
                 ) && 
                 (
                     this.TransactionMode == other.TransactionMode ||
@@ -920,11 +701,6 @@ namespace CyberSource.Model
                     this.WhiteListStatus == other.WhiteListStatus ||
                     this.WhiteListStatus != null &&
                     this.WhiteListStatus.Equals(other.WhiteListStatus)
-                ) && 
-                (
-                    this.WhiteListStatusSource == other.WhiteListStatusSource ||
-                    this.WhiteListStatusSource != null &&
-                    this.WhiteListStatusSource.Equals(other.WhiteListStatusSource)
                 );
         }
 
@@ -943,10 +719,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.StrongAuthentication.GetHashCode();
                 if (this.AuthenticationType != null)
                     hash = hash * 59 + this.AuthenticationType.GetHashCode();
-                if (this.AcsRenderingType != null)
-                    hash = hash * 59 + this.AcsRenderingType.GetHashCode();
-                if (this.AcsTransactionId != null)
-                    hash = hash * 59 + this.AcsTransactionId.GetHashCode();
                 if (this.AcsWindowSize != null)
                     hash = hash * 59 + this.AcsWindowSize.GetHashCode();
                 if (this.AlternateAuthenticationData != null)
@@ -959,16 +731,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AuthenticationDate.GetHashCode();
                 if (this.AuthenticationTransactionId != null)
                     hash = hash * 59 + this.AuthenticationTransactionId.GetHashCode();
-                if (this.AuthorizationPayload != null)
-                    hash = hash * 59 + this.AuthorizationPayload.GetHashCode();
-                if (this.CardholderMessage != null)
-                    hash = hash * 59 + this.CardholderMessage.GetHashCode();
                 if (this.ChallengeCancelCode != null)
                     hash = hash * 59 + this.ChallengeCancelCode.GetHashCode();
                 if (this.ChallengeCode != null)
                     hash = hash * 59 + this.ChallengeCode.GetHashCode();
-                if (this.ChallengeRequired != null)
-                    hash = hash * 59 + this.ChallengeRequired.GetHashCode();
                 if (this.ChallengeStatus != null)
                     hash = hash * 59 + this.ChallengeStatus.GetHashCode();
                 if (this.CustomerCardAlias != null)
@@ -981,16 +747,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DefaultCard.GetHashCode();
                 if (this.DeviceChannel != null)
                     hash = hash * 59 + this.DeviceChannel.GetHashCode();
-                if (this.DirectoryServerErrorCode != null)
-                    hash = hash * 59 + this.DirectoryServerErrorCode.GetHashCode();
-                if (this.DirectoryServerErrorDescription != null)
-                    hash = hash * 59 + this.DirectoryServerErrorDescription.GetHashCode();
-                if (this.EffectiveAuthenticationType != null)
-                    hash = hash * 59 + this.EffectiveAuthenticationType.GetHashCode();
                 if (this.InstallmentTotalCount != null)
                     hash = hash * 59 + this.InstallmentTotalCount.GetHashCode();
-                if (this.Ivr != null)
-                    hash = hash * 59 + this.Ivr.GetHashCode();
                 if (this.MerchantFraudRate != null)
                     hash = hash * 59 + this.MerchantFraudRate.GetHashCode();
                 if (this.MarketingOptIn != null)
@@ -1003,8 +761,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantScore.GetHashCode();
                 if (this.MessageCategory != null)
                     hash = hash * 59 + this.MessageCategory.GetHashCode();
-                if (this.NetworkScore != null)
-                    hash = hash * 59 + this.NetworkScore.GetHashCode();
                 if (this.NpaCode != null)
                     hash = hash * 59 + this.NpaCode.GetHashCode();
                 if (this.OverridePaymentMethod != null)
@@ -1031,22 +787,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReferenceId.GetHashCode();
                 if (this.SdkMaxTimeout != null)
                     hash = hash * 59 + this.SdkMaxTimeout.GetHashCode();
-                if (this.SdkTransactionId != null)
-                    hash = hash * 59 + this.SdkTransactionId.GetHashCode();
                 if (this.SecureCorporatePaymentIndicator != null)
                     hash = hash * 59 + this.SecureCorporatePaymentIndicator.GetHashCode();
-                if (this.SignedParesStatusReason != null)
-                    hash = hash * 59 + this.SignedParesStatusReason.GetHashCode();
-                if (this.StepUpUrl != null)
-                    hash = hash * 59 + this.StepUpUrl.GetHashCode();
-                if (this.ThreeDSServerTransactionId != null)
-                    hash = hash * 59 + this.ThreeDSServerTransactionId.GetHashCode();
                 if (this.TransactionMode != null)
                     hash = hash * 59 + this.TransactionMode.GetHashCode();
                 if (this.WhiteListStatus != null)
                     hash = hash * 59 + this.WhiteListStatus.GetHashCode();
-                if (this.WhiteListStatusSource != null)
-                    hash = hash * 59 + this.WhiteListStatusSource.GetHashCode();
                 return hash;
             }
         }
@@ -1062,12 +808,6 @@ namespace CyberSource.Model
             if(this.AuthenticationType != null && this.AuthenticationType.Length >= 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthenticationType, length must be less than or equal to 2.", new [] { "AuthenticationType" });
-            }
-
-            // AcsTransactionId (string) maxLength
-            if(this.AcsTransactionId != null && this.AcsTransactionId.Length >= 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcsTransactionId, length must be less than or equal to 36.", new [] { "AcsTransactionId" });
             }
 
             // AcsWindowSize (string) maxLength
@@ -1100,22 +840,10 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthenticationTransactionId, length must be less than or equal to 20.", new [] { "AuthenticationTransactionId" });
             }
 
-            // CardholderMessage (string) maxLength
-            if(this.CardholderMessage != null && this.CardholderMessage.Length >= 128)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardholderMessage, length must be less than or equal to 128.", new [] { "CardholderMessage" });
-            }
-
             // ChallengeCancelCode (string) maxLength
             if(this.ChallengeCancelCode != null && this.ChallengeCancelCode.Length >= 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ChallengeCancelCode, length must be less than or equal to 2.", new [] { "ChallengeCancelCode" });
-            }
-
-            // ChallengeRequired (string) maxLength
-            if(this.ChallengeRequired != null && this.ChallengeRequired.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ChallengeRequired, length must be less than or equal to 1.", new [] { "ChallengeRequired" });
             }
 
             // ChallengeStatus (string) maxLength
@@ -1148,24 +876,6 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DeviceChannel, length must be less than or equal to 10.", new [] { "DeviceChannel" });
             }
 
-            // DirectoryServerErrorCode (string) maxLength
-            if(this.DirectoryServerErrorCode != null && this.DirectoryServerErrorCode.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DirectoryServerErrorCode, length must be less than or equal to 3.", new [] { "DirectoryServerErrorCode" });
-            }
-
-            // DirectoryServerErrorDescription (string) maxLength
-            if(this.DirectoryServerErrorDescription != null && this.DirectoryServerErrorDescription.Length >= 4096)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DirectoryServerErrorDescription, length must be less than or equal to 4096.", new [] { "DirectoryServerErrorDescription" });
-            }
-
-            // EffectiveAuthenticationType (string) maxLength
-            if(this.EffectiveAuthenticationType != null && this.EffectiveAuthenticationType.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveAuthenticationType, length must be less than or equal to 2.", new [] { "EffectiveAuthenticationType" });
-            }
-
             // MerchantFraudRate (string) maxLength
             if(this.MerchantFraudRate != null && this.MerchantFraudRate.Length >= 2)
             {
@@ -1182,12 +892,6 @@ namespace CyberSource.Model
             if(this.Mcc != null && this.Mcc.Length >= 4)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Mcc, length must be less than or equal to 4.", new [] { "Mcc" });
-            }
-
-            // NetworkScore (string) maxLength
-            if(this.NetworkScore != null && this.NetworkScore.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetworkScore, length must be less than or equal to 2.", new [] { "NetworkScore" });
             }
 
             // NpaCode (string) maxLength
@@ -1262,46 +966,16 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkMaxTimeout, length must be less than or equal to 2.", new [] { "SdkMaxTimeout" });
             }
 
-            // SdkTransactionId (string) maxLength
-            if(this.SdkTransactionId != null && this.SdkTransactionId.Length >= 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkTransactionId, length must be less than or equal to 36.", new [] { "SdkTransactionId" });
-            }
-
             // SecureCorporatePaymentIndicator (string) maxLength
             if(this.SecureCorporatePaymentIndicator != null && this.SecureCorporatePaymentIndicator.Length >= 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecureCorporatePaymentIndicator, length must be less than or equal to 1.", new [] { "SecureCorporatePaymentIndicator" });
             }
 
-            // SignedParesStatusReason (string) maxLength
-            if(this.SignedParesStatusReason != null && this.SignedParesStatusReason.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SignedParesStatusReason, length must be less than or equal to 2.", new [] { "SignedParesStatusReason" });
-            }
-
-            // StepUpUrl (string) maxLength
-            if(this.StepUpUrl != null && this.StepUpUrl.Length >= 2048)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StepUpUrl, length must be less than or equal to 2048.", new [] { "StepUpUrl" });
-            }
-
-            // ThreeDSServerTransactionId (string) maxLength
-            if(this.ThreeDSServerTransactionId != null && this.ThreeDSServerTransactionId.Length >= 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThreeDSServerTransactionId, length must be less than or equal to 36.", new [] { "ThreeDSServerTransactionId" });
-            }
-
             // WhiteListStatus (string) maxLength
             if(this.WhiteListStatus != null && this.WhiteListStatus.Length >= 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WhiteListStatus, length must be less than or equal to 1.", new [] { "WhiteListStatus" });
-            }
-
-            // WhiteListStatusSource (string) maxLength
-            if(this.WhiteListStatusSource != null && this.WhiteListStatusSource.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WhiteListStatusSource, length must be less than or equal to 2.", new [] { "WhiteListStatusSource" });
             }
 
             yield break;

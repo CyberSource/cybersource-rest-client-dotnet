@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="ReportDefinitionName">Valid Report Definition Name (required).</param>
         /// <param name="ReportFields">ReportFields (required).</param>
         /// <param name="ReportMimeType">Valid values: - application/xml - text/csv  (required).</param>
-        /// <param name="ReportFrequency">&#39;The frequency for which subscription is created.&#39;  Valid Values:   - &#39;DAILY&#39;   - &#39;WEEKLY&#39;   - &#39;MONTHLY&#39;   - &#39;USER_DEFINED&#39;  (required).</param>
+        /// <param name="ReportFrequency">&#39;The frequency for which subscription is created.&#39; **NOTE: Do not document USER_DEFINED Frequency field in developer center** Valid Values:   - &#39;DAILY&#39;   - &#39;WEEKLY&#39;   - &#39;MONTHLY&#39;   - &#39;USER_DEFINED&#39;  (required).</param>
         /// <param name="ReportInterval">If the reportFrequency is User-defined, reportInterval should be in **ISO 8601 time format** Please refer the following link to know more about ISO 8601 format.[Rfc Time Format](https://en.wikipedia.org/wiki/ISO_8601#Durations)  **Example time format for 2 hours and 30 Mins:**   - PT2H30M **NOTE: Do not document reportInterval field in developer center** .</param>
         /// <param name="ReportName">ReportName (required).</param>
         /// <param name="Timezone">Timezone (required).</param>
@@ -152,9 +152,9 @@ namespace CyberSource.Model
         public string ReportMimeType { get; set; }
 
         /// <summary>
-        /// &#39;The frequency for which subscription is created.&#39;  Valid Values:   - &#39;DAILY&#39;   - &#39;WEEKLY&#39;   - &#39;MONTHLY&#39;   - &#39;USER_DEFINED&#39; 
+        /// &#39;The frequency for which subscription is created.&#39; **NOTE: Do not document USER_DEFINED Frequency field in developer center** Valid Values:   - &#39;DAILY&#39;   - &#39;WEEKLY&#39;   - &#39;MONTHLY&#39;   - &#39;USER_DEFINED&#39; 
         /// </summary>
-        /// <value>&#39;The frequency for which subscription is created.&#39;  Valid Values:   - &#39;DAILY&#39;   - &#39;WEEKLY&#39;   - &#39;MONTHLY&#39;   - &#39;USER_DEFINED&#39; </value>
+        /// <value>&#39;The frequency for which subscription is created.&#39; **NOTE: Do not document USER_DEFINED Frequency field in developer center** Valid Values:   - &#39;DAILY&#39;   - &#39;WEEKLY&#39;   - &#39;MONTHLY&#39;   - &#39;USER_DEFINED&#39; </value>
         [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
         public string ReportFrequency { get; set; }
 

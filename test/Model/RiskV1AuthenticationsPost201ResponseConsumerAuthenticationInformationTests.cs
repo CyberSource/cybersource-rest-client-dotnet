@@ -65,6 +65,22 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'AcsRenderingType'
+        /// </summary>
+        [Test]
+        public void AcsRenderingTypeTest()
+        {
+            // TODO unit test for the property 'AcsRenderingType'
+        }
+        /// <summary>
+        /// Test the property 'AcsTransactionId'
+        /// </summary>
+        [Test]
+        public void AcsTransactionIdTest()
+        {
+            // TODO unit test for the property 'AcsTransactionId'
+        }
+        /// <summary>
         /// Test the property 'AcsUrl'
         /// </summary>
         [Test]
@@ -81,12 +97,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AuthenticationPath'
         }
         /// <summary>
+        /// Test the property 'AuthorizationPayload'
+        /// </summary>
+        [Test]
+        public void AuthorizationPayloadTest()
+        {
+            // TODO unit test for the property 'AuthorizationPayload'
+        }
+        /// <summary>
         /// Test the property 'AuthenticationTransactionId'
         /// </summary>
         [Test]
         public void AuthenticationTransactionIdTest()
         {
             // TODO unit test for the property 'AuthenticationTransactionId'
+        }
+        /// <summary>
+        /// Test the property 'CardholderMessage'
+        /// </summary>
+        [Test]
+        public void CardholderMessageTest()
+        {
+            // TODO unit test for the property 'CardholderMessage'
         }
         /// <summary>
         /// Test the property 'Cavv'
@@ -105,12 +137,44 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CavvAlgorithm'
         }
         /// <summary>
+        /// Test the property 'ChallengeCancelCode'
+        /// </summary>
+        [Test]
+        public void ChallengeCancelCodeTest()
+        {
+            // TODO unit test for the property 'ChallengeCancelCode'
+        }
+        /// <summary>
         /// Test the property 'ChallengeRequired'
         /// </summary>
         [Test]
         public void ChallengeRequiredTest()
         {
             // TODO unit test for the property 'ChallengeRequired'
+        }
+        /// <summary>
+        /// Test the property 'DecoupledAuthenticationIndicator'
+        /// </summary>
+        [Test]
+        public void DecoupledAuthenticationIndicatorTest()
+        {
+            // TODO unit test for the property 'DecoupledAuthenticationIndicator'
+        }
+        /// <summary>
+        /// Test the property 'DirectoryServerErrorCode'
+        /// </summary>
+        [Test]
+        public void DirectoryServerErrorCodeTest()
+        {
+            // TODO unit test for the property 'DirectoryServerErrorCode'
+        }
+        /// <summary>
+        /// Test the property 'DirectoryServerErrorDescription'
+        /// </summary>
+        [Test]
+        public void DirectoryServerErrorDescriptionTest()
+        {
+            // TODO unit test for the property 'DirectoryServerErrorDescription'
         }
         /// <summary>
         /// Test the property 'EcommerceIndicator'
@@ -135,6 +199,30 @@ namespace CyberSource.Test
         public void EciRawTest()
         {
             // TODO unit test for the property 'EciRaw'
+        }
+        /// <summary>
+        /// Test the property 'EffectiveAuthenticationType'
+        /// </summary>
+        [Test]
+        public void EffectiveAuthenticationTypeTest()
+        {
+            // TODO unit test for the property 'EffectiveAuthenticationType'
+        }
+        /// <summary>
+        /// Test the property 'Ivr'
+        /// </summary>
+        [Test]
+        public void IvrTest()
+        {
+            // TODO unit test for the property 'Ivr'
+        }
+        /// <summary>
+        /// Test the property 'NetworkScore'
+        /// </summary>
+        [Test]
+        public void NetworkScoreTest()
+        {
+            // TODO unit test for the property 'NetworkScore'
         }
         /// <summary>
         /// Test the property 'Pareq'
@@ -169,12 +257,44 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ProxyPan'
         }
         /// <summary>
+        /// Test the property 'SdkTransactionId'
+        /// </summary>
+        [Test]
+        public void SdkTransactionIdTest()
+        {
+            // TODO unit test for the property 'SdkTransactionId'
+        }
+        /// <summary>
+        /// Test the property 'SignedParesStatusReason'
+        /// </summary>
+        [Test]
+        public void SignedParesStatusReasonTest()
+        {
+            // TODO unit test for the property 'SignedParesStatusReason'
+        }
+        /// <summary>
         /// Test the property 'SpecificationVersion'
         /// </summary>
         [Test]
         public void SpecificationVersionTest()
         {
             // TODO unit test for the property 'SpecificationVersion'
+        }
+        /// <summary>
+        /// Test the property 'StepUpUrl'
+        /// </summary>
+        [Test]
+        public void StepUpUrlTest()
+        {
+            // TODO unit test for the property 'StepUpUrl'
+        }
+        /// <summary>
+        /// Test the property 'ThreeDSServerTransactionId'
+        /// </summary>
+        [Test]
+        public void ThreeDSServerTransactionIdTest()
+        {
+            // TODO unit test for the property 'ThreeDSServerTransactionId'
         }
         /// <summary>
         /// Test the property 'UcafAuthenticationData'
@@ -199,6 +319,14 @@ namespace CyberSource.Test
         public void VeresEnrolledTest()
         {
             // TODO unit test for the property 'VeresEnrolled'
+        }
+        /// <summary>
+        /// Test the property 'WhiteListStatusSource'
+        /// </summary>
+        [Test]
+        public void WhiteListStatusSourceTest()
+        {
+            // TODO unit test for the property 'WhiteListStatusSource'
         }
         /// <summary>
         /// Test the property 'Xid'

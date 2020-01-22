@@ -25,13 +25,13 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Riskv1authenticationsConsumerAuthenticationInformationIvr
+    /// RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformationIvr
     /// </summary>
     [DataContract]
-    public partial class Riskv1authenticationsConsumerAuthenticationInformationIvr :  IEquatable<Riskv1authenticationsConsumerAuthenticationInformationIvr>, IValidatableObject
+    public partial class RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformationIvr :  IEquatable<RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformationIvr>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Riskv1authenticationsConsumerAuthenticationInformationIvr" /> class.
+        /// Initializes a new instance of the <see cref="RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformationIvr" /> class.
         /// </summary>
         /// <param name="EnabledMessage">Flag to indicate if a valid IVR transaction was detected. .</param>
         /// <param name="EncryptionKey">Encryption key to be used in the event the ACS requires encryption of the credential field. .</param>
@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="Label">An ACS Provided label that can be presented to the Consumer. Recommended use with an application. .</param>
         /// <param name="Prompt">An ACS provided string that can be presented to the Consumer. Recommended use with an application. .</param>
         /// <param name="StatusMessage">An ACS provided message that can provide additional information or details. .</param>
-        public Riskv1authenticationsConsumerAuthenticationInformationIvr(bool? EnabledMessage = default(bool?), string EncryptionKey = default(string), bool? EncryptionMandatory = default(bool?), string EncryptionType = default(string), string Label = default(string), string Prompt = default(string), string StatusMessage = default(string))
+        public RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformationIvr(bool? EnabledMessage = default(bool?), string EncryptionKey = default(string), bool? EncryptionMandatory = default(bool?), string EncryptionType = default(string), string Label = default(string), string Prompt = default(string), string StatusMessage = default(string))
         {
             this.EnabledMessage = EnabledMessage;
             this.EncryptionKey = EncryptionKey;
@@ -107,7 +107,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Riskv1authenticationsConsumerAuthenticationInformationIvr {\n");
+            sb.Append("class RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformationIvr {\n");
             sb.Append("  EnabledMessage: ").Append(EnabledMessage).Append("\n");
             sb.Append("  EncryptionKey: ").Append(EncryptionKey).Append("\n");
             sb.Append("  EncryptionMandatory: ").Append(EncryptionMandatory).Append("\n");
@@ -136,15 +136,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Riskv1authenticationsConsumerAuthenticationInformationIvr);
+            return this.Equals(obj as RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformationIvr);
         }
 
         /// <summary>
-        /// Returns true if Riskv1authenticationsConsumerAuthenticationInformationIvr instances are equal
+        /// Returns true if RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformationIvr instances are equal
         /// </summary>
-        /// <param name="other">Instance of Riskv1authenticationsConsumerAuthenticationInformationIvr to be compared</param>
+        /// <param name="other">Instance of RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformationIvr to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Riskv1authenticationsConsumerAuthenticationInformationIvr other)
+        public bool Equals(RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformationIvr other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

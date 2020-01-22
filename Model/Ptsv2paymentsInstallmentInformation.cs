@@ -39,11 +39,14 @@ namespace CyberSource.Model
         /// <param name="Sequence">Installment number when making payments in installments. Used along with &#x60;totalCount&#x60; to track which payment is being processed.  For example, the second of 5 payments would be passed to CyberSource as &#x60;sequence&#x60; &#x3D; 2 and &#x60;totalCount&#x60; &#x3D; 5.  For details, see \&quot;Installment Payments\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  #### Chase Paymentech Solutions and FDC Compass This field is optional because this value is required in the merchant descriptors. For details, see \&quot;Chase Paymentech Solutions Merchant Descriptors\&quot; and \&quot;FDC Compass Merchant Descriptors\&quot; in the [Merchant Descriptors Using the SCMP API] (https://apps.cybersource.com/library/documentation/dev_guides/Merchant_Descriptors_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  #### CyberSource through VisaNet When you do not include this field in a request for a Crediario installment payment, CyberSource sends a value of 0 to the processor.  For Crediario installment payments, the value for this field corresponds to the following data in the TC 33 capture file*: - Record: CP01 TCR9 - Position: 38-40 - Field: Installment Payment Number  * The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant’s acquirer, who uses this information to facilitate end-of-day clearing processing with payment card companies. .</param>
         /// <param name="TotalAmount">Total amount of the loan that is being paid in installments. This field is supported only for CyberSource through VisaNet.  For details, see \&quot;Installment Payments\&quot; in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         /// <param name="TotalCount">Total number of installments when making payments in installments.  For details, see \&quot;Installment Payments\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  #### Chase Paymentech Solutions and FDC Compass This field is optional because this value is required in the merchant descriptors.  For details, see \&quot;Chase Paymentech Solutions Merchant Descriptors\&quot; and \&quot;FDC Compass Merchant Descriptors\&quot; in the [Merchant Descriptors Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Merchant_Descriptors_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  #### American Express Direct, Cielo, and Comercio Latino This value is the total number of installments you approved.  #### CyberSource Latin American Processing in Brazil This value is the total number of installments that you approved. The default is 1.  #### All Other Processors This value is used along with _sequence_ to track which payment is being processed.  For example, the second of 5 payments would be passed to CyberSource as _sequence_ &#x3D; 2 and _totalCount_ &#x3D; 5.  #### CyberSource through VisaNet For Crediario installment payments, the value for this field corresponds to the following data in the TC 33 capture file*: - Record: CP01 TCR9 - Position: 23-25 - Field: Number of Installments  For installment payments with American Express in Brazil, the value for this field corresponds to the following data in the TC 33 capture file*: - Record: CP07 TCR3 - Position: 7-8 - Field: Number of Installments  For installment payments with Visa in Brazil, the value for this field corresponds to the following data in the TC 33 capture file*: - Record: CP07 TCR1 - Position: 7-8 - Field: Number of Installments  For all other kinds of installment payments, the value for this field corresponds to the following data in the TC 33 capture file*: - Record: CP01 TCR5 - Position: 20-22 - Field: Installment Total Count  **Note** The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant’s acquirer, who uses this information to facilitate end-of-day clearing processing with payment card companies. .</param>
-        /// <param name="FirstInstallmentDate">Date of the first installment payment. Format: YYMMDD. When you do not include this field, CyberSource sends a string of six zeros (000000) to the processor. For details, see \&quot;Installment Payments on CyberSource through VisaNet\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  This field is supported only for Crediario installment payments in Brazil on CyberSource through VisaNet.  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR9 - Position: 42-47 - Field: Date of First Installment .</param>
+        /// <param name="FirstInstallmentDate">Date of the first installment payment. Format: YYMMDD. When you do not include this field, CyberSource sends a string of six zeros (000000) to the processor. For details, see \&quot;Installment Payments on CyberSource through VisaNet\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  This field is supported only for Crediario installment payments in Brazil on CyberSource through VisaNet.  The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR9 - Position: 42-47 - Field: Date of First Installment .</param>
         /// <param name="InvoiceData">Invoice information that you want to provide to the issuer. This value is similar to a tracking number and is the same for all installment payments for one purchase.  This field is supported only for installment payments with Mastercard on CyberSource through VisaNet in Brazil.  For details, see \&quot;Installment Payments on CyberSource through VisaNet\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR4 - Position: 51-70 - Field: Purchase Identification .</param>
         /// <param name="PaymentType">Payment plan for the installments.  Possible values: - 0 (default): Regular installment. This value is not allowed for airline transactions. - 1: Installment payment with down payment. - 2: Installment payment without down payment. This value is supported only for airline transactions. - 3: Installment payment; down payment and boarding fee will follow. This value is supported only for airline transactions. - 4: Down payment only; regular installment payment will follow. - 5: Boarding fee only. This value is supported only for airline transactions.  This field is supported only for installment payments with Visa on CyberSource through VisaNet in Brazil.  For details, see \&quot;Installment Payments on CyberSource through VisaNet\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR1 - Position: 9 - Field: Merchant Installment Supporting Information .</param>
         /// <param name="EligibilityInquiry">Indicates whether the authorization request is a Crediario eligibility inquiry.  For details, see \&quot;Installment Payments on CyberSource through VisaNet\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  Set the value for this field to &#x60;Crediario&#x60;.  This field is supported only for Crediario installment payments in Brazil on CyberSource through VisaNet. .</param>
-        public Ptsv2paymentsInstallmentInformation(string Amount = default(string), string Frequency = default(string), string PlanType = default(string), int? Sequence = default(int?), string TotalAmount = default(string), int? TotalCount = default(int?), string FirstInstallmentDate = default(string), string InvoiceData = default(string), string PaymentType = default(string), string EligibilityInquiry = default(string))
+        /// <param name="GracePeriodDuration">Grace period requested by the customer before the first installment payment is due.  When you include this field in a request, you must also include the grace period duration type field.  The value for this field corresponds to the following data in the TC 33 capture file3: Record: CP01 TCR5, Position: 100-101, Field: Mastercard Grace Period Details.  This field is supported only for Mastercard installment payments in Brazil and Greece. .</param>
+        /// <param name="GracePeriodDurationType">Unit for the requested grace period duration.  Possible values: - &#x60;D&#x60;: Days - &#x60;W&#x60;: Weeks - &#x60;M&#x60;: Months  The value for this field corresponds to the following data in the TC 33 capture file3: Record: CP01 TCR5, Position: 99, Field: Mastercard Grace Period Details  This field is supported only for Mastercard installment payments in Brazil and Greece on CyberSource through VisaNet. .</param>
+        /// <param name="FirstInstallmentAmount">Amount of the first installment payment. The issuer provides this value when the first installment payment is successful. This field is supported for Mastercard installment payments on CyberSource through VisaNet in all countries except Brazil,Croatia, Georgia, and Greece. The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR5 - Position: 23-34 - Field: Amount of Each Installment .</param>
+        public Ptsv2paymentsInstallmentInformation(string Amount = default(string), string Frequency = default(string), string PlanType = default(string), int? Sequence = default(int?), string TotalAmount = default(string), int? TotalCount = default(int?), string FirstInstallmentDate = default(string), string InvoiceData = default(string), string PaymentType = default(string), string EligibilityInquiry = default(string), string GracePeriodDuration = default(string), string GracePeriodDurationType = default(string), string FirstInstallmentAmount = default(string))
         {
             this.Amount = Amount;
             this.Frequency = Frequency;
@@ -55,6 +58,9 @@ namespace CyberSource.Model
             this.InvoiceData = InvoiceData;
             this.PaymentType = PaymentType;
             this.EligibilityInquiry = EligibilityInquiry;
+            this.GracePeriodDuration = GracePeriodDuration;
+            this.GracePeriodDurationType = GracePeriodDurationType;
+            this.FirstInstallmentAmount = FirstInstallmentAmount;
         }
         
         /// <summary>
@@ -100,9 +106,9 @@ namespace CyberSource.Model
         public int? TotalCount { get; set; }
 
         /// <summary>
-        /// Date of the first installment payment. Format: YYMMDD. When you do not include this field, CyberSource sends a string of six zeros (000000) to the processor. For details, see \&quot;Installment Payments on CyberSource through VisaNet\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  This field is supported only for Crediario installment payments in Brazil on CyberSource through VisaNet.  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR9 - Position: 42-47 - Field: Date of First Installment 
+        /// Date of the first installment payment. Format: YYMMDD. When you do not include this field, CyberSource sends a string of six zeros (000000) to the processor. For details, see \&quot;Installment Payments on CyberSource through VisaNet\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  This field is supported only for Crediario installment payments in Brazil on CyberSource through VisaNet.  The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR9 - Position: 42-47 - Field: Date of First Installment 
         /// </summary>
-        /// <value>Date of the first installment payment. Format: YYMMDD. When you do not include this field, CyberSource sends a string of six zeros (000000) to the processor. For details, see \&quot;Installment Payments on CyberSource through VisaNet\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  This field is supported only for Crediario installment payments in Brazil on CyberSource through VisaNet.  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR9 - Position: 42-47 - Field: Date of First Installment </value>
+        /// <value>Date of the first installment payment. Format: YYMMDD. When you do not include this field, CyberSource sends a string of six zeros (000000) to the processor. For details, see \&quot;Installment Payments on CyberSource through VisaNet\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  This field is supported only for Crediario installment payments in Brazil on CyberSource through VisaNet.  The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR9 - Position: 42-47 - Field: Date of First Installment </value>
         [DataMember(Name="firstInstallmentDate", EmitDefaultValue=false)]
         public string FirstInstallmentDate { get; set; }
 
@@ -128,6 +134,27 @@ namespace CyberSource.Model
         public string EligibilityInquiry { get; set; }
 
         /// <summary>
+        /// Grace period requested by the customer before the first installment payment is due.  When you include this field in a request, you must also include the grace period duration type field.  The value for this field corresponds to the following data in the TC 33 capture file3: Record: CP01 TCR5, Position: 100-101, Field: Mastercard Grace Period Details.  This field is supported only for Mastercard installment payments in Brazil and Greece. 
+        /// </summary>
+        /// <value>Grace period requested by the customer before the first installment payment is due.  When you include this field in a request, you must also include the grace period duration type field.  The value for this field corresponds to the following data in the TC 33 capture file3: Record: CP01 TCR5, Position: 100-101, Field: Mastercard Grace Period Details.  This field is supported only for Mastercard installment payments in Brazil and Greece. </value>
+        [DataMember(Name="gracePeriodDuration", EmitDefaultValue=false)]
+        public string GracePeriodDuration { get; set; }
+
+        /// <summary>
+        /// Unit for the requested grace period duration.  Possible values: - &#x60;D&#x60;: Days - &#x60;W&#x60;: Weeks - &#x60;M&#x60;: Months  The value for this field corresponds to the following data in the TC 33 capture file3: Record: CP01 TCR5, Position: 99, Field: Mastercard Grace Period Details  This field is supported only for Mastercard installment payments in Brazil and Greece on CyberSource through VisaNet. 
+        /// </summary>
+        /// <value>Unit for the requested grace period duration.  Possible values: - &#x60;D&#x60;: Days - &#x60;W&#x60;: Weeks - &#x60;M&#x60;: Months  The value for this field corresponds to the following data in the TC 33 capture file3: Record: CP01 TCR5, Position: 99, Field: Mastercard Grace Period Details  This field is supported only for Mastercard installment payments in Brazil and Greece on CyberSource through VisaNet. </value>
+        [DataMember(Name="gracePeriodDurationType", EmitDefaultValue=false)]
+        public string GracePeriodDurationType { get; set; }
+
+        /// <summary>
+        /// Amount of the first installment payment. The issuer provides this value when the first installment payment is successful. This field is supported for Mastercard installment payments on CyberSource through VisaNet in all countries except Brazil,Croatia, Georgia, and Greece. The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR5 - Position: 23-34 - Field: Amount of Each Installment 
+        /// </summary>
+        /// <value>Amount of the first installment payment. The issuer provides this value when the first installment payment is successful. This field is supported for Mastercard installment payments on CyberSource through VisaNet in all countries except Brazil,Croatia, Georgia, and Greece. The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR5 - Position: 23-34 - Field: Amount of Each Installment </value>
+        [DataMember(Name="firstInstallmentAmount", EmitDefaultValue=false)]
+        public string FirstInstallmentAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +172,9 @@ namespace CyberSource.Model
             sb.Append("  InvoiceData: ").Append(InvoiceData).Append("\n");
             sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("  EligibilityInquiry: ").Append(EligibilityInquiry).Append("\n");
+            sb.Append("  GracePeriodDuration: ").Append(GracePeriodDuration).Append("\n");
+            sb.Append("  GracePeriodDurationType: ").Append(GracePeriodDurationType).Append("\n");
+            sb.Append("  FirstInstallmentAmount: ").Append(FirstInstallmentAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -230,6 +260,21 @@ namespace CyberSource.Model
                     this.EligibilityInquiry == other.EligibilityInquiry ||
                     this.EligibilityInquiry != null &&
                     this.EligibilityInquiry.Equals(other.EligibilityInquiry)
+                ) && 
+                (
+                    this.GracePeriodDuration == other.GracePeriodDuration ||
+                    this.GracePeriodDuration != null &&
+                    this.GracePeriodDuration.Equals(other.GracePeriodDuration)
+                ) && 
+                (
+                    this.GracePeriodDurationType == other.GracePeriodDurationType ||
+                    this.GracePeriodDurationType != null &&
+                    this.GracePeriodDurationType.Equals(other.GracePeriodDurationType)
+                ) && 
+                (
+                    this.FirstInstallmentAmount == other.FirstInstallmentAmount ||
+                    this.FirstInstallmentAmount != null &&
+                    this.FirstInstallmentAmount.Equals(other.FirstInstallmentAmount)
                 );
         }
 
@@ -264,6 +309,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentType.GetHashCode();
                 if (this.EligibilityInquiry != null)
                     hash = hash * 59 + this.EligibilityInquiry.GetHashCode();
+                if (this.GracePeriodDuration != null)
+                    hash = hash * 59 + this.GracePeriodDuration.GetHashCode();
+                if (this.GracePeriodDurationType != null)
+                    hash = hash * 59 + this.GracePeriodDurationType.GetHashCode();
+                if (this.FirstInstallmentAmount != null)
+                    hash = hash * 59 + this.FirstInstallmentAmount.GetHashCode();
                 return hash;
             }
         }
@@ -333,6 +384,18 @@ namespace CyberSource.Model
             if(this.EligibilityInquiry != null && this.EligibilityInquiry.Length >= 9)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EligibilityInquiry, length must be less than or equal to 9.", new [] { "EligibilityInquiry" });
+            }
+
+            // GracePeriodDurationType (string) maxLength
+            if(this.GracePeriodDurationType != null && this.GracePeriodDurationType.Length >= 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GracePeriodDurationType, length must be less than or equal to 1.", new [] { "GracePeriodDurationType" });
+            }
+
+            // FirstInstallmentAmount (string) maxLength
+            if(this.FirstInstallmentAmount != null && this.FirstInstallmentAmount.Length >= 13)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstInstallmentAmount, length must be less than or equal to 13.", new [] { "FirstInstallmentAmount" });
             }
 
             yield break;

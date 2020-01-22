@@ -71,7 +71,7 @@ No authorization required
 
 <a name="validateauthenticationresults"></a>
 # **ValidateAuthenticationResults**
-> RiskV1AuthenticationResultsPost201Response ValidateAuthenticationResults (Request request)
+> RiskV1AuthenticationResultsPost201Response ValidateAuthenticationResults (ValidateRequest validateRequest)
 
 Validate authentication results
 
@@ -92,12 +92,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new PayerAuthenticationApi();
-            var request = new Request(); // Request | 
+            var validateRequest = new ValidateRequest(); // ValidateRequest | 
 
             try
             {
                 // Validate authentication results
-                RiskV1AuthenticationResultsPost201Response result = apiInstance.ValidateAuthenticationResults(request);
+                RiskV1AuthenticationResultsPost201Response result = apiInstance.ValidateAuthenticationResults(validateRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -113,7 +113,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**Request**](Request.md)|  | 
+ **validateRequest** | [**ValidateRequest**](ValidateRequest.md)|  | 
 
 ### Return type
 

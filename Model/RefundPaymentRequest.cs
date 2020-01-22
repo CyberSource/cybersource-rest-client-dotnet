@@ -43,7 +43,9 @@ namespace CyberSource.Model
         /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
         /// <param name="MerchantDefinedInformation">The object containing the custom data that the merchant defines. .</param>
-        public RefundPaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidrefundsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidrefundsProcessingInformation), Ptsv2paymentsidrefundsPaymentInformation PaymentInformation = default(Ptsv2paymentsidrefundsPaymentInformation), Ptsv2paymentsidrefundsOrderInformation OrderInformation = default(Ptsv2paymentsidrefundsOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsidrefundsMerchantInformation MerchantInformation = default(Ptsv2paymentsidrefundsMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidrefundsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidrefundsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>))
+        /// <param name="TravelInformation">TravelInformation.</param>
+        /// <param name="PromotionInformation">PromotionInformation.</param>
+        public RefundPaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidrefundsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidrefundsProcessingInformation), Ptsv2paymentsidrefundsPaymentInformation PaymentInformation = default(Ptsv2paymentsidrefundsPaymentInformation), Ptsv2paymentsidrefundsOrderInformation OrderInformation = default(Ptsv2paymentsidrefundsOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsidrefundsMerchantInformation MerchantInformation = default(Ptsv2paymentsidrefundsMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidrefundsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidrefundsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsidcapturesTravelInformation TravelInformation = default(Ptsv2paymentsidcapturesTravelInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -55,6 +57,8 @@ namespace CyberSource.Model
             this.AggregatorInformation = AggregatorInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
             this.MerchantDefinedInformation = MerchantDefinedInformation;
+            this.TravelInformation = TravelInformation;
+            this.PromotionInformation = PromotionInformation;
         }
         
         /// <summary>
@@ -119,6 +123,18 @@ namespace CyberSource.Model
         public List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets TravelInformation
+        /// </summary>
+        [DataMember(Name="travelInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsidcapturesTravelInformation TravelInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PromotionInformation
+        /// </summary>
+        [DataMember(Name="promotionInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsPromotionInformation PromotionInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -136,6 +152,8 @@ namespace CyberSource.Model
             sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
             sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
+            sb.Append("  TravelInformation: ").Append(TravelInformation).Append("\n");
+            sb.Append("  PromotionInformation: ").Append(PromotionInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -221,6 +239,16 @@ namespace CyberSource.Model
                     this.MerchantDefinedInformation == other.MerchantDefinedInformation ||
                     this.MerchantDefinedInformation != null &&
                     this.MerchantDefinedInformation.SequenceEqual(other.MerchantDefinedInformation)
+                ) && 
+                (
+                    this.TravelInformation == other.TravelInformation ||
+                    this.TravelInformation != null &&
+                    this.TravelInformation.Equals(other.TravelInformation)
+                ) && 
+                (
+                    this.PromotionInformation == other.PromotionInformation ||
+                    this.PromotionInformation != null &&
+                    this.PromotionInformation.Equals(other.PromotionInformation)
                 );
         }
 
@@ -255,6 +283,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
                 if (this.MerchantDefinedInformation != null)
                     hash = hash * 59 + this.MerchantDefinedInformation.GetHashCode();
+                if (this.TravelInformation != null)
+                    hash = hash * 59 + this.TravelInformation.GetHashCode();
+                if (this.PromotionInformation != null)
+                    hash = hash * 59 + this.PromotionInformation.GetHashCode();
                 return hash;
             }
         }

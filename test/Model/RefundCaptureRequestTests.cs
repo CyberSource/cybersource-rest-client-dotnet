@@ -144,6 +144,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'MerchantDefinedInformation'
         }
+        /// <summary>
+        /// Test the property 'TravelInformation'
+        /// </summary>
+        [Test]
+        public void TravelInformationTest()
+        {
+            // TODO unit test for the property 'TravelInformation'
+        }
+        /// <summary>
+        /// Test the property 'PromotionInformation'
+        /// </summary>
+        [Test]
+        public void PromotionInformationTest()
+        {
+            // TODO unit test for the property 'PromotionInformation'
+        }
 
     }
 

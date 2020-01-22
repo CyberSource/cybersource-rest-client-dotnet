@@ -39,11 +39,12 @@ namespace CyberSource.Model
         /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  For details, see &#x60;report_group&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For details, see the &#x60;vc_order_id&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
         /// <param name="PurchaseLevel">Set this field to 3 to indicate that the request includes Level III data..</param>
-        /// <param name="IndustryDataType">Flag that indicates whether the transaction includes airline or restaurant data.  To send the data in a transaction request to the processor, you must set this field to &#x60;airline&#x60; or &#x60;restaurant&#x60;.  **Note** If you do not set this field to one of the possible values, CyberSource does not send any data to the processor.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; .</param>
+        /// <param name="IndustryDataType">Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; .</param>
         /// <param name="Issuer">Issuer.</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         /// <param name="CaptureOptions">CaptureOptions.</param>
-        public Ptsv2paymentsidcapturesProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions), Ptsv2paymentsidcapturesProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsidcapturesProcessingInformationCaptureOptions))
+        /// <param name="LoanOptions">LoanOptions.</param>
+        public Ptsv2paymentsidcapturesProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions), Ptsv2paymentsidcapturesProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsidcapturesProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions))
         {
             this.PaymentSolution = PaymentSolution;
             this.ReconciliationId = ReconciliationId;
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             this.Issuer = Issuer;
             this.AuthorizationOptions = AuthorizationOptions;
             this.CaptureOptions = CaptureOptions;
+            this.LoanOptions = LoanOptions;
         }
         
         /// <summary>
@@ -100,9 +102,9 @@ namespace CyberSource.Model
         public string PurchaseLevel { get; set; }
 
         /// <summary>
-        /// Flag that indicates whether the transaction includes airline or restaurant data.  To send the data in a transaction request to the processor, you must set this field to &#x60;airline&#x60; or &#x60;restaurant&#x60;.  **Note** If you do not set this field to one of the possible values, CyberSource does not send any data to the processor.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; 
+        /// Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; 
         /// </summary>
-        /// <value>Flag that indicates whether the transaction includes airline or restaurant data.  To send the data in a transaction request to the processor, you must set this field to &#x60;airline&#x60; or &#x60;restaurant&#x60;.  **Note** If you do not set this field to one of the possible values, CyberSource does not send any data to the processor.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; </value>
+        /// <value>Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; </value>
         [DataMember(Name="industryDataType", EmitDefaultValue=false)]
         public string IndustryDataType { get; set; }
 
@@ -125,6 +127,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsidcapturesProcessingInformationCaptureOptions CaptureOptions { get; set; }
 
         /// <summary>
+        /// Gets or Sets LoanOptions
+        /// </summary>
+        [DataMember(Name="loanOptions", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessingInformationLoanOptions LoanOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -142,6 +150,7 @@ namespace CyberSource.Model
             sb.Append("  Issuer: ").Append(Issuer).Append("\n");
             sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
             sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
+            sb.Append("  LoanOptions: ").Append(LoanOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -227,6 +236,11 @@ namespace CyberSource.Model
                     this.CaptureOptions == other.CaptureOptions ||
                     this.CaptureOptions != null &&
                     this.CaptureOptions.Equals(other.CaptureOptions)
+                ) && 
+                (
+                    this.LoanOptions == other.LoanOptions ||
+                    this.LoanOptions != null &&
+                    this.LoanOptions.Equals(other.LoanOptions)
                 );
         }
 
@@ -261,6 +275,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AuthorizationOptions.GetHashCode();
                 if (this.CaptureOptions != null)
                     hash = hash * 59 + this.CaptureOptions.GetHashCode();
+                if (this.LoanOptions != null)
+                    hash = hash * 59 + this.LoanOptions.GetHashCode();
                 return hash;
             }
         }
@@ -309,9 +325,9 @@ namespace CyberSource.Model
             }
 
             // IndustryDataType (string) maxLength
-            if(this.IndustryDataType != null && this.IndustryDataType.Length >= 10)
+            if(this.IndustryDataType != null && this.IndustryDataType.Length >= 20)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IndustryDataType, length must be less than or equal to 10.", new [] { "IndustryDataType" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IndustryDataType, length must be less than or equal to 20.", new [] { "IndustryDataType" });
             }
 
             yield break;

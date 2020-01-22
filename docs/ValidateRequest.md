@@ -1,4 +1,4 @@
-# CyberSource.Model.Request
+# CyberSource.Model.ValidateRequest
 ## Properties
 
 Name | Type | Description | Notes

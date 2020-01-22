@@ -41,8 +41,9 @@ namespace CyberSource.Model
         /// <param name="Country">Merchant&#39;s country.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_country&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         /// <param name="PostalCode">Merchant&#39;s postal code.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_postal_code&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         /// <param name="AdministrativeArea">The state where the merchant is located.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_state&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  Merchant State. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="Phone">Merchnat phone as contact information for CNP transactions .</param>
         /// <param name="Url">Address of company&#39;s website provided by merchant .</param>
-        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Url = default(string))
+        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Phone = default(string), string Url = default(string))
         {
             this.Name = Name;
             this.AlternateName = AlternateName;
@@ -52,6 +53,7 @@ namespace CyberSource.Model
             this.Country = Country;
             this.PostalCode = PostalCode;
             this.AdministrativeArea = AdministrativeArea;
+            this.Phone = Phone;
             this.Url = Url;
         }
         
@@ -112,6 +114,13 @@ namespace CyberSource.Model
         public string AdministrativeArea { get; set; }
 
         /// <summary>
+        /// Merchnat phone as contact information for CNP transactions 
+        /// </summary>
+        /// <value>Merchnat phone as contact information for CNP transactions </value>
+        [DataMember(Name="phone", EmitDefaultValue=false)]
+        public string Phone { get; set; }
+
+        /// <summary>
         /// Address of company&#39;s website provided by merchant 
         /// </summary>
         /// <value>Address of company&#39;s website provided by merchant </value>
@@ -134,6 +143,7 @@ namespace CyberSource.Model
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -212,6 +222,11 @@ namespace CyberSource.Model
                     this.AdministrativeArea.Equals(other.AdministrativeArea)
                 ) && 
                 (
+                    this.Phone == other.Phone ||
+                    this.Phone != null &&
+                    this.Phone.Equals(other.Phone)
+                ) && 
+                (
                     this.Url == other.Url ||
                     this.Url != null &&
                     this.Url.Equals(other.Url)
@@ -245,6 +260,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.AdministrativeArea != null)
                     hash = hash * 59 + this.AdministrativeArea.GetHashCode();
+                if (this.Phone != null)
+                    hash = hash * 59 + this.Phone.GetHashCode();
                 if (this.Url != null)
                     hash = hash * 59 + this.Url.GetHashCode();
                 return hash;
@@ -286,6 +303,12 @@ namespace CyberSource.Model
             if(this.PostalCode != null && this.PostalCode.Length >= 14)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than or equal to 14.", new [] { "PostalCode" });
+            }
+
+            // Phone (string) maxLength
+            if(this.Phone != null && this.Phone.Length >= 13)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Phone, length must be less than or equal to 13.", new [] { "Phone" });
             }
 
             // Url (string) maxLength

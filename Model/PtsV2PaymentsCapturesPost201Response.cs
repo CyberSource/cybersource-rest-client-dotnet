@@ -34,14 +34,15 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsCapturesPost201Response" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
-        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource..</param>
+        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. .</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
         /// <param name="Status">The status of the submitted transaction.  Possible values:  - PENDING .</param>
         /// <param name="ReconciliationId">The reconciliation id for the submitted transaction. This value is not returned for all processors. .</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public PtsV2PaymentsCapturesPost201Response(PtsV2PaymentsCapturesPost201ResponseLinks Links = default(PtsV2PaymentsCapturesPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsCapturesPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessorInformation), PtsV2PaymentsCapturesPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsCapturesPost201ResponseOrderInformation))
+        /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
+        public PtsV2PaymentsCapturesPost201Response(PtsV2PaymentsCapturesPost201ResponseLinks Links = default(PtsV2PaymentsCapturesPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsCapturesPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessorInformation), PtsV2PaymentsCapturesPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsCapturesPost201ResponseOrderInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -51,6 +52,7 @@ namespace CyberSource.Model
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessorInformation = ProcessorInformation;
             this.OrderInformation = OrderInformation;
+            this.PointOfSaleInformation = PointOfSaleInformation;
         }
         
         /// <summary>
@@ -60,9 +62,9 @@ namespace CyberSource.Model
         public PtsV2PaymentsCapturesPost201ResponseLinks Links { get; set; }
 
         /// <summary>
-        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.
+        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. 
         /// </summary>
-        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.</value>
+        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. </value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -106,6 +108,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsCapturesPost201ResponseOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets PointOfSaleInformation
+        /// </summary>
+        [DataMember(Name="pointOfSaleInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -121,6 +129,7 @@ namespace CyberSource.Model
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -196,6 +205,11 @@ namespace CyberSource.Model
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
+                ) && 
+                (
+                    this.PointOfSaleInformation == other.PointOfSaleInformation ||
+                    this.PointOfSaleInformation != null &&
+                    this.PointOfSaleInformation.Equals(other.PointOfSaleInformation)
                 );
         }
 
@@ -226,6 +240,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProcessorInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.PointOfSaleInformation != null)
+                    hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
                 return hash;
             }
         }

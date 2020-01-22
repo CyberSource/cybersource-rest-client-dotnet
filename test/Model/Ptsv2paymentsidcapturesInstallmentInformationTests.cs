@@ -65,12 +65,68 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'Amount'
+        /// </summary>
+        [Test]
+        public void AmountTest()
+        {
+            // TODO unit test for the property 'Amount'
+        }
+        /// <summary>
+        /// Test the property 'Frequency'
+        /// </summary>
+        [Test]
+        public void FrequencyTest()
+        {
+            // TODO unit test for the property 'Frequency'
+        }
+        /// <summary>
+        /// Test the property 'PlanType'
+        /// </summary>
+        [Test]
+        public void PlanTypeTest()
+        {
+            // TODO unit test for the property 'PlanType'
+        }
+        /// <summary>
+        /// Test the property 'Sequence'
+        /// </summary>
+        [Test]
+        public void SequenceTest()
+        {
+            // TODO unit test for the property 'Sequence'
+        }
+        /// <summary>
+        /// Test the property 'TotalAmount'
+        /// </summary>
+        [Test]
+        public void TotalAmountTest()
+        {
+            // TODO unit test for the property 'TotalAmount'
+        }
+        /// <summary>
+        /// Test the property 'TotalCount'
+        /// </summary>
+        [Test]
+        public void TotalCountTest()
+        {
+            // TODO unit test for the property 'TotalCount'
+        }
+        /// <summary>
         /// Test the property 'FirstInstallmentDate'
         /// </summary>
         [Test]
         public void FirstInstallmentDateTest()
         {
             // TODO unit test for the property 'FirstInstallmentDate'
+        }
+        /// <summary>
+        /// Test the property 'FirstInstallmentAmount'
+        /// </summary>
+        [Test]
+        public void FirstInstallmentAmountTest()
+        {
+            // TODO unit test for the property 'FirstInstallmentAmount'
         }
         /// <summary>
         /// Test the property 'InvoiceData'

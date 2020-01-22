@@ -55,7 +55,10 @@ namespace CyberSource.Model
         /// <param name="EncryptedPin">Encrypted PIN.  This value is provided by the client software that is installed on the POS terminal.  In the Credit Card Guide for the auth service: This field is supported only on American Express Direct, FDC Nashville Global, and SIX. .</param>
         /// <param name="EncryptedKeySerialNumber">This is a combination of the device&#39;s unique identifier and a transaction counter that is used in the process of decrypting the encrypted PIN.  For all terminals that are using derived unique key per transaction (DUKPT) encryption, this is generated as a single number within the terminal. .</param>
         /// <param name="PartnerSdkVersion">Version of the software installed on the POS terminal. This value is provided by the client software that is installed on the POS terminal.  CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only on American Express Direct, FDC Nashville Global, and SIX. .</param>
-        public Ptsv2paymentsPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string LaneNumber = default(string), int? CatLevel = default(int?), string EntryMode = default(string), int? TerminalCapability = default(int?), int? PinEntryCapability = default(int?), string OperatingEnvironment = default(string), Ptsv2paymentsPointOfSaleInformationEmv Emv = default(Ptsv2paymentsPointOfSaleInformationEmv), string AmexCapnData = default(string), string TrackData = default(string), string StoreAndForwardIndicator = default(string), List<string> CardholderVerificationMethod = default(List<string>), List<string> TerminalInputCapability = default(List<string>), string TerminalCardCaptureCapability = default(string), string TerminalOutputCapability = default(string), int? TerminalPinCapability = default(int?), string DeviceId = default(string), int? PinBlockEncodingFormat = default(int?), string EncryptedPin = default(string), string EncryptedKeySerialNumber = default(string), string PartnerSdkVersion = default(string))
+        /// <param name="EmvApplicationIdentifierAndDedicatedFileName">This 32 byte length-maximum EBCDIC-K value is used to identify which chip application was performed between the terminal and the chip product. The included values are the Application Identifier (AID) and the Dedicated File (DF) name. It is available to early- or full-option VSDC issuers. Only single byte Katakana characters that can map to the EBCDIC-K table expected in the name. .</param>
+        /// <param name="TerminalCompliance">This tag contains indicators to determine if the terminal used for the transaction is compliant with new standards mandated by the Reserve Bank of India. The new standards are applicable to card-present domestic transactions for the country of India. This tag contains one of the following data values:  First byte (Position 1) : Terminal supports TLE - &#x60;1&#x60; (Not certified) - &#x60;2&#x60; (Certified)  Second byte (Position 2) : Terminal supports UKPT/DUKPT - &#x60;1&#x60; (Not certified) - &#x60;2&#x60; (Certified) .</param>
+        /// <param name="IsDedicatedHardwareTerminal">This API will indicate mPOS device capability with one  of the following values. - 0: Dongle - 1: Phone or tablet .</param>
+        public Ptsv2paymentsPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string LaneNumber = default(string), int? CatLevel = default(int?), string EntryMode = default(string), int? TerminalCapability = default(int?), int? PinEntryCapability = default(int?), string OperatingEnvironment = default(string), Ptsv2paymentsPointOfSaleInformationEmv Emv = default(Ptsv2paymentsPointOfSaleInformationEmv), string AmexCapnData = default(string), string TrackData = default(string), string StoreAndForwardIndicator = default(string), List<string> CardholderVerificationMethod = default(List<string>), List<string> TerminalInputCapability = default(List<string>), string TerminalCardCaptureCapability = default(string), string TerminalOutputCapability = default(string), int? TerminalPinCapability = default(int?), string DeviceId = default(string), int? PinBlockEncodingFormat = default(int?), string EncryptedPin = default(string), string EncryptedKeySerialNumber = default(string), string PartnerSdkVersion = default(string), string EmvApplicationIdentifierAndDedicatedFileName = default(string), string TerminalCompliance = default(string), string IsDedicatedHardwareTerminal = default(string))
         {
             this.TerminalId = TerminalId;
             this.TerminalSerialNumber = TerminalSerialNumber;
@@ -79,6 +82,9 @@ namespace CyberSource.Model
             this.EncryptedPin = EncryptedPin;
             this.EncryptedKeySerialNumber = EncryptedKeySerialNumber;
             this.PartnerSdkVersion = PartnerSdkVersion;
+            this.EmvApplicationIdentifierAndDedicatedFileName = EmvApplicationIdentifierAndDedicatedFileName;
+            this.TerminalCompliance = TerminalCompliance;
+            this.IsDedicatedHardwareTerminal = IsDedicatedHardwareTerminal;
         }
         
         /// <summary>
@@ -233,6 +239,27 @@ namespace CyberSource.Model
         public string PartnerSdkVersion { get; set; }
 
         /// <summary>
+        /// This 32 byte length-maximum EBCDIC-K value is used to identify which chip application was performed between the terminal and the chip product. The included values are the Application Identifier (AID) and the Dedicated File (DF) name. It is available to early- or full-option VSDC issuers. Only single byte Katakana characters that can map to the EBCDIC-K table expected in the name. 
+        /// </summary>
+        /// <value>This 32 byte length-maximum EBCDIC-K value is used to identify which chip application was performed between the terminal and the chip product. The included values are the Application Identifier (AID) and the Dedicated File (DF) name. It is available to early- or full-option VSDC issuers. Only single byte Katakana characters that can map to the EBCDIC-K table expected in the name. </value>
+        [DataMember(Name="emvApplicationIdentifierAndDedicatedFileName", EmitDefaultValue=false)]
+        public string EmvApplicationIdentifierAndDedicatedFileName { get; set; }
+
+        /// <summary>
+        /// This tag contains indicators to determine if the terminal used for the transaction is compliant with new standards mandated by the Reserve Bank of India. The new standards are applicable to card-present domestic transactions for the country of India. This tag contains one of the following data values:  First byte (Position 1) : Terminal supports TLE - &#x60;1&#x60; (Not certified) - &#x60;2&#x60; (Certified)  Second byte (Position 2) : Terminal supports UKPT/DUKPT - &#x60;1&#x60; (Not certified) - &#x60;2&#x60; (Certified) 
+        /// </summary>
+        /// <value>This tag contains indicators to determine if the terminal used for the transaction is compliant with new standards mandated by the Reserve Bank of India. The new standards are applicable to card-present domestic transactions for the country of India. This tag contains one of the following data values:  First byte (Position 1) : Terminal supports TLE - &#x60;1&#x60; (Not certified) - &#x60;2&#x60; (Certified)  Second byte (Position 2) : Terminal supports UKPT/DUKPT - &#x60;1&#x60; (Not certified) - &#x60;2&#x60; (Certified) </value>
+        [DataMember(Name="terminalCompliance", EmitDefaultValue=false)]
+        public string TerminalCompliance { get; set; }
+
+        /// <summary>
+        /// This API will indicate mPOS device capability with one  of the following values. - 0: Dongle - 1: Phone or tablet 
+        /// </summary>
+        /// <value>This API will indicate mPOS device capability with one  of the following values. - 0: Dongle - 1: Phone or tablet </value>
+        [DataMember(Name="isDedicatedHardwareTerminal", EmitDefaultValue=false)]
+        public string IsDedicatedHardwareTerminal { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -262,6 +289,9 @@ namespace CyberSource.Model
             sb.Append("  EncryptedPin: ").Append(EncryptedPin).Append("\n");
             sb.Append("  EncryptedKeySerialNumber: ").Append(EncryptedKeySerialNumber).Append("\n");
             sb.Append("  PartnerSdkVersion: ").Append(PartnerSdkVersion).Append("\n");
+            sb.Append("  EmvApplicationIdentifierAndDedicatedFileName: ").Append(EmvApplicationIdentifierAndDedicatedFileName).Append("\n");
+            sb.Append("  TerminalCompliance: ").Append(TerminalCompliance).Append("\n");
+            sb.Append("  IsDedicatedHardwareTerminal: ").Append(IsDedicatedHardwareTerminal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -407,6 +437,21 @@ namespace CyberSource.Model
                     this.PartnerSdkVersion == other.PartnerSdkVersion ||
                     this.PartnerSdkVersion != null &&
                     this.PartnerSdkVersion.Equals(other.PartnerSdkVersion)
+                ) && 
+                (
+                    this.EmvApplicationIdentifierAndDedicatedFileName == other.EmvApplicationIdentifierAndDedicatedFileName ||
+                    this.EmvApplicationIdentifierAndDedicatedFileName != null &&
+                    this.EmvApplicationIdentifierAndDedicatedFileName.Equals(other.EmvApplicationIdentifierAndDedicatedFileName)
+                ) && 
+                (
+                    this.TerminalCompliance == other.TerminalCompliance ||
+                    this.TerminalCompliance != null &&
+                    this.TerminalCompliance.Equals(other.TerminalCompliance)
+                ) && 
+                (
+                    this.IsDedicatedHardwareTerminal == other.IsDedicatedHardwareTerminal ||
+                    this.IsDedicatedHardwareTerminal != null &&
+                    this.IsDedicatedHardwareTerminal.Equals(other.IsDedicatedHardwareTerminal)
                 );
         }
 
@@ -465,6 +510,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EncryptedKeySerialNumber.GetHashCode();
                 if (this.PartnerSdkVersion != null)
                     hash = hash * 59 + this.PartnerSdkVersion.GetHashCode();
+                if (this.EmvApplicationIdentifierAndDedicatedFileName != null)
+                    hash = hash * 59 + this.EmvApplicationIdentifierAndDedicatedFileName.GetHashCode();
+                if (this.TerminalCompliance != null)
+                    hash = hash * 59 + this.TerminalCompliance.GetHashCode();
+                if (this.IsDedicatedHardwareTerminal != null)
+                    hash = hash * 59 + this.IsDedicatedHardwareTerminal.GetHashCode();
                 return hash;
             }
         }
@@ -543,9 +594,9 @@ namespace CyberSource.Model
             }
 
             // AmexCapnData (string) maxLength
-            if(this.AmexCapnData != null && this.AmexCapnData.Length >= 12)
+            if(this.AmexCapnData != null && this.AmexCapnData.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmexCapnData, length must be less than or equal to 12.", new [] { "AmexCapnData" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmexCapnData, length must be less than or equal to 15.", new [] { "AmexCapnData" });
             }
 
             // StoreAndForwardIndicator (string) maxLength
@@ -594,6 +645,24 @@ namespace CyberSource.Model
             if(this.PartnerSdkVersion != null && this.PartnerSdkVersion.Length >= 32)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PartnerSdkVersion, length must be less than or equal to 32.", new [] { "PartnerSdkVersion" });
+            }
+
+            // EmvApplicationIdentifierAndDedicatedFileName (string) maxLength
+            if(this.EmvApplicationIdentifierAndDedicatedFileName != null && this.EmvApplicationIdentifierAndDedicatedFileName.Length >= 32)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EmvApplicationIdentifierAndDedicatedFileName, length must be less than or equal to 32.", new [] { "EmvApplicationIdentifierAndDedicatedFileName" });
+            }
+
+            // TerminalCompliance (string) maxLength
+            if(this.TerminalCompliance != null && this.TerminalCompliance.Length >= 2)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCompliance, length must be less than or equal to 2.", new [] { "TerminalCompliance" });
+            }
+
+            // IsDedicatedHardwareTerminal (string) maxLength
+            if(this.IsDedicatedHardwareTerminal != null && this.IsDedicatedHardwareTerminal.Length >= 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IsDedicatedHardwareTerminal, length must be less than or equal to 1.", new [] { "IsDedicatedHardwareTerminal" });
             }
 
             yield break;

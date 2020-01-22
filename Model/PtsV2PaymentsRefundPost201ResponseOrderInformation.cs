@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsRefundPost201ResponseOrderInformation" /> class.
         /// </summary>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
-        public PtsV2PaymentsRefundPost201ResponseOrderInformation(PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails))
+        public PtsV2PaymentsRefundPost201ResponseOrderInformation(PtsV2PaymentsCapturesPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsCapturesPost201ResponseOrderInformationInvoiceDetails))
         {
             this.InvoiceDetails = InvoiceDetails;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets InvoiceDetails
         /// </summary>
         [DataMember(Name="invoiceDetails", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails InvoiceDetails { get; set; }
+        public PtsV2PaymentsCapturesPost201ResponseOrderInformationInvoiceDetails InvoiceDetails { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -112,6 +112,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PaymentType'
         }
+        /// <summary>
+        /// Test the property 'InitiationChannel'
+        /// </summary>
+        [Test]
+        public void InitiationChannelTest()
+        {
+            // TODO unit test for the property 'InitiationChannel'
+        }
 
     }
 

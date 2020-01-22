@@ -144,6 +144,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CaptureOptions'
         }
+        /// <summary>
+        /// Test the property 'LoanOptions'
+        /// </summary>
+        [Test]
+        public void LoanOptionsTest()
+        {
+            // TODO unit test for the property 'LoanOptions'
+        }
 
     }
 

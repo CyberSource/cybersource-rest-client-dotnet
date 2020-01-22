@@ -233,14 +233,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AmexVerbalAuthReferenceNumber'
         }
         /// <summary>
-        /// Test the property 'SalesSlipNumber'
-        /// </summary>
-        [Test]
-        public void SalesSlipNumberTest()
-        {
-            // TODO unit test for the property 'SalesSlipNumber'
-        }
-        /// <summary>
         /// Test the property 'MasterCardServiceCode'
         /// </summary>
         [Test]

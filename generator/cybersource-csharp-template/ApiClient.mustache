@@ -685,10 +685,12 @@ namespace {{packageName}}.Client
                 {
                     int proxyPortTest;
 
-                    if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyAddress) && int.TryParse(merchantConfig.ProxyPort, out proxyPortTest)) {
+                    if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyAddress) && int.TryParse(merchantConfig.ProxyPort, out proxyPortTest)) 
+					{
                         WebProxy proxy = new WebProxy(merchantConfig.ProxyAddress, proxyPortTest);
                         
-                        if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyUsername) && !string.IsNullOrWhiteSpace(merchantConfig.ProxyPassword)) {
+                        if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyUsername) && !string.IsNullOrWhiteSpace(merchantConfig.ProxyPassword)) 
+						{
                             proxy.Credentials = new NetworkCredential(merchantConfig.ProxyUsername, merchantConfig.ProxyPassword);
                         }
                         

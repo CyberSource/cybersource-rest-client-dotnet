@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="ReportDefinitionId">Report Definition Id.</param>
         /// <param name="ReportDefinitionName">Report Definition Class.</param>
         /// <param name="ReportMimeType">Report Format                          Valid values: - application/xml - text/csv .</param>
-        /// <param name="ReportFrequency">&#39;Report Frequency&#39;   Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED .</param>
+        /// <param name="ReportFrequency">&#39;Report Frequency&#39; **NOTE: Do not document USER_DEFINED Frequency field in developer center**  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED .</param>
         /// <param name="ReportInterval">If the reportFrequency is User-defined, reportInterval should be in **ISO 8601 time format** Please refer the following link to know more about ISO 8601 format.[Rfc Time Format](https://en.wikipedia.org/wiki/ISO_8601#Durations)  **Example time format for 2 hours and 30 Mins:**   - PT2H30M **NOTE: Do not document reportInterval field in developer center** .</param>
         /// <param name="ReportName">Report Name.</param>
         /// <param name="Timezone">Time Zone.</param>
@@ -94,9 +94,9 @@ namespace CyberSource.Model
         public string ReportMimeType { get; set; }
 
         /// <summary>
-        /// &#39;Report Frequency&#39;   Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED 
+        /// &#39;Report Frequency&#39; **NOTE: Do not document USER_DEFINED Frequency field in developer center**  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED 
         /// </summary>
-        /// <value>&#39;Report Frequency&#39;   Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED </value>
+        /// <value>&#39;Report Frequency&#39; **NOTE: Do not document USER_DEFINED Frequency field in developer center**  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED </value>
         [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
         public string ReportFrequency { get; set; }
 

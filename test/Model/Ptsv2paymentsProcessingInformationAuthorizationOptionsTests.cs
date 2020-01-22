@@ -160,6 +160,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'BillPaymentType'
         }
+        /// <summary>
+        /// Test the property 'RedemptionInquiry'
+        /// </summary>
+        [Test]
+        public void RedemptionInquiryTest()
+        {
+            // TODO unit test for the property 'RedemptionInquiry'
+        }
 
     }
 

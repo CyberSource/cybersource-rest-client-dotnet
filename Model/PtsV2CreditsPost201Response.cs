@@ -34,9 +34,9 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2CreditsPost201Response" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
-        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource..</param>
+        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. .</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
-        /// <param name="Status">The status of the submitted transaction.  Possible values:  - PENDING .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - PENDING  - COMPLETED (as in the case of PIN Debit Full Financial Credit) .</param>
         /// <param name="ReconciliationId">The reconciliation id for the submitted transaction. This value is not returned for all processors. .</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="CreditAmountDetails">CreditAmountDetails.</param>
@@ -44,7 +44,8 @@ namespace CyberSource.Model
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public PtsV2CreditsPost201Response(PtsV2PaymentsRefundPost201ResponseLinks Links = default(PtsV2PaymentsRefundPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2CreditsPost201ResponseCreditAmountDetails CreditAmountDetails = default(PtsV2CreditsPost201ResponseCreditAmountDetails), PtsV2CreditsPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2CreditsPost201ResponseProcessingInformation), PtsV2PaymentsRefundPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsRefundPost201ResponseProcessorInformation), PtsV2CreditsPost201ResponsePaymentInformation PaymentInformation = default(PtsV2CreditsPost201ResponsePaymentInformation), PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsRefundPost201ResponseOrderInformation))
+        /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
+        public PtsV2CreditsPost201Response(PtsV2PaymentsRefundPost201ResponseLinks Links = default(PtsV2PaymentsRefundPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2CreditsPost201ResponseCreditAmountDetails CreditAmountDetails = default(PtsV2CreditsPost201ResponseCreditAmountDetails), PtsV2CreditsPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2CreditsPost201ResponseProcessingInformation), PtsV2PaymentsRefundPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsRefundPost201ResponseProcessorInformation), PtsV2CreditsPost201ResponsePaymentInformation PaymentInformation = default(PtsV2CreditsPost201ResponsePaymentInformation), PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsRefundPost201ResponseOrderInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -57,6 +58,7 @@ namespace CyberSource.Model
             this.ProcessorInformation = ProcessorInformation;
             this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
+            this.PointOfSaleInformation = PointOfSaleInformation;
         }
         
         /// <summary>
@@ -66,9 +68,9 @@ namespace CyberSource.Model
         public PtsV2PaymentsRefundPost201ResponseLinks Links { get; set; }
 
         /// <summary>
-        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.
+        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. 
         /// </summary>
-        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.</value>
+        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. </value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -80,9 +82,9 @@ namespace CyberSource.Model
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - PENDING 
+        /// The status of the submitted transaction.  Possible values:  - PENDING  - COMPLETED (as in the case of PIN Debit Full Financial Credit) 
         /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - PENDING </value>
+        /// <value>The status of the submitted transaction.  Possible values:  - PENDING  - COMPLETED (as in the case of PIN Debit Full Financial Credit) </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
@@ -130,6 +132,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets PointOfSaleInformation
+        /// </summary>
+        [DataMember(Name="pointOfSaleInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,6 +156,7 @@ namespace CyberSource.Model
             sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -238,6 +247,11 @@ namespace CyberSource.Model
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
+                ) && 
+                (
+                    this.PointOfSaleInformation == other.PointOfSaleInformation ||
+                    this.PointOfSaleInformation != null &&
+                    this.PointOfSaleInformation.Equals(other.PointOfSaleInformation)
                 );
         }
 
@@ -274,6 +288,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.PointOfSaleInformation != null)
+                    hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
                 return hash;
             }
         }

@@ -168,6 +168,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ReferenceDataNumber'
         }
+        /// <summary>
+        /// Test the property 'SalesSlipNumber'
+        /// </summary>
+        [Test]
+        public void SalesSlipNumberTest()
+        {
+            // TODO unit test for the property 'SalesSlipNumber'
+        }
 
     }
 

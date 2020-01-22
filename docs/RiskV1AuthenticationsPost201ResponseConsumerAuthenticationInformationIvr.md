@@ -1,4 +1,4 @@
-# CyberSource.Model.Riskv1authenticationsConsumerAuthenticationInformationIvr
+# CyberSource.Model.RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformationIvr
 ## Properties
 
 Name | Type | Description | Notes

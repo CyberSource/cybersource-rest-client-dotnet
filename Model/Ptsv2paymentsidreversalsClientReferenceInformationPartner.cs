@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="DeveloperId">Identifier for the developer that helped integrate a partner solution to CyberSource.  Send this value in all requests that are sent through the partner solutions built by that developer. CyberSource assigns the ID to the developer.  **Note** When you see a developer ID of 999 in reports, the developer ID that was submitted is incorrect. .</param>
         /// <param name="SolutionId">Identifier for the partner that is integrated to CyberSource.  Send this value in all requests that are sent through the partner solution. CyberSource assigns the ID to the partner.  **Note** When you see a partner ID of 999 in reports, the partner ID that was submitted is incorrect. .</param>
-        public Ptsv2paymentsidreversalsClientReferenceInformationPartner(string DeveloperId = default(string), string SolutionId = default(string))
+        /// <param name="ThirdPartyCertificationNumber">Value that identifies the application vendor and application version for a third party gateway. CyberSource provides you with this value during testing and validation. This field is supported only on CyberSource through VisaNet. .</param>
+        public Ptsv2paymentsidreversalsClientReferenceInformationPartner(string DeveloperId = default(string), string SolutionId = default(string), string ThirdPartyCertificationNumber = default(string))
         {
             this.DeveloperId = DeveloperId;
             this.SolutionId = SolutionId;
+            this.ThirdPartyCertificationNumber = ThirdPartyCertificationNumber;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace CyberSource.Model
         public string SolutionId { get; set; }
 
         /// <summary>
+        /// Value that identifies the application vendor and application version for a third party gateway. CyberSource provides you with this value during testing and validation. This field is supported only on CyberSource through VisaNet. 
+        /// </summary>
+        /// <value>Value that identifies the application vendor and application version for a third party gateway. CyberSource provides you with this value during testing and validation. This field is supported only on CyberSource through VisaNet. </value>
+        [DataMember(Name="thirdPartyCertificationNumber", EmitDefaultValue=false)]
+        public string ThirdPartyCertificationNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsidreversalsClientReferenceInformationPartner {\n");
             sb.Append("  DeveloperId: ").Append(DeveloperId).Append("\n");
             sb.Append("  SolutionId: ").Append(SolutionId).Append("\n");
+            sb.Append("  ThirdPartyCertificationNumber: ").Append(ThirdPartyCertificationNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +120,11 @@ namespace CyberSource.Model
                     this.SolutionId == other.SolutionId ||
                     this.SolutionId != null &&
                     this.SolutionId.Equals(other.SolutionId)
+                ) && 
+                (
+                    this.ThirdPartyCertificationNumber == other.ThirdPartyCertificationNumber ||
+                    this.ThirdPartyCertificationNumber != null &&
+                    this.ThirdPartyCertificationNumber.Equals(other.ThirdPartyCertificationNumber)
                 );
         }
 
@@ -128,6 +143,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DeveloperId.GetHashCode();
                 if (this.SolutionId != null)
                     hash = hash * 59 + this.SolutionId.GetHashCode();
+                if (this.ThirdPartyCertificationNumber != null)
+                    hash = hash * 59 + this.ThirdPartyCertificationNumber.GetHashCode();
                 return hash;
             }
         }
@@ -149,6 +166,12 @@ namespace CyberSource.Model
             if(this.SolutionId != null && this.SolutionId.Length >= 8)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SolutionId, length must be less than or equal to 8.", new [] { "SolutionId" });
+            }
+
+            // ThirdPartyCertificationNumber (string) maxLength
+            if(this.ThirdPartyCertificationNumber != null && this.ThirdPartyCertificationNumber.Length >= 12)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThirdPartyCertificationNumber, length must be less than or equal to 12.", new [] { "ThirdPartyCertificationNumber" });
             }
 
             yield break;

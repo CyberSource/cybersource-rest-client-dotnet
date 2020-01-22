@@ -83,8 +83,8 @@ namespace CyberSource.Test
         public void ValidateAuthenticationResultsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Request request = null;
-            //var response = instance.ValidateAuthenticationResults(request);
+            //ValidateRequest validateRequest = null;
+            //var response = instance.ValidateAuthenticationResults(validateRequest);
             //Assert.IsInstanceOf<RiskV1AuthenticationResultsPost201Response> (response, "response is RiskV1AuthenticationResultsPost201Response");
         }
         

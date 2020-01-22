@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidcapturesPaymentInformation" /> class.
         /// </summary>
         /// <param name="Customer">Customer.</param>
-        public Ptsv2paymentsidcapturesPaymentInformation(Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer))
+        /// <param name="Card">Card.</param>
+        public Ptsv2paymentsidcapturesPaymentInformation(Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsidcapturesPaymentInformationCard Card = default(Ptsv2paymentsidcapturesPaymentInformationCard))
         {
             this.Customer = Customer;
+            this.Card = Card;
         }
         
         /// <summary>
@@ -44,6 +46,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="customer", EmitDefaultValue=false)]
         public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Card
+        /// </summary>
+        [DataMember(Name="card", EmitDefaultValue=false)]
+        public Ptsv2paymentsidcapturesPaymentInformationCard Card { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +62,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidcapturesPaymentInformation {\n");
             sb.Append("  Customer: ").Append(Customer).Append("\n");
+            sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +103,11 @@ namespace CyberSource.Model
                     this.Customer == other.Customer ||
                     this.Customer != null &&
                     this.Customer.Equals(other.Customer)
+                ) && 
+                (
+                    this.Card == other.Card ||
+                    this.Card != null &&
+                    this.Card.Equals(other.Card)
                 );
         }
 
@@ -110,6 +124,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
+                if (this.Card != null)
+                    hash = hash * 59 + this.Card.GetHashCode();
                 return hash;
             }
         }

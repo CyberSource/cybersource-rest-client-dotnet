@@ -240,6 +240,30 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PartnerSdkVersion'
         }
+        /// <summary>
+        /// Test the property 'EmvApplicationIdentifierAndDedicatedFileName'
+        /// </summary>
+        [Test]
+        public void EmvApplicationIdentifierAndDedicatedFileNameTest()
+        {
+            // TODO unit test for the property 'EmvApplicationIdentifierAndDedicatedFileName'
+        }
+        /// <summary>
+        /// Test the property 'TerminalCompliance'
+        /// </summary>
+        [Test]
+        public void TerminalComplianceTest()
+        {
+            // TODO unit test for the property 'TerminalCompliance'
+        }
+        /// <summary>
+        /// Test the property 'IsDedicatedHardwareTerminal'
+        /// </summary>
+        [Test]
+        public void IsDedicatedHardwareTerminalTest()
+        {
+            // TODO unit test for the property 'IsDedicatedHardwareTerminal'
+        }
 
     }
 
