@@ -4,15 +4,15 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateSearch**](SearchTransactionsApi.md#createsearch) | **POST** /tss/v2/searches | Create a search request
-[**GetSearch**](SearchTransactionsApi.md#getsearch) | **GET** /tss/v2/searches/{searchId} | Get Search results
+[**CreateSearch**](SearchTransactionsApi.md#createsearch) | **POST** /tss/v2/searches | Create a Search Request
+[**GetSearch**](SearchTransactionsApi.md#getsearch) | **GET** /tss/v2/searches/{searchId} | Get Search Results
 
 
 <a name="createsearch"></a>
 # **CreateSearch**
 > TssV2TransactionsPost201Response CreateSearch (CreateSearchRequest createSearchRequest)
 
-Create a search request
+Create a Search Request
 
 Create a search request. 
 
@@ -35,7 +35,7 @@ namespace Example
 
             try
             {
-                // Create a search request
+                // Create a Search Request
                 TssV2TransactionsPost201Response result = apiInstance.CreateSearch(createSearchRequest);
                 Debug.WriteLine(result);
             }
@@ -73,7 +73,7 @@ No authorization required
 # **GetSearch**
 > TssV2TransactionsPost201Response GetSearch (string searchId)
 
-Get Search results
+Get Search Results
 
 Include the Search ID in the GET request to retrieve the search results.
 
@@ -96,7 +96,7 @@ namespace Example
 
             try
             {
-                // Get Search results
+                // Get Search Results
                 TssV2TransactionsPost201Response result = apiInstance.GetSearch(searchId);
                 Debug.WriteLine(result);
             }

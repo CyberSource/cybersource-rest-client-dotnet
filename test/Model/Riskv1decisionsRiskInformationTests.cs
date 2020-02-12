@@ -80,14 +80,6 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'EventType'
         }
-        /// <summary>
-        /// Test the property 'MarkingDetails'
-        /// </summary>
-        [Test]
-        public void MarkingDetailsTest()
-        {
-            // TODO unit test for the property 'MarkingDetails'
-        }
 
     }
 

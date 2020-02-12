@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Tokenize card
+        /// Tokenize Card
         /// </summary>
         /// <remarks>
         /// Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
@@ -36,7 +36,7 @@ namespace CyberSource.Api
         FlexV1TokensPost200Response Tokenize (TokenizeRequest tokenizeRequest);
 
         /// <summary>
-        /// Tokenize card
+        /// Tokenize Card
         /// </summary>
         /// <remarks>
         /// Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
@@ -48,7 +48,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Tokenize card
+        /// Tokenize Card
         /// </summary>
         /// <remarks>
         /// Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
@@ -59,7 +59,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<FlexV1TokensPost200Response> TokenizeAsync (TokenizeRequest tokenizeRequest);
 
         /// <summary>
-        /// Tokenize card
+        /// Tokenize Card
         /// </summary>
         /// <remarks>
         /// Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
@@ -177,7 +177,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Tokenize card Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
+        /// Tokenize Card Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"></param>
@@ -189,7 +189,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Tokenize card Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
+        /// Tokenize Card Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"></param>
@@ -251,7 +251,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Tokenize card Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
+        /// Tokenize Card Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"></param>
@@ -264,7 +264,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Tokenize card Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
+        /// Tokenize Card Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizeRequest"></param>

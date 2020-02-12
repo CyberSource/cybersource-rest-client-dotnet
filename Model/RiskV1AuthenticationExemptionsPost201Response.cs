@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        public RiskV1AuthenticationExemptionsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), RiskV1AuthenticationExemptionsPost201ResponseRiskInformation RiskInformation = default(RiskV1AuthenticationExemptionsPost201ResponseRiskInformation), RiskV1AuthenticationExemptionsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1AuthenticationExemptionsPost201ResponseConsumerAuthenticationInformation), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation))
+        public RiskV1AuthenticationExemptionsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), RiskV1AuthenticationExemptionsPost201ResponseRiskInformation RiskInformation = default(RiskV1AuthenticationExemptionsPost201ResponseRiskInformation), RiskV1AuthenticationExemptionsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1AuthenticationExemptionsPost201ResponseConsumerAuthenticationInformation), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -55,7 +55,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public PtsV2PaymentsReversalsPost201ResponseLinks Links { get; set; }
+        public PtsV2IncrementalAuthorizationPatch201ResponseLinks Links { get; set; }
 
         /// <summary>
         /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. 

@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
-        public OctCreatePaymentRequest(Ptsv2payoutsClientReferenceInformation ClientReferenceInformation = default(Ptsv2payoutsClientReferenceInformation), Ptsv2payoutsOrderInformation OrderInformation = default(Ptsv2payoutsOrderInformation), Ptsv2payoutsMerchantInformation MerchantInformation = default(Ptsv2payoutsMerchantInformation), Ptsv2payoutsRecipientInformation RecipientInformation = default(Ptsv2payoutsRecipientInformation), Ptsv2payoutsSenderInformation SenderInformation = default(Ptsv2payoutsSenderInformation), Ptsv2payoutsProcessingInformation ProcessingInformation = default(Ptsv2payoutsProcessingInformation), Ptsv2payoutsPaymentInformation PaymentInformation = default(Ptsv2payoutsPaymentInformation))
+        public OctCreatePaymentRequest(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation), Ptsv2payoutsOrderInformation OrderInformation = default(Ptsv2payoutsOrderInformation), Ptsv2payoutsMerchantInformation MerchantInformation = default(Ptsv2payoutsMerchantInformation), Ptsv2payoutsRecipientInformation RecipientInformation = default(Ptsv2payoutsRecipientInformation), Ptsv2payoutsSenderInformation SenderInformation = default(Ptsv2payoutsSenderInformation), Ptsv2payoutsProcessingInformation ProcessingInformation = default(Ptsv2payoutsProcessingInformation), Ptsv2payoutsPaymentInformation PaymentInformation = default(Ptsv2payoutsPaymentInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
@@ -55,7 +55,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Ptsv2payoutsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation

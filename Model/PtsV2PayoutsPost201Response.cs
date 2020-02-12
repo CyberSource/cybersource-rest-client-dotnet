@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="RecipientInformation">RecipientInformation.</param>
-        public PtsV2PayoutsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PayoutsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PayoutsPost201ResponseErrorInformation), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PayoutsPost201ResponseMerchantInformation MerchantInformation = default(PtsV2PayoutsPost201ResponseMerchantInformation), PtsV2PayoutsPost201ResponseOrderInformation OrderInformation = default(PtsV2PayoutsPost201ResponseOrderInformation), PtsV2PayoutsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PayoutsPost201ResponseProcessorInformation), PtsV2PayoutsPost201ResponseRecipientInformation RecipientInformation = default(PtsV2PayoutsPost201ResponseRecipientInformation))
+        public PtsV2PayoutsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PayoutsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PayoutsPost201ResponseErrorInformation), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PayoutsPost201ResponseMerchantInformation MerchantInformation = default(PtsV2PayoutsPost201ResponseMerchantInformation), PtsV2PayoutsPost201ResponseOrderInformation OrderInformation = default(PtsV2PayoutsPost201ResponseOrderInformation), PtsV2PayoutsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PayoutsPost201ResponseProcessorInformation), PtsV2PayoutsPost201ResponseRecipientInformation RecipientInformation = default(PtsV2PayoutsPost201ResponseRecipientInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -63,7 +63,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public PtsV2PaymentsReversalsPost201ResponseLinks Links { get; set; }
+        public PtsV2IncrementalAuthorizationPatch201ResponseLinks Links { get; set; }
 
         /// <summary>
         /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. 

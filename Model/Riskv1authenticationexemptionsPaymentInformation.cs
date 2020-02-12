@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Card">Card.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
-        public Riskv1authenticationexemptionsPaymentInformation(Riskv1authenticationexemptionsPaymentInformationCard Card = default(Riskv1authenticationexemptionsPaymentInformationCard), Riskv1authenticationexemptionsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1authenticationexemptionsPaymentInformationTokenizedCard))
+        /// <param name="FluidData">FluidData.</param>
+        public Riskv1authenticationexemptionsPaymentInformation(Riskv1authenticationexemptionsPaymentInformationCard Card = default(Riskv1authenticationexemptionsPaymentInformationCard), Riskv1authenticationexemptionsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1authenticationexemptionsPaymentInformationTokenizedCard), Riskv1authenticationexemptionsPaymentInformationFluidData FluidData = default(Riskv1authenticationexemptionsPaymentInformationFluidData))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
+            this.FluidData = FluidData;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace CyberSource.Model
         public Riskv1authenticationexemptionsPaymentInformationTokenizedCard TokenizedCard { get; set; }
 
         /// <summary>
+        /// Gets or Sets FluidData
+        /// </summary>
+        [DataMember(Name="fluidData", EmitDefaultValue=false)]
+        public Riskv1authenticationexemptionsPaymentInformationFluidData FluidData { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace CyberSource.Model
             sb.Append("class Riskv1authenticationexemptionsPaymentInformation {\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
+            sb.Append("  FluidData: ").Append(FluidData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +117,11 @@ namespace CyberSource.Model
                     this.TokenizedCard == other.TokenizedCard ||
                     this.TokenizedCard != null &&
                     this.TokenizedCard.Equals(other.TokenizedCard)
+                ) && 
+                (
+                    this.FluidData == other.FluidData ||
+                    this.FluidData != null &&
+                    this.FluidData.Equals(other.FluidData)
                 );
         }
 
@@ -126,6 +140,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.TokenizedCard != null)
                     hash = hash * 59 + this.TokenizedCard.GetHashCode();
+                if (this.FluidData != null)
+                    hash = hash * 59 + this.FluidData.GetHashCode();
                 return hash;
             }
         }

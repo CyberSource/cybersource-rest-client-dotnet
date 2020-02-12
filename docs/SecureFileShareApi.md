@@ -4,15 +4,15 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetFile**](SecureFileShareApi.md#getfile) | **GET** /sfs/v1/files/{fileId} | Download a file with file identifier
-[**GetFileDetail**](SecureFileShareApi.md#getfiledetail) | **GET** /sfs/v1/file-details | Get list of files
+[**GetFile**](SecureFileShareApi.md#getfile) | **GET** /sfs/v1/files/{fileId} | Download a File with File Identifier
+[**GetFileDetail**](SecureFileShareApi.md#getfiledetail) | **GET** /sfs/v1/file-details | Get List of Files
 
 
 <a name="getfile"></a>
 # **GetFile**
 > void GetFile (string fileId, string organizationId = null)
 
-Download a file with file identifier
+Download a File with File Identifier
 
 Download a file for the given file identifier
 
@@ -36,7 +36,7 @@ namespace Example
 
             try
             {
-                // Download a file with file identifier
+                // Download a File with File Identifier
                 apiInstance.GetFile(fileId, organizationId);
             }
             catch (Exception e)
@@ -74,7 +74,7 @@ No authorization required
 # **GetFileDetail**
 > V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null)
 
-Get list of files
+Get List of Files
 
 Get list of files and it's information of them available inside the report directory
 
@@ -99,7 +99,7 @@ namespace Example
 
             try
             {
-                // Get list of files
+                // Get List of Files
                 V1FileDetailsGet200Response result = apiInstance.GetFileDetail(startDate, endDate, organizationId);
                 Debug.WriteLine(result);
             }

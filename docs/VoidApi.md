@@ -4,11 +4,73 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**MitVoid**](VoidApi.md#mitvoid) | **POST** /pts/v2/voids/ | Merchant Initiated Void
 [**VoidCapture**](VoidApi.md#voidcapture) | **POST** /pts/v2/captures/{id}/voids | Void a Capture
 [**VoidCredit**](VoidApi.md#voidcredit) | **POST** /pts/v2/credits/{id}/voids | Void a Credit
 [**VoidPayment**](VoidApi.md#voidpayment) | **POST** /pts/v2/payments/{id}/voids | Void a Payment
 [**VoidRefund**](VoidApi.md#voidrefund) | **POST** /pts/v2/refunds/{id}/voids | Void a Refund
 
+
+<a name="mitvoid"></a>
+# **MitVoid**
+> PtsV2PaymentsVoidsPost201Response MitVoid (MitVoidRequest mitVoidRequest)
+
+Merchant Initiated Void
+
+This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class MitVoidExample
+    {
+        public void main()
+        {
+            var apiInstance = new VoidApi();
+            var mitVoidRequest = new MitVoidRequest(); // MitVoidRequest | 
+
+            try
+            {
+                // Merchant Initiated Void
+                PtsV2PaymentsVoidsPost201Response result = apiInstance.MitVoid(mitVoidRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling VoidApi.MitVoid: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **mitVoidRequest** | [**MitVoidRequest**](MitVoidRequest.md)|  | 
+
+### Return type
+
+[**PtsV2PaymentsVoidsPost201Response**](PtsV2PaymentsVoidsPost201Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/hal+json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="voidcapture"></a>
 # **VoidCapture**

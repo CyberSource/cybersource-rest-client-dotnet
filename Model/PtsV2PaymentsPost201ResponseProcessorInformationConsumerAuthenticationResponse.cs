@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse" /> class.
         /// </summary>
-        /// <param name="Code">Mapped response code for Visa Secure and American Express SafeKey.  For processor-specific details, see &#x60;auth_cavv_response_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
-        /// <param name="CodeRaw">Raw response code sent directly from the processor for Visa Secure and American Express SafeKey:  For processor-specific details, see &#x60;auth_cavv_response_code_raw&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
+        /// <param name="Code">Mapped response code for Visa Secure and American Express SafeKey.  For processor-specific details, see &#x60;auth_cavv_response_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="CodeRaw">Raw response code sent directly from the processor for Visa Secure and American Express SafeKey:  For processor-specific details, see &#x60;auth_cavv_response_code_raw&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         public PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse(string Code = default(string), string CodeRaw = default(string))
         {
             this.Code = Code;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Mapped response code for Visa Secure and American Express SafeKey.  For processor-specific details, see &#x60;auth_cavv_response_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        /// Mapped response code for Visa Secure and American Express SafeKey.  For processor-specific details, see &#x60;auth_cavv_response_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Mapped response code for Visa Secure and American Express SafeKey.  For processor-specific details, see &#x60;auth_cavv_response_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
+        /// <value>Mapped response code for Visa Secure and American Express SafeKey.  For processor-specific details, see &#x60;auth_cavv_response_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Raw response code sent directly from the processor for Visa Secure and American Express SafeKey:  For processor-specific details, see &#x60;auth_cavv_response_code_raw&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        /// Raw response code sent directly from the processor for Visa Secure and American Express SafeKey:  For processor-specific details, see &#x60;auth_cavv_response_code_raw&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Raw response code sent directly from the processor for Visa Secure and American Express SafeKey:  For processor-specific details, see &#x60;auth_cavv_response_code_raw&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
+        /// <value>Raw response code sent directly from the processor for Visa Secure and American Express SafeKey:  For processor-specific details, see &#x60;auth_cavv_response_code_raw&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="codeRaw", EmitDefaultValue=false)]
         public string CodeRaw { get; set; }
 

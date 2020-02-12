@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="Status">The status of the submitted transaction.  Possible values:  - VOIDED .</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="VoidAmountDetails">VoidAmountDetails.</param>
-        public PtsV2PaymentsVoidsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails VoidAmountDetails = default(PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails))
+        public PtsV2PaymentsVoidsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails VoidAmountDetails = default(PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails))
         {
             this.Links = Links;
             this.Id = Id;
@@ -53,7 +53,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public PtsV2PaymentsReversalsPost201ResponseLinks Links { get; set; }
+        public PtsV2IncrementalAuthorizationPatch201ResponseLinks Links { get; set; }
 
         /// <summary>
         /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. 

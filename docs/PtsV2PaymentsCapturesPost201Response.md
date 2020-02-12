@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ClientReferenceInformation** | [**PtsV2PaymentsPost201ResponseClientReferenceInformation**](PtsV2PaymentsPost201ResponseClientReferenceInformation.md) |  | [optional] 
 **ProcessorInformation** | [**PtsV2PaymentsCapturesPost201ResponseProcessorInformation**](PtsV2PaymentsCapturesPost201ResponseProcessorInformation.md) |  | [optional] 
 **OrderInformation** | [**PtsV2PaymentsCapturesPost201ResponseOrderInformation**](PtsV2PaymentsCapturesPost201ResponseOrderInformation.md) |  | [optional] 
+**ProcessingInformation** | [**PtsV2PaymentsCapturesPost201ResponseProcessingInformation**](PtsV2PaymentsCapturesPost201ResponseProcessingInformation.md) |  | [optional] 
 **PointOfSaleInformation** | [**PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation**](PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

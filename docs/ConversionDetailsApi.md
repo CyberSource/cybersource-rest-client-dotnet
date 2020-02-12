@@ -4,14 +4,14 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetConversionDetail**](ConversionDetailsApi.md#getconversiondetail) | **GET** /reporting/v3/conversion-details | Get conversion detail transactions
+[**GetConversionDetail**](ConversionDetailsApi.md#getconversiondetail) | **GET** /reporting/v3/conversion-details | Get Conversion Detail Transactions
 
 
 <a name="getconversiondetail"></a>
 # **GetConversionDetail**
 > ReportingV3ConversionDetailsGet200Response GetConversionDetail (DateTime? startTime, DateTime? endTime, string organizationId = null)
 
-Get conversion detail transactions
+Get Conversion Detail Transactions
 
 Get conversion detail of transactions for a merchant.
 
@@ -36,7 +36,7 @@ namespace Example
 
             try
             {
-                // Get conversion detail transactions
+                // Get Conversion Detail Transactions
                 ReportingV3ConversionDetailsGet200Response result = apiInstance.GetConversionDetail(startTime, endTime, organizationId);
                 Debug.WriteLine(result);
             }

@@ -47,7 +47,7 @@ namespace CyberSource.Model
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
         /// <param name="Embedded">Embedded.</param>
         /// <param name="Links">Links.</param>
-        public TssV2TransactionsPost201Response(string SearchId = default(string), bool? Save = default(bool?), string Name = default(string), string Timezone = default(string), string Query = default(string), int? Offset = default(int?), int? Limit = default(int?), string Sort = default(string), int? Count = default(int?), int? TotalCount = default(int?), string Status = default(string), string SubmitTimeUtc = default(string), TssV2TransactionsPost201ResponseEmbedded Embedded = default(TssV2TransactionsPost201ResponseEmbedded), PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks))
+        public TssV2TransactionsPost201Response(string SearchId = default(string), bool? Save = default(bool?), string Name = default(string), string Timezone = default(string), string Query = default(string), int? Offset = default(int?), int? Limit = default(int?), string Sort = default(string), int? Count = default(int?), int? TotalCount = default(int?), string Status = default(string), string SubmitTimeUtc = default(string), TssV2TransactionsPost201ResponseEmbedded Embedded = default(TssV2TransactionsPost201ResponseEmbedded), PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks))
         {
             this.SearchId = SearchId;
             this.Save = Save;
@@ -159,7 +159,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public PtsV2PaymentsReversalsPost201ResponseLinks Links { get; set; }
+        public PtsV2IncrementalAuthorizationPatch201ResponseLinks Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

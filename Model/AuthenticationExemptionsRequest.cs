@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="AcquirerInformation">AcquirerInformation.</param>
-        public AuthenticationExemptionsRequest(Ptsv2payoutsClientReferenceInformation ClientReferenceInformation = default(Ptsv2payoutsClientReferenceInformation), Riskv1authenticationexemptionsOrderInformation OrderInformation = default(Riskv1authenticationexemptionsOrderInformation), Riskv1authenticationexemptionsPaymentInformation PaymentInformation = default(Riskv1authenticationexemptionsPaymentInformation), Riskv1authenticationexemptionsDeviceInformation DeviceInformation = default(Riskv1authenticationexemptionsDeviceInformation), Riskv1authenticationexemptionsMerchantInformation MerchantInformation = default(Riskv1authenticationexemptionsMerchantInformation), Riskv1authenticationexemptionsAcquirerInformation AcquirerInformation = default(Riskv1authenticationexemptionsAcquirerInformation))
+        public AuthenticationExemptionsRequest(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation), Riskv1authenticationexemptionsOrderInformation OrderInformation = default(Riskv1authenticationexemptionsOrderInformation), Riskv1authenticationexemptionsPaymentInformation PaymentInformation = default(Riskv1authenticationexemptionsPaymentInformation), Riskv1authenticationexemptionsDeviceInformation DeviceInformation = default(Riskv1authenticationexemptionsDeviceInformation), Riskv1authenticationexemptionsMerchantInformation MerchantInformation = default(Riskv1authenticationexemptionsMerchantInformation), Riskv1authenticationexemptionsAcquirerInformation AcquirerInformation = default(Riskv1authenticationexemptionsAcquirerInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
@@ -53,7 +53,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Ptsv2payoutsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation

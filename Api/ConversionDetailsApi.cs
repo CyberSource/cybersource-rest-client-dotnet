@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get conversion detail transactions
+        /// Get Conversion Detail Transactions
         /// </summary>
         /// <remarks>
         /// Get conversion detail of transactions for a merchant.
@@ -38,7 +38,7 @@ namespace CyberSource.Api
         ReportingV3ConversionDetailsGet200Response GetConversionDetail (DateTime? startTime, DateTime? endTime, string organizationId = null);
 
         /// <summary>
-        /// Get conversion detail transactions
+        /// Get Conversion Detail Transactions
         /// </summary>
         /// <remarks>
         /// Get conversion detail of transactions for a merchant.
@@ -52,7 +52,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get conversion detail transactions
+        /// Get Conversion Detail Transactions
         /// </summary>
         /// <remarks>
         /// Get conversion detail of transactions for a merchant.
@@ -65,7 +65,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3ConversionDetailsGet200Response> GetConversionDetailAsync (DateTime? startTime, DateTime? endTime, string organizationId = null);
 
         /// <summary>
-        /// Get conversion detail transactions
+        /// Get Conversion Detail Transactions
         /// </summary>
         /// <remarks>
         /// Get conversion detail of transactions for a merchant.
@@ -185,7 +185,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get conversion detail transactions Get conversion detail of transactions for a merchant.
+        /// Get Conversion Detail Transactions Get conversion detail of transactions for a merchant.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -199,7 +199,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get conversion detail transactions Get conversion detail of transactions for a merchant.
+        /// Get Conversion Detail Transactions Get conversion detail of transactions for a merchant.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -262,7 +262,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get conversion detail transactions Get conversion detail of transactions for a merchant.
+        /// Get Conversion Detail Transactions Get conversion detail of transactions for a merchant.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -277,7 +277,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get conversion detail transactions Get conversion detail of transactions for a merchant.
+        /// Get Conversion Detail Transactions Get conversion detail of transactions for a merchant.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>

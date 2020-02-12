@@ -36,6 +36,7 @@ namespace CyberSource.Model
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
@@ -45,11 +46,12 @@ namespace CyberSource.Model
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="TravelInformation">TravelInformation.</param>
         /// <param name="MerchantDefinedInformation">MerchantDefinedInformation.</param>
-        public CheckPayerAuthEnrollmentRequest(Riskv1authenticationsClientReferenceInformation ClientReferenceInformation = default(Riskv1authenticationsClientReferenceInformation), Riskv1authenticationsOrderInformation OrderInformation = default(Riskv1authenticationsOrderInformation), Riskv1authenticationexemptionsPaymentInformation PaymentInformation = default(Riskv1authenticationexemptionsPaymentInformation), Riskv1authenticationsBuyerInformation BuyerInformation = default(Riskv1authenticationsBuyerInformation), Riskv1authenticationsDeviceInformation DeviceInformation = default(Riskv1authenticationsDeviceInformation), Riskv1authenticationsMerchantInformation MerchantInformation = default(Riskv1authenticationsMerchantInformation), Riskv1authenticationsAcquirerInformation AcquirerInformation = default(Riskv1authenticationsAcquirerInformation), Riskv1authenticationsRecurringPaymentInformation RecurringPaymentInformation = default(Riskv1authenticationsRecurringPaymentInformation), Riskv1authenticationsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1authenticationsConsumerAuthenticationInformation), Riskv1authenticationsRiskInformation RiskInformation = default(Riskv1authenticationsRiskInformation), Riskv1authenticationsTravelInformation TravelInformation = default(Riskv1authenticationsTravelInformation), List<Riskv1decisionsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Riskv1decisionsMerchantDefinedInformation>))
+        public CheckPayerAuthEnrollmentRequest(Riskv1authenticationsetupsClientReferenceInformation ClientReferenceInformation = default(Riskv1authenticationsetupsClientReferenceInformation), Riskv1authenticationsOrderInformation OrderInformation = default(Riskv1authenticationsOrderInformation), Riskv1authenticationexemptionsPaymentInformation PaymentInformation = default(Riskv1authenticationexemptionsPaymentInformation), Riskv1authenticationsetupsProcessingInformation ProcessingInformation = default(Riskv1authenticationsetupsProcessingInformation), Riskv1authenticationsBuyerInformation BuyerInformation = default(Riskv1authenticationsBuyerInformation), Riskv1authenticationsDeviceInformation DeviceInformation = default(Riskv1authenticationsDeviceInformation), Riskv1authenticationsMerchantInformation MerchantInformation = default(Riskv1authenticationsMerchantInformation), Riskv1authenticationsAcquirerInformation AcquirerInformation = default(Riskv1authenticationsAcquirerInformation), Riskv1authenticationsRecurringPaymentInformation RecurringPaymentInformation = default(Riskv1authenticationsRecurringPaymentInformation), Riskv1authenticationsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1authenticationsConsumerAuthenticationInformation), Riskv1authenticationsRiskInformation RiskInformation = default(Riskv1authenticationsRiskInformation), Riskv1authenticationsTravelInformation TravelInformation = default(Riskv1authenticationsTravelInformation), List<Riskv1decisionsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Riskv1decisionsMerchantDefinedInformation>))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
             this.PaymentInformation = PaymentInformation;
+            this.ProcessingInformation = ProcessingInformation;
             this.BuyerInformation = BuyerInformation;
             this.DeviceInformation = DeviceInformation;
             this.MerchantInformation = MerchantInformation;
@@ -65,7 +67,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Riskv1authenticationsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Riskv1authenticationsetupsClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation
@@ -78,6 +80,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
         public Riskv1authenticationexemptionsPaymentInformation PaymentInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProcessingInformation
+        /// </summary>
+        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
+        public Riskv1authenticationsetupsProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
@@ -144,6 +152,7 @@ namespace CyberSource.Model
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
             sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
             sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
@@ -203,6 +212,11 @@ namespace CyberSource.Model
                     this.PaymentInformation == other.PaymentInformation ||
                     this.PaymentInformation != null &&
                     this.PaymentInformation.Equals(other.PaymentInformation)
+                ) && 
+                (
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
                 ) && 
                 (
                     this.BuyerInformation == other.BuyerInformation ||
@@ -268,6 +282,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 if (this.PaymentInformation != null)
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.BuyerInformation != null)
                     hash = hash * 59 + this.BuyerInformation.GetHashCode();
                 if (this.DeviceInformation != null)

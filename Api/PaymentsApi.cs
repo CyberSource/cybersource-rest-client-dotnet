@@ -45,6 +45,29 @@ namespace CyberSource.Api
         /// <param name="createPaymentRequest"></param>
         /// <returns>ApiResponse of PtsV2PaymentsPost201Response</returns>
         ApiResponse<PtsV2PaymentsPost201Response> CreatePaymentWithHttpInfo (CreatePaymentRequest createPaymentRequest);
+        /// <summary>
+        /// Increment an Authorization
+        /// </summary>
+        /// <remarks>
+        /// Use this service to authorize additional charges in a lodging or autorental transaction. Include the ID returned from the original authorization in the PATCH request to add additional charges to that authorization. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID returned from the original authorization request.</param>
+        /// <param name="incrementAuthRequest"></param>
+        /// <returns>PtsV2IncrementalAuthorizationPatch201Response</returns>
+        PtsV2IncrementalAuthorizationPatch201Response IncrementAuth (string id, IncrementAuthRequest incrementAuthRequest);
+
+        /// <summary>
+        /// Increment an Authorization
+        /// </summary>
+        /// <remarks>
+        /// Use this service to authorize additional charges in a lodging or autorental transaction. Include the ID returned from the original authorization in the PATCH request to add additional charges to that authorization. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID returned from the original authorization request.</param>
+        /// <param name="incrementAuthRequest"></param>
+        /// <returns>ApiResponse of PtsV2IncrementalAuthorizationPatch201Response</returns>
+        ApiResponse<PtsV2IncrementalAuthorizationPatch201Response> IncrementAuthWithHttpInfo (string id, IncrementAuthRequest incrementAuthRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -68,6 +91,29 @@ namespace CyberSource.Api
         /// <param name="createPaymentRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response>> CreatePaymentAsyncWithHttpInfo (CreatePaymentRequest createPaymentRequest);
+        /// <summary>
+        /// Increment an Authorization
+        /// </summary>
+        /// <remarks>
+        /// Use this service to authorize additional charges in a lodging or autorental transaction. Include the ID returned from the original authorization in the PATCH request to add additional charges to that authorization. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID returned from the original authorization request.</param>
+        /// <param name="incrementAuthRequest"></param>
+        /// <returns>Task of PtsV2IncrementalAuthorizationPatch201Response</returns>
+        System.Threading.Tasks.Task<PtsV2IncrementalAuthorizationPatch201Response> IncrementAuthAsync (string id, IncrementAuthRequest incrementAuthRequest);
+
+        /// <summary>
+        /// Increment an Authorization
+        /// </summary>
+        /// <remarks>
+        /// Use this service to authorize additional charges in a lodging or autorental transaction. Include the ID returned from the original authorization in the PATCH request to add additional charges to that authorization. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID returned from the original authorization request.</param>
+        /// <param name="incrementAuthRequest"></param>
+        /// <returns>Task of ApiResponse (PtsV2IncrementalAuthorizationPatch201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2IncrementalAuthorizationPatch201Response>> IncrementAuthAsyncWithHttpInfo (string id, IncrementAuthRequest incrementAuthRequest);
         #endregion Asynchronous Operations
     }
 
@@ -323,6 +369,167 @@ namespace CyberSource.Api
             return new ApiResponse<PtsV2PaymentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PtsV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response)));
+        }
+
+        /// <summary>
+        /// Increment an Authorization Use this service to authorize additional charges in a lodging or autorental transaction. Include the ID returned from the original authorization in the PATCH request to add additional charges to that authorization. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID returned from the original authorization request.</param>
+        /// <param name="incrementAuthRequest"></param>
+        /// <returns>PtsV2IncrementalAuthorizationPatch201Response</returns>
+        public PtsV2IncrementalAuthorizationPatch201Response IncrementAuth (string id, IncrementAuthRequest incrementAuthRequest)
+        {
+             ApiResponse<PtsV2IncrementalAuthorizationPatch201Response> localVarResponse = IncrementAuthWithHttpInfo(id, incrementAuthRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Increment an Authorization Use this service to authorize additional charges in a lodging or autorental transaction. Include the ID returned from the original authorization in the PATCH request to add additional charges to that authorization. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID returned from the original authorization request.</param>
+        /// <param name="incrementAuthRequest"></param>
+        /// <returns>ApiResponse of PtsV2IncrementalAuthorizationPatch201Response</returns>
+        public ApiResponse< PtsV2IncrementalAuthorizationPatch201Response > IncrementAuthWithHttpInfo (string id, IncrementAuthRequest incrementAuthRequest)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->IncrementAuth");
+            // verify the required parameter 'incrementAuthRequest' is set
+            if (incrementAuthRequest == null)
+                throw new ApiException(400, "Missing required parameter 'incrementAuthRequest' when calling PaymentsApi->IncrementAuth");
+
+            var localVarPath = $"/pts/v2/payments/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (incrementAuthRequest != null && incrementAuthRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(incrementAuthRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = incrementAuthRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("IncrementAuth", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PtsV2IncrementalAuthorizationPatch201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2IncrementalAuthorizationPatch201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2IncrementalAuthorizationPatch201Response)));
+        }
+
+        /// <summary>
+        /// Increment an Authorization Use this service to authorize additional charges in a lodging or autorental transaction. Include the ID returned from the original authorization in the PATCH request to add additional charges to that authorization. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID returned from the original authorization request.</param>
+        /// <param name="incrementAuthRequest"></param>
+        /// <returns>Task of PtsV2IncrementalAuthorizationPatch201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2IncrementalAuthorizationPatch201Response> IncrementAuthAsync (string id, IncrementAuthRequest incrementAuthRequest)
+        {
+             ApiResponse<PtsV2IncrementalAuthorizationPatch201Response> localVarResponse = await IncrementAuthAsyncWithHttpInfo(id, incrementAuthRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Increment an Authorization Use this service to authorize additional charges in a lodging or autorental transaction. Include the ID returned from the original authorization in the PATCH request to add additional charges to that authorization. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID returned from the original authorization request.</param>
+        /// <param name="incrementAuthRequest"></param>
+        /// <returns>Task of ApiResponse (PtsV2IncrementalAuthorizationPatch201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2IncrementalAuthorizationPatch201Response>> IncrementAuthAsyncWithHttpInfo (string id, IncrementAuthRequest incrementAuthRequest)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->IncrementAuth");
+            // verify the required parameter 'incrementAuthRequest' is set
+            if (incrementAuthRequest == null)
+                throw new ApiException(400, "Missing required parameter 'incrementAuthRequest' when calling PaymentsApi->IncrementAuth");
+
+            var localVarPath = $"/pts/v2/payments/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (incrementAuthRequest != null && incrementAuthRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(incrementAuthRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = incrementAuthRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("IncrementAuth", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PtsV2IncrementalAuthorizationPatch201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2IncrementalAuthorizationPatch201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2IncrementalAuthorizationPatch201Response)));
         }
 
     }

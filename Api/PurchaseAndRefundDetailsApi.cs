@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get Purchase and Refund details
+        /// Get Purchase and Refund Details
         /// </summary>
         /// <remarks>
         /// Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
@@ -43,7 +43,7 @@ namespace CyberSource.Api
         ReportingV3PurchaseRefundDetailsGet200Response GetPurchaseAndRefundDetails (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null);
 
         /// <summary>
-        /// Get Purchase and Refund details
+        /// Get Purchase and Refund Details
         /// </summary>
         /// <remarks>
         /// Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
@@ -62,7 +62,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get Purchase and Refund details
+        /// Get Purchase and Refund Details
         /// </summary>
         /// <remarks>
         /// Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
@@ -80,7 +80,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3PurchaseRefundDetailsGet200Response> GetPurchaseAndRefundDetailsAsync (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null);
 
         /// <summary>
-        /// Get Purchase and Refund details
+        /// Get Purchase and Refund Details
         /// </summary>
         /// <remarks>
         /// Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
@@ -205,7 +205,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Purchase and Refund details Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
+        /// Get Purchase and Refund Details Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -224,7 +224,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Purchase and Refund details Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
+        /// Get Purchase and Refund Details Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -296,7 +296,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Purchase and Refund details Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
+        /// Get Purchase and Refund Details Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -316,7 +316,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Purchase and Refund details Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
+        /// Get Purchase and Refund Details Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>

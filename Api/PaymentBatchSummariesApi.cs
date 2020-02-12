@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get payment batch summary data
+        /// Get Payment Batch Summary Data
         /// </summary>
         /// <remarks>
         /// Scope can be either account/merchant or reseller.
@@ -41,7 +41,7 @@ namespace CyberSource.Api
         ReportingV3PaymentBatchSummariesGet200Response GetPaymentBatchSummary (DateTime? startTime, DateTime? endTime, string organizationId = null, string rollUp = null, string breakdown = null, int? startDayOfWeek = null);
 
         /// <summary>
-        /// Get payment batch summary data
+        /// Get Payment Batch Summary Data
         /// </summary>
         /// <remarks>
         /// Scope can be either account/merchant or reseller.
@@ -58,7 +58,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get payment batch summary data
+        /// Get Payment Batch Summary Data
         /// </summary>
         /// <remarks>
         /// Scope can be either account/merchant or reseller.
@@ -74,7 +74,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3PaymentBatchSummariesGet200Response> GetPaymentBatchSummaryAsync (DateTime? startTime, DateTime? endTime, string organizationId = null, string rollUp = null, string breakdown = null, int? startDayOfWeek = null);
 
         /// <summary>
-        /// Get payment batch summary data
+        /// Get Payment Batch Summary Data
         /// </summary>
         /// <remarks>
         /// Scope can be either account/merchant or reseller.
@@ -197,7 +197,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get payment batch summary data Scope can be either account/merchant or reseller.
+        /// Get Payment Batch Summary Data Scope can be either account/merchant or reseller.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -214,7 +214,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get payment batch summary data Scope can be either account/merchant or reseller.
+        /// Get Payment Batch Summary Data Scope can be either account/merchant or reseller.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -282,7 +282,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get payment batch summary data Scope can be either account/merchant or reseller.
+        /// Get Payment Batch Summary Data Scope can be either account/merchant or reseller.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -300,7 +300,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get payment batch summary data Scope can be either account/merchant or reseller.
+        /// Get Payment Batch Summary Data Scope can be either account/merchant or reseller.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>

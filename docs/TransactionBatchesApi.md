@@ -4,18 +4,18 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetTransactionBatchDetails**](TransactionBatchesApi.md#gettransactionbatchdetails) | **GET** /pts/v1/transaction-batch-details/{id} | Get transaction details for a given batch id
-[**GetTransactionBatchId**](TransactionBatchesApi.md#gettransactionbatchid) | **GET** /pts/v1/transaction-batches/{id} | Get individual batch file
-[**GetTransactionBatches**](TransactionBatchesApi.md#gettransactionbatches) | **GET** /pts/v1/transaction-batches | Get a list of batch files
+[**GetTransactionBatchDetails**](TransactionBatchesApi.md#gettransactionbatchdetails) | **GET** /pts/v1/transaction-batch-details/{id} | Get Transaction Details for a given Batch Id
+[**GetTransactionBatchId**](TransactionBatchesApi.md#gettransactionbatchid) | **GET** /pts/v1/transaction-batches/{id} | Get Individual Batch File
+[**GetTransactionBatches**](TransactionBatchesApi.md#gettransactionbatches) | **GET** /pts/v1/transaction-batches | Get a List of Batch Files
 
 
 <a name="gettransactionbatchdetails"></a>
 # **GetTransactionBatchDetails**
-> void GetTransactionBatchDetails (string id)
+> void GetTransactionBatchDetails (string id, DateTime? uploadDate = null, string status = null)
 
-Get transaction details for a given batch id
+Get Transaction Details for a given Batch Id
 
-Provides real-time detailed status information about the transactions  that you previously uploaded in the Business Center or processed with  the Offline Transaction File Submission service. 
+Provides real-time detailed status information about the transactions that you previously uploaded in the Business Center or processed with the Offline Transaction File Submission service. 
 
 ### Example
 ```csharp
@@ -33,11 +33,13 @@ namespace Example
         {
             var apiInstance = new TransactionBatchesApi();
             var id = id_example;  // string | The batch id assigned for the template.
+            var uploadDate = 2013-10-20;  // DateTime? | Date in which the original batch file was uploaded. Date must be in ISO-8601 format. Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14) **Example date format:**  - yyyy-MM-dd  (optional) 
+            var status = status_example;  // string | Allows you to filter by rejected response.  Valid values: - Rejected  (optional) 
 
             try
             {
-                // Get transaction details for a given batch id
-                apiInstance.GetTransactionBatchDetails(id);
+                // Get Transaction Details for a given Batch Id
+                apiInstance.GetTransactionBatchDetails(id, uploadDate, status);
             }
             catch (Exception e)
             {
@@ -53,6 +55,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The batch id assigned for the template. | 
+ **uploadDate** | **DateTime?**| Date in which the original batch file was uploaded. Date must be in ISO-8601 format. Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14) **Example date format:**  - yyyy-MM-dd  | [optional] 
+ **status** | **string**| Allows you to filter by rejected response.  Valid values: - Rejected  | [optional] 
 
 ### Return type
 
@@ -65,7 +69,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: text/csv, application/xml
+ - **Accept**: text/csv, application/xml, text/vnd.cybersource.map-csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -73,7 +77,7 @@ No authorization required
 # **GetTransactionBatchId**
 > PtsV1TransactionBatchesIdGet200Response GetTransactionBatchId (string id)
 
-Get individual batch file
+Get Individual Batch File
 
 Provide the search range
 
@@ -96,7 +100,7 @@ namespace Example
 
             try
             {
-                // Get individual batch file
+                // Get Individual Batch File
                 PtsV1TransactionBatchesIdGet200Response result = apiInstance.GetTransactionBatchId(id);
                 Debug.WriteLine(result);
             }
@@ -134,7 +138,7 @@ No authorization required
 # **GetTransactionBatches**
 > PtsV1TransactionBatchesGet200Response GetTransactionBatches (DateTime? startTime, DateTime? endTime)
 
-Get a list of batch files
+Get a List of Batch Files
 
 Provide the search range
 
@@ -158,7 +162,7 @@ namespace Example
 
             try
             {
-                // Get a list of batch files
+                // Get a List of Batch Files
                 PtsV1TransactionBatchesGet200Response result = apiInstance.GetTransactionBatches(startTime, endTime);
                 Debug.WriteLine(result);
             }

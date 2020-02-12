@@ -25,6 +25,27 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Merchant Initiated Void
+        /// </summary>
+        /// <remarks>
+        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitVoidRequest"></param>
+        /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
+        PtsV2PaymentsVoidsPost201Response MitVoid (MitVoidRequest mitVoidRequest);
+
+        /// <summary>
+        /// Merchant Initiated Void
+        /// </summary>
+        /// <remarks>
+        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitVoidRequest"></param>
+        /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
+        ApiResponse<PtsV2PaymentsVoidsPost201Response> MitVoidWithHttpInfo (MitVoidRequest mitVoidRequest);
+        /// <summary>
         /// Void a Capture
         /// </summary>
         /// <remarks>
@@ -118,6 +139,27 @@ namespace CyberSource.Api
         ApiResponse<PtsV2PaymentsVoidsPost201Response> VoidRefundWithHttpInfo (VoidRefundRequest voidRefundRequest, string id);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Merchant Initiated Void
+        /// </summary>
+        /// <remarks>
+        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitVoidRequest"></param>
+        /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> MitVoidAsync (MitVoidRequest mitVoidRequest);
+
+        /// <summary>
+        /// Merchant Initiated Void
+        /// </summary>
+        /// <remarks>
+        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitVoidRequest"></param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> MitVoidAsyncWithHttpInfo (MitVoidRequest mitVoidRequest);
         /// <summary>
         /// Void a Capture
         /// </summary>
@@ -316,6 +358,155 @@ namespace CyberSource.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Merchant Initiated Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitVoidRequest"></param>
+        /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
+        public PtsV2PaymentsVoidsPost201Response MitVoid (MitVoidRequest mitVoidRequest)
+        {
+             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = MitVoidWithHttpInfo(mitVoidRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Merchant Initiated Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitVoidRequest"></param>
+        /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
+        public ApiResponse< PtsV2PaymentsVoidsPost201Response > MitVoidWithHttpInfo (MitVoidRequest mitVoidRequest)
+        {
+            // verify the required parameter 'mitVoidRequest' is set
+            if (mitVoidRequest == null)
+                throw new ApiException(400, "Missing required parameter 'mitVoidRequest' when calling VoidApi->MitVoid");
+
+            var localVarPath = $"/pts/v2/voids/";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mitVoidRequest != null && mitVoidRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(mitVoidRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mitVoidRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MitVoid", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
+        }
+
+        /// <summary>
+        /// Merchant Initiated Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitVoidRequest"></param>
+        /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> MitVoidAsync (MitVoidRequest mitVoidRequest)
+        {
+             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await MitVoidAsyncWithHttpInfo(mitVoidRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Merchant Initiated Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitVoidRequest"></param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> MitVoidAsyncWithHttpInfo (MitVoidRequest mitVoidRequest)
+        {
+            // verify the required parameter 'mitVoidRequest' is set
+            if (mitVoidRequest == null)
+                throw new ApiException(400, "Missing required parameter 'mitVoidRequest' when calling VoidApi->MitVoid");
+
+            var localVarPath = $"/pts/v2/voids/";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mitVoidRequest != null && mitVoidRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(mitVoidRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mitVoidRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MitVoid", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
         }
 
         /// <summary>

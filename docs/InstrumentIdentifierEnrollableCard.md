@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Type of Card | [optional] 
+**Type** | **string** | Enrol card for a Network Token | [optional] 
 **Card** | [**Tmsv1instrumentidentifiersCard**](Tmsv1instrumentidentifiersCard.md) |  | [optional] 
 **BankAccount** | [**Tmsv1instrumentidentifiersBankAccount**](Tmsv1instrumentidentifiersBankAccount.md) |  | [optional] 
 **BillTo** | [**Tmsv1instrumentidentifiersBillTo**](Tmsv1instrumentidentifiersBillTo.md) |  | [optional] 

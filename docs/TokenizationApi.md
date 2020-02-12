@@ -4,14 +4,14 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Tokenize**](TokenizationApi.md#tokenize) | **POST** /flex/v1/tokens | Tokenize card
+[**Tokenize**](TokenizationApi.md#tokenize) | **POST** /flex/v1/tokens | Tokenize Card
 
 
 <a name="tokenize"></a>
 # **Tokenize**
 > FlexV1TokensPost200Response Tokenize (TokenizeRequest tokenizeRequest)
 
-Tokenize card
+Tokenize Card
 
 Returns a token representing the supplied card details. The token replaces card data and can be used as the Subscription ID in the CyberSource Simple Order API or SCMP API. This is an unauthenticated call that you should initiate from your customer’s device or browser.
 
@@ -34,7 +34,7 @@ namespace Example
 
             try
             {
-                // Tokenize card
+                // Tokenize Card
                 FlexV1TokensPost200Response result = apiInstance.Tokenize(tokenizeRequest);
                 Debug.WriteLine(result);
             }

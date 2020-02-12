@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Check payer auth enrollment
+        /// Check Payer Auth Enrollment
         /// </summary>
         /// <remarks>
         /// This call verifies that the card is enrolled in a card authentication program.
@@ -36,7 +36,7 @@ namespace CyberSource.Api
         RiskV1AuthenticationsPost201Response CheckPayerAuthEnrollment (CheckPayerAuthEnrollmentRequest checkPayerAuthEnrollmentRequest);
 
         /// <summary>
-        /// Check payer auth enrollment
+        /// Check Payer Auth Enrollment
         /// </summary>
         /// <remarks>
         /// This call verifies that the card is enrolled in a card authentication program.
@@ -46,7 +46,28 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of RiskV1AuthenticationsPost201Response</returns>
         ApiResponse<RiskV1AuthenticationsPost201Response> CheckPayerAuthEnrollmentWithHttpInfo (CheckPayerAuthEnrollmentRequest checkPayerAuthEnrollmentRequest);
         /// <summary>
-        /// Validate authentication results
+        /// Setup Payer Auth
+        /// </summary>
+        /// <remarks>
+        /// A new service for Merchants to get reference_id for Digital Wallets to use in place of BIN number in Cardinal. Set up file while authenticating with Cardinal. This service should be called by Merchant when payment instrument chosen or changes. This service has to be called before enrollment check.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="payerAuthSetupRequest"></param>
+        /// <returns>RiskV1AuthenticationSetupsPost201Response</returns>
+        RiskV1AuthenticationSetupsPost201Response PayerAuthSetup (PayerAuthSetupRequest payerAuthSetupRequest);
+
+        /// <summary>
+        /// Setup Payer Auth
+        /// </summary>
+        /// <remarks>
+        /// A new service for Merchants to get reference_id for Digital Wallets to use in place of BIN number in Cardinal. Set up file while authenticating with Cardinal. This service should be called by Merchant when payment instrument chosen or changes. This service has to be called before enrollment check.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="payerAuthSetupRequest"></param>
+        /// <returns>ApiResponse of RiskV1AuthenticationSetupsPost201Response</returns>
+        ApiResponse<RiskV1AuthenticationSetupsPost201Response> PayerAuthSetupWithHttpInfo (PayerAuthSetupRequest payerAuthSetupRequest);
+        /// <summary>
+        /// Validate Authentication Results
         /// </summary>
         /// <remarks>
         /// This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
@@ -57,7 +78,7 @@ namespace CyberSource.Api
         RiskV1AuthenticationResultsPost201Response ValidateAuthenticationResults (ValidateRequest validateRequest);
 
         /// <summary>
-        /// Validate authentication results
+        /// Validate Authentication Results
         /// </summary>
         /// <remarks>
         /// This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
@@ -69,7 +90,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Check payer auth enrollment
+        /// Check Payer Auth Enrollment
         /// </summary>
         /// <remarks>
         /// This call verifies that the card is enrolled in a card authentication program.
@@ -80,7 +101,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<RiskV1AuthenticationsPost201Response> CheckPayerAuthEnrollmentAsync (CheckPayerAuthEnrollmentRequest checkPayerAuthEnrollmentRequest);
 
         /// <summary>
-        /// Check payer auth enrollment
+        /// Check Payer Auth Enrollment
         /// </summary>
         /// <remarks>
         /// This call verifies that the card is enrolled in a card authentication program.
@@ -90,7 +111,28 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (RiskV1AuthenticationsPost201Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<RiskV1AuthenticationsPost201Response>> CheckPayerAuthEnrollmentAsyncWithHttpInfo (CheckPayerAuthEnrollmentRequest checkPayerAuthEnrollmentRequest);
         /// <summary>
-        /// Validate authentication results
+        /// Setup Payer Auth
+        /// </summary>
+        /// <remarks>
+        /// A new service for Merchants to get reference_id for Digital Wallets to use in place of BIN number in Cardinal. Set up file while authenticating with Cardinal. This service should be called by Merchant when payment instrument chosen or changes. This service has to be called before enrollment check.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="payerAuthSetupRequest"></param>
+        /// <returns>Task of RiskV1AuthenticationSetupsPost201Response</returns>
+        System.Threading.Tasks.Task<RiskV1AuthenticationSetupsPost201Response> PayerAuthSetupAsync (PayerAuthSetupRequest payerAuthSetupRequest);
+
+        /// <summary>
+        /// Setup Payer Auth
+        /// </summary>
+        /// <remarks>
+        /// A new service for Merchants to get reference_id for Digital Wallets to use in place of BIN number in Cardinal. Set up file while authenticating with Cardinal. This service should be called by Merchant when payment instrument chosen or changes. This service has to be called before enrollment check.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="payerAuthSetupRequest"></param>
+        /// <returns>Task of ApiResponse (RiskV1AuthenticationSetupsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RiskV1AuthenticationSetupsPost201Response>> PayerAuthSetupAsyncWithHttpInfo (PayerAuthSetupRequest payerAuthSetupRequest);
+        /// <summary>
+        /// Validate Authentication Results
         /// </summary>
         /// <remarks>
         /// This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
@@ -101,7 +143,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<RiskV1AuthenticationResultsPost201Response> ValidateAuthenticationResultsAsync (ValidateRequest validateRequest);
 
         /// <summary>
-        /// Validate authentication results
+        /// Validate Authentication Results
         /// </summary>
         /// <remarks>
         /// This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
@@ -219,7 +261,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Check payer auth enrollment This call verifies that the card is enrolled in a card authentication program.
+        /// Check Payer Auth Enrollment This call verifies that the card is enrolled in a card authentication program.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkPayerAuthEnrollmentRequest"></param>
@@ -231,7 +273,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Check payer auth enrollment This call verifies that the card is enrolled in a card authentication program.
+        /// Check Payer Auth Enrollment This call verifies that the card is enrolled in a card authentication program.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkPayerAuthEnrollmentRequest"></param>
@@ -293,7 +335,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Check payer auth enrollment This call verifies that the card is enrolled in a card authentication program.
+        /// Check Payer Auth Enrollment This call verifies that the card is enrolled in a card authentication program.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkPayerAuthEnrollmentRequest"></param>
@@ -306,7 +348,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Check payer auth enrollment This call verifies that the card is enrolled in a card authentication program.
+        /// Check Payer Auth Enrollment This call verifies that the card is enrolled in a card authentication program.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkPayerAuthEnrollmentRequest"></param>
@@ -368,7 +410,156 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Validate authentication results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
+        /// Setup Payer Auth A new service for Merchants to get reference_id for Digital Wallets to use in place of BIN number in Cardinal. Set up file while authenticating with Cardinal. This service should be called by Merchant when payment instrument chosen or changes. This service has to be called before enrollment check.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="payerAuthSetupRequest"></param>
+        /// <returns>RiskV1AuthenticationSetupsPost201Response</returns>
+        public RiskV1AuthenticationSetupsPost201Response PayerAuthSetup (PayerAuthSetupRequest payerAuthSetupRequest)
+        {
+             ApiResponse<RiskV1AuthenticationSetupsPost201Response> localVarResponse = PayerAuthSetupWithHttpInfo(payerAuthSetupRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Setup Payer Auth A new service for Merchants to get reference_id for Digital Wallets to use in place of BIN number in Cardinal. Set up file while authenticating with Cardinal. This service should be called by Merchant when payment instrument chosen or changes. This service has to be called before enrollment check.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="payerAuthSetupRequest"></param>
+        /// <returns>ApiResponse of RiskV1AuthenticationSetupsPost201Response</returns>
+        public ApiResponse< RiskV1AuthenticationSetupsPost201Response > PayerAuthSetupWithHttpInfo (PayerAuthSetupRequest payerAuthSetupRequest)
+        {
+            // verify the required parameter 'payerAuthSetupRequest' is set
+            if (payerAuthSetupRequest == null)
+                throw new ApiException(400, "Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
+
+            var localVarPath = $"/risk/v1/authentication-setups";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (payerAuthSetupRequest != null && payerAuthSetupRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(payerAuthSetupRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = payerAuthSetupRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PayerAuthSetup", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RiskV1AuthenticationSetupsPost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RiskV1AuthenticationSetupsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationSetupsPost201Response)));
+        }
+
+        /// <summary>
+        /// Setup Payer Auth A new service for Merchants to get reference_id for Digital Wallets to use in place of BIN number in Cardinal. Set up file while authenticating with Cardinal. This service should be called by Merchant when payment instrument chosen or changes. This service has to be called before enrollment check.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="payerAuthSetupRequest"></param>
+        /// <returns>Task of RiskV1AuthenticationSetupsPost201Response</returns>
+        public async System.Threading.Tasks.Task<RiskV1AuthenticationSetupsPost201Response> PayerAuthSetupAsync (PayerAuthSetupRequest payerAuthSetupRequest)
+        {
+             ApiResponse<RiskV1AuthenticationSetupsPost201Response> localVarResponse = await PayerAuthSetupAsyncWithHttpInfo(payerAuthSetupRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Setup Payer Auth A new service for Merchants to get reference_id for Digital Wallets to use in place of BIN number in Cardinal. Set up file while authenticating with Cardinal. This service should be called by Merchant when payment instrument chosen or changes. This service has to be called before enrollment check.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="payerAuthSetupRequest"></param>
+        /// <returns>Task of ApiResponse (RiskV1AuthenticationSetupsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RiskV1AuthenticationSetupsPost201Response>> PayerAuthSetupAsyncWithHttpInfo (PayerAuthSetupRequest payerAuthSetupRequest)
+        {
+            // verify the required parameter 'payerAuthSetupRequest' is set
+            if (payerAuthSetupRequest == null)
+                throw new ApiException(400, "Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
+
+            var localVarPath = $"/risk/v1/authentication-setups";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (payerAuthSetupRequest != null && payerAuthSetupRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(payerAuthSetupRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = payerAuthSetupRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PayerAuthSetup", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RiskV1AuthenticationSetupsPost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RiskV1AuthenticationSetupsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationSetupsPost201Response)));
+        }
+
+        /// <summary>
+        /// Validate Authentication Results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validateRequest"></param>
@@ -380,7 +571,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Validate authentication results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
+        /// Validate Authentication Results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validateRequest"></param>
@@ -442,7 +633,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Validate authentication results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
+        /// Validate Authentication Results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validateRequest"></param>
@@ -455,7 +646,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Validate authentication results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
+        /// Validate Authentication Results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validateRequest"></param>

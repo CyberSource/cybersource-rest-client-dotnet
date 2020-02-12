@@ -36,15 +36,17 @@ namespace CyberSource.Model
         /// <param name="Links">Links.</param>
         /// <param name="Id">The ID of the existing instrument identifier to be linked to the newly created payment instrument..</param>
         /// <param name="Card">Card.</param>
+        /// <param name="TokenizedCard">TokenizedCard.</param>
         /// <param name="BankAccount">BankAccount.</param>
         /// <param name="Issuer">Issuer.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="Metadata">Metadata.</param>
-        public EmbeddedInstrumentIdentifierResponse(TmsV1InstrumentIdentifiersPost200ResponseLinks Links = default(TmsV1InstrumentIdentifiersPost200ResponseLinks), string Id = default(string), TmsV1InstrumentIdentifiersPost200ResponseCard Card = default(TmsV1InstrumentIdentifiersPost200ResponseCard), Tmsv1instrumentidentifiersBankAccount BankAccount = default(Tmsv1instrumentidentifiersBankAccount), TmsV1InstrumentIdentifiersPost200ResponseIssuer Issuer = default(TmsV1InstrumentIdentifiersPost200ResponseIssuer), TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation ProcessingInformation = default(TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation), TmsV1InstrumentIdentifiersPost200ResponseMetadata Metadata = default(TmsV1InstrumentIdentifiersPost200ResponseMetadata))
+        public EmbeddedInstrumentIdentifierResponse(TmsV1InstrumentIdentifiersPost200ResponseLinks Links = default(TmsV1InstrumentIdentifiersPost200ResponseLinks), string Id = default(string), TmsV1InstrumentIdentifiersPost200ResponseCard Card = default(TmsV1InstrumentIdentifiersPost200ResponseCard), TmsV1InstrumentIdentifiersPost200ResponseTokenizedCard TokenizedCard = default(TmsV1InstrumentIdentifiersPost200ResponseTokenizedCard), Tmsv1instrumentidentifiersBankAccount BankAccount = default(Tmsv1instrumentidentifiersBankAccount), TmsV1InstrumentIdentifiersPost200ResponseIssuer Issuer = default(TmsV1InstrumentIdentifiersPost200ResponseIssuer), TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation ProcessingInformation = default(TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation), TmsV1InstrumentIdentifiersPost200ResponseMetadata Metadata = default(TmsV1InstrumentIdentifiersPost200ResponseMetadata))
         {
             this.Links = Links;
             this.Id = Id;
             this.Card = Card;
+            this.TokenizedCard = TokenizedCard;
             this.BankAccount = BankAccount;
             this.Issuer = Issuer;
             this.ProcessingInformation = ProcessingInformation;
@@ -85,6 +87,12 @@ namespace CyberSource.Model
         public TmsV1InstrumentIdentifiersPost200ResponseCard Card { get; set; }
 
         /// <summary>
+        /// Gets or Sets TokenizedCard
+        /// </summary>
+        [DataMember(Name="tokenizedCard", EmitDefaultValue=false)]
+        public TmsV1InstrumentIdentifiersPost200ResponseTokenizedCard TokenizedCard { get; set; }
+
+        /// <summary>
         /// Gets or Sets BankAccount
         /// </summary>
         [DataMember(Name="bankAccount", EmitDefaultValue=false)]
@@ -121,6 +129,7 @@ namespace CyberSource.Model
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
+            sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  Issuer: ").Append(Issuer).Append("\n");
             sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
@@ -187,6 +196,11 @@ namespace CyberSource.Model
                     this.Card.Equals(other.Card)
                 ) && 
                 (
+                    this.TokenizedCard == other.TokenizedCard ||
+                    this.TokenizedCard != null &&
+                    this.TokenizedCard.Equals(other.TokenizedCard)
+                ) && 
+                (
                     this.BankAccount == other.BankAccount ||
                     this.BankAccount != null &&
                     this.BankAccount.Equals(other.BankAccount)
@@ -229,6 +243,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
+                if (this.TokenizedCard != null)
+                    hash = hash * 59 + this.TokenizedCard.GetHashCode();
                 if (this.BankAccount != null)
                     hash = hash * 59 + this.BankAccount.GetHashCode();
                 if (this.Issuer != null)

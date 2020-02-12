@@ -33,15 +33,15 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults" /> class.
         /// </summary>
-        /// <param name="Email">Mapped Electronic Verification response code for the customer’s email address.  For details, see &#x60;auth_ev_email&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
+        /// <param name="Email">Mapped Electronic Verification response code for the customer’s email address.  For details, see &#x60;auth_ev_email&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="EmailRaw">Raw Electronic Verification response code from the processor for the customer’s email address..</param>
         /// <param name="Name">Mapped Electronic Verification response code for the customer’s name. .</param>
         /// <param name="NameRaw">Raw Electronic Verification response code from the processor for the customer’s name. .</param>
-        /// <param name="PhoneNumber">Mapped Electronic Verification response code for the customer’s phone number.  For details, see &#x60;auth_ev_phone_number&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
+        /// <param name="PhoneNumber">Mapped Electronic Verification response code for the customer’s phone number.  For details, see &#x60;auth_ev_phone_number&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="PhoneNumberRaw">Raw Electronic Verification response code from the processor for the customer’s phone number..</param>
-        /// <param name="Street">Mapped Electronic Verification response code for the customer’s street address.  For details, see &#x60;auth_ev_street&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
+        /// <param name="Street">Mapped Electronic Verification response code for the customer’s street address.  For details, see &#x60;auth_ev_street&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="StreetRaw">Raw Electronic Verification response code from the processor for the customer’s street address..</param>
-        /// <param name="PostalCode">Mapped Electronic Verification response code for the customer’s postal code.  For details, see &#x60;auth_ev_postal_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
+        /// <param name="PostalCode">Mapped Electronic Verification response code for the customer’s postal code.  For details, see &#x60;auth_ev_postal_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="PostalCodeRaw">Raw Electronic Verification response code from the processor for the customer’s postal code..</param>
         public TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults(string Email = default(string), string EmailRaw = default(string), string Name = default(string), string NameRaw = default(string), string PhoneNumber = default(string), string PhoneNumberRaw = default(string), string Street = default(string), string StreetRaw = default(string), string PostalCode = default(string), string PostalCodeRaw = default(string))
         {
@@ -58,9 +58,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Mapped Electronic Verification response code for the customer’s email address.  For details, see &#x60;auth_ev_email&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        /// Mapped Electronic Verification response code for the customer’s email address.  For details, see &#x60;auth_ev_email&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customer’s email address.  For details, see &#x60;auth_ev_email&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s email address.  For details, see &#x60;auth_ev_email&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
@@ -86,9 +86,9 @@ namespace CyberSource.Model
         public string NameRaw { get; set; }
 
         /// <summary>
-        /// Mapped Electronic Verification response code for the customer’s phone number.  For details, see &#x60;auth_ev_phone_number&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        /// Mapped Electronic Verification response code for the customer’s phone number.  For details, see &#x60;auth_ev_phone_number&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customer’s phone number.  For details, see &#x60;auth_ev_phone_number&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s phone number.  For details, see &#x60;auth_ev_phone_number&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 
@@ -100,9 +100,9 @@ namespace CyberSource.Model
         public string PhoneNumberRaw { get; set; }
 
         /// <summary>
-        /// Mapped Electronic Verification response code for the customer’s street address.  For details, see &#x60;auth_ev_street&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        /// Mapped Electronic Verification response code for the customer’s street address.  For details, see &#x60;auth_ev_street&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customer’s street address.  For details, see &#x60;auth_ev_street&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s street address.  For details, see &#x60;auth_ev_street&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="street", EmitDefaultValue=false)]
         public string Street { get; set; }
 
@@ -114,9 +114,9 @@ namespace CyberSource.Model
         public string StreetRaw { get; set; }
 
         /// <summary>
-        /// Mapped Electronic Verification response code for the customer’s postal code.  For details, see &#x60;auth_ev_postal_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        /// Mapped Electronic Verification response code for the customer’s postal code.  For details, see &#x60;auth_ev_postal_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customer’s postal code.  For details, see &#x60;auth_ev_postal_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s postal code.  For details, see &#x60;auth_ev_postal_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="postalCode", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
 

@@ -64,6 +64,22 @@ namespace CyberSource.Test
             //Assert.IsInstanceOfType<ErrorResponse> (instance, "variable 'instance' is a ErrorResponse");
         }
 
+        /// <summary>
+        /// Test the property 'ResponseStatus'
+        /// </summary>
+        [Test]
+        public void ResponseStatusTest()
+        {
+            // TODO unit test for the property 'ResponseStatus'
+        }
+        /// <summary>
+        /// Test the property 'Links'
+        /// </summary>
+        [Test]
+        public void LinksTest()
+        {
+            // TODO unit test for the property 'Links'
+        }
 
     }
 

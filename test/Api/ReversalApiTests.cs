@@ -77,6 +77,18 @@ namespace CyberSource.Test
             //Assert.IsInstanceOf<PtsV2PaymentsReversalsPost201Response> (response, "response is PtsV2PaymentsReversalsPost201Response");
         }
         
+        /// <summary>
+        /// Test MitReversal
+        /// </summary>
+        [Test]
+        public void MitReversalTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //MitReversalRequest mitReversalRequest = null;
+            //var response = instance.MitReversal(mitReversalRequest);
+            //Assert.IsInstanceOf<PtsV2PaymentsReversalsPost201Response> (response, "response is PtsV2PaymentsReversalsPost201Response");
+        }
+        
     }
 
 }

@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get report definition
+        /// Get Report Definition
         /// </summary>
         /// <remarks>
         /// View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
@@ -39,7 +39,7 @@ namespace CyberSource.Api
         ReportingV3ReportDefinitionsNameGet200Response GetResourceInfoByReportDefinition (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null);
 
         /// <summary>
-        /// Get report definition
+        /// Get Report Definition
         /// </summary>
         /// <remarks>
         /// View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
@@ -52,7 +52,7 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of ReportingV3ReportDefinitionsNameGet200Response</returns>
         ApiResponse<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionWithHttpInfo (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null);
         /// <summary>
-        /// Get reporting resource information
+        /// Get Reporting Resource Information
         /// </summary>
         /// <remarks>
         /// View a list of supported reports and their attributes before subscribing to them. 
@@ -64,7 +64,7 @@ namespace CyberSource.Api
         ReportingV3ReportDefinitionsGet200Response GetResourceV2Info (string subscriptionType = null, string organizationId = null);
 
         /// <summary>
-        /// Get reporting resource information
+        /// Get Reporting Resource Information
         /// </summary>
         /// <remarks>
         /// View a list of supported reports and their attributes before subscribing to them. 
@@ -77,7 +77,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get report definition
+        /// Get Report Definition
         /// </summary>
         /// <remarks>
         /// View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
@@ -91,7 +91,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionAsync (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null);
 
         /// <summary>
-        /// Get report definition
+        /// Get Report Definition
         /// </summary>
         /// <remarks>
         /// View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
@@ -104,7 +104,7 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsNameGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>> GetResourceInfoByReportDefinitionAsyncWithHttpInfo (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null);
         /// <summary>
-        /// Get reporting resource information
+        /// Get Reporting Resource Information
         /// </summary>
         /// <remarks>
         /// View a list of supported reports and their attributes before subscribing to them. 
@@ -116,7 +116,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3ReportDefinitionsGet200Response> GetResourceV2InfoAsync (string subscriptionType = null, string organizationId = null);
 
         /// <summary>
-        /// Get reporting resource information
+        /// Get Reporting Resource Information
         /// </summary>
         /// <remarks>
         /// View a list of supported reports and their attributes before subscribing to them. 
@@ -235,7 +235,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get report definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
+        /// Get Report Definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -250,7 +250,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get report definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
+        /// Get Report Definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -311,7 +311,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get report definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
+        /// Get Report Definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -327,7 +327,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get report definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
+        /// Get Report Definition View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
@@ -388,7 +388,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get reporting resource information View a list of supported reports and their attributes before subscribing to them. 
+        /// Get Reporting Resource Information View a list of supported reports and their attributes before subscribing to them. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
@@ -401,7 +401,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get reporting resource information View a list of supported reports and their attributes before subscribing to them. 
+        /// Get Reporting Resource Information View a list of supported reports and their attributes before subscribing to them. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
@@ -455,7 +455,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get reporting resource information View a list of supported reports and their attributes before subscribing to them. 
+        /// Get Reporting Resource Information View a list of supported reports and their attributes before subscribing to them. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
@@ -469,7 +469,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get reporting resource information View a list of supported reports and their attributes before subscribing to them. 
+        /// Get Reporting Resource Information View a list of supported reports and their attributes before subscribing to them. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>

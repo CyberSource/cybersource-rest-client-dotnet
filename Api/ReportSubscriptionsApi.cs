@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create Report Subscription for a report name by organization
+        /// Create Report Subscription for a Report Name by Organization
         /// </summary>
         /// <remarks>
         /// Create a report subscription for your organization. The report name must be unique. 
@@ -37,7 +37,7 @@ namespace CyberSource.Api
         void CreateSubscription (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null);
 
         /// <summary>
-        /// Create Report Subscription for a report name by organization
+        /// Create Report Subscription for a Report Name by Organization
         /// </summary>
         /// <remarks>
         /// Create a report subscription for your organization. The report name must be unique. 
@@ -48,7 +48,7 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateSubscriptionWithHttpInfo (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null);
         /// <summary>
-        /// Delete subscription of a report name by organization
+        /// Delete Subscription of a Report Name by Organization
         /// </summary>
         /// <remarks>
         /// Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
@@ -59,7 +59,7 @@ namespace CyberSource.Api
         void DeleteSubscription (string reportName);
 
         /// <summary>
-        /// Delete subscription of a report name by organization
+        /// Delete Subscription of a Report Name by Organization
         /// </summary>
         /// <remarks>
         /// Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
@@ -69,7 +69,7 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSubscriptionWithHttpInfo (string reportName);
         /// <summary>
-        /// Get all subscriptions
+        /// Get All Subscriptions
         /// </summary>
         /// <remarks>
         /// View a summary of all report subscriptions. 
@@ -79,7 +79,7 @@ namespace CyberSource.Api
         ReportingV3ReportSubscriptionsGet200Response GetAllSubscriptions ();
 
         /// <summary>
-        /// Get all subscriptions
+        /// Get All Subscriptions
         /// </summary>
         /// <remarks>
         /// View a summary of all report subscriptions. 
@@ -88,7 +88,7 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200Response</returns>
         ApiResponse<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsWithHttpInfo ();
         /// <summary>
-        /// Get subscription for report name
+        /// Get Subscription for Report Name
         /// </summary>
         /// <remarks>
         /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
@@ -99,7 +99,7 @@ namespace CyberSource.Api
         ReportingV3ReportSubscriptionsGet200ResponseSubscriptions GetSubscription (string reportName);
 
         /// <summary>
-        /// Get subscription for report name
+        /// Get Subscription for Report Name
         /// </summary>
         /// <remarks>
         /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
@@ -109,7 +109,7 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
         ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionWithHttpInfo (string reportName);
         /// <summary>
-        /// Create a Standard or Classic subscription
+        /// Create a Standard or Classic Subscription
         /// </summary>
         /// <remarks>
         /// Create or update an already existing classic or standard subscription. 
@@ -121,7 +121,7 @@ namespace CyberSource.Api
         void ReportingV3PredefinedReportSubscriptionsPut (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null);
 
         /// <summary>
-        /// Create a Standard or Classic subscription
+        /// Create a Standard or Classic Subscription
         /// </summary>
         /// <remarks>
         /// Create or update an already existing classic or standard subscription. 
@@ -134,7 +134,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create Report Subscription for a report name by organization
+        /// Create Report Subscription for a Report Name by Organization
         /// </summary>
         /// <remarks>
         /// Create a report subscription for your organization. The report name must be unique. 
@@ -146,7 +146,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task CreateSubscriptionAsync (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null);
 
         /// <summary>
-        /// Create Report Subscription for a report name by organization
+        /// Create Report Subscription for a Report Name by Organization
         /// </summary>
         /// <remarks>
         /// Create a report subscription for your organization. The report name must be unique. 
@@ -157,7 +157,7 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CreateSubscriptionAsyncWithHttpInfo (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null);
         /// <summary>
-        /// Delete subscription of a report name by organization
+        /// Delete Subscription of a Report Name by Organization
         /// </summary>
         /// <remarks>
         /// Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
@@ -168,7 +168,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task DeleteSubscriptionAsync (string reportName);
 
         /// <summary>
-        /// Delete subscription of a report name by organization
+        /// Delete Subscription of a Report Name by Organization
         /// </summary>
         /// <remarks>
         /// Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
@@ -178,7 +178,7 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo (string reportName);
         /// <summary>
-        /// Get all subscriptions
+        /// Get All Subscriptions
         /// </summary>
         /// <remarks>
         /// View a summary of all report subscriptions. 
@@ -188,7 +188,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync ();
 
         /// <summary>
-        /// Get all subscriptions
+        /// Get All Subscriptions
         /// </summary>
         /// <remarks>
         /// View a summary of all report subscriptions. 
@@ -197,7 +197,7 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200Response>> GetAllSubscriptionsAsyncWithHttpInfo ();
         /// <summary>
-        /// Get subscription for report name
+        /// Get Subscription for Report Name
         /// </summary>
         /// <remarks>
         /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
@@ -208,7 +208,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync (string reportName);
 
         /// <summary>
-        /// Get subscription for report name
+        /// Get Subscription for Report Name
         /// </summary>
         /// <remarks>
         /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
@@ -218,7 +218,7 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200ResponseSubscriptions)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>> GetSubscriptionAsyncWithHttpInfo (string reportName);
         /// <summary>
-        /// Create a Standard or Classic subscription
+        /// Create a Standard or Classic Subscription
         /// </summary>
         /// <remarks>
         /// Create or update an already existing classic or standard subscription. 
@@ -230,7 +230,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task ReportingV3PredefinedReportSubscriptionsPutAsync (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null);
 
         /// <summary>
-        /// Create a Standard or Classic subscription
+        /// Create a Standard or Classic Subscription
         /// </summary>
         /// <remarks>
         /// Create or update an already existing classic or standard subscription. 
@@ -349,7 +349,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Report Subscription for a report name by organization Create a report subscription for your organization. The report name must be unique. 
+        /// Create Report Subscription for a Report Name by Organization Create a report subscription for your organization. The report name must be unique. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
@@ -361,7 +361,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Report Subscription for a report name by organization Create a report subscription for your organization. The report name must be unique. 
+        /// Create Report Subscription for a Report Name by Organization Create a report subscription for your organization. The report name must be unique. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
@@ -425,7 +425,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Report Subscription for a report name by organization Create a report subscription for your organization. The report name must be unique. 
+        /// Create Report Subscription for a Report Name by Organization Create a report subscription for your organization. The report name must be unique. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
@@ -438,7 +438,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Report Subscription for a report name by organization Create a report subscription for your organization. The report name must be unique. 
+        /// Create Report Subscription for a Report Name by Organization Create a report subscription for your organization. The report name must be unique. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
@@ -502,7 +502,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete subscription of a report name by organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
+        /// Delete Subscription of a Report Name by Organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
@@ -513,7 +513,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete subscription of a report name by organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
+        /// Delete Subscription of a Report Name by Organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
@@ -568,7 +568,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete subscription of a report name by organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
+        /// Delete Subscription of a Report Name by Organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
@@ -580,7 +580,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete subscription of a report name by organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
+        /// Delete Subscription of a Report Name by Organization Delete a report subscription for your organization. You must know the unique name of the report you want to delete. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
@@ -635,7 +635,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get all subscriptions View a summary of all report subscriptions. 
+        /// Get All Subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ReportingV3ReportSubscriptionsGet200Response</returns>
@@ -646,7 +646,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get all subscriptions View a summary of all report subscriptions. 
+        /// Get All Subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200Response</returns>
@@ -696,7 +696,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get all subscriptions View a summary of all report subscriptions. 
+        /// Get All Subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200Response</returns>
@@ -708,7 +708,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get all subscriptions View a summary of all report subscriptions. 
+        /// Get All Subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200Response)</returns>
@@ -758,7 +758,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get subscription for report name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -770,7 +770,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get subscription for report name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -825,7 +825,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get subscription for report name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -838,7 +838,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get subscription for report name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -893,7 +893,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Standard or Classic subscription Create or update an already existing classic or standard subscription. 
+        /// Create a Standard or Classic Subscription Create or update an already existing classic or standard subscription. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
@@ -905,7 +905,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Standard or Classic subscription Create or update an already existing classic or standard subscription. 
+        /// Create a Standard or Classic Subscription Create or update an already existing classic or standard subscription. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
@@ -969,7 +969,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Standard or Classic subscription Create or update an already existing classic or standard subscription. 
+        /// Create a Standard or Classic Subscription Create or update an already existing classic or standard subscription. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
@@ -982,7 +982,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Standard or Classic subscription Create or update an already existing classic or standard subscription. 
+        /// Create a Standard or Classic Subscription Create or update an already existing classic or standard subscription. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>

@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessingInformation" /> class.
         /// </summary>
         /// <param name="BankTransferOptions">BankTransferOptions.</param>
-        public PtsV2PaymentsPost201ResponseProcessingInformation(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions))
+        /// <param name="EnhancedDataEnabled">- true : the airline data was included in the request to the processor. - false : the airline data was not included in the request to the processor. .</param>
+        public PtsV2PaymentsPost201ResponseProcessingInformation(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions), bool? EnhancedDataEnabled = default(bool?))
         {
             this.BankTransferOptions = BankTransferOptions;
+            this.EnhancedDataEnabled = EnhancedDataEnabled;
         }
         
         /// <summary>
@@ -44,6 +46,13 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="bankTransferOptions", EmitDefaultValue=false)]
         public PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions { get; set; }
+
+        /// <summary>
+        /// - true : the airline data was included in the request to the processor. - false : the airline data was not included in the request to the processor. 
+        /// </summary>
+        /// <value>- true : the airline data was included in the request to the processor. - false : the airline data was not included in the request to the processor. </value>
+        [DataMember(Name="enhancedDataEnabled", EmitDefaultValue=false)]
+        public bool? EnhancedDataEnabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +63,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseProcessingInformation {\n");
             sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
+            sb.Append("  EnhancedDataEnabled: ").Append(EnhancedDataEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +104,11 @@ namespace CyberSource.Model
                     this.BankTransferOptions == other.BankTransferOptions ||
                     this.BankTransferOptions != null &&
                     this.BankTransferOptions.Equals(other.BankTransferOptions)
+                ) && 
+                (
+                    this.EnhancedDataEnabled == other.EnhancedDataEnabled ||
+                    this.EnhancedDataEnabled != null &&
+                    this.EnhancedDataEnabled.Equals(other.EnhancedDataEnabled)
                 );
         }
 
@@ -110,6 +125,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.BankTransferOptions != null)
                     hash = hash * 59 + this.BankTransferOptions.GetHashCode();
+                if (this.EnhancedDataEnabled != null)
+                    hash = hash * 59 + this.EnhancedDataEnabled.GetHashCode();
                 return hash;
             }
         }

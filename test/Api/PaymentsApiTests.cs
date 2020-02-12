@@ -76,6 +76,19 @@ namespace CyberSource.Test
             //Assert.IsInstanceOf<PtsV2PaymentsPost201Response> (response, "response is PtsV2PaymentsPost201Response");
         }
         
+        /// <summary>
+        /// Test IncrementAuth
+        /// </summary>
+        [Test]
+        public void IncrementAuthTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string id = null;
+            //IncrementAuthRequest incrementAuthRequest = null;
+            //var response = instance.IncrementAuth(id, incrementAuthRequest);
+            //Assert.IsInstanceOf<PtsV2IncrementalAuthorizationPatch201Response> (response, "response is PtsV2IncrementalAuthorizationPatch201Response");
+        }
+        
     }
 
 }

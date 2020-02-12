@@ -104,6 +104,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'RoutingMethod'
         }
+        /// <summary>
+        /// Test the property 'Carrier'
+        /// </summary>
+        [Test]
+        public void CarrierTest()
+        {
+            // TODO unit test for the property 'Carrier'
+        }
+        /// <summary>
+        /// Test the property 'Organization'
+        /// </summary>
+        [Test]
+        public void OrganizationTest()
+        {
+            // TODO unit test for the property 'Organization'
+        }
 
     }
 

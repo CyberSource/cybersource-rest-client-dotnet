@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ClientReferenceInformation'
         }
         /// <summary>
+        /// Test the property 'ProcessingInformation'
+        /// </summary>
+        [Test]
+        public void ProcessingInformationTest()
+        {
+            // TODO unit test for the property 'ProcessingInformation'
+        }
+        /// <summary>
         /// Test the property 'OrderInformation'
         /// </summary>
         [Test]
