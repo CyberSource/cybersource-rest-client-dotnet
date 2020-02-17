@@ -78,7 +78,7 @@ namespace CyberSource.Api
         /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
         /// <param name="fraudMarkingActionRequest"></param>
         /// <returns>RiskV1UpdatePost201Response</returns>
-        RiskV1UpdatePost201Response FraudUdate (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
+        RiskV1UpdatePost201Response FraudUpdate (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
 
         /// <summary>
         /// Fraud Marking
@@ -90,7 +90,7 @@ namespace CyberSource.Api
         /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
         /// <param name="fraudMarkingActionRequest"></param>
         /// <returns>ApiResponse of RiskV1UpdatePost201Response</returns>
-        ApiResponse<RiskV1UpdatePost201Response> FraudUdateWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
+        ApiResponse<RiskV1UpdatePost201Response> FraudUpdateWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -147,7 +147,7 @@ namespace CyberSource.Api
         /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
         /// <param name="fraudMarkingActionRequest"></param>
         /// <returns>Task of RiskV1UpdatePost201Response</returns>
-        System.Threading.Tasks.Task<RiskV1UpdatePost201Response> FraudUdateAsync (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
+        System.Threading.Tasks.Task<RiskV1UpdatePost201Response> FraudUpdateAsync (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
 
         /// <summary>
         /// Fraud Marking
@@ -159,7 +159,7 @@ namespace CyberSource.Api
         /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
         /// <param name="fraudMarkingActionRequest"></param>
         /// <returns>Task of ApiResponse (RiskV1UpdatePost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RiskV1UpdatePost201Response>> FraudUdateAsyncWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
+        System.Threading.Tasks.Task<ApiResponse<RiskV1UpdatePost201Response>> FraudUpdateAsyncWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
         #endregion Asynchronous Operations
     }
 
@@ -585,9 +585,9 @@ namespace CyberSource.Api
         /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
         /// <param name="fraudMarkingActionRequest"></param>
         /// <returns>RiskV1UpdatePost201Response</returns>
-        public RiskV1UpdatePost201Response FraudUdate (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
+        public RiskV1UpdatePost201Response FraudUpdate (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
-             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = FraudUdateWithHttpInfo(id, fraudMarkingActionRequest);
+             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = FraudUpdateWithHttpInfo(id, fraudMarkingActionRequest);
              return localVarResponse.Data;
         }
 
@@ -598,14 +598,14 @@ namespace CyberSource.Api
         /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
         /// <param name="fraudMarkingActionRequest"></param>
         /// <returns>ApiResponse of RiskV1UpdatePost201Response</returns>
-        public ApiResponse< RiskV1UpdatePost201Response > FraudUdateWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
+        public ApiResponse< RiskV1UpdatePost201Response > FraudUpdateWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->FraudUdate");
+                throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
             // verify the required parameter 'fraudMarkingActionRequest' is set
             if (fraudMarkingActionRequest == null)
-                throw new ApiException(400, "Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUdate");
+                throw new ApiException(400, "Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
 
             var localVarPath = $"/risk/v1/decisions/{id}/marking";
             var localVarPathParams = new Dictionary<String, String>();
@@ -649,7 +649,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FraudUdate", localVarResponse);
+                Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -665,9 +665,9 @@ namespace CyberSource.Api
         /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
         /// <param name="fraudMarkingActionRequest"></param>
         /// <returns>Task of RiskV1UpdatePost201Response</returns>
-        public async System.Threading.Tasks.Task<RiskV1UpdatePost201Response> FraudUdateAsync (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
+        public async System.Threading.Tasks.Task<RiskV1UpdatePost201Response> FraudUpdateAsync (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
-             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await FraudUdateAsyncWithHttpInfo(id, fraudMarkingActionRequest);
+             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await FraudUpdateAsyncWithHttpInfo(id, fraudMarkingActionRequest);
              return localVarResponse.Data;
 
         }
@@ -679,14 +679,14 @@ namespace CyberSource.Api
         /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
         /// <param name="fraudMarkingActionRequest"></param>
         /// <returns>Task of ApiResponse (RiskV1UpdatePost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RiskV1UpdatePost201Response>> FraudUdateAsyncWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<RiskV1UpdatePost201Response>> FraudUpdateAsyncWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->FraudUdate");
+                throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
             // verify the required parameter 'fraudMarkingActionRequest' is set
             if (fraudMarkingActionRequest == null)
-                throw new ApiException(400, "Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUdate");
+                throw new ApiException(400, "Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
 
             var localVarPath = $"/risk/v1/decisions/{id}/marking";
             var localVarPathParams = new Dictionary<String, String>();
@@ -730,7 +730,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FraudUdate", localVarResponse);
+                Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
                 if (exception != null) throw exception;
             }
 
