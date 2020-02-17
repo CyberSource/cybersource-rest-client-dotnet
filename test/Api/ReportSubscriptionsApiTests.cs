@@ -65,6 +65,19 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test CreateStandardOrClassicSubscription
+        /// </summary>
+        [Test]
+        public void CreateStandardOrClassicSubscriptionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean = null;
+            //string organizationId = null;
+            //instance.CreateStandardOrClassicSubscription(predefinedSubscriptionRequestBean, organizationId);
+            
+        }
+        
+        /// <summary>
         /// Test CreateSubscription
         /// </summary>
         [Test]
@@ -110,19 +123,6 @@ namespace CyberSource.Test
             //string reportName = null;
             //var response = instance.GetSubscription(reportName);
             //Assert.IsInstanceOf<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> (response, "response is ReportingV3ReportSubscriptionsGet200ResponseSubscriptions");
-        }
-        
-        /// <summary>
-        /// Test ReportingV3PredefinedReportSubscriptionsPut
-        /// </summary>
-        [Test]
-        public void ReportingV3PredefinedReportSubscriptionsPutTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean = null;
-            //string organizationId = null;
-            //instance.ReportingV3PredefinedReportSubscriptionsPut(predefinedSubscriptionRequestBean, organizationId);
-            
         }
         
     }

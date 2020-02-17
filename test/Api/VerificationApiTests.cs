@@ -65,27 +65,27 @@ namespace CyberSource.Test
 
         
         /// <summary>
-        /// Test RiskV1AddressVerificationsPost
+        /// Test ValidateExportCompliance
         /// </summary>
         [Test]
-        public void RiskV1AddressVerificationsPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //VerifyCustomerAddressRequest verifyCustomerAddressRequest = null;
-            //var response = instance.RiskV1AddressVerificationsPost(verifyCustomerAddressRequest);
-            //Assert.IsInstanceOf<RiskV1AddressVerificationsPost201Response> (response, "response is RiskV1AddressVerificationsPost201Response");
-        }
-        
-        /// <summary>
-        /// Test RiskV1ExportComplianceInquiriesPost
-        /// </summary>
-        [Test]
-        public void RiskV1ExportComplianceInquiriesPostTest()
+        public void ValidateExportComplianceTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //ValidateExportComplianceRequest validateExportComplianceRequest = null;
-            //var response = instance.RiskV1ExportComplianceInquiriesPost(validateExportComplianceRequest);
+            //var response = instance.ValidateExportCompliance(validateExportComplianceRequest);
             //Assert.IsInstanceOf<RiskV1ExportComplianceInquiriesPost201Response> (response, "response is RiskV1ExportComplianceInquiriesPost201Response");
+        }
+        
+        /// <summary>
+        /// Test VerifyCustomerAddress
+        /// </summary>
+        [Test]
+        public void VerifyCustomerAddressTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //VerifyCustomerAddressRequest verifyCustomerAddressRequest = null;
+            //var response = instance.VerifyCustomerAddress(verifyCustomerAddressRequest);
+            //Assert.IsInstanceOf<RiskV1AddressVerificationsPost201Response> (response, "response is RiskV1AddressVerificationsPost201Response");
         }
         
     }
