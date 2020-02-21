@@ -25,6 +25,29 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// List Management
+        /// </summary>
+        /// <remarks>
+        /// This call adds/deletes/converts the request information in the negative list.  Provide the list to be updated as the path parameter. This value can be &#39;postiive&#39;, &#39;negative&#39; or &#39;review&#39;. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">The list to be updated. It can be &#39;positive&#39;, &#39;negative&#39; or &#39;review&#39;.</param>
+        /// <param name="addNegativeListRequest"></param>
+        /// <returns>RiskV1UpdatePost201Response</returns>
+        RiskV1UpdatePost201Response AddNegative (string type, AddNegativeListRequest addNegativeListRequest);
+
+        /// <summary>
+        /// List Management
+        /// </summary>
+        /// <remarks>
+        /// This call adds/deletes/converts the request information in the negative list.  Provide the list to be updated as the path parameter. This value can be &#39;postiive&#39;, &#39;negative&#39; or &#39;review&#39;. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">The list to be updated. It can be &#39;positive&#39;, &#39;negative&#39; or &#39;review&#39;.</param>
+        /// <param name="addNegativeListRequest"></param>
+        /// <returns>ApiResponse of RiskV1UpdatePost201Response</returns>
+        ApiResponse<RiskV1UpdatePost201Response> AddNegativeWithHttpInfo (string type, AddNegativeListRequest addNegativeListRequest);
+        /// <summary>
         /// Create Decision Manager Case
         /// </summary>
         /// <remarks>
@@ -45,8 +68,54 @@ namespace CyberSource.Api
         /// <param name="createDecisionManagerCaseRequest"></param>
         /// <returns>ApiResponse of RiskV1DecisionsPost201Response</returns>
         ApiResponse<RiskV1DecisionsPost201Response> CreateDecisionManagerCaseWithHttpInfo (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest);
+        /// <summary>
+        /// Fraud Marking
+        /// </summary>
+        /// <remarks>
+        /// This can be used to - 1. Add known fraudulent data to the fraud history 2. Remove data added to history with Transaction Marking Tool or by uploading chargeback files 3. Remove chargeback data from history that was automatically added. For detailed information, contact your Cybersource representative  Place the request ID of the transaction you want to mark as suspect (or remove from history) as the path parameter in this request. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
+        /// <param name="fraudMarkingActionRequest"></param>
+        /// <returns>RiskV1UpdatePost201Response</returns>
+        RiskV1UpdatePost201Response FraudUpdate (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
+
+        /// <summary>
+        /// Fraud Marking
+        /// </summary>
+        /// <remarks>
+        /// This can be used to - 1. Add known fraudulent data to the fraud history 2. Remove data added to history with Transaction Marking Tool or by uploading chargeback files 3. Remove chargeback data from history that was automatically added. For detailed information, contact your Cybersource representative  Place the request ID of the transaction you want to mark as suspect (or remove from history) as the path parameter in this request. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
+        /// <param name="fraudMarkingActionRequest"></param>
+        /// <returns>ApiResponse of RiskV1UpdatePost201Response</returns>
+        ApiResponse<RiskV1UpdatePost201Response> FraudUpdateWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// List Management
+        /// </summary>
+        /// <remarks>
+        /// This call adds/deletes/converts the request information in the negative list.  Provide the list to be updated as the path parameter. This value can be &#39;postiive&#39;, &#39;negative&#39; or &#39;review&#39;. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">The list to be updated. It can be &#39;positive&#39;, &#39;negative&#39; or &#39;review&#39;.</param>
+        /// <param name="addNegativeListRequest"></param>
+        /// <returns>Task of RiskV1UpdatePost201Response</returns>
+        System.Threading.Tasks.Task<RiskV1UpdatePost201Response> AddNegativeAsync (string type, AddNegativeListRequest addNegativeListRequest);
+
+        /// <summary>
+        /// List Management
+        /// </summary>
+        /// <remarks>
+        /// This call adds/deletes/converts the request information in the negative list.  Provide the list to be updated as the path parameter. This value can be &#39;postiive&#39;, &#39;negative&#39; or &#39;review&#39;. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">The list to be updated. It can be &#39;positive&#39;, &#39;negative&#39; or &#39;review&#39;.</param>
+        /// <param name="addNegativeListRequest"></param>
+        /// <returns>Task of ApiResponse (RiskV1UpdatePost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RiskV1UpdatePost201Response>> AddNegativeAsyncWithHttpInfo (string type, AddNegativeListRequest addNegativeListRequest);
         /// <summary>
         /// Create Decision Manager Case
         /// </summary>
@@ -68,6 +137,29 @@ namespace CyberSource.Api
         /// <param name="createDecisionManagerCaseRequest"></param>
         /// <returns>Task of ApiResponse (RiskV1DecisionsPost201Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<RiskV1DecisionsPost201Response>> CreateDecisionManagerCaseAsyncWithHttpInfo (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest);
+        /// <summary>
+        /// Fraud Marking
+        /// </summary>
+        /// <remarks>
+        /// This can be used to - 1. Add known fraudulent data to the fraud history 2. Remove data added to history with Transaction Marking Tool or by uploading chargeback files 3. Remove chargeback data from history that was automatically added. For detailed information, contact your Cybersource representative  Place the request ID of the transaction you want to mark as suspect (or remove from history) as the path parameter in this request. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
+        /// <param name="fraudMarkingActionRequest"></param>
+        /// <returns>Task of RiskV1UpdatePost201Response</returns>
+        System.Threading.Tasks.Task<RiskV1UpdatePost201Response> FraudUpdateAsync (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
+
+        /// <summary>
+        /// Fraud Marking
+        /// </summary>
+        /// <remarks>
+        /// This can be used to - 1. Add known fraudulent data to the fraud history 2. Remove data added to history with Transaction Marking Tool or by uploading chargeback files 3. Remove chargeback data from history that was automatically added. For detailed information, contact your Cybersource representative  Place the request ID of the transaction you want to mark as suspect (or remove from history) as the path parameter in this request. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
+        /// <param name="fraudMarkingActionRequest"></param>
+        /// <returns>Task of ApiResponse (RiskV1UpdatePost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RiskV1UpdatePost201Response>> FraudUpdateAsyncWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest);
         #endregion Asynchronous Operations
     }
 
@@ -174,6 +266,167 @@ namespace CyberSource.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// List Management This call adds/deletes/converts the request information in the negative list.  Provide the list to be updated as the path parameter. This value can be &#39;postiive&#39;, &#39;negative&#39; or &#39;review&#39;. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">The list to be updated. It can be &#39;positive&#39;, &#39;negative&#39; or &#39;review&#39;.</param>
+        /// <param name="addNegativeListRequest"></param>
+        /// <returns>RiskV1UpdatePost201Response</returns>
+        public RiskV1UpdatePost201Response AddNegative (string type, AddNegativeListRequest addNegativeListRequest)
+        {
+             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = AddNegativeWithHttpInfo(type, addNegativeListRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Management This call adds/deletes/converts the request information in the negative list.  Provide the list to be updated as the path parameter. This value can be &#39;postiive&#39;, &#39;negative&#39; or &#39;review&#39;. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">The list to be updated. It can be &#39;positive&#39;, &#39;negative&#39; or &#39;review&#39;.</param>
+        /// <param name="addNegativeListRequest"></param>
+        /// <returns>ApiResponse of RiskV1UpdatePost201Response</returns>
+        public ApiResponse< RiskV1UpdatePost201Response > AddNegativeWithHttpInfo (string type, AddNegativeListRequest addNegativeListRequest)
+        {
+            // verify the required parameter 'type' is set
+            if (type == null)
+                throw new ApiException(400, "Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
+            // verify the required parameter 'addNegativeListRequest' is set
+            if (addNegativeListRequest == null)
+                throw new ApiException(400, "Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
+
+            var localVarPath = $"/risk/v1/lists/{type}/entries";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
+            if (addNegativeListRequest != null && addNegativeListRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(addNegativeListRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = addNegativeListRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddNegative", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response)));
+        }
+
+        /// <summary>
+        /// List Management This call adds/deletes/converts the request information in the negative list.  Provide the list to be updated as the path parameter. This value can be &#39;postiive&#39;, &#39;negative&#39; or &#39;review&#39;. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">The list to be updated. It can be &#39;positive&#39;, &#39;negative&#39; or &#39;review&#39;.</param>
+        /// <param name="addNegativeListRequest"></param>
+        /// <returns>Task of RiskV1UpdatePost201Response</returns>
+        public async System.Threading.Tasks.Task<RiskV1UpdatePost201Response> AddNegativeAsync (string type, AddNegativeListRequest addNegativeListRequest)
+        {
+             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await AddNegativeAsyncWithHttpInfo(type, addNegativeListRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List Management This call adds/deletes/converts the request information in the negative list.  Provide the list to be updated as the path parameter. This value can be &#39;postiive&#39;, &#39;negative&#39; or &#39;review&#39;. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">The list to be updated. It can be &#39;positive&#39;, &#39;negative&#39; or &#39;review&#39;.</param>
+        /// <param name="addNegativeListRequest"></param>
+        /// <returns>Task of ApiResponse (RiskV1UpdatePost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RiskV1UpdatePost201Response>> AddNegativeAsyncWithHttpInfo (string type, AddNegativeListRequest addNegativeListRequest)
+        {
+            // verify the required parameter 'type' is set
+            if (type == null)
+                throw new ApiException(400, "Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
+            // verify the required parameter 'addNegativeListRequest' is set
+            if (addNegativeListRequest == null)
+                throw new ApiException(400, "Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
+
+            var localVarPath = $"/risk/v1/lists/{type}/entries";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
+            if (addNegativeListRequest != null && addNegativeListRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(addNegativeListRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = addNegativeListRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddNegative", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response)));
         }
 
         /// <summary>
@@ -323,6 +576,167 @@ namespace CyberSource.Api
             return new ApiResponse<RiskV1DecisionsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (RiskV1DecisionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1DecisionsPost201Response)));
+        }
+
+        /// <summary>
+        /// Fraud Marking This can be used to - 1. Add known fraudulent data to the fraud history 2. Remove data added to history with Transaction Marking Tool or by uploading chargeback files 3. Remove chargeback data from history that was automatically added. For detailed information, contact your Cybersource representative  Place the request ID of the transaction you want to mark as suspect (or remove from history) as the path parameter in this request. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
+        /// <param name="fraudMarkingActionRequest"></param>
+        /// <returns>RiskV1UpdatePost201Response</returns>
+        public RiskV1UpdatePost201Response FraudUpdate (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
+        {
+             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = FraudUpdateWithHttpInfo(id, fraudMarkingActionRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Fraud Marking This can be used to - 1. Add known fraudulent data to the fraud history 2. Remove data added to history with Transaction Marking Tool or by uploading chargeback files 3. Remove chargeback data from history that was automatically added. For detailed information, contact your Cybersource representative  Place the request ID of the transaction you want to mark as suspect (or remove from history) as the path parameter in this request. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
+        /// <param name="fraudMarkingActionRequest"></param>
+        /// <returns>ApiResponse of RiskV1UpdatePost201Response</returns>
+        public ApiResponse< RiskV1UpdatePost201Response > FraudUpdateWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
+            // verify the required parameter 'fraudMarkingActionRequest' is set
+            if (fraudMarkingActionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
+
+            var localVarPath = $"/risk/v1/decisions/{id}/marking";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (fraudMarkingActionRequest != null && fraudMarkingActionRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(fraudMarkingActionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = fraudMarkingActionRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response)));
+        }
+
+        /// <summary>
+        /// Fraud Marking This can be used to - 1. Add known fraudulent data to the fraud history 2. Remove data added to history with Transaction Marking Tool or by uploading chargeback files 3. Remove chargeback data from history that was automatically added. For detailed information, contact your Cybersource representative  Place the request ID of the transaction you want to mark as suspect (or remove from history) as the path parameter in this request. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
+        /// <param name="fraudMarkingActionRequest"></param>
+        /// <returns>Task of RiskV1UpdatePost201Response</returns>
+        public async System.Threading.Tasks.Task<RiskV1UpdatePost201Response> FraudUpdateAsync (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
+        {
+             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await FraudUpdateAsyncWithHttpInfo(id, fraudMarkingActionRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Fraud Marking This can be used to - 1. Add known fraudulent data to the fraud history 2. Remove data added to history with Transaction Marking Tool or by uploading chargeback files 3. Remove chargeback data from history that was automatically added. For detailed information, contact your Cybersource representative  Place the request ID of the transaction you want to mark as suspect (or remove from history) as the path parameter in this request. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Request ID of the transaction that you want to mark as suspect or remove from history.</param>
+        /// <param name="fraudMarkingActionRequest"></param>
+        /// <returns>Task of ApiResponse (RiskV1UpdatePost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RiskV1UpdatePost201Response>> FraudUpdateAsyncWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
+            // verify the required parameter 'fraudMarkingActionRequest' is set
+            if (fraudMarkingActionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
+
+            var localVarPath = $"/risk/v1/decisions/{id}/marking";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (fraudMarkingActionRequest != null && fraudMarkingActionRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(fraudMarkingActionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = fraudMarkingActionRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response)));
         }
 
     }

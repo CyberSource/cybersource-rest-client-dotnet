@@ -65,6 +65,19 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test AddNegative
+        /// </summary>
+        [Test]
+        public void AddNegativeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string type = null;
+            //AddNegativeListRequest addNegativeListRequest = null;
+            //var response = instance.AddNegative(type, addNegativeListRequest);
+            //Assert.IsInstanceOf<RiskV1UpdatePost201Response> (response, "response is RiskV1UpdatePost201Response");
+        }
+        
+        /// <summary>
         /// Test CreateDecisionManagerCase
         /// </summary>
         [Test]
@@ -74,6 +87,19 @@ namespace CyberSource.Test
             //CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest = null;
             //var response = instance.CreateDecisionManagerCase(createDecisionManagerCaseRequest);
             //Assert.IsInstanceOf<RiskV1DecisionsPost201Response> (response, "response is RiskV1DecisionsPost201Response");
+        }
+        
+        /// <summary>
+        /// Test FraudUdate
+        /// </summary>
+        [Test]
+        public void FraudUdateTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string id = null;
+            //FraudMarkingActionRequest fraudMarkingActionRequest = null;
+            //var response = instance.FraudUdate(id, fraudMarkingActionRequest);
+            //Assert.IsInstanceOf<RiskV1UpdatePost201Response> (response, "response is RiskV1UpdatePost201Response");
         }
         
     }

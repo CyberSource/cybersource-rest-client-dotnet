@@ -4,14 +4,14 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetUsers**](UserManagementApi.md#getusers) | **GET** /ums/v1/users | Get user information
+[**GetUsers**](UserManagementApi.md#getusers) | **GET** /ums/v1/users | Get User Information
 
 
 <a name="getusers"></a>
 # **GetUsers**
 > UmsV1UsersGet200Response GetUsers (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
 
-Get user information
+Get User Information
 
 This endpoint is to get all the user information depending on the filter criteria passed in the query.
 
@@ -37,7 +37,7 @@ namespace Example
 
             try
             {
-                // Get user information
+                // Get User Information
                 UmsV1UsersGet200Response result = apiInstance.GetUsers(organizationId, userName, permissionId, roleId);
                 Debug.WriteLine(result);
             }

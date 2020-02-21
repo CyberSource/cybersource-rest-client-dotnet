@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create a search request
+        /// Create a Search Request
         /// </summary>
         /// <remarks>
         /// Create a search request. 
@@ -36,7 +36,7 @@ namespace CyberSource.Api
         TssV2TransactionsPost201Response CreateSearch (CreateSearchRequest createSearchRequest);
 
         /// <summary>
-        /// Create a search request
+        /// Create a Search Request
         /// </summary>
         /// <remarks>
         /// Create a search request. 
@@ -46,7 +46,7 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of TssV2TransactionsPost201Response</returns>
         ApiResponse<TssV2TransactionsPost201Response> CreateSearchWithHttpInfo (CreateSearchRequest createSearchRequest);
         /// <summary>
-        /// Get Search results
+        /// Get Search Results
         /// </summary>
         /// <remarks>
         /// Include the Search ID in the GET request to retrieve the search results.
@@ -57,7 +57,7 @@ namespace CyberSource.Api
         TssV2TransactionsPost201Response GetSearch (string searchId);
 
         /// <summary>
-        /// Get Search results
+        /// Get Search Results
         /// </summary>
         /// <remarks>
         /// Include the Search ID in the GET request to retrieve the search results.
@@ -69,7 +69,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create a search request
+        /// Create a Search Request
         /// </summary>
         /// <remarks>
         /// Create a search request. 
@@ -80,7 +80,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<TssV2TransactionsPost201Response> CreateSearchAsync (CreateSearchRequest createSearchRequest);
 
         /// <summary>
-        /// Create a search request
+        /// Create a Search Request
         /// </summary>
         /// <remarks>
         /// Create a search request. 
@@ -90,7 +90,7 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> CreateSearchAsyncWithHttpInfo (CreateSearchRequest createSearchRequest);
         /// <summary>
-        /// Get Search results
+        /// Get Search Results
         /// </summary>
         /// <remarks>
         /// Include the Search ID in the GET request to retrieve the search results.
@@ -101,7 +101,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<TssV2TransactionsPost201Response> GetSearchAsync (string searchId);
 
         /// <summary>
-        /// Get Search results
+        /// Get Search Results
         /// </summary>
         /// <remarks>
         /// Include the Search ID in the GET request to retrieve the search results.
@@ -219,7 +219,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a search request Create a search request. 
+        /// Create a Search Request Create a search request. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
@@ -231,7 +231,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a search request Create a search request. 
+        /// Create a Search Request Create a search request. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
@@ -293,7 +293,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a search request Create a search request. 
+        /// Create a Search Request Create a search request. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
@@ -306,7 +306,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a search request Create a search request. 
+        /// Create a Search Request Create a search request. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSearchRequest"></param>
@@ -368,7 +368,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Search results Include the Search ID in the GET request to retrieve the search results.
+        /// Get Search Results Include the Search ID in the GET request to retrieve the search results.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
@@ -380,7 +380,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Search results Include the Search ID in the GET request to retrieve the search results.
+        /// Get Search Results Include the Search ID in the GET request to retrieve the search results.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
@@ -435,7 +435,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Search results Include the Search ID in the GET request to retrieve the search results.
+        /// Get Search Results Include the Search ID in the GET request to retrieve the search results.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>
@@ -448,7 +448,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Search results Include the Search ID in the GET request to retrieve the search results.
+        /// Get Search Results Include the Search ID in the GET request to retrieve the search results.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchId">Search ID.</param>

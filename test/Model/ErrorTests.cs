@@ -65,28 +65,20 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Type'
+        /// Test the property 'ResponseStatus'
         /// </summary>
         [Test]
-        public void TypeTest()
+        public void ResponseStatusTest()
         {
-            // TODO unit test for the property 'Type'
+            // TODO unit test for the property 'ResponseStatus'
         }
         /// <summary>
-        /// Test the property 'Message'
+        /// Test the property 'Links'
         /// </summary>
         [Test]
-        public void MessageTest()
+        public void LinksTest()
         {
-            // TODO unit test for the property 'Message'
-        }
-        /// <summary>
-        /// Test the property 'Details'
-        /// </summary>
-        [Test]
-        public void DetailsTest()
-        {
-            // TODO unit test for the property 'Details'
+            // TODO unit test for the property 'Links'
         }
 
     }

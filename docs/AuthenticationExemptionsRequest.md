@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientReferenceInformation** | [**Ptsv2payoutsClientReferenceInformation**](Ptsv2payoutsClientReferenceInformation.md) |  | [optional] 
+**ClientReferenceInformation** | [**PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation**](PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation.md) |  | [optional] 
 **OrderInformation** | [**Riskv1authenticationexemptionsOrderInformation**](Riskv1authenticationexemptionsOrderInformation.md) |  | [optional] 
 **PaymentInformation** | [**Riskv1authenticationexemptionsPaymentInformation**](Riskv1authenticationexemptionsPaymentInformation.md) |  | [optional] 
 **DeviceInformation** | [**Riskv1authenticationexemptionsDeviceInformation**](Riskv1authenticationexemptionsDeviceInformation.md) |  | [optional] 

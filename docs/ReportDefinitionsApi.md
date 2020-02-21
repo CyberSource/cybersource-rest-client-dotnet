@@ -4,15 +4,15 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetResourceInfoByReportDefinition**](ReportDefinitionsApi.md#getresourceinfobyreportdefinition) | **GET** /reporting/v3/report-definitions/{reportDefinitionName} | Get report definition
-[**GetResourceV2Info**](ReportDefinitionsApi.md#getresourcev2info) | **GET** /reporting/v3/report-definitions | Get reporting resource information
+[**GetResourceInfoByReportDefinition**](ReportDefinitionsApi.md#getresourceinfobyreportdefinition) | **GET** /reporting/v3/report-definitions/{reportDefinitionName} | Get Report Definition
+[**GetResourceV2Info**](ReportDefinitionsApi.md#getresourcev2info) | **GET** /reporting/v3/report-definitions | Get Reporting Resource Information
 
 
 <a name="getresourceinfobyreportdefinition"></a>
 # **GetResourceInfoByReportDefinition**
 > ReportingV3ReportDefinitionsNameGet200Response GetResourceInfoByReportDefinition (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null)
 
-Get report definition
+Get Report Definition
 
 View the attributes of an individual report type. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation/) 
 
@@ -38,7 +38,7 @@ namespace Example
 
             try
             {
-                // Get report definition
+                // Get Report Definition
                 ReportingV3ReportDefinitionsNameGet200Response result = apiInstance.GetResourceInfoByReportDefinition(reportDefinitionName, subscriptionType, reportMimeType, organizationId);
                 Debug.WriteLine(result);
             }
@@ -79,7 +79,7 @@ No authorization required
 # **GetResourceV2Info**
 > ReportingV3ReportDefinitionsGet200Response GetResourceV2Info (string subscriptionType = null, string organizationId = null)
 
-Get reporting resource information
+Get Reporting Resource Information
 
 View a list of supported reports and their attributes before subscribing to them. 
 
@@ -103,7 +103,7 @@ namespace Example
 
             try
             {
-                // Get reporting resource information
+                // Get Reporting Resource Information
                 ReportingV3ReportDefinitionsGet200Response result = apiInstance.GetResourceV2Info(subscriptionType, organizationId);
                 Debug.WriteLine(result);
             }

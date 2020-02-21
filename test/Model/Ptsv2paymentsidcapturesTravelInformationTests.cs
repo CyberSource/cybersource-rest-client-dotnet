@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Lodging'
         }
+        /// <summary>
+        /// Test the property 'Transit'
+        /// </summary>
+        [Test]
+        public void TransitTest()
+        {
+            // TODO unit test for the property 'Transit'
+        }
 
     }
 

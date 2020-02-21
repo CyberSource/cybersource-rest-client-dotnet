@@ -4,14 +4,14 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetPurchaseAndRefundDetails**](PurchaseAndRefundDetailsApi.md#getpurchaseandrefunddetails) | **GET** /reporting/v3/purchase-refund-details | Get Purchase and Refund details
+[**GetPurchaseAndRefundDetails**](PurchaseAndRefundDetailsApi.md#getpurchaseandrefunddetails) | **GET** /reporting/v3/purchase-refund-details | Get Purchase and Refund Details
 
 
 <a name="getpurchaseandrefunddetails"></a>
 # **GetPurchaseAndRefundDetails**
 > ReportingV3PurchaseRefundDetailsGet200Response GetPurchaseAndRefundDetails (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
 
-Get Purchase and Refund details
+Get Purchase and Refund Details
 
 Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
 
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // Get Purchase and Refund details
+                // Get Purchase and Refund Details
                 ReportingV3PurchaseRefundDetailsGet200Response result = apiInstance.GetPurchaseAndRefundDetails(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
                 Debug.WriteLine(result);
             }

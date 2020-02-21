@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1authenticationexemptionsAcquirerInformation" /> class.
         /// </summary>
-        /// <param name="AcquirerBin">Acquirer bank ID number that corresponds to a certificate that Cybersource already has.This ID has this format. 4XXXXX for Visa and 5XXXXX for Mastercard. .</param>
+        /// <param name="AcquirerBin">Acquirer bank ID number that  corresponds to a certificate that Cybersource already has.This ID has this format. 4XXXXX for Visa and 5XXXXX for Mastercard. .</param>
         public Riskv1authenticationexemptionsAcquirerInformation(string AcquirerBin = default(string))
         {
             this.AcquirerBin = AcquirerBin;
         }
         
         /// <summary>
-        /// Acquirer bank ID number that corresponds to a certificate that Cybersource already has.This ID has this format. 4XXXXX for Visa and 5XXXXX for Mastercard. 
+        /// Acquirer bank ID number that  corresponds to a certificate that Cybersource already has.This ID has this format. 4XXXXX for Visa and 5XXXXX for Mastercard. 
         /// </summary>
-        /// <value>Acquirer bank ID number that corresponds to a certificate that Cybersource already has.This ID has this format. 4XXXXX for Visa and 5XXXXX for Mastercard. </value>
+        /// <value>Acquirer bank ID number that  corresponds to a certificate that Cybersource already has.This ID has this format. 4XXXXX for Visa and 5XXXXX for Mastercard. </value>
         [DataMember(Name="acquirerBin", EmitDefaultValue=false)]
         public string AcquirerBin { get; set; }
 

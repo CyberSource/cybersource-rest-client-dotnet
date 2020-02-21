@@ -336,6 +336,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Xid'
         }
+        /// <summary>
+        /// Test the property 'DirectoryServerTransactionId'
+        /// </summary>
+        [Test]
+        public void DirectoryServerTransactionIdTest()
+        {
+            // TODO unit test for the property 'DirectoryServerTransactionId'
+        }
 
     }
 

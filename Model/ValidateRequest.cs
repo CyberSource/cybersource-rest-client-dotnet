@@ -34,12 +34,14 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="ValidateRequest" /> class.
         /// </summary>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
-        public ValidateRequest(Riskv1authenticationsClientReferenceInformation ClientReferenceInformation = default(Riskv1authenticationsClientReferenceInformation), Riskv1authenticationresultsOrderInformation OrderInformation = default(Riskv1authenticationresultsOrderInformation), Riskv1authenticationresultsPaymentInformation PaymentInformation = default(Riskv1authenticationresultsPaymentInformation), Riskv1authenticationresultsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1authenticationresultsConsumerAuthenticationInformation))
+        public ValidateRequest(Riskv1authenticationsetupsClientReferenceInformation ClientReferenceInformation = default(Riskv1authenticationsetupsClientReferenceInformation), Riskv1authenticationsetupsProcessingInformation ProcessingInformation = default(Riskv1authenticationsetupsProcessingInformation), Riskv1authenticationresultsOrderInformation OrderInformation = default(Riskv1authenticationresultsOrderInformation), Riskv1authenticationresultsPaymentInformation PaymentInformation = default(Riskv1authenticationresultsPaymentInformation), Riskv1authenticationresultsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1authenticationresultsConsumerAuthenticationInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
+            this.ProcessingInformation = ProcessingInformation;
             this.OrderInformation = OrderInformation;
             this.PaymentInformation = PaymentInformation;
             this.ConsumerAuthenticationInformation = ConsumerAuthenticationInformation;
@@ -49,7 +51,13 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Riskv1authenticationsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Riskv1authenticationsetupsClientReferenceInformation ClientReferenceInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProcessingInformation
+        /// </summary>
+        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
+        public Riskv1authenticationsetupsProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation
@@ -78,6 +86,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class ValidateRequest {\n");
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
@@ -123,6 +132,11 @@ namespace CyberSource.Model
                     this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
                 ) && 
                 (
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
+                ) && 
+                (
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
@@ -152,6 +166,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.ClientReferenceInformation != null)
                     hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 if (this.PaymentInformation != null)

@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateInstrumentIdentifierRequest" /> class.
         /// </summary>
-        /// <param name="Type">Type of Card.</param>
+        /// <param name="Type">Enrol card for a Network Token.</param>
         /// <param name="Card">Card.</param>
         /// <param name="BankAccount">BankAccount.</param>
         /// <param name="BillTo">BillTo.</param>
@@ -46,9 +46,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Type of Card
+        /// Enrol card for a Network Token
         /// </summary>
-        /// <value>Type of Card</value>
+        /// <value>Enrol card for a Network Token</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

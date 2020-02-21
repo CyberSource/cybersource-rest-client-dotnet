@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'BankTransferOptions'
         }
+        /// <summary>
+        /// Test the property 'EnhancedDataEnabled'
+        /// </summary>
+        [Test]
+        public void EnhancedDataEnabledTest()
+        {
+            // TODO unit test for the property 'EnhancedDataEnabled'
+        }
 
     }
 

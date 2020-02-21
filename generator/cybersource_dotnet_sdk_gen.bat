@@ -12,7 +12,7 @@ powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SecureF
 
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[266] = $fileContents[266] -replace 'null', 'localVarResponse.Content' ;  $fileContents[346] = $fileContents[346] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[330] = $fileContents[330] -replace 'null', 'localVarResponse.Content' ;  $fileContents[398] = $fileContents[398] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[345] = $fileContents[345] -replace 'null', 'localVarResponse.Content' ;  $fileContents[420] = $fileContents[420] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
 rem For changing nuspec filename in csproj file
 powershell -Command "(Get-Content ..\src\CyberSource\CyberSource.csproj) | ForEach-Object { $_ -replace '<None Include=\"CyberSource.nuspec\" />', '<None Include=\"cybersource-rest-client-dotnet.nuspec\" />' } | Set-Content ..\src\CyberSource\CyberSource.csproj"

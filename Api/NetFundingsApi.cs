@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get Netfunding information for an account or a merchant
+        /// Get Netfunding Information for an Account or a Merchant
         /// </summary>
         /// <remarks>
         /// Get Netfunding information for an account or a merchant.
@@ -39,7 +39,7 @@ namespace CyberSource.Api
         ReportingV3NetFundingsGet200Response GetNetFundingDetails (DateTime? startTime, DateTime? endTime, string organizationId = null, string groupName = null);
 
         /// <summary>
-        /// Get Netfunding information for an account or a merchant
+        /// Get Netfunding Information for an Account or a Merchant
         /// </summary>
         /// <remarks>
         /// Get Netfunding information for an account or a merchant.
@@ -54,7 +54,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get Netfunding information for an account or a merchant
+        /// Get Netfunding Information for an Account or a Merchant
         /// </summary>
         /// <remarks>
         /// Get Netfunding information for an account or a merchant.
@@ -68,7 +68,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3NetFundingsGet200Response> GetNetFundingDetailsAsync (DateTime? startTime, DateTime? endTime, string organizationId = null, string groupName = null);
 
         /// <summary>
-        /// Get Netfunding information for an account or a merchant
+        /// Get Netfunding Information for an Account or a Merchant
         /// </summary>
         /// <remarks>
         /// Get Netfunding information for an account or a merchant.
@@ -189,7 +189,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Netfunding information for an account or a merchant Get Netfunding information for an account or a merchant.
+        /// Get Netfunding Information for an Account or a Merchant Get Netfunding information for an account or a merchant.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -204,7 +204,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Netfunding information for an account or a merchant Get Netfunding information for an account or a merchant.
+        /// Get Netfunding Information for an Account or a Merchant Get Netfunding information for an account or a merchant.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -269,7 +269,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Netfunding information for an account or a merchant Get Netfunding information for an account or a merchant.
+        /// Get Netfunding Information for an Account or a Merchant Get Netfunding information for an account or a merchant.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -285,7 +285,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Netfunding information for an account or a merchant Get Netfunding information for an account or a merchant.
+        /// Get Netfunding Information for an Account or a Merchant Get Netfunding information for an account or a merchant.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>

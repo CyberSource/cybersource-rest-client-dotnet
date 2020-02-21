@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Agency">Agency.</param>
         /// <param name="Lodging">Lodging.</param>
-        public Ptsv2paymentsidcapturesTravelInformation(Ptsv2paymentsTravelInformationAgency Agency = default(Ptsv2paymentsTravelInformationAgency), Ptsv2paymentsTravelInformationLodging Lodging = default(Ptsv2paymentsTravelInformationLodging))
+        /// <param name="Transit">Transit.</param>
+        public Ptsv2paymentsidcapturesTravelInformation(Ptsv2paymentsTravelInformationAgency Agency = default(Ptsv2paymentsTravelInformationAgency), Ptsv2paymentsTravelInformationLodging Lodging = default(Ptsv2paymentsTravelInformationLodging), Ptsv2paymentsTravelInformationTransit Transit = default(Ptsv2paymentsTravelInformationTransit))
         {
             this.Agency = Agency;
             this.Lodging = Lodging;
+            this.Transit = Transit;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsTravelInformationLodging Lodging { get; set; }
 
         /// <summary>
+        /// Gets or Sets Transit
+        /// </summary>
+        [DataMember(Name="transit", EmitDefaultValue=false)]
+        public Ptsv2paymentsTravelInformationTransit Transit { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsidcapturesTravelInformation {\n");
             sb.Append("  Agency: ").Append(Agency).Append("\n");
             sb.Append("  Lodging: ").Append(Lodging).Append("\n");
+            sb.Append("  Transit: ").Append(Transit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +117,11 @@ namespace CyberSource.Model
                     this.Lodging == other.Lodging ||
                     this.Lodging != null &&
                     this.Lodging.Equals(other.Lodging)
+                ) && 
+                (
+                    this.Transit == other.Transit ||
+                    this.Transit != null &&
+                    this.Transit.Equals(other.Transit)
                 );
         }
 
@@ -126,6 +140,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Agency.GetHashCode();
                 if (this.Lodging != null)
                     hash = hash * 59 + this.Lodging.GetHashCode();
+                if (this.Transit != null)
+                    hash = hash * 59 + this.Transit.GetHashCode();
                 return hash;
             }
         }

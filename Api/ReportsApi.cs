@@ -48,7 +48,7 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateReportWithHttpInfo (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null);
         /// <summary>
-        /// Get Report based on reportId
+        /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
         /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
@@ -60,7 +60,7 @@ namespace CyberSource.Api
         ReportingV3ReportsIdGet200Response GetReportByReportId (string reportId, string organizationId = null);
 
         /// <summary>
-        /// Get Report based on reportId
+        /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
         /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
@@ -71,7 +71,7 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of ReportingV3ReportsIdGet200Response</returns>
         ApiResponse<ReportingV3ReportsIdGet200Response> GetReportByReportIdWithHttpInfo (string reportId, string organizationId = null);
         /// <summary>
-        /// Retrieve available reports
+        /// Retrieve Available Reports
         /// </summary>
         /// <remarks>
         /// Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
@@ -90,7 +90,7 @@ namespace CyberSource.Api
         ReportingV3ReportsGet200Response SearchReports (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
 
         /// <summary>
-        /// Retrieve available reports
+        /// Retrieve Available Reports
         /// </summary>
         /// <remarks>
         /// Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
@@ -133,7 +133,7 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null);
         /// <summary>
-        /// Get Report based on reportId
+        /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
         /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
@@ -145,7 +145,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3ReportsIdGet200Response> GetReportByReportIdAsync (string reportId, string organizationId = null);
 
         /// <summary>
-        /// Get Report based on reportId
+        /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
         /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
@@ -156,7 +156,7 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (ReportingV3ReportsIdGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsIdGet200Response>> GetReportByReportIdAsyncWithHttpInfo (string reportId, string organizationId = null);
         /// <summary>
-        /// Retrieve available reports
+        /// Retrieve Available Reports
         /// </summary>
         /// <remarks>
         /// Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
@@ -175,7 +175,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3ReportsGet200Response> SearchReportsAsync (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
 
         /// <summary>
-        /// Retrieve available reports
+        /// Retrieve Available Reports
         /// </summary>
         /// <remarks>
         /// Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
@@ -454,7 +454,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Report based on reportId Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -467,7 +467,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Report based on reportId Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -525,7 +525,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Report based on reportId Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -539,7 +539,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Report based on reportId Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -597,7 +597,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve available reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
+        /// Retrieve Available Reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -617,7 +617,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve available reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
+        /// Retrieve Available Reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -694,7 +694,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve available reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
+        /// Retrieve Available Reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
@@ -715,7 +715,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve available reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
+        /// Retrieve Available Reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>

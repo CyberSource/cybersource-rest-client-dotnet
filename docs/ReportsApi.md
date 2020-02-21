@@ -5,8 +5,8 @@ All URIs are relative to *https://apitest.cybersource.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateReport**](ReportsApi.md#createreport) | **POST** /reporting/v3/reports | Create Adhoc Report
-[**GetReportByReportId**](ReportsApi.md#getreportbyreportid) | **GET** /reporting/v3/reports/{reportId} | Get Report based on reportId
-[**SearchReports**](ReportsApi.md#searchreports) | **GET** /reporting/v3/reports | Retrieve available reports
+[**GetReportByReportId**](ReportsApi.md#getreportbyreportid) | **GET** /reporting/v3/reports/{reportId} | Get Report Based on Report Id
+[**SearchReports**](ReportsApi.md#searchreports) | **GET** /reporting/v3/reports | Retrieve Available Reports
 
 
 <a name="createreport"></a>
@@ -75,7 +75,7 @@ No authorization required
 # **GetReportByReportId**
 > ReportingV3ReportsIdGet200Response GetReportByReportId (string reportId, string organizationId = null)
 
-Get Report based on reportId
+Get Report Based on Report Id
 
 Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
 
@@ -99,7 +99,7 @@ namespace Example
 
             try
             {
-                // Get Report based on reportId
+                // Get Report Based on Report Id
                 ReportingV3ReportsIdGet200Response result = apiInstance.GetReportByReportId(reportId, organizationId);
                 Debug.WriteLine(result);
             }
@@ -138,7 +138,7 @@ No authorization required
 # **SearchReports**
 > ReportingV3ReportsGet200Response SearchReports (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
 
-Retrieve available reports
+Retrieve Available Reports
 
 Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
 
@@ -169,7 +169,7 @@ namespace Example
 
             try
             {
-                // Retrieve available reports
+                // Retrieve Available Reports
                 ReportingV3ReportsGet200Response result = apiInstance.SearchReports(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
                 Debug.WriteLine(result);
             }

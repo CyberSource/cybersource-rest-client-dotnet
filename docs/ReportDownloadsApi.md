@@ -4,14 +4,14 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DownloadReport**](ReportDownloadsApi.md#downloadreport) | **GET** /reporting/v3/report-downloads | Download a report
+[**DownloadReport**](ReportDownloadsApi.md#downloadreport) | **GET** /reporting/v3/report-downloads | Download a Report
 
 
 <a name="downloadreport"></a>
 # **DownloadReport**
 > void DownloadReport (DateTime? reportDate, string reportName, string organizationId = null, string reportTime = null)
 
-Download a report
+Download a Report
 
 Download a report using the unique report name and date. 
 
@@ -37,7 +37,7 @@ namespace Example
 
             try
             {
-                // Download a report
+                // Download a Report
                 apiInstance.DownloadReport(reportDate, reportName, organizationId, reportTime);
             }
             catch (Exception e)

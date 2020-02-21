@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Download a file with file identifier
+        /// Download a File with File Identifier
         /// </summary>
         /// <remarks>
         /// Download a file for the given file identifier
@@ -37,7 +37,7 @@ namespace CyberSource.Api
         void GetFile (string fileId, string organizationId = null);
 
         /// <summary>
-        /// Download a file with file identifier
+        /// Download a File with File Identifier
         /// </summary>
         /// <remarks>
         /// Download a file for the given file identifier
@@ -48,7 +48,7 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> GetFileWithHttpInfo (string fileId, string organizationId = null);
         /// <summary>
-        /// Get list of files
+        /// Get List of Files
         /// </summary>
         /// <remarks>
         /// Get list of files and it&#39;s information of them available inside the report directory
@@ -61,7 +61,7 @@ namespace CyberSource.Api
         V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null);
 
         /// <summary>
-        /// Get list of files
+        /// Get List of Files
         /// </summary>
         /// <remarks>
         /// Get list of files and it&#39;s information of them available inside the report directory
@@ -75,7 +75,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Download a file with file identifier
+        /// Download a File with File Identifier
         /// </summary>
         /// <remarks>
         /// Download a file for the given file identifier
@@ -87,7 +87,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task GetFileAsync (string fileId, string organizationId = null);
 
         /// <summary>
-        /// Download a file with file identifier
+        /// Download a File with File Identifier
         /// </summary>
         /// <remarks>
         /// Download a file for the given file identifier
@@ -98,7 +98,7 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> GetFileAsyncWithHttpInfo (string fileId, string organizationId = null);
         /// <summary>
-        /// Get list of files
+        /// Get List of Files
         /// </summary>
         /// <remarks>
         /// Get list of files and it&#39;s information of them available inside the report directory
@@ -111,7 +111,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailAsync (DateTime? startDate, DateTime? endDate, string organizationId = null);
 
         /// <summary>
-        /// Get list of files
+        /// Get List of Files
         /// </summary>
         /// <remarks>
         /// Get list of files and it&#39;s information of them available inside the report directory
@@ -231,7 +231,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a file with file identifier Download a file for the given file identifier
+        /// Download a File with File Identifier Download a file for the given file identifier
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Unique identifier for each file</param>
@@ -243,7 +243,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a file with file identifier Download a file for the given file identifier
+        /// Download a File with File Identifier Download a file for the given file identifier
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Unique identifier for each file</param>
@@ -302,7 +302,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a file with file identifier Download a file for the given file identifier
+        /// Download a File with File Identifier Download a file for the given file identifier
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Unique identifier for each file</param>
@@ -315,7 +315,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a file with file identifier Download a file for the given file identifier
+        /// Download a File with File Identifier Download a file for the given file identifier
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Unique identifier for each file</param>
@@ -374,7 +374,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get list of files Get list of files and it&#39;s information of them available inside the report directory
+        /// Get List of Files Get list of files and it&#39;s information of them available inside the report directory
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
@@ -388,7 +388,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get list of files Get list of files and it&#39;s information of them available inside the report directory
+        /// Get List of Files Get list of files and it&#39;s information of them available inside the report directory
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
@@ -450,7 +450,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get list of files Get list of files and it&#39;s information of them available inside the report directory
+        /// Get List of Files Get list of files and it&#39;s information of them available inside the report directory
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
@@ -465,7 +465,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get list of files Get list of files and it&#39;s information of them available inside the report directory
+        /// Get List of Files Get list of files and it&#39;s information of them available inside the report directory
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>

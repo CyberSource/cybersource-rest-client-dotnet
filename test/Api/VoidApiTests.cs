@@ -65,6 +65,18 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test MitVoid
+        /// </summary>
+        [Test]
+        public void MitVoidTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //MitVoidRequest mitVoidRequest = null;
+            //var response = instance.MitVoid(mitVoidRequest);
+            //Assert.IsInstanceOf<PtsV2PaymentsVoidsPost201Response> (response, "response is PtsV2PaymentsVoidsPost201Response");
+        }
+        
+        /// <summary>
         /// Test VoidCapture
         /// </summary>
         [Test]

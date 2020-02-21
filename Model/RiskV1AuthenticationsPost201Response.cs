@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        public RiskV1AuthenticationsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), Ptsv2payoutsClientReferenceInformation ClientReferenceInformation = default(Ptsv2payoutsClientReferenceInformation), RiskV1AuthenticationsPost201ResponseOrderInformation OrderInformation = default(RiskV1AuthenticationsPost201ResponseOrderInformation), RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformation), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation))
+        public RiskV1AuthenticationsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation), RiskV1AuthenticationsPost201ResponseOrderInformation OrderInformation = default(RiskV1AuthenticationsPost201ResponseOrderInformation), RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1AuthenticationsPost201ResponseConsumerAuthenticationInformation), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -63,7 +63,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public PtsV2PaymentsReversalsPost201ResponseLinks Links { get; set; }
+        public PtsV2IncrementalAuthorizationPatch201ResponseLinks Links { get; set; }
 
         /// <summary>
         /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. 
@@ -111,7 +111,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Ptsv2payoutsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation

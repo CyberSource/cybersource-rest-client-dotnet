@@ -4,14 +4,14 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetPaymentBatchSummary**](PaymentBatchSummariesApi.md#getpaymentbatchsummary) | **GET** /reporting/v3/payment-batch-summaries | Get payment batch summary data
+[**GetPaymentBatchSummary**](PaymentBatchSummariesApi.md#getpaymentbatchsummary) | **GET** /reporting/v3/payment-batch-summaries | Get Payment Batch Summary Data
 
 
 <a name="getpaymentbatchsummary"></a>
 # **GetPaymentBatchSummary**
 > ReportingV3PaymentBatchSummariesGet200Response GetPaymentBatchSummary (DateTime? startTime, DateTime? endTime, string organizationId = null, string rollUp = null, string breakdown = null, int? startDayOfWeek = null)
 
-Get payment batch summary data
+Get Payment Batch Summary Data
 
 Scope can be either account/merchant or reseller.
 
@@ -39,7 +39,7 @@ namespace Example
 
             try
             {
-                // Get payment batch summary data
+                // Get Payment Batch Summary Data
                 ReportingV3PaymentBatchSummariesGet200Response result = apiInstance.GetPaymentBatchSummary(startTime, endTime, organizationId, rollUp, breakdown, startDayOfWeek);
                 Debug.WriteLine(result);
             }

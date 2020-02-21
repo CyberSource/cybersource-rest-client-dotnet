@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Download a report
+        /// Download a Report
         /// </summary>
         /// <remarks>
         /// Download a report using the unique report name and date. 
@@ -39,7 +39,7 @@ namespace CyberSource.Api
         void DownloadReport (DateTime? reportDate, string reportName, string organizationId = null, string reportTime = null);
 
         /// <summary>
-        /// Download a report
+        /// Download a Report
         /// </summary>
         /// <remarks>
         /// Download a report using the unique report name and date. 
@@ -54,7 +54,7 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Download a report
+        /// Download a Report
         /// </summary>
         /// <remarks>
         /// Download a report using the unique report name and date. 
@@ -68,7 +68,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task DownloadReportAsync (DateTime? reportDate, string reportName, string organizationId = null, string reportTime = null);
 
         /// <summary>
-        /// Download a report
+        /// Download a Report
         /// </summary>
         /// <remarks>
         /// Download a report using the unique report name and date. 
@@ -189,7 +189,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a report Download a report using the unique report name and date. 
+        /// Download a Report Download a report using the unique report name and date. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd </param>
@@ -203,7 +203,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a report Download a report using the unique report name and date. 
+        /// Download a Report Download a report using the unique report name and date. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd </param>
@@ -268,7 +268,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a report Download a report using the unique report name and date. 
+        /// Download a Report Download a report using the unique report name and date. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd </param>
@@ -283,7 +283,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a report Download a report using the unique report name and date. 
+        /// Download a Report Download a report using the unique report name and date. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportDate">Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd </param>

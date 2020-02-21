@@ -33,34 +33,25 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
-        /// <param name="Type">Type.</param>
-        /// <param name="Message">The detailed message related to the type stated above..</param>
-        /// <param name="Details">Details.</param>
-        public Error(string Type = default(string), string Message = default(string), Tmsv1instrumentidentifiersDetails Details = default(Tmsv1instrumentidentifiersDetails))
+        /// <param name="ResponseStatus">ResponseStatus.</param>
+        /// <param name="Links">Links.</param>
+        public Error(InlineResponseDefaultResponseStatus ResponseStatus = default(InlineResponseDefaultResponseStatus), ErrorLinks Links = default(ErrorLinks))
         {
-            this.Type = Type;
-            this.Message = Message;
-            this.Details = Details;
+            this.ResponseStatus = ResponseStatus;
+            this.Links = Links;
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Gets or Sets ResponseStatus
         /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
+        [DataMember(Name="responseStatus", EmitDefaultValue=false)]
+        public InlineResponseDefaultResponseStatus ResponseStatus { get; set; }
 
         /// <summary>
-        /// The detailed message related to the type stated above.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>The detailed message related to the type stated above.</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Details
-        /// </summary>
-        [DataMember(Name="details", EmitDefaultValue=false)]
-        public Tmsv1instrumentidentifiersDetails Details { get; set; }
+        [DataMember(Name="_links", EmitDefaultValue=false)]
+        public ErrorLinks Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,9 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Error {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  ResponseStatus: ").Append(ResponseStatus).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,19 +100,14 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.ResponseStatus == other.ResponseStatus ||
+                    this.ResponseStatus != null &&
+                    this.ResponseStatus.Equals(other.ResponseStatus)
                 ) && 
                 (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
-                ) && 
-                (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.Equals(other.Details)
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.Equals(other.Links)
                 );
         }
 
@@ -137,12 +122,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
+                if (this.ResponseStatus != null)
+                    hash = hash * 59 + this.ResponseStatus.GetHashCode();
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
                 return hash;
             }
         }

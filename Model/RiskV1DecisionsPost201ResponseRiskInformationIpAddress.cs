@@ -38,13 +38,17 @@ namespace CyberSource.Model
         /// <param name="Country">Name of the country decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="AdministrativeArea">Name of the state decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_state&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="RoutingMethod">Routing method decoded from the IP address used directly or indirectly by the customer to send the order.  For all possible values, see the &#x60;score_ip_routing_method&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
-        public RiskV1DecisionsPost201ResponseRiskInformationIpAddress(string AnonymizerStatus = default(string), string Locality = default(string), string Country = default(string), string AdministrativeArea = default(string), string RoutingMethod = default(string))
+        /// <param name="Carrier">Provides the name of the organization that owns the ASN. The carrier is responsible for the traffic carried on the network or set of networks designated as an Autonomous System (AS) and identified by the ASN. While there are more than 27,000 active ASNs, there are fewer carriers, because a single carrier often manages several ASNs. .</param>
+        /// <param name="Organization">The Registering Organization is the entity responsible for the actions and content associated with a given block of IP addresses. This is in contrast to the carrier, which is responsible for the routing of traffic for network blocks. Registering Organizations include many types of entities, including corporate, government, or educational entities, and ISPs managing the allocation and use of network blocks. .</param>
+        public RiskV1DecisionsPost201ResponseRiskInformationIpAddress(string AnonymizerStatus = default(string), string Locality = default(string), string Country = default(string), string AdministrativeArea = default(string), string RoutingMethod = default(string), string Carrier = default(string), string Organization = default(string))
         {
             this.AnonymizerStatus = AnonymizerStatus;
             this.Locality = Locality;
             this.Country = Country;
             this.AdministrativeArea = AdministrativeArea;
             this.RoutingMethod = RoutingMethod;
+            this.Carrier = Carrier;
+            this.Organization = Organization;
         }
         
         /// <summary>
@@ -83,6 +87,20 @@ namespace CyberSource.Model
         public string RoutingMethod { get; set; }
 
         /// <summary>
+        /// Provides the name of the organization that owns the ASN. The carrier is responsible for the traffic carried on the network or set of networks designated as an Autonomous System (AS) and identified by the ASN. While there are more than 27,000 active ASNs, there are fewer carriers, because a single carrier often manages several ASNs. 
+        /// </summary>
+        /// <value>Provides the name of the organization that owns the ASN. The carrier is responsible for the traffic carried on the network or set of networks designated as an Autonomous System (AS) and identified by the ASN. While there are more than 27,000 active ASNs, there are fewer carriers, because a single carrier often manages several ASNs. </value>
+        [DataMember(Name="carrier", EmitDefaultValue=false)]
+        public string Carrier { get; set; }
+
+        /// <summary>
+        /// The Registering Organization is the entity responsible for the actions and content associated with a given block of IP addresses. This is in contrast to the carrier, which is responsible for the routing of traffic for network blocks. Registering Organizations include many types of entities, including corporate, government, or educational entities, and ISPs managing the allocation and use of network blocks. 
+        /// </summary>
+        /// <value>The Registering Organization is the entity responsible for the actions and content associated with a given block of IP addresses. This is in contrast to the carrier, which is responsible for the routing of traffic for network blocks. Registering Organizations include many types of entities, including corporate, government, or educational entities, and ISPs managing the allocation and use of network blocks. </value>
+        [DataMember(Name="organization", EmitDefaultValue=false)]
+        public string Organization { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +113,8 @@ namespace CyberSource.Model
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             sb.Append("  RoutingMethod: ").Append(RoutingMethod).Append("\n");
+            sb.Append("  Carrier: ").Append(Carrier).Append("\n");
+            sb.Append("  Organization: ").Append(Organization).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +175,16 @@ namespace CyberSource.Model
                     this.RoutingMethod == other.RoutingMethod ||
                     this.RoutingMethod != null &&
                     this.RoutingMethod.Equals(other.RoutingMethod)
+                ) && 
+                (
+                    this.Carrier == other.Carrier ||
+                    this.Carrier != null &&
+                    this.Carrier.Equals(other.Carrier)
+                ) && 
+                (
+                    this.Organization == other.Organization ||
+                    this.Organization != null &&
+                    this.Organization.Equals(other.Organization)
                 );
         }
 
@@ -179,6 +209,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AdministrativeArea.GetHashCode();
                 if (this.RoutingMethod != null)
                     hash = hash * 59 + this.RoutingMethod.GetHashCode();
+                if (this.Carrier != null)
+                    hash = hash * 59 + this.Carrier.GetHashCode();
+                if (this.Organization != null)
+                    hash = hash * 59 + this.Organization.GetHashCode();
                 return hash;
             }
         }
@@ -218,6 +252,18 @@ namespace CyberSource.Model
             if(this.RoutingMethod != null && this.RoutingMethod.Length >= 255)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingMethod, length must be less than or equal to 255.", new [] { "RoutingMethod" });
+            }
+
+            // Carrier (string) maxLength
+            if(this.Carrier != null && this.Carrier.Length >= 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Carrier, length must be less than or equal to 255.", new [] { "Carrier" });
+            }
+
+            // Organization (string) maxLength
+            if(this.Organization != null && this.Organization.Length >= 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Organization, length must be less than or equal to 255.", new [] { "Organization" });
             }
 
             yield break;

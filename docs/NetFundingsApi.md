@@ -4,14 +4,14 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetNetFundingDetails**](NetFundingsApi.md#getnetfundingdetails) | **GET** /reporting/v3/net-fundings | Get Netfunding information for an account or a merchant
+[**GetNetFundingDetails**](NetFundingsApi.md#getnetfundingdetails) | **GET** /reporting/v3/net-fundings | Get Netfunding Information for an Account or a Merchant
 
 
 <a name="getnetfundingdetails"></a>
 # **GetNetFundingDetails**
 > ReportingV3NetFundingsGet200Response GetNetFundingDetails (DateTime? startTime, DateTime? endTime, string organizationId = null, string groupName = null)
 
-Get Netfunding information for an account or a merchant
+Get Netfunding Information for an Account or a Merchant
 
 Get Netfunding information for an account or a merchant.
 
@@ -37,7 +37,7 @@ namespace Example
 
             try
             {
-                // Get Netfunding information for an account or a merchant
+                // Get Netfunding Information for an Account or a Merchant
                 ReportingV3NetFundingsGet200Response result = apiInstance.GetNetFundingDetails(startTime, endTime, organizationId, groupName);
                 Debug.WriteLine(result);
             }

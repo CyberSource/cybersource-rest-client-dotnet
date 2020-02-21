@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **State** | **string** | &#39;Current state of the token.&#39;  Valid values: - ACTIVE - CLOSED  | [optional] 
 **Id** | **string** | The ID of the existing instrument identifier to be linked to the newly created payment instrument. | [optional] 
 **Card** | [**TmsV1InstrumentIdentifiersPost200ResponseCard**](TmsV1InstrumentIdentifiersPost200ResponseCard.md) |  | [optional] 
+**TokenizedCard** | [**TmsV1InstrumentIdentifiersPost200ResponseTokenizedCard**](TmsV1InstrumentIdentifiersPost200ResponseTokenizedCard.md) |  | [optional] 
 **BankAccount** | [**Tmsv1instrumentidentifiersBankAccount**](Tmsv1instrumentidentifiersBankAccount.md) |  | [optional] 
 **Issuer** | [**TmsV1InstrumentIdentifiersPost200ResponseIssuer**](TmsV1InstrumentIdentifiersPost200ResponseIssuer.md) |  | [optional] 
 **ProcessingInformation** | [**TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation**](TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation.md) |  | [optional] 
