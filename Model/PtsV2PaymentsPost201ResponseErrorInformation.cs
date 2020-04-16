@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -31,123 +31,24 @@ namespace CyberSource.Model
     public partial class PtsV2PaymentsPost201ResponseErrorInformation :  IEquatable<PtsV2PaymentsPost201ResponseErrorInformation>, IValidatableObject
     {
         /// <summary>
-        /// The reason of the status.  Possible values:  - AVS_FAILED  - CONTACT_PROCESSOR  - EXPIRED_CARD  - PROCESSOR_DECLINED  - INSUFFICIENT_FUND  - STOLEN_LOST_CARD  - ISSUER_UNAVAILABLE  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - EXCEEDS_CREDIT_LIMIT  - INVALID_CVN  - DECLINED_CHECK  - BLACKLISTED_CUSTOMER  - SUSPENDED_ACCOUNT  - PAYMENT_REFUSED  - CV_FAILED  - INVALID_ACCOUNT  - GENERAL_DECLINE  - INVALID_MERCHANT_CONFIGURATION 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:  - AVS_FAILED  - CONTACT_PROCESSOR  - EXPIRED_CARD  - PROCESSOR_DECLINED  - INSUFFICIENT_FUND  - STOLEN_LOST_CARD  - ISSUER_UNAVAILABLE  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - EXCEEDS_CREDIT_LIMIT  - INVALID_CVN  - DECLINED_CHECK  - BLACKLISTED_CUSTOMER  - SUSPENDED_ACCOUNT  - PAYMENT_REFUSED  - CV_FAILED  - INVALID_ACCOUNT  - GENERAL_DECLINE  - INVALID_MERCHANT_CONFIGURATION </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReasonEnum
-        {
-            
-            /// <summary>
-            /// Enum AVSFAILED for "AVS_FAILED"
-            /// </summary>
-            [EnumMember(Value = "AVS_FAILED")]
-            AVSFAILED,
-            
-            /// <summary>
-            /// Enum CONTACTPROCESSOR for "CONTACT_PROCESSOR"
-            /// </summary>
-            [EnumMember(Value = "CONTACT_PROCESSOR")]
-            CONTACTPROCESSOR,
-            
-            /// <summary>
-            /// Enum CVFAILED for "CV_FAILED"
-            /// </summary>
-            [EnumMember(Value = "CV_FAILED")]
-            CVFAILED,
-            
-            /// <summary>
-            /// Enum EXPIREDCARD for "EXPIRED_CARD"
-            /// </summary>
-            [EnumMember(Value = "EXPIRED_CARD")]
-            EXPIREDCARD,
-            
-            /// <summary>
-            /// Enum PROCESSORDECLINED for "PROCESSOR_DECLINED"
-            /// </summary>
-            [EnumMember(Value = "PROCESSOR_DECLINED")]
-            PROCESSORDECLINED,
-            
-            /// <summary>
-            /// Enum INSUFFICIENTFUND for "INSUFFICIENT_FUND"
-            /// </summary>
-            [EnumMember(Value = "INSUFFICIENT_FUND")]
-            INSUFFICIENTFUND,
-            
-            /// <summary>
-            /// Enum STOLENLOSTCARD for "STOLEN_LOST_CARD"
-            /// </summary>
-            [EnumMember(Value = "STOLEN_LOST_CARD")]
-            STOLENLOSTCARD,
-            
-            /// <summary>
-            /// Enum ISSUERUNAVAILABLE for "ISSUER_UNAVAILABLE"
-            /// </summary>
-            [EnumMember(Value = "ISSUER_UNAVAILABLE")]
-            ISSUERUNAVAILABLE,
-            
-            /// <summary>
-            /// Enum UNAUTHORIZEDCARD for "UNAUTHORIZED_CARD"
-            /// </summary>
-            [EnumMember(Value = "UNAUTHORIZED_CARD")]
-            UNAUTHORIZEDCARD,
-            
-            /// <summary>
-            /// Enum CVNNOTMATCH for "CVN_NOT_MATCH"
-            /// </summary>
-            [EnumMember(Value = "CVN_NOT_MATCH")]
-            CVNNOTMATCH,
-            
-            /// <summary>
-            /// Enum EXCEEDSCREDITLIMIT for "EXCEEDS_CREDIT_LIMIT"
-            /// </summary>
-            [EnumMember(Value = "EXCEEDS_CREDIT_LIMIT")]
-            EXCEEDSCREDITLIMIT,
-            
-            /// <summary>
-            /// Enum INVALIDCVN for "INVALID_CVN"
-            /// </summary>
-            [EnumMember(Value = "INVALID_CVN")]
-            INVALIDCVN,
-            
-            /// <summary>
-            /// Enum PAYMENTREFUSED for "PAYMENT_REFUSED"
-            /// </summary>
-            [EnumMember(Value = "PAYMENT_REFUSED")]
-            PAYMENTREFUSED,
-            
-            /// <summary>
-            /// Enum INVALIDACCOUNT for "INVALID_ACCOUNT"
-            /// </summary>
-            [EnumMember(Value = "INVALID_ACCOUNT")]
-            INVALIDACCOUNT,
-            
-            /// <summary>
-            /// Enum GENERALDECLINE for "GENERAL_DECLINE"
-            /// </summary>
-            [EnumMember(Value = "GENERAL_DECLINE")]
-            GENERALDECLINE
-        }
-
-        /// <summary>
-        /// The reason of the status.  Possible values:  - AVS_FAILED  - CONTACT_PROCESSOR  - EXPIRED_CARD  - PROCESSOR_DECLINED  - INSUFFICIENT_FUND  - STOLEN_LOST_CARD  - ISSUER_UNAVAILABLE  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - EXCEEDS_CREDIT_LIMIT  - INVALID_CVN  - DECLINED_CHECK  - BLACKLISTED_CUSTOMER  - SUSPENDED_ACCOUNT  - PAYMENT_REFUSED  - CV_FAILED  - INVALID_ACCOUNT  - GENERAL_DECLINE  - INVALID_MERCHANT_CONFIGURATION 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:  - AVS_FAILED  - CONTACT_PROCESSOR  - EXPIRED_CARD  - PROCESSOR_DECLINED  - INSUFFICIENT_FUND  - STOLEN_LOST_CARD  - ISSUER_UNAVAILABLE  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - EXCEEDS_CREDIT_LIMIT  - INVALID_CVN  - DECLINED_CHECK  - BLACKLISTED_CUSTOMER  - SUSPENDED_ACCOUNT  - PAYMENT_REFUSED  - CV_FAILED  - INVALID_ACCOUNT  - GENERAL_DECLINE  - INVALID_MERCHANT_CONFIGURATION </value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public ReasonEnum? Reason { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseErrorInformation" /> class.
         /// </summary>
-        /// <param name="Reason">The reason of the status.  Possible values:  - AVS_FAILED  - CONTACT_PROCESSOR  - EXPIRED_CARD  - PROCESSOR_DECLINED  - INSUFFICIENT_FUND  - STOLEN_LOST_CARD  - ISSUER_UNAVAILABLE  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - EXCEEDS_CREDIT_LIMIT  - INVALID_CVN  - DECLINED_CHECK  - BLACKLISTED_CUSTOMER  - SUSPENDED_ACCOUNT  - PAYMENT_REFUSED  - CV_FAILED  - INVALID_ACCOUNT  - GENERAL_DECLINE  - INVALID_MERCHANT_CONFIGURATION .</param>
+        /// <param name="Reason">The reason of the status.  Possible values:  - AVS_FAILED  - CONTACT_PROCESSOR  - EXPIRED_CARD  - PROCESSOR_DECLINED  - INSUFFICIENT_FUND  - STOLEN_LOST_CARD  - ISSUER_UNAVAILABLE  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - EXCEEDS_CREDIT_LIMIT  - INVALID_CVN  - DECLINED_CHECK  - BLACKLISTED_CUSTOMER  - SUSPENDED_ACCOUNT  - PAYMENT_REFUSED  - CV_FAILED  - INVALID_ACCOUNT  - GENERAL_DECLINE  - INVALID_MERCHANT_CONFIGURATION  - DECISION_PROFILE_REJECT  - SCORE_EXCEEDS_THRESHOLD  - PENDING_AUTHENTICATION .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
-        public PtsV2PaymentsPost201ResponseErrorInformation(ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
+        public PtsV2PaymentsPost201ResponseErrorInformation(string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
             this.Reason = Reason;
             this.Message = Message;
             this.Details = Details;
         }
         
+        /// <summary>
+        /// The reason of the status.  Possible values:  - AVS_FAILED  - CONTACT_PROCESSOR  - EXPIRED_CARD  - PROCESSOR_DECLINED  - INSUFFICIENT_FUND  - STOLEN_LOST_CARD  - ISSUER_UNAVAILABLE  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - EXCEEDS_CREDIT_LIMIT  - INVALID_CVN  - DECLINED_CHECK  - BLACKLISTED_CUSTOMER  - SUSPENDED_ACCOUNT  - PAYMENT_REFUSED  - CV_FAILED  - INVALID_ACCOUNT  - GENERAL_DECLINE  - INVALID_MERCHANT_CONFIGURATION  - DECISION_PROFILE_REJECT  - SCORE_EXCEEDS_THRESHOLD  - PENDING_AUTHENTICATION 
+        /// </summary>
+        /// <value>The reason of the status.  Possible values:  - AVS_FAILED  - CONTACT_PROCESSOR  - EXPIRED_CARD  - PROCESSOR_DECLINED  - INSUFFICIENT_FUND  - STOLEN_LOST_CARD  - ISSUER_UNAVAILABLE  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - EXCEEDS_CREDIT_LIMIT  - INVALID_CVN  - DECLINED_CHECK  - BLACKLISTED_CUSTOMER  - SUSPENDED_ACCOUNT  - PAYMENT_REFUSED  - CV_FAILED  - INVALID_ACCOUNT  - GENERAL_DECLINE  - INVALID_MERCHANT_CONFIGURATION  - DECISION_PROFILE_REJECT  - SCORE_EXCEEDS_THRESHOLD  - PENDING_AUTHENTICATION </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// The detail message related to the status and reason listed above.

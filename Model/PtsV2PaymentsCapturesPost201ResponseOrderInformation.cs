@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
-        public PtsV2PaymentsCapturesPost201ResponseOrderInformation(PtsV2PaymentsCapturesPost201ResponseOrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsCapturesPost201ResponseOrderInformationAmountDetails), PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails))
+        public PtsV2PaymentsCapturesPost201ResponseOrderInformation(PtsV2PaymentsCapturesPost201ResponseOrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsCapturesPost201ResponseOrderInformationAmountDetails), PtsV2PaymentsCapturesPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsCapturesPost201ResponseOrderInformationInvoiceDetails))
         {
             this.AmountDetails = AmountDetails;
             this.InvoiceDetails = InvoiceDetails;
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// Gets or Sets InvoiceDetails
         /// </summary>
         [DataMember(Name="invoiceDetails", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails InvoiceDetails { get; set; }
+        public PtsV2PaymentsCapturesPost201ResponseOrderInformationInvoiceDetails InvoiceDetails { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

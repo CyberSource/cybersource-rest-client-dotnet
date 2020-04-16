@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,30 +33,33 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidcapturesOrderInformationAmountDetails" /> class.
         /// </summary>
-        /// <param name="TotalAmount">Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  **Note** For CTV, FDCCompass, Paymentech processors, the maximum length for this field is 12.  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. This information is covered in:  Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43  Table 19, \&quot;Capture Information for Specific Processors,\&quot; on page 58  Table 23, \&quot;Credit Information for Specific Processors,\&quot; on page 75 If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations,\&quot; page 247.  **DCC with a Third-Party Provider**\\ Set this field to the converted amount that was returned by the DCC provider. You must include either this field or offer0 and the offerlevel field amount in your request. For details, see \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  **FDMS South**\\ If you accept IDR or CLP currencies, see the entry for FDMS South in Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43.  **DCC for First Data**\\ Not used. .</param>
-        /// <param name="Currency">Currency used for the order. Use the three-character ISO Standard Currency Codes.  For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your request for Payment API.  **DCC for First Data**\\ Your local currency. For details, see \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113. .</param>
+        /// <param name="TotalAmount">Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  **Note** For CTV, FDCCompass, Paymentech processors, the maximum length for this field is 12.  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. For details, see: - \&quot;Authorization Information for Specific Processors\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/). - \&quot;Capture Information for Specific Processors\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/). - \&quot;Credit Information for Specific Processors\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/).  If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. For details, see \&quot;Zero Amount Authorizations,\&quot; \&quot;Credit Information for Specific Processors\&quot; in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### DCC with a Third-Party Provider Set this field to the converted amount that was returned by the DCC provider. You must include either this field or the 1st line item in the order and the specific line-order amount in your request. For details, see &#x60;grand_total_amount&#x60; field description in [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf).  #### FDMS South If you accept IDR or CLP currencies, see the entry for FDMS South in \&quot;Authorization Information for Specific Processors\&quot; of the [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### DCC for First Data Not used.  #### Invoicing Grand total for the order, this is required for creating a new invoice. .</param>
+        /// <param name="Currency">Currency used for the order. Use the three-character I[ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details about currency as used in partial authorizations, see \&quot;Features for Debit Cards and Prepaid Cards\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your payment authorization request.  #### DCC for First Data Your local currency. For details, see the &#x60;currency&#x60; field description in [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf). .</param>
         /// <param name="DiscountAmount">Total discount amount applied to the order.  For processor-specific information, see the order_discount_amount field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="DutyAmount">Total charges for any import or export duties included in the order.  For processor-specific information, see the duty_amount field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
+        /// <param name="GratuityAmount">Gratuity or tip amount for restaurants when the card is present. Allowed only when &#x60;industryDatatype&#x3D;restaurant&#x60;. When your customer uses a debit card or prepaid card, and you receive a partial authorization, the payment networks recommend that you do not submit a capture amount that is higher than the authorized amount. When the capture amount exceeds the partial amount that was approved, the issuer has chargeback rights for the excess amount.  For information about partial authorizations, see Credit Card Services Using the SCMP API.  Restaurant data is supported only on CyberSource through VisaNet. .</param>
         /// <param name="TaxAmount">Total tax amount for all the items in the order.  For processor-specific information, see the total_tax_amount field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="NationalTaxIncluded">Flag that indicates whether a national tax is included in the order total.  Possible values:   - **0**: national tax not included  - **1**: national tax included  For processor-specific information, see the national_tax_indicator field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="TaxAppliedAfterDiscount">Flag that indicates how the merchant manages discounts.  Possible values:   - **0**: no invoice level discount included  - **1**: tax calculated on the postdiscount invoice total  - **2**: tax calculated on the prediscount invoice total  For processor-specific information, see the order_discount_management_indicator field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="TaxAppliedLevel">Flag that indicates how you calculate tax.  Possible values:   - **0**: net prices with tax calculated at line item level  - **1**: net prices with tax calculated at invoice level  - **2**: gross prices with tax provided at line item level  - **3**: gross prices with tax provided at invoice level  - **4**: no tax applies on the invoice for the transaction  For processor-specific information, see the tax_management_indicator field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="TaxTypeCode">For tax amounts that can be categorized as one tax type.  This field contains the tax type code that corresponds to the entry in the _lineItems.taxAmount_ field.  Possible values:   - **056**: sales tax (U.S only)  - **TX~**: all taxes (Canada only)   Note ~ &#x3D; space.  For processor-specific information, see the total_tax_type_code field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="FreightAmount">Total freight or shipping and handling charges for the order. When you include this field in your request, you must also include the **totalAmount** field.  For processor-specific information, see the freight_amount field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
-        /// <param name="ForeignAmount">Set this field to the converted amount that was returned by the DCC provider. See \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  For processor-specific information, see the foreign_amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        /// <param name="ForeignCurrency">Your customer’s billing currency. See \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  For processor-specific information, see the foreign_currency field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        /// <param name="ExchangeRate">Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places.  For details, see \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113.  For processor-specific information, see the exchange_rate field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        /// <param name="ExchangeRateTimeStamp">Time stamp for the exchange rate. This value is returned by the DCC service.  Format: &#x60;YYYYMMDD~HH:MM&#x60;  where ~ denotes a space.  For processor-specific information, see the exchange_rate_timestamp field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="ForeignAmount">Set this field to the converted amount that was returned by the DCC provider. For processor-specific information, see the &#x60;foreign_amount&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="ForeignCurrency">Set this field to the converted amount that was returned by the DCC provider. For processor-specific information, see the &#x60;foreign_amount&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="ExchangeRate">Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places.  For details, see &#x60;exchange_rate&#x60; request-level field description in the [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf)  For processor-specific information, see the &#x60;exchange_rate&#x60; request-level field description in [Credit Card Services Using the SCMP API Guide.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="ExchangeRateTimeStamp">Time stamp for the exchange rate. This value is returned by the DCC service.  Format: &#x60;YYYYMMDD~HH:MM&#x60;  where ~ denotes a space.  For processor-specific information, see the &#x60;exchange_rate_timestamp&#x60; request-level field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         /// <param name="AmexAdditionalAmounts">AmexAdditionalAmounts.</param>
         /// <param name="TaxDetails">TaxDetails.</param>
         /// <param name="ServiceFeeAmount">Service fee. Required for service fee transactions. .</param>
-        /// <param name="OriginalCurrency">Your local pricing currency code.  For the possible values, see the ISO Standard Currency Codes.  For details, see Dynamic Currency Conversion with a Third Party Provider. .</param>
-        public Ptsv2paymentsidcapturesOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string DiscountAmount = default(string), string DutyAmount = default(string), string TaxAmount = default(string), string NationalTaxIncluded = default(string), string TaxAppliedAfterDiscount = default(string), string TaxAppliedLevel = default(string), string TaxTypeCode = default(string), string FreightAmount = default(string), string ForeignAmount = default(string), string ForeignCurrency = default(string), string ExchangeRate = default(string), string ExchangeRateTimeStamp = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts> AmexAdditionalAmounts = default(List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts>), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string ServiceFeeAmount = default(string), string OriginalCurrency = default(string))
+        /// <param name="OriginalCurrency">Your local pricing currency code.  For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;original_currency&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  For details about converting a foreign cardholder’s purchase from your local pricing currency to the cardholder’s billing currency, see the [Dynamic Currency Conversion with a Third Party Provider Guide.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm). .</param>
+        /// <param name="CashbackAmount">Cashback amount requested by the customer. If a cashback amount is included in the request, it must be included in the orderInformation.amountDetails.totalAmount value. .</param>
+        public Ptsv2paymentsidcapturesOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string DiscountAmount = default(string), string DutyAmount = default(string), string GratuityAmount = default(string), string TaxAmount = default(string), string NationalTaxIncluded = default(string), string TaxAppliedAfterDiscount = default(string), string TaxAppliedLevel = default(string), string TaxTypeCode = default(string), string FreightAmount = default(string), string ForeignAmount = default(string), string ForeignCurrency = default(string), string ExchangeRate = default(string), string ExchangeRateTimeStamp = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts> AmexAdditionalAmounts = default(List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts>), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string ServiceFeeAmount = default(string), string OriginalCurrency = default(string), string CashbackAmount = default(string))
         {
             this.TotalAmount = TotalAmount;
             this.Currency = Currency;
             this.DiscountAmount = DiscountAmount;
             this.DutyAmount = DutyAmount;
+            this.GratuityAmount = GratuityAmount;
             this.TaxAmount = TaxAmount;
             this.NationalTaxIncluded = NationalTaxIncluded;
             this.TaxAppliedAfterDiscount = TaxAppliedAfterDiscount;
@@ -71,19 +74,20 @@ namespace CyberSource.Model
             this.TaxDetails = TaxDetails;
             this.ServiceFeeAmount = ServiceFeeAmount;
             this.OriginalCurrency = OriginalCurrency;
+            this.CashbackAmount = CashbackAmount;
         }
         
         /// <summary>
-        /// Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  **Note** For CTV, FDCCompass, Paymentech processors, the maximum length for this field is 12.  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. This information is covered in:  Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43  Table 19, \&quot;Capture Information for Specific Processors,\&quot; on page 58  Table 23, \&quot;Credit Information for Specific Processors,\&quot; on page 75 If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations,\&quot; page 247.  **DCC with a Third-Party Provider**\\ Set this field to the converted amount that was returned by the DCC provider. You must include either this field or offer0 and the offerlevel field amount in your request. For details, see \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  **FDMS South**\\ If you accept IDR or CLP currencies, see the entry for FDMS South in Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43.  **DCC for First Data**\\ Not used. 
+        /// Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  **Note** For CTV, FDCCompass, Paymentech processors, the maximum length for this field is 12.  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. For details, see: - \&quot;Authorization Information for Specific Processors\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/). - \&quot;Capture Information for Specific Processors\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/). - \&quot;Credit Information for Specific Processors\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/).  If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. For details, see \&quot;Zero Amount Authorizations,\&quot; \&quot;Credit Information for Specific Processors\&quot; in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### DCC with a Third-Party Provider Set this field to the converted amount that was returned by the DCC provider. You must include either this field or the 1st line item in the order and the specific line-order amount in your request. For details, see &#x60;grand_total_amount&#x60; field description in [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf).  #### FDMS South If you accept IDR or CLP currencies, see the entry for FDMS South in \&quot;Authorization Information for Specific Processors\&quot; of the [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### DCC for First Data Not used.  #### Invoicing Grand total for the order, this is required for creating a new invoice. 
         /// </summary>
-        /// <value>Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  **Note** For CTV, FDCCompass, Paymentech processors, the maximum length for this field is 12.  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. This information is covered in:  Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43  Table 19, \&quot;Capture Information for Specific Processors,\&quot; on page 58  Table 23, \&quot;Credit Information for Specific Processors,\&quot; on page 75 If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations,\&quot; page 247.  **DCC with a Third-Party Provider**\\ Set this field to the converted amount that was returned by the DCC provider. You must include either this field or offer0 and the offerlevel field amount in your request. For details, see \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  **FDMS South**\\ If you accept IDR or CLP currencies, see the entry for FDMS South in Table 15, \&quot;Authorization Information for Specific Processors,\&quot; on page 43.  **DCC for First Data**\\ Not used. </value>
+        /// <value>Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  **Note** For CTV, FDCCompass, Paymentech processors, the maximum length for this field is 12.  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. For details, see: - \&quot;Authorization Information for Specific Processors\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/). - \&quot;Capture Information for Specific Processors\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/). - \&quot;Credit Information for Specific Processors\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/).  If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. For details, see \&quot;Zero Amount Authorizations,\&quot; \&quot;Credit Information for Specific Processors\&quot; in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### DCC with a Third-Party Provider Set this field to the converted amount that was returned by the DCC provider. You must include either this field or the 1st line item in the order and the specific line-order amount in your request. For details, see &#x60;grand_total_amount&#x60; field description in [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf).  #### FDMS South If you accept IDR or CLP currencies, see the entry for FDMS South in \&quot;Authorization Information for Specific Processors\&quot; of the [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### DCC for First Data Not used.  #### Invoicing Grand total for the order, this is required for creating a new invoice. </value>
         [DataMember(Name="totalAmount", EmitDefaultValue=false)]
         public string TotalAmount { get; set; }
 
         /// <summary>
-        /// Currency used for the order. Use the three-character ISO Standard Currency Codes.  For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your request for Payment API.  **DCC for First Data**\\ Your local currency. For details, see \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113. 
+        /// Currency used for the order. Use the three-character I[ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details about currency as used in partial authorizations, see \&quot;Features for Debit Cards and Prepaid Cards\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your payment authorization request.  #### DCC for First Data Your local currency. For details, see the &#x60;currency&#x60; field description in [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf). 
         /// </summary>
-        /// <value>Currency used for the order. Use the three-character ISO Standard Currency Codes.  For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your request for Payment API.  **DCC for First Data**\\ Your local currency. For details, see \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113. </value>
+        /// <value>Currency used for the order. Use the three-character I[ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details about currency as used in partial authorizations, see \&quot;Features for Debit Cards and Prepaid Cards\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your payment authorization request.  #### DCC for First Data Your local currency. For details, see the &#x60;currency&#x60; field description in [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf). </value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
 
@@ -100,6 +104,13 @@ namespace CyberSource.Model
         /// <value>Total charges for any import or export duties included in the order.  For processor-specific information, see the duty_amount field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) </value>
         [DataMember(Name="dutyAmount", EmitDefaultValue=false)]
         public string DutyAmount { get; set; }
+
+        /// <summary>
+        /// Gratuity or tip amount for restaurants when the card is present. Allowed only when &#x60;industryDatatype&#x3D;restaurant&#x60;. When your customer uses a debit card or prepaid card, and you receive a partial authorization, the payment networks recommend that you do not submit a capture amount that is higher than the authorized amount. When the capture amount exceeds the partial amount that was approved, the issuer has chargeback rights for the excess amount.  For information about partial authorizations, see Credit Card Services Using the SCMP API.  Restaurant data is supported only on CyberSource through VisaNet. 
+        /// </summary>
+        /// <value>Gratuity or tip amount for restaurants when the card is present. Allowed only when &#x60;industryDatatype&#x3D;restaurant&#x60;. When your customer uses a debit card or prepaid card, and you receive a partial authorization, the payment networks recommend that you do not submit a capture amount that is higher than the authorized amount. When the capture amount exceeds the partial amount that was approved, the issuer has chargeback rights for the excess amount.  For information about partial authorizations, see Credit Card Services Using the SCMP API.  Restaurant data is supported only on CyberSource through VisaNet. </value>
+        [DataMember(Name="gratuityAmount", EmitDefaultValue=false)]
+        public string GratuityAmount { get; set; }
 
         /// <summary>
         /// Total tax amount for all the items in the order.  For processor-specific information, see the total_tax_amount field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) 
@@ -144,30 +155,30 @@ namespace CyberSource.Model
         public string FreightAmount { get; set; }
 
         /// <summary>
-        /// Set this field to the converted amount that was returned by the DCC provider. See \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  For processor-specific information, see the foreign_amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Set this field to the converted amount that was returned by the DCC provider. For processor-specific information, see the &#x60;foreign_amount&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Set this field to the converted amount that was returned by the DCC provider. See \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  For processor-specific information, see the foreign_amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Set this field to the converted amount that was returned by the DCC provider. For processor-specific information, see the &#x60;foreign_amount&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="foreignAmount", EmitDefaultValue=false)]
         public string ForeignAmount { get; set; }
 
         /// <summary>
-        /// Your customer’s billing currency. See \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  For processor-specific information, see the foreign_currency field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Set this field to the converted amount that was returned by the DCC provider. For processor-specific information, see the &#x60;foreign_amount&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Your customer’s billing currency. See \&quot;Dynamic Currency Conversion with a Third Party Provider,\&quot; page 125.  For processor-specific information, see the foreign_currency field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Set this field to the converted amount that was returned by the DCC provider. For processor-specific information, see the &#x60;foreign_amount&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="foreignCurrency", EmitDefaultValue=false)]
         public string ForeignCurrency { get; set; }
 
         /// <summary>
-        /// Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places.  For details, see \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113.  For processor-specific information, see the exchange_rate field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places.  For details, see &#x60;exchange_rate&#x60; request-level field description in the [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf)  For processor-specific information, see the &#x60;exchange_rate&#x60; request-level field description in [Credit Card Services Using the SCMP API Guide.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
         /// </summary>
-        /// <value>Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places.  For details, see \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113.  For processor-specific information, see the exchange_rate field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places.  For details, see &#x60;exchange_rate&#x60; request-level field description in the [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf)  For processor-specific information, see the &#x60;exchange_rate&#x60; request-level field description in [Credit Card Services Using the SCMP API Guide.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
         [DataMember(Name="exchangeRate", EmitDefaultValue=false)]
         public string ExchangeRate { get; set; }
 
         /// <summary>
-        /// Time stamp for the exchange rate. This value is returned by the DCC service.  Format: &#x60;YYYYMMDD~HH:MM&#x60;  where ~ denotes a space.  For processor-specific information, see the exchange_rate_timestamp field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Time stamp for the exchange rate. This value is returned by the DCC service.  Format: &#x60;YYYYMMDD~HH:MM&#x60;  where ~ denotes a space.  For processor-specific information, see the &#x60;exchange_rate_timestamp&#x60; request-level field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
         /// </summary>
-        /// <value>Time stamp for the exchange rate. This value is returned by the DCC service.  Format: &#x60;YYYYMMDD~HH:MM&#x60;  where ~ denotes a space.  For processor-specific information, see the exchange_rate_timestamp field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Time stamp for the exchange rate. This value is returned by the DCC service.  Format: &#x60;YYYYMMDD~HH:MM&#x60;  where ~ denotes a space.  For processor-specific information, see the &#x60;exchange_rate_timestamp&#x60; request-level field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
         [DataMember(Name="exchangeRateTimeStamp", EmitDefaultValue=false)]
         public string ExchangeRateTimeStamp { get; set; }
 
@@ -191,11 +202,18 @@ namespace CyberSource.Model
         public string ServiceFeeAmount { get; set; }
 
         /// <summary>
-        /// Your local pricing currency code.  For the possible values, see the ISO Standard Currency Codes.  For details, see Dynamic Currency Conversion with a Third Party Provider. 
+        /// Your local pricing currency code.  For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;original_currency&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  For details about converting a foreign cardholder’s purchase from your local pricing currency to the cardholder’s billing currency, see the [Dynamic Currency Conversion with a Third Party Provider Guide.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm). 
         /// </summary>
-        /// <value>Your local pricing currency code.  For the possible values, see the ISO Standard Currency Codes.  For details, see Dynamic Currency Conversion with a Third Party Provider. </value>
+        /// <value>Your local pricing currency code.  For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;original_currency&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  For details about converting a foreign cardholder’s purchase from your local pricing currency to the cardholder’s billing currency, see the [Dynamic Currency Conversion with a Third Party Provider Guide.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm). </value>
         [DataMember(Name="originalCurrency", EmitDefaultValue=false)]
         public string OriginalCurrency { get; set; }
+
+        /// <summary>
+        /// Cashback amount requested by the customer. If a cashback amount is included in the request, it must be included in the orderInformation.amountDetails.totalAmount value. 
+        /// </summary>
+        /// <value>Cashback amount requested by the customer. If a cashback amount is included in the request, it must be included in the orderInformation.amountDetails.totalAmount value. </value>
+        [DataMember(Name="cashbackAmount", EmitDefaultValue=false)]
+        public string CashbackAmount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -209,6 +227,7 @@ namespace CyberSource.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
             sb.Append("  DutyAmount: ").Append(DutyAmount).Append("\n");
+            sb.Append("  GratuityAmount: ").Append(GratuityAmount).Append("\n");
             sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
             sb.Append("  NationalTaxIncluded: ").Append(NationalTaxIncluded).Append("\n");
             sb.Append("  TaxAppliedAfterDiscount: ").Append(TaxAppliedAfterDiscount).Append("\n");
@@ -223,6 +242,7 @@ namespace CyberSource.Model
             sb.Append("  TaxDetails: ").Append(TaxDetails).Append("\n");
             sb.Append("  ServiceFeeAmount: ").Append(ServiceFeeAmount).Append("\n");
             sb.Append("  OriginalCurrency: ").Append(OriginalCurrency).Append("\n");
+            sb.Append("  CashbackAmount: ").Append(CashbackAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -278,6 +298,11 @@ namespace CyberSource.Model
                     this.DutyAmount == other.DutyAmount ||
                     this.DutyAmount != null &&
                     this.DutyAmount.Equals(other.DutyAmount)
+                ) && 
+                (
+                    this.GratuityAmount == other.GratuityAmount ||
+                    this.GratuityAmount != null &&
+                    this.GratuityAmount.Equals(other.GratuityAmount)
                 ) && 
                 (
                     this.TaxAmount == other.TaxAmount ||
@@ -348,6 +373,11 @@ namespace CyberSource.Model
                     this.OriginalCurrency == other.OriginalCurrency ||
                     this.OriginalCurrency != null &&
                     this.OriginalCurrency.Equals(other.OriginalCurrency)
+                ) && 
+                (
+                    this.CashbackAmount == other.CashbackAmount ||
+                    this.CashbackAmount != null &&
+                    this.CashbackAmount.Equals(other.CashbackAmount)
                 );
         }
 
@@ -370,6 +400,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DiscountAmount.GetHashCode();
                 if (this.DutyAmount != null)
                     hash = hash * 59 + this.DutyAmount.GetHashCode();
+                if (this.GratuityAmount != null)
+                    hash = hash * 59 + this.GratuityAmount.GetHashCode();
                 if (this.TaxAmount != null)
                     hash = hash * 59 + this.TaxAmount.GetHashCode();
                 if (this.NationalTaxIncluded != null)
@@ -398,6 +430,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ServiceFeeAmount.GetHashCode();
                 if (this.OriginalCurrency != null)
                     hash = hash * 59 + this.OriginalCurrency.GetHashCode();
+                if (this.CashbackAmount != null)
+                    hash = hash * 59 + this.CashbackAmount.GetHashCode();
                 return hash;
             }
         }
@@ -410,99 +444,111 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // TotalAmount (string) maxLength
-            if(this.TotalAmount != null && this.TotalAmount.Length > 19)
+            if(this.TotalAmount != null && this.TotalAmount.Length >= 19)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalAmount, length must be less than 19.", new [] { "TotalAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalAmount, length must be less than or equal to 19.", new [] { "TotalAmount" });
             }
 
             // Currency (string) maxLength
-            if(this.Currency != null && this.Currency.Length > 3)
+            if(this.Currency != null && this.Currency.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 3.", new [] { "Currency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than or equal to 3.", new [] { "Currency" });
             }
 
             // DiscountAmount (string) maxLength
-            if(this.DiscountAmount != null && this.DiscountAmount.Length > 15)
+            if(this.DiscountAmount != null && this.DiscountAmount.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountAmount, length must be less than 15.", new [] { "DiscountAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountAmount, length must be less than or equal to 15.", new [] { "DiscountAmount" });
             }
 
             // DutyAmount (string) maxLength
-            if(this.DutyAmount != null && this.DutyAmount.Length > 15)
+            if(this.DutyAmount != null && this.DutyAmount.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DutyAmount, length must be less than 15.", new [] { "DutyAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DutyAmount, length must be less than or equal to 15.", new [] { "DutyAmount" });
+            }
+
+            // GratuityAmount (string) maxLength
+            if(this.GratuityAmount != null && this.GratuityAmount.Length >= 13)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GratuityAmount, length must be less than or equal to 13.", new [] { "GratuityAmount" });
             }
 
             // TaxAmount (string) maxLength
-            if(this.TaxAmount != null && this.TaxAmount.Length > 12)
+            if(this.TaxAmount != null && this.TaxAmount.Length >= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than 12.", new [] { "TaxAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than or equal to 12.", new [] { "TaxAmount" });
             }
 
             // NationalTaxIncluded (string) maxLength
-            if(this.NationalTaxIncluded != null && this.NationalTaxIncluded.Length > 1)
+            if(this.NationalTaxIncluded != null && this.NationalTaxIncluded.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NationalTaxIncluded, length must be less than 1.", new [] { "NationalTaxIncluded" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NationalTaxIncluded, length must be less than or equal to 1.", new [] { "NationalTaxIncluded" });
             }
 
             // TaxAppliedAfterDiscount (string) maxLength
-            if(this.TaxAppliedAfterDiscount != null && this.TaxAppliedAfterDiscount.Length > 1)
+            if(this.TaxAppliedAfterDiscount != null && this.TaxAppliedAfterDiscount.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAppliedAfterDiscount, length must be less than 1.", new [] { "TaxAppliedAfterDiscount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAppliedAfterDiscount, length must be less than or equal to 1.", new [] { "TaxAppliedAfterDiscount" });
             }
 
             // TaxAppliedLevel (string) maxLength
-            if(this.TaxAppliedLevel != null && this.TaxAppliedLevel.Length > 1)
+            if(this.TaxAppliedLevel != null && this.TaxAppliedLevel.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAppliedLevel, length must be less than 1.", new [] { "TaxAppliedLevel" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAppliedLevel, length must be less than or equal to 1.", new [] { "TaxAppliedLevel" });
             }
 
             // TaxTypeCode (string) maxLength
-            if(this.TaxTypeCode != null && this.TaxTypeCode.Length > 3)
+            if(this.TaxTypeCode != null && this.TaxTypeCode.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxTypeCode, length must be less than 3.", new [] { "TaxTypeCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxTypeCode, length must be less than or equal to 3.", new [] { "TaxTypeCode" });
             }
 
             // FreightAmount (string) maxLength
-            if(this.FreightAmount != null && this.FreightAmount.Length > 13)
+            if(this.FreightAmount != null && this.FreightAmount.Length >= 13)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FreightAmount, length must be less than 13.", new [] { "FreightAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FreightAmount, length must be less than or equal to 13.", new [] { "FreightAmount" });
             }
 
             // ForeignAmount (string) maxLength
-            if(this.ForeignAmount != null && this.ForeignAmount.Length > 15)
+            if(this.ForeignAmount != null && this.ForeignAmount.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForeignAmount, length must be less than 15.", new [] { "ForeignAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForeignAmount, length must be less than or equal to 15.", new [] { "ForeignAmount" });
             }
 
             // ForeignCurrency (string) maxLength
-            if(this.ForeignCurrency != null && this.ForeignCurrency.Length > 5)
+            if(this.ForeignCurrency != null && this.ForeignCurrency.Length >= 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForeignCurrency, length must be less than 5.", new [] { "ForeignCurrency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForeignCurrency, length must be less than or equal to 5.", new [] { "ForeignCurrency" });
             }
 
             // ExchangeRate (string) maxLength
-            if(this.ExchangeRate != null && this.ExchangeRate.Length > 13)
+            if(this.ExchangeRate != null && this.ExchangeRate.Length >= 13)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExchangeRate, length must be less than 13.", new [] { "ExchangeRate" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExchangeRate, length must be less than or equal to 13.", new [] { "ExchangeRate" });
             }
 
             // ExchangeRateTimeStamp (string) maxLength
-            if(this.ExchangeRateTimeStamp != null && this.ExchangeRateTimeStamp.Length > 14)
+            if(this.ExchangeRateTimeStamp != null && this.ExchangeRateTimeStamp.Length >= 14)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExchangeRateTimeStamp, length must be less than 14.", new [] { "ExchangeRateTimeStamp" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExchangeRateTimeStamp, length must be less than or equal to 14.", new [] { "ExchangeRateTimeStamp" });
             }
 
             // ServiceFeeAmount (string) maxLength
-            if(this.ServiceFeeAmount != null && this.ServiceFeeAmount.Length > 15)
+            if(this.ServiceFeeAmount != null && this.ServiceFeeAmount.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServiceFeeAmount, length must be less than 15.", new [] { "ServiceFeeAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServiceFeeAmount, length must be less than or equal to 15.", new [] { "ServiceFeeAmount" });
             }
 
             // OriginalCurrency (string) maxLength
-            if(this.OriginalCurrency != null && this.OriginalCurrency.Length > 15)
+            if(this.OriginalCurrency != null && this.OriginalCurrency.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginalCurrency, length must be less than 15.", new [] { "OriginalCurrency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginalCurrency, length must be less than or equal to 15.", new [] { "OriginalCurrency" });
+            }
+
+            // CashbackAmount (string) maxLength
+            if(this.CashbackAmount != null && this.CashbackAmount.Length >= 13)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CashbackAmount, length must be less than or equal to 13.", new [] { "CashbackAmount" });
             }
 
             yield break;

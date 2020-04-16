@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsDeviceInformation" /> class.
         /// </summary>
-        /// <param name="HostName">DNS resolved hostname from above _ipAddress_..</param>
-        /// <param name="IpAddress">IP address of the customer..</param>
-        /// <param name="UserAgent">Customer’s browser as identified from the HTTP header data. For example, Mozilla is the value that identifies the Netscape browser. .</param>
+        /// <param name="HostName">DNS resolved hostname from &#x60;ipAddress&#x60;..</param>
+        /// <param name="IpAddress">IP address of the customer. .</param>
+        /// <param name="UserAgent">Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. .</param>
         public Ptsv2paymentsDeviceInformation(string HostName = default(string), string IpAddress = default(string), string UserAgent = default(string))
         {
             this.HostName = HostName;
@@ -44,23 +44,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// DNS resolved hostname from above _ipAddress_.
+        /// DNS resolved hostname from &#x60;ipAddress&#x60;.
         /// </summary>
-        /// <value>DNS resolved hostname from above _ipAddress_.</value>
+        /// <value>DNS resolved hostname from &#x60;ipAddress&#x60;.</value>
         [DataMember(Name="hostName", EmitDefaultValue=false)]
         public string HostName { get; set; }
 
         /// <summary>
-        /// IP address of the customer.
+        /// IP address of the customer. 
         /// </summary>
-        /// <value>IP address of the customer.</value>
+        /// <value>IP address of the customer. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 
         /// <summary>
-        /// Customer’s browser as identified from the HTTP header data. For example, Mozilla is the value that identifies the Netscape browser. 
+        /// Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. 
         /// </summary>
-        /// <value>Customer’s browser as identified from the HTTP header data. For example, Mozilla is the value that identifies the Netscape browser. </value>
+        /// <value>Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. </value>
         [DataMember(Name="userAgent", EmitDefaultValue=false)]
         public string UserAgent { get; set; }
 
@@ -157,21 +157,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // HostName (string) maxLength
-            if(this.HostName != null && this.HostName.Length > 60)
+            if(this.HostName != null && this.HostName.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HostName, length must be less than 60.", new [] { "HostName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HostName, length must be less than or equal to 60.", new [] { "HostName" });
             }
 
             // IpAddress (string) maxLength
-            if(this.IpAddress != null && this.IpAddress.Length > 15)
+            if(this.IpAddress != null && this.IpAddress.Length >= 48)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IpAddress, length must be less than 15.", new [] { "IpAddress" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IpAddress, length must be less than or equal to 48.", new [] { "IpAddress" });
             }
 
             // UserAgent (string) maxLength
-            if(this.UserAgent != null && this.UserAgent.Length > 40)
+            if(this.UserAgent != null && this.UserAgent.Length >= 40)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserAgent, length must be less than 40.", new [] { "UserAgent" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserAgent, length must be less than or equal to 40.", new [] { "UserAgent" });
             }
 
             yield break;

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,18 +33,27 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails" /> class.
         /// </summary>
-        /// <param name="Level3TransmissionStatus">Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  For processor-specific information, see the bill_purchasing_level3_enabled field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html)  Possible values: - **true** - **false** .</param>
-        public PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails(bool? Level3TransmissionStatus = default(bool?))
+        /// <param name="Level3TransmissionStatus">Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  For processor-specific information, see the &#x60;bill_purchasing_level3_enabled&#x60; field description in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html)  Possible values: - **true** - **false** .</param>
+        /// <param name="SalesSlipNumber">Transaction identifier that CyberSource generates. You have the option of printing the sales slip number on the receipt. This field is supported only on Cybersource through Visanet and JCN gateway. .</param>
+        public PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails(bool? Level3TransmissionStatus = default(bool?), int? SalesSlipNumber = default(int?))
         {
             this.Level3TransmissionStatus = Level3TransmissionStatus;
+            this.SalesSlipNumber = SalesSlipNumber;
         }
         
         /// <summary>
-        /// Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  For processor-specific information, see the bill_purchasing_level3_enabled field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html)  Possible values: - **true** - **false** 
+        /// Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  For processor-specific information, see the &#x60;bill_purchasing_level3_enabled&#x60; field description in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html)  Possible values: - **true** - **false** 
         /// </summary>
-        /// <value>Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  For processor-specific information, see the bill_purchasing_level3_enabled field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html)  Possible values: - **true** - **false** </value>
+        /// <value>Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  For processor-specific information, see the &#x60;bill_purchasing_level3_enabled&#x60; field description in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html)  Possible values: - **true** - **false** </value>
         [DataMember(Name="level3TransmissionStatus", EmitDefaultValue=false)]
         public bool? Level3TransmissionStatus { get; set; }
+
+        /// <summary>
+        /// Transaction identifier that CyberSource generates. You have the option of printing the sales slip number on the receipt. This field is supported only on Cybersource through Visanet and JCN gateway. 
+        /// </summary>
+        /// <value>Transaction identifier that CyberSource generates. You have the option of printing the sales slip number on the receipt. This field is supported only on Cybersource through Visanet and JCN gateway. </value>
+        [DataMember(Name="salesSlipNumber", EmitDefaultValue=false)]
+        public int? SalesSlipNumber { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails {\n");
             sb.Append("  Level3TransmissionStatus: ").Append(Level3TransmissionStatus).Append("\n");
+            sb.Append("  SalesSlipNumber: ").Append(SalesSlipNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.Level3TransmissionStatus == other.Level3TransmissionStatus ||
                     this.Level3TransmissionStatus != null &&
                     this.Level3TransmissionStatus.Equals(other.Level3TransmissionStatus)
+                ) && 
+                (
+                    this.SalesSlipNumber == other.SalesSlipNumber ||
+                    this.SalesSlipNumber != null &&
+                    this.SalesSlipNumber.Equals(other.SalesSlipNumber)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Level3TransmissionStatus != null)
                     hash = hash * 59 + this.Level3TransmissionStatus.GetHashCode();
+                if (this.SalesSlipNumber != null)
+                    hash = hash * 59 + this.SalesSlipNumber.GetHashCode();
                 return hash;
             }
         }
@@ -122,6 +139,12 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // SalesSlipNumber (int?) maximum
+            if(this.SalesSlipNumber >= (int?)99999)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SalesSlipNumber, must be a value less than or equal to 99999.", new [] { "SalesSlipNumber" });
+            }
+
             yield break;
         }
     }

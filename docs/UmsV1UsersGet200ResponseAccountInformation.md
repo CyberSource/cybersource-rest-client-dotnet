@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **UserName** | **string** |  | [optional] 
 **RoleId** | **string** |  | [optional] 
 **Permissions** | **List&lt;string&gt;** |  | [optional] 
-**Status** | **string** |  | [optional] 
+**Status** | **string** | Valid values: - active - inactive - locked - disabled - forgotpassword - deleted  | [optional] 
 **CreatedTime** | **DateTime?** |  | [optional] 
 **LastAccessTime** | **DateTime?** |  | [optional] 
 **LanguagePreference** | **string** |  | [optional] 

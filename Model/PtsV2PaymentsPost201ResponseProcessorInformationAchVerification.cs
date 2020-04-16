@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessorInformationAchVerification" /> class.
         /// </summary>
-        /// <param name="ResultCode">Results from the ACH verification service, which is described in \&quot;ACH Verification,\&quot; page 25. For the possible values, see Appendix H, \&quot;Verification Codes,\&quot; on page 91. .</param>
-        /// <param name="ResultCodeRaw">Raw results from the ACH verification service, which is described in \&quot;ACH Verification,\&quot; page 25. For the possible values, see Appendix H, \&quot;Verification Codes,\&quot; on page 91. .</param>
+        /// <param name="ResultCode">Results from the ACH verification service. For details about this service and the possible values for the results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). .</param>
+        /// <param name="ResultCodeRaw">Raw results from the ACH verification service. For details about this service and the possible values for the raw results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). .</param>
         public PtsV2PaymentsPost201ResponseProcessorInformationAchVerification(string ResultCode = default(string), string ResultCodeRaw = default(string))
         {
             this.ResultCode = ResultCode;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Results from the ACH verification service, which is described in \&quot;ACH Verification,\&quot; page 25. For the possible values, see Appendix H, \&quot;Verification Codes,\&quot; on page 91. 
+        /// Results from the ACH verification service. For details about this service and the possible values for the results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). 
         /// </summary>
-        /// <value>Results from the ACH verification service, which is described in \&quot;ACH Verification,\&quot; page 25. For the possible values, see Appendix H, \&quot;Verification Codes,\&quot; on page 91. </value>
+        /// <value>Results from the ACH verification service. For details about this service and the possible values for the results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). </value>
         [DataMember(Name="resultCode", EmitDefaultValue=false)]
         public string ResultCode { get; set; }
 
         /// <summary>
-        /// Raw results from the ACH verification service, which is described in \&quot;ACH Verification,\&quot; page 25. For the possible values, see Appendix H, \&quot;Verification Codes,\&quot; on page 91. 
+        /// Raw results from the ACH verification service. For details about this service and the possible values for the raw results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). 
         /// </summary>
-        /// <value>Raw results from the ACH verification service, which is described in \&quot;ACH Verification,\&quot; page 25. For the possible values, see Appendix H, \&quot;Verification Codes,\&quot; on page 91. </value>
+        /// <value>Raw results from the ACH verification service. For details about this service and the possible values for the raw results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). </value>
         [DataMember(Name="resultCodeRaw", EmitDefaultValue=false)]
         public string ResultCodeRaw { get; set; }
 
@@ -140,15 +140,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ResultCode (string) maxLength
-            if(this.ResultCode != null && this.ResultCode.Length > 2)
+            if(this.ResultCode != null && this.ResultCode.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResultCode, length must be less than 2.", new [] { "ResultCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResultCode, length must be less than or equal to 2.", new [] { "ResultCode" });
             }
 
             // ResultCodeRaw (string) maxLength
-            if(this.ResultCodeRaw != null && this.ResultCodeRaw.Length > 10)
+            if(this.ResultCodeRaw != null && this.ResultCodeRaw.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResultCodeRaw, length must be less than 10.", new [] { "ResultCodeRaw" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResultCodeRaw, length must be less than or equal to 10.", new [] { "ResultCodeRaw" });
             }
 
             yield break;

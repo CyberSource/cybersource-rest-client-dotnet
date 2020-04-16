@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseConsumerAuthenticationInformation" /> class.
         /// </summary>
-        /// <param name="EciRaw">Raw electronic commerce indicator (ECI)..</param>
+        /// <param name="EciRaw">Raw electronic commerce indicator (ECI).  For details, see &#x60;eci_raw&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="Cavv">Cardholder authentication verification value (CAVV)..</param>
-        /// <param name="Xid">Transaction identifier..</param>
+        /// <param name="Xid">Transaction identifier.  For details, see &#x60;xid&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="TransactionId">Payer auth Transaction identifier..</param>
         public TssV2TransactionsGet200ResponseConsumerAuthenticationInformation(string EciRaw = default(string), string Cavv = default(string), string Xid = default(string), string TransactionId = default(string))
         {
@@ -46,9 +46,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Raw electronic commerce indicator (ECI).
+        /// Raw electronic commerce indicator (ECI).  For details, see &#x60;eci_raw&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Raw electronic commerce indicator (ECI).</value>
+        /// <value>Raw electronic commerce indicator (ECI).  For details, see &#x60;eci_raw&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="eciRaw", EmitDefaultValue=false)]
         public string EciRaw { get; set; }
 
@@ -60,9 +60,9 @@ namespace CyberSource.Model
         public string Cavv { get; set; }
 
         /// <summary>
-        /// Transaction identifier.
+        /// Transaction identifier.  For details, see &#x60;xid&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Transaction identifier.</value>
+        /// <value>Transaction identifier.  For details, see &#x60;xid&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="xid", EmitDefaultValue=false)]
         public string Xid { get; set; }
 
@@ -174,21 +174,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // EciRaw (string) maxLength
-            if(this.EciRaw != null && this.EciRaw.Length > 2)
+            if(this.EciRaw != null && this.EciRaw.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EciRaw, length must be less than 2.", new [] { "EciRaw" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EciRaw, length must be less than or equal to 2.", new [] { "EciRaw" });
             }
 
             // Cavv (string) maxLength
-            if(this.Cavv != null && this.Cavv.Length > 40)
+            if(this.Cavv != null && this.Cavv.Length >= 40)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Cavv, length must be less than 40.", new [] { "Cavv" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Cavv, length must be less than or equal to 40.", new [] { "Cavv" });
             }
 
             // Xid (string) maxLength
-            if(this.Xid != null && this.Xid.Length > 40)
+            if(this.Xid != null && this.Xid.Length >= 40)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Xid, length must be less than 40.", new [] { "Xid" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Xid, length must be less than or equal to 40.", new [] { "Xid" });
             }
 
             yield break;

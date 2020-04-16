@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -40,10 +40,10 @@ namespace CyberSource.Model
         /// <param name="Locality">City of the shipping address..</param>
         /// <param name="AdministrativeArea">State or province of the shipping address. Use the State, Province, and Territory Codes for the United States and Canada. .</param>
         /// <param name="PostalCode">Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  **American Express Direct**\\ Before sending the postal code to the processor, CyberSource removes all nonalphanumeric characters and, if the remaining value is longer than nine characters, truncates the value starting from the right side. .</param>
-        /// <param name="Country">Country of the shipping address. Use the two character ISO Standard Country Codes..</param>
+        /// <param name="Country">Country of the shipping address. Use the two-character ISO Standard Country Codes..</param>
         /// <param name="District">Neighborhood, community, or region within a city or municipality..</param>
         /// <param name="BuildingNumber">Building number in the street address. For example, the building number is 187 in the following address:  Rua da Quitanda 187 .</param>
-        /// <param name="PhoneNumber">Phone number for the shipping address..</param>
+        /// <param name="PhoneNumber">Phone number associated with the shipping address..</param>
         /// <param name="Company">Name of the customer’s company.  For processor-specific information, see the company_name field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         public Ptsv2paymentsOrderInformationShipTo(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string PhoneNumber = default(string), string Company = default(string))
         {
@@ -111,9 +111,9 @@ namespace CyberSource.Model
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Country of the shipping address. Use the two character ISO Standard Country Codes.
+        /// Country of the shipping address. Use the two-character ISO Standard Country Codes.
         /// </summary>
-        /// <value>Country of the shipping address. Use the two character ISO Standard Country Codes.</value>
+        /// <value>Country of the shipping address. Use the two-character ISO Standard Country Codes.</value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 
@@ -132,9 +132,9 @@ namespace CyberSource.Model
         public string BuildingNumber { get; set; }
 
         /// <summary>
-        /// Phone number for the shipping address.
+        /// Phone number associated with the shipping address.
         /// </summary>
-        /// <value>Phone number for the shipping address.</value>
+        /// <value>Phone number associated with the shipping address.</value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 
@@ -310,75 +310,75 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // FirstName (string) maxLength
-            if(this.FirstName != null && this.FirstName.Length > 60)
+            if(this.FirstName != null && this.FirstName.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, length must be less than 60.", new [] { "FirstName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, length must be less than or equal to 60.", new [] { "FirstName" });
             }
 
             // LastName (string) maxLength
-            if(this.LastName != null && this.LastName.Length > 60)
+            if(this.LastName != null && this.LastName.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be less than 60.", new [] { "LastName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be less than or equal to 60.", new [] { "LastName" });
             }
 
             // Address1 (string) maxLength
-            if(this.Address1 != null && this.Address1.Length > 60)
+            if(this.Address1 != null && this.Address1.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address1, length must be less than 60.", new [] { "Address1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address1, length must be less than or equal to 60.", new [] { "Address1" });
             }
 
             // Address2 (string) maxLength
-            if(this.Address2 != null && this.Address2.Length > 60)
+            if(this.Address2 != null && this.Address2.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address2, length must be less than 60.", new [] { "Address2" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address2, length must be less than or equal to 60.", new [] { "Address2" });
             }
 
             // Locality (string) maxLength
-            if(this.Locality != null && this.Locality.Length > 50)
+            if(this.Locality != null && this.Locality.Length >= 50)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than 50.", new [] { "Locality" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than or equal to 50.", new [] { "Locality" });
             }
 
             // AdministrativeArea (string) maxLength
-            if(this.AdministrativeArea != null && this.AdministrativeArea.Length > 2)
+            if(this.AdministrativeArea != null && this.AdministrativeArea.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than 2.", new [] { "AdministrativeArea" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than or equal to 2.", new [] { "AdministrativeArea" });
             }
 
             // PostalCode (string) maxLength
-            if(this.PostalCode != null && this.PostalCode.Length > 10)
+            if(this.PostalCode != null && this.PostalCode.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than 10.", new [] { "PostalCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than or equal to 10.", new [] { "PostalCode" });
             }
 
             // Country (string) maxLength
-            if(this.Country != null && this.Country.Length > 2)
+            if(this.Country != null && this.Country.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than 2.", new [] { "Country" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 2.", new [] { "Country" });
             }
 
             // District (string) maxLength
-            if(this.District != null && this.District.Length > 50)
+            if(this.District != null && this.District.Length >= 50)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for District, length must be less than 50.", new [] { "District" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for District, length must be less than or equal to 50.", new [] { "District" });
             }
 
             // BuildingNumber (string) maxLength
-            if(this.BuildingNumber != null && this.BuildingNumber.Length > 15)
+            if(this.BuildingNumber != null && this.BuildingNumber.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BuildingNumber, length must be less than 15.", new [] { "BuildingNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BuildingNumber, length must be less than or equal to 15.", new [] { "BuildingNumber" });
             }
 
             // PhoneNumber (string) maxLength
-            if(this.PhoneNumber != null && this.PhoneNumber.Length > 15)
+            if(this.PhoneNumber != null && this.PhoneNumber.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, length must be less than 15.", new [] { "PhoneNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, length must be less than or equal to 15.", new [] { "PhoneNumber" });
             }
 
             // Company (string) maxLength
-            if(this.Company != null && this.Company.Length > 60)
+            if(this.Company != null && this.Company.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Company, length must be less than 60.", new [] { "Company" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Company, length must be less than or equal to 60.", new [] { "Company" });
             }
 
             yield break;

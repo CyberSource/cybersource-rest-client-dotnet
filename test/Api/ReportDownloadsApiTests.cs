@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -74,7 +74,8 @@ namespace CyberSource.Test
             //DateTime? reportDate = null;
             //string reportName = null;
             //string organizationId = null;
-            //instance.DownloadReport(reportDate, reportName, organizationId);
+            //string reportTime = null;
+            //instance.DownloadReport(reportDate, reportName, organizationId, reportTime);
             
         }
         

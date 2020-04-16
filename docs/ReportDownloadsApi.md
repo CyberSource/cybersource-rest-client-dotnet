@@ -4,14 +4,14 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DownloadReport**](ReportDownloadsApi.md#downloadreport) | **GET** /reporting/v3/report-downloads | Download a report
+[**DownloadReport**](ReportDownloadsApi.md#downloadreport) | **GET** /reporting/v3/report-downloads | Download a Report
 
 
 <a name="downloadreport"></a>
 # **DownloadReport**
-> void DownloadReport (DateTime? reportDate, string reportName, string organizationId = null)
+> void DownloadReport (DateTime? reportDate, string reportName, string organizationId = null, string reportTime = null)
 
-Download a report
+Download a Report
 
 Download a report using the unique report name and date. 
 
@@ -30,14 +30,15 @@ namespace Example
         public void main()
         {
             var apiInstance = new ReportDownloadsApi();
-            var reportDate = 2013-10-20;  // DateTime? | Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd 
+            var reportDate = 2013-10-20;  // DateTime? | Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd 
             var reportName = reportName_example;  // string | Name of the report to download
             var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
+            var reportTime = reportTime_example;  // string | Valid time on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Time Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example time format:**   - hh:mm:ss±hh:mm  (optional) 
 
             try
             {
-                // Download a report
-                apiInstance.DownloadReport(reportDate, reportName, organizationId);
+                // Download a Report
+                apiInstance.DownloadReport(reportDate, reportName, organizationId, reportTime);
             }
             catch (Exception e)
             {
@@ -52,9 +53,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportDate** | **DateTime?**| Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd  | 
+ **reportDate** | **DateTime?**| Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd  | 
  **reportName** | **string**| Name of the report to download | 
  **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
+ **reportTime** | **string**| Valid time on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Time Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example time format:**   - hh:mm:ss±hh:mm  | [optional] 
 
 ### Return type
 

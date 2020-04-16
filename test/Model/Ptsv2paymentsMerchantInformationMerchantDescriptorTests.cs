@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -127,6 +127,22 @@ namespace CyberSource.Test
         public void AdministrativeAreaTest()
         {
             // TODO unit test for the property 'AdministrativeArea'
+        }
+        /// <summary>
+        /// Test the property 'Phone'
+        /// </summary>
+        [Test]
+        public void PhoneTest()
+        {
+            // TODO unit test for the property 'Phone'
+        }
+        /// <summary>
+        /// Test the property 'Url'
+        /// </summary>
+        [Test]
+        public void UrlTest()
+        {
+            // TODO unit test for the property 'Url'
         }
 
     }

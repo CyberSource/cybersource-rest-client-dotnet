@@ -5,13 +5,13 @@ All URIs are relative to *https://apitest.cybersource.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateReport**](ReportsApi.md#createreport) | **POST** /reporting/v3/reports | Create Adhoc Report
-[**GetReportByReportId**](ReportsApi.md#getreportbyreportid) | **GET** /reporting/v3/reports/{reportId} | Get Report based on reportId
-[**SearchReports**](ReportsApi.md#searchreports) | **GET** /reporting/v3/reports | Retrieve available reports
+[**GetReportByReportId**](ReportsApi.md#getreportbyreportid) | **GET** /reporting/v3/reports/{reportId} | Get Report Based on Report Id
+[**SearchReports**](ReportsApi.md#searchreports) | **GET** /reporting/v3/reports | Retrieve Available Reports
 
 
 <a name="createreport"></a>
 # **CreateReport**
-> void CreateReport (RequestBody requestBody, string organizationId = null)
+> void CreateReport (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
 
 Create Adhoc Report
 
@@ -32,13 +32,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new ReportsApi();
-            var requestBody = new RequestBody(); // RequestBody | Report subscription request payload
+            var createAdhocReportRequest = new CreateAdhocReportRequest(); // CreateAdhocReportRequest | Report subscription request payload
             var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
 
             try
             {
                 // Create Adhoc Report
-                apiInstance.CreateReport(requestBody, organizationId);
+                apiInstance.CreateReport(createAdhocReportRequest, organizationId);
             }
             catch (Exception e)
             {
@@ -53,7 +53,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**RequestBody**](RequestBody.md)| Report subscription request payload | 
+ **createAdhocReportRequest** | [**CreateAdhocReportRequest**](CreateAdhocReportRequest.md)| Report subscription request payload | 
  **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
 
 ### Return type
@@ -75,7 +75,7 @@ No authorization required
 # **GetReportByReportId**
 > ReportingV3ReportsIdGet200Response GetReportByReportId (string reportId, string organizationId = null)
 
-Get Report based on reportId
+Get Report Based on Report Id
 
 Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
 
@@ -99,7 +99,7 @@ namespace Example
 
             try
             {
-                // Get Report based on reportId
+                // Get Report Based on Report Id
                 ReportingV3ReportsIdGet200Response result = apiInstance.GetReportByReportId(reportId, organizationId);
                 Debug.WriteLine(result);
             }
@@ -138,7 +138,7 @@ No authorization required
 # **SearchReports**
 > ReportingV3ReportsGet200Response SearchReports (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
 
-Retrieve available reports
+Retrieve Available Reports
 
 Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
 
@@ -157,19 +157,19 @@ namespace Example
         public void main()
         {
             var apiInstance = new ReportsApi();
-            var startTime = 2013-10-20T19:20:30+01:00;  // DateTime? | Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd'T'HH:mm:ssXXX 
-            var endTime = 2013-10-20T19:20:30+01:00;  // DateTime? | Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd'T'HH:mm:ssXXX 
-            var timeQueryType = timeQueryType_example;  // string | Specify time you would like to search
+            var startTime = 2013-10-20T19:20:30+01:00;  // DateTime? | Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd'T'HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) 
+            var endTime = 2013-10-20T19:20:30+01:00;  // DateTime? | Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd'T'HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) 
+            var timeQueryType = timeQueryType_example;  // string | Specify time you would like to search  Valid values: - reportTimeFrame - executedTime 
             var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
-            var reportMimeType = reportMimeType_example;  // string | Valid Report Format (optional) 
-            var reportFrequency = reportFrequency_example;  // string | Valid Report Frequency (optional) 
+            var reportMimeType = reportMimeType_example;  // string | Valid Report Format  Valid values: - application/xml - text/csv  (optional) 
+            var reportFrequency = reportFrequency_example;  // string | Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional) 
             var reportName = reportName_example;  // string | Valid Report Name (optional) 
             var reportDefinitionId = 56;  // int? | Valid Report Definition Id (optional) 
-            var reportStatus = reportStatus_example;  // string | Valid Report Status (optional) 
+            var reportStatus = reportStatus_example;  // string | Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional) 
 
             try
             {
-                // Retrieve available reports
+                // Retrieve Available Reports
                 ReportingV3ReportsGet200Response result = apiInstance.SearchReports(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
                 Debug.WriteLine(result);
             }
@@ -186,15 +186,15 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startTime** | **DateTime?**| Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX  | 
- **endTime** | **DateTime?**| Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX  | 
- **timeQueryType** | **string**| Specify time you would like to search | 
+ **startTime** | **DateTime?**| Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z)  | 
+ **endTime** | **DateTime?**| Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z)  | 
+ **timeQueryType** | **string**| Specify time you would like to search  Valid values: - reportTimeFrame - executedTime  | 
  **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
- **reportMimeType** | **string**| Valid Report Format | [optional] 
- **reportFrequency** | **string**| Valid Report Frequency | [optional] 
+ **reportMimeType** | **string**| Valid Report Format  Valid values: - application/xml - text/csv  | [optional] 
+ **reportFrequency** | **string**| Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  | [optional] 
  **reportName** | **string**| Valid Report Name | [optional] 
  **reportDefinitionId** | **int?**| Valid Report Definition Id | [optional] 
- **reportStatus** | **string**| Valid Report Status | [optional] 
+ **reportStatus** | **string**| Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  | [optional] 
 
 ### Return type
 

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="ApprovalCode">Issuer-generated approval code for the transaction..</param>
         /// <param name="ResponseCode">Transaction status from the processor..</param>
         /// <param name="TransactionId">Network transaction identifier (TID). This value can be used to identify a specific transaction when you are discussing the transaction with your processor. .</param>
-        /// <param name="SystemTraceAuditNumber">This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customer’s receipt. .</param>
+        /// <param name="SystemTraceAuditNumber">This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  #### American Express Direct  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  #### CyberSource through VisaNet  System trace number that must be printed on the customer’s receipt.  For details, see &#x60;receipt_number&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="ResponseCodeSource">Used by Visa only and contains the response source/reason code that identifies the source of the response decision. .</param>
         public PtsV2PayoutsPost201ResponseProcessorInformation(string ApprovalCode = default(string), string ResponseCode = default(string), string TransactionId = default(string), string SystemTraceAuditNumber = default(string), string ResponseCodeSource = default(string))
         {
@@ -69,9 +69,9 @@ namespace CyberSource.Model
         public string TransactionId { get; set; }
 
         /// <summary>
-        /// This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customer’s receipt. 
+        /// This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  #### American Express Direct  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  #### CyberSource through VisaNet  System trace number that must be printed on the customer’s receipt.  For details, see &#x60;receipt_number&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  **American Express Direct**  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  **CyberSource through VisaNet**  System trace number that must be printed on the customer’s receipt. </value>
+        /// <value>This field is returned only for **American Express Direct** and **CyberSource through VisaNet**.  #### American Express Direct  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  #### CyberSource through VisaNet  System trace number that must be printed on the customer’s receipt.  For details, see &#x60;receipt_number&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="systemTraceAuditNumber", EmitDefaultValue=false)]
         public string SystemTraceAuditNumber { get; set; }
 
@@ -191,33 +191,33 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ApprovalCode (string) maxLength
-            if(this.ApprovalCode != null && this.ApprovalCode.Length > 6)
+            if(this.ApprovalCode != null && this.ApprovalCode.Length >= 6)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApprovalCode, length must be less than 6.", new [] { "ApprovalCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApprovalCode, length must be less than or equal to 6.", new [] { "ApprovalCode" });
             }
 
             // ResponseCode (string) maxLength
-            if(this.ResponseCode != null && this.ResponseCode.Length > 10)
+            if(this.ResponseCode != null && this.ResponseCode.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCode, length must be less than 10.", new [] { "ResponseCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCode, length must be less than or equal to 10.", new [] { "ResponseCode" });
             }
 
             // TransactionId (string) maxLength
-            if(this.TransactionId != null && this.TransactionId.Length > 15)
+            if(this.TransactionId != null && this.TransactionId.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionId, length must be less than 15.", new [] { "TransactionId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionId, length must be less than or equal to 15.", new [] { "TransactionId" });
             }
 
             // SystemTraceAuditNumber (string) maxLength
-            if(this.SystemTraceAuditNumber != null && this.SystemTraceAuditNumber.Length > 6)
+            if(this.SystemTraceAuditNumber != null && this.SystemTraceAuditNumber.Length >= 6)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SystemTraceAuditNumber, length must be less than 6.", new [] { "SystemTraceAuditNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SystemTraceAuditNumber, length must be less than or equal to 6.", new [] { "SystemTraceAuditNumber" });
             }
 
             // ResponseCodeSource (string) maxLength
-            if(this.ResponseCodeSource != null && this.ResponseCodeSource.Length > 1)
+            if(this.ResponseCodeSource != null && this.ResponseCodeSource.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCodeSource, length must be less than 1.", new [] { "ResponseCodeSource" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCodeSource, length must be less than or equal to 1.", new [] { "ResponseCodeSource" });
             }
 
             yield break;

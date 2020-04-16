@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ServiceFeeAmount (string) maxLength
-            if(this.ServiceFeeAmount != null && this.ServiceFeeAmount.Length > 15)
+            if(this.ServiceFeeAmount != null && this.ServiceFeeAmount.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServiceFeeAmount, length must be less than 15.", new [] { "ServiceFeeAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServiceFeeAmount, length must be less than or equal to 15.", new [] { "ServiceFeeAmount" });
             }
 
             yield break;

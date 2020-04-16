@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,22 +33,23 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201Response" /> class.
         /// </summary>
-        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request..</param>
+        /// <param name="SearchId">An unique identification number assigned by CyberSource to identify each Search request..</param>
         /// <param name="Save">save or not save..</param>
         /// <param name="Name">The description for this field is not available. .</param>
-        /// <param name="Timezone">Time Zone..</param>
+        /// <param name="Timezone">Time Zone in ISO format..</param>
         /// <param name="Query">transaction search query string..</param>
         /// <param name="Offset">offset..</param>
-        /// <param name="Limit">limit on number of results..</param>
+        /// <param name="Limit">Limit on number of results..</param>
         /// <param name="Sort">A comma separated list of the following form - fieldName1 asc or desc, fieldName2 asc or desc, etc..</param>
         /// <param name="Count">Results for this page, this could be below the limit..</param>
-        /// <param name="TotalCount">total number of results..</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        /// <param name="TotalCount">Total number of results..</param>
+        /// <param name="Status">The status of the submitted transaction..</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
         /// <param name="Embedded">Embedded.</param>
         /// <param name="Links">Links.</param>
-        public TssV2TransactionsPost201Response(string Id = default(string), bool? Save = default(bool?), string Name = default(string), string Timezone = default(string), string Query = default(string), int? Offset = default(int?), int? Limit = default(int?), string Sort = default(string), int? Count = default(int?), int? TotalCount = default(int?), string SubmitTimeUtc = default(string), TssV2TransactionsPost201ResponseEmbedded Embedded = default(TssV2TransactionsPost201ResponseEmbedded), PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks))
+        public TssV2TransactionsPost201Response(string SearchId = default(string), bool? Save = default(bool?), string Name = default(string), string Timezone = default(string), string Query = default(string), int? Offset = default(int?), int? Limit = default(int?), string Sort = default(string), int? Count = default(int?), int? TotalCount = default(int?), string Status = default(string), string SubmitTimeUtc = default(string), TssV2TransactionsPost201ResponseEmbedded Embedded = default(TssV2TransactionsPost201ResponseEmbedded), PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks))
         {
-            this.Id = Id;
+            this.SearchId = SearchId;
             this.Save = Save;
             this.Name = Name;
             this.Timezone = Timezone;
@@ -58,17 +59,18 @@ namespace CyberSource.Model
             this.Sort = Sort;
             this.Count = Count;
             this.TotalCount = TotalCount;
+            this.Status = Status;
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Embedded = Embedded;
             this.Links = Links;
         }
         
         /// <summary>
-        /// An unique identification number assigned by CyberSource to identify the submitted request.
+        /// An unique identification number assigned by CyberSource to identify each Search request.
         /// </summary>
-        /// <value>An unique identification number assigned by CyberSource to identify the submitted request.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
+        /// <value>An unique identification number assigned by CyberSource to identify each Search request.</value>
+        [DataMember(Name="searchId", EmitDefaultValue=false)]
+        public string SearchId { get; set; }
 
         /// <summary>
         /// save or not save.
@@ -85,9 +87,9 @@ namespace CyberSource.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Time Zone.
+        /// Time Zone in ISO format.
         /// </summary>
-        /// <value>Time Zone.</value>
+        /// <value>Time Zone in ISO format.</value>
         [DataMember(Name="timezone", EmitDefaultValue=false)]
         public string Timezone { get; set; }
 
@@ -106,9 +108,9 @@ namespace CyberSource.Model
         public int? Offset { get; set; }
 
         /// <summary>
-        /// limit on number of results.
+        /// Limit on number of results.
         /// </summary>
-        /// <value>limit on number of results.</value>
+        /// <value>Limit on number of results.</value>
         [DataMember(Name="limit", EmitDefaultValue=false)]
         public int? Limit { get; set; }
 
@@ -127,16 +129,23 @@ namespace CyberSource.Model
         public int? Count { get; set; }
 
         /// <summary>
-        /// total number of results.
+        /// Total number of results.
         /// </summary>
-        /// <value>total number of results.</value>
+        /// <value>Total number of results.</value>
         [DataMember(Name="totalCount", EmitDefaultValue=false)]
         public int? TotalCount { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// The status of the submitted transaction.
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        /// <value>The status of the submitted transaction.</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
+        /// </summary>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
@@ -150,7 +159,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public PtsV2PaymentsReversalsPost201ResponseLinks Links { get; set; }
+        public PtsV2IncrementalAuthorizationPatch201ResponseLinks Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -160,7 +169,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201Response {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  SearchId: ").Append(SearchId).Append("\n");
             sb.Append("  Save: ").Append(Save).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
@@ -170,6 +179,7 @@ namespace CyberSource.Model
             sb.Append("  Sort: ").Append(Sort).Append("\n");
             sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -210,9 +220,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.SearchId == other.SearchId ||
+                    this.SearchId != null &&
+                    this.SearchId.Equals(other.SearchId)
                 ) && 
                 (
                     this.Save == other.Save ||
@@ -260,6 +270,11 @@ namespace CyberSource.Model
                     this.TotalCount.Equals(other.TotalCount)
                 ) && 
                 (
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
+                ) && 
+                (
                     this.SubmitTimeUtc == other.SubmitTimeUtc ||
                     this.SubmitTimeUtc != null &&
                     this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
@@ -287,8 +302,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                if (this.SearchId != null)
+                    hash = hash * 59 + this.SearchId.GetHashCode();
                 if (this.Save != null)
                     hash = hash * 59 + this.Save.GetHashCode();
                 if (this.Name != null)
@@ -307,6 +322,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Count.GetHashCode();
                 if (this.TotalCount != null)
                     hash = hash * 59 + this.TotalCount.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
                 if (this.SubmitTimeUtc != null)
                     hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.Embedded != null)
@@ -324,10 +341,10 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (string) maxLength
-            if(this.Id != null && this.Id.Length > 26)
+            // SearchId (string) maxLength
+            if(this.SearchId != null && this.SearchId.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 26.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SearchId, length must be less than or equal to 60.", new [] { "SearchId" });
             }
 
             yield break;

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -31,10 +31,10 @@ namespace CyberSource.Api
         /// Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        void CreateReport (RequestBody requestBody, string organizationId = null);
+        void CreateReport (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null);
 
         /// <summary>
         /// Create Adhoc Report
@@ -43,12 +43,12 @@ namespace CyberSource.Api
         /// Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateReportWithHttpInfo (RequestBody requestBody, string organizationId = null);
+        ApiResponse<Object> CreateReportWithHttpInfo (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null);
         /// <summary>
-        /// Get Report based on reportId
+        /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
         /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
@@ -60,7 +60,7 @@ namespace CyberSource.Api
         ReportingV3ReportsIdGet200Response GetReportByReportId (string reportId, string organizationId = null);
 
         /// <summary>
-        /// Get Report based on reportId
+        /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
         /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
@@ -71,40 +71,40 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of ReportingV3ReportsIdGet200Response</returns>
         ApiResponse<ReportingV3ReportsIdGet200Response> GetReportByReportIdWithHttpInfo (string reportId, string organizationId = null);
         /// <summary>
-        /// Retrieve available reports
+        /// Retrieve Available Reports
         /// </summary>
         /// <remarks>
         /// Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="timeQueryType">Specify time you would like to search</param>
+        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <param name="reportMimeType">Valid Report Format (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency (optional)</param>
+        /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
-        /// <param name="reportStatus">Valid Report Status (optional)</param>
+        /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
         /// <returns>ReportingV3ReportsGet200Response</returns>
         ReportingV3ReportsGet200Response SearchReports (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
 
         /// <summary>
-        /// Retrieve available reports
+        /// Retrieve Available Reports
         /// </summary>
         /// <remarks>
         /// Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="timeQueryType">Specify time you would like to search</param>
+        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <param name="reportMimeType">Valid Report Format (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency (optional)</param>
+        /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
-        /// <param name="reportStatus">Valid Report Status (optional)</param>
+        /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportsGet200Response</returns>
         ApiResponse<ReportingV3ReportsGet200Response> SearchReportsWithHttpInfo (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
         #endregion Synchronous Operations
@@ -116,10 +116,10 @@ namespace CyberSource.Api
         /// Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateReportAsync (RequestBody requestBody, string organizationId = null);
+        System.Threading.Tasks.Task CreateReportAsync (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null);
 
         /// <summary>
         /// Create Adhoc Report
@@ -128,12 +128,12 @@ namespace CyberSource.Api
         /// Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo (RequestBody requestBody, string organizationId = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null);
         /// <summary>
-        /// Get Report based on reportId
+        /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
         /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
@@ -145,7 +145,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<ReportingV3ReportsIdGet200Response> GetReportByReportIdAsync (string reportId, string organizationId = null);
 
         /// <summary>
-        /// Get Report based on reportId
+        /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
         /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
@@ -156,40 +156,40 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (ReportingV3ReportsIdGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsIdGet200Response>> GetReportByReportIdAsyncWithHttpInfo (string reportId, string organizationId = null);
         /// <summary>
-        /// Retrieve available reports
+        /// Retrieve Available Reports
         /// </summary>
         /// <remarks>
         /// Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="timeQueryType">Specify time you would like to search</param>
+        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <param name="reportMimeType">Valid Report Format (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency (optional)</param>
+        /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
-        /// <param name="reportStatus">Valid Report Status (optional)</param>
+        /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
         /// <returns>Task of ReportingV3ReportsGet200Response</returns>
         System.Threading.Tasks.Task<ReportingV3ReportsGet200Response> SearchReportsAsync (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
 
         /// <summary>
-        /// Retrieve available reports
+        /// Retrieve Available Reports
         /// </summary>
         /// <remarks>
         /// Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="timeQueryType">Specify time you would like to search</param>
+        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <param name="reportMimeType">Valid Report Format (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency (optional)</param>
+        /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
-        /// <param name="reportStatus">Valid Report Status (optional)</param>
+        /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportsGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsGet200Response>> SearchReportsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null);
         #endregion Asynchronous Operations
@@ -234,11 +234,7 @@ namespace CyberSource.Api
 
             ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
+            this.Configuration.ApiClient.Configuration = this.Configuration;
         }
 
         /// <summary>
@@ -308,26 +304,26 @@ namespace CyberSource.Api
         /// Create Adhoc Report Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns></returns>
-        public void CreateReport (RequestBody requestBody, string organizationId = null)
+        public void CreateReport (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
-             CreateReportWithHttpInfo(requestBody, organizationId);
+             CreateReportWithHttpInfo(createAdhocReportRequest, organizationId);
         }
 
         /// <summary>
         /// Create Adhoc Report Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateReportWithHttpInfo (RequestBody requestBody, string organizationId = null)
+        public ApiResponse<Object> CreateReportWithHttpInfo (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling ReportsApi->CreateReport");
+            // verify the required parameter 'createAdhocReportRequest' is set
+            if (createAdhocReportRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createAdhocReportRequest' when calling ReportsApi->CreateReport");
 
             var localVarPath = $"/reporting/v3/reports";
             var localVarPathParams = new Dictionary<String, String>();
@@ -352,13 +348,13 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (requestBody != null && requestBody.GetType() != typeof(byte[]))
+            if (createAdhocReportRequest != null && createAdhocReportRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(createAdhocReportRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = requestBody; // byte array
+                localVarPostBody = createAdhocReportRequest; // byte array
             }
 
 
@@ -384,12 +380,12 @@ namespace CyberSource.Api
         /// Create Adhoc Report Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateReportAsync (RequestBody requestBody, string organizationId = null)
+        public async System.Threading.Tasks.Task CreateReportAsync (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
-             await CreateReportAsyncWithHttpInfo(requestBody, organizationId);
+             await CreateReportAsyncWithHttpInfo(createAdhocReportRequest, organizationId);
 
         }
 
@@ -397,14 +393,14 @@ namespace CyberSource.Api
         /// Create Adhoc Report Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">Report subscription request payload</param>
+        /// <param name="createAdhocReportRequest">Report subscription request payload</param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo (RequestBody requestBody, string organizationId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateReportAsyncWithHttpInfo (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling ReportsApi->CreateReport");
+            // verify the required parameter 'createAdhocReportRequest' is set
+            if (createAdhocReportRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createAdhocReportRequest' when calling ReportsApi->CreateReport");
 
             var localVarPath = $"/reporting/v3/reports";
             var localVarPathParams = new Dictionary<String, String>();
@@ -429,13 +425,13 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (requestBody != null && requestBody.GetType() != typeof(byte[]))
+            if (createAdhocReportRequest != null && createAdhocReportRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(createAdhocReportRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = requestBody; // byte array
+                localVarPostBody = createAdhocReportRequest; // byte array
             }
 
 
@@ -458,7 +454,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Report based on reportId Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -471,7 +467,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Report based on reportId Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -529,7 +525,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Report based on reportId Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -543,7 +539,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Report based on reportId Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -601,18 +597,18 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve available reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
+        /// Retrieve Available Reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="timeQueryType">Specify time you would like to search</param>
+        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <param name="reportMimeType">Valid Report Format (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency (optional)</param>
+        /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
-        /// <param name="reportStatus">Valid Report Status (optional)</param>
+        /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
         /// <returns>ReportingV3ReportsGet200Response</returns>
         public ReportingV3ReportsGet200Response SearchReports (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
@@ -621,18 +617,18 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve available reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
+        /// Retrieve Available Reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="timeQueryType">Specify time you would like to search</param>
+        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <param name="reportMimeType">Valid Report Format (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency (optional)</param>
+        /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
-        /// <param name="reportStatus">Valid Report Status (optional)</param>
+        /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportsGet200Response</returns>
         public ApiResponse< ReportingV3ReportsGet200Response > SearchReportsWithHttpInfo (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
@@ -647,27 +643,6 @@ namespace CyberSource.Api
                 throw new ApiException(400, "Missing required parameter 'timeQueryType' when calling ReportsApi->SearchReports");
 
             var localVarPath = $"/reporting/v3/reports";
-			if (!string.IsNullOrEmpty(organizationId))
-                localVarPath += $"?organizationId={organizationId}";
-
-            localVarPath += $"&startTime={startTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
-            localVarPath += $"&endTime={endTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
-            localVarPath += $"&timeQueryType={timeQueryType}";
-
-            if (!string.IsNullOrEmpty(reportMimeType))
-                localVarPath += $"&reportMimeType={reportMimeType}";
-
-            if (!string.IsNullOrEmpty(reportFrequency))
-                localVarPath += $"&reportFrequency={reportFrequency}";
-
-            if (!string.IsNullOrEmpty(reportName))
-                localVarPath += $"&reportName={reportName}";
-
-            if (!string.IsNullOrEmpty(reportDefinitionId.ToString()))
-                localVarPath += $"&reportDefinitionId={reportDefinitionId}";
-
-            if (!string.IsNullOrEmpty(reportStatus))
-                localVarPath += $"&reportStatus={reportStatus}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -679,7 +654,7 @@ namespace CyberSource.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = "";
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -689,15 +664,15 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-
-
-
-
-
-
-
-
-
+            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
+            if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
+            if (timeQueryType != null) localVarQueryParams.Add("timeQueryType", Configuration.ApiClient.ParameterToString(timeQueryType)); // query parameter
+            if (reportMimeType != null) localVarQueryParams.Add("reportMimeType", Configuration.ApiClient.ParameterToString(reportMimeType)); // query parameter
+            if (reportFrequency != null) localVarQueryParams.Add("reportFrequency", Configuration.ApiClient.ParameterToString(reportFrequency)); // query parameter
+            if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
+            if (reportDefinitionId != null) localVarQueryParams.Add("reportDefinitionId", Configuration.ApiClient.ParameterToString(reportDefinitionId)); // query parameter
+            if (reportStatus != null) localVarQueryParams.Add("reportStatus", Configuration.ApiClient.ParameterToString(reportStatus)); // query parameter
 
 
             // make the HTTP request
@@ -719,18 +694,18 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve available reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
+        /// Retrieve Available Reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="timeQueryType">Specify time you would like to search</param>
+        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <param name="reportMimeType">Valid Report Format (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency (optional)</param>
+        /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
-        /// <param name="reportStatus">Valid Report Status (optional)</param>
+        /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
         /// <returns>Task of ReportingV3ReportsGet200Response</returns>
         public async System.Threading.Tasks.Task<ReportingV3ReportsGet200Response> SearchReportsAsync (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
@@ -740,18 +715,18 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve available reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
+        /// Retrieve Available Reports Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX </param>
-        /// <param name="timeQueryType">Specify time you would like to search</param>
+        /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="endTime">Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) </param>
+        /// <param name="timeQueryType">Specify time you would like to search  Valid values: - reportTimeFrame - executedTime </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
-        /// <param name="reportMimeType">Valid Report Format (optional)</param>
-        /// <param name="reportFrequency">Valid Report Frequency (optional)</param>
+        /// <param name="reportMimeType">Valid Report Format  Valid values: - application/xml - text/csv  (optional)</param>
+        /// <param name="reportFrequency">Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC  (optional)</param>
         /// <param name="reportName">Valid Report Name (optional)</param>
         /// <param name="reportDefinitionId">Valid Report Definition Id (optional)</param>
-        /// <param name="reportStatus">Valid Report Status (optional)</param>
+        /// <param name="reportStatus">Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA  (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportsGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportsGet200Response>> SearchReportsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {

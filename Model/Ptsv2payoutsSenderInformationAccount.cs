@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -140,21 +140,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // FundsSource (string) maxLength
-            if(this.FundsSource != null && this.FundsSource.Length > 2)
+            if(this.FundsSource != null && this.FundsSource.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FundsSource, length must be less than 2.", new [] { "FundsSource" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FundsSource, length must be less than or equal to 2.", new [] { "FundsSource" });
             }
 
             // FundsSource (string) minLength
-            if(this.FundsSource != null && this.FundsSource.Length < 2)
+            if(this.FundsSource != null && this.FundsSource.Length <= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FundsSource, length must be greater than 2.", new [] { "FundsSource" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FundsSource, length must be greater than or equal to 2.", new [] { "FundsSource" });
             }
 
             // Number (string) maxLength
-            if(this.Number != null && this.Number.Length > 34)
+            if(this.Number != null && this.Number.Length >= 34)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than 34.", new [] { "Number" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than or equal to 34.", new [] { "Number" });
             }
 
             yield break;

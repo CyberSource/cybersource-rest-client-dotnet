@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -74,6 +74,19 @@ namespace CyberSource.Test
             //CreatePaymentRequest createPaymentRequest = null;
             //var response = instance.CreatePayment(createPaymentRequest);
             //Assert.IsInstanceOf<PtsV2PaymentsPost201Response> (response, "response is PtsV2PaymentsPost201Response");
+        }
+        
+        /// <summary>
+        /// Test IncrementAuth
+        /// </summary>
+        [Test]
+        public void IncrementAuthTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string id = null;
+            //IncrementAuthRequest incrementAuthRequest = null;
+            //var response = instance.IncrementAuth(id, incrementAuthRequest);
+            //Assert.IsInstanceOf<PtsV2IncrementalAuthorizationPatch201Response> (response, "response is PtsV2IncrementalAuthorizationPatch201Response");
         }
         
     }

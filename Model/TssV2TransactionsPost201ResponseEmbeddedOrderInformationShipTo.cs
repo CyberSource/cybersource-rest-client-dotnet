@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -34,10 +34,10 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedOrderInformationShipTo" /> class.
         /// </summary>
         /// <param name="FirstName">First name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
-        /// <param name="LastName">Last name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
+        /// <param name="LastName">Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
         /// <param name="Address1">First line of the shipping address..</param>
-        /// <param name="Country">Country of the shipping address. Use the two character ISO Standard Country Codes..</param>
-        /// <param name="PhoneNumber">Phone number for the shipping address..</param>
+        /// <param name="Country">Country of the shipping address. Use the two-character ISO Standard Country Codes..</param>
+        /// <param name="PhoneNumber">Phone number associated with the shipping address..</param>
         public TssV2TransactionsPost201ResponseEmbeddedOrderInformationShipTo(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Country = default(string), string PhoneNumber = default(string))
         {
             this.FirstName = FirstName;
@@ -55,9 +55,9 @@ namespace CyberSource.Model
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Last name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 
+        /// Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 
         /// </summary>
-        /// <value>Last name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 </value>
+        /// <value>Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 </value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
@@ -69,16 +69,16 @@ namespace CyberSource.Model
         public string Address1 { get; set; }
 
         /// <summary>
-        /// Country of the shipping address. Use the two character ISO Standard Country Codes.
+        /// Country of the shipping address. Use the two-character ISO Standard Country Codes.
         /// </summary>
-        /// <value>Country of the shipping address. Use the two character ISO Standard Country Codes.</value>
+        /// <value>Country of the shipping address. Use the two-character ISO Standard Country Codes.</value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 
         /// <summary>
-        /// Phone number for the shipping address.
+        /// Phone number associated with the shipping address.
         /// </summary>
-        /// <value>Phone number for the shipping address.</value>
+        /// <value>Phone number associated with the shipping address.</value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 
@@ -191,33 +191,33 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // FirstName (string) maxLength
-            if(this.FirstName != null && this.FirstName.Length > 60)
+            if(this.FirstName != null && this.FirstName.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, length must be less than 60.", new [] { "FirstName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, length must be less than or equal to 60.", new [] { "FirstName" });
             }
 
             // LastName (string) maxLength
-            if(this.LastName != null && this.LastName.Length > 60)
+            if(this.LastName != null && this.LastName.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be less than 60.", new [] { "LastName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be less than or equal to 60.", new [] { "LastName" });
             }
 
             // Address1 (string) maxLength
-            if(this.Address1 != null && this.Address1.Length > 60)
+            if(this.Address1 != null && this.Address1.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address1, length must be less than 60.", new [] { "Address1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address1, length must be less than or equal to 60.", new [] { "Address1" });
             }
 
             // Country (string) maxLength
-            if(this.Country != null && this.Country.Length > 2)
+            if(this.Country != null && this.Country.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than 2.", new [] { "Country" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 2.", new [] { "Country" });
             }
 
             // PhoneNumber (string) maxLength
-            if(this.PhoneNumber != null && this.PhoneNumber.Length > 15)
+            if(this.PhoneNumber != null && this.PhoneNumber.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, length must be less than 15.", new [] { "PhoneNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, length must be less than or equal to 15.", new [] { "PhoneNumber" });
             }
 
             yield break;

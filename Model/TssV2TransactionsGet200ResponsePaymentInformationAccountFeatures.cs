@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="BalanceAmount">Remaining balance on the account. .</param>
         /// <param name="PreviousBalanceAmount">Remaining balance on the account. .</param>
-        /// <param name="Currency">Currency of the remaining balance on the account. For the possible values, see the ISO Standard Currency Codes. .</param>
+        /// <param name="Currency">Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;auth_account_balance_currency&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         public TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures(string BalanceAmount = default(string), string PreviousBalanceAmount = default(string), string Currency = default(string))
         {
             this.BalanceAmount = BalanceAmount;
@@ -58,9 +58,9 @@ namespace CyberSource.Model
         public string PreviousBalanceAmount { get; set; }
 
         /// <summary>
-        /// Currency of the remaining balance on the account. For the possible values, see the ISO Standard Currency Codes. 
+        /// Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;auth_account_balance_currency&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Currency of the remaining balance on the account. For the possible values, see the ISO Standard Currency Codes. </value>
+        /// <value>Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;auth_account_balance_currency&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
 
@@ -157,21 +157,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // BalanceAmount (string) maxLength
-            if(this.BalanceAmount != null && this.BalanceAmount.Length > 12)
+            if(this.BalanceAmount != null && this.BalanceAmount.Length >= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BalanceAmount, length must be less than 12.", new [] { "BalanceAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BalanceAmount, length must be less than or equal to 12.", new [] { "BalanceAmount" });
             }
 
             // PreviousBalanceAmount (string) maxLength
-            if(this.PreviousBalanceAmount != null && this.PreviousBalanceAmount.Length > 12)
+            if(this.PreviousBalanceAmount != null && this.PreviousBalanceAmount.Length >= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreviousBalanceAmount, length must be less than 12.", new [] { "PreviousBalanceAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreviousBalanceAmount, length must be less than or equal to 12.", new [] { "PreviousBalanceAmount" });
             }
 
             // Currency (string) maxLength
-            if(this.Currency != null && this.Currency.Length > 5)
+            if(this.Currency != null && this.Currency.Length >= 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 5.", new [] { "Currency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than or equal to 5.", new [] { "Currency" });
             }
 
             yield break;

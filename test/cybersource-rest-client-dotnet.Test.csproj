@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
-CyberSource Flex API
+CyberSource Merged Spec
 
-Simple PAN tokenization service
+All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
 
 OpenAPI spec version: 0.0.1
 
@@ -37,12 +37,6 @@ OpenAPI spec version: 0.0.1
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>..\packages\RestSharp.106.5.3\lib\net452\RestSharp.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,20 +47,28 @@ OpenAPI spec version: 0.0.1
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+        <HintPath>..\packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+        <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs" Exclude="obj\**" />
+    <Compile Include="**\*.cs"
+             Exclude="obj\**"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+      <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\cybersource-rest-client-dotnet.csproj">
-      <Project>{51EEEB84-24E5-4323-9B21-31CE2D7FB209}</Project>
-      <Name>CyberSource</Name>
-    </ProjectReference>
+      <ProjectReference Include="..\cybersource-rest-client-dotnet.csproj">
+          <Project>{BB05AA53-E6C5-42CD-AF15-2B3DB516A407}</Project>
+          <Name>cybersource-rest-client-dotnet</Name>
+      </ProjectReference>
   </ItemGroup>
 </Project>
+

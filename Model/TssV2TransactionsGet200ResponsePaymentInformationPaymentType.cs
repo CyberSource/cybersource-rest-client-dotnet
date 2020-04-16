@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,72 +33,36 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponsePaymentInformationPaymentType" /> class.
         /// </summary>
-        /// <param name="Name">The description for this field is not available..</param>
-        /// <param name="Type">The description for this field is not available..</param>
-        /// <param name="SubType">The description for this field is not available..</param>
-        /// <param name="Method">The description for this field is not available..</param>
-        /// <param name="FundingSource">The description for this field is not available..</param>
-        /// <param name="FundingSourceAffiliation">The description for this field is not available..</param>
-        /// <param name="Credential">The description for this field is not available..</param>
-        public TssV2TransactionsGet200ResponsePaymentInformationPaymentType(string Name = default(string), string Type = default(string), string SubType = default(string), string Method = default(string), string FundingSource = default(string), string FundingSourceAffiliation = default(string), string Credential = default(string))
+        /// <param name="Name">A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. Possible values: - &#x60;CARD&#x60; (use this for a PIN debit transaction) .</param>
+        /// <param name="Type">Indicates the payment type used in this payment transaction. Example: credit card, check.</param>
+        /// <param name="Method">Indicates the payment method used in this payment transaction..</param>
+        public TssV2TransactionsGet200ResponsePaymentInformationPaymentType(string Name = default(string), string Type = default(string), string Method = default(string))
         {
             this.Name = Name;
             this.Type = Type;
-            this.SubType = SubType;
             this.Method = Method;
-            this.FundingSource = FundingSource;
-            this.FundingSourceAffiliation = FundingSourceAffiliation;
-            this.Credential = Credential;
         }
         
         /// <summary>
-        /// The description for this field is not available.
+        /// A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. Possible values: - &#x60;CARD&#x60; (use this for a PIN debit transaction) 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. Possible values: - &#x60;CARD&#x60; (use this for a PIN debit transaction) </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Indicates the payment type used in this payment transaction. Example: credit card, check
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Indicates the payment type used in this payment transaction. Example: credit card, check</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Indicates the payment method used in this payment transaction.
         /// </summary>
-        /// <value>The description for this field is not available.</value>
-        [DataMember(Name="subType", EmitDefaultValue=false)]
-        public string SubType { get; set; }
-
-        /// <summary>
-        /// The description for this field is not available.
-        /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Indicates the payment method used in this payment transaction.</value>
         [DataMember(Name="method", EmitDefaultValue=false)]
         public string Method { get; set; }
-
-        /// <summary>
-        /// The description for this field is not available.
-        /// </summary>
-        /// <value>The description for this field is not available.</value>
-        [DataMember(Name="fundingSource", EmitDefaultValue=false)]
-        public string FundingSource { get; set; }
-
-        /// <summary>
-        /// The description for this field is not available.
-        /// </summary>
-        /// <value>The description for this field is not available.</value>
-        [DataMember(Name="fundingSourceAffiliation", EmitDefaultValue=false)]
-        public string FundingSourceAffiliation { get; set; }
-
-        /// <summary>
-        /// The description for this field is not available.
-        /// </summary>
-        /// <value>The description for this field is not available.</value>
-        [DataMember(Name="credential", EmitDefaultValue=false)]
-        public string Credential { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,11 +74,7 @@ namespace CyberSource.Model
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformationPaymentType {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  SubType: ").Append(SubType).Append("\n");
             sb.Append("  Method: ").Append(Method).Append("\n");
-            sb.Append("  FundingSource: ").Append(FundingSource).Append("\n");
-            sb.Append("  FundingSourceAffiliation: ").Append(FundingSourceAffiliation).Append("\n");
-            sb.Append("  Credential: ").Append(Credential).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -162,29 +122,9 @@ namespace CyberSource.Model
                     this.Type.Equals(other.Type)
                 ) && 
                 (
-                    this.SubType == other.SubType ||
-                    this.SubType != null &&
-                    this.SubType.Equals(other.SubType)
-                ) && 
-                (
                     this.Method == other.Method ||
                     this.Method != null &&
                     this.Method.Equals(other.Method)
-                ) && 
-                (
-                    this.FundingSource == other.FundingSource ||
-                    this.FundingSource != null &&
-                    this.FundingSource.Equals(other.FundingSource)
-                ) && 
-                (
-                    this.FundingSourceAffiliation == other.FundingSourceAffiliation ||
-                    this.FundingSourceAffiliation != null &&
-                    this.FundingSourceAffiliation.Equals(other.FundingSourceAffiliation)
-                ) && 
-                (
-                    this.Credential == other.Credential ||
-                    this.Credential != null &&
-                    this.Credential.Equals(other.Credential)
                 );
         }
 
@@ -203,16 +143,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Name.GetHashCode();
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
-                if (this.SubType != null)
-                    hash = hash * 59 + this.SubType.GetHashCode();
                 if (this.Method != null)
                     hash = hash * 59 + this.Method.GetHashCode();
-                if (this.FundingSource != null)
-                    hash = hash * 59 + this.FundingSource.GetHashCode();
-                if (this.FundingSourceAffiliation != null)
-                    hash = hash * 59 + this.FundingSourceAffiliation.GetHashCode();
-                if (this.Credential != null)
-                    hash = hash * 59 + this.Credential.GetHashCode();
                 return hash;
             }
         }

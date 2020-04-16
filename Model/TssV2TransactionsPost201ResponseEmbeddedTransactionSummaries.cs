@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries" /> class.
         /// </summary>
-        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request..</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="MerchantId">The description for this field is not available..</param>
+        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. .</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
+        /// <param name="MerchantId">Your CyberSource merchant ID..</param>
         /// <param name="ApplicationInformation">ApplicationInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="FraudMarkingInformation">FraudMarkingInformation.</param>
-        /// <param name="MerchantDefinedInformation">The description for this field is not available..</param>
+        /// <param name="MerchantDefinedInformation">The object containing the custom data that the merchant defines. .</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="Links">Links.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries(string Id = default(string), string SubmitTimeUtc = default(string), string MerchantId = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsPost201ResponseEmbeddedBuyerInformation BuyerInformation = default(TssV2TransactionsPost201ResponseEmbeddedBuyerInformation), TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation), TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation), TssV2TransactionsPost201ResponseEmbeddedDeviceInformation DeviceInformation = default(TssV2TransactionsPost201ResponseEmbeddedDeviceInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), List<TssV2TransactionsGet200ResponseMerchantDefinedInformation> MerchantDefinedInformation = default(List<TssV2TransactionsGet200ResponseMerchantDefinedInformation>), TssV2TransactionsPost201ResponseEmbeddedMerchantInformation MerchantInformation = default(TssV2TransactionsPost201ResponseEmbeddedMerchantInformation), TssV2TransactionsPost201ResponseEmbeddedOrderInformation OrderInformation = default(TssV2TransactionsPost201ResponseEmbeddedOrderInformation), TssV2TransactionsPost201ResponseEmbeddedPaymentInformation PaymentInformation = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformation), TssV2TransactionsPost201ResponseEmbeddedProcessingInformation ProcessingInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessingInformation), TssV2TransactionsPost201ResponseEmbeddedProcessorInformation ProcessorInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessorInformation), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation), TssV2TransactionsPost201ResponseEmbeddedRiskInformation RiskInformation = default(TssV2TransactionsPost201ResponseEmbeddedRiskInformation), TssV2TransactionsPost201ResponseEmbeddedLinks Links = default(TssV2TransactionsPost201ResponseEmbeddedLinks))
+        public TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries(string Id = default(string), string SubmitTimeUtc = default(string), string MerchantId = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsPost201ResponseEmbeddedBuyerInformation BuyerInformation = default(TssV2TransactionsPost201ResponseEmbeddedBuyerInformation), TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation), TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation), TssV2TransactionsPost201ResponseEmbeddedDeviceInformation DeviceInformation = default(TssV2TransactionsPost201ResponseEmbeddedDeviceInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsPost201ResponseEmbeddedMerchantInformation MerchantInformation = default(TssV2TransactionsPost201ResponseEmbeddedMerchantInformation), TssV2TransactionsPost201ResponseEmbeddedOrderInformation OrderInformation = default(TssV2TransactionsPost201ResponseEmbeddedOrderInformation), TssV2TransactionsPost201ResponseEmbeddedPaymentInformation PaymentInformation = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformation), TssV2TransactionsPost201ResponseEmbeddedProcessingInformation ProcessingInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessingInformation), TssV2TransactionsPost201ResponseEmbeddedProcessorInformation ProcessorInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessorInformation), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation), TssV2TransactionsPost201ResponseEmbeddedRiskInformation RiskInformation = default(TssV2TransactionsPost201ResponseEmbeddedRiskInformation), TssV2TransactionsPost201ResponseEmbeddedLinks Links = default(TssV2TransactionsPost201ResponseEmbeddedLinks))
         {
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
@@ -74,23 +74,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// An unique identification number assigned by CyberSource to identify the submitted request.
+        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. 
         /// </summary>
-        /// <value>An unique identification number assigned by CyberSource to identify the submitted request.</value>
+        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. </value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Your CyberSource merchant ID.
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Your CyberSource merchant ID.</value>
         [DataMember(Name="merchantId", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
 
@@ -131,11 +131,11 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// The object containing the custom data that the merchant defines. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The object containing the custom data that the merchant defines. </value>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
-        public List<TssV2TransactionsGet200ResponseMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
+        public List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInformation
@@ -398,9 +398,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) maxLength
-            if(this.Id != null && this.Id.Length > 26)
+            if(this.Id != null && this.Id.Length >= 26)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 26.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than or equal to 26.", new [] { "Id" });
             }
 
             yield break;

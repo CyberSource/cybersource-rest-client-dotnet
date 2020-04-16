@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner" /> class.
         /// </summary>
-        /// <param name="OriginalTransactionId">Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this  value. .</param>
+        /// <param name="OriginalTransactionId">Value that links the previous transaction to the current follow-on request. This value is assigned by the client software that is installed on the POS terminal, which makes it available to the terminal’s software and to CyberSource. Therefore, you can use this value to reconcile transactions between CyberSource and the terminal’s software.  CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only on American Express Direct, FDC Nashville Global, and SIX. .</param>
         public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner(string OriginalTransactionId = default(string))
         {
             this.OriginalTransactionId = OriginalTransactionId;
         }
         
         /// <summary>
-        /// Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this  value. 
+        /// Value that links the previous transaction to the current follow-on request. This value is assigned by the client software that is installed on the POS terminal, which makes it available to the terminal’s software and to CyberSource. Therefore, you can use this value to reconcile transactions between CyberSource and the terminal’s software.  CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only on American Express Direct, FDC Nashville Global, and SIX. 
         /// </summary>
-        /// <value>Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this  value. </value>
+        /// <value>Value that links the previous transaction to the current follow-on request. This value is assigned by the client software that is installed on the POS terminal, which makes it available to the terminal’s software and to CyberSource. Therefore, you can use this value to reconcile transactions between CyberSource and the terminal’s software.  CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only on American Express Direct, FDC Nashville Global, and SIX. </value>
         [DataMember(Name="originalTransactionId", EmitDefaultValue=false)]
         public string OriginalTransactionId { get; set; }
 
@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // OriginalTransactionId (string) maxLength
-            if(this.OriginalTransactionId != null && this.OriginalTransactionId.Length > 50)
+            if(this.OriginalTransactionId != null && this.OriginalTransactionId.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginalTransactionId, length must be less than 50.", new [] { "OriginalTransactionId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginalTransactionId, length must be less than or equal to 32.", new [] { "OriginalTransactionId" });
             }
 
             yield break;

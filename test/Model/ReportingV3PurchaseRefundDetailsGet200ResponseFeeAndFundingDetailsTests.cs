@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -79,6 +79,30 @@ namespace CyberSource.Test
         public void InterchangePerItemFeeTest()
         {
             // TODO unit test for the property 'InterchangePerItemFee'
+        }
+        /// <summary>
+        /// Test the property 'InterchangeDescription'
+        /// </summary>
+        [Test]
+        public void InterchangeDescriptionTest()
+        {
+            // TODO unit test for the property 'InterchangeDescription'
+        }
+        /// <summary>
+        /// Test the property 'InterchangePercentage'
+        /// </summary>
+        [Test]
+        public void InterchangePercentageTest()
+        {
+            // TODO unit test for the property 'InterchangePercentage'
+        }
+        /// <summary>
+        /// Test the property 'InterchangePercentageAmount'
+        /// </summary>
+        [Test]
+        public void InterchangePercentageAmountTest()
+        {
+            // TODO unit test for the property 'InterchangePercentageAmount'
         }
         /// <summary>
         /// Test the property 'DiscountPercentage'

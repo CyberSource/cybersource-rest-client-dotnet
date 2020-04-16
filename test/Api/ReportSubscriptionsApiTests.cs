@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -65,15 +65,28 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test CreateStandardOrClassicSubscription
+        /// </summary>
+        [Test]
+        public void CreateStandardOrClassicSubscriptionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean = null;
+            //string organizationId = null;
+            //instance.CreateStandardOrClassicSubscription(predefinedSubscriptionRequestBean, organizationId);
+            
+        }
+        
+        /// <summary>
         /// Test CreateSubscription
         /// </summary>
         [Test]
         public void CreateSubscriptionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //RequestBody1 requestBody = null;
+            //CreateReportSubscriptionRequest createReportSubscriptionRequest = null;
             //string organizationId = null;
-            //instance.CreateSubscription(requestBody, organizationId);
+            //instance.CreateSubscription(createReportSubscriptionRequest, organizationId);
             
         }
         

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -42,9 +42,11 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        /// <param name="MerchantDefinedInformation">The description for this field is not available..</param>
+        /// <param name="MerchantDefinedInformation">The object containing the custom data that the merchant defines. .</param>
         /// <param name="InstallmentInformation">InstallmentInformation.</param>
-        public CapturePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidcapturesProcessingInformation ProcessingInformation = default(Ptsv2paymentsidcapturesProcessingInformation), Ptsv2paymentsidcapturesPaymentInformation PaymentInformation = default(Ptsv2paymentsidcapturesPaymentInformation), Ptsv2paymentsidcapturesOrderInformation OrderInformation = default(Ptsv2paymentsidcapturesOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsidcapturesMerchantInformation MerchantInformation = default(Ptsv2paymentsidcapturesMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidcapturesPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsidcapturesInstallmentInformation InstallmentInformation = default(Ptsv2paymentsidcapturesInstallmentInformation))
+        /// <param name="TravelInformation">TravelInformation.</param>
+        /// <param name="PromotionInformation">PromotionInformation.</param>
+        public CapturePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidcapturesProcessingInformation ProcessingInformation = default(Ptsv2paymentsidcapturesProcessingInformation), Ptsv2paymentsidcapturesPaymentInformation PaymentInformation = default(Ptsv2paymentsidcapturesPaymentInformation), Ptsv2paymentsidcapturesOrderInformation OrderInformation = default(Ptsv2paymentsidcapturesOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsidcapturesMerchantInformation MerchantInformation = default(Ptsv2paymentsidcapturesMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidcapturesPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsidcapturesInstallmentInformation InstallmentInformation = default(Ptsv2paymentsidcapturesInstallmentInformation), Ptsv2paymentsidcapturesTravelInformation TravelInformation = default(Ptsv2paymentsidcapturesTravelInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -57,6 +59,8 @@ namespace CyberSource.Model
             this.PointOfSaleInformation = PointOfSaleInformation;
             this.MerchantDefinedInformation = MerchantDefinedInformation;
             this.InstallmentInformation = InstallmentInformation;
+            this.TravelInformation = TravelInformation;
+            this.PromotionInformation = PromotionInformation;
         }
         
         /// <summary>
@@ -114,9 +118,9 @@ namespace CyberSource.Model
         public Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// The object containing the custom data that the merchant defines. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The object containing the custom data that the merchant defines. </value>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
         public List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
 
@@ -125,6 +129,18 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="installmentInformation", EmitDefaultValue=false)]
         public Ptsv2paymentsidcapturesInstallmentInformation InstallmentInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TravelInformation
+        /// </summary>
+        [DataMember(Name="travelInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsidcapturesTravelInformation TravelInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PromotionInformation
+        /// </summary>
+        [DataMember(Name="promotionInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsPromotionInformation PromotionInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -145,6 +161,8 @@ namespace CyberSource.Model
             sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
             sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
+            sb.Append("  TravelInformation: ").Append(TravelInformation).Append("\n");
+            sb.Append("  PromotionInformation: ").Append(PromotionInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -235,6 +253,16 @@ namespace CyberSource.Model
                     this.InstallmentInformation == other.InstallmentInformation ||
                     this.InstallmentInformation != null &&
                     this.InstallmentInformation.Equals(other.InstallmentInformation)
+                ) && 
+                (
+                    this.TravelInformation == other.TravelInformation ||
+                    this.TravelInformation != null &&
+                    this.TravelInformation.Equals(other.TravelInformation)
+                ) && 
+                (
+                    this.PromotionInformation == other.PromotionInformation ||
+                    this.PromotionInformation != null &&
+                    this.PromotionInformation.Equals(other.PromotionInformation)
                 );
         }
 
@@ -271,6 +299,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantDefinedInformation.GetHashCode();
                 if (this.InstallmentInformation != null)
                     hash = hash * 59 + this.InstallmentInformation.GetHashCode();
+                if (this.TravelInformation != null)
+                    hash = hash * 59 + this.TravelInformation.GetHashCode();
+                if (this.PromotionInformation != null)
+                    hash = hash * 59 + this.PromotionInformation.GetHashCode();
                 return hash;
             }
         }

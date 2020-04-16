@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessorInformationRouting" /> class.
         /// </summary>
-        /// <param name="Network">Indicates whether the transaction was routed on a credit network, a debit network, or the STAR signature debit network.  Possible values: - C: Credit network - D: Debit network (without signature) - S: STAR signature debit network  This field is supported only on FDC Nashville Global. .</param>
-        /// <param name="NetworkName">Name of the network on which the transaction was routed.  This field is supported only on FDC Nashville Global. .</param>
-        /// <param name="CustomerSignatureRequired">Indicates whether you need to obtain the cardholder&#39;s signature.  Possible values: - Y: You need to obtain the cardholder&#39;s signature. - N: You do not need to obtain the cardholder&#39;s signature.  This field is supported only on FDC Nashville Global. .</param>
+        /// <param name="Network">Indicates whether the transaction was routed on a credit network, a debit network, or the STAR signature debit network.  Possible values: - &#x60;C&#x60;: Credit network - &#x60;D&#x60;: Debit network (without signature) - &#x60;S&#x60;: STAR signature debit network  This field is supported only on FDC Nashville Global.  For details, see the &#x60;routing_network_type&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) .</param>
+        /// <param name="NetworkName">Name of the network on which the transaction was routed.  This field is supported only on FDC Nashville Global.  For details, see the &#x60;routing_network_label&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) .</param>
+        /// <param name="CustomerSignatureRequired">Indicates whether you need to obtain the cardholder&#39;s signature.  Possible values: - &#x60;Y&#x60;: You need to obtain the cardholder&#39;s signature. - &#x60;N&#x60;: You do not need to obtain the cardholder&#39;s signature.  This field is supported only on FDC Nashville Global.  For details, see the &#x60;routing_signature_cvm_required&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) .</param>
         public PtsV2PaymentsPost201ResponseProcessorInformationRouting(string Network = default(string), string NetworkName = default(string), string CustomerSignatureRequired = default(string))
         {
             this.Network = Network;
@@ -44,23 +44,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Indicates whether the transaction was routed on a credit network, a debit network, or the STAR signature debit network.  Possible values: - C: Credit network - D: Debit network (without signature) - S: STAR signature debit network  This field is supported only on FDC Nashville Global. 
+        /// Indicates whether the transaction was routed on a credit network, a debit network, or the STAR signature debit network.  Possible values: - &#x60;C&#x60;: Credit network - &#x60;D&#x60;: Debit network (without signature) - &#x60;S&#x60;: STAR signature debit network  This field is supported only on FDC Nashville Global.  For details, see the &#x60;routing_network_type&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) 
         /// </summary>
-        /// <value>Indicates whether the transaction was routed on a credit network, a debit network, or the STAR signature debit network.  Possible values: - C: Credit network - D: Debit network (without signature) - S: STAR signature debit network  This field is supported only on FDC Nashville Global. </value>
+        /// <value>Indicates whether the transaction was routed on a credit network, a debit network, or the STAR signature debit network.  Possible values: - &#x60;C&#x60;: Credit network - &#x60;D&#x60;: Debit network (without signature) - &#x60;S&#x60;: STAR signature debit network  This field is supported only on FDC Nashville Global.  For details, see the &#x60;routing_network_type&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) </value>
         [DataMember(Name="network", EmitDefaultValue=false)]
         public string Network { get; set; }
 
         /// <summary>
-        /// Name of the network on which the transaction was routed.  This field is supported only on FDC Nashville Global. 
+        /// Name of the network on which the transaction was routed.  This field is supported only on FDC Nashville Global.  For details, see the &#x60;routing_network_label&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) 
         /// </summary>
-        /// <value>Name of the network on which the transaction was routed.  This field is supported only on FDC Nashville Global. </value>
+        /// <value>Name of the network on which the transaction was routed.  This field is supported only on FDC Nashville Global.  For details, see the &#x60;routing_network_label&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) </value>
         [DataMember(Name="networkName", EmitDefaultValue=false)]
         public string NetworkName { get; set; }
 
         /// <summary>
-        /// Indicates whether you need to obtain the cardholder&#39;s signature.  Possible values: - Y: You need to obtain the cardholder&#39;s signature. - N: You do not need to obtain the cardholder&#39;s signature.  This field is supported only on FDC Nashville Global. 
+        /// Indicates whether you need to obtain the cardholder&#39;s signature.  Possible values: - &#x60;Y&#x60;: You need to obtain the cardholder&#39;s signature. - &#x60;N&#x60;: You do not need to obtain the cardholder&#39;s signature.  This field is supported only on FDC Nashville Global.  For details, see the &#x60;routing_signature_cvm_required&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) 
         /// </summary>
-        /// <value>Indicates whether you need to obtain the cardholder&#39;s signature.  Possible values: - Y: You need to obtain the cardholder&#39;s signature. - N: You do not need to obtain the cardholder&#39;s signature.  This field is supported only on FDC Nashville Global. </value>
+        /// <value>Indicates whether you need to obtain the cardholder&#39;s signature.  Possible values: - &#x60;Y&#x60;: You need to obtain the cardholder&#39;s signature. - &#x60;N&#x60;: You do not need to obtain the cardholder&#39;s signature.  This field is supported only on FDC Nashville Global.  For details, see the &#x60;routing_signature_cvm_required&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) </value>
         [DataMember(Name="customerSignatureRequired", EmitDefaultValue=false)]
         public string CustomerSignatureRequired { get; set; }
 
@@ -157,21 +157,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Network (string) maxLength
-            if(this.Network != null && this.Network.Length > 1)
+            if(this.Network != null && this.Network.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Network, length must be less than 1.", new [] { "Network" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Network, length must be less than or equal to 1.", new [] { "Network" });
             }
 
             // NetworkName (string) maxLength
-            if(this.NetworkName != null && this.NetworkName.Length > 10)
+            if(this.NetworkName != null && this.NetworkName.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetworkName, length must be less than 10.", new [] { "NetworkName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetworkName, length must be less than or equal to 10.", new [] { "NetworkName" });
             }
 
             // CustomerSignatureRequired (string) maxLength
-            if(this.CustomerSignatureRequired != null && this.CustomerSignatureRequired.Length > 1)
+            if(this.CustomerSignatureRequired != null && this.CustomerSignatureRequired.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomerSignatureRequired, length must be less than 1.", new [] { "CustomerSignatureRequired" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomerSignatureRequired, length must be less than or equal to 1.", new [] { "CustomerSignatureRequired" });
             }
 
             yield break;

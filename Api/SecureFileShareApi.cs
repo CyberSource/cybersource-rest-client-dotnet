@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -25,7 +25,7 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Download a file with file identifier
+        /// Download a File with File Identifier
         /// </summary>
         /// <remarks>
         /// Download a file for the given file identifier
@@ -37,7 +37,7 @@ namespace CyberSource.Api
         void GetFile (string fileId, string organizationId = null);
 
         /// <summary>
-        /// Download a file with file identifier
+        /// Download a File with File Identifier
         /// </summary>
         /// <remarks>
         /// Download a file for the given file identifier
@@ -48,34 +48,34 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> GetFileWithHttpInfo (string fileId, string organizationId = null);
         /// <summary>
-        /// Get list of files
+        /// Get List of Files
         /// </summary>
         /// <remarks>
         /// Get list of files and it&#39;s information of them available inside the report directory
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
-        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>V1FileDetailsGet200Response</returns>
-        V1FileDetailsGet200Response GetFileDetails (DateTime? startDate, DateTime? endDate, string organizationId = null);
+        V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null);
 
         /// <summary>
-        /// Get list of files
+        /// Get List of Files
         /// </summary>
         /// <remarks>
         /// Get list of files and it&#39;s information of them available inside the report directory
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
-        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of V1FileDetailsGet200Response</returns>
-        ApiResponse<V1FileDetailsGet200Response> GetFileDetailsWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null);
+        ApiResponse<V1FileDetailsGet200Response> GetFileDetailWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Download a file with file identifier
+        /// Download a File with File Identifier
         /// </summary>
         /// <remarks>
         /// Download a file for the given file identifier
@@ -87,7 +87,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task GetFileAsync (string fileId, string organizationId = null);
 
         /// <summary>
-        /// Download a file with file identifier
+        /// Download a File with File Identifier
         /// </summary>
         /// <remarks>
         /// Download a file for the given file identifier
@@ -98,30 +98,30 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> GetFileAsyncWithHttpInfo (string fileId, string organizationId = null);
         /// <summary>
-        /// Get list of files
+        /// Get List of Files
         /// </summary>
         /// <remarks>
         /// Get list of files and it&#39;s information of them available inside the report directory
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
-        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of V1FileDetailsGet200Response</returns>
-        System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailsAsync (DateTime? startDate, DateTime? endDate, string organizationId = null);
+        System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailAsync (DateTime? startDate, DateTime? endDate, string organizationId = null);
 
         /// <summary>
-        /// Get list of files
+        /// Get List of Files
         /// </summary>
         /// <remarks>
         /// Get list of files and it&#39;s information of them available inside the report directory
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
-        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (V1FileDetailsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailsAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null);
+        System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null);
         #endregion Asynchronous Operations
     }
 
@@ -164,11 +164,7 @@ namespace CyberSource.Api
 
             ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
+            this.Configuration.ApiClient.Configuration = this.Configuration;
         }
 
         /// <summary>
@@ -235,7 +231,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a file with file identifier Download a file for the given file identifier
+        /// Download a File with File Identifier Download a file for the given file identifier
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Unique identifier for each file</param>
@@ -247,7 +243,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a file with file identifier Download a file for the given file identifier
+        /// Download a File with File Identifier Download a file for the given file identifier
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Unique identifier for each file</param>
@@ -302,11 +298,11 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                localVarResponse.Content);
         }
 
         /// <summary>
-        /// Download a file with file identifier Download a file for the given file identifier
+        /// Download a File with File Identifier Download a file for the given file identifier
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Unique identifier for each file</param>
@@ -319,7 +315,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Download a file with file identifier Download a file for the given file identifier
+        /// Download a File with File Identifier Download a file for the given file identifier
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Unique identifier for each file</param>
@@ -374,39 +370,39 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                localVarResponse.Content);
         }
 
         /// <summary>
-        /// Get list of files Get list of files and it&#39;s information of them available inside the report directory
+        /// Get List of Files Get list of files and it&#39;s information of them available inside the report directory
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
-        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>V1FileDetailsGet200Response</returns>
-        public V1FileDetailsGet200Response GetFileDetails (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        public V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null)
         {
-             ApiResponse<V1FileDetailsGet200Response> localVarResponse = GetFileDetailsWithHttpInfo(startDate, endDate, organizationId);
+             ApiResponse<V1FileDetailsGet200Response> localVarResponse = GetFileDetailWithHttpInfo(startDate, endDate, organizationId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get list of files Get list of files and it&#39;s information of them available inside the report directory
+        /// Get List of Files Get list of files and it&#39;s information of them available inside the report directory
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
-        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>ApiResponse of V1FileDetailsGet200Response</returns>
-        public ApiResponse< V1FileDetailsGet200Response > GetFileDetailsWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        public ApiResponse< V1FileDetailsGet200Response > GetFileDetailWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null)
         {
             // verify the required parameter 'startDate' is set
             if (startDate == null)
-                throw new ApiException(400, "Missing required parameter 'startDate' when calling SecureFileShareApi->GetFileDetails");
+                throw new ApiException(400, "Missing required parameter 'startDate' when calling SecureFileShareApi->GetFileDetail");
             // verify the required parameter 'endDate' is set
             if (endDate == null)
-                throw new ApiException(400, "Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetails");
+                throw new ApiException(400, "Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetail");
 
             var localVarPath = $"/sfs/v1/file-details";
             var localVarPathParams = new Dictionary<String, String>();
@@ -430,8 +426,8 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate.Value.ToString("yyyy-MM-dd"))); // query parameter
-            if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate.Value.ToString("yyyy-MM-dd"))); // query parameter
+            if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate)); // query parameter
+            if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate)); // query parameter
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
 
 
@@ -444,7 +440,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetFileDetails", localVarResponse);
+                Exception exception = ExceptionFactory("GetFileDetail", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -454,36 +450,36 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get list of files Get list of files and it&#39;s information of them available inside the report directory
+        /// Get List of Files Get list of files and it&#39;s information of them available inside the report directory
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
-        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of V1FileDetailsGet200Response</returns>
-        public async System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailsAsync (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        public async System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailAsync (DateTime? startDate, DateTime? endDate, string organizationId = null)
         {
-             ApiResponse<V1FileDetailsGet200Response> localVarResponse = await GetFileDetailsAsyncWithHttpInfo(startDate, endDate, organizationId);
+             ApiResponse<V1FileDetailsGet200Response> localVarResponse = await GetFileDetailAsyncWithHttpInfo(startDate, endDate, organizationId);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get list of files Get list of files and it&#39;s information of them available inside the report directory
+        /// Get List of Files Get list of files and it&#39;s information of them available inside the report directory
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
-        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
+        /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (V1FileDetailsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailsAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null)
         {
             // verify the required parameter 'startDate' is set
             if (startDate == null)
-                throw new ApiException(400, "Missing required parameter 'startDate' when calling SecureFileShareApi->GetFileDetails");
+                throw new ApiException(400, "Missing required parameter 'startDate' when calling SecureFileShareApi->GetFileDetail");
             // verify the required parameter 'endDate' is set
             if (endDate == null)
-                throw new ApiException(400, "Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetails");
+                throw new ApiException(400, "Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetail");
 
             var localVarPath = $"/sfs/v1/file-details";
             var localVarPathParams = new Dictionary<String, String>();
@@ -507,8 +503,8 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate.Value.ToString("yyyy-MM-dd"))); // query parameter
-            if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate.Value.ToString("yyyy-MM-dd"))); // query parameter
+            if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate)); // query parameter
+            if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate)); // query parameter
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
 
 
@@ -521,7 +517,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetFileDetails", localVarResponse);
+                Exception exception = ExceptionFactory("GetFileDetail", localVarResponse);
                 if (exception != null) throw exception;
             }
 

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,10 +33,10 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsProcessingInformationCaptureOptions" /> class.
         /// </summary>
-        /// <param name="CaptureSequenceNumber">Capture number when requesting multiple partial captures for one payment. Used along with _totalCaptureCount_ to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - _captureSequenceNumber_ &#x3D; 2, and   - _totalCaptureCount_ &#x3D; 5 .</param>
-        /// <param name="TotalCaptureCount">Total number of captures when requesting multiple partial captures for one payment. Used along with _captureSequenceNumber_ which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - _captureSequenceNumber_ &#x3D; 2, and   - _totalCaptureCount_ &#x3D; 5 .</param>
+        /// <param name="CaptureSequenceNumber">Capture number when requesting multiple partial captures for one authorization. Used along with &#x60;totalCaptureCount&#x60; to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber_ &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; .</param>
+        /// <param name="TotalCaptureCount">Total number of captures when requesting multiple partial captures for one payment. Used along with &#x60;captureSequenceNumber&#x60; field to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; .</param>
         /// <param name="DateToCapture">Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet.\\ &#x60;Format: MMDD&#x60; .</param>
-        public Ptsv2paymentsProcessingInformationCaptureOptions(decimal? CaptureSequenceNumber = default(decimal?), decimal? TotalCaptureCount = default(decimal?), string DateToCapture = default(string))
+        public Ptsv2paymentsProcessingInformationCaptureOptions(int? CaptureSequenceNumber = default(int?), int? TotalCaptureCount = default(int?), string DateToCapture = default(string))
         {
             this.CaptureSequenceNumber = CaptureSequenceNumber;
             this.TotalCaptureCount = TotalCaptureCount;
@@ -44,18 +44,18 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Capture number when requesting multiple partial captures for one payment. Used along with _totalCaptureCount_ to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - _captureSequenceNumber_ &#x3D; 2, and   - _totalCaptureCount_ &#x3D; 5 
+        /// Capture number when requesting multiple partial captures for one authorization. Used along with &#x60;totalCaptureCount&#x60; to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber_ &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; 
         /// </summary>
-        /// <value>Capture number when requesting multiple partial captures for one payment. Used along with _totalCaptureCount_ to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - _captureSequenceNumber_ &#x3D; 2, and   - _totalCaptureCount_ &#x3D; 5 </value>
+        /// <value>Capture number when requesting multiple partial captures for one authorization. Used along with &#x60;totalCaptureCount&#x60; to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber_ &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; </value>
         [DataMember(Name="captureSequenceNumber", EmitDefaultValue=false)]
-        public decimal? CaptureSequenceNumber { get; set; }
+        public int? CaptureSequenceNumber { get; set; }
 
         /// <summary>
-        /// Total number of captures when requesting multiple partial captures for one payment. Used along with _captureSequenceNumber_ which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - _captureSequenceNumber_ &#x3D; 2, and   - _totalCaptureCount_ &#x3D; 5 
+        /// Total number of captures when requesting multiple partial captures for one payment. Used along with &#x60;captureSequenceNumber&#x60; field to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; 
         /// </summary>
-        /// <value>Total number of captures when requesting multiple partial captures for one payment. Used along with _captureSequenceNumber_ which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - _captureSequenceNumber_ &#x3D; 2, and   - _totalCaptureCount_ &#x3D; 5 </value>
+        /// <value>Total number of captures when requesting multiple partial captures for one payment. Used along with &#x60;captureSequenceNumber&#x60; field to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; </value>
         [DataMember(Name="totalCaptureCount", EmitDefaultValue=false)]
-        public decimal? TotalCaptureCount { get; set; }
+        public int? TotalCaptureCount { get; set; }
 
         /// <summary>
         /// Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet.\\ &#x60;Format: MMDD&#x60; 
@@ -156,34 +156,34 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CaptureSequenceNumber (decimal?) maximum
-            if(this.CaptureSequenceNumber > (decimal?)99)
+            // CaptureSequenceNumber (int?) maximum
+            if(this.CaptureSequenceNumber >= (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CaptureSequenceNumber, must be a value less than or equal to 99.", new [] { "CaptureSequenceNumber" });
             }
 
-            // CaptureSequenceNumber (decimal?) minimum
-            if(this.CaptureSequenceNumber < (decimal?)1)
+            // CaptureSequenceNumber (int?) minimum
+            if(this.CaptureSequenceNumber <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CaptureSequenceNumber, must be a value greater than or equal to 1.", new [] { "CaptureSequenceNumber" });
             }
 
-            // TotalCaptureCount (decimal?) maximum
-            if(this.TotalCaptureCount > (decimal?)99)
+            // TotalCaptureCount (int?) maximum
+            if(this.TotalCaptureCount >= (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCaptureCount, must be a value less than or equal to 99.", new [] { "TotalCaptureCount" });
             }
 
-            // TotalCaptureCount (decimal?) minimum
-            if(this.TotalCaptureCount < (decimal?)1)
+            // TotalCaptureCount (int?) minimum
+            if(this.TotalCaptureCount <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCaptureCount, must be a value greater than or equal to 1.", new [] { "TotalCaptureCount" });
             }
 
             // DateToCapture (string) maxLength
-            if(this.DateToCapture != null && this.DateToCapture.Length > 4)
+            if(this.DateToCapture != null && this.DateToCapture.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateToCapture, length must be less than 4.", new [] { "DateToCapture" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateToCapture, length must be less than or equal to 4.", new [] { "DateToCapture" });
             }
 
             yield break;

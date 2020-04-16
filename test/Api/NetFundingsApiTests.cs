@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -65,17 +65,17 @@ namespace CyberSource.Test
 
         
         /// <summary>
-        /// Test GetNetFundingInfo
+        /// Test GetNetFundingDetails
         /// </summary>
         [Test]
-        public void GetNetFundingInfoTest()
+        public void GetNetFundingDetailsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //DateTime? startTime = null;
             //DateTime? endTime = null;
             //string organizationId = null;
             //string groupName = null;
-            //var response = instance.GetNetFundingInfo(startTime, endTime, organizationId, groupName);
+            //var response = instance.GetNetFundingDetails(startTime, endTime, organizationId, groupName);
             //Assert.IsInstanceOf<ReportingV3NetFundingsGet200Response> (response, "response is ReportingV3NetFundingsGet200Response");
         }
         

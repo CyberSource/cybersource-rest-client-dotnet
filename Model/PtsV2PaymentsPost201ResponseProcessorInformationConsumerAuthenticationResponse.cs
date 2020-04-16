@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse" /> class.
         /// </summary>
-        /// <param name="Code">Mapped response code for Verified by Visa and American Express SafeKey: .</param>
-        /// <param name="CodeRaw">Raw response code sent directly from the processor for Verified by Visa and American Express SafeKey: .</param>
+        /// <param name="Code">Mapped response code for Visa Secure and American Express SafeKey.  For processor-specific details, see &#x60;auth_cavv_response_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="CodeRaw">Raw response code sent directly from the processor for Visa Secure and American Express SafeKey:  For processor-specific details, see &#x60;auth_cavv_response_code_raw&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         public PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse(string Code = default(string), string CodeRaw = default(string))
         {
             this.Code = Code;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Mapped response code for Verified by Visa and American Express SafeKey: 
+        /// Mapped response code for Visa Secure and American Express SafeKey.  For processor-specific details, see &#x60;auth_cavv_response_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Mapped response code for Verified by Visa and American Express SafeKey: </value>
+        /// <value>Mapped response code for Visa Secure and American Express SafeKey.  For processor-specific details, see &#x60;auth_cavv_response_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Raw response code sent directly from the processor for Verified by Visa and American Express SafeKey: 
+        /// Raw response code sent directly from the processor for Visa Secure and American Express SafeKey:  For processor-specific details, see &#x60;auth_cavv_response_code_raw&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Raw response code sent directly from the processor for Verified by Visa and American Express SafeKey: </value>
+        /// <value>Raw response code sent directly from the processor for Visa Secure and American Express SafeKey:  For processor-specific details, see &#x60;auth_cavv_response_code_raw&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="codeRaw", EmitDefaultValue=false)]
         public string CodeRaw { get; set; }
 
@@ -140,15 +140,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Code (string) maxLength
-            if(this.Code != null && this.Code.Length > 3)
+            if(this.Code != null && this.Code.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than 3.", new [] { "Code" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than or equal to 3.", new [] { "Code" });
             }
 
             // CodeRaw (string) maxLength
-            if(this.CodeRaw != null && this.CodeRaw.Length > 3)
+            if(this.CodeRaw != null && this.CodeRaw.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CodeRaw, length must be less than 3.", new [] { "CodeRaw" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CodeRaw, length must be less than or equal to 3.", new [] { "CodeRaw" });
             }
 
             yield break;

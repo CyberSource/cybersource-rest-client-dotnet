@@ -12,7 +12,9 @@ Name | Type | Description | Notes
 **MerchantInformation** | [**Ptsv2paymentsidrefundsMerchantInformation**](Ptsv2paymentsidrefundsMerchantInformation.md) |  | [optional] 
 **AggregatorInformation** | [**Ptsv2paymentsidcapturesAggregatorInformation**](Ptsv2paymentsidcapturesAggregatorInformation.md) |  | [optional] 
 **PointOfSaleInformation** | [**Ptsv2paymentsidrefundsPointOfSaleInformation**](Ptsv2paymentsidrefundsPointOfSaleInformation.md) |  | [optional] 
-**MerchantDefinedInformation** | [**List&lt;Ptsv2paymentsMerchantDefinedInformation&gt;**](Ptsv2paymentsMerchantDefinedInformation.md) | The description for this field is not available. | [optional] 
+**MerchantDefinedInformation** | [**List&lt;Ptsv2paymentsMerchantDefinedInformation&gt;**](Ptsv2paymentsMerchantDefinedInformation.md) | The object containing the custom data that the merchant defines.  | [optional] 
+**TravelInformation** | [**Ptsv2paymentsidcapturesTravelInformation**](Ptsv2paymentsidcapturesTravelInformation.md) |  | [optional] 
+**PromotionInformation** | [**Ptsv2paymentsPromotionInformation**](Ptsv2paymentsPromotionInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

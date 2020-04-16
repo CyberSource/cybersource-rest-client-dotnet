@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -31,55 +31,26 @@ namespace CyberSource.Model
     public partial class PtsV2PayoutsPost201Response :  IEquatable<PtsV2PayoutsPost201Response>, IValidatableObject
     {
         /// <summary>
-        /// The status of the submitted transaction.
-        /// </summary>
-        /// <value>The status of the submitted transaction.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum ACCEPTED for "ACCEPTED"
-            /// </summary>
-            [EnumMember(Value = "ACCEPTED")]
-            ACCEPTED,
-            
-            /// <summary>
-            /// Enum DECLINED for "DECLINED"
-            /// </summary>
-            [EnumMember(Value = "DECLINED")]
-            DECLINED
-        }
-
-        /// <summary>
-        /// The status of the submitted transaction.
-        /// </summary>
-        /// <value>The status of the submitted transaction.</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PayoutsPost201Response" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
-        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request..</param>
+        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. .</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="Status">The status of the submitted transaction..</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - ACCEPTED  - DECLINED  - INVALID_REQUEST .</param>
         /// <param name="ReconciliationId">Cybersource or merchant generated transaction reference number. This is sent to the processor and is echoed back in the response to the merchant. This is This value is used for reconciliation purposes. .</param>
-        /// <param name="StatusInformation">StatusInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="RecipientInformation">RecipientInformation.</param>
-        public PtsV2PayoutsPost201Response(PtsV2PaymentsReversalsPost201ResponseLinks Links = default(PtsV2PaymentsReversalsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), string ReconciliationId = default(string), PtsV2PayoutsPost201ResponseStatusInformation StatusInformation = default(PtsV2PayoutsPost201ResponseStatusInformation), PtsV2PayoutsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PayoutsPost201ResponseErrorInformation), Ptsv2payoutsClientReferenceInformation ClientReferenceInformation = default(Ptsv2payoutsClientReferenceInformation), PtsV2PayoutsPost201ResponseMerchantInformation MerchantInformation = default(PtsV2PayoutsPost201ResponseMerchantInformation), PtsV2PayoutsPost201ResponseOrderInformation OrderInformation = default(PtsV2PayoutsPost201ResponseOrderInformation), PtsV2PayoutsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PayoutsPost201ResponseProcessorInformation), PtsV2PayoutsPost201ResponseRecipientInformation RecipientInformation = default(PtsV2PayoutsPost201ResponseRecipientInformation))
+        public PtsV2PayoutsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PayoutsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PayoutsPost201ResponseErrorInformation), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PayoutsPost201ResponseMerchantInformation MerchantInformation = default(PtsV2PayoutsPost201ResponseMerchantInformation), PtsV2PayoutsPost201ResponseOrderInformation OrderInformation = default(PtsV2PayoutsPost201ResponseOrderInformation), PtsV2PayoutsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PayoutsPost201ResponseProcessorInformation), PtsV2PayoutsPost201ResponseRecipientInformation RecipientInformation = default(PtsV2PayoutsPost201ResponseRecipientInformation))
         {
             this.Links = Links;
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
             this.ReconciliationId = ReconciliationId;
-            this.StatusInformation = StatusInformation;
             this.ErrorInformation = ErrorInformation;
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.MerchantInformation = MerchantInformation;
@@ -92,12 +63,12 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public PtsV2PaymentsReversalsPost201ResponseLinks Links { get; set; }
+        public PtsV2IncrementalAuthorizationPatch201ResponseLinks Links { get; set; }
 
         /// <summary>
-        /// An unique identification number assigned by CyberSource to identify the submitted request.
+        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. 
         /// </summary>
-        /// <value>An unique identification number assigned by CyberSource to identify the submitted request.</value>
+        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. </value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -108,6 +79,12 @@ namespace CyberSource.Model
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
+        /// <summary>
+        /// The status of the submitted transaction.  Possible values:  - ACCEPTED  - DECLINED  - INVALID_REQUEST 
+        /// </summary>
+        /// <value>The status of the submitted transaction.  Possible values:  - ACCEPTED  - DECLINED  - INVALID_REQUEST </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Cybersource or merchant generated transaction reference number. This is sent to the processor and is echoed back in the response to the merchant. This is This value is used for reconciliation purposes. 
@@ -115,12 +92,6 @@ namespace CyberSource.Model
         /// <value>Cybersource or merchant generated transaction reference number. This is sent to the processor and is echoed back in the response to the merchant. This is This value is used for reconciliation purposes. </value>
         [DataMember(Name="reconciliationId", EmitDefaultValue=false)]
         public string ReconciliationId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets StatusInformation
-        /// </summary>
-        [DataMember(Name="statusInformation", EmitDefaultValue=false)]
-        public PtsV2PayoutsPost201ResponseStatusInformation StatusInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ErrorInformation
@@ -132,7 +103,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Ptsv2payoutsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInformation
@@ -171,7 +142,6 @@ namespace CyberSource.Model
             sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
-            sb.Append("  StatusInformation: ").Append(StatusInformation).Append("\n");
             sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
@@ -240,11 +210,6 @@ namespace CyberSource.Model
                     this.ReconciliationId.Equals(other.ReconciliationId)
                 ) && 
                 (
-                    this.StatusInformation == other.StatusInformation ||
-                    this.StatusInformation != null &&
-                    this.StatusInformation.Equals(other.StatusInformation)
-                ) && 
-                (
                     this.ErrorInformation == other.ErrorInformation ||
                     this.ErrorInformation != null &&
                     this.ErrorInformation.Equals(other.ErrorInformation)
@@ -297,8 +262,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Status.GetHashCode();
                 if (this.ReconciliationId != null)
                     hash = hash * 59 + this.ReconciliationId.GetHashCode();
-                if (this.StatusInformation != null)
-                    hash = hash * 59 + this.StatusInformation.GetHashCode();
                 if (this.ErrorInformation != null)
                     hash = hash * 59 + this.ErrorInformation.GetHashCode();
                 if (this.ClientReferenceInformation != null)
@@ -323,15 +286,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) maxLength
-            if(this.Id != null && this.Id.Length > 26)
+            if(this.Id != null && this.Id.Length >= 26)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 26.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than or equal to 26.", new [] { "Id" });
             }
 
             // ReconciliationId (string) maxLength
-            if(this.ReconciliationId != null && this.ReconciliationId.Length > 25)
+            if(this.ReconciliationId != null && this.ReconciliationId.Length >= 25)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationId, length must be less than 25.", new [] { "ReconciliationId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationId, length must be less than or equal to 25.", new [] { "ReconciliationId" });
             }
 
             yield break;

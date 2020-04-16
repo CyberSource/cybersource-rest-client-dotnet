@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -157,21 +157,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Name (string) maxLength
-            if(this.Name != null && this.Name.Length > 22)
+            if(this.Name != null && this.Name.Length >= 22)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 22.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than or equal to 22.", new [] { "Name" });
             }
 
             // Contact (string) maxLength
-            if(this.Contact != null && this.Contact.Length > 11)
+            if(this.Contact != null && this.Contact.Length >= 11)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Contact, length must be less than 11.", new [] { "Contact" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Contact, length must be less than or equal to 11.", new [] { "Contact" });
             }
 
             // State (string) maxLength
-            if(this.State != null && this.State.Length > 20)
+            if(this.State != null && this.State.Length >= 20)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be less than 20.", new [] { "State" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be less than or equal to 20.", new [] { "State" });
             }
 
             yield break;

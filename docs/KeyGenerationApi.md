@@ -4,12 +4,12 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GeneratePublicKey**](KeyGenerationApi.md#generatepublickey) | **POST** /flex/v1/keys/ | Generate Key
+[**GeneratePublicKey**](KeyGenerationApi.md#generatepublickey) | **POST** /flex/v1/keys | Generate Key
 
 
 <a name="generatepublickey"></a>
 # **GeneratePublicKey**
-> FlexV1KeysPost200Response GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest = null)
+> FlexV1KeysPost200Response GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest)
 
 Generate Key
 
@@ -30,7 +30,7 @@ namespace Example
         public void main()
         {
             var apiInstance = new KeyGenerationApi();
-            var generatePublicKeyRequest = new GeneratePublicKeyRequest(); // GeneratePublicKeyRequest |  (optional) 
+            var generatePublicKeyRequest = new GeneratePublicKeyRequest(); // GeneratePublicKeyRequest | 
 
             try
             {
@@ -51,7 +51,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **generatePublicKeyRequest** | [**GeneratePublicKeyRequest**](GeneratePublicKeyRequest.md)|  | [optional] 
+ **generatePublicKeyRequest** | [**GeneratePublicKeyRequest**](GeneratePublicKeyRequest.md)|  | 
 
 ### Return type
 

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -31,84 +31,22 @@ namespace CyberSource.Model
     public partial class Tmsv1paymentinstrumentsInstrumentIdentifier :  IEquatable<Tmsv1paymentinstrumentsInstrumentIdentifier>, IValidatableObject
     {
         /// <summary>
-        /// Describes type of token. For example: customer, paymentInstrument or instrumentIdentifier.
-        /// </summary>
-        /// <value>Describes type of token. For example: customer, paymentInstrument or instrumentIdentifier.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ObjectEnum
-        {
-            
-            /// <summary>
-            /// Enum InstrumentIdentifier for "instrumentIdentifier"
-            /// </summary>
-            [EnumMember(Value = "instrumentIdentifier")]
-            InstrumentIdentifier
-        }
-
-        /// <summary>
-        /// Current state of the token.
-        /// </summary>
-        /// <value>Current state of the token.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StateEnum
-        {
-            
-            /// <summary>
-            /// Enum ACTIVE for "ACTIVE"
-            /// </summary>
-            [EnumMember(Value = "ACTIVE")]
-            ACTIVE,
-            
-            /// <summary>
-            /// Enum CLOSED for "CLOSED"
-            /// </summary>
-            [EnumMember(Value = "CLOSED")]
-            CLOSED
-        }
-
-        /// <summary>
-        /// Describes type of token. For example: customer, paymentInstrument or instrumentIdentifier.
-        /// </summary>
-        /// <value>Describes type of token. For example: customer, paymentInstrument or instrumentIdentifier.</value>
-        [DataMember(Name="object", EmitDefaultValue=false)]
-        public ObjectEnum? _Object { get; set; }
-        /// <summary>
-        /// Current state of the token.
-        /// </summary>
-        /// <value>Current state of the token.</value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
-        public StateEnum? State { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv1paymentinstrumentsInstrumentIdentifier" /> class.
         /// </summary>
-        /// <param name="Links">Links.</param>
-        /// <param name="Id">The id of the existing instrument identifier to be linked to the newly created payment instrument..</param>
+        /// <param name="Id">The ID of the existing instrument identifier to be linked to the newly created payment instrument..</param>
         /// <param name="Card">Card.</param>
         /// <param name="BankAccount">BankAccount.</param>
-        /// <param name="ProcessingInformation">ProcessingInformation.</param>
-        /// <param name="Metadata">Metadata.</param>
-        public Tmsv1paymentinstrumentsInstrumentIdentifier(Tmsv1instrumentidentifiersLinks Links = default(Tmsv1instrumentidentifiersLinks), string Id = default(string), Tmsv1instrumentidentifiersCard Card = default(Tmsv1instrumentidentifiersCard), Tmsv1instrumentidentifiersBankAccount BankAccount = default(Tmsv1instrumentidentifiersBankAccount), Tmsv1instrumentidentifiersProcessingInformation ProcessingInformation = default(Tmsv1instrumentidentifiersProcessingInformation), Tmsv1instrumentidentifiersMetadata Metadata = default(Tmsv1instrumentidentifiersMetadata))
+        public Tmsv1paymentinstrumentsInstrumentIdentifier(string Id = default(string), TmsV1InstrumentIdentifiersPost200ResponseCard Card = default(TmsV1InstrumentIdentifiersPost200ResponseCard), Tmsv1instrumentidentifiersBankAccount BankAccount = default(Tmsv1instrumentidentifiersBankAccount))
         {
-            this.Links = Links;
             this.Id = Id;
             this.Card = Card;
             this.BankAccount = BankAccount;
-            this.ProcessingInformation = ProcessingInformation;
-            this.Metadata = Metadata;
         }
         
         /// <summary>
-        /// Gets or Sets Links
+        /// The ID of the existing instrument identifier to be linked to the newly created payment instrument.
         /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public Tmsv1instrumentidentifiersLinks Links { get; set; }
-
-
-
-        /// <summary>
-        /// The id of the existing instrument identifier to be linked to the newly created payment instrument.
-        /// </summary>
-        /// <value>The id of the existing instrument identifier to be linked to the newly created payment instrument.</value>
+        /// <value>The ID of the existing instrument identifier to be linked to the newly created payment instrument.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -116,25 +54,13 @@ namespace CyberSource.Model
         /// Gets or Sets Card
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
-        public Tmsv1instrumentidentifiersCard Card { get; set; }
+        public TmsV1InstrumentIdentifiersPost200ResponseCard Card { get; set; }
 
         /// <summary>
         /// Gets or Sets BankAccount
         /// </summary>
         [DataMember(Name="bankAccount", EmitDefaultValue=false)]
         public Tmsv1instrumentidentifiersBankAccount BankAccount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProcessingInformation
-        /// </summary>
-        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public Tmsv1instrumentidentifiersProcessingInformation ProcessingInformation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Metadata
-        /// </summary>
-        [DataMember(Name="metadata", EmitDefaultValue=false)]
-        public Tmsv1instrumentidentifiersMetadata Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -144,14 +70,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv1paymentinstrumentsInstrumentIdentifier {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  _Object: ").Append(_Object).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
-            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -189,21 +110,6 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Links == other.Links ||
-                    this.Links != null &&
-                    this.Links.Equals(other.Links)
-                ) && 
-                (
-                    this._Object == other._Object ||
-                    this._Object != null &&
-                    this._Object.Equals(other._Object)
-                ) && 
-                (
-                    this.State == other.State ||
-                    this.State != null &&
-                    this.State.Equals(other.State)
-                ) && 
-                (
                     this.Id == other.Id ||
                     this.Id != null &&
                     this.Id.Equals(other.Id)
@@ -217,16 +123,6 @@ namespace CyberSource.Model
                     this.BankAccount == other.BankAccount ||
                     this.BankAccount != null &&
                     this.BankAccount.Equals(other.BankAccount)
-                ) && 
-                (
-                    this.ProcessingInformation == other.ProcessingInformation ||
-                    this.ProcessingInformation != null &&
-                    this.ProcessingInformation.Equals(other.ProcessingInformation)
-                ) && 
-                (
-                    this.Metadata == other.Metadata ||
-                    this.Metadata != null &&
-                    this.Metadata.Equals(other.Metadata)
                 );
         }
 
@@ -241,22 +137,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Links != null)
-                    hash = hash * 59 + this.Links.GetHashCode();
-                if (this._Object != null)
-                    hash = hash * 59 + this._Object.GetHashCode();
-                if (this.State != null)
-                    hash = hash * 59 + this.State.GetHashCode();
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.BankAccount != null)
                     hash = hash * 59 + this.BankAccount.GetHashCode();
-                if (this.ProcessingInformation != null)
-                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
-                if (this.Metadata != null)
-                    hash = hash * 59 + this.Metadata.GetHashCode();
                 return hash;
             }
         }
@@ -269,15 +155,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) maxLength
-            if(this.Id != null && this.Id.Length > 32)
+            if(this.Id != null && this.Id.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 32.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than or equal to 32.", new [] { "Id" });
             }
 
             // Id (string) minLength
-            if(this.Id != null && this.Id.Length < 16)
+            if(this.Id != null && this.Id.Length <= 16)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 16.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than or equal to 16.", new [] { "Id" });
             }
 
             yield break;

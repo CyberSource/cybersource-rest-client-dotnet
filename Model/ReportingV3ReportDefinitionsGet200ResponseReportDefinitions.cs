@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -30,38 +30,6 @@ namespace CyberSource.Model
     [DataContract]
     public partial class ReportingV3ReportDefinitionsGet200ResponseReportDefinitions :  IEquatable<ReportingV3ReportDefinitionsGet200ResponseReportDefinitions>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets SupportedFormats
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SupportedFormatsEnum
-        {
-            
-            /// <summary>
-            /// Enum ApplicationXml for "application/xml"
-            /// </summary>
-            [EnumMember(Value = "application/xml")]
-            ApplicationXml,
-            
-            /// <summary>
-            /// Enum TextCsv for "text/csv"
-            /// </summary>
-            [EnumMember(Value = "text/csv")]
-            TextCsv,
-
-            /// <summary>
-            /// Enum ApplicationJson for "application/json"
-            /// </summary>
-            [EnumMember(Value = "application/json")]
-            ApplicationJson
-        }
-
-        /// <summary>
-        /// Gets or Sets SupportedFormats
-        /// </summary>
-        [DataMember(Name="supportedFormats", EmitDefaultValue=false)]
-        public List<SupportedFormatsEnum> SupportedFormats { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3ReportDefinitionsGet200ResponseReportDefinitions" /> class.
         /// </summary>
@@ -70,13 +38,17 @@ namespace CyberSource.Model
         /// <param name="ReportDefintionName">ReportDefintionName.</param>
         /// <param name="SupportedFormats">SupportedFormats.</param>
         /// <param name="Description">Description.</param>
-        public ReportingV3ReportDefinitionsGet200ResponseReportDefinitions(string Type = default(string), int? ReportDefinitionId = default(int?), string ReportDefintionName = default(string), List<SupportedFormatsEnum> SupportedFormats = default(List<SupportedFormatsEnum>), string Description = default(string))
+        /// <param name="DefaultSettings">DefaultSettings.</param>
+        /// <param name="SubscriptionType">&#39;The subscription type for which report definition is required. By default the type will be CUSTOM.&#39; Valid Values: - CLASSIC - CUSTOM - STANDARD .</param>
+        public ReportingV3ReportDefinitionsGet200ResponseReportDefinitions(string Type = default(string), int? ReportDefinitionId = default(int?), string ReportDefintionName = default(string), List<string> SupportedFormats = default(List<string>), string Description = default(string), ReportingV3ReportDefinitionsNameGet200ResponseDefaultSettings DefaultSettings = default(ReportingV3ReportDefinitionsNameGet200ResponseDefaultSettings), string SubscriptionType = default(string))
         {
             this.Type = Type;
             this.ReportDefinitionId = ReportDefinitionId;
             this.ReportDefintionName = ReportDefintionName;
             this.SupportedFormats = SupportedFormats;
             this.Description = Description;
+            this.DefaultSettings = DefaultSettings;
+            this.SubscriptionType = SubscriptionType;
         }
         
         /// <summary>
@@ -98,12 +70,30 @@ namespace CyberSource.Model
         [DataMember(Name="reportDefintionName", EmitDefaultValue=false)]
         public string ReportDefintionName { get; set; }
 
+        /// <summary>
+        /// Gets or Sets SupportedFormats
+        /// </summary>
+        [DataMember(Name="supportedFormats", EmitDefaultValue=false)]
+        public List<string> SupportedFormats { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DefaultSettings
+        /// </summary>
+        [DataMember(Name="defaultSettings", EmitDefaultValue=false)]
+        public ReportingV3ReportDefinitionsNameGet200ResponseDefaultSettings DefaultSettings { get; set; }
+
+        /// <summary>
+        /// &#39;The subscription type for which report definition is required. By default the type will be CUSTOM.&#39; Valid Values: - CLASSIC - CUSTOM - STANDARD 
+        /// </summary>
+        /// <value>&#39;The subscription type for which report definition is required. By default the type will be CUSTOM.&#39; Valid Values: - CLASSIC - CUSTOM - STANDARD </value>
+        [DataMember(Name="subscriptionType", EmitDefaultValue=false)]
+        public string SubscriptionType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -118,6 +108,8 @@ namespace CyberSource.Model
             sb.Append("  ReportDefintionName: ").Append(ReportDefintionName).Append("\n");
             sb.Append("  SupportedFormats: ").Append(SupportedFormats).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  DefaultSettings: ").Append(DefaultSettings).Append("\n");
+            sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -178,6 +170,16 @@ namespace CyberSource.Model
                     this.Description == other.Description ||
                     this.Description != null &&
                     this.Description.Equals(other.Description)
+                ) && 
+                (
+                    this.DefaultSettings == other.DefaultSettings ||
+                    this.DefaultSettings != null &&
+                    this.DefaultSettings.Equals(other.DefaultSettings)
+                ) && 
+                (
+                    this.SubscriptionType == other.SubscriptionType ||
+                    this.SubscriptionType != null &&
+                    this.SubscriptionType.Equals(other.SubscriptionType)
                 );
         }
 
@@ -202,6 +204,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SupportedFormats.GetHashCode();
                 if (this.Description != null)
                     hash = hash * 59 + this.Description.GetHashCode();
+                if (this.DefaultSettings != null)
+                    hash = hash * 59 + this.DefaultSettings.GetHashCode();
+                if (this.SubscriptionType != null)
+                    hash = hash * 59 + this.SubscriptionType.GetHashCode();
                 return hash;
             }
         }

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,17 +33,25 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2creditsProcessingInformation" /> class.
         /// </summary>
-        /// <param name="CommerceIndicator">Type of transaction. Some payment card companies use this information when determining discount rates. When you omit this field for **Ingenico ePayments**, the processor uses the default transaction type they have on file for you instead of the default value listed here. .</param>
+        /// <param name="CommerceIndicator">Type of transaction. Some payment card companies use this information when determining discount rates.  #### Ingenico ePayments Ingenico ePayments was previously called _Global Collect_. When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value listed in \&quot;Commerce Indicators\&quot; section of [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### Payer Authentication Transactions For the possible values and requirements, see \&quot;Payer Authentication\&quot; in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### Payouts OCT (Original Credit Transaction) Value for an OCT transaction: - &#x60;internet&#x60; For details, see the &#x60;e_commerce_indicator&#x60; field description in [Payouts Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/payouts_SCMP/html/)  #### Other Types of Transactions For details, see \&quot;Commerce Indicators\&quot; in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="ProcessorId">Value that identifies the processor/acquirer to use for the transaction. This value is supported only for **CyberSource through VisaNet**.  Contact CyberSource Customer Support to get the value for this field. .</param>
-        /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - **visacheckout**: Visa Checkout. This value is required for Visa Checkout transactions. See Visa Checkout Using the SCMP API.  - **005**: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. See \&quot;Masterpass,\&quot; page 153. .</param>
+        /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay. .</param>
         /// <param name="ReconciliationId">Please check with Cybersource customer support to see if your merchant account is configured correctly so you can include this field in your request. * For Payouts: max length for FDCCompass is String (22). .</param>
-        /// <param name="LinkId">Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:   - Partial authorizations: See \&quot;Partial Authorizations,\&quot; page 88.  - Split shipments: See \&quot;Split Shipments,\&quot; page 210. .</param>
-        /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  See \&quot;Report Groups,\&quot; page 234. .</param>
-        /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For more details, see Visa Checkout Using the SCMP API. .</param>
+        /// <param name="LinkId">Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:  - Partial authorizations - Split shipments  For details, see &#x60;link_to_request&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  For details, see &#x60;report_group&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For details, see the &#x60;vc_order_id&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/) .</param>
         /// <param name="PurchaseLevel">Set this field to 3 to indicate that the request includes Level III data..</param>
+        /// <param name="IndustryDataType">Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; .</param>
+        /// <param name="WalletType">This field carries the wallet type in authorization requests and credit requests. Possible value are: - &#x60;101&#x60;: Masterpass remote payment. The customer created the wallet by manually interacting with a customer-controlled device such as a computer, tablet, or phone. This value is supported only for Masterpass transactions on Chase Paymentech Solutions and CyberSource through VisaNet. - &#x60;102&#x60;: Masterpass remote near field communication (NFC) payment. The customer created the wallet by tapping a PayPass card or customer-controlled device at a contactless card reader. This value is supported only for card-present Masterpass transactions on CyberSource through VisaNet. - &#x60;103&#x60;: Masterpass Apple Pay payment. The payment was made with a combination of Masterpass and Apple Pay. This value is supported only for Masterpass Apple Pay transactions on CyberSource through VisaNet. - &#x60;216&#x60;: Masterpass Google Pay payment. The payment was made with a combination of Masterpass and Google Pay. This value is supported only for Masterpass Google Pay transactions on CyberSource through VisaNet. - &#x60;217&#x60;: Masterpass Samsung Pay payment. The payment was made with a combination of Masterpass and Samsung Pay. This value is supported only for Masterpass Samsung Pay transactions on CyberSource through VisaNet. - &#x60;SDW&#x60;: Staged digital wallet. An issuer or operator created the wallet. This value is supported only for Masterpass transactions on Chase Paymentech Solutions. - &#x60;VCIND&#x60;: Visa Checkout payment. This value is supported only on CyberSource through VisaNet, FDC Compass, FDC Nashville Global, FDI Australia, and TSYS Acquiring Solutions. See Getting Started with Visa Checkout. For Visa Checkout transactions, the way CyberSource processes the value for this field depends on the processor. See the Visa Checkout section below. For all other values, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. Masterpass (101, 102, 103, 216, and 217): The Masterpass platform generates the wallet type value and passes it to you along with the customer’s checkout information.  Visa Checkout: This field is optional for Visa Checkout authorizations on FDI Australia. For all other processors, this field is required for Visa Checkout authorizations. For Visa Checkout transactions on the following processors, CyberSource sends the value that the processor expects for this field:FDC Compass,FDC Nashville Global,FDI Australia,TSYS Acquiring Solutions For all other processors, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. For incremental authorizations, this field is supported only for Mastercard and the supported values are 101 and 102. Payment card companies can introduce new values without notice. Your order management system should be able to process new values without problems.  CyberSource through VisaNet When the value for this field is 101, 102, 103, 216, or 217, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR6, Position: 88-90,  Field: Mastercard Wallet Identifier. When the value for this field is VCIND, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR8, Position: 72-76, Field: Agent Unique ID. .</param>
+        /// <param name="NationalNetDomesticData">Supplementary domestic transaction information provided by the acquirer for National Net Settlement Service (NNSS) transactions. NNSS is a settlement service that Visa provides. For transactions on CyberSource through VisaNet in countries that subscribe to NNSS: VisaNet clears transactions; VisaNet transfers funds to the acquirer after deducting processing fees and interchange fees. VisaNet settles transactions in the local pricing currency through a local financial institution. This field is supported only on CyberSource through VisaNet for domestic data in Colombia .</param>
+        /// <param name="NetworkRoutingOrder">On PIN Debit Gateways: This U.S.-only field is optionally used by  participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for any of the networks specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on the issuer’s preference. If an issuer preference exists for more than one of the specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on the acquirer’s routing priorities. .</param>
         /// <param name="RecurringOptions">RecurringOptions.</param>
         /// <param name="BankTransferOptions">BankTransferOptions.</param>
-        public Ptsv2creditsProcessingInformation(string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions))
+        /// <param name="PurchaseOptions">PurchaseOptions.</param>
+        /// <param name="ElectronicBenefitsTransfer">ElectronicBenefitsTransfer.</param>
+        /// <param name="LoanOptions">LoanOptions.</param>
+        /// <param name="JapanPaymentOptions">JapanPaymentOptions.</param>
+        public Ptsv2creditsProcessingInformation(string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), string WalletType = default(string), string NationalNetDomesticData = default(string), string NetworkRoutingOrder = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2creditsProcessingInformationJapanPaymentOptions))
         {
             this.CommerceIndicator = CommerceIndicator;
             this.ProcessorId = ProcessorId;
@@ -53,14 +61,22 @@ namespace CyberSource.Model
             this.ReportGroup = ReportGroup;
             this.VisaCheckoutId = VisaCheckoutId;
             this.PurchaseLevel = PurchaseLevel;
+            this.IndustryDataType = IndustryDataType;
+            this.WalletType = WalletType;
+            this.NationalNetDomesticData = NationalNetDomesticData;
+            this.NetworkRoutingOrder = NetworkRoutingOrder;
             this.RecurringOptions = RecurringOptions;
             this.BankTransferOptions = BankTransferOptions;
+            this.PurchaseOptions = PurchaseOptions;
+            this.ElectronicBenefitsTransfer = ElectronicBenefitsTransfer;
+            this.LoanOptions = LoanOptions;
+            this.JapanPaymentOptions = JapanPaymentOptions;
         }
         
         /// <summary>
-        /// Type of transaction. Some payment card companies use this information when determining discount rates. When you omit this field for **Ingenico ePayments**, the processor uses the default transaction type they have on file for you instead of the default value listed here. 
+        /// Type of transaction. Some payment card companies use this information when determining discount rates.  #### Ingenico ePayments Ingenico ePayments was previously called _Global Collect_. When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value listed in \&quot;Commerce Indicators\&quot; section of [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### Payer Authentication Transactions For the possible values and requirements, see \&quot;Payer Authentication\&quot; in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### Payouts OCT (Original Credit Transaction) Value for an OCT transaction: - &#x60;internet&#x60; For details, see the &#x60;e_commerce_indicator&#x60; field description in [Payouts Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/payouts_SCMP/html/)  #### Other Types of Transactions For details, see \&quot;Commerce Indicators\&quot; in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Type of transaction. Some payment card companies use this information when determining discount rates. When you omit this field for **Ingenico ePayments**, the processor uses the default transaction type they have on file for you instead of the default value listed here. </value>
+        /// <value>Type of transaction. Some payment card companies use this information when determining discount rates.  #### Ingenico ePayments Ingenico ePayments was previously called _Global Collect_. When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value listed in \&quot;Commerce Indicators\&quot; section of [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### Payer Authentication Transactions For the possible values and requirements, see \&quot;Payer Authentication\&quot; in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### Payouts OCT (Original Credit Transaction) Value for an OCT transaction: - &#x60;internet&#x60; For details, see the &#x60;e_commerce_indicator&#x60; field description in [Payouts Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/payouts_SCMP/html/)  #### Other Types of Transactions For details, see \&quot;Commerce Indicators\&quot; in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="commerceIndicator", EmitDefaultValue=false)]
         public string CommerceIndicator { get; set; }
 
@@ -72,9 +88,9 @@ namespace CyberSource.Model
         public string ProcessorId { get; set; }
 
         /// <summary>
-        /// Type of digital payment solution for the transaction. Possible Values:   - **visacheckout**: Visa Checkout. This value is required for Visa Checkout transactions. See Visa Checkout Using the SCMP API.  - **005**: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. See \&quot;Masterpass,\&quot; page 153. 
+        /// Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay. 
         /// </summary>
-        /// <value>Type of digital payment solution for the transaction. Possible Values:   - **visacheckout**: Visa Checkout. This value is required for Visa Checkout transactions. See Visa Checkout Using the SCMP API.  - **005**: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. See \&quot;Masterpass,\&quot; page 153. </value>
+        /// <value>Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay. </value>
         [DataMember(Name="paymentSolution", EmitDefaultValue=false)]
         public string PaymentSolution { get; set; }
 
@@ -86,23 +102,23 @@ namespace CyberSource.Model
         public string ReconciliationId { get; set; }
 
         /// <summary>
-        /// Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:   - Partial authorizations: See \&quot;Partial Authorizations,\&quot; page 88.  - Split shipments: See \&quot;Split Shipments,\&quot; page 210. 
+        /// Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:  - Partial authorizations - Split shipments  For details, see &#x60;link_to_request&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:   - Partial authorizations: See \&quot;Partial Authorizations,\&quot; page 88.  - Split shipments: See \&quot;Split Shipments,\&quot; page 210. </value>
+        /// <value>Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:  - Partial authorizations - Split shipments  For details, see &#x60;link_to_request&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="linkId", EmitDefaultValue=false)]
         public string LinkId { get; set; }
 
         /// <summary>
-        /// Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  See \&quot;Report Groups,\&quot; page 234. 
+        /// Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  For details, see &#x60;report_group&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  See \&quot;Report Groups,\&quot; page 234. </value>
+        /// <value>Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  For details, see &#x60;report_group&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="reportGroup", EmitDefaultValue=false)]
         public string ReportGroup { get; set; }
 
         /// <summary>
-        /// Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For more details, see Visa Checkout Using the SCMP API. 
+        /// Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For details, see the &#x60;vc_order_id&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/) 
         /// </summary>
-        /// <value>Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For more details, see Visa Checkout Using the SCMP API. </value>
+        /// <value>Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field.  For details, see the &#x60;vc_order_id&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/) </value>
         [DataMember(Name="visaCheckoutId", EmitDefaultValue=false)]
         public string VisaCheckoutId { get; set; }
 
@@ -112,6 +128,34 @@ namespace CyberSource.Model
         /// <value>Set this field to 3 to indicate that the request includes Level III data.</value>
         [DataMember(Name="purchaseLevel", EmitDefaultValue=false)]
         public string PurchaseLevel { get; set; }
+
+        /// <summary>
+        /// Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; 
+        /// </summary>
+        /// <value>Flag that indicates that the transaction includes airline data or restaurant data.  This field must be set to &#x60;airline&#x60; in order for airline data to be sent to the processor.  For example, if this field is not set to airline or is not included in the request, CyberSource does not send airline data to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor.  When this field is not set to restaurant or is not included in the request, CyberSource does not send restaurant data to the processor.  Possible Values:  - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; </value>
+        [DataMember(Name="industryDataType", EmitDefaultValue=false)]
+        public string IndustryDataType { get; set; }
+
+        /// <summary>
+        /// This field carries the wallet type in authorization requests and credit requests. Possible value are: - &#x60;101&#x60;: Masterpass remote payment. The customer created the wallet by manually interacting with a customer-controlled device such as a computer, tablet, or phone. This value is supported only for Masterpass transactions on Chase Paymentech Solutions and CyberSource through VisaNet. - &#x60;102&#x60;: Masterpass remote near field communication (NFC) payment. The customer created the wallet by tapping a PayPass card or customer-controlled device at a contactless card reader. This value is supported only for card-present Masterpass transactions on CyberSource through VisaNet. - &#x60;103&#x60;: Masterpass Apple Pay payment. The payment was made with a combination of Masterpass and Apple Pay. This value is supported only for Masterpass Apple Pay transactions on CyberSource through VisaNet. - &#x60;216&#x60;: Masterpass Google Pay payment. The payment was made with a combination of Masterpass and Google Pay. This value is supported only for Masterpass Google Pay transactions on CyberSource through VisaNet. - &#x60;217&#x60;: Masterpass Samsung Pay payment. The payment was made with a combination of Masterpass and Samsung Pay. This value is supported only for Masterpass Samsung Pay transactions on CyberSource through VisaNet. - &#x60;SDW&#x60;: Staged digital wallet. An issuer or operator created the wallet. This value is supported only for Masterpass transactions on Chase Paymentech Solutions. - &#x60;VCIND&#x60;: Visa Checkout payment. This value is supported only on CyberSource through VisaNet, FDC Compass, FDC Nashville Global, FDI Australia, and TSYS Acquiring Solutions. See Getting Started with Visa Checkout. For Visa Checkout transactions, the way CyberSource processes the value for this field depends on the processor. See the Visa Checkout section below. For all other values, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. Masterpass (101, 102, 103, 216, and 217): The Masterpass platform generates the wallet type value and passes it to you along with the customer’s checkout information.  Visa Checkout: This field is optional for Visa Checkout authorizations on FDI Australia. For all other processors, this field is required for Visa Checkout authorizations. For Visa Checkout transactions on the following processors, CyberSource sends the value that the processor expects for this field:FDC Compass,FDC Nashville Global,FDI Australia,TSYS Acquiring Solutions For all other processors, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. For incremental authorizations, this field is supported only for Mastercard and the supported values are 101 and 102. Payment card companies can introduce new values without notice. Your order management system should be able to process new values without problems.  CyberSource through VisaNet When the value for this field is 101, 102, 103, 216, or 217, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR6, Position: 88-90,  Field: Mastercard Wallet Identifier. When the value for this field is VCIND, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR8, Position: 72-76, Field: Agent Unique ID. 
+        /// </summary>
+        /// <value>This field carries the wallet type in authorization requests and credit requests. Possible value are: - &#x60;101&#x60;: Masterpass remote payment. The customer created the wallet by manually interacting with a customer-controlled device such as a computer, tablet, or phone. This value is supported only for Masterpass transactions on Chase Paymentech Solutions and CyberSource through VisaNet. - &#x60;102&#x60;: Masterpass remote near field communication (NFC) payment. The customer created the wallet by tapping a PayPass card or customer-controlled device at a contactless card reader. This value is supported only for card-present Masterpass transactions on CyberSource through VisaNet. - &#x60;103&#x60;: Masterpass Apple Pay payment. The payment was made with a combination of Masterpass and Apple Pay. This value is supported only for Masterpass Apple Pay transactions on CyberSource through VisaNet. - &#x60;216&#x60;: Masterpass Google Pay payment. The payment was made with a combination of Masterpass and Google Pay. This value is supported only for Masterpass Google Pay transactions on CyberSource through VisaNet. - &#x60;217&#x60;: Masterpass Samsung Pay payment. The payment was made with a combination of Masterpass and Samsung Pay. This value is supported only for Masterpass Samsung Pay transactions on CyberSource through VisaNet. - &#x60;SDW&#x60;: Staged digital wallet. An issuer or operator created the wallet. This value is supported only for Masterpass transactions on Chase Paymentech Solutions. - &#x60;VCIND&#x60;: Visa Checkout payment. This value is supported only on CyberSource through VisaNet, FDC Compass, FDC Nashville Global, FDI Australia, and TSYS Acquiring Solutions. See Getting Started with Visa Checkout. For Visa Checkout transactions, the way CyberSource processes the value for this field depends on the processor. See the Visa Checkout section below. For all other values, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. Masterpass (101, 102, 103, 216, and 217): The Masterpass platform generates the wallet type value and passes it to you along with the customer’s checkout information.  Visa Checkout: This field is optional for Visa Checkout authorizations on FDI Australia. For all other processors, this field is required for Visa Checkout authorizations. For Visa Checkout transactions on the following processors, CyberSource sends the value that the processor expects for this field:FDC Compass,FDC Nashville Global,FDI Australia,TSYS Acquiring Solutions For all other processors, this field is a passthrough; therefore, CyberSource does not verify the value or modify it in any way before sending it to the processor. For incremental authorizations, this field is supported only for Mastercard and the supported values are 101 and 102. Payment card companies can introduce new values without notice. Your order management system should be able to process new values without problems.  CyberSource through VisaNet When the value for this field is 101, 102, 103, 216, or 217, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR6, Position: 88-90,  Field: Mastercard Wallet Identifier. When the value for this field is VCIND, it corresponds to the following data in the TC 33 capture file5: Record: CP01 TCR8, Position: 72-76, Field: Agent Unique ID. </value>
+        [DataMember(Name="walletType", EmitDefaultValue=false)]
+        public string WalletType { get; set; }
+
+        /// <summary>
+        /// Supplementary domestic transaction information provided by the acquirer for National Net Settlement Service (NNSS) transactions. NNSS is a settlement service that Visa provides. For transactions on CyberSource through VisaNet in countries that subscribe to NNSS: VisaNet clears transactions; VisaNet transfers funds to the acquirer after deducting processing fees and interchange fees. VisaNet settles transactions in the local pricing currency through a local financial institution. This field is supported only on CyberSource through VisaNet for domestic data in Colombia 
+        /// </summary>
+        /// <value>Supplementary domestic transaction information provided by the acquirer for National Net Settlement Service (NNSS) transactions. NNSS is a settlement service that Visa provides. For transactions on CyberSource through VisaNet in countries that subscribe to NNSS: VisaNet clears transactions; VisaNet transfers funds to the acquirer after deducting processing fees and interchange fees. VisaNet settles transactions in the local pricing currency through a local financial institution. This field is supported only on CyberSource through VisaNet for domestic data in Colombia </value>
+        [DataMember(Name="nationalNetDomesticData", EmitDefaultValue=false)]
+        public string NationalNetDomesticData { get; set; }
+
+        /// <summary>
+        /// On PIN Debit Gateways: This U.S.-only field is optionally used by  participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for any of the networks specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on the issuer’s preference. If an issuer preference exists for more than one of the specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on the acquirer’s routing priorities. 
+        /// </summary>
+        /// <value>On PIN Debit Gateways: This U.S.-only field is optionally used by  participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for any of the networks specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on the issuer’s preference. If an issuer preference exists for more than one of the specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on the acquirer’s routing priorities. </value>
+        [DataMember(Name="networkRoutingOrder", EmitDefaultValue=false)]
+        public string NetworkRoutingOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets RecurringOptions
@@ -124,6 +168,30 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="bankTransferOptions", EmitDefaultValue=false)]
         public Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PurchaseOptions
+        /// </summary>
+        [DataMember(Name="purchaseOptions", EmitDefaultValue=false)]
+        public Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ElectronicBenefitsTransfer
+        /// </summary>
+        [DataMember(Name="electronicBenefitsTransfer", EmitDefaultValue=false)]
+        public Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LoanOptions
+        /// </summary>
+        [DataMember(Name="loanOptions", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessingInformationLoanOptions LoanOptions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets JapanPaymentOptions
+        /// </summary>
+        [DataMember(Name="japanPaymentOptions", EmitDefaultValue=false)]
+        public Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -141,8 +209,16 @@ namespace CyberSource.Model
             sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
             sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
             sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
+            sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
+            sb.Append("  WalletType: ").Append(WalletType).Append("\n");
+            sb.Append("  NationalNetDomesticData: ").Append(NationalNetDomesticData).Append("\n");
+            sb.Append("  NetworkRoutingOrder: ").Append(NetworkRoutingOrder).Append("\n");
             sb.Append("  RecurringOptions: ").Append(RecurringOptions).Append("\n");
             sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
+            sb.Append("  PurchaseOptions: ").Append(PurchaseOptions).Append("\n");
+            sb.Append("  ElectronicBenefitsTransfer: ").Append(ElectronicBenefitsTransfer).Append("\n");
+            sb.Append("  LoanOptions: ").Append(LoanOptions).Append("\n");
+            sb.Append("  JapanPaymentOptions: ").Append(JapanPaymentOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -220,6 +296,26 @@ namespace CyberSource.Model
                     this.PurchaseLevel.Equals(other.PurchaseLevel)
                 ) && 
                 (
+                    this.IndustryDataType == other.IndustryDataType ||
+                    this.IndustryDataType != null &&
+                    this.IndustryDataType.Equals(other.IndustryDataType)
+                ) && 
+                (
+                    this.WalletType == other.WalletType ||
+                    this.WalletType != null &&
+                    this.WalletType.Equals(other.WalletType)
+                ) && 
+                (
+                    this.NationalNetDomesticData == other.NationalNetDomesticData ||
+                    this.NationalNetDomesticData != null &&
+                    this.NationalNetDomesticData.Equals(other.NationalNetDomesticData)
+                ) && 
+                (
+                    this.NetworkRoutingOrder == other.NetworkRoutingOrder ||
+                    this.NetworkRoutingOrder != null &&
+                    this.NetworkRoutingOrder.Equals(other.NetworkRoutingOrder)
+                ) && 
+                (
                     this.RecurringOptions == other.RecurringOptions ||
                     this.RecurringOptions != null &&
                     this.RecurringOptions.Equals(other.RecurringOptions)
@@ -228,6 +324,26 @@ namespace CyberSource.Model
                     this.BankTransferOptions == other.BankTransferOptions ||
                     this.BankTransferOptions != null &&
                     this.BankTransferOptions.Equals(other.BankTransferOptions)
+                ) && 
+                (
+                    this.PurchaseOptions == other.PurchaseOptions ||
+                    this.PurchaseOptions != null &&
+                    this.PurchaseOptions.Equals(other.PurchaseOptions)
+                ) && 
+                (
+                    this.ElectronicBenefitsTransfer == other.ElectronicBenefitsTransfer ||
+                    this.ElectronicBenefitsTransfer != null &&
+                    this.ElectronicBenefitsTransfer.Equals(other.ElectronicBenefitsTransfer)
+                ) && 
+                (
+                    this.LoanOptions == other.LoanOptions ||
+                    this.LoanOptions != null &&
+                    this.LoanOptions.Equals(other.LoanOptions)
+                ) && 
+                (
+                    this.JapanPaymentOptions == other.JapanPaymentOptions ||
+                    this.JapanPaymentOptions != null &&
+                    this.JapanPaymentOptions.Equals(other.JapanPaymentOptions)
                 );
         }
 
@@ -258,10 +374,26 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.VisaCheckoutId.GetHashCode();
                 if (this.PurchaseLevel != null)
                     hash = hash * 59 + this.PurchaseLevel.GetHashCode();
+                if (this.IndustryDataType != null)
+                    hash = hash * 59 + this.IndustryDataType.GetHashCode();
+                if (this.WalletType != null)
+                    hash = hash * 59 + this.WalletType.GetHashCode();
+                if (this.NationalNetDomesticData != null)
+                    hash = hash * 59 + this.NationalNetDomesticData.GetHashCode();
+                if (this.NetworkRoutingOrder != null)
+                    hash = hash * 59 + this.NetworkRoutingOrder.GetHashCode();
                 if (this.RecurringOptions != null)
                     hash = hash * 59 + this.RecurringOptions.GetHashCode();
                 if (this.BankTransferOptions != null)
                     hash = hash * 59 + this.BankTransferOptions.GetHashCode();
+                if (this.PurchaseOptions != null)
+                    hash = hash * 59 + this.PurchaseOptions.GetHashCode();
+                if (this.ElectronicBenefitsTransfer != null)
+                    hash = hash * 59 + this.ElectronicBenefitsTransfer.GetHashCode();
+                if (this.LoanOptions != null)
+                    hash = hash * 59 + this.LoanOptions.GetHashCode();
+                if (this.JapanPaymentOptions != null)
+                    hash = hash * 59 + this.JapanPaymentOptions.GetHashCode();
                 return hash;
             }
         }
@@ -274,51 +406,75 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CommerceIndicator (string) maxLength
-            if(this.CommerceIndicator != null && this.CommerceIndicator.Length > 20)
+            if(this.CommerceIndicator != null && this.CommerceIndicator.Length >= 20)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommerceIndicator, length must be less than 20.", new [] { "CommerceIndicator" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommerceIndicator, length must be less than or equal to 20.", new [] { "CommerceIndicator" });
             }
 
             // ProcessorId (string) maxLength
-            if(this.ProcessorId != null && this.ProcessorId.Length > 3)
+            if(this.ProcessorId != null && this.ProcessorId.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProcessorId, length must be less than 3.", new [] { "ProcessorId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProcessorId, length must be less than or equal to 3.", new [] { "ProcessorId" });
             }
 
             // PaymentSolution (string) maxLength
-            if(this.PaymentSolution != null && this.PaymentSolution.Length > 12)
+            if(this.PaymentSolution != null && this.PaymentSolution.Length >= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentSolution, length must be less than 12.", new [] { "PaymentSolution" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentSolution, length must be less than or equal to 12.", new [] { "PaymentSolution" });
             }
 
             // ReconciliationId (string) maxLength
-            if(this.ReconciliationId != null && this.ReconciliationId.Length > 60)
+            if(this.ReconciliationId != null && this.ReconciliationId.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationId, length must be less than 60.", new [] { "ReconciliationId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationId, length must be less than or equal to 60.", new [] { "ReconciliationId" });
             }
 
             // LinkId (string) maxLength
-            if(this.LinkId != null && this.LinkId.Length > 26)
+            if(this.LinkId != null && this.LinkId.Length >= 26)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LinkId, length must be less than 26.", new [] { "LinkId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LinkId, length must be less than or equal to 26.", new [] { "LinkId" });
             }
 
             // ReportGroup (string) maxLength
-            if(this.ReportGroup != null && this.ReportGroup.Length > 25)
+            if(this.ReportGroup != null && this.ReportGroup.Length >= 25)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportGroup, length must be less than 25.", new [] { "ReportGroup" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportGroup, length must be less than or equal to 25.", new [] { "ReportGroup" });
             }
 
             // VisaCheckoutId (string) maxLength
-            if(this.VisaCheckoutId != null && this.VisaCheckoutId.Length > 48)
+            if(this.VisaCheckoutId != null && this.VisaCheckoutId.Length >= 48)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VisaCheckoutId, length must be less than 48.", new [] { "VisaCheckoutId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VisaCheckoutId, length must be less than or equal to 48.", new [] { "VisaCheckoutId" });
             }
 
             // PurchaseLevel (string) maxLength
-            if(this.PurchaseLevel != null && this.PurchaseLevel.Length > 1)
+            if(this.PurchaseLevel != null && this.PurchaseLevel.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseLevel, length must be less than 1.", new [] { "PurchaseLevel" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseLevel, length must be less than or equal to 1.", new [] { "PurchaseLevel" });
+            }
+
+            // IndustryDataType (string) maxLength
+            if(this.IndustryDataType != null && this.IndustryDataType.Length >= 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IndustryDataType, length must be less than or equal to 20.", new [] { "IndustryDataType" });
+            }
+
+            // WalletType (string) maxLength
+            if(this.WalletType != null && this.WalletType.Length >= 5)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WalletType, length must be less than or equal to 5.", new [] { "WalletType" });
+            }
+
+            // NationalNetDomesticData (string) maxLength
+            if(this.NationalNetDomesticData != null && this.NationalNetDomesticData.Length >= 123)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NationalNetDomesticData, length must be less than or equal to 123.", new [] { "NationalNetDomesticData" });
+            }
+
+            // NetworkRoutingOrder (string) maxLength
+            if(this.NetworkRoutingOrder != null && this.NetworkRoutingOrder.Length >= 30)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetworkRoutingOrder, length must be less than or equal to 30.", new [] { "NetworkRoutingOrder" });
             }
 
             yield break;

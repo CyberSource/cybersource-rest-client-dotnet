@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,18 +33,18 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsOrderInformationLineItems" /> class.
         /// </summary>
-        /// <param name="ProductCode">Type of product. This value is used to determine the category that the product is in: electronic, handling, physical, service, or shipping. The default value is **default**.  If you are performing an authorization transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;false&#x60;), and you set this field to a value other than default or any of the values related to shipping and handling, then the fields &#x60;quantity&#x60;, &#x60;productName&#x60;, and &#x60;productSku&#x60; are required.  See Appendix O, \&quot;Product Codes,\&quot; on page 373 for a list of valid values. .</param>
-        /// <param name="ProductName">For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60; respectively), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. .</param>
-        /// <param name="ProductSku">Identification code for the product.  For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. .</param>
-        /// <param name="Quantity">For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. .</param>
-        /// <param name="UnitPrice">Per-item price of the product. This value cannot be negative. You can include a decimal point (.), but you cannot include any other special characters. CyberSource truncates the amount to the correct number of decimal places.  For processor-specific information, see the amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. This information is covered in: - Table 12, \&quot;Authorization Information for Specific Processors,\&quot; on page 36 - Table 16, \&quot;Capture Information for Specific Processors,\&quot; on page 51 - Table 20, \&quot;Credit Information for Specific Processors,\&quot; on page 65  **DCC for First Data**\\ This value is the original amount in your local currency. You must include this field. You cannot use grand_total_amount. See \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113.  **FDMS South**\\ If you accept IDR or CLP currencies, see the entry for FDMS South in Table 12, \&quot;Authorization Information for Specific Processors,\&quot; on page 36.  **Zero Amount Authorizations**\\ If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations,\&quot; page 220. .</param>
+        /// <param name="ProductCode">Type of product. This value is used to determine the category that the product is in: electronic, handling, physical, service, or shipping. The default value is **default**. If you are performing an authorization transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;false&#x60;), and you set this field to a value other than default or any of the values related to shipping and handling, then the fields &#x60;quantity&#x60;, &#x60;productName&#x60;, and &#x60;productSku&#x60; are required. It can also have a value of \&quot;gift_card\&quot;.  For details, see the &#x60;product_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="ProductName">For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when &#x60;orderInformation.lineItems[].productCode&#x60; is not set to &#x60;default&#x60; or one of the other values that are related to shipping and/or handling. .</param>
+        /// <param name="ProductSku">Stock Keeping Unit (SKU) code for the product.  For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. .</param>
+        /// <param name="Quantity">Number of units for this order.  The default is &#x60;1&#x60;. For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling.  When orderInformation.lineItems[].productCode is \&quot;gift_card\&quot;, this is the total count of individual prepaid gift cards purchased. .</param>
+        /// <param name="UnitPrice">Per-item price of the product. This value cannot be negative. You can include a decimal point (.), but you cannot include any other special characters. CyberSource truncates the amount to the correct number of decimal places.  For processor-specific information, see the &#x60;amount&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. See these guides for details: - [Merchant Descriptors Using the SCMP API Guide] (https://apps.cybersource.com/library/documentation/dev_guides/Merchant_Descriptors_SCMP_API/html/) - \&quot;Capture Information for Specific Processors\&quot; section in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### DCC with a Third-Party Provider Set this field to the converted amount that was returned by the DCC provider. You must include either the 1st line item in the order and this field, or the request-level field &#x60;orderInformation.amountDetails.totalAmount&#x60; in your request. For details, see \&quot;Dynamic Currency Conversion with a Third Party Provider\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### FDMS South If you accept IDR or CLP currencies, see the entry for FDMS South in the [Merchant Descriptors Using the SCMP API Guide.] (https://apps.cybersource.com/library/documentation/dev_guides/Merchant_Descriptors_SCMP_API/html/)  #### Zero Amount Authorizations If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="UnitOfMeasure">Unit of measure, or unit of measure code, for the item. .</param>
-        /// <param name="TotalAmount">Total amount for the item. Normally calculated as the unit price x quantity. .</param>
-        /// <param name="TaxAmount">Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  If you want to include the tax amount and also request the ics_tax service, see Tax Calculation Service Using the SCMP API.  This field is frequently used for Level II and Level III transactions. See Level II and Level III Processing Using the SCMP API. .</param>
-        /// <param name="TaxRate">Tax rate applied to the item. See \&quot;Numbered Elements,\&quot; page 14.  Visa: Valid range is 0.01 to 0.99 (1% to 99%, with only whole percentage values accepted; values with additional decimal places will be truncated).  Mastercard: Valid range is 0.00001 to 0.99999 (0.001% to 99.999%). .</param>
+        /// <param name="TotalAmount">Total amount for the item. Normally calculated as the unit price times quantity.  When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the purchase amount total for prepaid gift cards in major units.  Example: 123.45 USD &#x3D; 123 .</param>
+        /// <param name="TaxAmount">Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  If you want to include the tax amount and also request the ics_tax service, see Tax Calculation Service Using the SCMP API.  This field is frequently used for Level II and Level III transactions. For details, see &#x60;tax_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) .</param>
+        /// <param name="TaxRate">Tax rate applied to the item.  For details, see &#x60;tax_rate&#x60; field description in the [Level II and Level III Processing Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/)  **Visa**: Valid range is 0.01 to 0.99 (1% to 99%, with only whole percentage values accepted; values with additional decimal places will be truncated).  **Mastercard**: Valid range is 0.00001 to 0.99999 (0.001% to 99.999%). .</param>
         /// <param name="TaxAppliedAfterDiscount">Flag to indicate how you handle discount at the line item level.   - 0: no line level discount provided  - 1: tax was calculated on the post-discount line item total  - 2: tax was calculated on the pre-discount line item total  &#x60;Note&#x60; Visa will inset 0 (zero) if an invalid value is included in this field.  This field relates to the value in the _lineItems[].discountAmount_ field. .</param>
         /// <param name="TaxStatusIndicator">Flag to indicate whether tax is exempted or not included.   - 0: tax not included  - 1: tax included  - 2: transaction is not subject to tax .</param>
-        /// <param name="TaxTypeCode">Type of tax being applied to the item. Possible values:  Below values are used by **RBS WorldPay Atlanta**, **FDC Nashville Global**, **Litle**   - 0000: unknown tax type  - 0001: federal/national sales tax  - 0002: state sales tax  - 0003: city sales tax  - 0004: local sales tax  - 0005: municipal sales tax  - 0006: other tax  - 0010: value-added tax (VAT)  - 0011: goods and services tax (GST)  - 0012: provincial sales tax  - 0013: harmonized sales tax  - 0014: Quebec sales tax (QST)  - 0020: room tax  - 0021: occupancy tax  - 0022: energy tax  - 0023: city tax  - 0024: county or parish sales tax  - 0025: county tax  - 0026: environment tax  - 0027: state and local sales tax (combined)  - Blank: Tax not supported on line item. .</param>
+        /// <param name="TaxTypeCode">Type of tax being applied to the item.  For possible values, see the processor-specific field descriptions in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/):  #### FDC Nashville Global - &#x60;alternate_tax_type_applied&#x60; - &#x60;alternate_tax_type_identifier&#x60;  #### Worldpay VAP - &#x60;alternate_tax_type_identifier&#x60;  #### RBS WorldPay Atlanta - &#x60;tax_type_applied&#x60;  #### TSYS Acquiring Solutions - &#x60;tax_type_applied&#x60; - &#x60;local_tax_indicator&#x60;  #### Chase Paymentech Solutions - &#x60;tax_type_applied&#x60;  #### Elavon Americas - &#x60;local_tax_indicator&#x60;  #### FDC Compass - &#x60;tax_type_applied&#x60;  #### OmniPay Direct - &#x60;local_tax_indicator&#x60; .</param>
         /// <param name="AmountIncludesTax">Flag that indicates whether the tax amount is included in the Line Item Total.  Possible values:  - **true**  - **false** .</param>
         /// <param name="TypeOfSupply">Flag to indicate whether the purchase is categorized as goods or services. Possible values:   - 00: goods  - 01: services .</param>
         /// <param name="CommodityCode">Commodity code or International description code used to classify the item. Contact your acquirer for a list of codes. .</param>
@@ -53,13 +53,13 @@ namespace CyberSource.Model
         /// <param name="DiscountRate">Rate the item is discounted. Maximum of 2 decimal places.  Example 5.25 (&#x3D;5.25%) .</param>
         /// <param name="InvoiceNumber">Field to support an invoice number for a transaction. You must specify the number of line items that will include an invoice number. By default, the first line item will include an invoice number field. The invoice number field can be included for up to 10 line items. .</param>
         /// <param name="TaxDetails">TaxDetails.</param>
-        /// <param name="FulfillmentType">The description for this field is not available..</param>
-        /// <param name="Weight">Weight of the item. See Numbered Elements..</param>
-        /// <param name="WeightIdentifier">Type of weight. See Numbered Elements.  Possible values: - B: Billed weight - N: Actual net weight .</param>
-        /// <param name="WeightUnit">Code that specifies the unit of measurement for the weight amount. For example, OZ specifies ounce and LB specifies pound. The possible values are defined by the ANSI Accredited Standards Committee (ASC).  See Numbered Elements. .</param>
-        /// <param name="ReferenceDataCode">Code that identifies the value of the corresponding item_#_referenceData_#_number field. See Numbered Elements.  Possible values: - AN: Client-defined asset code - MG: Manufacturer&#39;s part number - PO: Purchase order number - SK: Supplier stock keeping unit number - UP: Universal product code - VC: Supplier catalog number - VP: Vendor part number  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
+        /// <param name="FulfillmentType">Information about the product code used for the line item. Possible values: - &#x60;E&#x60;: The product code is &#x60;electronic_software&#x60;. - &#x60;P&#x60;: The product code is not &#x60;electronic_software&#x60;.  For details, see the &#x60;fulfillmentType&#x60; field description in [Business Center Reporting User Guide.] (https://apps.cybersource.com/library/documentation/dev_guides/reporting_and_reconciliation/Reporting_User/html/) .</param>
+        /// <param name="Weight">Weight of the item.  For details, see &#x60;weight_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) .</param>
+        /// <param name="WeightIdentifier">Type of weight.  Possible values: - B: Billed weight - N: Actual net weight  For details, see &#x60;weight_identifier&#x60; offer-level field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) .</param>
+        /// <param name="WeightUnit">Code that specifies the unit of measurement for the weight amount. For example, &#x60;OZ&#x60; specifies ounce and &#x60;LB&#x60; specifies pound. The possible values are defined by the ANSI Accredited Standards Committee (ASC).  For details, see &#x60;weight_unit_measurement&#x60; offer-level field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) .</param>
+        /// <param name="ReferenceDataCode">Code that identifies the value of the corresponding &#x60;orderInformation.lineItems[].referenceDataNumber&#x60; field.  Possible values: - AN: Client-defined asset code - MG: Manufacturer&#39;s part number - PO: Purchase order number - SK: Supplier stock keeping unit number - UP: Universal product code - VC: Supplier catalog number - VP: Vendor part number  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor.  For details, see &#x60;reference_data_#_code&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) .</param>
         /// <param name="ReferenceDataNumber">Reference number.  The meaning of this value is identified by the value of the corresponding &#x60;referenceDataCode&#x60; field. See Numbered Elements.  The maximum length for this field depends on the value of the corresponding &#x60;referenceDataCode&#x60; field: - When the code is &#x60;PO&#x60;, the maximum length for the reference number is 22. - When the code is &#x60;VC&#x60;, the maximum length for the reference number is 20. - For all other codes, the maximum length for the reference number is 30.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
-        public Ptsv2paymentsOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), decimal? Quantity = default(decimal?), string UnitPrice = default(string), string UnitOfMeasure = default(string), string TotalAmount = default(string), string TaxAmount = default(string), string TaxRate = default(string), string TaxAppliedAfterDiscount = default(string), string TaxStatusIndicator = default(string), string TaxTypeCode = default(string), bool? AmountIncludesTax = default(bool?), string TypeOfSupply = default(string), string CommodityCode = default(string), string DiscountAmount = default(string), bool? DiscountApplied = default(bool?), string DiscountRate = default(string), string InvoiceNumber = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string FulfillmentType = default(string), string Weight = default(string), string WeightIdentifier = default(string), string WeightUnit = default(string), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string))
+        public Ptsv2paymentsOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string UnitOfMeasure = default(string), string TotalAmount = default(string), string TaxAmount = default(string), string TaxRate = default(string), string TaxAppliedAfterDiscount = default(string), string TaxStatusIndicator = default(string), string TaxTypeCode = default(string), bool? AmountIncludesTax = default(bool?), string TypeOfSupply = default(string), string CommodityCode = default(string), string DiscountAmount = default(string), bool? DiscountApplied = default(bool?), string DiscountRate = default(string), string InvoiceNumber = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string FulfillmentType = default(string), string Weight = default(string), string WeightIdentifier = default(string), string WeightUnit = default(string), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string))
         {
             this.ProductCode = ProductCode;
             this.ProductName = ProductName;
@@ -90,37 +90,37 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Type of product. This value is used to determine the category that the product is in: electronic, handling, physical, service, or shipping. The default value is **default**.  If you are performing an authorization transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;false&#x60;), and you set this field to a value other than default or any of the values related to shipping and handling, then the fields &#x60;quantity&#x60;, &#x60;productName&#x60;, and &#x60;productSku&#x60; are required.  See Appendix O, \&quot;Product Codes,\&quot; on page 373 for a list of valid values. 
+        /// Type of product. This value is used to determine the category that the product is in: electronic, handling, physical, service, or shipping. The default value is **default**. If you are performing an authorization transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;false&#x60;), and you set this field to a value other than default or any of the values related to shipping and handling, then the fields &#x60;quantity&#x60;, &#x60;productName&#x60;, and &#x60;productSku&#x60; are required. It can also have a value of \&quot;gift_card\&quot;.  For details, see the &#x60;product_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Type of product. This value is used to determine the category that the product is in: electronic, handling, physical, service, or shipping. The default value is **default**.  If you are performing an authorization transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;false&#x60;), and you set this field to a value other than default or any of the values related to shipping and handling, then the fields &#x60;quantity&#x60;, &#x60;productName&#x60;, and &#x60;productSku&#x60; are required.  See Appendix O, \&quot;Product Codes,\&quot; on page 373 for a list of valid values. </value>
+        /// <value>Type of product. This value is used to determine the category that the product is in: electronic, handling, physical, service, or shipping. The default value is **default**. If you are performing an authorization transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;false&#x60;), and you set this field to a value other than default or any of the values related to shipping and handling, then the fields &#x60;quantity&#x60;, &#x60;productName&#x60;, and &#x60;productSku&#x60; are required. It can also have a value of \&quot;gift_card\&quot;.  For details, see the &#x60;product_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="productCode", EmitDefaultValue=false)]
         public string ProductCode { get; set; }
 
         /// <summary>
-        /// For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60; respectively), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. 
+        /// For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when &#x60;orderInformation.lineItems[].productCode&#x60; is not set to &#x60;default&#x60; or one of the other values that are related to shipping and/or handling. 
         /// </summary>
-        /// <value>For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60; respectively), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. </value>
+        /// <value>For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when &#x60;orderInformation.lineItems[].productCode&#x60; is not set to &#x60;default&#x60; or one of the other values that are related to shipping and/or handling. </value>
         [DataMember(Name="productName", EmitDefaultValue=false)]
         public string ProductName { get; set; }
 
         /// <summary>
-        /// Identification code for the product.  For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. 
+        /// Stock Keeping Unit (SKU) code for the product.  For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. 
         /// </summary>
-        /// <value>Identification code for the product.  For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. </value>
+        /// <value>Stock Keeping Unit (SKU) code for the product.  For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. </value>
         [DataMember(Name="productSku", EmitDefaultValue=false)]
         public string ProductSku { get; set; }
 
         /// <summary>
-        /// For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. 
+        /// Number of units for this order.  The default is &#x60;1&#x60;. For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling.  When orderInformation.lineItems[].productCode is \&quot;gift_card\&quot;, this is the total count of individual prepaid gift cards purchased. 
         /// </summary>
-        /// <value>For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling. </value>
+        /// <value>Number of units for this order.  The default is &#x60;1&#x60;. For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when _orderInformation.lineItems[].productCode_ is not set to **default** or one of the other values that are related to shipping and/or handling.  When orderInformation.lineItems[].productCode is \&quot;gift_card\&quot;, this is the total count of individual prepaid gift cards purchased. </value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
-        public decimal? Quantity { get; set; }
+        public int? Quantity { get; set; }
 
         /// <summary>
-        /// Per-item price of the product. This value cannot be negative. You can include a decimal point (.), but you cannot include any other special characters. CyberSource truncates the amount to the correct number of decimal places.  For processor-specific information, see the amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. This information is covered in: - Table 12, \&quot;Authorization Information for Specific Processors,\&quot; on page 36 - Table 16, \&quot;Capture Information for Specific Processors,\&quot; on page 51 - Table 20, \&quot;Credit Information for Specific Processors,\&quot; on page 65  **DCC for First Data**\\ This value is the original amount in your local currency. You must include this field. You cannot use grand_total_amount. See \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113.  **FDMS South**\\ If you accept IDR or CLP currencies, see the entry for FDMS South in Table 12, \&quot;Authorization Information for Specific Processors,\&quot; on page 36.  **Zero Amount Authorizations**\\ If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations,\&quot; page 220. 
+        /// Per-item price of the product. This value cannot be negative. You can include a decimal point (.), but you cannot include any other special characters. CyberSource truncates the amount to the correct number of decimal places.  For processor-specific information, see the &#x60;amount&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. See these guides for details: - [Merchant Descriptors Using the SCMP API Guide] (https://apps.cybersource.com/library/documentation/dev_guides/Merchant_Descriptors_SCMP_API/html/) - \&quot;Capture Information for Specific Processors\&quot; section in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### DCC with a Third-Party Provider Set this field to the converted amount that was returned by the DCC provider. You must include either the 1st line item in the order and this field, or the request-level field &#x60;orderInformation.amountDetails.totalAmount&#x60; in your request. For details, see \&quot;Dynamic Currency Conversion with a Third Party Provider\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### FDMS South If you accept IDR or CLP currencies, see the entry for FDMS South in the [Merchant Descriptors Using the SCMP API Guide.] (https://apps.cybersource.com/library/documentation/dev_guides/Merchant_Descriptors_SCMP_API/html/)  #### Zero Amount Authorizations If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Per-item price of the product. This value cannot be negative. You can include a decimal point (.), but you cannot include any other special characters. CyberSource truncates the amount to the correct number of decimal places.  For processor-specific information, see the amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. This information is covered in: - Table 12, \&quot;Authorization Information for Specific Processors,\&quot; on page 36 - Table 16, \&quot;Capture Information for Specific Processors,\&quot; on page 51 - Table 20, \&quot;Credit Information for Specific Processors,\&quot; on page 65  **DCC for First Data**\\ This value is the original amount in your local currency. You must include this field. You cannot use grand_total_amount. See \&quot;Dynamic Currency Conversion for First Data,\&quot; page 113.  **FDMS South**\\ If you accept IDR or CLP currencies, see the entry for FDMS South in Table 12, \&quot;Authorization Information for Specific Processors,\&quot; on page 36.  **Zero Amount Authorizations**\\ If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations,\&quot; page 220. </value>
+        /// <value>Per-item price of the product. This value cannot be negative. You can include a decimal point (.), but you cannot include any other special characters. CyberSource truncates the amount to the correct number of decimal places.  For processor-specific information, see the &#x60;amount&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths. See these guides for details: - [Merchant Descriptors Using the SCMP API Guide] (https://apps.cybersource.com/library/documentation/dev_guides/Merchant_Descriptors_SCMP_API/html/) - \&quot;Capture Information for Specific Processors\&quot; section in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### DCC with a Third-Party Provider Set this field to the converted amount that was returned by the DCC provider. You must include either the 1st line item in the order and this field, or the request-level field &#x60;orderInformation.amountDetails.totalAmount&#x60; in your request. For details, see \&quot;Dynamic Currency Conversion with a Third Party Provider\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### FDMS South If you accept IDR or CLP currencies, see the entry for FDMS South in the [Merchant Descriptors Using the SCMP API Guide.] (https://apps.cybersource.com/library/documentation/dev_guides/Merchant_Descriptors_SCMP_API/html/)  #### Zero Amount Authorizations If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen. See \&quot;Zero Amount Authorizations\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="unitPrice", EmitDefaultValue=false)]
         public string UnitPrice { get; set; }
 
@@ -132,23 +132,23 @@ namespace CyberSource.Model
         public string UnitOfMeasure { get; set; }
 
         /// <summary>
-        /// Total amount for the item. Normally calculated as the unit price x quantity. 
+        /// Total amount for the item. Normally calculated as the unit price times quantity.  When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the purchase amount total for prepaid gift cards in major units.  Example: 123.45 USD &#x3D; 123 
         /// </summary>
-        /// <value>Total amount for the item. Normally calculated as the unit price x quantity. </value>
+        /// <value>Total amount for the item. Normally calculated as the unit price times quantity.  When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the purchase amount total for prepaid gift cards in major units.  Example: 123.45 USD &#x3D; 123 </value>
         [DataMember(Name="totalAmount", EmitDefaultValue=false)]
         public string TotalAmount { get; set; }
 
         /// <summary>
-        /// Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  If you want to include the tax amount and also request the ics_tax service, see Tax Calculation Service Using the SCMP API.  This field is frequently used for Level II and Level III transactions. See Level II and Level III Processing Using the SCMP API. 
+        /// Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  If you want to include the tax amount and also request the ics_tax service, see Tax Calculation Service Using the SCMP API.  This field is frequently used for Level II and Level III transactions. For details, see &#x60;tax_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) 
         /// </summary>
-        /// <value>Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  If you want to include the tax amount and also request the ics_tax service, see Tax Calculation Service Using the SCMP API.  This field is frequently used for Level II and Level III transactions. See Level II and Level III Processing Using the SCMP API. </value>
+        /// <value>Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  If you want to include the tax amount and also request the ics_tax service, see Tax Calculation Service Using the SCMP API.  This field is frequently used for Level II and Level III transactions. For details, see &#x60;tax_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) </value>
         [DataMember(Name="taxAmount", EmitDefaultValue=false)]
         public string TaxAmount { get; set; }
 
         /// <summary>
-        /// Tax rate applied to the item. See \&quot;Numbered Elements,\&quot; page 14.  Visa: Valid range is 0.01 to 0.99 (1% to 99%, with only whole percentage values accepted; values with additional decimal places will be truncated).  Mastercard: Valid range is 0.00001 to 0.99999 (0.001% to 99.999%). 
+        /// Tax rate applied to the item.  For details, see &#x60;tax_rate&#x60; field description in the [Level II and Level III Processing Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/)  **Visa**: Valid range is 0.01 to 0.99 (1% to 99%, with only whole percentage values accepted; values with additional decimal places will be truncated).  **Mastercard**: Valid range is 0.00001 to 0.99999 (0.001% to 99.999%). 
         /// </summary>
-        /// <value>Tax rate applied to the item. See \&quot;Numbered Elements,\&quot; page 14.  Visa: Valid range is 0.01 to 0.99 (1% to 99%, with only whole percentage values accepted; values with additional decimal places will be truncated).  Mastercard: Valid range is 0.00001 to 0.99999 (0.001% to 99.999%). </value>
+        /// <value>Tax rate applied to the item.  For details, see &#x60;tax_rate&#x60; field description in the [Level II and Level III Processing Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/)  **Visa**: Valid range is 0.01 to 0.99 (1% to 99%, with only whole percentage values accepted; values with additional decimal places will be truncated).  **Mastercard**: Valid range is 0.00001 to 0.99999 (0.001% to 99.999%). </value>
         [DataMember(Name="taxRate", EmitDefaultValue=false)]
         public string TaxRate { get; set; }
 
@@ -167,9 +167,9 @@ namespace CyberSource.Model
         public string TaxStatusIndicator { get; set; }
 
         /// <summary>
-        /// Type of tax being applied to the item. Possible values:  Below values are used by **RBS WorldPay Atlanta**, **FDC Nashville Global**, **Litle**   - 0000: unknown tax type  - 0001: federal/national sales tax  - 0002: state sales tax  - 0003: city sales tax  - 0004: local sales tax  - 0005: municipal sales tax  - 0006: other tax  - 0010: value-added tax (VAT)  - 0011: goods and services tax (GST)  - 0012: provincial sales tax  - 0013: harmonized sales tax  - 0014: Quebec sales tax (QST)  - 0020: room tax  - 0021: occupancy tax  - 0022: energy tax  - 0023: city tax  - 0024: county or parish sales tax  - 0025: county tax  - 0026: environment tax  - 0027: state and local sales tax (combined)  - Blank: Tax not supported on line item. 
+        /// Type of tax being applied to the item.  For possible values, see the processor-specific field descriptions in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/):  #### FDC Nashville Global - &#x60;alternate_tax_type_applied&#x60; - &#x60;alternate_tax_type_identifier&#x60;  #### Worldpay VAP - &#x60;alternate_tax_type_identifier&#x60;  #### RBS WorldPay Atlanta - &#x60;tax_type_applied&#x60;  #### TSYS Acquiring Solutions - &#x60;tax_type_applied&#x60; - &#x60;local_tax_indicator&#x60;  #### Chase Paymentech Solutions - &#x60;tax_type_applied&#x60;  #### Elavon Americas - &#x60;local_tax_indicator&#x60;  #### FDC Compass - &#x60;tax_type_applied&#x60;  #### OmniPay Direct - &#x60;local_tax_indicator&#x60; 
         /// </summary>
-        /// <value>Type of tax being applied to the item. Possible values:  Below values are used by **RBS WorldPay Atlanta**, **FDC Nashville Global**, **Litle**   - 0000: unknown tax type  - 0001: federal/national sales tax  - 0002: state sales tax  - 0003: city sales tax  - 0004: local sales tax  - 0005: municipal sales tax  - 0006: other tax  - 0010: value-added tax (VAT)  - 0011: goods and services tax (GST)  - 0012: provincial sales tax  - 0013: harmonized sales tax  - 0014: Quebec sales tax (QST)  - 0020: room tax  - 0021: occupancy tax  - 0022: energy tax  - 0023: city tax  - 0024: county or parish sales tax  - 0025: county tax  - 0026: environment tax  - 0027: state and local sales tax (combined)  - Blank: Tax not supported on line item. </value>
+        /// <value>Type of tax being applied to the item.  For possible values, see the processor-specific field descriptions in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/):  #### FDC Nashville Global - &#x60;alternate_tax_type_applied&#x60; - &#x60;alternate_tax_type_identifier&#x60;  #### Worldpay VAP - &#x60;alternate_tax_type_identifier&#x60;  #### RBS WorldPay Atlanta - &#x60;tax_type_applied&#x60;  #### TSYS Acquiring Solutions - &#x60;tax_type_applied&#x60; - &#x60;local_tax_indicator&#x60;  #### Chase Paymentech Solutions - &#x60;tax_type_applied&#x60;  #### Elavon Americas - &#x60;local_tax_indicator&#x60;  #### FDC Compass - &#x60;tax_type_applied&#x60;  #### OmniPay Direct - &#x60;local_tax_indicator&#x60; </value>
         [DataMember(Name="taxTypeCode", EmitDefaultValue=false)]
         public string TaxTypeCode { get; set; }
 
@@ -229,37 +229,37 @@ namespace CyberSource.Model
         public List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Information about the product code used for the line item. Possible values: - &#x60;E&#x60;: The product code is &#x60;electronic_software&#x60;. - &#x60;P&#x60;: The product code is not &#x60;electronic_software&#x60;.  For details, see the &#x60;fulfillmentType&#x60; field description in [Business Center Reporting User Guide.] (https://apps.cybersource.com/library/documentation/dev_guides/reporting_and_reconciliation/Reporting_User/html/) 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Information about the product code used for the line item. Possible values: - &#x60;E&#x60;: The product code is &#x60;electronic_software&#x60;. - &#x60;P&#x60;: The product code is not &#x60;electronic_software&#x60;.  For details, see the &#x60;fulfillmentType&#x60; field description in [Business Center Reporting User Guide.] (https://apps.cybersource.com/library/documentation/dev_guides/reporting_and_reconciliation/Reporting_User/html/) </value>
         [DataMember(Name="fulfillmentType", EmitDefaultValue=false)]
         public string FulfillmentType { get; set; }
 
         /// <summary>
-        /// Weight of the item. See Numbered Elements.
+        /// Weight of the item.  For details, see &#x60;weight_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) 
         /// </summary>
-        /// <value>Weight of the item. See Numbered Elements.</value>
+        /// <value>Weight of the item.  For details, see &#x60;weight_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) </value>
         [DataMember(Name="weight", EmitDefaultValue=false)]
         public string Weight { get; set; }
 
         /// <summary>
-        /// Type of weight. See Numbered Elements.  Possible values: - B: Billed weight - N: Actual net weight 
+        /// Type of weight.  Possible values: - B: Billed weight - N: Actual net weight  For details, see &#x60;weight_identifier&#x60; offer-level field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) 
         /// </summary>
-        /// <value>Type of weight. See Numbered Elements.  Possible values: - B: Billed weight - N: Actual net weight </value>
+        /// <value>Type of weight.  Possible values: - B: Billed weight - N: Actual net weight  For details, see &#x60;weight_identifier&#x60; offer-level field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) </value>
         [DataMember(Name="weightIdentifier", EmitDefaultValue=false)]
         public string WeightIdentifier { get; set; }
 
         /// <summary>
-        /// Code that specifies the unit of measurement for the weight amount. For example, OZ specifies ounce and LB specifies pound. The possible values are defined by the ANSI Accredited Standards Committee (ASC).  See Numbered Elements. 
+        /// Code that specifies the unit of measurement for the weight amount. For example, &#x60;OZ&#x60; specifies ounce and &#x60;LB&#x60; specifies pound. The possible values are defined by the ANSI Accredited Standards Committee (ASC).  For details, see &#x60;weight_unit_measurement&#x60; offer-level field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) 
         /// </summary>
-        /// <value>Code that specifies the unit of measurement for the weight amount. For example, OZ specifies ounce and LB specifies pound. The possible values are defined by the ANSI Accredited Standards Committee (ASC).  See Numbered Elements. </value>
+        /// <value>Code that specifies the unit of measurement for the weight amount. For example, &#x60;OZ&#x60; specifies ounce and &#x60;LB&#x60; specifies pound. The possible values are defined by the ANSI Accredited Standards Committee (ASC).  For details, see &#x60;weight_unit_measurement&#x60; offer-level field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) </value>
         [DataMember(Name="weightUnit", EmitDefaultValue=false)]
         public string WeightUnit { get; set; }
 
         /// <summary>
-        /// Code that identifies the value of the corresponding item_#_referenceData_#_number field. See Numbered Elements.  Possible values: - AN: Client-defined asset code - MG: Manufacturer&#39;s part number - PO: Purchase order number - SK: Supplier stock keeping unit number - UP: Universal product code - VC: Supplier catalog number - VP: Vendor part number  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. 
+        /// Code that identifies the value of the corresponding &#x60;orderInformation.lineItems[].referenceDataNumber&#x60; field.  Possible values: - AN: Client-defined asset code - MG: Manufacturer&#39;s part number - PO: Purchase order number - SK: Supplier stock keeping unit number - UP: Universal product code - VC: Supplier catalog number - VP: Vendor part number  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor.  For details, see &#x60;reference_data_#_code&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) 
         /// </summary>
-        /// <value>Code that identifies the value of the corresponding item_#_referenceData_#_number field. See Numbered Elements.  Possible values: - AN: Client-defined asset code - MG: Manufacturer&#39;s part number - PO: Purchase order number - SK: Supplier stock keeping unit number - UP: Universal product code - VC: Supplier catalog number - VP: Vendor part number  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. </value>
+        /// <value>Code that identifies the value of the corresponding &#x60;orderInformation.lineItems[].referenceDataNumber&#x60; field.  Possible values: - AN: Client-defined asset code - MG: Manufacturer&#39;s part number - PO: Purchase order number - SK: Supplier stock keeping unit number - UP: Universal product code - VC: Supplier catalog number - VP: Vendor part number  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor.  For details, see &#x60;reference_data_#_code&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) </value>
         [DataMember(Name="referenceDataCode", EmitDefaultValue=false)]
         public string ReferenceDataCode { get; set; }
 
@@ -547,141 +547,141 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ProductCode (string) maxLength
-            if(this.ProductCode != null && this.ProductCode.Length > 255)
+            if(this.ProductCode != null && this.ProductCode.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductCode, length must be less than 255.", new [] { "ProductCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductCode, length must be less than or equal to 255.", new [] { "ProductCode" });
             }
 
             // ProductName (string) maxLength
-            if(this.ProductName != null && this.ProductName.Length > 255)
+            if(this.ProductName != null && this.ProductName.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than 255.", new [] { "ProductName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than or equal to 255.", new [] { "ProductName" });
             }
 
             // ProductSku (string) maxLength
-            if(this.ProductSku != null && this.ProductSku.Length > 255)
+            if(this.ProductSku != null && this.ProductSku.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductSku, length must be less than 255.", new [] { "ProductSku" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductSku, length must be less than or equal to 255.", new [] { "ProductSku" });
             }
 
-            // Quantity (decimal?) maximum
-            if(this.Quantity > (decimal?)9999999999)
+            // Quantity (int?) maximum
+            if(this.Quantity >= (int?)999999999)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 9999999999.", new [] { "Quantity" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999999.", new [] { "Quantity" });
             }
 
-            // Quantity (decimal?) minimum
-            if(this.Quantity < (decimal?)1)
+            // Quantity (int?) minimum
+            if(this.Quantity <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
             }
 
             // UnitPrice (string) maxLength
-            if(this.UnitPrice != null && this.UnitPrice.Length > 15)
+            if(this.UnitPrice != null && this.UnitPrice.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than 15.", new [] { "UnitPrice" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than or equal to 15.", new [] { "UnitPrice" });
             }
 
             // UnitOfMeasure (string) maxLength
-            if(this.UnitOfMeasure != null && this.UnitOfMeasure.Length > 12)
+            if(this.UnitOfMeasure != null && this.UnitOfMeasure.Length >= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitOfMeasure, length must be less than 12.", new [] { "UnitOfMeasure" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitOfMeasure, length must be less than or equal to 12.", new [] { "UnitOfMeasure" });
             }
 
             // TotalAmount (string) maxLength
-            if(this.TotalAmount != null && this.TotalAmount.Length > 13)
+            if(this.TotalAmount != null && this.TotalAmount.Length >= 13)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalAmount, length must be less than 13.", new [] { "TotalAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalAmount, length must be less than or equal to 13.", new [] { "TotalAmount" });
             }
 
             // TaxAmount (string) maxLength
-            if(this.TaxAmount != null && this.TaxAmount.Length > 15)
+            if(this.TaxAmount != null && this.TaxAmount.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than 15.", new [] { "TaxAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than or equal to 15.", new [] { "TaxAmount" });
             }
 
             // TaxRate (string) maxLength
-            if(this.TaxRate != null && this.TaxRate.Length > 7)
+            if(this.TaxRate != null && this.TaxRate.Length >= 7)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxRate, length must be less than 7.", new [] { "TaxRate" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxRate, length must be less than or equal to 7.", new [] { "TaxRate" });
             }
 
             // TaxAppliedAfterDiscount (string) maxLength
-            if(this.TaxAppliedAfterDiscount != null && this.TaxAppliedAfterDiscount.Length > 1)
+            if(this.TaxAppliedAfterDiscount != null && this.TaxAppliedAfterDiscount.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAppliedAfterDiscount, length must be less than 1.", new [] { "TaxAppliedAfterDiscount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAppliedAfterDiscount, length must be less than or equal to 1.", new [] { "TaxAppliedAfterDiscount" });
             }
 
             // TaxStatusIndicator (string) maxLength
-            if(this.TaxStatusIndicator != null && this.TaxStatusIndicator.Length > 1)
+            if(this.TaxStatusIndicator != null && this.TaxStatusIndicator.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxStatusIndicator, length must be less than 1.", new [] { "TaxStatusIndicator" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxStatusIndicator, length must be less than or equal to 1.", new [] { "TaxStatusIndicator" });
             }
 
             // TaxTypeCode (string) maxLength
-            if(this.TaxTypeCode != null && this.TaxTypeCode.Length > 4)
+            if(this.TaxTypeCode != null && this.TaxTypeCode.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxTypeCode, length must be less than 4.", new [] { "TaxTypeCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxTypeCode, length must be less than or equal to 4.", new [] { "TaxTypeCode" });
             }
 
             // TypeOfSupply (string) maxLength
-            if(this.TypeOfSupply != null && this.TypeOfSupply.Length > 2)
+            if(this.TypeOfSupply != null && this.TypeOfSupply.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TypeOfSupply, length must be less than 2.", new [] { "TypeOfSupply" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TypeOfSupply, length must be less than or equal to 2.", new [] { "TypeOfSupply" });
             }
 
             // CommodityCode (string) maxLength
-            if(this.CommodityCode != null && this.CommodityCode.Length > 15)
+            if(this.CommodityCode != null && this.CommodityCode.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommodityCode, length must be less than 15.", new [] { "CommodityCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommodityCode, length must be less than or equal to 15.", new [] { "CommodityCode" });
             }
 
             // DiscountAmount (string) maxLength
-            if(this.DiscountAmount != null && this.DiscountAmount.Length > 13)
+            if(this.DiscountAmount != null && this.DiscountAmount.Length >= 13)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountAmount, length must be less than 13.", new [] { "DiscountAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountAmount, length must be less than or equal to 13.", new [] { "DiscountAmount" });
             }
 
             // DiscountRate (string) maxLength
-            if(this.DiscountRate != null && this.DiscountRate.Length > 6)
+            if(this.DiscountRate != null && this.DiscountRate.Length >= 6)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountRate, length must be less than 6.", new [] { "DiscountRate" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountRate, length must be less than or equal to 6.", new [] { "DiscountRate" });
             }
 
             // InvoiceNumber (string) maxLength
-            if(this.InvoiceNumber != null && this.InvoiceNumber.Length > 23)
+            if(this.InvoiceNumber != null && this.InvoiceNumber.Length >= 23)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvoiceNumber, length must be less than 23.", new [] { "InvoiceNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvoiceNumber, length must be less than or equal to 23.", new [] { "InvoiceNumber" });
             }
 
             // Weight (string) maxLength
-            if(this.Weight != null && this.Weight.Length > 9)
+            if(this.Weight != null && this.Weight.Length >= 9)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Weight, length must be less than 9.", new [] { "Weight" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Weight, length must be less than or equal to 9.", new [] { "Weight" });
             }
 
             // WeightIdentifier (string) maxLength
-            if(this.WeightIdentifier != null && this.WeightIdentifier.Length > 1)
+            if(this.WeightIdentifier != null && this.WeightIdentifier.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WeightIdentifier, length must be less than 1.", new [] { "WeightIdentifier" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WeightIdentifier, length must be less than or equal to 1.", new [] { "WeightIdentifier" });
             }
 
             // WeightUnit (string) maxLength
-            if(this.WeightUnit != null && this.WeightUnit.Length > 2)
+            if(this.WeightUnit != null && this.WeightUnit.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WeightUnit, length must be less than 2.", new [] { "WeightUnit" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WeightUnit, length must be less than or equal to 2.", new [] { "WeightUnit" });
             }
 
             // ReferenceDataCode (string) maxLength
-            if(this.ReferenceDataCode != null && this.ReferenceDataCode.Length > 2)
+            if(this.ReferenceDataCode != null && this.ReferenceDataCode.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataCode, length must be less than 2.", new [] { "ReferenceDataCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataCode, length must be less than or equal to 2.", new [] { "ReferenceDataCode" });
             }
 
             // ReferenceDataNumber (string) maxLength
-            if(this.ReferenceDataNumber != null && this.ReferenceDataNumber.Length > 30)
+            if(this.ReferenceDataNumber != null && this.ReferenceDataNumber.Length >= 30)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataNumber, length must be less than 30.", new [] { "ReferenceDataNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataNumber, length must be less than or equal to 30.", new [] { "ReferenceDataNumber" });
             }
 
             yield break;

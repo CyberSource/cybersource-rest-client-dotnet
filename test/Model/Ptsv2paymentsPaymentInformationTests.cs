@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -103,6 +103,22 @@ namespace CyberSource.Test
         public void BankTest()
         {
             // TODO unit test for the property 'Bank'
+        }
+        /// <summary>
+        /// Test the property 'PaymentType'
+        /// </summary>
+        [Test]
+        public void PaymentTypeTest()
+        {
+            // TODO unit test for the property 'PaymentType'
+        }
+        /// <summary>
+        /// Test the property 'InitiationChannel'
+        /// </summary>
+        [Test]
+        public void InitiationChannelTest()
+        {
+            // TODO unit test for the property 'InitiationChannel'
         }
 
     }

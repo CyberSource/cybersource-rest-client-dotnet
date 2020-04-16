@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -145,6 +145,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'VisaCheckoutId'
         }
         /// <summary>
+        /// Test the property 'IndustryDataType'
+        /// </summary>
+        [Test]
+        public void IndustryDataTypeTest()
+        {
+            // TODO unit test for the property 'IndustryDataType'
+        }
+        /// <summary>
         /// Test the property 'AuthorizationOptions'
         /// </summary>
         [Test]
@@ -175,6 +183,78 @@ namespace CyberSource.Test
         public void BankTransferOptionsTest()
         {
             // TODO unit test for the property 'BankTransferOptions'
+        }
+        /// <summary>
+        /// Test the property 'PurchaseOptions'
+        /// </summary>
+        [Test]
+        public void PurchaseOptionsTest()
+        {
+            // TODO unit test for the property 'PurchaseOptions'
+        }
+        /// <summary>
+        /// Test the property 'ElectronicBenefitsTransfer'
+        /// </summary>
+        [Test]
+        public void ElectronicBenefitsTransferTest()
+        {
+            // TODO unit test for the property 'ElectronicBenefitsTransfer'
+        }
+        /// <summary>
+        /// Test the property 'LoanOptions'
+        /// </summary>
+        [Test]
+        public void LoanOptionsTest()
+        {
+            // TODO unit test for the property 'LoanOptions'
+        }
+        /// <summary>
+        /// Test the property 'WalletType'
+        /// </summary>
+        [Test]
+        public void WalletTypeTest()
+        {
+            // TODO unit test for the property 'WalletType'
+        }
+        /// <summary>
+        /// Test the property 'NationalNetDomesticData'
+        /// </summary>
+        [Test]
+        public void NationalNetDomesticDataTest()
+        {
+            // TODO unit test for the property 'NationalNetDomesticData'
+        }
+        /// <summary>
+        /// Test the property 'JapanPaymentOptions'
+        /// </summary>
+        [Test]
+        public void JapanPaymentOptionsTest()
+        {
+            // TODO unit test for the property 'JapanPaymentOptions'
+        }
+        /// <summary>
+        /// Test the property 'MobileRemotePaymentType'
+        /// </summary>
+        [Test]
+        public void MobileRemotePaymentTypeTest()
+        {
+            // TODO unit test for the property 'MobileRemotePaymentType'
+        }
+        /// <summary>
+        /// Test the property 'ExtendedCreditTotalCount'
+        /// </summary>
+        [Test]
+        public void ExtendedCreditTotalCountTest()
+        {
+            // TODO unit test for the property 'ExtendedCreditTotalCount'
+        }
+        /// <summary>
+        /// Test the property 'NetworkRoutingOrder'
+        /// </summary>
+        [Test]
+        public void NetworkRoutingOrderTest()
+        {
+            // TODO unit test for the property 'NetworkRoutingOrder'
         }
 
     }

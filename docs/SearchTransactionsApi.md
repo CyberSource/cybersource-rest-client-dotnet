@@ -4,15 +4,15 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateSearch**](SearchTransactionsApi.md#createsearch) | **POST** /tss/v2/searches | Create a search request
-[**GetSearch**](SearchTransactionsApi.md#getsearch) | **GET** /tss/v2/searches/{id} | Get Search results
+[**CreateSearch**](SearchTransactionsApi.md#createsearch) | **POST** /tss/v2/searches | Create a Search Request
+[**GetSearch**](SearchTransactionsApi.md#getsearch) | **GET** /tss/v2/searches/{searchId} | Get Search Results
 
 
 <a name="createsearch"></a>
 # **CreateSearch**
-> TssV2TransactionsPost201Response CreateSearch (TssV2TransactionsPostResponse createSearchRequest)
+> TssV2TransactionsPost201Response CreateSearch (CreateSearchRequest createSearchRequest)
 
-Create a search request
+Create a Search Request
 
 Create a search request. 
 
@@ -31,11 +31,11 @@ namespace Example
         public void main()
         {
             var apiInstance = new SearchTransactionsApi();
-            var createSearchRequest = new TssV2TransactionsPostResponse(); // TssV2TransactionsPostResponse | 
+            var createSearchRequest = new CreateSearchRequest(); // CreateSearchRequest | 
 
             try
             {
-                // Create a search request
+                // Create a Search Request
                 TssV2TransactionsPost201Response result = apiInstance.CreateSearch(createSearchRequest);
                 Debug.WriteLine(result);
             }
@@ -52,7 +52,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createSearchRequest** | [**TssV2TransactionsPostResponse**](TssV2TransactionsPostResponse.md)|  | 
+ **createSearchRequest** | [**CreateSearchRequest**](CreateSearchRequest.md)|  | 
 
 ### Return type
 
@@ -71,9 +71,9 @@ No authorization required
 
 <a name="getsearch"></a>
 # **GetSearch**
-> TssV2TransactionsPost201Response GetSearch (string id)
+> TssV2TransactionsPost201Response GetSearch (string searchId)
 
-Get Search results
+Get Search Results
 
 Include the Search ID in the GET request to retrieve the search results.
 
@@ -92,12 +92,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new SearchTransactionsApi();
-            var id = id_example;  // string | Search ID.
+            var searchId = searchId_example;  // string | Search ID.
 
             try
             {
-                // Get Search results
-                TssV2TransactionsPost201Response result = apiInstance.GetSearch(id);
+                // Get Search Results
+                TssV2TransactionsPost201Response result = apiInstance.GetSearch(searchId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -113,7 +113,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Search ID. | 
+ **searchId** | **string**| Search ID. | 
 
 ### Return type
 
@@ -126,7 +126,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
+ - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -31,73 +31,14 @@ namespace CyberSource.Model
     public partial class ReportingV3ReportSubscriptionsGet200ResponseSubscriptions :  IEquatable<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>, IValidatableObject
     {
         /// <summary>
-        /// Report Format
-        /// </summary>
-        /// <value>Report Format</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReportMimeTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum ApplicationXml for "application/xml"
-            /// </summary>
-            [EnumMember(Value = "application/xml")]
-            ApplicationXml,
-            
-            /// <summary>
-            /// Enum TextCsv for "text/csv"
-            /// </summary>
-            [EnumMember(Value = "text/csv")]
-            TextCsv
-        }
-
-        /// <summary>
-        /// Report Frequency
-        /// </summary>
-        /// <value>Report Frequency</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReportFrequencyEnum
-        {
-            
-            /// <summary>
-            /// Enum DAILY for "DAILY"
-            /// </summary>
-            [EnumMember(Value = "DAILY")]
-            DAILY,
-            
-            /// <summary>
-            /// Enum WEEKLY for "WEEKLY"
-            /// </summary>
-            [EnumMember(Value = "WEEKLY")]
-            WEEKLY,
-            
-            /// <summary>
-            /// Enum MONTHLY for "MONTHLY"
-            /// </summary>
-            [EnumMember(Value = "MONTHLY")]
-            MONTHLY
-        }
-
-        /// <summary>
-        /// Report Format
-        /// </summary>
-        /// <value>Report Format</value>
-        [DataMember(Name="reportMimeType", EmitDefaultValue=false)]
-        public ReportMimeTypeEnum? ReportMimeType { get; set; }
-        /// <summary>
-        /// Report Frequency
-        /// </summary>
-        /// <value>Report Frequency</value>
-        [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
-        public ReportFrequencyEnum? ReportFrequency { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3ReportSubscriptionsGet200ResponseSubscriptions" /> class.
         /// </summary>
         /// <param name="OrganizationId">Selected Organization Id.</param>
         /// <param name="ReportDefinitionId">Report Definition Id.</param>
         /// <param name="ReportDefinitionName">Report Definition Class.</param>
-        /// <param name="ReportMimeType">Report Format.</param>
-        /// <param name="ReportFrequency">Report Frequency.</param>
+        /// <param name="ReportMimeType">Report Format                          Valid values: - application/xml - text/csv .</param>
+        /// <param name="ReportFrequency">&#39;Report Frequency&#39; **NOTE: Do not document USER_DEFINED Frequency field in developer center**  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED .</param>
+        /// <param name="ReportInterval">If the reportFrequency is User-defined, reportInterval should be in **ISO 8601 time format** Please refer the following link to know more about ISO 8601 format.[Rfc Time Format](https://en.wikipedia.org/wiki/ISO_8601#Durations)  **Example time format for 2 hours and 30 Mins:**   - PT2H30M **NOTE: Do not document reportInterval field in developer center** .</param>
         /// <param name="ReportName">Report Name.</param>
         /// <param name="Timezone">Time Zone.</param>
         /// <param name="StartTime">Start Time.</param>
@@ -106,13 +47,14 @@ namespace CyberSource.Model
         /// <param name="ReportFilters">List of filters to apply.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
         /// <param name="GroupId">Id for the selected group..</param>
-        public ReportingV3ReportSubscriptionsGet200ResponseSubscriptions(string OrganizationId = default(string), string ReportDefinitionId = default(string), string ReportDefinitionName = default(string), ReportMimeTypeEnum? ReportMimeType = default(ReportMimeTypeEnum?), ReportFrequencyEnum? ReportFrequency = default(ReportFrequencyEnum?), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), List<string> ReportFields = default(List<string>), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), ReportingV3ReportsIdGet200ResponseReportPreferences ReportPreferences = default(ReportingV3ReportsIdGet200ResponseReportPreferences), string GroupId = default(string))
+        public ReportingV3ReportSubscriptionsGet200ResponseSubscriptions(string OrganizationId = default(string), string ReportDefinitionId = default(string), string ReportDefinitionName = default(string), string ReportMimeType = default(string), string ReportFrequency = default(string), string ReportInterval = default(string), string ReportName = default(string), string Timezone = default(string), DateTime? StartTime = default(DateTime?), int? StartDay = default(int?), List<string> ReportFields = default(List<string>), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupId = default(string))
         {
             this.OrganizationId = OrganizationId;
             this.ReportDefinitionId = ReportDefinitionId;
             this.ReportDefinitionName = ReportDefinitionName;
             this.ReportMimeType = ReportMimeType;
             this.ReportFrequency = ReportFrequency;
+            this.ReportInterval = ReportInterval;
             this.ReportName = ReportName;
             this.Timezone = Timezone;
             this.StartTime = StartTime;
@@ -144,7 +86,26 @@ namespace CyberSource.Model
         [DataMember(Name="reportDefinitionName", EmitDefaultValue=false)]
         public string ReportDefinitionName { get; set; }
 
+        /// <summary>
+        /// Report Format                          Valid values: - application/xml - text/csv 
+        /// </summary>
+        /// <value>Report Format                          Valid values: - application/xml - text/csv </value>
+        [DataMember(Name="reportMimeType", EmitDefaultValue=false)]
+        public string ReportMimeType { get; set; }
 
+        /// <summary>
+        /// &#39;Report Frequency&#39; **NOTE: Do not document USER_DEFINED Frequency field in developer center**  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED 
+        /// </summary>
+        /// <value>&#39;Report Frequency&#39; **NOTE: Do not document USER_DEFINED Frequency field in developer center**  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED </value>
+        [DataMember(Name="reportFrequency", EmitDefaultValue=false)]
+        public string ReportFrequency { get; set; }
+
+        /// <summary>
+        /// If the reportFrequency is User-defined, reportInterval should be in **ISO 8601 time format** Please refer the following link to know more about ISO 8601 format.[Rfc Time Format](https://en.wikipedia.org/wiki/ISO_8601#Durations)  **Example time format for 2 hours and 30 Mins:**   - PT2H30M **NOTE: Do not document reportInterval field in developer center** 
+        /// </summary>
+        /// <value>If the reportFrequency is User-defined, reportInterval should be in **ISO 8601 time format** Please refer the following link to know more about ISO 8601 format.[Rfc Time Format](https://en.wikipedia.org/wiki/ISO_8601#Durations)  **Example time format for 2 hours and 30 Mins:**   - PT2H30M **NOTE: Do not document reportInterval field in developer center** </value>
+        [DataMember(Name="reportInterval", EmitDefaultValue=false)]
+        public string ReportInterval { get; set; }
 
         /// <summary>
         /// Report Name
@@ -165,7 +126,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Start Time</value>
         [DataMember(Name="startTime", EmitDefaultValue=false)]
-        public string StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
         /// <summary>
         /// Start Day
@@ -192,7 +153,7 @@ namespace CyberSource.Model
         /// Gets or Sets ReportPreferences
         /// </summary>
         [DataMember(Name="reportPreferences", EmitDefaultValue=false)]
-        public ReportingV3ReportsIdGet200ResponseReportPreferences ReportPreferences { get; set; }
+        public Reportingv3reportsReportPreferences ReportPreferences { get; set; }
 
         /// <summary>
         /// Id for the selected group.
@@ -214,6 +175,7 @@ namespace CyberSource.Model
             sb.Append("  ReportDefinitionName: ").Append(ReportDefinitionName).Append("\n");
             sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
             sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
+            sb.Append("  ReportInterval: ").Append(ReportInterval).Append("\n");
             sb.Append("  ReportName: ").Append(ReportName).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
@@ -284,6 +246,11 @@ namespace CyberSource.Model
                     this.ReportFrequency.Equals(other.ReportFrequency)
                 ) && 
                 (
+                    this.ReportInterval == other.ReportInterval ||
+                    this.ReportInterval != null &&
+                    this.ReportInterval.Equals(other.ReportInterval)
+                ) && 
+                (
                     this.ReportName == other.ReportName ||
                     this.ReportName != null &&
                     this.ReportName.Equals(other.ReportName)
@@ -346,6 +313,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReportMimeType.GetHashCode();
                 if (this.ReportFrequency != null)
                     hash = hash * 59 + this.ReportFrequency.GetHashCode();
+                if (this.ReportInterval != null)
+                    hash = hash * 59 + this.ReportInterval.GetHashCode();
                 if (this.ReportName != null)
                     hash = hash * 59 + this.ReportName.GetHashCode();
                 if (this.Timezone != null)
@@ -373,6 +342,13 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ReportInterval (string) pattern
+            Regex regexReportInterval = new Regex(@"^PT((([1-9]|1[0-9]|2[0-3])H(([1-9]|[1-4][0-9]|5[0-9])M)?)|((([1-9]|1[0-9]|2[0-3])H)?([1-9]|[1-4][0-9]|5[0-9])M))$", RegexOptions.CultureInvariant);
+            if (false == regexReportInterval.Match(this.ReportInterval).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportInterval, must match a pattern of " + regexReportInterval, new [] { "ReportInterval" });
+            }
+
             yield break;
         }
     }

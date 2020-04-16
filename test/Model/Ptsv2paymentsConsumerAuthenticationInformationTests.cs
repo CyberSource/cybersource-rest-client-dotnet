@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -121,12 +121,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'UcafAuthenticationData'
         }
         /// <summary>
-        /// Test the property 'UcafCollectionIndicator'
+        /// Test the property 'StrongAuthentication'
         /// </summary>
         [Test]
-        public void UcafCollectionIndicatorTest()
+        public void StrongAuthenticationTest()
         {
-            // TODO unit test for the property 'UcafCollectionIndicator'
+            // TODO unit test for the property 'StrongAuthentication'
+        }
+        /// <summary>
+        /// Test the property 'DirectoryServerTransactionId'
+        /// </summary>
+        [Test]
+        public void DirectoryServerTransactionIdTest()
+        {
+            // TODO unit test for the property 'DirectoryServerTransactionId'
+        }
+        /// <summary>
+        /// Test the property 'PaSpecificationVersion'
+        /// </summary>
+        [Test]
+        public void PaSpecificationVersionTest()
+        {
+            // TODO unit test for the property 'PaSpecificationVersion'
         }
 
     }

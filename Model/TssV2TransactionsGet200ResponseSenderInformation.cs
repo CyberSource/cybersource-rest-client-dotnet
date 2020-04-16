@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ReferenceNumber (string) maxLength
-            if(this.ReferenceNumber != null && this.ReferenceNumber.Length > 19)
+            if(this.ReferenceNumber != null && this.ReferenceNumber.Length >= 19)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceNumber, length must be less than 19.", new [] { "ReferenceNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceNumber, length must be less than or equal to 19.", new [] { "ReferenceNumber" });
             }
 
             yield break;

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,15 +33,17 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsMerchantInformationMerchantDescriptor" /> class.
         /// </summary>
-        /// <param name="Name">For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  For Payouts: * Paymentech (22) .</param>
-        /// <param name="AlternateName">For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        /// <param name="Contact">For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) * FDCCompass (13) * Paymentech (13) .</param>
-        /// <param name="Address1">For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        /// <param name="Locality">Merchant City. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        /// <param name="Country">For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        /// <param name="PostalCode">For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        /// <param name="AdministrativeArea">Merchant State. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string))
+        /// <param name="Name">Merchant&#39;s name.  For more details about the merchant-related fields, see the &#x60;merchant_descriptor&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  **Note** For Paymentech processor using Cybersource Payouts, the maximum data length is 22. .</param>
+        /// <param name="AlternateName">An alternate name for the merchant.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_alternate&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)- -&gt; .</param>
+        /// <param name="Contact">For the descriptions, used-by information, data types, and lengths for these fields, see &#x60;merchant_descriptor_contact&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)- -&gt; Contact information for the merchant.  **Note** These are the maximum data lengths for the following payment processors: - FDCCompass (13) - Paymentech (13) .</param>
+        /// <param name="Address1">First line of merchant&#39;s address. For the descriptions, used-by information, data types, and lengths for these fields, see &#x60;merchant_descriptor_street&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="Locality">Merchant&#39;s City.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_city&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="Country">Merchant&#39;s country.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_country&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="PostalCode">Merchant&#39;s postal code.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_postal_code&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="AdministrativeArea">The state where the merchant is located.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_state&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  Merchant State. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="Phone">Merchnat phone as contact information for CNP transactions .</param>
+        /// <param name="Url">Address of company&#39;s website provided by merchant .</param>
+        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Phone = default(string), string Url = default(string))
         {
             this.Name = Name;
             this.AlternateName = AlternateName;
@@ -51,63 +53,79 @@ namespace CyberSource.Model
             this.Country = Country;
             this.PostalCode = PostalCode;
             this.AdministrativeArea = AdministrativeArea;
+            this.Phone = Phone;
+            this.Url = Url;
         }
         
         /// <summary>
-        /// For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  For Payouts: * Paymentech (22) 
+        /// Merchant&#39;s name.  For more details about the merchant-related fields, see the &#x60;merchant_descriptor&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  **Note** For Paymentech processor using Cybersource Payouts, the maximum data length is 22. 
         /// </summary>
-        /// <value>For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  For Payouts: * Paymentech (22) </value>
+        /// <value>Merchant&#39;s name.  For more details about the merchant-related fields, see the &#x60;merchant_descriptor&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  **Note** For Paymentech processor using Cybersource Payouts, the maximum data length is 22. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// An alternate name for the merchant.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_alternate&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)- -&gt; 
         /// </summary>
-        /// <value>For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>An alternate name for the merchant.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_alternate&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)- -&gt; </value>
         [DataMember(Name="alternateName", EmitDefaultValue=false)]
         public string AlternateName { get; set; }
 
         /// <summary>
-        /// For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) * FDCCompass (13) * Paymentech (13) 
+        /// For the descriptions, used-by information, data types, and lengths for these fields, see &#x60;merchant_descriptor_contact&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)- -&gt; Contact information for the merchant.  **Note** These are the maximum data lengths for the following payment processors: - FDCCompass (13) - Paymentech (13) 
         /// </summary>
-        /// <value>For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) * FDCCompass (13) * Paymentech (13) </value>
+        /// <value>For the descriptions, used-by information, data types, and lengths for these fields, see &#x60;merchant_descriptor_contact&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)- -&gt; Contact information for the merchant.  **Note** These are the maximum data lengths for the following payment processors: - FDCCompass (13) - Paymentech (13) </value>
         [DataMember(Name="contact", EmitDefaultValue=false)]
         public string Contact { get; set; }
 
         /// <summary>
-        /// For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// First line of merchant&#39;s address. For the descriptions, used-by information, data types, and lengths for these fields, see &#x60;merchant_descriptor_street&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
         /// </summary>
-        /// <value>For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>First line of merchant&#39;s address. For the descriptions, used-by information, data types, and lengths for these fields, see &#x60;merchant_descriptor_street&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
         [DataMember(Name="address1", EmitDefaultValue=false)]
         public string Address1 { get; set; }
 
         /// <summary>
-        /// Merchant City. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Merchant&#39;s City.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_city&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
         /// </summary>
-        /// <value>Merchant City. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Merchant&#39;s City.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_city&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
         [DataMember(Name="locality", EmitDefaultValue=false)]
         public string Locality { get; set; }
 
         /// <summary>
-        /// For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Merchant&#39;s country.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_country&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
         /// </summary>
-        /// <value>For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Merchant&#39;s country.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_country&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 
         /// <summary>
-        /// For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Merchant&#39;s postal code.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_postal_code&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
         /// </summary>
-        /// <value>For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Merchant&#39;s postal code.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_postal_code&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
         [DataMember(Name="postalCode", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Merchant State. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// The state where the merchant is located.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_state&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  Merchant State. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
         /// </summary>
-        /// <value>Merchant State. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>The state where the merchant is located.  For the descriptions, used-by information, data types, and lengths for these fields, see the &#x60;merchant_descriptor_state&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  Merchant State. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
         [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
         public string AdministrativeArea { get; set; }
+
+        /// <summary>
+        /// Merchnat phone as contact information for CNP transactions 
+        /// </summary>
+        /// <value>Merchnat phone as contact information for CNP transactions </value>
+        [DataMember(Name="phone", EmitDefaultValue=false)]
+        public string Phone { get; set; }
+
+        /// <summary>
+        /// Address of company&#39;s website provided by merchant 
+        /// </summary>
+        /// <value>Address of company&#39;s website provided by merchant </value>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -125,6 +143,8 @@ namespace CyberSource.Model
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            sb.Append("  Phone: ").Append(Phone).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +220,16 @@ namespace CyberSource.Model
                     this.AdministrativeArea == other.AdministrativeArea ||
                     this.AdministrativeArea != null &&
                     this.AdministrativeArea.Equals(other.AdministrativeArea)
+                ) && 
+                (
+                    this.Phone == other.Phone ||
+                    this.Phone != null &&
+                    this.Phone.Equals(other.Phone)
+                ) && 
+                (
+                    this.Url == other.Url ||
+                    this.Url != null &&
+                    this.Url.Equals(other.Url)
                 );
         }
 
@@ -230,6 +260,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.AdministrativeArea != null)
                     hash = hash * 59 + this.AdministrativeArea.GetHashCode();
+                if (this.Phone != null)
+                    hash = hash * 59 + this.Phone.GetHashCode();
+                if (this.Url != null)
+                    hash = hash * 59 + this.Url.GetHashCode();
                 return hash;
             }
         }
@@ -242,45 +276,45 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AlternateName (string) maxLength
-            if(this.AlternateName != null && this.AlternateName.Length > 13)
+            if(this.AlternateName != null && this.AlternateName.Length >= 13)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AlternateName, length must be less than 13.", new [] { "AlternateName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AlternateName, length must be less than or equal to 13.", new [] { "AlternateName" });
             }
 
             // Contact (string) maxLength
-            if(this.Contact != null && this.Contact.Length > 14)
+            if(this.Contact != null && this.Contact.Length >= 14)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Contact, length must be less than 14.", new [] { "Contact" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Contact, length must be less than or equal to 14.", new [] { "Contact" });
             }
 
             // Address1 (string) maxLength
-            if(this.Address1 != null && this.Address1.Length > 60)
+            if(this.Address1 != null && this.Address1.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address1, length must be less than 60.", new [] { "Address1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address1, length must be less than or equal to 60.", new [] { "Address1" });
             }
 
             // Locality (string) maxLength
-            if(this.Locality != null && this.Locality.Length > 13)
+            if(this.Locality != null && this.Locality.Length >= 13)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than 13.", new [] { "Locality" });
-            }
-
-            // Country (string) maxLength
-            if(this.Country != null && this.Country.Length > 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than 2.", new [] { "Country" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than or equal to 13.", new [] { "Locality" });
             }
 
             // PostalCode (string) maxLength
-            if(this.PostalCode != null && this.PostalCode.Length > 14)
+            if(this.PostalCode != null && this.PostalCode.Length >= 14)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than 14.", new [] { "PostalCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than or equal to 14.", new [] { "PostalCode" });
             }
 
-            // AdministrativeArea (string) maxLength
-            if(this.AdministrativeArea != null && this.AdministrativeArea.Length > 3)
+            // Phone (string) maxLength
+            if(this.Phone != null && this.Phone.Length >= 13)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than 3.", new [] { "AdministrativeArea" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Phone, length must be less than or equal to 13.", new [] { "Phone" });
+            }
+
+            // Url (string) maxLength
+            if(this.Url != null && this.Url.Length >= 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be less than or equal to 255.", new [] { "Url" });
             }
 
             yield break;

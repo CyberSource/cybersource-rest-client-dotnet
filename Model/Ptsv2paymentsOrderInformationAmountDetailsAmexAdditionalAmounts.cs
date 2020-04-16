@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts" /> class.
         /// </summary>
-        /// <param name="Code">Additional amount type. This field is supported only for **American Express Direct**.  For processor-specific information, see the additional_amount_type field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="Code">Additional amount type. This field is supported only for **American Express Direct**.  For processor-specific information, see the &#x60;additional_amount_type0&#x60; request-level field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         /// <param name="Amount">Additional amount. This field is supported only for **American Express Direct**.  For processor-specific information, see the additional_amount field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         public Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts(string Code = default(string), string Amount = default(string))
         {
@@ -42,9 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Additional amount type. This field is supported only for **American Express Direct**.  For processor-specific information, see the additional_amount_type field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Additional amount type. This field is supported only for **American Express Direct**.  For processor-specific information, see the &#x60;additional_amount_type0&#x60; request-level field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
         /// </summary>
-        /// <value>Additional amount type. This field is supported only for **American Express Direct**.  For processor-specific information, see the additional_amount_type field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Additional amount type. This field is supported only for **American Express Direct**.  For processor-specific information, see the &#x60;additional_amount_type0&#x60; request-level field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
@@ -140,15 +140,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Code (string) maxLength
-            if(this.Code != null && this.Code.Length > 3)
+            if(this.Code != null && this.Code.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than 3.", new [] { "Code" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than or equal to 3.", new [] { "Code" });
             }
 
             // Amount (string) maxLength
-            if(this.Amount != null && this.Amount.Length > 12)
+            if(this.Amount != null && this.Amount.Length >= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, length must be less than 12.", new [] { "Amount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, length must be less than or equal to 12.", new [] { "Amount" });
             }
 
             yield break;

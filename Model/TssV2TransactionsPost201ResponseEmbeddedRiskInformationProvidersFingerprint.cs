@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedRiskInformationProvidersFingerprint" /> class.
         /// </summary>
-        /// <param name="TrueIpaddress">The description for this field is not available..</param>
-        /// <param name="Hash">The description for this field is not available..</param>
-        /// <param name="SmartId">The description for this field is not available..</param>
+        /// <param name="TrueIpaddress">Customer’s true IP address detected by the application.  For details, see the &#x60;true_ipaddress&#x60; field description in _Device Fingerprinting Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Device Fingerprinting Guide_ (PDF link). .</param>
+        /// <param name="Hash">The unique identifier of the device that is returned in the &#x60;riskInformation.providers.fingerprint.device_fingerprint_hash&#x60; API reply field.  NOTE: For details about the value of this field, see the &#x60;decision_provider_#_field_#_value&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link).  For more details about this field, see the &#x60;device_fingerprint_hash&#x60; field description in the _Device Fingerprinting Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Device Fingerprinting Guide_ (PDF link). .</param>
+        /// <param name="SmartId">The device identifier generated from attributes collected during profiling. Returned by a 3rd party when you use device fingerprinting.  For details, see the &#x60;device_fingerprint_smart_id&#x60; field description in [CyberSource Decision Manager Device Fingerprinting Guide.](https://www.cybersource.com/developers/documentation/fraud_management) .</param>
         public TssV2TransactionsPost201ResponseEmbeddedRiskInformationProvidersFingerprint(string TrueIpaddress = default(string), string Hash = default(string), string SmartId = default(string))
         {
             this.TrueIpaddress = TrueIpaddress;
@@ -44,23 +44,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The description for this field is not available.
+        /// Customer’s true IP address detected by the application.  For details, see the &#x60;true_ipaddress&#x60; field description in _Device Fingerprinting Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Device Fingerprinting Guide_ (PDF link). 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Customer’s true IP address detected by the application.  For details, see the &#x60;true_ipaddress&#x60; field description in _Device Fingerprinting Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Device Fingerprinting Guide_ (PDF link). </value>
         [DataMember(Name="true_ipaddress", EmitDefaultValue=false)]
         public string TrueIpaddress { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// The unique identifier of the device that is returned in the &#x60;riskInformation.providers.fingerprint.device_fingerprint_hash&#x60; API reply field.  NOTE: For details about the value of this field, see the &#x60;decision_provider_#_field_#_value&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link).  For more details about this field, see the &#x60;device_fingerprint_hash&#x60; field description in the _Device Fingerprinting Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Device Fingerprinting Guide_ (PDF link). 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The unique identifier of the device that is returned in the &#x60;riskInformation.providers.fingerprint.device_fingerprint_hash&#x60; API reply field.  NOTE: For details about the value of this field, see the &#x60;decision_provider_#_field_#_value&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link).  For more details about this field, see the &#x60;device_fingerprint_hash&#x60; field description in the _Device Fingerprinting Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Device Fingerprinting Guide_ (PDF link). </value>
         [DataMember(Name="hash", EmitDefaultValue=false)]
         public string Hash { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// The device identifier generated from attributes collected during profiling. Returned by a 3rd party when you use device fingerprinting.  For details, see the &#x60;device_fingerprint_smart_id&#x60; field description in [CyberSource Decision Manager Device Fingerprinting Guide.](https://www.cybersource.com/developers/documentation/fraud_management) 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The device identifier generated from attributes collected during profiling. Returned by a 3rd party when you use device fingerprinting.  For details, see the &#x60;device_fingerprint_smart_id&#x60; field description in [CyberSource Decision Manager Device Fingerprinting Guide.](https://www.cybersource.com/developers/documentation/fraud_management) </value>
         [DataMember(Name="smartId", EmitDefaultValue=false)]
         public string SmartId { get; set; }
 
@@ -157,21 +157,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // TrueIpaddress (string) maxLength
-            if(this.TrueIpaddress != null && this.TrueIpaddress.Length > 255)
+            if(this.TrueIpaddress != null && this.TrueIpaddress.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TrueIpaddress, length must be less than 255.", new [] { "TrueIpaddress" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TrueIpaddress, length must be less than or equal to 255.", new [] { "TrueIpaddress" });
             }
 
             // Hash (string) maxLength
-            if(this.Hash != null && this.Hash.Length > 255)
+            if(this.Hash != null && this.Hash.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hash, length must be less than 255.", new [] { "Hash" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hash, length must be less than or equal to 255.", new [] { "Hash" });
             }
 
             // SmartId (string) maxLength
-            if(this.SmartId != null && this.SmartId.Length > 255)
+            if(this.SmartId != null && this.SmartId.Length >= 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SmartId, length must be less than 255.", new [] { "SmartId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SmartId, length must be less than or equal to 255.", new [] { "SmartId" });
             }
 
             yield break;

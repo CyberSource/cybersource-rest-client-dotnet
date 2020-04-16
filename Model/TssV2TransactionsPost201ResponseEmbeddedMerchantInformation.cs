@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedMerchantInformation" /> class.
         /// </summary>
-        /// <param name="ResellerId">An unique identification number assigned by CyberSource to identify the submitted request..</param>
+        /// <param name="ResellerId">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. .</param>
         public TssV2TransactionsPost201ResponseEmbeddedMerchantInformation(string ResellerId = default(string))
         {
             this.ResellerId = ResellerId;
         }
         
         /// <summary>
-        /// An unique identification number assigned by CyberSource to identify the submitted request.
+        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. 
         /// </summary>
-        /// <value>An unique identification number assigned by CyberSource to identify the submitted request.</value>
+        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. </value>
         [DataMember(Name="resellerId", EmitDefaultValue=false)]
         public string ResellerId { get; set; }
 
@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ResellerId (string) maxLength
-            if(this.ResellerId != null && this.ResellerId.Length > 26)
+            if(this.ResellerId != null && this.ResellerId.Length >= 26)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResellerId, length must be less than 26.", new [] { "ResellerId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResellerId, length must be less than or equal to 26.", new [] { "ResellerId" });
             }
 
             yield break;

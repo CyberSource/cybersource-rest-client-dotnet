@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,10 +33,25 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="KeyParameters" /> class.
         /// </summary>
-        /// <param name="EncryptionType">How the card number should be encrypted in the subsequent Tokenize Card request. Possible values are RsaOaep256 or None (if using this value the card number must be in plain text when included in the Tokenize Card request). The Tokenize Card request uses a secure connection (TLS 1.2+) regardless of what encryption type is specified..</param>
-        public KeyParameters(string EncryptionType = default(string))
+        [JsonConstructorAttribute]
+        protected KeyParameters() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="KeyParameters" /> class.
+        /// </summary>
+        /// <param name="EncryptionType">How the card number should be encrypted in the subsequent Tokenize Card request. Possible values are RsaOaep256 or None (if using this value the card number must be in plain text when included in the Tokenize Card request). The Tokenize Card request uses a secure connection (TLS 1.2+) regardless of what encryption type is specified. (required).</param>
+        /// <param name="TargetOrigin">The merchant origin (e.g. https://example.com) used to integrate with Flex API. Required to comply with CORS and CSP standards..</param>
+        public KeyParameters(string EncryptionType = default(string), string TargetOrigin = default(string))
         {
-            this.EncryptionType = EncryptionType;
+            // to ensure "EncryptionType" is required (not null)
+            if (EncryptionType == null)
+            {
+                throw new InvalidDataException("EncryptionType is a required property for KeyParameters and cannot be null");
+            }
+            else
+            {
+                this.EncryptionType = EncryptionType;
+            }
+            this.TargetOrigin = TargetOrigin;
         }
         
         /// <summary>
@@ -47,6 +62,13 @@ namespace CyberSource.Model
         public string EncryptionType { get; set; }
 
         /// <summary>
+        /// The merchant origin (e.g. https://example.com) used to integrate with Flex API. Required to comply with CORS and CSP standards.
+        /// </summary>
+        /// <value>The merchant origin (e.g. https://example.com) used to integrate with Flex API. Required to comply with CORS and CSP standards.</value>
+        [DataMember(Name="targetOrigin", EmitDefaultValue=false)]
+        public string TargetOrigin { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +77,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class KeyParameters {\n");
             sb.Append("  EncryptionType: ").Append(EncryptionType).Append("\n");
+            sb.Append("  TargetOrigin: ").Append(TargetOrigin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +118,11 @@ namespace CyberSource.Model
                     this.EncryptionType == other.EncryptionType ||
                     this.EncryptionType != null &&
                     this.EncryptionType.Equals(other.EncryptionType)
+                ) && 
+                (
+                    this.TargetOrigin == other.TargetOrigin ||
+                    this.TargetOrigin != null &&
+                    this.TargetOrigin.Equals(other.TargetOrigin)
                 );
         }
 
@@ -111,6 +139,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.EncryptionType != null)
                     hash = hash * 59 + this.EncryptionType.GetHashCode();
+                if (this.TargetOrigin != null)
+                    hash = hash * 59 + this.TargetOrigin.GetHashCode();
                 return hash;
             }
         }

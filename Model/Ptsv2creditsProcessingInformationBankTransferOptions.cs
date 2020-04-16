@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -34,12 +34,12 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2creditsProcessingInformationBankTransferOptions" /> class.
         /// </summary>
         /// <param name="CustomerMemo">Payment related information.  This information is included on the customer’s statement. .</param>
-        /// <param name="SecCode">Authorization method used for the transaction. See \&quot;SEC Codes,\&quot; page 89.  TeleCheck Accepts only the following values: - **PPD** - **TEL** - **WEB** .</param>
+        /// <param name="SecCode">Specifies the authorization method for the transaction.  #### TeleCheck Accepts only the following values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry  For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) .</param>
         /// <param name="TerminalCity">City in which the terminal is located. If more than four alphanumeric characters are submitted, the transaction will be declined.  You cannot include any special characters. .</param>
         /// <param name="TerminalState">State in which the terminal is located. If more than two alphanumeric characters are submitted, the transaction will be declined.  You cannot include any special characters. .</param>
         /// <param name="EffectiveDate">Effective date for the transaction. The effective date must be within 45 days of the current day. If you do not include this value, CyberSource sets the effective date to the next business day.  Format: &#x60;MMDDYYYY&#x60;  Supported only for the CyberSource ACH Service. .</param>
-        /// <param name="PartialPaymentId">Identifier for a partial payment or partial credit.  The value for each debit request or credit request must be unique within the scope of the order. See \&quot;Multiple Partial Credits,\&quot; page 41. .</param>
-        /// <param name="SettlementMethod">Method used for settlement.  Possible values: - **A**: Automated Clearing House (default for credits and for transactions using Canadian dollars) - **F**: Facsimile draft (U.S. dollars only) - **B**: Best possible (U.S. dollars only) (default if the field has not already been configured for your merchant ID)  See \&quot;Settlement Delivery Methods,\&quot; page 44. .</param>
+        /// <param name="PartialPaymentId">Identifier for a partial payment or partial credit.  The value for each debit request or credit request must be unique within the scope of the order. For details, see &#x60;partial_payment_id&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) .</param>
+        /// <param name="SettlementMethod">Method used for settlement.  Possible values: - &#x60;A&#x60;: Automated Clearing House (default for credits and for transactions using Canadian dollars) - &#x60;F&#x60;: Facsimile draft (U.S. dollars only) - &#x60;B&#x60;: Best possible (U.S. dollars only) (default if the field has not already been configured for your merchant ID)  For details, see &#x60;ecp_settlement_method&#x60; field description for credit cars and &#x60;ecp_debit_settlement_method&#x60; for debit cards in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) .</param>
         public Ptsv2creditsProcessingInformationBankTransferOptions(string CustomerMemo = default(string), string SecCode = default(string), string TerminalCity = default(string), string TerminalState = default(string), string EffectiveDate = default(string), string PartialPaymentId = default(string), string SettlementMethod = default(string))
         {
             this.CustomerMemo = CustomerMemo;
@@ -59,9 +59,9 @@ namespace CyberSource.Model
         public string CustomerMemo { get; set; }
 
         /// <summary>
-        /// Authorization method used for the transaction. See \&quot;SEC Codes,\&quot; page 89.  TeleCheck Accepts only the following values: - **PPD** - **TEL** - **WEB** 
+        /// Specifies the authorization method for the transaction.  #### TeleCheck Accepts only the following values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry  For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
         /// </summary>
-        /// <value>Authorization method used for the transaction. See \&quot;SEC Codes,\&quot; page 89.  TeleCheck Accepts only the following values: - **PPD** - **TEL** - **WEB** </value>
+        /// <value>Specifies the authorization method for the transaction.  #### TeleCheck Accepts only the following values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry  For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) </value>
         [DataMember(Name="secCode", EmitDefaultValue=false)]
         public string SecCode { get; set; }
 
@@ -87,16 +87,16 @@ namespace CyberSource.Model
         public string EffectiveDate { get; set; }
 
         /// <summary>
-        /// Identifier for a partial payment or partial credit.  The value for each debit request or credit request must be unique within the scope of the order. See \&quot;Multiple Partial Credits,\&quot; page 41. 
+        /// Identifier for a partial payment or partial credit.  The value for each debit request or credit request must be unique within the scope of the order. For details, see &#x60;partial_payment_id&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
         /// </summary>
-        /// <value>Identifier for a partial payment or partial credit.  The value for each debit request or credit request must be unique within the scope of the order. See \&quot;Multiple Partial Credits,\&quot; page 41. </value>
+        /// <value>Identifier for a partial payment or partial credit.  The value for each debit request or credit request must be unique within the scope of the order. For details, see &#x60;partial_payment_id&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) </value>
         [DataMember(Name="partialPaymentId", EmitDefaultValue=false)]
         public string PartialPaymentId { get; set; }
 
         /// <summary>
-        /// Method used for settlement.  Possible values: - **A**: Automated Clearing House (default for credits and for transactions using Canadian dollars) - **F**: Facsimile draft (U.S. dollars only) - **B**: Best possible (U.S. dollars only) (default if the field has not already been configured for your merchant ID)  See \&quot;Settlement Delivery Methods,\&quot; page 44. 
+        /// Method used for settlement.  Possible values: - &#x60;A&#x60;: Automated Clearing House (default for credits and for transactions using Canadian dollars) - &#x60;F&#x60;: Facsimile draft (U.S. dollars only) - &#x60;B&#x60;: Best possible (U.S. dollars only) (default if the field has not already been configured for your merchant ID)  For details, see &#x60;ecp_settlement_method&#x60; field description for credit cars and &#x60;ecp_debit_settlement_method&#x60; for debit cards in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
         /// </summary>
-        /// <value>Method used for settlement.  Possible values: - **A**: Automated Clearing House (default for credits and for transactions using Canadian dollars) - **F**: Facsimile draft (U.S. dollars only) - **B**: Best possible (U.S. dollars only) (default if the field has not already been configured for your merchant ID)  See \&quot;Settlement Delivery Methods,\&quot; page 44. </value>
+        /// <value>Method used for settlement.  Possible values: - &#x60;A&#x60;: Automated Clearing House (default for credits and for transactions using Canadian dollars) - &#x60;F&#x60;: Facsimile draft (U.S. dollars only) - &#x60;B&#x60;: Best possible (U.S. dollars only) (default if the field has not already been configured for your merchant ID)  For details, see &#x60;ecp_settlement_method&#x60; field description for credit cars and &#x60;ecp_debit_settlement_method&#x60; for debit cards in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) </value>
         [DataMember(Name="settlementMethod", EmitDefaultValue=false)]
         public string SettlementMethod { get; set; }
 
@@ -225,45 +225,45 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CustomerMemo (string) maxLength
-            if(this.CustomerMemo != null && this.CustomerMemo.Length > 80)
+            if(this.CustomerMemo != null && this.CustomerMemo.Length >= 80)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomerMemo, length must be less than 80.", new [] { "CustomerMemo" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomerMemo, length must be less than or equal to 80.", new [] { "CustomerMemo" });
             }
 
             // SecCode (string) maxLength
-            if(this.SecCode != null && this.SecCode.Length > 3)
+            if(this.SecCode != null && this.SecCode.Length >= 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecCode, length must be less than 3.", new [] { "SecCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecCode, length must be less than or equal to 3.", new [] { "SecCode" });
             }
 
             // TerminalCity (string) maxLength
-            if(this.TerminalCity != null && this.TerminalCity.Length > 4)
+            if(this.TerminalCity != null && this.TerminalCity.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCity, length must be less than 4.", new [] { "TerminalCity" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCity, length must be less than or equal to 4.", new [] { "TerminalCity" });
             }
 
             // TerminalState (string) maxLength
-            if(this.TerminalState != null && this.TerminalState.Length > 2)
+            if(this.TerminalState != null && this.TerminalState.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalState, length must be less than 2.", new [] { "TerminalState" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalState, length must be less than or equal to 2.", new [] { "TerminalState" });
             }
 
             // EffectiveDate (string) maxLength
-            if(this.EffectiveDate != null && this.EffectiveDate.Length > 8)
+            if(this.EffectiveDate != null && this.EffectiveDate.Length >= 8)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveDate, length must be less than 8.", new [] { "EffectiveDate" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveDate, length must be less than or equal to 8.", new [] { "EffectiveDate" });
             }
 
             // PartialPaymentId (string) maxLength
-            if(this.PartialPaymentId != null && this.PartialPaymentId.Length > 25)
+            if(this.PartialPaymentId != null && this.PartialPaymentId.Length >= 25)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PartialPaymentId, length must be less than 25.", new [] { "PartialPaymentId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PartialPaymentId, length must be less than or equal to 25.", new [] { "PartialPaymentId" });
             }
 
             // SettlementMethod (string) maxLength
-            if(this.SettlementMethod != null && this.SettlementMethod.Length > 1)
+            if(this.SettlementMethod != null && this.SettlementMethod.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementMethod, length must be less than 1.", new [] { "SettlementMethod" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementMethod, length must be less than or equal to 1.", new [] { "SettlementMethod" });
             }
 
             yield break;

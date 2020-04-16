@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseDeviceInformation" /> class.
         /// </summary>
-        /// <param name="IpAddress">IP address of the customer..</param>
-        /// <param name="HostName">DNS resolved hostname from above _ipAddress_..</param>
-        /// <param name="CookiesAccepted">The description for this field is not available..</param>
+        /// <param name="IpAddress">IP address of the customer. .</param>
+        /// <param name="HostName">DNS resolved hostname from &#x60;ipAddress&#x60;..</param>
+        /// <param name="CookiesAccepted">Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. .</param>
         public TssV2TransactionsGet200ResponseDeviceInformation(string IpAddress = default(string), string HostName = default(string), string CookiesAccepted = default(string))
         {
             this.IpAddress = IpAddress;
@@ -44,23 +44,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// IP address of the customer.
+        /// IP address of the customer. 
         /// </summary>
-        /// <value>IP address of the customer.</value>
+        /// <value>IP address of the customer. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 
         /// <summary>
-        /// DNS resolved hostname from above _ipAddress_.
+        /// DNS resolved hostname from &#x60;ipAddress&#x60;.
         /// </summary>
-        /// <value>DNS resolved hostname from above _ipAddress_.</value>
+        /// <value>DNS resolved hostname from &#x60;ipAddress&#x60;.</value>
         [DataMember(Name="hostName", EmitDefaultValue=false)]
         public string HostName { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. </value>
         [DataMember(Name="cookiesAccepted", EmitDefaultValue=false)]
         public string CookiesAccepted { get; set; }
 
@@ -157,15 +157,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // IpAddress (string) maxLength
-            if(this.IpAddress != null && this.IpAddress.Length > 15)
+            if(this.IpAddress != null && this.IpAddress.Length >= 48)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IpAddress, length must be less than 15.", new [] { "IpAddress" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IpAddress, length must be less than or equal to 48.", new [] { "IpAddress" });
             }
 
             // HostName (string) maxLength
-            if(this.HostName != null && this.HostName.Length > 60)
+            if(this.HostName != null && this.HostName.Length >= 60)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HostName, length must be less than 60.", new [] { "HostName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HostName, length must be less than or equal to 60.", new [] { "HostName" });
             }
 
             yield break;

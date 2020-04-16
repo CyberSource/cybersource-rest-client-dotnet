@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -31,40 +31,13 @@ namespace CyberSource.Model
     public partial class Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator :  IEquatable<Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator>, IValidatableObject
     {
         /// <summary>
-        /// This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** 
-        /// </summary>
-        /// <value>This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
-        {
-            
-            /// <summary>
-            /// Enum Customer for "customer"
-            /// </summary>
-            [EnumMember(Value = "customer")]
-            Customer,
-            
-            /// <summary>
-            /// Enum Merchant for "merchant"
-            /// </summary>
-            [EnumMember(Value = "merchant")]
-            Merchant
-        }
-
-        /// <summary>
-        /// This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** 
-        /// </summary>
-        /// <value>This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** </value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeEnum? Type { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator" /> class.
         /// </summary>
         /// <param name="Type">This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** .</param>
-        /// <param name="CredentialStoredOnFile">Flag that indicates whether merchant intends to use this transaction to store payment credentials for follow-up merchant-initiated transactions.  Valid values: - &#x60;true&#x60; means merchant will use this transaction to store payment credentials for follow-up merchant-initiated transactions. - &#x60;false&#x60; means merchant will not use this transaction to store payment credentials for follow-up merchant-initiated transactions.  See \&quot;Merchant-Initiated Transactions,\&quot; page 177.  **NOTE:** The value for this field does not correspond to any data in the TC 33 capture file5. This field is supported only for Visa transactions on CyberSource through VisaNet. .</param>
-        /// <param name="StoredCredentialUsed">Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not.  Possible values: - **true** - **false** .</param>
+        /// <param name="CredentialStoredOnFile">Indicates to the issuing bank two things: - The merchant has received consent from the cardholder to store their card details on file - The merchant wants the issuing bank to check out the card details before the merchant initiates their first transaction for this cardholder. The purpose of the merchant-initiated transaction is to ensure that the cardholder’s credentials are valid (that the card is not stolen or has restrictions) and that the card details are good to be stored on the merchant’s file for future transactions.  Valid values: - &#x60;true&#x60; means merchant will use this transaction to store payment credentials for follow-up merchant-initiated transactions. - &#x60;false&#x60; means merchant will not use this transaction to store payment credentials for follow-up merchant-initiated transactions.  For details, see &#x60;subsequent_auth_first&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  **NOTE:** The value for this field does not correspond to any data in the TC 33 capture file5.  This field is supported only for Visa transactions on CyberSource through VisaNet. .</param>
+        /// <param name="StoredCredentialUsed">Indicates to an issuing bank whether a merchant-initiated transaction came from a card that was already stored on file.  Possible values: - **true** means the merchant-initiated transaction came from a card that was already stored on file. - **false**  means the merchant-initiated transaction came from a card that was not stored on file. .</param>
         /// <param name="MerchantInitiatedTransaction">MerchantInitiatedTransaction.</param>
-        public Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator(TypeEnum? Type = default(TypeEnum?), bool? CredentialStoredOnFile = default(bool?), bool? StoredCredentialUsed = default(bool?), Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction MerchantInitiatedTransaction = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction))
+        public Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator(string Type = default(string), bool? CredentialStoredOnFile = default(bool?), bool? StoredCredentialUsed = default(bool?), Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction MerchantInitiatedTransaction = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction))
         {
             this.Type = Type;
             this.CredentialStoredOnFile = CredentialStoredOnFile;
@@ -72,18 +45,24 @@ namespace CyberSource.Model
             this.MerchantInitiatedTransaction = MerchantInitiatedTransaction;
         }
         
+        /// <summary>
+        /// This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** 
+        /// </summary>
+        /// <value>This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
-        /// Flag that indicates whether merchant intends to use this transaction to store payment credentials for follow-up merchant-initiated transactions.  Valid values: - &#x60;true&#x60; means merchant will use this transaction to store payment credentials for follow-up merchant-initiated transactions. - &#x60;false&#x60; means merchant will not use this transaction to store payment credentials for follow-up merchant-initiated transactions.  See \&quot;Merchant-Initiated Transactions,\&quot; page 177.  **NOTE:** The value for this field does not correspond to any data in the TC 33 capture file5. This field is supported only for Visa transactions on CyberSource through VisaNet. 
+        /// Indicates to the issuing bank two things: - The merchant has received consent from the cardholder to store their card details on file - The merchant wants the issuing bank to check out the card details before the merchant initiates their first transaction for this cardholder. The purpose of the merchant-initiated transaction is to ensure that the cardholder’s credentials are valid (that the card is not stolen or has restrictions) and that the card details are good to be stored on the merchant’s file for future transactions.  Valid values: - &#x60;true&#x60; means merchant will use this transaction to store payment credentials for follow-up merchant-initiated transactions. - &#x60;false&#x60; means merchant will not use this transaction to store payment credentials for follow-up merchant-initiated transactions.  For details, see &#x60;subsequent_auth_first&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  **NOTE:** The value for this field does not correspond to any data in the TC 33 capture file5.  This field is supported only for Visa transactions on CyberSource through VisaNet. 
         /// </summary>
-        /// <value>Flag that indicates whether merchant intends to use this transaction to store payment credentials for follow-up merchant-initiated transactions.  Valid values: - &#x60;true&#x60; means merchant will use this transaction to store payment credentials for follow-up merchant-initiated transactions. - &#x60;false&#x60; means merchant will not use this transaction to store payment credentials for follow-up merchant-initiated transactions.  See \&quot;Merchant-Initiated Transactions,\&quot; page 177.  **NOTE:** The value for this field does not correspond to any data in the TC 33 capture file5. This field is supported only for Visa transactions on CyberSource through VisaNet. </value>
+        /// <value>Indicates to the issuing bank two things: - The merchant has received consent from the cardholder to store their card details on file - The merchant wants the issuing bank to check out the card details before the merchant initiates their first transaction for this cardholder. The purpose of the merchant-initiated transaction is to ensure that the cardholder’s credentials are valid (that the card is not stolen or has restrictions) and that the card details are good to be stored on the merchant’s file for future transactions.  Valid values: - &#x60;true&#x60; means merchant will use this transaction to store payment credentials for follow-up merchant-initiated transactions. - &#x60;false&#x60; means merchant will not use this transaction to store payment credentials for follow-up merchant-initiated transactions.  For details, see &#x60;subsequent_auth_first&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  **NOTE:** The value for this field does not correspond to any data in the TC 33 capture file5.  This field is supported only for Visa transactions on CyberSource through VisaNet. </value>
         [DataMember(Name="credentialStoredOnFile", EmitDefaultValue=false)]
         public bool? CredentialStoredOnFile { get; set; }
 
         /// <summary>
-        /// Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not.  Possible values: - **true** - **false** 
+        /// Indicates to an issuing bank whether a merchant-initiated transaction came from a card that was already stored on file.  Possible values: - **true** means the merchant-initiated transaction came from a card that was already stored on file. - **false**  means the merchant-initiated transaction came from a card that was not stored on file. 
         /// </summary>
-        /// <value>Flag that indicates whether merchant is intend to use this transaction to store payment credential for follow-up merchant-initiated transactions or not.  Possible values: - **true** - **false** </value>
+        /// <value>Indicates to an issuing bank whether a merchant-initiated transaction came from a card that was already stored on file.  Possible values: - **true** means the merchant-initiated transaction came from a card that was already stored on file. - **false**  means the merchant-initiated transaction came from a card that was not stored on file. </value>
         [DataMember(Name="storedCredentialUsed", EmitDefaultValue=false)]
         public bool? StoredCredentialUsed { get; set; }
 

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -34,11 +34,13 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponsePointOfSaleInformation" /> class.
         /// </summary>
         /// <param name="Emv">Emv.</param>
-        /// <param name="AmexCapnData">Point-of-sale details for the transaction. This value is returned only for **American Express Direct**. CyberSource generates this value, which consists of a series of codes that identify terminal capability, security data, and specific conditions present at the time the transaction occurred. To comply with the CAPN requirements, this  value must be included in all subsequent follow-on requests, such as captures and follow-on credits.  When you perform authorizations, captures, and credits through CyberSource, CyberSource passes this value from the authorization service to the subsequent services for you. However, when you perform authorizations through CyberSource and perform subsequent services through other financial institutions, you must ensure that your requests for captures and credits include this value. .</param>
-        public PtsV2PaymentsPost201ResponsePointOfSaleInformation(PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv Emv = default(PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv), string AmexCapnData = default(string))
+        /// <param name="AmexCapnData">Point-of-sale details for the transaction. This value is returned only for **American Express Direct**. CyberSource generates this value, which consists of a series of codes that identify terminal capability, security data, and specific conditions present at the time the transaction occurred. To comply with the CAPN requirements, this value must be included in all subsequent follow-on requests, such as captures and follow-on credits.  When you perform authorizations, captures, and credits through CyberSource, CyberSource passes this value from the authorization service to the subsequent services for you. However, when you perform authorizations through CyberSource and perform subsequent services through other financial institutions, you must ensure that your requests for captures and credits include this value.  For details, see &#x60;auth_pos_data&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="TerminalId">Identifier for the terminal at your retail location. You can define this value yourself, but consult the processor for requirements.  #### FDC Nashville Global To have your account configured to support this field, contact CyberSource Customer Support. This value must be a value that FDC Nashville Global issued to you.  For details, see the &#x60;terminal_id&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/)  **For Payouts**: This field is applicable for CtV. .</param>
+        public PtsV2PaymentsPost201ResponsePointOfSaleInformation(PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv Emv = default(PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv), string AmexCapnData = default(string), string TerminalId = default(string))
         {
             this.Emv = Emv;
             this.AmexCapnData = AmexCapnData;
+            this.TerminalId = TerminalId;
         }
         
         /// <summary>
@@ -48,11 +50,18 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv Emv { get; set; }
 
         /// <summary>
-        /// Point-of-sale details for the transaction. This value is returned only for **American Express Direct**. CyberSource generates this value, which consists of a series of codes that identify terminal capability, security data, and specific conditions present at the time the transaction occurred. To comply with the CAPN requirements, this  value must be included in all subsequent follow-on requests, such as captures and follow-on credits.  When you perform authorizations, captures, and credits through CyberSource, CyberSource passes this value from the authorization service to the subsequent services for you. However, when you perform authorizations through CyberSource and perform subsequent services through other financial institutions, you must ensure that your requests for captures and credits include this value. 
+        /// Point-of-sale details for the transaction. This value is returned only for **American Express Direct**. CyberSource generates this value, which consists of a series of codes that identify terminal capability, security data, and specific conditions present at the time the transaction occurred. To comply with the CAPN requirements, this value must be included in all subsequent follow-on requests, such as captures and follow-on credits.  When you perform authorizations, captures, and credits through CyberSource, CyberSource passes this value from the authorization service to the subsequent services for you. However, when you perform authorizations through CyberSource and perform subsequent services through other financial institutions, you must ensure that your requests for captures and credits include this value.  For details, see &#x60;auth_pos_data&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Point-of-sale details for the transaction. This value is returned only for **American Express Direct**. CyberSource generates this value, which consists of a series of codes that identify terminal capability, security data, and specific conditions present at the time the transaction occurred. To comply with the CAPN requirements, this  value must be included in all subsequent follow-on requests, such as captures and follow-on credits.  When you perform authorizations, captures, and credits through CyberSource, CyberSource passes this value from the authorization service to the subsequent services for you. However, when you perform authorizations through CyberSource and perform subsequent services through other financial institutions, you must ensure that your requests for captures and credits include this value. </value>
+        /// <value>Point-of-sale details for the transaction. This value is returned only for **American Express Direct**. CyberSource generates this value, which consists of a series of codes that identify terminal capability, security data, and specific conditions present at the time the transaction occurred. To comply with the CAPN requirements, this value must be included in all subsequent follow-on requests, such as captures and follow-on credits.  When you perform authorizations, captures, and credits through CyberSource, CyberSource passes this value from the authorization service to the subsequent services for you. However, when you perform authorizations through CyberSource and perform subsequent services through other financial institutions, you must ensure that your requests for captures and credits include this value.  For details, see &#x60;auth_pos_data&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="amexCapnData", EmitDefaultValue=false)]
         public string AmexCapnData { get; set; }
+
+        /// <summary>
+        /// Identifier for the terminal at your retail location. You can define this value yourself, but consult the processor for requirements.  #### FDC Nashville Global To have your account configured to support this field, contact CyberSource Customer Support. This value must be a value that FDC Nashville Global issued to you.  For details, see the &#x60;terminal_id&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/)  **For Payouts**: This field is applicable for CtV. 
+        /// </summary>
+        /// <value>Identifier for the terminal at your retail location. You can define this value yourself, but consult the processor for requirements.  #### FDC Nashville Global To have your account configured to support this field, contact CyberSource Customer Support. This value must be a value that FDC Nashville Global issued to you.  For details, see the &#x60;terminal_id&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/)  **For Payouts**: This field is applicable for CtV. </value>
+        [DataMember(Name="terminalId", EmitDefaultValue=false)]
+        public string TerminalId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,6 +73,7 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsPost201ResponsePointOfSaleInformation {\n");
             sb.Append("  Emv: ").Append(Emv).Append("\n");
             sb.Append("  AmexCapnData: ").Append(AmexCapnData).Append("\n");
+            sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +119,11 @@ namespace CyberSource.Model
                     this.AmexCapnData == other.AmexCapnData ||
                     this.AmexCapnData != null &&
                     this.AmexCapnData.Equals(other.AmexCapnData)
+                ) && 
+                (
+                    this.TerminalId == other.TerminalId ||
+                    this.TerminalId != null &&
+                    this.TerminalId.Equals(other.TerminalId)
                 );
         }
 
@@ -127,6 +142,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Emv.GetHashCode();
                 if (this.AmexCapnData != null)
                     hash = hash * 59 + this.AmexCapnData.GetHashCode();
+                if (this.TerminalId != null)
+                    hash = hash * 59 + this.TerminalId.GetHashCode();
                 return hash;
             }
         }
@@ -139,9 +156,15 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AmexCapnData (string) maxLength
-            if(this.AmexCapnData != null && this.AmexCapnData.Length > 12)
+            if(this.AmexCapnData != null && this.AmexCapnData.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmexCapnData, length must be less than 12.", new [] { "AmexCapnData" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmexCapnData, length must be less than or equal to 15.", new [] { "AmexCapnData" });
+            }
+
+            // TerminalId (string) maxLength
+            if(this.TerminalId != null && this.TerminalId.Length >= 8)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalId, length must be less than or equal to 8.", new [] { "TerminalId" });
             }
 
             yield break;

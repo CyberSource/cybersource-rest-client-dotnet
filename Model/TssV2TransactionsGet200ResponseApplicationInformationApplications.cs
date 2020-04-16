@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,13 +33,13 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseApplicationInformationApplications" /> class.
         /// </summary>
-        /// <param name="Name">The description for this field is not available..</param>
+        /// <param name="Name">The name of the CyberSource transaction type (such as CC settlement or CC authorization) that the merchant wants to process in a transaction request. More than one transaction type can included in a transaction request. Each transaction type separately returns their own status, reasonCode, rCode, and rFlag messages. .</param>
         /// <param name="Status">The description for this field is not available..</param>
-        /// <param name="ReasonCode">The description for this field is not available..</param>
-        /// <param name="RCode">The description for this field is not available..</param>
-        /// <param name="RFlag">The description for this field is not available..</param>
-        /// <param name="ReconciliationId">The description for this field is not available..</param>
-        /// <param name="RMessage">The description for this field is not available..</param>
+        /// <param name="ReasonCode">3-digit reason code that indicates why the customer profile payment succeeded or failed..</param>
+        /// <param name="RCode">Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful. .</param>
+        /// <param name="RFlag">One-word description of the result of the application. .</param>
+        /// <param name="ReconciliationId">Reference number that you use to reconcile your CyberSource reports with your processor reports. .</param>
+        /// <param name="RMessage">Message that explains the reply flag for the application. .</param>
         /// <param name="ReturnCode">The description for this field is not available..</param>
         public TssV2TransactionsGet200ResponseApplicationInformationApplications(string Name = default(string), string Status = default(string), string ReasonCode = default(string), string RCode = default(string), string RFlag = default(string), string ReconciliationId = default(string), string RMessage = default(string), string ReturnCode = default(string))
         {
@@ -54,9 +54,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The description for this field is not available.
+        /// The name of the CyberSource transaction type (such as CC settlement or CC authorization) that the merchant wants to process in a transaction request. More than one transaction type can included in a transaction request. Each transaction type separately returns their own status, reasonCode, rCode, and rFlag messages. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The name of the CyberSource transaction type (such as CC settlement or CC authorization) that the merchant wants to process in a transaction request. More than one transaction type can included in a transaction request. Each transaction type separately returns their own status, reasonCode, rCode, and rFlag messages. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
@@ -68,37 +68,37 @@ namespace CyberSource.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// 3-digit reason code that indicates why the customer profile payment succeeded or failed.
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>3-digit reason code that indicates why the customer profile payment succeeded or failed.</value>
         [DataMember(Name="reasonCode", EmitDefaultValue=false)]
         public string ReasonCode { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful. </value>
         [DataMember(Name="rCode", EmitDefaultValue=false)]
         public string RCode { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// One-word description of the result of the application. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>One-word description of the result of the application. </value>
         [DataMember(Name="rFlag", EmitDefaultValue=false)]
         public string RFlag { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Reference number that you use to reconcile your CyberSource reports with your processor reports. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Reference number that you use to reconcile your CyberSource reports with your processor reports. </value>
         [DataMember(Name="reconciliationId", EmitDefaultValue=false)]
         public string ReconciliationId { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Message that explains the reply flag for the application. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Message that explains the reply flag for the application. </value>
         [DataMember(Name="rMessage", EmitDefaultValue=false)]
         public string RMessage { get; set; }
 

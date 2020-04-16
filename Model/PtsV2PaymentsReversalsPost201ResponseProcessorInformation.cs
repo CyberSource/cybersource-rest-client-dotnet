@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -34,11 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsReversalsPost201ResponseProcessorInformation" /> class.
         /// </summary>
         /// <param name="TransactionId">Processor transaction ID.  This value identifies the transaction on a host system. This value is supported only for Moneris. It contains this information:   - Terminal used to process the transaction  - Shift during which the transaction took place  - Batch number  - Transaction number within the batch  You must store this value. If you give the customer a receipt, display this value on the receipt.  Example For the value 66012345001069003:   - Terminal ID &#x3D; 66012345  - Shift number &#x3D; 001  - Batch number &#x3D; 069  - Transaction number &#x3D; 003 .</param>
-        /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  Important Do not use this field to evaluate the result of the authorization. .</param>
-        /// <param name="ResponseCategoryCode">Processor-defined response category code. The associated detail error code is in the auth_auth_response field or the auth_reversal_auth_ response field depending on which service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 .</param>
-        /// <param name="ForwardedAcquirerCode">Name of the Japanese acquirer that processed the transaction. Returned only for CCS (CAFIS) and JCN Gateway. Please contact the CyberSource Japan Support Group for more information. .</param>
-        /// <param name="MasterCardServiceCode">Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service .</param>
-        /// <param name="MasterCardServiceReplyCode">Result of the Mastercard card-on-file token service. Mastercard provides this value to CyberSource.  Possible values:   - **C**: Service completed successfully.  - **F**: One of the following:    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 81 for an authorization or      authorization reversal.    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 01 for a tokenized request.    - Token requestor ID is missing or formatted incorrectly.  - **I**: One of the following:    - Invalid token requestor ID.    - Suspended or deactivated token.    - Invalid token (not in mapping table).  - **T**: Invalid combination of token requestor ID and token.  - **U**: Expired token.  - **W**: Primary account number (PAN) listed in electronic warning bulletin.  Note This field is returned only for **CyberSource through VisaNet**. .</param>
+        /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;responseCategoryCode&#x60; field. .</param>
+        /// <param name="ResponseCategoryCode">Processor-defined response category code. The associated detail error code is in the &#x60;responseCode&#x60; field of the service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 .</param>
+        /// <param name="ForwardedAcquirerCode">Name of the Japanese acquirer that processed the transaction. Returned only for JCN Gateway. Please contact the CyberSource Japan Support Group for more information. .</param>
+        /// <param name="MasterCardServiceCode">Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 133-134 - Field: Mastercard Merchant on-behalf service. **Note** This field is returned only for CyberSource through VisaNet. .</param>
+        /// <param name="MasterCardServiceReplyCode">Result of the Mastercard card-on-file token service. Mastercard provides this value to CyberSource.  Possible values:   - &#x60;C&#x60;: Service completed successfully.  - &#x60;F&#x60;: One of the following:    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 81 for an authorization or      authorization reversal.    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 01 for a tokenized request.    - Token requestor ID is missing or formatted incorrectly.  - &#x60;I&#x60;: One of the following:    - Invalid token requestor ID.    - Suspended or deactivated token.    - Invalid token (not in mapping table).  - &#x60;T&#x60;: Invalid combination of token requestor ID and token.  - &#x60;U&#x60;: Expired token.  - &#x60;W&#x60;: Primary account number (PAN) listed in electronic warning bulletin.  **Note** This field is returned only for **CyberSource through VisaNet**. .</param>
         public PtsV2PaymentsReversalsPost201ResponseProcessorInformation(string TransactionId = default(string), string ResponseCode = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string))
         {
             this.TransactionId = TransactionId;
@@ -57,37 +57,37 @@ namespace CyberSource.Model
         public string TransactionId { get; set; }
 
         /// <summary>
-        /// For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  Important Do not use this field to evaluate the result of the authorization. 
+        /// For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;responseCategoryCode&#x60; field. 
         /// </summary>
-        /// <value>For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  Important Do not use this field to evaluate the result of the authorization. </value>
+        /// <value>For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;responseCategoryCode&#x60; field. </value>
         [DataMember(Name="responseCode", EmitDefaultValue=false)]
         public string ResponseCode { get; set; }
 
         /// <summary>
-        /// Processor-defined response category code. The associated detail error code is in the auth_auth_response field or the auth_reversal_auth_ response field depending on which service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 
+        /// Processor-defined response category code. The associated detail error code is in the &#x60;responseCode&#x60; field of the service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 
         /// </summary>
-        /// <value>Processor-defined response category code. The associated detail error code is in the auth_auth_response field or the auth_reversal_auth_ response field depending on which service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 </value>
+        /// <value>Processor-defined response category code. The associated detail error code is in the &#x60;responseCode&#x60; field of the service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  **Maximum length for processors**:   - Comercio Latino: 32  - All other processors: 3 </value>
         [DataMember(Name="responseCategoryCode", EmitDefaultValue=false)]
         public string ResponseCategoryCode { get; set; }
 
         /// <summary>
-        /// Name of the Japanese acquirer that processed the transaction. Returned only for CCS (CAFIS) and JCN Gateway. Please contact the CyberSource Japan Support Group for more information. 
+        /// Name of the Japanese acquirer that processed the transaction. Returned only for JCN Gateway. Please contact the CyberSource Japan Support Group for more information. 
         /// </summary>
-        /// <value>Name of the Japanese acquirer that processed the transaction. Returned only for CCS (CAFIS) and JCN Gateway. Please contact the CyberSource Japan Support Group for more information. </value>
+        /// <value>Name of the Japanese acquirer that processed the transaction. Returned only for JCN Gateway. Please contact the CyberSource Japan Support Group for more information. </value>
         [DataMember(Name="forwardedAcquirerCode", EmitDefaultValue=false)]
         public string ForwardedAcquirerCode { get; set; }
 
         /// <summary>
-        /// Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service 
+        /// Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 133-134 - Field: Mastercard Merchant on-behalf service. **Note** This field is returned only for CyberSource through VisaNet. 
         /// </summary>
-        /// <value>Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service </value>
+        /// <value>Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 133-134 - Field: Mastercard Merchant on-behalf service. **Note** This field is returned only for CyberSource through VisaNet. </value>
         [DataMember(Name="masterCardServiceCode", EmitDefaultValue=false)]
         public string MasterCardServiceCode { get; set; }
 
         /// <summary>
-        /// Result of the Mastercard card-on-file token service. Mastercard provides this value to CyberSource.  Possible values:   - **C**: Service completed successfully.  - **F**: One of the following:    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 81 for an authorization or      authorization reversal.    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 01 for a tokenized request.    - Token requestor ID is missing or formatted incorrectly.  - **I**: One of the following:    - Invalid token requestor ID.    - Suspended or deactivated token.    - Invalid token (not in mapping table).  - **T**: Invalid combination of token requestor ID and token.  - **U**: Expired token.  - **W**: Primary account number (PAN) listed in electronic warning bulletin.  Note This field is returned only for **CyberSource through VisaNet**. 
+        /// Result of the Mastercard card-on-file token service. Mastercard provides this value to CyberSource.  Possible values:   - &#x60;C&#x60;: Service completed successfully.  - &#x60;F&#x60;: One of the following:    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 81 for an authorization or      authorization reversal.    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 01 for a tokenized request.    - Token requestor ID is missing or formatted incorrectly.  - &#x60;I&#x60;: One of the following:    - Invalid token requestor ID.    - Suspended or deactivated token.    - Invalid token (not in mapping table).  - &#x60;T&#x60;: Invalid combination of token requestor ID and token.  - &#x60;U&#x60;: Expired token.  - &#x60;W&#x60;: Primary account number (PAN) listed in electronic warning bulletin.  **Note** This field is returned only for **CyberSource through VisaNet**. 
         /// </summary>
-        /// <value>Result of the Mastercard card-on-file token service. Mastercard provides this value to CyberSource.  Possible values:   - **C**: Service completed successfully.  - **F**: One of the following:    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 81 for an authorization or      authorization reversal.    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 01 for a tokenized request.    - Token requestor ID is missing or formatted incorrectly.  - **I**: One of the following:    - Invalid token requestor ID.    - Suspended or deactivated token.    - Invalid token (not in mapping table).  - **T**: Invalid combination of token requestor ID and token.  - **U**: Expired token.  - **W**: Primary account number (PAN) listed in electronic warning bulletin.  Note This field is returned only for **CyberSource through VisaNet**. </value>
+        /// <value>Result of the Mastercard card-on-file token service. Mastercard provides this value to CyberSource.  Possible values:   - &#x60;C&#x60;: Service completed successfully.  - &#x60;F&#x60;: One of the following:    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 81 for an authorization or      authorization reversal.    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 01 for a tokenized request.    - Token requestor ID is missing or formatted incorrectly.  - &#x60;I&#x60;: One of the following:    - Invalid token requestor ID.    - Suspended or deactivated token.    - Invalid token (not in mapping table).  - &#x60;T&#x60;: Invalid combination of token requestor ID and token.  - &#x60;U&#x60;: Expired token.  - &#x60;W&#x60;: Primary account number (PAN) listed in electronic warning bulletin.  **Note** This field is returned only for **CyberSource through VisaNet**. </value>
         [DataMember(Name="masterCardServiceReplyCode", EmitDefaultValue=false)]
         public string MasterCardServiceReplyCode { get; set; }
 
@@ -208,39 +208,39 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // TransactionId (string) maxLength
-            if(this.TransactionId != null && this.TransactionId.Length > 18)
+            if(this.TransactionId != null && this.TransactionId.Length >= 18)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionId, length must be less than 18.", new [] { "TransactionId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionId, length must be less than or equal to 18.", new [] { "TransactionId" });
             }
 
             // ResponseCode (string) maxLength
-            if(this.ResponseCode != null && this.ResponseCode.Length > 10)
+            if(this.ResponseCode != null && this.ResponseCode.Length >= 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCode, length must be less than 10.", new [] { "ResponseCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCode, length must be less than or equal to 10.", new [] { "ResponseCode" });
             }
 
             // ResponseCategoryCode (string) maxLength
-            if(this.ResponseCategoryCode != null && this.ResponseCategoryCode.Length > 32)
+            if(this.ResponseCategoryCode != null && this.ResponseCategoryCode.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCategoryCode, length must be less than 32.", new [] { "ResponseCategoryCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCategoryCode, length must be less than or equal to 32.", new [] { "ResponseCategoryCode" });
             }
 
             // ForwardedAcquirerCode (string) maxLength
-            if(this.ForwardedAcquirerCode != null && this.ForwardedAcquirerCode.Length > 32)
+            if(this.ForwardedAcquirerCode != null && this.ForwardedAcquirerCode.Length >= 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForwardedAcquirerCode, length must be less than 32.", new [] { "ForwardedAcquirerCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForwardedAcquirerCode, length must be less than or equal to 32.", new [] { "ForwardedAcquirerCode" });
             }
 
             // MasterCardServiceCode (string) maxLength
-            if(this.MasterCardServiceCode != null && this.MasterCardServiceCode.Length > 2)
+            if(this.MasterCardServiceCode != null && this.MasterCardServiceCode.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MasterCardServiceCode, length must be less than 2.", new [] { "MasterCardServiceCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MasterCardServiceCode, length must be less than or equal to 2.", new [] { "MasterCardServiceCode" });
             }
 
             // MasterCardServiceReplyCode (string) maxLength
-            if(this.MasterCardServiceReplyCode != null && this.MasterCardServiceReplyCode.Length > 1)
+            if(this.MasterCardServiceReplyCode != null && this.MasterCardServiceReplyCode.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MasterCardServiceReplyCode, length must be less than 1.", new [] { "MasterCardServiceReplyCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MasterCardServiceReplyCode, length must be less than or equal to 1.", new [] { "MasterCardServiceReplyCode" });
             }
 
             yield break;

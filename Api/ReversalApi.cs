@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -47,6 +47,27 @@ namespace CyberSource.Api
         /// <param name="authReversalRequest"></param>
         /// <returns>ApiResponse of PtsV2PaymentsReversalsPost201Response</returns>
         ApiResponse<PtsV2PaymentsReversalsPost201Response> AuthReversalWithHttpInfo (string id, AuthReversalRequest authReversalRequest);
+        /// <summary>
+        /// Merchant Initiated Reversal
+        /// </summary>
+        /// <remarks>
+        /// This is to reverse a previous payment that merchant does not receive a reply.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitReversalRequest"></param>
+        /// <returns>PtsV2PaymentsReversalsPost201Response</returns>
+        PtsV2PaymentsReversalsPost201Response MitReversal (MitReversalRequest mitReversalRequest);
+
+        /// <summary>
+        /// Merchant Initiated Reversal
+        /// </summary>
+        /// <remarks>
+        /// This is to reverse a previous payment that merchant does not receive a reply.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitReversalRequest"></param>
+        /// <returns>ApiResponse of PtsV2PaymentsReversalsPost201Response</returns>
+        ApiResponse<PtsV2PaymentsReversalsPost201Response> MitReversalWithHttpInfo (MitReversalRequest mitReversalRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -72,6 +93,27 @@ namespace CyberSource.Api
         /// <param name="authReversalRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsReversalsPost201Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> AuthReversalAsyncWithHttpInfo (string id, AuthReversalRequest authReversalRequest);
+        /// <summary>
+        /// Merchant Initiated Reversal
+        /// </summary>
+        /// <remarks>
+        /// This is to reverse a previous payment that merchant does not receive a reply.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitReversalRequest"></param>
+        /// <returns>Task of PtsV2PaymentsReversalsPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsReversalsPost201Response> MitReversalAsync (MitReversalRequest mitReversalRequest);
+
+        /// <summary>
+        /// Merchant Initiated Reversal
+        /// </summary>
+        /// <remarks>
+        /// This is to reverse a previous payment that merchant does not receive a reply.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitReversalRequest"></param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsReversalsPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> MitReversalAsyncWithHttpInfo (MitReversalRequest mitReversalRequest);
         #endregion Asynchronous Operations
     }
 
@@ -114,11 +156,7 @@ namespace CyberSource.Api
 
             ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
+            this.Configuration.ApiClient.Configuration = this.Configuration;
         }
 
         /// <summary>
@@ -228,7 +266,8 @@ namespace CyberSource.Api
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset=utf-8"
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -308,7 +347,8 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset=utf-8"
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -343,6 +383,154 @@ String[] localVarHttpHeaderAccepts = new String[] {"application/hal+json;charset
                 (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response)));
         }
 
+        /// <summary>
+        /// Merchant Initiated Reversal This is to reverse a previous payment that merchant does not receive a reply.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitReversalRequest"></param>
+        /// <returns>PtsV2PaymentsReversalsPost201Response</returns>
+        public PtsV2PaymentsReversalsPost201Response MitReversal (MitReversalRequest mitReversalRequest)
+        {
+             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = MitReversalWithHttpInfo(mitReversalRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Merchant Initiated Reversal This is to reverse a previous payment that merchant does not receive a reply.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitReversalRequest"></param>
+        /// <returns>ApiResponse of PtsV2PaymentsReversalsPost201Response</returns>
+        public ApiResponse< PtsV2PaymentsReversalsPost201Response > MitReversalWithHttpInfo (MitReversalRequest mitReversalRequest)
+        {
+            // verify the required parameter 'mitReversalRequest' is set
+            if (mitReversalRequest == null)
+                throw new ApiException(400, "Missing required parameter 'mitReversalRequest' when calling ReversalApi->MitReversal");
+
+            var localVarPath = $"/pts/v2/reversals/";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mitReversalRequest != null && mitReversalRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(mitReversalRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mitReversalRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MitReversal", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response)));
+        }
+
+        /// <summary>
+        /// Merchant Initiated Reversal This is to reverse a previous payment that merchant does not receive a reply.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitReversalRequest"></param>
+        /// <returns>Task of PtsV2PaymentsReversalsPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsReversalsPost201Response> MitReversalAsync (MitReversalRequest mitReversalRequest)
+        {
+             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = await MitReversalAsyncWithHttpInfo(mitReversalRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Merchant Initiated Reversal This is to reverse a previous payment that merchant does not receive a reply.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mitReversalRequest"></param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsReversalsPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> MitReversalAsyncWithHttpInfo (MitReversalRequest mitReversalRequest)
+        {
+            // verify the required parameter 'mitReversalRequest' is set
+            if (mitReversalRequest == null)
+                throw new ApiException(400, "Missing required parameter 'mitReversalRequest' when calling ReversalApi->MitReversal");
+
+            var localVarPath = $"/pts/v2/reversals/";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/hal+json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mitReversalRequest != null && mitReversalRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(mitReversalRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mitReversalRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MitReversal", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response)));
+        }
+
     }
 }
-

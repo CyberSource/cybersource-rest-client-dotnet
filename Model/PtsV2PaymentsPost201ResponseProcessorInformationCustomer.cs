@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessorInformationCustomer" /> class.
         /// </summary>
-        /// <param name="PersonalIdResult">Personal identifier result. This field is supported only for Redecard in Brazil for CyberSource Latin American Processing. If you included _buyerInformation.personalIdentification[].ID_ in the request, this value indicates whether or not _buyerInformation.personalIdentification[].ID_ matched a value in a record on file. Returned only when the personal ID result is returned by the processor.  Possible values:   - **Y**: Match  - **N**: No match  - **K**: Not supported  - **U**: Unknown  - **Z**: No response returned .</param>
+        /// <param name="PersonalIdResult">Personal identifier result. This field is supported only for Redecard in Brazil for CyberSource Latin American Processing. If you included &#x60;buyerInformation.personalIdentification[].ID&#x60; in the request, this value indicates whether or not &#x60;buyerInformation.personalIdentification[].ID&#x60; matched a value in a record on file. Returned only when the personal ID result is returned by the processor.  Possible values:   - **Y**: Match  - **N**: No match  - **K**: Not supported  - **U**: Unknown  - **Z**: No response returned **Note** CyberSource Latin American Processing is the name of a specific processing connection that CyberSource supports. In the CyberSource API documentation, CyberSource Latin American Processing does not refer to the general topic of processing in Latin America.The information in this field description is for the specific processing connection called CyberSource Latin American Processing. It is not for any other Latin American processors that CyberSource supports. .</param>
         public PtsV2PaymentsPost201ResponseProcessorInformationCustomer(string PersonalIdResult = default(string))
         {
             this.PersonalIdResult = PersonalIdResult;
         }
         
         /// <summary>
-        /// Personal identifier result. This field is supported only for Redecard in Brazil for CyberSource Latin American Processing. If you included _buyerInformation.personalIdentification[].ID_ in the request, this value indicates whether or not _buyerInformation.personalIdentification[].ID_ matched a value in a record on file. Returned only when the personal ID result is returned by the processor.  Possible values:   - **Y**: Match  - **N**: No match  - **K**: Not supported  - **U**: Unknown  - **Z**: No response returned 
+        /// Personal identifier result. This field is supported only for Redecard in Brazil for CyberSource Latin American Processing. If you included &#x60;buyerInformation.personalIdentification[].ID&#x60; in the request, this value indicates whether or not &#x60;buyerInformation.personalIdentification[].ID&#x60; matched a value in a record on file. Returned only when the personal ID result is returned by the processor.  Possible values:   - **Y**: Match  - **N**: No match  - **K**: Not supported  - **U**: Unknown  - **Z**: No response returned **Note** CyberSource Latin American Processing is the name of a specific processing connection that CyberSource supports. In the CyberSource API documentation, CyberSource Latin American Processing does not refer to the general topic of processing in Latin America.The information in this field description is for the specific processing connection called CyberSource Latin American Processing. It is not for any other Latin American processors that CyberSource supports. 
         /// </summary>
-        /// <value>Personal identifier result. This field is supported only for Redecard in Brazil for CyberSource Latin American Processing. If you included _buyerInformation.personalIdentification[].ID_ in the request, this value indicates whether or not _buyerInformation.personalIdentification[].ID_ matched a value in a record on file. Returned only when the personal ID result is returned by the processor.  Possible values:   - **Y**: Match  - **N**: No match  - **K**: Not supported  - **U**: Unknown  - **Z**: No response returned </value>
+        /// <value>Personal identifier result. This field is supported only for Redecard in Brazil for CyberSource Latin American Processing. If you included &#x60;buyerInformation.personalIdentification[].ID&#x60; in the request, this value indicates whether or not &#x60;buyerInformation.personalIdentification[].ID&#x60; matched a value in a record on file. Returned only when the personal ID result is returned by the processor.  Possible values:   - **Y**: Match  - **N**: No match  - **K**: Not supported  - **U**: Unknown  - **Z**: No response returned **Note** CyberSource Latin American Processing is the name of a specific processing connection that CyberSource supports. In the CyberSource API documentation, CyberSource Latin American Processing does not refer to the general topic of processing in Latin America.The information in this field description is for the specific processing connection called CyberSource Latin American Processing. It is not for any other Latin American processors that CyberSource supports. </value>
         [DataMember(Name="personalIdResult", EmitDefaultValue=false)]
         public string PersonalIdResult { get; set; }
 
@@ -123,9 +123,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // PersonalIdResult (string) maxLength
-            if(this.PersonalIdResult != null && this.PersonalIdResult.Length > 1)
+            if(this.PersonalIdResult != null && this.PersonalIdResult.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PersonalIdResult, length must be less than 1.", new [] { "PersonalIdResult" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PersonalIdResult, length must be less than or equal to 1.", new [] { "PersonalIdResult" });
             }
 
             yield break;

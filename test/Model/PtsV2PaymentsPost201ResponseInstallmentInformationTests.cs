@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -81,6 +81,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AdditionalCostsPercentage'
         }
         /// <summary>
+        /// Test the property 'Amount'
+        /// </summary>
+        [Test]
+        public void AmountTest()
+        {
+            // TODO unit test for the property 'Amount'
+        }
+        /// <summary>
         /// Test the property 'AmountFunded'
         /// </summary>
         [Test]
@@ -145,6 +153,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'FeesPercentage'
         }
         /// <summary>
+        /// Test the property 'Frequency'
+        /// </summary>
+        [Test]
+        public void FrequencyTest()
+        {
+            // TODO unit test for the property 'Frequency'
+        }
+        /// <summary>
         /// Test the property 'Insurance'
         /// </summary>
         [Test]
@@ -161,12 +177,36 @@ namespace CyberSource.Test
             // TODO unit test for the property 'InsurancePercentage'
         }
         /// <summary>
+        /// Test the property 'InvoiceData'
+        /// </summary>
+        [Test]
+        public void InvoiceDataTest()
+        {
+            // TODO unit test for the property 'InvoiceData'
+        }
+        /// <summary>
         /// Test the property 'MonthlyInterestRate'
         /// </summary>
         [Test]
         public void MonthlyInterestRateTest()
         {
             // TODO unit test for the property 'MonthlyInterestRate'
+        }
+        /// <summary>
+        /// Test the property 'PlanType'
+        /// </summary>
+        [Test]
+        public void PlanTypeTest()
+        {
+            // TODO unit test for the property 'PlanType'
+        }
+        /// <summary>
+        /// Test the property 'Sequence'
+        /// </summary>
+        [Test]
+        public void SequenceTest()
+        {
+            // TODO unit test for the property 'Sequence'
         }
         /// <summary>
         /// Test the property 'Taxes'
@@ -183,6 +223,54 @@ namespace CyberSource.Test
         public void TaxesPercentageTest()
         {
             // TODO unit test for the property 'TaxesPercentage'
+        }
+        /// <summary>
+        /// Test the property 'TotalAmount'
+        /// </summary>
+        [Test]
+        public void TotalAmountTest()
+        {
+            // TODO unit test for the property 'TotalAmount'
+        }
+        /// <summary>
+        /// Test the property 'TotalCount'
+        /// </summary>
+        [Test]
+        public void TotalCountTest()
+        {
+            // TODO unit test for the property 'TotalCount'
+        }
+        /// <summary>
+        /// Test the property 'MinimumTotalCount'
+        /// </summary>
+        [Test]
+        public void MinimumTotalCountTest()
+        {
+            // TODO unit test for the property 'MinimumTotalCount'
+        }
+        /// <summary>
+        /// Test the property 'MaximumTotalCount'
+        /// </summary>
+        [Test]
+        public void MaximumTotalCountTest()
+        {
+            // TODO unit test for the property 'MaximumTotalCount'
+        }
+        /// <summary>
+        /// Test the property 'FirstInstallmentAmount'
+        /// </summary>
+        [Test]
+        public void FirstInstallmentAmountTest()
+        {
+            // TODO unit test for the property 'FirstInstallmentAmount'
+        }
+        /// <summary>
+        /// Test the property 'FirstInstallmentDate'
+        /// </summary>
+        [Test]
+        public void FirstInstallmentDateTest()
+        {
+            // TODO unit test for the property 'FirstInstallmentDate'
         }
 
     }

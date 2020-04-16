@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,13 +33,13 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponsePaymentInformationBankAccount" /> class.
         /// </summary>
-        /// <param name="Suffix">The description for this field is not available..</param>
-        /// <param name="Prefix">The description for this field is not available..</param>
-        /// <param name="CheckNumber">The description for this field is not available..</param>
-        /// <param name="Type">The description for this field is not available..</param>
-        /// <param name="Name">The description for this field is not available..</param>
-        /// <param name="CheckDigit">The description for this field is not available..</param>
-        /// <param name="EncoderId">The description for this field is not available..</param>
+        /// <param name="Suffix">Last four digits of the customer’s payment account number. .</param>
+        /// <param name="Prefix">Bank Identification Number (BIN). This is the initial four to six numbers on a credit card account number. .</param>
+        /// <param name="CheckNumber">Check number.  Chase Paymentech Solutions - Optional. CyberSource ACH Service - Not used. RBS WorldPay Atlanta - Optional on debits. Required on credits. TeleCheck - Strongly recommended on debit requests. Optional on credits. .</param>
+        /// <param name="Type">Account type.  Possible values:  - **C**: Checking.  - **G**: General ledger. This value is supported only on Wells Fargo ACH.  - **S**: Savings (U.S. dollars only).  - **X**: Corporate checking (U.S. dollars only). .</param>
+        /// <param name="Name">Name used on the bank account. You can use this field only when scoring a direct debit transaction .</param>
+        /// <param name="CheckDigit">Code used to validate the customer’s account number. Required for some countries if you do not or are not allowed to provide the IBAN instead. You may use this field only when scoring a direct debit transaction.  For all possible values, see the &#x60;bank_check_digit&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="EncoderId">Identifier for the bank that provided the customer’s encoded account number.  To obtain the bank identifier, contact your processor.  For details, see &#x60;account_encoder_id&#x60; request-level field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         public TssV2TransactionsGet200ResponsePaymentInformationBankAccount(string Suffix = default(string), string Prefix = default(string), string CheckNumber = default(string), string Type = default(string), string Name = default(string), string CheckDigit = default(string), string EncoderId = default(string))
         {
             this.Suffix = Suffix;
@@ -52,51 +52,51 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The description for this field is not available.
+        /// Last four digits of the customer’s payment account number. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Last four digits of the customer’s payment account number. </value>
         [DataMember(Name="suffix", EmitDefaultValue=false)]
         public string Suffix { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Bank Identification Number (BIN). This is the initial four to six numbers on a credit card account number. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Bank Identification Number (BIN). This is the initial four to six numbers on a credit card account number. </value>
         [DataMember(Name="prefix", EmitDefaultValue=false)]
         public string Prefix { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Check number.  Chase Paymentech Solutions - Optional. CyberSource ACH Service - Not used. RBS WorldPay Atlanta - Optional on debits. Required on credits. TeleCheck - Strongly recommended on debit requests. Optional on credits. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Check number.  Chase Paymentech Solutions - Optional. CyberSource ACH Service - Not used. RBS WorldPay Atlanta - Optional on debits. Required on credits. TeleCheck - Strongly recommended on debit requests. Optional on credits. </value>
         [DataMember(Name="checkNumber", EmitDefaultValue=false)]
         public string CheckNumber { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Account type.  Possible values:  - **C**: Checking.  - **G**: General ledger. This value is supported only on Wells Fargo ACH.  - **S**: Savings (U.S. dollars only).  - **X**: Corporate checking (U.S. dollars only). 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Account type.  Possible values:  - **C**: Checking.  - **G**: General ledger. This value is supported only on Wells Fargo ACH.  - **S**: Savings (U.S. dollars only).  - **X**: Corporate checking (U.S. dollars only). </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Name used on the bank account. You can use this field only when scoring a direct debit transaction 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Name used on the bank account. You can use this field only when scoring a direct debit transaction </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Code used to validate the customer’s account number. Required for some countries if you do not or are not allowed to provide the IBAN instead. You may use this field only when scoring a direct debit transaction.  For all possible values, see the &#x60;bank_check_digit&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Code used to validate the customer’s account number. Required for some countries if you do not or are not allowed to provide the IBAN instead. You may use this field only when scoring a direct debit transaction.  For all possible values, see the &#x60;bank_check_digit&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
         [DataMember(Name="checkDigit", EmitDefaultValue=false)]
         public string CheckDigit { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Identifier for the bank that provided the customer’s encoded account number.  To obtain the bank identifier, contact your processor.  For details, see &#x60;account_encoder_id&#x60; request-level field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Identifier for the bank that provided the customer’s encoded account number.  To obtain the bank identifier, contact your processor.  For details, see &#x60;account_encoder_id&#x60; request-level field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="encoderId", EmitDefaultValue=false)]
         public string EncoderId { get; set; }
 
@@ -224,6 +224,24 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CheckNumber (string) maxLength
+            if(this.CheckNumber != null && this.CheckNumber.Length >= 8)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CheckNumber, length must be less than or equal to 8.", new [] { "CheckNumber" });
+            }
+
+            // Type (string) maxLength
+            if(this.Type != null && this.Type.Length >= 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than or equal to 1.", new [] { "Type" });
+            }
+
+            // EncoderId (string) maxLength
+            if(this.EncoderId != null && this.EncoderId.Length >= 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EncoderId, length must be less than or equal to 3.", new [] { "EncoderId" });
+            }
+
             yield break;
         }
     }

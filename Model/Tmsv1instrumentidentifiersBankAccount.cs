@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv1instrumentidentifiersBankAccount" /> class.
         /// </summary>
-        /// <param name="Number">Bank account number..</param>
+        /// <param name="Number">Checking account number..</param>
         /// <param name="RoutingNumber">Routing number..</param>
         public Tmsv1instrumentidentifiersBankAccount(string Number = default(string), string RoutingNumber = default(string))
         {
@@ -42,9 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Bank account number.
+        /// Checking account number.
         /// </summary>
-        /// <value>Bank account number.</value>
+        /// <value>Checking account number.</value>
         [DataMember(Name="number", EmitDefaultValue=false)]
         public string Number { get; set; }
 
@@ -140,27 +140,27 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Number (string) maxLength
-            if(this.Number != null && this.Number.Length > 19)
+            if(this.Number != null && this.Number.Length >= 19)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than 19.", new [] { "Number" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than or equal to 19.", new [] { "Number" });
             }
 
             // Number (string) minLength
-            if(this.Number != null && this.Number.Length < 1)
+            if(this.Number != null && this.Number.Length <= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be greater than 1.", new [] { "Number" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be greater than or equal to 1.", new [] { "Number" });
             }
 
             // RoutingNumber (string) maxLength
-            if(this.RoutingNumber != null && this.RoutingNumber.Length > 9)
+            if(this.RoutingNumber != null && this.RoutingNumber.Length >= 9)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingNumber, length must be less than 9.", new [] { "RoutingNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingNumber, length must be less than or equal to 9.", new [] { "RoutingNumber" });
             }
 
             // RoutingNumber (string) minLength
-            if(this.RoutingNumber != null && this.RoutingNumber.Length < 1)
+            if(this.RoutingNumber != null && this.RoutingNumber.Length <= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingNumber, length must be greater than 1.", new [] { "RoutingNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingNumber, length must be greater than or equal to 1.", new [] { "RoutingNumber" });
             }
 
             yield break;

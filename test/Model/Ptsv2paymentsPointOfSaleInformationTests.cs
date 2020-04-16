@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -239,6 +239,30 @@ namespace CyberSource.Test
         public void PartnerSdkVersionTest()
         {
             // TODO unit test for the property 'PartnerSdkVersion'
+        }
+        /// <summary>
+        /// Test the property 'EmvApplicationIdentifierAndDedicatedFileName'
+        /// </summary>
+        [Test]
+        public void EmvApplicationIdentifierAndDedicatedFileNameTest()
+        {
+            // TODO unit test for the property 'EmvApplicationIdentifierAndDedicatedFileName'
+        }
+        /// <summary>
+        /// Test the property 'TerminalCompliance'
+        /// </summary>
+        [Test]
+        public void TerminalComplianceTest()
+        {
+            // TODO unit test for the property 'TerminalCompliance'
+        }
+        /// <summary>
+        /// Test the property 'IsDedicatedHardwareTerminal'
+        /// </summary>
+        [Test]
+        public void IsDedicatedHardwareTerminalTest()
+        {
+            // TODO unit test for the property 'IsDedicatedHardwareTerminal'
         }
 
     }

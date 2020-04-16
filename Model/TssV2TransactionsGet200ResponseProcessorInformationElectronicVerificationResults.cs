@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,15 +33,15 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults" /> class.
         /// </summary>
-        /// <param name="Email">Mapped Electronic Verification response code for the customer’s email address. .</param>
+        /// <param name="Email">Mapped Electronic Verification response code for the customer’s email address.  For details, see &#x60;auth_ev_email&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="EmailRaw">Raw Electronic Verification response code from the processor for the customer’s email address..</param>
-        /// <param name="Name">The description for this field is not available. .</param>
-        /// <param name="NameRaw">The description for this field is not available..</param>
-        /// <param name="PhoneNumber">Mapped Electronic Verification response code for the customer’s phone number. .</param>
+        /// <param name="Name">Mapped Electronic Verification response code for the customer’s name. .</param>
+        /// <param name="NameRaw">Raw Electronic Verification response code from the processor for the customer’s name. .</param>
+        /// <param name="PhoneNumber">Mapped Electronic Verification response code for the customer’s phone number.  For details, see &#x60;auth_ev_phone_number&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="PhoneNumberRaw">Raw Electronic Verification response code from the processor for the customer’s phone number..</param>
-        /// <param name="Street">Mapped Electronic Verification response code for the customer’s street address. .</param>
+        /// <param name="Street">Mapped Electronic Verification response code for the customer’s street address.  For details, see &#x60;auth_ev_street&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="StreetRaw">Raw Electronic Verification response code from the processor for the customer’s street address..</param>
-        /// <param name="PostalCode">Mapped Electronic Verification response code for the customer’s postal code. .</param>
+        /// <param name="PostalCode">Mapped Electronic Verification response code for the customer’s postal code.  For details, see &#x60;auth_ev_postal_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="PostalCodeRaw">Raw Electronic Verification response code from the processor for the customer’s postal code..</param>
         public TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults(string Email = default(string), string EmailRaw = default(string), string Name = default(string), string NameRaw = default(string), string PhoneNumber = default(string), string PhoneNumberRaw = default(string), string Street = default(string), string StreetRaw = default(string), string PostalCode = default(string), string PostalCodeRaw = default(string))
         {
@@ -58,9 +58,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Mapped Electronic Verification response code for the customer’s email address. 
+        /// Mapped Electronic Verification response code for the customer’s email address.  For details, see &#x60;auth_ev_email&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customer’s email address. </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s email address.  For details, see &#x60;auth_ev_email&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
@@ -72,23 +72,23 @@ namespace CyberSource.Model
         public string EmailRaw { get; set; }
 
         /// <summary>
-        /// The description for this field is not available. 
+        /// Mapped Electronic Verification response code for the customer’s name. 
         /// </summary>
-        /// <value>The description for this field is not available. </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s name. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// Raw Electronic Verification response code from the processor for the customer’s name. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>Raw Electronic Verification response code from the processor for the customer’s name. </value>
         [DataMember(Name="nameRaw", EmitDefaultValue=false)]
         public string NameRaw { get; set; }
 
         /// <summary>
-        /// Mapped Electronic Verification response code for the customer’s phone number. 
+        /// Mapped Electronic Verification response code for the customer’s phone number.  For details, see &#x60;auth_ev_phone_number&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customer’s phone number. </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s phone number.  For details, see &#x60;auth_ev_phone_number&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 
@@ -100,9 +100,9 @@ namespace CyberSource.Model
         public string PhoneNumberRaw { get; set; }
 
         /// <summary>
-        /// Mapped Electronic Verification response code for the customer’s street address. 
+        /// Mapped Electronic Verification response code for the customer’s street address.  For details, see &#x60;auth_ev_street&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customer’s street address. </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s street address.  For details, see &#x60;auth_ev_street&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="street", EmitDefaultValue=false)]
         public string Street { get; set; }
 
@@ -114,9 +114,9 @@ namespace CyberSource.Model
         public string StreetRaw { get; set; }
 
         /// <summary>
-        /// Mapped Electronic Verification response code for the customer’s postal code. 
+        /// Mapped Electronic Verification response code for the customer’s postal code.  For details, see &#x60;auth_ev_postal_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customer’s postal code. </value>
+        /// <value>Mapped Electronic Verification response code for the customer’s postal code.  For details, see &#x60;auth_ev_postal_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="postalCode", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
 
@@ -276,63 +276,63 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Email (string) maxLength
-            if(this.Email != null && this.Email.Length > 1)
+            if(this.Email != null && this.Email.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than 1.", new [] { "Email" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than or equal to 1.", new [] { "Email" });
             }
 
             // EmailRaw (string) maxLength
-            if(this.EmailRaw != null && this.EmailRaw.Length > 1)
+            if(this.EmailRaw != null && this.EmailRaw.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EmailRaw, length must be less than 1.", new [] { "EmailRaw" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EmailRaw, length must be less than or equal to 1.", new [] { "EmailRaw" });
             }
 
             // Name (string) maxLength
-            if(this.Name != null && this.Name.Length > 30)
+            if(this.Name != null && this.Name.Length >= 30)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 30.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than or equal to 30.", new [] { "Name" });
             }
 
             // NameRaw (string) maxLength
-            if(this.NameRaw != null && this.NameRaw.Length > 30)
+            if(this.NameRaw != null && this.NameRaw.Length >= 30)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NameRaw, length must be less than 30.", new [] { "NameRaw" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NameRaw, length must be less than or equal to 30.", new [] { "NameRaw" });
             }
 
             // PhoneNumber (string) maxLength
-            if(this.PhoneNumber != null && this.PhoneNumber.Length > 1)
+            if(this.PhoneNumber != null && this.PhoneNumber.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, length must be less than 1.", new [] { "PhoneNumber" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, length must be less than or equal to 1.", new [] { "PhoneNumber" });
             }
 
             // PhoneNumberRaw (string) maxLength
-            if(this.PhoneNumberRaw != null && this.PhoneNumberRaw.Length > 1)
+            if(this.PhoneNumberRaw != null && this.PhoneNumberRaw.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumberRaw, length must be less than 1.", new [] { "PhoneNumberRaw" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumberRaw, length must be less than or equal to 1.", new [] { "PhoneNumberRaw" });
             }
 
             // Street (string) maxLength
-            if(this.Street != null && this.Street.Length > 1)
+            if(this.Street != null && this.Street.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Street, length must be less than 1.", new [] { "Street" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Street, length must be less than or equal to 1.", new [] { "Street" });
             }
 
             // StreetRaw (string) maxLength
-            if(this.StreetRaw != null && this.StreetRaw.Length > 1)
+            if(this.StreetRaw != null && this.StreetRaw.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StreetRaw, length must be less than 1.", new [] { "StreetRaw" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StreetRaw, length must be less than or equal to 1.", new [] { "StreetRaw" });
             }
 
             // PostalCode (string) maxLength
-            if(this.PostalCode != null && this.PostalCode.Length > 1)
+            if(this.PostalCode != null && this.PostalCode.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than 1.", new [] { "PostalCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than or equal to 1.", new [] { "PostalCode" });
             }
 
             // PostalCodeRaw (string) maxLength
-            if(this.PostalCodeRaw != null && this.PostalCodeRaw.Length > 1)
+            if(this.PostalCodeRaw != null && this.PostalCodeRaw.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCodeRaw, length must be less than 1.", new [] { "PostalCodeRaw" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCodeRaw, length must be less than or equal to 1.", new [] { "PostalCodeRaw" });
             }
 
             yield break;

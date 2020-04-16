@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseLinksSelf" /> class.
         /// </summary>
-        /// <param name="Href">URL.</param>
-        /// <param name="Method">HTTP method applied to above URL.</param>
+        /// <param name="Href">This is the endpoint of the resource that was created by the successful request..</param>
+        /// <param name="Method">&#x60;method&#x60; refers to the HTTP method that you can send to the &#x60;self&#x60; endpoint to retrieve details of the resource..</param>
         public PtsV2PaymentsPost201ResponseLinksSelf(string Href = default(string), string Method = default(string))
         {
             this.Href = Href;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// URL
+        /// This is the endpoint of the resource that was created by the successful request.
         /// </summary>
-        /// <value>URL</value>
+        /// <value>This is the endpoint of the resource that was created by the successful request.</value>
         [DataMember(Name="href", EmitDefaultValue=false)]
         public string Href { get; set; }
 
         /// <summary>
-        /// HTTP method applied to above URL
+        /// &#x60;method&#x60; refers to the HTTP method that you can send to the &#x60;self&#x60; endpoint to retrieve details of the resource.
         /// </summary>
-        /// <value>HTTP method applied to above URL</value>
+        /// <value>&#x60;method&#x60; refers to the HTTP method that you can send to the &#x60;self&#x60; endpoint to retrieve details of the resource.</value>
         [DataMember(Name="method", EmitDefaultValue=false)]
         public string Method { get; set; }
 

@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -35,6 +35,9 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="RequestId">An unique identification number assigned by CyberSource to identify the submitted request..</param>
         /// <param name="InterchangePerItemFee">interchange Per Item Fee.</param>
+        /// <param name="InterchangeDescription">interchange Description.</param>
+        /// <param name="InterchangePercentage">interchange Percentage.</param>
+        /// <param name="InterchangePercentageAmount">interchange Percentage Amount.</param>
         /// <param name="DiscountPercentage">Discount Percentage.</param>
         /// <param name="DiscountAmount">Discount Amount.</param>
         /// <param name="DiscountPerItemFee">Discount Per Item Fee.</param>
@@ -43,10 +46,13 @@ namespace CyberSource.Model
         /// <param name="DuesAssessments">Dues Assessments.</param>
         /// <param name="FundingAmount">Funding Amount.</param>
         /// <param name="FundingCurrency">Funding Currency (ISO 4217).</param>
-        public ReportingV3PurchaseRefundDetailsGet200ResponseFeeAndFundingDetails(string RequestId = default(string), string InterchangePerItemFee = default(string), string DiscountPercentage = default(string), string DiscountAmount = default(string), string DiscountPerItemFee = default(string), string TotalFee = default(string), string FeeCurrency = default(string), string DuesAssessments = default(string), string FundingAmount = default(string), string FundingCurrency = default(string))
+        public ReportingV3PurchaseRefundDetailsGet200ResponseFeeAndFundingDetails(string RequestId = default(string), string InterchangePerItemFee = default(string), string InterchangeDescription = default(string), string InterchangePercentage = default(string), string InterchangePercentageAmount = default(string), string DiscountPercentage = default(string), string DiscountAmount = default(string), string DiscountPerItemFee = default(string), string TotalFee = default(string), string FeeCurrency = default(string), string DuesAssessments = default(string), string FundingAmount = default(string), string FundingCurrency = default(string))
         {
             this.RequestId = RequestId;
             this.InterchangePerItemFee = InterchangePerItemFee;
+            this.InterchangeDescription = InterchangeDescription;
+            this.InterchangePercentage = InterchangePercentage;
+            this.InterchangePercentageAmount = InterchangePercentageAmount;
             this.DiscountPercentage = DiscountPercentage;
             this.DiscountAmount = DiscountAmount;
             this.DiscountPerItemFee = DiscountPerItemFee;
@@ -70,6 +76,27 @@ namespace CyberSource.Model
         /// <value>interchange Per Item Fee</value>
         [DataMember(Name="interchangePerItemFee", EmitDefaultValue=false)]
         public string InterchangePerItemFee { get; set; }
+
+        /// <summary>
+        /// interchange Description
+        /// </summary>
+        /// <value>interchange Description</value>
+        [DataMember(Name="interchangeDescription", EmitDefaultValue=false)]
+        public string InterchangeDescription { get; set; }
+
+        /// <summary>
+        /// interchange Percentage
+        /// </summary>
+        /// <value>interchange Percentage</value>
+        [DataMember(Name="interchangePercentage", EmitDefaultValue=false)]
+        public string InterchangePercentage { get; set; }
+
+        /// <summary>
+        /// interchange Percentage Amount
+        /// </summary>
+        /// <value>interchange Percentage Amount</value>
+        [DataMember(Name="interchangePercentageAmount", EmitDefaultValue=false)]
+        public string InterchangePercentageAmount { get; set; }
 
         /// <summary>
         /// Discount Percentage
@@ -137,6 +164,9 @@ namespace CyberSource.Model
             sb.Append("class ReportingV3PurchaseRefundDetailsGet200ResponseFeeAndFundingDetails {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  InterchangePerItemFee: ").Append(InterchangePerItemFee).Append("\n");
+            sb.Append("  InterchangeDescription: ").Append(InterchangeDescription).Append("\n");
+            sb.Append("  InterchangePercentage: ").Append(InterchangePercentage).Append("\n");
+            sb.Append("  InterchangePercentageAmount: ").Append(InterchangePercentageAmount).Append("\n");
             sb.Append("  DiscountPercentage: ").Append(DiscountPercentage).Append("\n");
             sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
             sb.Append("  DiscountPerItemFee: ").Append(DiscountPerItemFee).Append("\n");
@@ -190,6 +220,21 @@ namespace CyberSource.Model
                     this.InterchangePerItemFee == other.InterchangePerItemFee ||
                     this.InterchangePerItemFee != null &&
                     this.InterchangePerItemFee.Equals(other.InterchangePerItemFee)
+                ) && 
+                (
+                    this.InterchangeDescription == other.InterchangeDescription ||
+                    this.InterchangeDescription != null &&
+                    this.InterchangeDescription.Equals(other.InterchangeDescription)
+                ) && 
+                (
+                    this.InterchangePercentage == other.InterchangePercentage ||
+                    this.InterchangePercentage != null &&
+                    this.InterchangePercentage.Equals(other.InterchangePercentage)
+                ) && 
+                (
+                    this.InterchangePercentageAmount == other.InterchangePercentageAmount ||
+                    this.InterchangePercentageAmount != null &&
+                    this.InterchangePercentageAmount.Equals(other.InterchangePercentageAmount)
                 ) && 
                 (
                     this.DiscountPercentage == other.DiscountPercentage ||
@@ -248,6 +293,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RequestId.GetHashCode();
                 if (this.InterchangePerItemFee != null)
                     hash = hash * 59 + this.InterchangePerItemFee.GetHashCode();
+                if (this.InterchangeDescription != null)
+                    hash = hash * 59 + this.InterchangeDescription.GetHashCode();
+                if (this.InterchangePercentage != null)
+                    hash = hash * 59 + this.InterchangePercentage.GetHashCode();
+                if (this.InterchangePercentageAmount != null)
+                    hash = hash * 59 + this.InterchangePercentageAmount.GetHashCode();
                 if (this.DiscountPercentage != null)
                     hash = hash * 59 + this.DiscountPercentage.GetHashCode();
                 if (this.DiscountAmount != null)
@@ -276,9 +327,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // RequestId (string) maxLength
-            if(this.RequestId != null && this.RequestId.Length > 26)
+            if(this.RequestId != null && this.RequestId.Length >= 26)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RequestId, length must be less than 26.", new [] { "RequestId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RequestId, length must be less than or equal to 26.", new [] { "RequestId" });
             }
 
             yield break;

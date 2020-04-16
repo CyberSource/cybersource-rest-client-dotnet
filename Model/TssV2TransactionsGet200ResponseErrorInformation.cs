@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,10 +33,10 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseErrorInformation" /> class.
         /// </summary>
-        /// <param name="Reason">The description for this field is not available..</param>
-        /// <param name="Message">The description for this field is not available..</param>
+        /// <param name="Reason">1-word description of why a request succeeded or failed. .</param>
+        /// <param name="Message">The user-facing description for why a request succeeded or failed. .</param>
         /// <param name="Details">Details.</param>
-        public TssV2TransactionsGet200ResponseErrorInformation(string Reason = default(string), string Message = default(string), List<PtsV2PayoutsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PayoutsPost201ResponseErrorInformationDetails>))
+        public TssV2TransactionsGet200ResponseErrorInformation(string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
             this.Reason = Reason;
             this.Message = Message;
@@ -44,16 +44,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The description for this field is not available.
+        /// 1-word description of why a request succeeded or failed. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>1-word description of why a request succeeded or failed. </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 
         /// <summary>
-        /// The description for this field is not available.
+        /// The user-facing description for why a request succeeded or failed. 
         /// </summary>
-        /// <value>The description for this field is not available.</value>
+        /// <value>The user-facing description for why a request succeeded or failed. </value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 
@@ -61,7 +61,7 @@ namespace CyberSource.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="details", EmitDefaultValue=false)]
-        public List<PtsV2PayoutsPost201ResponseErrorInformationDetails> Details { get; set; }
+        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

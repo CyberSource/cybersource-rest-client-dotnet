@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,18 +33,20 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction" /> class.
         /// </summary>
-        /// <param name="Reason">Reason for the merchant-initiated transaction or incremental authorization. Possible values: - &#x60;1&#x60;: Resubmission - &#x60;2&#x60;: Delayed charge - &#x60;3&#x60;: Reauthorization for split shipment - &#x60;4&#x60;: No show - &#x60;5&#x60;: Account top up This field is required only for the five kinds of transactions in the preceding list. This field is supported only for merchant-initiated transactions and incremental authorizations.  **CyberSource through VisaNet**\\ The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR0 - Position: 160-163 - Field: Message Reason Code  **All Processors**\\ See \&quot;Merchant-Initiated Transactions,\&quot; page 196. For CyberSource through VisaNet, see also \&quot;Incremental Authorizations,\&quot; page 40. .</param>
+        /// <param name="Reason">Reason for the merchant-initiated transaction or incremental authorization. Possible values: - &#x60;1&#x60;: Resubmission - &#x60;2&#x60;: Delayed charge - &#x60;3&#x60;: Reauthorization for split shipment - &#x60;4&#x60;: No show - &#x60;5&#x60;: Account top up This field is required only for the five kinds of transactions in the preceding list. This field is supported only for merchant-initiated transactions and incremental authorizations.  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR0 - Position: 160-163 - Field: Message Reason Code  #### All Processors For details, see &#x60;subsequent_auth_reason&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="PreviousTransactionId">Network transaction identifier that was returned in the payment response field _processorInformation.transactionID_ in the reply message for either the original merchant-initiated payment in the series or the previous merchant-initiated payment in the series.  If the current payment request includes a token instead of an account number, the following time limits apply for the value of this field: - For a **resubmission**, the transaction ID must be less than 14 days old. - For a **delayed charge** or **reauthorization**, the transaction ID must be less than 30 days old.  **NOTE**: The value for this field does not correspond to any data in the TC 33 capture file5. This field is supported only for Visa transactions on CyberSource through VisaNet. .</param>
-        public Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction(string Reason = default(string), string PreviousTransactionId = default(string))
+        /// <param name="OriginalAuthorizedAmount">Amount of the original authorization.  This field is supported only for Apple Pay, Google Pay, and Samsung Pay transactions with Discover on FDC Nashville Global and Chase Paymentech.  See \&quot;Recurring Payments,\&quot; and \&quot;Subsequent Authorizations,\&quot; field description in the [Payment Network Tokenization Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/tokenization_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) .</param>
+        public Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction(string Reason = default(string), string PreviousTransactionId = default(string), string OriginalAuthorizedAmount = default(string))
         {
             this.Reason = Reason;
             this.PreviousTransactionId = PreviousTransactionId;
+            this.OriginalAuthorizedAmount = OriginalAuthorizedAmount;
         }
         
         /// <summary>
-        /// Reason for the merchant-initiated transaction or incremental authorization. Possible values: - &#x60;1&#x60;: Resubmission - &#x60;2&#x60;: Delayed charge - &#x60;3&#x60;: Reauthorization for split shipment - &#x60;4&#x60;: No show - &#x60;5&#x60;: Account top up This field is required only for the five kinds of transactions in the preceding list. This field is supported only for merchant-initiated transactions and incremental authorizations.  **CyberSource through VisaNet**\\ The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR0 - Position: 160-163 - Field: Message Reason Code  **All Processors**\\ See \&quot;Merchant-Initiated Transactions,\&quot; page 196. For CyberSource through VisaNet, see also \&quot;Incremental Authorizations,\&quot; page 40. 
+        /// Reason for the merchant-initiated transaction or incremental authorization. Possible values: - &#x60;1&#x60;: Resubmission - &#x60;2&#x60;: Delayed charge - &#x60;3&#x60;: Reauthorization for split shipment - &#x60;4&#x60;: No show - &#x60;5&#x60;: Account top up This field is required only for the five kinds of transactions in the preceding list. This field is supported only for merchant-initiated transactions and incremental authorizations.  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR0 - Position: 160-163 - Field: Message Reason Code  #### All Processors For details, see &#x60;subsequent_auth_reason&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
-        /// <value>Reason for the merchant-initiated transaction or incremental authorization. Possible values: - &#x60;1&#x60;: Resubmission - &#x60;2&#x60;: Delayed charge - &#x60;3&#x60;: Reauthorization for split shipment - &#x60;4&#x60;: No show - &#x60;5&#x60;: Account top up This field is required only for the five kinds of transactions in the preceding list. This field is supported only for merchant-initiated transactions and incremental authorizations.  **CyberSource through VisaNet**\\ The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR0 - Position: 160-163 - Field: Message Reason Code  **All Processors**\\ See \&quot;Merchant-Initiated Transactions,\&quot; page 196. For CyberSource through VisaNet, see also \&quot;Incremental Authorizations,\&quot; page 40. </value>
+        /// <value>Reason for the merchant-initiated transaction or incremental authorization. Possible values: - &#x60;1&#x60;: Resubmission - &#x60;2&#x60;: Delayed charge - &#x60;3&#x60;: Reauthorization for split shipment - &#x60;4&#x60;: No show - &#x60;5&#x60;: Account top up This field is required only for the five kinds of transactions in the preceding list. This field is supported only for merchant-initiated transactions and incremental authorizations.  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR0 - Position: 160-163 - Field: Message Reason Code  #### All Processors For details, see &#x60;subsequent_auth_reason&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 
@@ -56,6 +58,13 @@ namespace CyberSource.Model
         public string PreviousTransactionId { get; set; }
 
         /// <summary>
+        /// Amount of the original authorization.  This field is supported only for Apple Pay, Google Pay, and Samsung Pay transactions with Discover on FDC Nashville Global and Chase Paymentech.  See \&quot;Recurring Payments,\&quot; and \&quot;Subsequent Authorizations,\&quot; field description in the [Payment Network Tokenization Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/tokenization_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        /// </summary>
+        /// <value>Amount of the original authorization.  This field is supported only for Apple Pay, Google Pay, and Samsung Pay transactions with Discover on FDC Nashville Global and Chase Paymentech.  See \&quot;Recurring Payments,\&quot; and \&quot;Subsequent Authorizations,\&quot; field description in the [Payment Network Tokenization Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/tokenization_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) </value>
+        [DataMember(Name="originalAuthorizedAmount", EmitDefaultValue=false)]
+        public string OriginalAuthorizedAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction {\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  PreviousTransactionId: ").Append(PreviousTransactionId).Append("\n");
+            sb.Append("  OriginalAuthorizedAmount: ").Append(OriginalAuthorizedAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +120,11 @@ namespace CyberSource.Model
                     this.PreviousTransactionId == other.PreviousTransactionId ||
                     this.PreviousTransactionId != null &&
                     this.PreviousTransactionId.Equals(other.PreviousTransactionId)
+                ) && 
+                (
+                    this.OriginalAuthorizedAmount == other.OriginalAuthorizedAmount ||
+                    this.OriginalAuthorizedAmount != null &&
+                    this.OriginalAuthorizedAmount.Equals(other.OriginalAuthorizedAmount)
                 );
         }
 
@@ -128,6 +143,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.PreviousTransactionId != null)
                     hash = hash * 59 + this.PreviousTransactionId.GetHashCode();
+                if (this.OriginalAuthorizedAmount != null)
+                    hash = hash * 59 + this.OriginalAuthorizedAmount.GetHashCode();
                 return hash;
             }
         }
@@ -140,15 +157,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Reason (string) maxLength
-            if(this.Reason != null && this.Reason.Length > 1)
+            if(this.Reason != null && this.Reason.Length >= 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Reason, length must be less than 1.", new [] { "Reason" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Reason, length must be less than or equal to 1.", new [] { "Reason" });
             }
 
             // PreviousTransactionId (string) maxLength
-            if(this.PreviousTransactionId != null && this.PreviousTransactionId.Length > 15)
+            if(this.PreviousTransactionId != null && this.PreviousTransactionId.Length >= 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreviousTransactionId, length must be less than 15.", new [] { "PreviousTransactionId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreviousTransactionId, length must be less than or equal to 15.", new [] { "PreviousTransactionId" });
+            }
+
+            // OriginalAuthorizedAmount (string) maxLength
+            if(this.OriginalAuthorizedAmount != null && this.OriginalAuthorizedAmount.Length >= 61)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginalAuthorizedAmount, length must be less than or equal to 61.", new [] { "OriginalAuthorizedAmount" });
             }
 
             yield break;

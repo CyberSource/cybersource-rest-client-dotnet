@@ -1,7 +1,7 @@
 /* 
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -33,36 +33,36 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsPaymentInformationFluidData" /> class.
         /// </summary>
-        /// <param name="Key">The name of the merchant-defined data field. The range of this field starts at 1 and terminiates at 100..</param>
-        /// <param name="Descriptor">The specific string for identifying the payment solution that is sending the encrypted payment data to CyberSource. Valid values: - &#x60;Apple Pay&#x60; - &#x60;Samsung Pay&#x60; **NOTE**: For other payment solutions, the value may be specific to the customer&#39;s mobile device. For example, the descriptor for a Bluefin payment encryption would be a device-generated descriptor. Merchant needs to pass in this value. .</param>
-        /// <param name="Value">Represents the encrypted payment data BLOB. The entry for this field is dependent on the payment solution a merchant uses.  Valid values: - Apple Pay: &#x60;RklEPUNPTU1PTi5BUFBMRS5JTkFQUC5QQVlNRU5U&#x60; - Samsung Pay: &#x60;RklEPUNPTU1PTi5TQU1TVU5HLklOQVBQLlBBWU1FTlQ&#x3D;&#x60; **NOTE**: For other payment solutions, the value of the descriptor may be specific to the customer&#39;s mobile device. For example, the descriptor for a Bluefin payment encryption would be a device-generated descriptor. Merchant needs to pass in this value. .</param>
+        /// <param name="KeySerialNumber">The encoded or encrypted value that a payment solution returns for an authorization request. For details about the valid values for a key, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html) .</param>
+        /// <param name="Descriptor">The identifier for a payment solution, which is sending the encrypted payment data to CyberSource for decryption. Valid values: - Samsung Pay: &#x60;RklEPUNPTU1PTi5TQU1TVU5HLklOQVBQLlBBWU1FTlQ&#x3D;&#x60; **NOTE**: For other payment solutions, the value may be specific to the customer&#39;s mobile device. For example, the descriptor for a Bluefin payment encryption would be a device-generated descriptor.  For details about the list of payment solution identifiers, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html).  For details about the encrypted payment data, see the &#x60;encrypted_payment_descriptor&#x60; field description in the [Card-Present Processing Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/). .</param>
+        /// <param name="Value">Represents the encrypted payment data BLOB. The entry for this field is dependent on the payment solution a merchant uses.  For details, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html) for the specific payment- solution entry. .</param>
         /// <param name="Encoding">Encoding method used to encrypt the payment data.  Valid value: Base64 .</param>
-        public Ptsv2paymentsPaymentInformationFluidData(string Key = default(string), string Descriptor = default(string), string Value = default(string), string Encoding = default(string))
+        public Ptsv2paymentsPaymentInformationFluidData(string KeySerialNumber = default(string), string Descriptor = default(string), string Value = default(string), string Encoding = default(string))
         {
-            this.Key = Key;
+            this.KeySerialNumber = KeySerialNumber;
             this.Descriptor = Descriptor;
             this.Value = Value;
             this.Encoding = Encoding;
         }
         
         /// <summary>
-        /// The name of the merchant-defined data field. The range of this field starts at 1 and terminiates at 100.
+        /// The encoded or encrypted value that a payment solution returns for an authorization request. For details about the valid values for a key, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html) 
         /// </summary>
-        /// <value>The name of the merchant-defined data field. The range of this field starts at 1 and terminiates at 100.</value>
-        [DataMember(Name="key", EmitDefaultValue=false)]
-        public string Key { get; set; }
+        /// <value>The encoded or encrypted value that a payment solution returns for an authorization request. For details about the valid values for a key, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html) </value>
+        [DataMember(Name="keySerialNumber", EmitDefaultValue=false)]
+        public string KeySerialNumber { get; set; }
 
         /// <summary>
-        /// The specific string for identifying the payment solution that is sending the encrypted payment data to CyberSource. Valid values: - &#x60;Apple Pay&#x60; - &#x60;Samsung Pay&#x60; **NOTE**: For other payment solutions, the value may be specific to the customer&#39;s mobile device. For example, the descriptor for a Bluefin payment encryption would be a device-generated descriptor. Merchant needs to pass in this value. 
+        /// The identifier for a payment solution, which is sending the encrypted payment data to CyberSource for decryption. Valid values: - Samsung Pay: &#x60;RklEPUNPTU1PTi5TQU1TVU5HLklOQVBQLlBBWU1FTlQ&#x3D;&#x60; **NOTE**: For other payment solutions, the value may be specific to the customer&#39;s mobile device. For example, the descriptor for a Bluefin payment encryption would be a device-generated descriptor.  For details about the list of payment solution identifiers, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html).  For details about the encrypted payment data, see the &#x60;encrypted_payment_descriptor&#x60; field description in the [Card-Present Processing Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/). 
         /// </summary>
-        /// <value>The specific string for identifying the payment solution that is sending the encrypted payment data to CyberSource. Valid values: - &#x60;Apple Pay&#x60; - &#x60;Samsung Pay&#x60; **NOTE**: For other payment solutions, the value may be specific to the customer&#39;s mobile device. For example, the descriptor for a Bluefin payment encryption would be a device-generated descriptor. Merchant needs to pass in this value. </value>
+        /// <value>The identifier for a payment solution, which is sending the encrypted payment data to CyberSource for decryption. Valid values: - Samsung Pay: &#x60;RklEPUNPTU1PTi5TQU1TVU5HLklOQVBQLlBBWU1FTlQ&#x3D;&#x60; **NOTE**: For other payment solutions, the value may be specific to the customer&#39;s mobile device. For example, the descriptor for a Bluefin payment encryption would be a device-generated descriptor.  For details about the list of payment solution identifiers, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html).  For details about the encrypted payment data, see the &#x60;encrypted_payment_descriptor&#x60; field description in the [Card-Present Processing Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/). </value>
         [DataMember(Name="descriptor", EmitDefaultValue=false)]
         public string Descriptor { get; set; }
 
         /// <summary>
-        /// Represents the encrypted payment data BLOB. The entry for this field is dependent on the payment solution a merchant uses.  Valid values: - Apple Pay: &#x60;RklEPUNPTU1PTi5BUFBMRS5JTkFQUC5QQVlNRU5U&#x60; - Samsung Pay: &#x60;RklEPUNPTU1PTi5TQU1TVU5HLklOQVBQLlBBWU1FTlQ&#x3D;&#x60; **NOTE**: For other payment solutions, the value of the descriptor may be specific to the customer&#39;s mobile device. For example, the descriptor for a Bluefin payment encryption would be a device-generated descriptor. Merchant needs to pass in this value. 
+        /// Represents the encrypted payment data BLOB. The entry for this field is dependent on the payment solution a merchant uses.  For details, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html) for the specific payment- solution entry. 
         /// </summary>
-        /// <value>Represents the encrypted payment data BLOB. The entry for this field is dependent on the payment solution a merchant uses.  Valid values: - Apple Pay: &#x60;RklEPUNPTU1PTi5BUFBMRS5JTkFQUC5QQVlNRU5U&#x60; - Samsung Pay: &#x60;RklEPUNPTU1PTi5TQU1TVU5HLklOQVBQLlBBWU1FTlQ&#x3D;&#x60; **NOTE**: For other payment solutions, the value of the descriptor may be specific to the customer&#39;s mobile device. For example, the descriptor for a Bluefin payment encryption would be a device-generated descriptor. Merchant needs to pass in this value. </value>
+        /// <value>Represents the encrypted payment data BLOB. The entry for this field is dependent on the payment solution a merchant uses.  For details, see [Creating an Online Authorization](https://developer.cybersource.com/api/developer-guides/dita-payments/CreatingOnlineAuth.html) for the specific payment- solution entry. </value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
 
@@ -81,7 +81,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsPaymentInformationFluidData {\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  KeySerialNumber: ").Append(KeySerialNumber).Append("\n");
             sb.Append("  Descriptor: ").Append(Descriptor).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Encoding: ").Append(Encoding).Append("\n");
@@ -122,9 +122,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Key == other.Key ||
-                    this.Key != null &&
-                    this.Key.Equals(other.Key)
+                    this.KeySerialNumber == other.KeySerialNumber ||
+                    this.KeySerialNumber != null &&
+                    this.KeySerialNumber.Equals(other.KeySerialNumber)
                 ) && 
                 (
                     this.Descriptor == other.Descriptor ||
@@ -154,8 +154,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Key != null)
-                    hash = hash * 59 + this.Key.GetHashCode();
+                if (this.KeySerialNumber != null)
+                    hash = hash * 59 + this.KeySerialNumber.GetHashCode();
                 if (this.Descriptor != null)
                     hash = hash * 59 + this.Descriptor.GetHashCode();
                 if (this.Value != null)
@@ -174,21 +174,21 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Descriptor (string) maxLength
-            if(this.Descriptor != null && this.Descriptor.Length > 128)
+            if(this.Descriptor != null && this.Descriptor.Length >= 128)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Descriptor, length must be less than 128.", new [] { "Descriptor" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Descriptor, length must be less than or equal to 128.", new [] { "Descriptor" });
             }
 
             // Value (string) maxLength
-            if(this.Value != null && this.Value.Length > 3072)
+            if(this.Value != null && this.Value.Length >= 3072)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than 3072.", new [] { "Value" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than or equal to 3072.", new [] { "Value" });
             }
 
             // Encoding (string) maxLength
-            if(this.Encoding != null && this.Encoding.Length > 6)
+            if(this.Encoding != null && this.Encoding.Length >= 6)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Encoding, length must be less than 6.", new [] { "Encoding" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Encoding, length must be less than or equal to 6.", new [] { "Encoding" });
             }
 
             yield break;

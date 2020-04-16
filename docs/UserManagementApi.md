@@ -4,14 +4,14 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetUsers**](UserManagementApi.md#getusers) | **GET** /ums/v1/users | Get user based on organization Id, username, permission and role
+[**GetUsers**](UserManagementApi.md#getusers) | **GET** /ums/v1/users | Get User Information
 
 
 <a name="getusers"></a>
 # **GetUsers**
 > UmsV1UsersGet200Response GetUsers (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
 
-Get user based on organization Id, username, permission and role
+Get User Information
 
 This endpoint is to get all the user information depending on the filter criteria passed in the query.
 
@@ -37,7 +37,7 @@ namespace Example
 
             try
             {
-                // Get user based on organization Id, username, permission and role
+                // Get User Information
                 UmsV1UsersGet200Response result = apiInstance.GetUsers(organizationId, userName, permissionId, roleId);
                 Debug.WriteLine(result);
             }
@@ -70,7 +70,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
+ - **Accept**: application/hal+json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

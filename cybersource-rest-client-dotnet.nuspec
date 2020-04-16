@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CyberSource.Rest.Client</id>
-    <version>0.0.0.5</version>
+    <version>0.0.1.2</version>
     <title>CyberSource.Rest.Client</title>
     <authors>CyberSource Corporation</authors>
     <owners>CyberSource</owners>
@@ -10,6 +10,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Use this client SDK to Call CyberSource REST API's. This SDK includes generates both HTTP Signature and JWT headers (including authentication headers) for the API requests.</description>
     <releaseNotes>Minor Release.</releaseNotes>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="11.0.2"></dependency>
+      <dependency id="RestSharp" version="106.5.4"></dependency>
+      <dependency id="CyberSource.Authentication" version="0.0.0.4"></dependency>
+    </dependencies>
   </metadata>
   <files>
     <file src="bin\Release\cybersource-rest-client-dotnet.dll" target="lib\cybersource-rest-client-dotnet.dll"/>
