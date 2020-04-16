@@ -373,12 +373,6 @@ namespace {{packageName}}.Client
                 {{/supportsUWP}}
                 {{/netStandard}}
                 InterceptResponse(request, response);
-            
-                Configuration.DefaultHeader.Clear();
-            
-                httpResponseStatusCode = (int)response.StatusCode;
-                httpResponseHeaders = response.Headers;
-                httpResponseData = response.Content;
             }
             {
                 //setting file name
@@ -406,15 +400,11 @@ namespace {{packageName}}.Client
                     }
                 }
 
-                httpResponseStatusCode = (int)responseT.StatusCode;
-                httpResponseHeaders = new List<Parameter>();
+                //setting the generic response with response headers
                 foreach (var header in responseT.Headers)
                 {
-                    string[] headerValue = responseT.Headers.GetValues(header.ToString());
-                    httpResponseHeaders.Add(new Parameter(header.ToString(), String.Join(",", headerValue.ToArray()), ParameterType.HttpHeader));
+                    response.Headers.Add(new Parameter(header.ToString(), String.Join(",", responseT.Headers.GetValues(header.ToString()).ToArray()), ParameterType.HttpHeader));
                 }
-
-                httpResponseData = "Custom Message: Response downloaded to file " + downloadReponseFileName;
 
                 //setting the generic RestResponse which is returned to the calling class
                 response.StatusCode = responseT.StatusCode;
@@ -431,6 +421,12 @@ namespace {{packageName}}.Client
                     response.Content = responseT.StatusDescription;
                 }
             }
+
+            Configuration.DefaultHeader.Clear();
+
+            httpResponseStatusCode = (int)response.StatusCode;
+            httpResponseHeaders = response.Headers;
+            httpResponseData = response.Content;
 
             Console.WriteLine($"\n");
             Console.WriteLine($"RESPONSE STATUS CODE: {httpResponseStatusCode}");
