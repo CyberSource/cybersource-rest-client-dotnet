@@ -237,6 +237,83 @@ namespace {{packageName}}.Client
             return request;
         }
 
+        // Creates and sets up a HttpWebRequest for calls which needs response in a file format.
+        private HttpWebRequest PrepareHttpWebRequest(
+            String path, {{^netStandard}}RestSharp.{{/netStandard}}Method method, Dictionary<String, String> queryParams, Object postBody,
+            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
+            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
+            String contentType)
+        {
+            // Change to path(Request Target) to be sent to Authentication SDK
+            // Include Query Params in the Request target
+            var firstQueryParam = true;
+            foreach (var param in queryParams)
+            {
+                var key = param.Key;
+                var val = param.Value;
+
+                if (!firstQueryParam)
+                {
+                    path = path + "&" + key + "=" + val;
+                }
+                else
+                {
+                    path = path + "?" + key + "=" + val;
+                    firstQueryParam = false;
+                }
+            }
+
+            //initiate a HttpWebRequest object
+            HttpWebRequest requestT = (HttpWebRequest)WebRequest.Create(Uri.EscapeUriString("https://" + RestClient.BaseUrl.Host + path));
+            requestT.UserAgent = Configuration.UserAgent;
+
+            if (Configuration.Proxy != null)
+            {
+                requestT.Proxy = Configuration.Proxy;
+            }
+            requestT.ContentType = contentType;
+
+            // add header parameter, if any
+            // passed to this function
+            foreach (var param in headerParams)
+            {
+                if (param.Key == "Accept")
+                {
+                    requestT.Accept = param.Value;
+                }
+                else
+                    requestT.Headers.Add(param.Key, param.Value);
+            }
+
+            //initiate the default authentication headers
+            if (postBody == null)
+            {
+                CallAuthenticationHeaders(method.ToString(), path);
+            }
+            else
+            {
+                CallAuthenticationHeaders(method.ToString(), path, postBody.ToString());
+            }
+
+            foreach (var param in Configuration.DefaultHeader)
+            {
+                if (param.Key == "Authorization")
+                {
+                    requestT.Headers.Add("Authorization", string.Format("Bearer " + param.Value));
+                }
+                else if (param.Key == "Date")
+                {
+                    requestT.Date = DateTime.Parse(param.Value);
+                }
+                else if (param.Key == "Host")
+                { }
+                else
+                    requestT.Headers.Add(param.Key, param.Value);
+            }
+
+            return requestT;
+        }
+
         /// <summary>
         /// Makes the HTTP request (Sync).
         /// </summary>
@@ -254,44 +331,106 @@ namespace {{packageName}}.Client
             String path, {{^netStandard}}RestSharp.{{/netStandard}}Method method, Dictionary<String, String> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType)
+            String contentType, bool downloadResponseAsFile = false)
         {
-            var request = PrepareRequest(
-                path, method, queryParams, postBody, headerParams, formParams, fileParams,
-                pathParams, contentType);
+            //declared separately to handle both regular call and download file calls
+            int httpResponseStatusCode;
+            IList<Parameter> httpResponseHeaders = null;
+            string httpResponseData = string.Empty;
 
-            // set timeout
-            RestClient.Timeout = Configuration.Timeout;
-            // set user agent
-            RestClient.UserAgent = Configuration.UserAgent;
-            
-            RestClient.ClearHandlers();
+            var response = new RestResponse();
 
-            if (Configuration.Proxy != null)
+            //check if the Response is to be downloaded as a file, this value to be set by the calling API class
+            if (!downloadResponseAsFile)
             {
-                RestClient.Proxy = Configuration.Proxy;
-            }            
+                var request = PrepareRequest(
+                    path, method, queryParams, postBody, headerParams, formParams, fileParams,
+                    pathParams, contentType);
 
-            InterceptRequest(request);
-            {{#netStandard}}
-            var response = RestClient.Execute(request).Result;
-            {{/netStandard}}
-            {{^netStandard}}
-            {{^supportsUWP}}
-            var response = RestClient.Execute(request);
-            {{/supportsUWP}}
-            {{#supportsUWP}}
-            // Using async method to perform sync call (uwp-only)
-            var response = RestClient.ExecuteTaskAsync(request).Result;
-            {{/supportsUWP}}
-            {{/netStandard}}
-            InterceptResponse(request, response);
+                // set timeout
+                RestClient.Timeout = Configuration.Timeout;
+                // set user agent
+                RestClient.UserAgent = Configuration.UserAgent;
             
-            Configuration.DefaultHeader.Clear();
+                RestClient.ClearHandlers();
+
+                if (Configuration.Proxy != null)
+                {
+                    RestClient.Proxy = Configuration.Proxy;
+                }            
+
+                InterceptRequest(request);
+                {{#netStandard}}
+                response = RestClient.Execute(request).Result;
+                {{/netStandard}}
+                {{^netStandard}}
+                {{^supportsUWP}}
+                response = RestClient.Execute(request);
+                {{/supportsUWP}}
+                {{#supportsUWP}}
+                // Using async method to perform sync call (uwp-only)
+                response = RestClient.ExecuteTaskAsync(request).Result;
+                {{/supportsUWP}}
+                {{/netStandard}}
+                InterceptResponse(request, response);
             
-            var httpResponseStatusCode = (int)response.StatusCode;
-            var httpResponseHeaders = response.Headers;
-            var httpResponseData = response.Content;
+                Configuration.DefaultHeader.Clear();
+            
+                httpResponseStatusCode = (int)response.StatusCode;
+                httpResponseHeaders = response.Headers;
+                httpResponseData = response.Content;
+            }
+            {
+                //setting file name
+                string downloadReponseFileName = path.Split('/')[path.Split('/').Length - 1] + "_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".csv";
+
+                //prepare a HttpWebRequest request object
+                var requestT = PrepareHttpWebRequest(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
+
+                //getting the response stream using httpwebrequest
+                HttpWebResponse responseT = (HttpWebResponse)requestT.GetResponse();
+                using (Stream responseStream = responseT.GetResponseStream())
+                {
+                    //setting high timeout to accomodate large files till 2GB, need to revisit for a dynamic approach
+                    responseStream.ReadTimeout = 8000000;
+                    responseStream.WriteTimeout = 9000000;
+                    using (Stream fileStream = File.OpenWrite(@downloadReponseFileName))
+                    {
+                        byte[] buffer = new byte[4096];
+                        int bytesRead = responseStream.Read(buffer, 0, 4096);
+                        while (bytesRead > 0)
+                        {
+                            fileStream.Write(buffer, 0, bytesRead);
+                            bytesRead = responseStream.Read(buffer, 0, 4096);
+                        }
+                    }
+                }
+
+                httpResponseStatusCode = (int)responseT.StatusCode;
+                httpResponseHeaders = new List<Parameter>();
+                foreach (var header in responseT.Headers)
+                {
+                    string[] headerValue = responseT.Headers.GetValues(header.ToString());
+                    httpResponseHeaders.Add(new Parameter(header.ToString(), String.Join(",", headerValue.ToArray()), ParameterType.HttpHeader));
+                }
+
+                httpResponseData = "Custom Message: Response downloaded to file " + downloadReponseFileName;
+
+                //setting the generic RestResponse which is returned to the calling class
+                response.StatusCode = responseT.StatusCode;
+                if (responseT.StatusCode == HttpStatusCode.OK)
+                {
+                    response.Content = "Custom Message: Response downloaded to file " + downloadReponseFileName;
+                }
+                else if (responseT.StatusCode == HttpStatusCode.NotFound)
+                {
+                    response.Content = "Custom Message: The requested resource is not found. Please try again later.";
+                }
+                else
+                {
+                    response.Content = responseT.StatusDescription;
+                }
+            }
 
             Console.WriteLine($"\n");
             Console.WriteLine($"RESPONSE STATUS CODE: {httpResponseStatusCode}");
