@@ -115,6 +115,12 @@ namespace {{packageName}}.Client
         /// <value>An instance of the RestClient</value>
         public RestClient RestClient { get; set; }
 
+        /// <summary>
+        /// Gets or sets the file name, in which the response to be downloaded.
+        /// </summary>
+        /// <value>An instance of the Configuration.</value>
+        public string DownloadReponseFileName { get; set; }
+
         // Creates and sets up a RestRequest prior to a call.
         private RestRequest PrepareRequest(
             String path, {{^netStandard}}RestSharp.{{/netStandard}}Method method, Dictionary<String, String> queryParams, Object postBody,
@@ -331,7 +337,7 @@ namespace {{packageName}}.Client
             String path, {{^netStandard}}RestSharp.{{/netStandard}}Method method, Dictionary<String, String> queryParams, Object postBody,
             Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
             Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
-            String contentType, bool downloadResponseAsFile = false)
+            String contentType)
         {
             //declared separately to handle both regular call and download file calls
             int httpResponseStatusCode;
@@ -341,7 +347,7 @@ namespace {{packageName}}.Client
             var response = new RestResponse();
 
             //check if the Response is to be downloaded as a file, this value to be set by the calling API class
-            if (!downloadResponseAsFile)
+            if (string.IsNullOrEmpty(DownloadReponseFileName))
             {
                 var request = PrepareRequest(
                     path, method, queryParams, postBody, headerParams, formParams, fileParams,
@@ -374,10 +380,8 @@ namespace {{packageName}}.Client
                 {{/netStandard}}
                 InterceptResponse(request, response);
             }
+            else
             {
-                //setting file name
-                string downloadReponseFileName = path.Split('/')[path.Split('/').Length - 1] + "_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".csv";
-
                 //prepare a HttpWebRequest request object
                 var requestT = PrepareHttpWebRequest(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType);
 
@@ -388,7 +392,7 @@ namespace {{packageName}}.Client
                     //setting high timeout to accomodate large files till 2GB, need to revisit for a dynamic approach
                     responseStream.ReadTimeout = 8000000;
                     responseStream.WriteTimeout = 9000000;
-                    using (Stream fileStream = File.OpenWrite(@downloadReponseFileName))
+                    using (Stream fileStream = File.OpenWrite(@DownloadReponseFileName))
                     {
                         byte[] buffer = new byte[4096];
                         int bytesRead = responseStream.Read(buffer, 0, 4096);
@@ -410,7 +414,7 @@ namespace {{packageName}}.Client
                 response.StatusCode = responseT.StatusCode;
                 if (responseT.StatusCode == HttpStatusCode.OK)
                 {
-                    response.Content = "Custom Message: Response downloaded to file " + downloadReponseFileName;
+                    response.Content = "Custom Message: Response downloaded to file " + DownloadReponseFileName;
                 }
                 else if (responseT.StatusCode == HttpStatusCode.NotFound)
                 {
