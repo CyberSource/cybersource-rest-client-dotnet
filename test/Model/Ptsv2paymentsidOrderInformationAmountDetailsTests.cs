@@ -65,12 +65,12 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'AdditonalAmount'
+        /// Test the property 'AdditionalAmount'
         /// </summary>
         [Test]
-        public void AdditonalAmountTest()
+        public void AdditionalAmountTest()
         {
-            // TODO unit test for the property 'AdditonalAmount'
+            // TODO unit test for the property 'AdditionalAmount'
         }
         /// <summary>
         /// Test the property 'Currency'

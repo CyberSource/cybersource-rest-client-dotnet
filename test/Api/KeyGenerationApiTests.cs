@@ -72,7 +72,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //GeneratePublicKeyRequest generatePublicKeyRequest = null;
-            //var response = instance.GeneratePublicKey(generatePublicKeyRequest);
+            //string format = null;
+            //var response = instance.GeneratePublicKey(generatePublicKeyRequest, format);
             //Assert.IsInstanceOf<FlexV1KeysPost200Response> (response, "response is FlexV1KeysPost200Response");
         }
         

@@ -144,6 +144,334 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PaSpecificationVersion'
         }
+        /// <summary>
+        /// Test the property 'AuthenticationType'
+        /// </summary>
+        [Test]
+        public void AuthenticationTypeTest()
+        {
+            // TODO unit test for the property 'AuthenticationType'
+        }
+        /// <summary>
+        /// Test the property 'AcsWindowSize'
+        /// </summary>
+        [Test]
+        public void AcsWindowSizeTest()
+        {
+            // TODO unit test for the property 'AcsWindowSize'
+        }
+        /// <summary>
+        /// Test the property 'AlternateAuthenticationData'
+        /// </summary>
+        [Test]
+        public void AlternateAuthenticationDataTest()
+        {
+            // TODO unit test for the property 'AlternateAuthenticationData'
+        }
+        /// <summary>
+        /// Test the property 'AlternateAuthenticationDate'
+        /// </summary>
+        [Test]
+        public void AlternateAuthenticationDateTest()
+        {
+            // TODO unit test for the property 'AlternateAuthenticationDate'
+        }
+        /// <summary>
+        /// Test the property 'AlternateAuthenticationMethod'
+        /// </summary>
+        [Test]
+        public void AlternateAuthenticationMethodTest()
+        {
+            // TODO unit test for the property 'AlternateAuthenticationMethod'
+        }
+        /// <summary>
+        /// Test the property 'AuthenticationDate'
+        /// </summary>
+        [Test]
+        public void AuthenticationDateTest()
+        {
+            // TODO unit test for the property 'AuthenticationDate'
+        }
+        /// <summary>
+        /// Test the property 'AuthenticationTransactionId'
+        /// </summary>
+        [Test]
+        public void AuthenticationTransactionIdTest()
+        {
+            // TODO unit test for the property 'AuthenticationTransactionId'
+        }
+        /// <summary>
+        /// Test the property 'ChallengeCancelCode'
+        /// </summary>
+        [Test]
+        public void ChallengeCancelCodeTest()
+        {
+            // TODO unit test for the property 'ChallengeCancelCode'
+        }
+        /// <summary>
+        /// Test the property 'ChallengeCode'
+        /// </summary>
+        [Test]
+        public void ChallengeCodeTest()
+        {
+            // TODO unit test for the property 'ChallengeCode'
+        }
+        /// <summary>
+        /// Test the property 'ChallengeStatus'
+        /// </summary>
+        [Test]
+        public void ChallengeStatusTest()
+        {
+            // TODO unit test for the property 'ChallengeStatus'
+        }
+        /// <summary>
+        /// Test the property 'CustomerCardAlias'
+        /// </summary>
+        [Test]
+        public void CustomerCardAliasTest()
+        {
+            // TODO unit test for the property 'CustomerCardAlias'
+        }
+        /// <summary>
+        /// Test the property 'DecoupledAuthenticationIndicator'
+        /// </summary>
+        [Test]
+        public void DecoupledAuthenticationIndicatorTest()
+        {
+            // TODO unit test for the property 'DecoupledAuthenticationIndicator'
+        }
+        /// <summary>
+        /// Test the property 'DecoupledAuthenticationMaxTime'
+        /// </summary>
+        [Test]
+        public void DecoupledAuthenticationMaxTimeTest()
+        {
+            // TODO unit test for the property 'DecoupledAuthenticationMaxTime'
+        }
+        /// <summary>
+        /// Test the property 'DefaultCard'
+        /// </summary>
+        [Test]
+        public void DefaultCardTest()
+        {
+            // TODO unit test for the property 'DefaultCard'
+        }
+        /// <summary>
+        /// Test the property 'DeviceChannel'
+        /// </summary>
+        [Test]
+        public void DeviceChannelTest()
+        {
+            // TODO unit test for the property 'DeviceChannel'
+        }
+        /// <summary>
+        /// Test the property 'InstallmentTotalCount'
+        /// </summary>
+        [Test]
+        public void InstallmentTotalCountTest()
+        {
+            // TODO unit test for the property 'InstallmentTotalCount'
+        }
+        /// <summary>
+        /// Test the property 'MerchantFraudRate'
+        /// </summary>
+        [Test]
+        public void MerchantFraudRateTest()
+        {
+            // TODO unit test for the property 'MerchantFraudRate'
+        }
+        /// <summary>
+        /// Test the property 'MarketingOptIn'
+        /// </summary>
+        [Test]
+        public void MarketingOptInTest()
+        {
+            // TODO unit test for the property 'MarketingOptIn'
+        }
+        /// <summary>
+        /// Test the property 'MarketingSource'
+        /// </summary>
+        [Test]
+        public void MarketingSourceTest()
+        {
+            // TODO unit test for the property 'MarketingSource'
+        }
+        /// <summary>
+        /// Test the property 'Mcc'
+        /// </summary>
+        [Test]
+        public void MccTest()
+        {
+            // TODO unit test for the property 'Mcc'
+        }
+        /// <summary>
+        /// Test the property 'MerchantScore'
+        /// </summary>
+        [Test]
+        public void MerchantScoreTest()
+        {
+            // TODO unit test for the property 'MerchantScore'
+        }
+        /// <summary>
+        /// Test the property 'MessageCategory'
+        /// </summary>
+        [Test]
+        public void MessageCategoryTest()
+        {
+            // TODO unit test for the property 'MessageCategory'
+        }
+        /// <summary>
+        /// Test the property 'NpaCode'
+        /// </summary>
+        [Test]
+        public void NpaCodeTest()
+        {
+            // TODO unit test for the property 'NpaCode'
+        }
+        /// <summary>
+        /// Test the property 'OverridePaymentMethod'
+        /// </summary>
+        [Test]
+        public void OverridePaymentMethodTest()
+        {
+            // TODO unit test for the property 'OverridePaymentMethod'
+        }
+        /// <summary>
+        /// Test the property 'OverrideCountryCode'
+        /// </summary>
+        [Test]
+        public void OverrideCountryCodeTest()
+        {
+            // TODO unit test for the property 'OverrideCountryCode'
+        }
+        /// <summary>
+        /// Test the property 'PriorAuthenticationData'
+        /// </summary>
+        [Test]
+        public void PriorAuthenticationDataTest()
+        {
+            // TODO unit test for the property 'PriorAuthenticationData'
+        }
+        /// <summary>
+        /// Test the property 'PriorAuthenticationMethod'
+        /// </summary>
+        [Test]
+        public void PriorAuthenticationMethodTest()
+        {
+            // TODO unit test for the property 'PriorAuthenticationMethod'
+        }
+        /// <summary>
+        /// Test the property 'PriorAuthenticationReferenceId'
+        /// </summary>
+        [Test]
+        public void PriorAuthenticationReferenceIdTest()
+        {
+            // TODO unit test for the property 'PriorAuthenticationReferenceId'
+        }
+        /// <summary>
+        /// Test the property 'PriorAuthenticationTime'
+        /// </summary>
+        [Test]
+        public void PriorAuthenticationTimeTest()
+        {
+            // TODO unit test for the property 'PriorAuthenticationTime'
+        }
+        /// <summary>
+        /// Test the property 'ProductCode'
+        /// </summary>
+        [Test]
+        public void ProductCodeTest()
+        {
+            // TODO unit test for the property 'ProductCode'
+        }
+        /// <summary>
+        /// Test the property 'RequestorId'
+        /// </summary>
+        [Test]
+        public void RequestorIdTest()
+        {
+            // TODO unit test for the property 'RequestorId'
+        }
+        /// <summary>
+        /// Test the property 'RequestorInitiatedAuthenticationIndicator'
+        /// </summary>
+        [Test]
+        public void RequestorInitiatedAuthenticationIndicatorTest()
+        {
+            // TODO unit test for the property 'RequestorInitiatedAuthenticationIndicator'
+        }
+        /// <summary>
+        /// Test the property 'RequestorName'
+        /// </summary>
+        [Test]
+        public void RequestorNameTest()
+        {
+            // TODO unit test for the property 'RequestorName'
+        }
+        /// <summary>
+        /// Test the property 'ReferenceId'
+        /// </summary>
+        [Test]
+        public void ReferenceIdTest()
+        {
+            // TODO unit test for the property 'ReferenceId'
+        }
+        /// <summary>
+        /// Test the property 'SdkMaxTimeout'
+        /// </summary>
+        [Test]
+        public void SdkMaxTimeoutTest()
+        {
+            // TODO unit test for the property 'SdkMaxTimeout'
+        }
+        /// <summary>
+        /// Test the property 'SecureCorporatePaymentIndicator'
+        /// </summary>
+        [Test]
+        public void SecureCorporatePaymentIndicatorTest()
+        {
+            // TODO unit test for the property 'SecureCorporatePaymentIndicator'
+        }
+        /// <summary>
+        /// Test the property 'TransactionMode'
+        /// </summary>
+        [Test]
+        public void TransactionModeTest()
+        {
+            // TODO unit test for the property 'TransactionMode'
+        }
+        /// <summary>
+        /// Test the property 'WhiteListStatus'
+        /// </summary>
+        [Test]
+        public void WhiteListStatusTest()
+        {
+            // TODO unit test for the property 'WhiteListStatus'
+        }
+        /// <summary>
+        /// Test the property 'EffectiveAuthenticationType'
+        /// </summary>
+        [Test]
+        public void EffectiveAuthenticationTypeTest()
+        {
+            // TODO unit test for the property 'EffectiveAuthenticationType'
+        }
+        /// <summary>
+        /// Test the property 'SignedParesStatusReason'
+        /// </summary>
+        [Test]
+        public void SignedParesStatusReasonTest()
+        {
+            // TODO unit test for the property 'SignedParesStatusReason'
+        }
+        /// <summary>
+        /// Test the property 'SignedPares'
+        /// </summary>
+        [Test]
+        public void SignedParesTest()
+        {
+            // TODO unit test for the property 'SignedPares'
+        }
 
     }
 

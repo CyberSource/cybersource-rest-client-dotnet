@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="MitVoidRequest" /> class.
         /// </summary>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
-        public MitVoidRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation))
+        /// <param name="PaymentInformation">PaymentInformation.</param>
+        public MitVoidRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidvoidsPaymentInformation PaymentInformation = default(Ptsv2paymentsidvoidsPaymentInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
+            this.PaymentInformation = PaymentInformation;
         }
         
         /// <summary>
@@ -44,6 +46,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
         public Ptsv2paymentsClientReferenceInformation ClientReferenceInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentInformation
+        /// </summary>
+        [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsidvoidsPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +62,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class MitVoidRequest {\n");
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +103,11 @@ namespace CyberSource.Model
                     this.ClientReferenceInformation == other.ClientReferenceInformation ||
                     this.ClientReferenceInformation != null &&
                     this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
+                ) && 
+                (
+                    this.PaymentInformation == other.PaymentInformation ||
+                    this.PaymentInformation != null &&
+                    this.PaymentInformation.Equals(other.PaymentInformation)
                 );
         }
 
@@ -110,6 +124,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.ClientReferenceInformation != null)
                     hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
+                if (this.PaymentInformation != null)
+                    hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 return hash;
             }
         }

@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="LineItems">This array contains detailed information about individual products in the order..</param>
         /// <param name="BillTo">BillTo.</param>
         /// <param name="TotalOffersCount">Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 .</param>
-        public Riskv1authenticationsOrderInformation(Riskv1decisionsOrderInformationAmountDetails AmountDetails = default(Riskv1decisionsOrderInformationAmountDetails), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), Riskv1authenticationsOrderInformationShipTo ShipTo = default(Riskv1authenticationsOrderInformationShipTo), List<Riskv1authenticationsOrderInformationLineItems> LineItems = default(List<Riskv1authenticationsOrderInformationLineItems>), Riskv1authenticationexemptionsOrderInformationBillTo BillTo = default(Riskv1authenticationexemptionsOrderInformationBillTo), string TotalOffersCount = default(string))
+        public Riskv1authenticationsOrderInformation(Riskv1authenticationsOrderInformationAmountDetails AmountDetails = default(Riskv1authenticationsOrderInformationAmountDetails), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), Riskv1authenticationsOrderInformationShipTo ShipTo = default(Riskv1authenticationsOrderInformationShipTo), List<Riskv1authenticationsOrderInformationLineItems> LineItems = default(List<Riskv1authenticationsOrderInformationLineItems>), Riskv1authenticationsOrderInformationBillTo BillTo = default(Riskv1authenticationsOrderInformationBillTo), string TotalOffersCount = default(string))
         {
             this.AmountDetails = AmountDetails;
             this.PreOrder = PreOrder;
@@ -57,7 +57,7 @@ namespace CyberSource.Model
         /// Gets or Sets AmountDetails
         /// </summary>
         [DataMember(Name="amountDetails", EmitDefaultValue=false)]
-        public Riskv1decisionsOrderInformationAmountDetails AmountDetails { get; set; }
+        public Riskv1authenticationsOrderInformationAmountDetails AmountDetails { get; set; }
 
         /// <summary>
         /// Indicates whether cardholder is placing an order with a future availability or release date. This field can contain one of these values: - MERCHANDISE_AVAILABLE: Merchandise available - FUTURE_AVAILABILITY: Future availability 
@@ -97,7 +97,7 @@ namespace CyberSource.Model
         /// Gets or Sets BillTo
         /// </summary>
         [DataMember(Name="billTo", EmitDefaultValue=false)]
-        public Riskv1authenticationexemptionsOrderInformationBillTo BillTo { get; set; }
+        public Riskv1authenticationsOrderInformationBillTo BillTo { get; set; }
 
         /// <summary>
         /// Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 

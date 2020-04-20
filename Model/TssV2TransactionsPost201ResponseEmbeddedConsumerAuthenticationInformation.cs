@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Xid">Transaction identifier.  For details, see &#x60;xid&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="TransactionId">Payer auth Transaction identifier..</param>
-        public TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation(string Xid = default(string), string TransactionId = default(string))
+        /// <param name="EciRaw">Raw electronic commerce indicator (ECI).  For details, see &#x60;eci_raw&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        public TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation(string Xid = default(string), string TransactionId = default(string), string EciRaw = default(string))
         {
             this.Xid = Xid;
             this.TransactionId = TransactionId;
+            this.EciRaw = EciRaw;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace CyberSource.Model
         public string TransactionId { get; set; }
 
         /// <summary>
+        /// Raw electronic commerce indicator (ECI).  For details, see &#x60;eci_raw&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+        /// </summary>
+        /// <value>Raw electronic commerce indicator (ECI).  For details, see &#x60;eci_raw&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
+        [DataMember(Name="eciRaw", EmitDefaultValue=false)]
+        public string EciRaw { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace CyberSource.Model
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation {\n");
             sb.Append("  Xid: ").Append(Xid).Append("\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            sb.Append("  EciRaw: ").Append(EciRaw).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +120,11 @@ namespace CyberSource.Model
                     this.TransactionId == other.TransactionId ||
                     this.TransactionId != null &&
                     this.TransactionId.Equals(other.TransactionId)
+                ) && 
+                (
+                    this.EciRaw == other.EciRaw ||
+                    this.EciRaw != null &&
+                    this.EciRaw.Equals(other.EciRaw)
                 );
         }
 
@@ -128,6 +143,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Xid.GetHashCode();
                 if (this.TransactionId != null)
                     hash = hash * 59 + this.TransactionId.GetHashCode();
+                if (this.EciRaw != null)
+                    hash = hash * 59 + this.EciRaw.GetHashCode();
                 return hash;
             }
         }
@@ -143,6 +160,12 @@ namespace CyberSource.Model
             if(this.Xid != null && this.Xid.Length >= 40)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Xid, length must be less than or equal to 40.", new [] { "Xid" });
+            }
+
+            // EciRaw (string) maxLength
+            if(this.EciRaw != null && this.EciRaw.Length >= 2)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EciRaw, length must be less than or equal to 2.", new [] { "EciRaw" });
             }
 
             yield break;

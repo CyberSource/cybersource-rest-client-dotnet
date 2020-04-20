@@ -43,7 +43,8 @@ namespace CyberSource.Model
         /// <param name="PaymentCategoryCode">Flag that indicates whether to process the payment.  Use with deferred payments. For details, see &#x60;ecp_payment_mode&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/)  Possible values: - &#x60;0&#x60;: Standard debit with immediate payment (default). - &#x60;1&#x60;: For deferred payments, indicates that this is a deferred payment and that you will send a debit request with &#x60;paymentCategoryCode &#x3D; 2&#x60; in the future. - &#x60;2&#x60;: For deferred payments, indicates notification to initiate payment.  #### Chase Paymentech Solutions and TeleCheck Use for deferred and partial payments.  #### CyberSource ACH Service Not used.  #### RBS WorldPay Atlanta Not used. .</param>
         /// <param name="SettlementMethod">Method used for settlement.  Possible values: - &#x60;A&#x60;: Automated Clearing House (default for credits and for transactions using Canadian dollars) - &#x60;F&#x60;: Facsimile draft (U.S. dollars only) - &#x60;B&#x60;: Best possible (U.S. dollars only) (default if the field has not already been configured for your merchant ID)  For details, see &#x60;ecp_settlement_method&#x60; field description for credit cars and &#x60;ecp_debit_settlement_method&#x60; for debit cards in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) .</param>
         /// <param name="FraudScreeningLevel">Level of fraud screening.  Possible values: - &#x60;1&#x60;: Validation — default if the field has not already been configured for your merchant ID - &#x60;2&#x60;: Verification  For a description of this feature and a list of supported processors, see \&quot;Verification and Validation\&quot; in the [Electronic Check Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). .</param>
-        public Ptsv2paymentsProcessingInformationBankTransferOptions(string DeclineAvsFlags = default(string), string SecCode = default(string), string TerminalCity = default(string), string TerminalState = default(string), string EffectiveDate = default(string), string PartialPaymentId = default(string), string CustomerMemo = default(string), string PaymentCategoryCode = default(string), string SettlementMethod = default(string), string FraudScreeningLevel = default(string))
+        /// <param name="CustomerPresent">Indicates whether a customer is physically present and whether the customer is enrolling in CyberSource Recurring Billing.  Possible values: - &#x60;1&#x60;: Customer is present and not enrolling. - &#x60;2&#x60;: Customer is not present and not enrolling. - &#x60;3&#x60;: Customer is present and enrolling. - &#x60;4&#x60;: Customer is not present and enrolling. .</param>
+        public Ptsv2paymentsProcessingInformationBankTransferOptions(string DeclineAvsFlags = default(string), string SecCode = default(string), string TerminalCity = default(string), string TerminalState = default(string), string EffectiveDate = default(string), string PartialPaymentId = default(string), string CustomerMemo = default(string), string PaymentCategoryCode = default(string), string SettlementMethod = default(string), string FraudScreeningLevel = default(string), string CustomerPresent = default(string))
         {
             this.DeclineAvsFlags = DeclineAvsFlags;
             this.SecCode = SecCode;
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             this.PaymentCategoryCode = PaymentCategoryCode;
             this.SettlementMethod = SettlementMethod;
             this.FraudScreeningLevel = FraudScreeningLevel;
+            this.CustomerPresent = CustomerPresent;
         }
         
         /// <summary>
@@ -128,6 +130,13 @@ namespace CyberSource.Model
         public string FraudScreeningLevel { get; set; }
 
         /// <summary>
+        /// Indicates whether a customer is physically present and whether the customer is enrolling in CyberSource Recurring Billing.  Possible values: - &#x60;1&#x60;: Customer is present and not enrolling. - &#x60;2&#x60;: Customer is not present and not enrolling. - &#x60;3&#x60;: Customer is present and enrolling. - &#x60;4&#x60;: Customer is not present and enrolling. 
+        /// </summary>
+        /// <value>Indicates whether a customer is physically present and whether the customer is enrolling in CyberSource Recurring Billing.  Possible values: - &#x60;1&#x60;: Customer is present and not enrolling. - &#x60;2&#x60;: Customer is not present and not enrolling. - &#x60;3&#x60;: Customer is present and enrolling. - &#x60;4&#x60;: Customer is not present and enrolling. </value>
+        [DataMember(Name="customerPresent", EmitDefaultValue=false)]
+        public string CustomerPresent { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +154,7 @@ namespace CyberSource.Model
             sb.Append("  PaymentCategoryCode: ").Append(PaymentCategoryCode).Append("\n");
             sb.Append("  SettlementMethod: ").Append(SettlementMethod).Append("\n");
             sb.Append("  FraudScreeningLevel: ").Append(FraudScreeningLevel).Append("\n");
+            sb.Append("  CustomerPresent: ").Append(CustomerPresent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -230,6 +240,11 @@ namespace CyberSource.Model
                     this.FraudScreeningLevel == other.FraudScreeningLevel ||
                     this.FraudScreeningLevel != null &&
                     this.FraudScreeningLevel.Equals(other.FraudScreeningLevel)
+                ) && 
+                (
+                    this.CustomerPresent == other.CustomerPresent ||
+                    this.CustomerPresent != null &&
+                    this.CustomerPresent.Equals(other.CustomerPresent)
                 );
         }
 
@@ -264,6 +279,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SettlementMethod.GetHashCode();
                 if (this.FraudScreeningLevel != null)
                     hash = hash * 59 + this.FraudScreeningLevel.GetHashCode();
+                if (this.CustomerPresent != null)
+                    hash = hash * 59 + this.CustomerPresent.GetHashCode();
                 return hash;
             }
         }
@@ -333,6 +350,12 @@ namespace CyberSource.Model
             if(this.FraudScreeningLevel != null && this.FraudScreeningLevel.Length >= 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FraudScreeningLevel, length must be less than or equal to 1.", new [] { "FraudScreeningLevel" });
+            }
+
+            // CustomerPresent (string) maxLength
+            if(this.CustomerPresent != null && this.CustomerPresent.Length >= 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomerPresent, length must be less than or equal to 1.", new [] { "CustomerPresent" });
             }
 
             yield break;

@@ -45,7 +45,10 @@ namespace CyberSource.Model
         /// <param name="BuildingNumber">Building number in the street address. For example, the building number is 187 in the following address:  Rua da Quitanda 187 .</param>
         /// <param name="PhoneNumber">Phone number associated with the shipping address..</param>
         /// <param name="Company">Name of the customer’s company.  For processor-specific information, see the company_name field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        public Ptsv2paymentsOrderInformationShipTo(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string PhoneNumber = default(string), string Company = default(string))
+        /// <param name="DestinationTypes">Shipping destination of item. Example: Commercial, Residential, Store .</param>
+        /// <param name="DestinationCode">Indicates destination chosen for the transaction. Possible values: - 01- Ship to cardholder billing address - 02- Ship to another verified address on file with merchant - 03- Ship to address that is different than billing address - 04- Ship to store (store address should be populated on request) - 05- Digital goods - 06- Travel and event tickets, not shipped - 07- Other .</param>
+        /// <param name="Method">Shipping method for the product. Possible values: - lowcost: Lowest-cost service - sameday: Courier or same-day service - oneday: Next-day or overnight service - twoday: Two-day service - threeday: Three-day service - pickup: Store pick-up - other: Other shipping method - none: No shipping method because product is a service or subscription Required for American Express SafeKey (U.S.). .</param>
+        public Ptsv2paymentsOrderInformationShipTo(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string PhoneNumber = default(string), string Company = default(string), string DestinationTypes = default(string), int? DestinationCode = default(int?), string Method = default(string))
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
@@ -59,6 +62,9 @@ namespace CyberSource.Model
             this.BuildingNumber = BuildingNumber;
             this.PhoneNumber = PhoneNumber;
             this.Company = Company;
+            this.DestinationTypes = DestinationTypes;
+            this.DestinationCode = DestinationCode;
+            this.Method = Method;
         }
         
         /// <summary>
@@ -146,6 +152,27 @@ namespace CyberSource.Model
         public string Company { get; set; }
 
         /// <summary>
+        /// Shipping destination of item. Example: Commercial, Residential, Store 
+        /// </summary>
+        /// <value>Shipping destination of item. Example: Commercial, Residential, Store </value>
+        [DataMember(Name="destinationTypes", EmitDefaultValue=false)]
+        public string DestinationTypes { get; set; }
+
+        /// <summary>
+        /// Indicates destination chosen for the transaction. Possible values: - 01- Ship to cardholder billing address - 02- Ship to another verified address on file with merchant - 03- Ship to address that is different than billing address - 04- Ship to store (store address should be populated on request) - 05- Digital goods - 06- Travel and event tickets, not shipped - 07- Other 
+        /// </summary>
+        /// <value>Indicates destination chosen for the transaction. Possible values: - 01- Ship to cardholder billing address - 02- Ship to another verified address on file with merchant - 03- Ship to address that is different than billing address - 04- Ship to store (store address should be populated on request) - 05- Digital goods - 06- Travel and event tickets, not shipped - 07- Other </value>
+        [DataMember(Name="destinationCode", EmitDefaultValue=false)]
+        public int? DestinationCode { get; set; }
+
+        /// <summary>
+        /// Shipping method for the product. Possible values: - lowcost: Lowest-cost service - sameday: Courier or same-day service - oneday: Next-day or overnight service - twoday: Two-day service - threeday: Three-day service - pickup: Store pick-up - other: Other shipping method - none: No shipping method because product is a service or subscription Required for American Express SafeKey (U.S.). 
+        /// </summary>
+        /// <value>Shipping method for the product. Possible values: - lowcost: Lowest-cost service - sameday: Courier or same-day service - oneday: Next-day or overnight service - twoday: Two-day service - threeday: Three-day service - pickup: Store pick-up - other: Other shipping method - none: No shipping method because product is a service or subscription Required for American Express SafeKey (U.S.). </value>
+        [DataMember(Name="method", EmitDefaultValue=false)]
+        public string Method { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -165,6 +192,9 @@ namespace CyberSource.Model
             sb.Append("  BuildingNumber: ").Append(BuildingNumber).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  Company: ").Append(Company).Append("\n");
+            sb.Append("  DestinationTypes: ").Append(DestinationTypes).Append("\n");
+            sb.Append("  DestinationCode: ").Append(DestinationCode).Append("\n");
+            sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -260,6 +290,21 @@ namespace CyberSource.Model
                     this.Company == other.Company ||
                     this.Company != null &&
                     this.Company.Equals(other.Company)
+                ) && 
+                (
+                    this.DestinationTypes == other.DestinationTypes ||
+                    this.DestinationTypes != null &&
+                    this.DestinationTypes.Equals(other.DestinationTypes)
+                ) && 
+                (
+                    this.DestinationCode == other.DestinationCode ||
+                    this.DestinationCode != null &&
+                    this.DestinationCode.Equals(other.DestinationCode)
+                ) && 
+                (
+                    this.Method == other.Method ||
+                    this.Method != null &&
+                    this.Method.Equals(other.Method)
                 );
         }
 
@@ -298,6 +343,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 if (this.Company != null)
                     hash = hash * 59 + this.Company.GetHashCode();
+                if (this.DestinationTypes != null)
+                    hash = hash * 59 + this.DestinationTypes.GetHashCode();
+                if (this.DestinationCode != null)
+                    hash = hash * 59 + this.DestinationCode.GetHashCode();
+                if (this.Method != null)
+                    hash = hash * 59 + this.Method.GetHashCode();
                 return hash;
             }
         }
@@ -379,6 +430,18 @@ namespace CyberSource.Model
             if(this.Company != null && this.Company.Length >= 60)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Company, length must be less than or equal to 60.", new [] { "Company" });
+            }
+
+            // DestinationTypes (string) maxLength
+            if(this.DestinationTypes != null && this.DestinationTypes.Length >= 25)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DestinationTypes, length must be less than or equal to 25.", new [] { "DestinationTypes" });
+            }
+
+            // Method (string) maxLength
+            if(this.Method != null && this.Method.Length >= 10)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Method, length must be less than or equal to 10.", new [] { "Method" });
             }
 
             yield break;

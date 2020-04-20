@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="generatepublickey"></a>
 # **GeneratePublicKey**
-> FlexV1KeysPost200Response GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest)
+> FlexV1KeysPost200Response GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest, string format = null)
 
 Generate Key
 
@@ -31,11 +31,12 @@ namespace Example
         {
             var apiInstance = new KeyGenerationApi();
             var generatePublicKeyRequest = new GeneratePublicKeyRequest(); // GeneratePublicKeyRequest | 
+            var format = format_example;  // string | Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) (optional)  (default to legacy)
 
             try
             {
                 // Generate Key
-                FlexV1KeysPost200Response result = apiInstance.GeneratePublicKey(generatePublicKeyRequest);
+                FlexV1KeysPost200Response result = apiInstance.GeneratePublicKey(generatePublicKeyRequest, format);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -52,6 +53,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **generatePublicKeyRequest** | [**GeneratePublicKeyRequest**](GeneratePublicKeyRequest.md)|  | 
+ **format** | **string**| Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) | [optional] [default to legacy]
 
 ### Return type
 

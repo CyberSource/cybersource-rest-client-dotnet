@@ -59,7 +59,12 @@ namespace CyberSource.Model
         /// <param name="WeightUnit">Code that specifies the unit of measurement for the weight amount. For example, &#x60;OZ&#x60; specifies ounce and &#x60;LB&#x60; specifies pound. The possible values are defined by the ANSI Accredited Standards Committee (ASC).  For details, see &#x60;weight_unit_measurement&#x60; offer-level field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) .</param>
         /// <param name="ReferenceDataCode">Code that identifies the value of the corresponding &#x60;orderInformation.lineItems[].referenceDataNumber&#x60; field.  Possible values: - AN: Client-defined asset code - MG: Manufacturer&#39;s part number - PO: Purchase order number - SK: Supplier stock keeping unit number - UP: Universal product code - VC: Supplier catalog number - VP: Vendor part number  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor.  For details, see &#x60;reference_data_#_code&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) .</param>
         /// <param name="ReferenceDataNumber">Reference number.  The meaning of this value is identified by the value of the corresponding &#x60;referenceDataCode&#x60; field. See Numbered Elements.  The maximum length for this field depends on the value of the corresponding &#x60;referenceDataCode&#x60; field: - When the code is &#x60;PO&#x60;, the maximum length for the reference number is 22. - When the code is &#x60;VC&#x60;, the maximum length for the reference number is 20. - For all other codes, the maximum length for the reference number is 30.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
-        public Ptsv2paymentsOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string UnitOfMeasure = default(string), string TotalAmount = default(string), string TaxAmount = default(string), string TaxRate = default(string), string TaxAppliedAfterDiscount = default(string), string TaxStatusIndicator = default(string), string TaxTypeCode = default(string), bool? AmountIncludesTax = default(bool?), string TypeOfSupply = default(string), string CommodityCode = default(string), string DiscountAmount = default(string), bool? DiscountApplied = default(bool?), string DiscountRate = default(string), string InvoiceNumber = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string FulfillmentType = default(string), string Weight = default(string), string WeightIdentifier = default(string), string WeightUnit = default(string), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string))
+        /// <param name="ProductDescription">Brief description of item..</param>
+        /// <param name="GiftCardCurrency">When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the currency used for the gift card purchase.  For details, see &#x60;pa_gift_card_currency&#x60; field description in [CyberSource Payer Authentication Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Payer_Authentication_SCMP_API/Payer_Authentication_SCMP_API.pdf)  For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf) .</param>
+        /// <param name="ShippingDestinationTypes">Destination to where the item will be shipped. Example: Commercial, Residential, Store .</param>
+        /// <param name="Gift">This field is only used in DM service.  Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. .</param>
+        /// <param name="Passenger">Passenger.</param>
+        public Ptsv2paymentsOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string UnitOfMeasure = default(string), string TotalAmount = default(string), string TaxAmount = default(string), string TaxRate = default(string), string TaxAppliedAfterDiscount = default(string), string TaxStatusIndicator = default(string), string TaxTypeCode = default(string), bool? AmountIncludesTax = default(bool?), string TypeOfSupply = default(string), string CommodityCode = default(string), string DiscountAmount = default(string), bool? DiscountApplied = default(bool?), string DiscountRate = default(string), string InvoiceNumber = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string FulfillmentType = default(string), string Weight = default(string), string WeightIdentifier = default(string), string WeightUnit = default(string), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), string ProductDescription = default(string), int? GiftCardCurrency = default(int?), string ShippingDestinationTypes = default(string), bool? Gift = default(bool?), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger))
         {
             this.ProductCode = ProductCode;
             this.ProductName = ProductName;
@@ -87,6 +92,11 @@ namespace CyberSource.Model
             this.WeightUnit = WeightUnit;
             this.ReferenceDataCode = ReferenceDataCode;
             this.ReferenceDataNumber = ReferenceDataNumber;
+            this.ProductDescription = ProductDescription;
+            this.GiftCardCurrency = GiftCardCurrency;
+            this.ShippingDestinationTypes = ShippingDestinationTypes;
+            this.Gift = Gift;
+            this.Passenger = Passenger;
         }
         
         /// <summary>
@@ -271,6 +281,40 @@ namespace CyberSource.Model
         public string ReferenceDataNumber { get; set; }
 
         /// <summary>
+        /// Brief description of item.
+        /// </summary>
+        /// <value>Brief description of item.</value>
+        [DataMember(Name="productDescription", EmitDefaultValue=false)]
+        public string ProductDescription { get; set; }
+
+        /// <summary>
+        /// When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the currency used for the gift card purchase.  For details, see &#x60;pa_gift_card_currency&#x60; field description in [CyberSource Payer Authentication Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Payer_Authentication_SCMP_API/Payer_Authentication_SCMP_API.pdf)  For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf) 
+        /// </summary>
+        /// <value>When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the currency used for the gift card purchase.  For details, see &#x60;pa_gift_card_currency&#x60; field description in [CyberSource Payer Authentication Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Payer_Authentication_SCMP_API/Payer_Authentication_SCMP_API.pdf)  For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf) </value>
+        [DataMember(Name="giftCardCurrency", EmitDefaultValue=false)]
+        public int? GiftCardCurrency { get; set; }
+
+        /// <summary>
+        /// Destination to where the item will be shipped. Example: Commercial, Residential, Store 
+        /// </summary>
+        /// <value>Destination to where the item will be shipped. Example: Commercial, Residential, Store </value>
+        [DataMember(Name="shippingDestinationTypes", EmitDefaultValue=false)]
+        public string ShippingDestinationTypes { get; set; }
+
+        /// <summary>
+        /// This field is only used in DM service.  Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. 
+        /// </summary>
+        /// <value>This field is only used in DM service.  Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. </value>
+        [DataMember(Name="gift", EmitDefaultValue=false)]
+        public bool? Gift { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Passenger
+        /// </summary>
+        [DataMember(Name="passenger", EmitDefaultValue=false)]
+        public Ptsv2paymentsOrderInformationPassenger Passenger { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -304,6 +348,11 @@ namespace CyberSource.Model
             sb.Append("  WeightUnit: ").Append(WeightUnit).Append("\n");
             sb.Append("  ReferenceDataCode: ").Append(ReferenceDataCode).Append("\n");
             sb.Append("  ReferenceDataNumber: ").Append(ReferenceDataNumber).Append("\n");
+            sb.Append("  ProductDescription: ").Append(ProductDescription).Append("\n");
+            sb.Append("  GiftCardCurrency: ").Append(GiftCardCurrency).Append("\n");
+            sb.Append("  ShippingDestinationTypes: ").Append(ShippingDestinationTypes).Append("\n");
+            sb.Append("  Gift: ").Append(Gift).Append("\n");
+            sb.Append("  Passenger: ").Append(Passenger).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -469,6 +518,31 @@ namespace CyberSource.Model
                     this.ReferenceDataNumber == other.ReferenceDataNumber ||
                     this.ReferenceDataNumber != null &&
                     this.ReferenceDataNumber.Equals(other.ReferenceDataNumber)
+                ) && 
+                (
+                    this.ProductDescription == other.ProductDescription ||
+                    this.ProductDescription != null &&
+                    this.ProductDescription.Equals(other.ProductDescription)
+                ) && 
+                (
+                    this.GiftCardCurrency == other.GiftCardCurrency ||
+                    this.GiftCardCurrency != null &&
+                    this.GiftCardCurrency.Equals(other.GiftCardCurrency)
+                ) && 
+                (
+                    this.ShippingDestinationTypes == other.ShippingDestinationTypes ||
+                    this.ShippingDestinationTypes != null &&
+                    this.ShippingDestinationTypes.Equals(other.ShippingDestinationTypes)
+                ) && 
+                (
+                    this.Gift == other.Gift ||
+                    this.Gift != null &&
+                    this.Gift.Equals(other.Gift)
+                ) && 
+                (
+                    this.Passenger == other.Passenger ||
+                    this.Passenger != null &&
+                    this.Passenger.Equals(other.Passenger)
                 );
         }
 
@@ -535,6 +609,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReferenceDataCode.GetHashCode();
                 if (this.ReferenceDataNumber != null)
                     hash = hash * 59 + this.ReferenceDataNumber.GetHashCode();
+                if (this.ProductDescription != null)
+                    hash = hash * 59 + this.ProductDescription.GetHashCode();
+                if (this.GiftCardCurrency != null)
+                    hash = hash * 59 + this.GiftCardCurrency.GetHashCode();
+                if (this.ShippingDestinationTypes != null)
+                    hash = hash * 59 + this.ShippingDestinationTypes.GetHashCode();
+                if (this.Gift != null)
+                    hash = hash * 59 + this.Gift.GetHashCode();
+                if (this.Passenger != null)
+                    hash = hash * 59 + this.Passenger.GetHashCode();
                 return hash;
             }
         }
@@ -682,6 +766,12 @@ namespace CyberSource.Model
             if(this.ReferenceDataNumber != null && this.ReferenceDataNumber.Length >= 30)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataNumber, length must be less than or equal to 30.", new [] { "ReferenceDataNumber" });
+            }
+
+            // ShippingDestinationTypes (string) maxLength
+            if(this.ShippingDestinationTypes != null && this.ShippingDestinationTypes.Length >= 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShippingDestinationTypes, length must be less than or equal to 50.", new [] { "ShippingDestinationTypes" });
             }
 
             yield break;

@@ -32,8 +32,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="format">Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) (optional, default to legacy)</param>
         /// <returns>FlexV1KeysPost200Response</returns>
-        FlexV1KeysPost200Response GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest);
+        FlexV1KeysPost200Response GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest, string format = null);
 
         /// <summary>
         /// Generate Key
@@ -43,8 +44,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="format">Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) (optional, default to legacy)</param>
         /// <returns>ApiResponse of FlexV1KeysPost200Response</returns>
-        ApiResponse<FlexV1KeysPost200Response> GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest);
+        ApiResponse<FlexV1KeysPost200Response> GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest, string format = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -55,8 +57,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="format">Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) (optional, default to legacy)</param>
         /// <returns>Task of FlexV1KeysPost200Response</returns>
-        System.Threading.Tasks.Task<FlexV1KeysPost200Response> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest);
+        System.Threading.Tasks.Task<FlexV1KeysPost200Response> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest, string format = null);
 
         /// <summary>
         /// Generate Key
@@ -66,8 +69,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="format">Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) (optional, default to legacy)</param>
         /// <returns>Task of ApiResponse (FlexV1KeysPost200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest);
+        System.Threading.Tasks.Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest, string format = null);
         #endregion Asynchronous Operations
     }
 
@@ -181,10 +185,11 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="format">Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) (optional, default to legacy)</param>
         /// <returns>FlexV1KeysPost200Response</returns>
-        public FlexV1KeysPost200Response GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest)
+        public FlexV1KeysPost200Response GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest, string format = null)
         {
-             ApiResponse<FlexV1KeysPost200Response> localVarResponse = GeneratePublicKeyWithHttpInfo(generatePublicKeyRequest);
+             ApiResponse<FlexV1KeysPost200Response> localVarResponse = GeneratePublicKeyWithHttpInfo(generatePublicKeyRequest, format);
              return localVarResponse.Data;
         }
 
@@ -193,8 +198,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="format">Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) (optional, default to legacy)</param>
         /// <returns>ApiResponse of FlexV1KeysPost200Response</returns>
-        public ApiResponse< FlexV1KeysPost200Response > GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest)
+        public ApiResponse< FlexV1KeysPost200Response > GeneratePublicKeyWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest, string format = null)
         {
             // verify the required parameter 'generatePublicKeyRequest' is set
             if (generatePublicKeyRequest == null)
@@ -222,6 +228,7 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (format != null) localVarQueryParams.Add("format", Configuration.ApiClient.ParameterToString(format)); // query parameter
             if (generatePublicKeyRequest != null && generatePublicKeyRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(generatePublicKeyRequest); // http body (model) parameter
@@ -255,10 +262,11 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="format">Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) (optional, default to legacy)</param>
         /// <returns>Task of FlexV1KeysPost200Response</returns>
-        public async System.Threading.Tasks.Task<FlexV1KeysPost200Response> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest)
+        public async System.Threading.Tasks.Task<FlexV1KeysPost200Response> GeneratePublicKeyAsync (GeneratePublicKeyRequest generatePublicKeyRequest, string format = null)
         {
-             ApiResponse<FlexV1KeysPost200Response> localVarResponse = await GeneratePublicKeyAsyncWithHttpInfo(generatePublicKeyRequest);
+             ApiResponse<FlexV1KeysPost200Response> localVarResponse = await GeneratePublicKeyAsyncWithHttpInfo(generatePublicKeyRequest, format);
              return localVarResponse.Data;
 
         }
@@ -268,8 +276,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generatePublicKeyRequest"></param>
+        /// <param name="format">Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) (optional, default to legacy)</param>
         /// <returns>Task of ApiResponse (FlexV1KeysPost200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo (GeneratePublicKeyRequest generatePublicKeyRequest, string format = null)
         {
             // verify the required parameter 'generatePublicKeyRequest' is set
             if (generatePublicKeyRequest == null)
@@ -297,6 +306,7 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (format != null) localVarQueryParams.Add("format", Configuration.ApiClient.ParameterToString(format)); // query parameter
             if (generatePublicKeyRequest != null && generatePublicKeyRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(generatePublicKeyRequest); // http body (model) parameter

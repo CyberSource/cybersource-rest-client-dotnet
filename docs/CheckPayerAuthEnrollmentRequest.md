@@ -3,15 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientReferenceInformation** | [**Riskv1authenticationsetupsClientReferenceInformation**](Riskv1authenticationsetupsClientReferenceInformation.md) |  | [optional] 
+**ClientReferenceInformation** | [**Riskv1authenticationsClientReferenceInformation**](Riskv1authenticationsClientReferenceInformation.md) |  | [optional] 
 **OrderInformation** | [**Riskv1authenticationsOrderInformation**](Riskv1authenticationsOrderInformation.md) |  | [optional] 
-**PaymentInformation** | [**Riskv1authenticationexemptionsPaymentInformation**](Riskv1authenticationexemptionsPaymentInformation.md) |  | [optional] 
-**ProcessingInformation** | [**Riskv1authenticationsetupsProcessingInformation**](Riskv1authenticationsetupsProcessingInformation.md) |  | [optional] 
+**PaymentInformation** | [**Riskv1authenticationsPaymentInformation**](Riskv1authenticationsPaymentInformation.md) |  | [optional] 
+**ProcessingInformation** | [**Riskv1authenticationsProcessingInformation**](Riskv1authenticationsProcessingInformation.md) |  | [optional] 
 **BuyerInformation** | [**Riskv1authenticationsBuyerInformation**](Riskv1authenticationsBuyerInformation.md) |  | [optional] 
 **DeviceInformation** | [**Riskv1authenticationsDeviceInformation**](Riskv1authenticationsDeviceInformation.md) |  | [optional] 
 **MerchantInformation** | [**Riskv1authenticationsMerchantInformation**](Riskv1authenticationsMerchantInformation.md) |  | [optional] 
-**AcquirerInformation** | [**Riskv1authenticationsAcquirerInformation**](Riskv1authenticationsAcquirerInformation.md) |  | [optional] 
-**RecurringPaymentInformation** | [**Riskv1authenticationsRecurringPaymentInformation**](Riskv1authenticationsRecurringPaymentInformation.md) |  | [optional] 
+**AcquirerInformation** | [**Ptsv2paymentsAcquirerInformation**](Ptsv2paymentsAcquirerInformation.md) |  | [optional] 
+**RecurringPaymentInformation** | [**Ptsv2paymentsRecurringPaymentInformation**](Ptsv2paymentsRecurringPaymentInformation.md) |  | [optional] 
 **ConsumerAuthenticationInformation** | [**Riskv1authenticationsConsumerAuthenticationInformation**](Riskv1authenticationsConsumerAuthenticationInformation.md) |  | [optional] 
 **RiskInformation** | [**Riskv1authenticationsRiskInformation**](Riskv1authenticationsRiskInformation.md) |  | [optional] 
 **TravelInformation** | [**Riskv1authenticationsTravelInformation**](Riskv1authenticationsTravelInformation.md) |  | [optional] 

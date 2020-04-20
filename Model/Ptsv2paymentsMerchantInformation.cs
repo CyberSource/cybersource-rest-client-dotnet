@@ -42,7 +42,8 @@ namespace CyberSource.Model
         /// <param name="CardAcceptorReferenceNumber">Reference number that facilitates card acceptor/corporation communication and record keeping.  For processor-specific information, see the &#x60;card_acceptor_ref_number&#x60; field description in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="TransactionLocalDateTime">Local date and time at your physical location. Include both the date and time in this field or leave it blank. This field is supported only for **CyberSource through VisaNet**.  For processor-specific information, see the &#x60;transaction_local_date_time&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  Format: &#x60;YYYYMMDDhhmmss&#x60;, where:   - YYYY &#x3D; year  - MM &#x3D; month  - DD &#x3D; day  - hh &#x3D; hour  - mm &#x3D; minutes  - ss &#x3D; seconds   For processor-specific information, see the &#x60;transaction_local_date_time&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         /// <param name="ServiceFeeDescriptor">ServiceFeeDescriptor.</param>
-        public Ptsv2paymentsMerchantInformation(Ptsv2paymentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2paymentsMerchantInformationMerchantDescriptor), string SalesOrganizationId = default(string), int? CategoryCode = default(int?), int? CategoryCodeDomestic = default(int?), string TaxId = default(string), string VatRegistrationNumber = default(string), string CardAcceptorReferenceNumber = default(string), string TransactionLocalDateTime = default(string), Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor = default(Ptsv2paymentsMerchantInformationServiceFeeDescriptor))
+        /// <param name="MerchantName">Use this field only if you are requesting payment with Payer Authentication serice together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. .</param>
+        public Ptsv2paymentsMerchantInformation(Ptsv2paymentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2paymentsMerchantInformationMerchantDescriptor), string SalesOrganizationId = default(string), int? CategoryCode = default(int?), int? CategoryCodeDomestic = default(int?), string TaxId = default(string), string VatRegistrationNumber = default(string), string CardAcceptorReferenceNumber = default(string), string TransactionLocalDateTime = default(string), Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor = default(Ptsv2paymentsMerchantInformationServiceFeeDescriptor), string MerchantName = default(string))
         {
             this.MerchantDescriptor = MerchantDescriptor;
             this.SalesOrganizationId = SalesOrganizationId;
@@ -53,6 +54,7 @@ namespace CyberSource.Model
             this.CardAcceptorReferenceNumber = CardAcceptorReferenceNumber;
             this.TransactionLocalDateTime = TransactionLocalDateTime;
             this.ServiceFeeDescriptor = ServiceFeeDescriptor;
+            this.MerchantName = MerchantName;
         }
         
         /// <summary>
@@ -117,6 +119,13 @@ namespace CyberSource.Model
         public Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor { get; set; }
 
         /// <summary>
+        /// Use this field only if you are requesting payment with Payer Authentication serice together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. 
+        /// </summary>
+        /// <value>Use this field only if you are requesting payment with Payer Authentication serice together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. </value>
+        [DataMember(Name="merchantName", EmitDefaultValue=false)]
+        public string MerchantName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -133,6 +142,7 @@ namespace CyberSource.Model
             sb.Append("  CardAcceptorReferenceNumber: ").Append(CardAcceptorReferenceNumber).Append("\n");
             sb.Append("  TransactionLocalDateTime: ").Append(TransactionLocalDateTime).Append("\n");
             sb.Append("  ServiceFeeDescriptor: ").Append(ServiceFeeDescriptor).Append("\n");
+            sb.Append("  MerchantName: ").Append(MerchantName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -213,6 +223,11 @@ namespace CyberSource.Model
                     this.ServiceFeeDescriptor == other.ServiceFeeDescriptor ||
                     this.ServiceFeeDescriptor != null &&
                     this.ServiceFeeDescriptor.Equals(other.ServiceFeeDescriptor)
+                ) && 
+                (
+                    this.MerchantName == other.MerchantName ||
+                    this.MerchantName != null &&
+                    this.MerchantName.Equals(other.MerchantName)
                 );
         }
 
@@ -245,6 +260,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionLocalDateTime.GetHashCode();
                 if (this.ServiceFeeDescriptor != null)
                     hash = hash * 59 + this.ServiceFeeDescriptor.GetHashCode();
+                if (this.MerchantName != null)
+                    hash = hash * 59 + this.MerchantName.GetHashCode();
                 return hash;
             }
         }
@@ -296,6 +313,12 @@ namespace CyberSource.Model
             if(this.TransactionLocalDateTime != null && this.TransactionLocalDateTime.Length >= 14)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionLocalDateTime, length must be less than or equal to 14.", new [] { "TransactionLocalDateTime" });
+            }
+
+            // MerchantName (string) maxLength
+            if(this.MerchantName != null && this.MerchantName.Length >= 25)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantName, length must be less than or equal to 25.", new [] { "MerchantName" });
             }
 
             yield break;

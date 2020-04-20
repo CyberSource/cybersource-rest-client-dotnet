@@ -48,7 +48,7 @@ namespace CyberSource.Model
         /// <param name="Passenger">Passenger.</param>
         /// <param name="ShippingDestinationTypes">Destination to where the item will be shipped. Example: Commercial, Residential, Store .</param>
         /// <param name="TaxAmount">Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  If you want to include the tax amount and also request the ics_tax service, see Tax Calculation Service Using the SCMP API.  This field is frequently used for Level II and Level III transactions. For details, see &#x60;tax_amount&#x60; field description in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/) .</param>
-        public Riskv1authenticationsOrderInformationLineItems(string TotalAmount = default(string), string UnitPrice = default(string), int? Quantity = default(int?), int? GiftCardCurrency = default(int?), string ProductSKU = default(string), string ProductDescription = default(string), string ProductName = default(string), Riskv1decisionsOrderInformationPassenger Passenger = default(Riskv1decisionsOrderInformationPassenger), string ShippingDestinationTypes = default(string), string TaxAmount = default(string))
+        public Riskv1authenticationsOrderInformationLineItems(string TotalAmount = default(string), string UnitPrice = default(string), int? Quantity = default(int?), int? GiftCardCurrency = default(int?), string ProductSKU = default(string), string ProductDescription = default(string), string ProductName = default(string), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger), string ShippingDestinationTypes = default(string), string TaxAmount = default(string))
         {
             // to ensure "UnitPrice" is required (not null)
             if (UnitPrice == null)
@@ -123,7 +123,7 @@ namespace CyberSource.Model
         /// Gets or Sets Passenger
         /// </summary>
         [DataMember(Name="passenger", EmitDefaultValue=false)]
-        public Riskv1decisionsOrderInformationPassenger Passenger { get; set; }
+        public Ptsv2paymentsOrderInformationPassenger Passenger { get; set; }
 
         /// <summary>
         /// Destination to where the item will be shipped. Example: Commercial, Residential, Store 

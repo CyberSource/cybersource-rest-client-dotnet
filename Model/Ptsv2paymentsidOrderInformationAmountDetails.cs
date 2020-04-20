@@ -33,11 +33,11 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidOrderInformationAmountDetails" /> class.
         /// </summary>
-        /// <param name="AdditonalAmount">Additional charges that have to be authorized against a lodging or auto-rental order. This value cannot be negative. You can include a decimal point (.), but no other special characters. .</param>
+        /// <param name="AdditionalAmount">Additional charges that have to be authorized against a lodging or auto-rental order. This value cannot be negative. You can include a decimal point (.), but no other special characters. .</param>
         /// <param name="Currency">Currency used for the order. Use the three-character I[ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details about currency as used in partial authorizations, see \&quot;Features for Debit Cards and Prepaid Cards\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your payment authorization request.  #### DCC for First Data Your local currency. For details, see the &#x60;currency&#x60; field description in [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf). .</param>
-        public Ptsv2paymentsidOrderInformationAmountDetails(string AdditonalAmount = default(string), string Currency = default(string))
+        public Ptsv2paymentsidOrderInformationAmountDetails(string AdditionalAmount = default(string), string Currency = default(string))
         {
-            this.AdditonalAmount = AdditonalAmount;
+            this.AdditionalAmount = AdditionalAmount;
             this.Currency = Currency;
         }
         
@@ -45,8 +45,8 @@ namespace CyberSource.Model
         /// Additional charges that have to be authorized against a lodging or auto-rental order. This value cannot be negative. You can include a decimal point (.), but no other special characters. 
         /// </summary>
         /// <value>Additional charges that have to be authorized against a lodging or auto-rental order. This value cannot be negative. You can include a decimal point (.), but no other special characters. </value>
-        [DataMember(Name="additonalAmount", EmitDefaultValue=false)]
-        public string AdditonalAmount { get; set; }
+        [DataMember(Name="additionalAmount", EmitDefaultValue=false)]
+        public string AdditionalAmount { get; set; }
 
         /// <summary>
         /// Currency used for the order. Use the three-character I[ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details about currency as used in partial authorizations, see \&quot;Features for Debit Cards and Prepaid Cards\&quot; in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your payment authorization request.  #### DCC for First Data Your local currency. For details, see the &#x60;currency&#x60; field description in [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf). 
@@ -63,7 +63,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidOrderInformationAmountDetails {\n");
-            sb.Append("  AdditonalAmount: ").Append(AdditonalAmount).Append("\n");
+            sb.Append("  AdditionalAmount: ").Append(AdditionalAmount).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -102,9 +102,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.AdditonalAmount == other.AdditonalAmount ||
-                    this.AdditonalAmount != null &&
-                    this.AdditonalAmount.Equals(other.AdditonalAmount)
+                    this.AdditionalAmount == other.AdditionalAmount ||
+                    this.AdditionalAmount != null &&
+                    this.AdditionalAmount.Equals(other.AdditionalAmount)
                 ) && 
                 (
                     this.Currency == other.Currency ||
@@ -124,8 +124,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.AdditonalAmount != null)
-                    hash = hash * 59 + this.AdditonalAmount.GetHashCode();
+                if (this.AdditionalAmount != null)
+                    hash = hash * 59 + this.AdditionalAmount.GetHashCode();
                 if (this.Currency != null)
                     hash = hash * 59 + this.Currency.GetHashCode();
                 return hash;
@@ -139,10 +139,10 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AdditonalAmount (string) maxLength
-            if(this.AdditonalAmount != null && this.AdditonalAmount.Length >= 19)
+            // AdditionalAmount (string) maxLength
+            if(this.AdditionalAmount != null && this.AdditionalAmount.Length >= 19)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdditonalAmount, length must be less than or equal to 19.", new [] { "AdditonalAmount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdditionalAmount, length must be less than or equal to 19.", new [] { "AdditionalAmount" });
             }
 
             // Currency (string) maxLength

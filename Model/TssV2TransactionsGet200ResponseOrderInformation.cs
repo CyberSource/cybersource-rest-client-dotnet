@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="LineItems">Transaction Line Item data..</param>
         /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="ShippingDetails">ShippingDetails.</param>
-        public TssV2TransactionsGet200ResponseOrderInformation(TssV2TransactionsGet200ResponseOrderInformationBillTo BillTo = default(TssV2TransactionsGet200ResponseOrderInformationBillTo), TssV2TransactionsGet200ResponseOrderInformationShipTo ShipTo = default(TssV2TransactionsGet200ResponseOrderInformationShipTo), List<TssV2TransactionsGet200ResponseOrderInformationLineItems> LineItems = default(List<TssV2TransactionsGet200ResponseOrderInformationLineItems>), TssV2TransactionsGet200ResponseOrderInformationAmountDetails AmountDetails = default(TssV2TransactionsGet200ResponseOrderInformationAmountDetails), TssV2TransactionsGet200ResponseOrderInformationShippingDetails ShippingDetails = default(TssV2TransactionsGet200ResponseOrderInformationShippingDetails))
+        /// <param name="InvoiceDetails">InvoiceDetails.</param>
+        public TssV2TransactionsGet200ResponseOrderInformation(TssV2TransactionsGet200ResponseOrderInformationBillTo BillTo = default(TssV2TransactionsGet200ResponseOrderInformationBillTo), TssV2TransactionsGet200ResponseOrderInformationShipTo ShipTo = default(TssV2TransactionsGet200ResponseOrderInformationShipTo), List<TssV2TransactionsGet200ResponseOrderInformationLineItems> LineItems = default(List<TssV2TransactionsGet200ResponseOrderInformationLineItems>), TssV2TransactionsGet200ResponseOrderInformationAmountDetails AmountDetails = default(TssV2TransactionsGet200ResponseOrderInformationAmountDetails), TssV2TransactionsGet200ResponseOrderInformationShippingDetails ShippingDetails = default(TssV2TransactionsGet200ResponseOrderInformationShippingDetails), TssV2TransactionsGet200ResponseOrderInformationInvoiceDetails InvoiceDetails = default(TssV2TransactionsGet200ResponseOrderInformationInvoiceDetails))
         {
             this.BillTo = BillTo;
             this.ShipTo = ShipTo;
             this.LineItems = LineItems;
             this.AmountDetails = AmountDetails;
             this.ShippingDetails = ShippingDetails;
+            this.InvoiceDetails = InvoiceDetails;
         }
         
         /// <summary>
@@ -79,6 +81,12 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponseOrderInformationShippingDetails ShippingDetails { get; set; }
 
         /// <summary>
+        /// Gets or Sets InvoiceDetails
+        /// </summary>
+        [DataMember(Name="invoiceDetails", EmitDefaultValue=false)]
+        public TssV2TransactionsGet200ResponseOrderInformationInvoiceDetails InvoiceDetails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -91,6 +99,7 @@ namespace CyberSource.Model
             sb.Append("  LineItems: ").Append(LineItems).Append("\n");
             sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
             sb.Append("  ShippingDetails: ").Append(ShippingDetails).Append("\n");
+            sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +160,11 @@ namespace CyberSource.Model
                     this.ShippingDetails == other.ShippingDetails ||
                     this.ShippingDetails != null &&
                     this.ShippingDetails.Equals(other.ShippingDetails)
+                ) && 
+                (
+                    this.InvoiceDetails == other.InvoiceDetails ||
+                    this.InvoiceDetails != null &&
+                    this.InvoiceDetails.Equals(other.InvoiceDetails)
                 );
         }
 
@@ -175,6 +189,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AmountDetails.GetHashCode();
                 if (this.ShippingDetails != null)
                     hash = hash * 59 + this.ShippingDetails.GetHashCode();
+                if (this.InvoiceDetails != null)
+                    hash = hash * 59 + this.InvoiceDetails.GetHashCode();
                 return hash;
             }
         }

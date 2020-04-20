@@ -87,7 +87,8 @@ namespace CyberSource.Test
             //DateTime? startDate = null;
             //DateTime? endDate = null;
             //string organizationId = null;
-            //var response = instance.GetFileDetail(startDate, endDate, organizationId);
+            //string name = null;
+            //var response = instance.GetFileDetail(startDate, endDate, organizationId, name);
             //Assert.IsInstanceOf<V1FileDetailsGet200Response> (response, "response is V1FileDetailsGet200Response");
         }
         

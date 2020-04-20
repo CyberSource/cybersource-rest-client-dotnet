@@ -35,10 +35,11 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="AccountType">Type of account. This value is returned only if you requested a balance inquiry. Possible values:   - &#x60;00&#x60;: Not applicable or not specified  - &#x60;10&#x60;: Savings account  - &#x60;20&#x60;: Checking account  - &#x60;30&#x60;: Credit card account  - &#x60;40&#x60;: Universal account .</param>
         /// <param name="AccountStatus">Possible values:   - &#x60;N&#x60;: Nonregulated  - &#x60;R&#x60;: Regulated  **Note** This field is returned only for CyberSource through VisaNet. .</param>
+        /// <param name="Balances">This is an array of multiple balances information an issuer can return for a given card..</param>
         /// <param name="BalanceAmount">Remaining balance on the account. .</param>
         /// <param name="BalanceAmountType">Type of amount. This value is returned only if you requested a balance inquiry. The issuer determines the value that is returned. Possible values for deposit accounts:   - &#x60;01&#x60;: Current ledger (posted) balance.  - &#x60;02&#x60;: Current available balance, which is typically the ledger balance less outstanding authorizations.  Some depository institutions also include pending deposits and the credit or overdraft line associated with the account. Possible values for credit card accounts:   - &#x60;01&#x60;: Credit amount remaining for customer (open to buy).  - &#x60;02&#x60;: Credit limit. .</param>
         /// <param name="Currency">Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;auth_account_balance_currency&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
-        /// <param name="BalanceSign">Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values:  Possible values:  - **+**  - **-** .</param>
+        /// <param name="BalanceSign">Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values:  Possible values:  - **positive**  - **negative** .</param>
         /// <param name="AffluenceIndicator">**Chase Paymentech Solutions**  Indicates whether a customer has high credit limits. This information enables you to market high cost items to these customers and to understand the kinds of cards that high income customers are using.  This field is supported for Visa, Mastercard, Discover, and Diners Club. Possible values:   - **Y**: Yes  - **N**: No  - **X**: Not applicable / Unknown  **Litle**  Flag that indicates that a Visa cardholder or Mastercard cardholder is in one of the affluent categories. Possible values:   - **AFFLUENT**: High income customer with high spending pattern (&gt;100k USD annual income and &gt;40k USD annual    card usage).  - **MASS AFFLUENT**: High income customer (&gt;100k USD annual income).  **Processor specific maximum length**:   - Chase Paymentech Solutions: 1  - Litle: 13 .</param>
         /// <param name="Category">#### CyberSource through VisaNet Visa or Mastercard product ID that is associated with the primary account number (PAN). For descriptions of the Visa product IDs, see the Product ID table on the [Visa Request &amp; Response Codes web page.](https://developer.visa.com/guides/request_response_codes)  Data Length: String (3)  #### GPN Visa or Mastercard product ID that is associated with the primary account number (PAN). For descriptions of the Visa product IDs, seepag the Product ID table on the [Visa Request &amp; Response Codes web page.](https://developer.visa.com/guides/request_response_codes) For descriptions of the Mastercard product IDs, see \&quot;Product IDs\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  Data Length: String (3)  #### Worldpay VAP **Important** Before using this field on Worldpay VAP, you must contact CyberSource Customer Support to have your account configured for this feature.  Type of card used in the transaction. The only possible value is: - &#x60;PREPAID&#x60;: Prepaid Card  Data Length: String (7)  #### RBS WorldPay Atlanta Type of card used in the transaction. Possible values: - &#x60;B&#x60;: Business Card - &#x60;O&#x60;: Noncommercial Card - &#x60;R&#x60;: Corporate Card - &#x60;S&#x60;: Purchase Card - &#x60;Blank&#x60;: Purchase card not supported  Data Length: String (1) .</param>
         /// <param name="Commercial">Indicates whether the card is a commercial card, which enables you to include Level II data in your transaction requests. This field is supported for Visa and Mastercard on **Chase Paymentech Solutions**. Possible values:   - **Y**: Yes  - **N**: No  - **X**: Not applicable / Unknown  For details, see &#x60;auth_card_commercial&#x60; reply field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
@@ -50,10 +51,11 @@ namespace CyberSource.Model
         /// <param name="SignatureDebit">Indicates whether the card is a signature debit card.  This information enables you to alter the way an order is processed. For example, you might not want to reauthorize a transaction for a signature debit card, or you might want to perform reversals promptly for a signature debit card. This field is supported for Visa, Mastercard, and Maestro (International) on Chase Paymentech Solutions. Possible values:   - &#x60;Y&#x60;: Yes  - &#x60;N&#x60;: No  - &#x60;X&#x60;: Not applicable / Unknown  For details, see &#x60;auth_card_signature_debit&#x60; reply field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="Prepaid">Indicates whether the card is a prepaid card. This information enables you to determine when a gift card or prepaid card is presented for use when establishing a new recurring, installment, or deferred billing relationship.  This field is supported for Visa, Mastercard, Discover, Diners Club, and JCB on Chase Paymentech Solutions. Possible values:   - &#x60;Y&#x60;: Yes  - &#x60;N&#x60;: No  - &#x60;X&#x60;: Not applicable / Unknown  For details, see the &#x60;auth_card_prepaid&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="Regulated">Indicates whether the card is regulated according to the Durbin Amendment. If the card is regulated, the card issuer is subject to price caps and interchange rules. This field is supported for Visa, Mastercard, Discover, Diners Club, and JCB on Chase Paymentech Solutions. Possible values:   - &#x60;Y&#x60;: Yes  - &#x60;N&#x60;: No  - &#x60;X&#x60;: Not applicable / Unknown  For details, see &#x60;auth_card_regulated&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
-        public PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures(string AccountType = default(string), string AccountStatus = default(string), string BalanceAmount = default(string), string BalanceAmountType = default(string), string Currency = default(string), string BalanceSign = default(string), string AffluenceIndicator = default(string), string Category = default(string), string Commercial = default(string), string Group = default(string), string HealthCare = default(string), string Payroll = default(string), string Level3Eligible = default(string), string PinlessDebit = default(string), string SignatureDebit = default(string), string Prepaid = default(string), string Regulated = default(string))
+        public PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures(string AccountType = default(string), string AccountStatus = default(string), List<PtsV2PaymentsPost201ResponsePaymentInformationAccountFeaturesBalances> Balances = default(List<PtsV2PaymentsPost201ResponsePaymentInformationAccountFeaturesBalances>), string BalanceAmount = default(string), string BalanceAmountType = default(string), string Currency = default(string), string BalanceSign = default(string), string AffluenceIndicator = default(string), string Category = default(string), string Commercial = default(string), string Group = default(string), string HealthCare = default(string), string Payroll = default(string), string Level3Eligible = default(string), string PinlessDebit = default(string), string SignatureDebit = default(string), string Prepaid = default(string), string Regulated = default(string))
         {
             this.AccountType = AccountType;
             this.AccountStatus = AccountStatus;
+            this.Balances = Balances;
             this.BalanceAmount = BalanceAmount;
             this.BalanceAmountType = BalanceAmountType;
             this.Currency = Currency;
@@ -86,6 +88,13 @@ namespace CyberSource.Model
         public string AccountStatus { get; set; }
 
         /// <summary>
+        /// This is an array of multiple balances information an issuer can return for a given card.
+        /// </summary>
+        /// <value>This is an array of multiple balances information an issuer can return for a given card.</value>
+        [DataMember(Name="balances", EmitDefaultValue=false)]
+        public List<PtsV2PaymentsPost201ResponsePaymentInformationAccountFeaturesBalances> Balances { get; set; }
+
+        /// <summary>
         /// Remaining balance on the account. 
         /// </summary>
         /// <value>Remaining balance on the account. </value>
@@ -107,9 +116,9 @@ namespace CyberSource.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values:  Possible values:  - **+**  - **-** 
+        /// Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values:  Possible values:  - **positive**  - **negative** 
         /// </summary>
-        /// <value>Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values:  Possible values:  - **+**  - **-** </value>
+        /// <value>Sign for the remaining balance on the account. Returned only when the processor returns this value. Possible values:  Possible values:  - **positive**  - **negative** </value>
         [DataMember(Name="balanceSign", EmitDefaultValue=false)]
         public string BalanceSign { get; set; }
 
@@ -200,6 +209,7 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures {\n");
             sb.Append("  AccountType: ").Append(AccountType).Append("\n");
             sb.Append("  AccountStatus: ").Append(AccountStatus).Append("\n");
+            sb.Append("  Balances: ").Append(Balances).Append("\n");
             sb.Append("  BalanceAmount: ").Append(BalanceAmount).Append("\n");
             sb.Append("  BalanceAmountType: ").Append(BalanceAmountType).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
@@ -260,6 +270,11 @@ namespace CyberSource.Model
                     this.AccountStatus == other.AccountStatus ||
                     this.AccountStatus != null &&
                     this.AccountStatus.Equals(other.AccountStatus)
+                ) && 
+                (
+                    this.Balances == other.Balances ||
+                    this.Balances != null &&
+                    this.Balances.SequenceEqual(other.Balances)
                 ) && 
                 (
                     this.BalanceAmount == other.BalanceAmount ||
@@ -353,6 +368,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AccountType.GetHashCode();
                 if (this.AccountStatus != null)
                     hash = hash * 59 + this.AccountStatus.GetHashCode();
+                if (this.Balances != null)
+                    hash = hash * 59 + this.Balances.GetHashCode();
                 if (this.BalanceAmount != null)
                     hash = hash * 59 + this.BalanceAmount.GetHashCode();
                 if (this.BalanceAmountType != null)
@@ -425,9 +442,9 @@ namespace CyberSource.Model
             }
 
             // BalanceSign (string) maxLength
-            if(this.BalanceSign != null && this.BalanceSign.Length >= 1)
+            if(this.BalanceSign != null && this.BalanceSign.Length >= 8)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BalanceSign, length must be less than or equal to 1.", new [] { "BalanceSign" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BalanceSign, length must be less than or equal to 8.", new [] { "BalanceSign" });
             }
 
             // AffluenceIndicator (string) maxLength

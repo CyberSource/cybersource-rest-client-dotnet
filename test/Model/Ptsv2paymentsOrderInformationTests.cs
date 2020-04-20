@@ -112,6 +112,46 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ShippingDetails'
         }
+        /// <summary>
+        /// Test the property 'ReturnsAccepted'
+        /// </summary>
+        [Test]
+        public void ReturnsAcceptedTest()
+        {
+            // TODO unit test for the property 'ReturnsAccepted'
+        }
+        /// <summary>
+        /// Test the property 'PreOrder'
+        /// </summary>
+        [Test]
+        public void PreOrderTest()
+        {
+            // TODO unit test for the property 'PreOrder'
+        }
+        /// <summary>
+        /// Test the property 'PreOrderDate'
+        /// </summary>
+        [Test]
+        public void PreOrderDateTest()
+        {
+            // TODO unit test for the property 'PreOrderDate'
+        }
+        /// <summary>
+        /// Test the property 'Reordered'
+        /// </summary>
+        [Test]
+        public void ReorderedTest()
+        {
+            // TODO unit test for the property 'Reordered'
+        }
+        /// <summary>
+        /// Test the property 'TotalOffersCount'
+        /// </summary>
+        [Test]
+        public void TotalOffersCountTest()
+        {
+            // TODO unit test for the property 'TotalOffersCount'
+        }
 
     }
 

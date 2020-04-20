@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// <param name="HttpBrowserScreenWidth">Total width of the cardholder&#39;s screen in pixels. Example: 1536. .</param>
         /// <param name="HttpBrowserTimeDifference">Time difference between UTC time and the cardholder browser local time, in minutes, Example:300 .</param>
         /// <param name="UserAgentBrowserValue">Value of the User-Agent header sent by the customer’s web browser. Note If the customer’s browser provides a value, you must include it in your request. .</param>
-        public Riskv1authenticationsDeviceInformation(string IpAddress = default(string), List<Riskv1authenticationsDeviceInformationRawData> RawData = default(List<Riskv1authenticationsDeviceInformationRawData>), string HttpAcceptBrowserValue = default(string), string HttpAcceptContent = default(string), string HttpBrowserLanguage = default(string), bool? HttpBrowserJavaEnabled = default(bool?), bool? HttpBrowserJavaScriptEnabled = default(bool?), string HttpBrowserColorDepth = default(string), string HttpBrowserScreenHeight = default(string), string HttpBrowserScreenWidth = default(string), string HttpBrowserTimeDifference = default(string), string UserAgentBrowserValue = default(string))
+        public Riskv1authenticationsDeviceInformation(string IpAddress = default(string), List<Ptsv2paymentsDeviceInformationRawData> RawData = default(List<Ptsv2paymentsDeviceInformationRawData>), string HttpAcceptBrowserValue = default(string), string HttpAcceptContent = default(string), string HttpBrowserLanguage = default(string), bool? HttpBrowserJavaEnabled = default(bool?), bool? HttpBrowserJavaScriptEnabled = default(bool?), string HttpBrowserColorDepth = default(string), string HttpBrowserScreenHeight = default(string), string HttpBrowserScreenWidth = default(string), string HttpBrowserTimeDifference = default(string), string UserAgentBrowserValue = default(string))
         {
             this.IpAddress = IpAddress;
             this.RawData = RawData;
@@ -72,7 +72,7 @@ namespace CyberSource.Model
         /// Gets or Sets RawData
         /// </summary>
         [DataMember(Name="rawData", EmitDefaultValue=false)]
-        public List<Riskv1authenticationsDeviceInformationRawData> RawData { get; set; }
+        public List<Ptsv2paymentsDeviceInformationRawData> RawData { get; set; }
 
         /// <summary>
         /// Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. 

@@ -371,7 +371,7 @@ namespace {{packageName}}.Client
                 {{/netStandard}}
                 {{^netStandard}}
                 {{^supportsUWP}}
-                response = RestClient.Execute(request);
+                response = (RestResponse) RestClient.Execute(request);
                 {{/supportsUWP}}
                 {{#supportsUWP}}
                 // Using async method to perform sync call (uwp-only)

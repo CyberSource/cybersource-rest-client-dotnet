@@ -39,10 +39,10 @@ namespace CyberSource.Model
         /// <param name="ProductRisk">Indicates the level of risk for the product. This field can contain one of the following values: - &#x60;low&#x60;: The product is associated with few chargebacks. - &#x60;normal&#x60;: The product is associated with a normal number of chargebacks. - &#x60;high&#x60;: The product is associated with many chargebacks. .</param>
         /// <param name="ProductName">For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when &#x60;orderInformation.lineItems[].productCode&#x60; is not set to &#x60;default&#x60; or one of the other values that are related to shipping and/or handling. .</param>
         /// <param name="ProductCode">Type of product. This value is used to determine the category that the product is in: electronic, handling, physical, service, or shipping. The default value is **default**. If you are performing an authorization transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;false&#x60;), and you set this field to a value other than default or any of the values related to shipping and handling, then the fields &#x60;quantity&#x60;, &#x60;productName&#x60;, and &#x60;productSku&#x60; are required. It can also have a value of \&quot;gift_card\&quot;.  For details, see the &#x60;product_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
-        /// <param name="Gift">Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. .</param>
+        /// <param name="Gift">This field is only used in DM service.  Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. .</param>
         /// <param name="DistributorProductSku">Product’s identifier code. This field is inserted into the outgoing message without being parsed or formatted. This field is included as Distributor product SKU (Offer) in the list of API fields with which you can create custom rules. .</param>
         /// <param name="Passenger">Passenger.</param>
-        public Riskv1decisionsOrderInformationLineItems(string UnitPrice = default(string), int? Quantity = default(int?), string ProductSKU = default(string), string ProductRisk = default(string), string ProductName = default(string), string ProductCode = default(string), bool? Gift = default(bool?), string DistributorProductSku = default(string), Riskv1decisionsOrderInformationPassenger Passenger = default(Riskv1decisionsOrderInformationPassenger))
+        public Riskv1decisionsOrderInformationLineItems(string UnitPrice = default(string), int? Quantity = default(int?), string ProductSKU = default(string), string ProductRisk = default(string), string ProductName = default(string), string ProductCode = default(string), bool? Gift = default(bool?), string DistributorProductSku = default(string), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger))
         {
             this.UnitPrice = UnitPrice;
             this.Quantity = Quantity;
@@ -98,9 +98,9 @@ namespace CyberSource.Model
         public string ProductCode { get; set; }
 
         /// <summary>
-        /// Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. 
+        /// This field is only used in DM service.  Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. 
         /// </summary>
-        /// <value>Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. </value>
+        /// <value>This field is only used in DM service.  Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. </value>
         [DataMember(Name="gift", EmitDefaultValue=false)]
         public bool? Gift { get; set; }
 
@@ -115,7 +115,7 @@ namespace CyberSource.Model
         /// Gets or Sets Passenger
         /// </summary>
         [DataMember(Name="passenger", EmitDefaultValue=false)]
-        public Riskv1decisionsOrderInformationPassenger Passenger { get; set; }
+        public Ptsv2paymentsOrderInformationPassenger Passenger { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Profile">Profile.</param>
         /// <param name="EventType">Specifies one of the following types of events: - login - account_creation - account_update For regular payment transactions, do not send this field. .</param>
-        public Riskv1decisionsRiskInformation(Riskv1decisionsRiskInformationProfile Profile = default(Riskv1decisionsRiskInformationProfile), string EventType = default(string))
+        public Riskv1decisionsRiskInformation(Ptsv2paymentsRiskInformationProfile Profile = default(Ptsv2paymentsRiskInformationProfile), string EventType = default(string))
         {
             this.Profile = Profile;
             this.EventType = EventType;
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// Gets or Sets Profile
         /// </summary>
         [DataMember(Name="profile", EmitDefaultValue=false)]
-        public Riskv1decisionsRiskInformationProfile Profile { get; set; }
+        public Ptsv2paymentsRiskInformationProfile Profile { get; set; }
 
         /// <summary>
         /// Specifies one of the following types of events: - login - account_creation - account_update For regular payment transactions, do not send this field. 

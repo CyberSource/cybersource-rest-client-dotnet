@@ -104,6 +104,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ShippingDetails'
         }
+        /// <summary>
+        /// Test the property 'InvoiceDetails'
+        /// </summary>
+        [Test]
+        public void InvoiceDetailsTest()
+        {
+            // TODO unit test for the property 'InvoiceDetails'
+        }
 
     }
 

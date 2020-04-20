@@ -77,18 +77,6 @@ namespace CyberSource.Test
         }
         
         /// <summary>
-        /// Test PayerAuthSetup
-        /// </summary>
-        [Test]
-        public void PayerAuthSetupTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //PayerAuthSetupRequest payerAuthSetupRequest = null;
-            //var response = instance.PayerAuthSetup(payerAuthSetupRequest);
-            //Assert.IsInstanceOf<RiskV1AuthenticationSetupsPost201Response> (response, "response is RiskV1AuthenticationSetupsPost201Response");
-        }
-        
-        /// <summary>
         /// Test ValidateAuthenticationResults
         /// </summary>
         [Test]

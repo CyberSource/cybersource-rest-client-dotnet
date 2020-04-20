@@ -49,7 +49,11 @@ namespace CyberSource.Model
         /// <param name="InstallmentInformation">InstallmentInformation.</param>
         /// <param name="TravelInformation">TravelInformation.</param>
         /// <param name="PromotionInformation">PromotionInformation.</param>
-        public CreatePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsProcessingInformation ProcessingInformation = default(Ptsv2paymentsProcessingInformation), Ptsv2paymentsIssuerInformation IssuerInformation = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsPaymentInformation PaymentInformation = default(Ptsv2paymentsPaymentInformation), Ptsv2paymentsOrderInformation OrderInformation = default(Ptsv2paymentsOrderInformation), Ptsv2paymentsBuyerInformation BuyerInformation = default(Ptsv2paymentsBuyerInformation), Ptsv2paymentsRecipientInformation RecipientInformation = default(Ptsv2paymentsRecipientInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsMerchantInformation MerchantInformation = default(Ptsv2paymentsMerchantInformation), Ptsv2paymentsAggregatorInformation AggregatorInformation = default(Ptsv2paymentsAggregatorInformation), Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2paymentsConsumerAuthenticationInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsInstallmentInformation InstallmentInformation = default(Ptsv2paymentsInstallmentInformation), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation))
+        /// <param name="TokenInformation">TokenInformation.</param>
+        /// <param name="RiskInformation">RiskInformation.</param>
+        /// <param name="AcquirerInformation">AcquirerInformation.</param>
+        /// <param name="RecurringPaymentInformation">RecurringPaymentInformation.</param>
+        public CreatePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsProcessingInformation ProcessingInformation = default(Ptsv2paymentsProcessingInformation), Ptsv2paymentsIssuerInformation IssuerInformation = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsPaymentInformation PaymentInformation = default(Ptsv2paymentsPaymentInformation), Ptsv2paymentsOrderInformation OrderInformation = default(Ptsv2paymentsOrderInformation), Ptsv2paymentsBuyerInformation BuyerInformation = default(Ptsv2paymentsBuyerInformation), Ptsv2paymentsRecipientInformation RecipientInformation = default(Ptsv2paymentsRecipientInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsMerchantInformation MerchantInformation = default(Ptsv2paymentsMerchantInformation), Ptsv2paymentsAggregatorInformation AggregatorInformation = default(Ptsv2paymentsAggregatorInformation), Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2paymentsConsumerAuthenticationInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsInstallmentInformation InstallmentInformation = default(Ptsv2paymentsInstallmentInformation), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation), Ptsv2paymentsTokenInformation TokenInformation = default(Ptsv2paymentsTokenInformation), Ptsv2paymentsRiskInformation RiskInformation = default(Ptsv2paymentsRiskInformation), Ptsv2paymentsAcquirerInformation AcquirerInformation = default(Ptsv2paymentsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -67,6 +71,10 @@ namespace CyberSource.Model
             this.InstallmentInformation = InstallmentInformation;
             this.TravelInformation = TravelInformation;
             this.PromotionInformation = PromotionInformation;
+            this.TokenInformation = TokenInformation;
+            this.RiskInformation = RiskInformation;
+            this.AcquirerInformation = AcquirerInformation;
+            this.RecurringPaymentInformation = RecurringPaymentInformation;
         }
         
         /// <summary>
@@ -167,6 +175,30 @@ namespace CyberSource.Model
         public Ptsv2paymentsPromotionInformation PromotionInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets TokenInformation
+        /// </summary>
+        [DataMember(Name="tokenInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsTokenInformation TokenInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RiskInformation
+        /// </summary>
+        [DataMember(Name="riskInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsRiskInformation RiskInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AcquirerInformation
+        /// </summary>
+        [DataMember(Name="acquirerInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsAcquirerInformation AcquirerInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecurringPaymentInformation
+        /// </summary>
+        [DataMember(Name="recurringPaymentInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -190,6 +222,10 @@ namespace CyberSource.Model
             sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
             sb.Append("  TravelInformation: ").Append(TravelInformation).Append("\n");
             sb.Append("  PromotionInformation: ").Append(PromotionInformation).Append("\n");
+            sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
+            sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
+            sb.Append("  AcquirerInformation: ").Append(AcquirerInformation).Append("\n");
+            sb.Append("  RecurringPaymentInformation: ").Append(RecurringPaymentInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -305,6 +341,26 @@ namespace CyberSource.Model
                     this.PromotionInformation == other.PromotionInformation ||
                     this.PromotionInformation != null &&
                     this.PromotionInformation.Equals(other.PromotionInformation)
+                ) && 
+                (
+                    this.TokenInformation == other.TokenInformation ||
+                    this.TokenInformation != null &&
+                    this.TokenInformation.Equals(other.TokenInformation)
+                ) && 
+                (
+                    this.RiskInformation == other.RiskInformation ||
+                    this.RiskInformation != null &&
+                    this.RiskInformation.Equals(other.RiskInformation)
+                ) && 
+                (
+                    this.AcquirerInformation == other.AcquirerInformation ||
+                    this.AcquirerInformation != null &&
+                    this.AcquirerInformation.Equals(other.AcquirerInformation)
+                ) && 
+                (
+                    this.RecurringPaymentInformation == other.RecurringPaymentInformation ||
+                    this.RecurringPaymentInformation != null &&
+                    this.RecurringPaymentInformation.Equals(other.RecurringPaymentInformation)
                 );
         }
 
@@ -351,6 +407,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TravelInformation.GetHashCode();
                 if (this.PromotionInformation != null)
                     hash = hash * 59 + this.PromotionInformation.GetHashCode();
+                if (this.TokenInformation != null)
+                    hash = hash * 59 + this.TokenInformation.GetHashCode();
+                if (this.RiskInformation != null)
+                    hash = hash * 59 + this.RiskInformation.GetHashCode();
+                if (this.AcquirerInformation != null)
+                    hash = hash * 59 + this.AcquirerInformation.GetHashCode();
+                if (this.RecurringPaymentInformation != null)
+                    hash = hash * 59 + this.RecurringPaymentInformation.GetHashCode();
                 return hash;
             }
         }

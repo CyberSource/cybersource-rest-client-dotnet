@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="TrustedMerchantExemptionIndicator">Possible values: - &#x60;0&#x60;  (Trusted merchant exemption does not apply to the transaction) - &#x60;1&#x60; (Transaction exempt from SCA as it originated at a merchant trusted by the cardholder) .</param>
         /// <param name="SecureCorporatePaymentIndicator">This field will contain the secure corporate payment exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (SCA exemption does not apply to the transaction) - &#x60;1&#x60; (Transaction exempt from SCA as the merchant/acquirer has determined it as a secure corporate payment) .</param>
         /// <param name="DelegatedAuthenticationExemptionIndicator">This field will contain the delegated authentication exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (delegated Authentication exemption does not apply to the transaction) - &#x60;1&#x60; (Transaction exempt from SCA as authentication has been delegated to other provider (PSP,Acquirer)) .</param>
-        public Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication(string LowValueExemptionIndicator = default(string), string RiskAnalysisExemptionIndicator = default(string), string TrustedMerchantExemptionIndicator = default(string), string SecureCorporatePaymentIndicator = default(string), string DelegatedAuthenticationExemptionIndicator = default(string))
+        /// <param name="AuthenticationIndicator">Indicates the type of Authentication request  01 - Payment transaction  02 - Recurring transaction  03 - Installment transaction  04 - Add card  05 - Maintain card  06 - Cardholder verification as part of EMV token ID and V .</param>
+        public Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication(string LowValueExemptionIndicator = default(string), string RiskAnalysisExemptionIndicator = default(string), string TrustedMerchantExemptionIndicator = default(string), string SecureCorporatePaymentIndicator = default(string), string DelegatedAuthenticationExemptionIndicator = default(string), string AuthenticationIndicator = default(string))
         {
             this.LowValueExemptionIndicator = LowValueExemptionIndicator;
             this.RiskAnalysisExemptionIndicator = RiskAnalysisExemptionIndicator;
             this.TrustedMerchantExemptionIndicator = TrustedMerchantExemptionIndicator;
             this.SecureCorporatePaymentIndicator = SecureCorporatePaymentIndicator;
             this.DelegatedAuthenticationExemptionIndicator = DelegatedAuthenticationExemptionIndicator;
+            this.AuthenticationIndicator = AuthenticationIndicator;
         }
         
         /// <summary>
@@ -83,6 +85,13 @@ namespace CyberSource.Model
         public string DelegatedAuthenticationExemptionIndicator { get; set; }
 
         /// <summary>
+        /// Indicates the type of Authentication request  01 - Payment transaction  02 - Recurring transaction  03 - Installment transaction  04 - Add card  05 - Maintain card  06 - Cardholder verification as part of EMV token ID and V 
+        /// </summary>
+        /// <value>Indicates the type of Authentication request  01 - Payment transaction  02 - Recurring transaction  03 - Installment transaction  04 - Add card  05 - Maintain card  06 - Cardholder verification as part of EMV token ID and V </value>
+        [DataMember(Name="authenticationIndicator", EmitDefaultValue=false)]
+        public string AuthenticationIndicator { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +104,7 @@ namespace CyberSource.Model
             sb.Append("  TrustedMerchantExemptionIndicator: ").Append(TrustedMerchantExemptionIndicator).Append("\n");
             sb.Append("  SecureCorporatePaymentIndicator: ").Append(SecureCorporatePaymentIndicator).Append("\n");
             sb.Append("  DelegatedAuthenticationExemptionIndicator: ").Append(DelegatedAuthenticationExemptionIndicator).Append("\n");
+            sb.Append("  AuthenticationIndicator: ").Append(AuthenticationIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +165,11 @@ namespace CyberSource.Model
                     this.DelegatedAuthenticationExemptionIndicator == other.DelegatedAuthenticationExemptionIndicator ||
                     this.DelegatedAuthenticationExemptionIndicator != null &&
                     this.DelegatedAuthenticationExemptionIndicator.Equals(other.DelegatedAuthenticationExemptionIndicator)
+                ) && 
+                (
+                    this.AuthenticationIndicator == other.AuthenticationIndicator ||
+                    this.AuthenticationIndicator != null &&
+                    this.AuthenticationIndicator.Equals(other.AuthenticationIndicator)
                 );
         }
 
@@ -179,6 +194,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SecureCorporatePaymentIndicator.GetHashCode();
                 if (this.DelegatedAuthenticationExemptionIndicator != null)
                     hash = hash * 59 + this.DelegatedAuthenticationExemptionIndicator.GetHashCode();
+                if (this.AuthenticationIndicator != null)
+                    hash = hash * 59 + this.AuthenticationIndicator.GetHashCode();
                 return hash;
             }
         }
@@ -218,6 +235,12 @@ namespace CyberSource.Model
             if(this.DelegatedAuthenticationExemptionIndicator != null && this.DelegatedAuthenticationExemptionIndicator.Length >= 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DelegatedAuthenticationExemptionIndicator, length must be less than or equal to 1.", new [] { "DelegatedAuthenticationExemptionIndicator" });
+            }
+
+            // AuthenticationIndicator (string) maxLength
+            if(this.AuthenticationIndicator != null && this.AuthenticationIndicator.Length >= 2)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthenticationIndicator, length must be less than or equal to 2.", new [] { "AuthenticationIndicator" });
             }
 
             yield break;

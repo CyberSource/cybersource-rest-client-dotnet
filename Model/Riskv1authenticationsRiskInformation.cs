@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Riskv1authenticationsRiskInformation" /> class.
         /// </summary>
         /// <param name="BuyerHistory">BuyerHistory.</param>
-        public Riskv1authenticationsRiskInformation(Riskv1authenticationsRiskInformationBuyerHistory BuyerHistory = default(Riskv1authenticationsRiskInformationBuyerHistory))
+        public Riskv1authenticationsRiskInformation(Ptsv2paymentsRiskInformationBuyerHistory BuyerHistory = default(Ptsv2paymentsRiskInformationBuyerHistory))
         {
             this.BuyerHistory = BuyerHistory;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets BuyerHistory
         /// </summary>
         [DataMember(Name="buyerHistory", EmitDefaultValue=false)]
-        public Riskv1authenticationsRiskInformationBuyerHistory BuyerHistory { get; set; }
+        public Ptsv2paymentsRiskInformationBuyerHistory BuyerHistory { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

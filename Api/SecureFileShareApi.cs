@@ -57,8 +57,9 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="name">**Tailored to searches for specific files with in given Date range** example : MyTransactionDetailreport.xml  (optional)</param>
         /// <returns>V1FileDetailsGet200Response</returns>
-        V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null);
+        V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null);
 
         /// <summary>
         /// Get List of Files
@@ -70,8 +71,9 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="name">**Tailored to searches for specific files with in given Date range** example : MyTransactionDetailreport.xml  (optional)</param>
         /// <returns>ApiResponse of V1FileDetailsGet200Response</returns>
-        ApiResponse<V1FileDetailsGet200Response> GetFileDetailWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null);
+        ApiResponse<V1FileDetailsGet200Response> GetFileDetailWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -107,8 +109,9 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="name">**Tailored to searches for specific files with in given Date range** example : MyTransactionDetailreport.xml  (optional)</param>
         /// <returns>Task of V1FileDetailsGet200Response</returns>
-        System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailAsync (DateTime? startDate, DateTime? endDate, string organizationId = null);
+        System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailAsync (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null);
 
         /// <summary>
         /// Get List of Files
@@ -120,8 +123,9 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="name">**Tailored to searches for specific files with in given Date range** example : MyTransactionDetailreport.xml  (optional)</param>
         /// <returns>Task of ApiResponse (V1FileDetailsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null);
+        System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null);
         #endregion Asynchronous Operations
     }
 
@@ -380,10 +384,11 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="name">**Tailored to searches for specific files with in given Date range** example : MyTransactionDetailreport.xml  (optional)</param>
         /// <returns>V1FileDetailsGet200Response</returns>
-        public V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        public V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null)
         {
-             ApiResponse<V1FileDetailsGet200Response> localVarResponse = GetFileDetailWithHttpInfo(startDate, endDate, organizationId);
+             ApiResponse<V1FileDetailsGet200Response> localVarResponse = GetFileDetailWithHttpInfo(startDate, endDate, organizationId, name);
              return localVarResponse.Data;
         }
 
@@ -394,8 +399,9 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="name">**Tailored to searches for specific files with in given Date range** example : MyTransactionDetailreport.xml  (optional)</param>
         /// <returns>ApiResponse of V1FileDetailsGet200Response</returns>
-        public ApiResponse< V1FileDetailsGet200Response > GetFileDetailWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        public ApiResponse< V1FileDetailsGet200Response > GetFileDetailWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null)
         {
             // verify the required parameter 'startDate' is set
             if (startDate == null)
@@ -429,6 +435,7 @@ namespace CyberSource.Api
             if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate)); // query parameter
             if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate)); // query parameter
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (name != null) localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name)); // query parameter
 
 
             // make the HTTP request
@@ -456,10 +463,11 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="name">**Tailored to searches for specific files with in given Date range** example : MyTransactionDetailreport.xml  (optional)</param>
         /// <returns>Task of V1FileDetailsGet200Response</returns>
-        public async System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailAsync (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        public async System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailAsync (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null)
         {
-             ApiResponse<V1FileDetailsGet200Response> localVarResponse = await GetFileDetailAsyncWithHttpInfo(startDate, endDate, organizationId);
+             ApiResponse<V1FileDetailsGet200Response> localVarResponse = await GetFileDetailAsyncWithHttpInfo(startDate, endDate, organizationId, name);
              return localVarResponse.Data;
 
         }
@@ -471,8 +479,9 @@ namespace CyberSource.Api
         /// <param name="startDate">Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="endDate">Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd </param>
         /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="name">**Tailored to searches for specific files with in given Date range** example : MyTransactionDetailreport.xml  (optional)</param>
         /// <returns>Task of ApiResponse (V1FileDetailsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null)
         {
             // verify the required parameter 'startDate' is set
             if (startDate == null)
@@ -506,6 +515,7 @@ namespace CyberSource.Api
             if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate)); // query parameter
             if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate)); // query parameter
             if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (name != null) localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name)); // query parameter
 
 
             // make the HTTP request
