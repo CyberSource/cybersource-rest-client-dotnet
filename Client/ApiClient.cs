@@ -342,18 +342,25 @@ namespace CyberSource.Client
                 HttpWebResponse responseT = (HttpWebResponse)requestT.GetResponse();
                 using (Stream responseStream = responseT.GetResponseStream())
                 {
-                    //setting high timeout to accomodate large files till 2GB, need to revisit for a dynamic approach
-                    responseStream.ReadTimeout = 8000000;
-                    responseStream.WriteTimeout = 9000000;
-                    using (Stream fileStream = File.OpenWrite(@DownloadReponseFileName))
+                    try
                     {
-                        byte[] buffer = new byte[4096];
-                        int bytesRead = responseStream.Read(buffer, 0, 4096);
-                        while (bytesRead > 0)
+                        //setting high timeout to accomodate large files till 2GB, need to revisit for a dynamic approach
+                        responseStream.ReadTimeout = 8000000;
+                        responseStream.WriteTimeout = 9000000;
+                        using (Stream fileStream = File.OpenWrite(@DownloadReponseFileName))
                         {
-                            fileStream.Write(buffer, 0, bytesRead);
-                            bytesRead = responseStream.Read(buffer, 0, 4096);
+                            byte[] buffer = new byte[4096];
+                            int bytesRead = responseStream.Read(buffer, 0, 4096);
+                            while (bytesRead > 0)
+                            {
+                                fileStream.Write(buffer, 0, bytesRead);
+                                bytesRead = responseStream.Read(buffer, 0, 4096);
+                            }
                         }
+                    }
+                    catch (Exception)
+                    {
+                        throw new ApiException(-1, $"Error writing to path : {DownloadReponseFileName}");
                     }
                 }
 
