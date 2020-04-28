@@ -192,6 +192,38 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PromotionInformation'
         }
+        /// <summary>
+        /// Test the property 'TokenInformation'
+        /// </summary>
+        [Test]
+        public void TokenInformationTest()
+        {
+            // TODO unit test for the property 'TokenInformation'
+        }
+        /// <summary>
+        /// Test the property 'RiskInformation'
+        /// </summary>
+        [Test]
+        public void RiskInformationTest()
+        {
+            // TODO unit test for the property 'RiskInformation'
+        }
+        /// <summary>
+        /// Test the property 'AcquirerInformation'
+        /// </summary>
+        [Test]
+        public void AcquirerInformationTest()
+        {
+            // TODO unit test for the property 'AcquirerInformation'
+        }
+        /// <summary>
+        /// Test the property 'RecurringPaymentInformation'
+        /// </summary>
+        [Test]
+        public void RecurringPaymentInformationTest()
+        {
+            // TODO unit test for the property 'RecurringPaymentInformation'
+        }
 
     }
 

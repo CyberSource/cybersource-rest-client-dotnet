@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay. .</param>
         /// <param name="BusinessApplicationId">Payouts transaction type. Required for OCT transactions. This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. **Note** When the request includes this field, this value overrides the information in your CyberSource account.  For valid values, see the &#x60;invoiceHeader_businessApplicationID&#x60; field description in [Payouts Using the Simple Order API.](http://apps.cybersource.com/library/documentation/dev_guides/payouts_SO/Payouts_SO_API.pdf) .</param>
-        public TssV2TransactionsPost201ResponseEmbeddedProcessingInformation(string PaymentSolution = default(string), string BusinessApplicationId = default(string))
+        /// <param name="CommerceIndicator">Type of transaction. Certain card associations use this information when determining discount rates to charge you. Required for Verified by Visa and MasterCard SecureCode transactions.      This field can contain one of these values:      * 5: &#x60;vbv&#x60; (Successful Verified by Visa transaction)     * 6: &#x60;spa&#x60; (MasterCard SecureCode transaction)     * 7: &#x60;internet&#x60; (default) (eCommerce order placed by     using a Web site)     * 8: &#x60;vbv_attempted&#x60; (Verified by Visa transaction     was attempted but not authenticated)     * E: &#x60;vbv_failure&#x60; (Depending on your payment     processor, you may receive this result if Visa’s     directory service is not available)     * F: &#x60;spa_failure&#x60; (MasterCard SecureCode     authentication failed)     * M: &#x60;moto&#x60; (Mail order or telephone order)     * P: &#x60;retail&#x60; (Point-of-sale transaction)     * R: &#x60;recurring&#x60; (Recurring transaction)     * S: &#x60;install&#x60; (Installment payment) .</param>
+        public TssV2TransactionsPost201ResponseEmbeddedProcessingInformation(string PaymentSolution = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string))
         {
             this.PaymentSolution = PaymentSolution;
             this.BusinessApplicationId = BusinessApplicationId;
+            this.CommerceIndicator = CommerceIndicator;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace CyberSource.Model
         public string BusinessApplicationId { get; set; }
 
         /// <summary>
+        /// Type of transaction. Certain card associations use this information when determining discount rates to charge you. Required for Verified by Visa and MasterCard SecureCode transactions.      This field can contain one of these values:      * 5: &#x60;vbv&#x60; (Successful Verified by Visa transaction)     * 6: &#x60;spa&#x60; (MasterCard SecureCode transaction)     * 7: &#x60;internet&#x60; (default) (eCommerce order placed by     using a Web site)     * 8: &#x60;vbv_attempted&#x60; (Verified by Visa transaction     was attempted but not authenticated)     * E: &#x60;vbv_failure&#x60; (Depending on your payment     processor, you may receive this result if Visa’s     directory service is not available)     * F: &#x60;spa_failure&#x60; (MasterCard SecureCode     authentication failed)     * M: &#x60;moto&#x60; (Mail order or telephone order)     * P: &#x60;retail&#x60; (Point-of-sale transaction)     * R: &#x60;recurring&#x60; (Recurring transaction)     * S: &#x60;install&#x60; (Installment payment) 
+        /// </summary>
+        /// <value>Type of transaction. Certain card associations use this information when determining discount rates to charge you. Required for Verified by Visa and MasterCard SecureCode transactions.      This field can contain one of these values:      * 5: &#x60;vbv&#x60; (Successful Verified by Visa transaction)     * 6: &#x60;spa&#x60; (MasterCard SecureCode transaction)     * 7: &#x60;internet&#x60; (default) (eCommerce order placed by     using a Web site)     * 8: &#x60;vbv_attempted&#x60; (Verified by Visa transaction     was attempted but not authenticated)     * E: &#x60;vbv_failure&#x60; (Depending on your payment     processor, you may receive this result if Visa’s     directory service is not available)     * F: &#x60;spa_failure&#x60; (MasterCard SecureCode     authentication failed)     * M: &#x60;moto&#x60; (Mail order or telephone order)     * P: &#x60;retail&#x60; (Point-of-sale transaction)     * R: &#x60;recurring&#x60; (Recurring transaction)     * S: &#x60;install&#x60; (Installment payment) </value>
+        [DataMember(Name="commerceIndicator", EmitDefaultValue=false)]
+        public string CommerceIndicator { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace CyberSource.Model
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedProcessingInformation {\n");
             sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
             sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
+            sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +120,11 @@ namespace CyberSource.Model
                     this.BusinessApplicationId == other.BusinessApplicationId ||
                     this.BusinessApplicationId != null &&
                     this.BusinessApplicationId.Equals(other.BusinessApplicationId)
+                ) && 
+                (
+                    this.CommerceIndicator == other.CommerceIndicator ||
+                    this.CommerceIndicator != null &&
+                    this.CommerceIndicator.Equals(other.CommerceIndicator)
                 );
         }
 
@@ -128,6 +143,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentSolution.GetHashCode();
                 if (this.BusinessApplicationId != null)
                     hash = hash * 59 + this.BusinessApplicationId.GetHashCode();
+                if (this.CommerceIndicator != null)
+                    hash = hash * 59 + this.CommerceIndicator.GetHashCode();
                 return hash;
             }
         }
@@ -143,6 +160,12 @@ namespace CyberSource.Model
             if(this.PaymentSolution != null && this.PaymentSolution.Length >= 12)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentSolution, length must be less than or equal to 12.", new [] { "PaymentSolution" });
+            }
+
+            // CommerceIndicator (string) maxLength
+            if(this.CommerceIndicator != null && this.CommerceIndicator.Length >= 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommerceIndicator, length must be less than or equal to 20.", new [] { "CommerceIndicator" });
             }
 
             yield break;

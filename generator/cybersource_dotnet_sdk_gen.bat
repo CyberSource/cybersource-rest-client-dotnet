@@ -8,9 +8,9 @@ rd /s /q ..\test
 
 java -jar swagger-codegen-cli-2.2.3.jar generate -t cybersource-csharp-template -i cybersource-rest-spec.json -l csharp -o ../ -c cybersource-csharp-config.json
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SecureFileShareApi.cs) ; $fileContents[300] = $fileContents[300] -replace 'null', 'localVarResponse.Content' ;  $fileContents[372] = $fileContents[372] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\SecureFileShareApi.cs) ; $fileContents[304] = $fileContents[304] -replace 'null', 'localVarResponse.Content' ;  $fileContents[376] = $fileContents[376] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs"
 
-powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[266] = $fileContents[266] -replace 'null', 'localVarResponse.Content' ;  $fileContents[346] = $fileContents[346] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
+powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\ReportDownloadsApi.cs) ; $fileContents[259] = $fileContents[259] -replace 'null', 'localVarResponse.Content' ;  $fileContents[336] = $fileContents[336] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
 
 powershell -Command "$fileContents = (get-content ..\src\CyberSource\Api\TransactionBatchesApi.cs) ; $fileContents[345] = $fileContents[345] -replace 'null', 'localVarResponse.Content' ;  $fileContents[420] = $fileContents[420] -replace 'null', 'localVarResponse.Content' ;$fileContents|Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 

@@ -33,11 +33,6 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1authenticationsConsumerAuthenticationInformation" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Riskv1authenticationsConsumerAuthenticationInformation() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Riskv1authenticationsConsumerAuthenticationInformation" /> class.
-        /// </summary>
         /// <param name="StrongAuthentication">StrongAuthentication.</param>
         /// <param name="AuthenticationType">Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. .</param>
         /// <param name="AcsWindowSize">An override field that a merchant can pass in to set the challenge window size to display to the end cardholder.  The ACS (Active Control Server) will reply with content that is formatted appropriately to this window size to allow for the best user experience.  The sizes are width x height in pixels of the window displayed in the cardholder browser window.  01 - 250x400  02 - 390x400  03 - 500x600  04 - 600x400  05 - Full page .</param>
@@ -58,12 +53,12 @@ namespace CyberSource.Model
         /// <param name="MerchantFraudRate">Calculated by merchants as per PSD2** RTS** (EEA** card fraud divided by all EEA card volumes). Possible Values: 1 &#x3D; Represents fraud rate &lt;&#x3D;1  2 &#x3D; Represents fraud rate &gt;1 and &lt;&#x3D;6  3 &#x3D; Represents fraud rate &gt;6 and &lt;&#x3D;13  4 &#x3D; Represents fraud rate &gt;13 and &lt;&#x3D;25  5 &#x3D; Represents fraud rate &gt;25  EEA** &#x3D; European Economic Area RTS** &#x3D; Regulatory Technical Standards PSD2** &#x3D; Payment Services Directive .</param>
         /// <param name="MarketingOptIn">Indicates whether the customer has opted in for marketing offers. Recommended for Discover ProtectBuy. .</param>
         /// <param name="MarketingSource">Indicates origin of the marketing offer. Recommended for Discover ProtectBuy. .</param>
-        /// <param name="Mcc">Merchant category code. **Important** Required only for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions.  (required).</param>
+        /// <param name="Mcc">Merchant category code. **Important** Required only for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
         /// <param name="MerchantScore">Risk Score provided by merchants. This is specific for CB transactions. .</param>
         /// <param name="MessageCategory">Category of the message for a specific use case. Possible values:  - &#x60;01&#x60;: PA- payment authentication - &#x60;02&#x60;: NPA- non-payment authentication - &#x60;03-79&#x60;: Reserved for EMVCo future use (values invalid until defined by EMVCo) - &#x60;80-99&#x60;: Reserved for DS use .</param>
         /// <param name="NpaCode">Non-Payer Authentication Indicator. Possible values: - &#x60;01&#x60;: Add card - &#x60;02&#x60;: Maintain card information - &#x60;03&#x60;: Cardholder verification for EMV token - &#x60;04-80&#x60; Reserved for EMVCo - &#x60;80-90&#x60; Reserved DS .</param>
         /// <param name="OverridePaymentMethod">Specifies the Brazilian payment account type used for the transaction. This field overrides other payment types that might be specified in the request. Use one of the following values for this field: - &#x60;NA&#x60;: Not applicable. Do not override other payment types that are specified in the request. - &#x60;CR&#x60;: Credit card. - &#x60;DB&#x60;: Debit card. - &#x60;VSAVR&#x60;: Visa Vale Refeicao - &#x60;VSAVA&#x60;: Visa Vale Alimentacao **Important** Required only for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
-        /// <param name="OverrideCountryCode">Two-character ISO standard Country Codes.  (required).</param>
+        /// <param name="OverrideCountryCode">Two-character ISO standard Country Codes. .</param>
         /// <param name="PriorAuthenticationData">This field carry data that the ACS can use to verify the authentication process. .</param>
         /// <param name="PriorAuthenticationMethod">Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor.  01 - Frictionless authentication occurred by ACS  02 - Cardholder challenge occurred by ACS  03 - AVS verified  04 - Other issuer methods  05-79 - Reserved for EMVCo future use (values invalid until defined by EMVCo)  80-99 - Reserved for DS use .</param>
         /// <param name="PriorAuthenticationReferenceId">This data element contains a ACS Transaction ID for a prior authenticated transaction. For example, the first recurring transaction that was authenticated with the cardholder .</param>
@@ -72,49 +67,13 @@ namespace CyberSource.Model
         /// <param name="RequestorId">Cardinal&#39;s directory server assigned 3DS Requestor ID value.</param>
         /// <param name="RequestorInitiatedAuthenticationIndicator">Indicates the type of 3RI request.  Possible Values:  01 - Recurring transaction  02 - Installment transaction  03 - Add card  04 - Maintain card  05 - Account verification  06 - Split/delayed shipment  07 - Top-up  08 - Mail Order  09 - Telephone Order  10 - Whitelist status check  11 - Other payment .</param>
         /// <param name="RequestorName">Cardinal&#39;s directory server assigned 3DS Requestor Name value.</param>
-        /// <param name="ReferenceId">Reference ID that corresponds to the device fingerprinting data that was collected previously. Note Required for Hybrid integration.  (required).</param>
+        /// <param name="ReferenceId">Reference ID that corresponds to the device fingerprinting data that was collected previously. Note Required for Hybrid integration. .</param>
         /// <param name="SdkMaxTimeout">This field indicates the maximum amount of time for all 3DS 2.0 messages to be communicated between all components (in minutes).  Possible Values:  Greater than or equal to 05 (05 is the minimum timeout to set)  Cardinal Default is set to 15  NOTE: This field is a required 3DS 2.0 field and Cardinal sends in a default of 15 if nothing is passed .</param>
         /// <param name="SecureCorporatePaymentIndicator">Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies. Possible Values : 0/1 .</param>
-        /// <param name="TransactionMode">Transaction mode identifier. Identifies the channel from which the transaction originates. Possible values:  - &#x60;M&#x60;: MOTO (Mail Order Telephone Order) - &#x60;R&#x60;: Retail - &#x60;S&#x60;: eCommerce - &#x60;P&#x60;: Mobile Device - &#x60;T&#x60;: Tablet  (required).</param>
+        /// <param name="TransactionMode">Transaction mode identifier. Identifies the channel from which the transaction originates. Possible values:  - &#x60;M&#x60;: MOTO (Mail Order Telephone Order) - &#x60;R&#x60;: Retail - &#x60;S&#x60;: eCommerce - &#x60;P&#x60;: Mobile Device - &#x60;T&#x60;: Tablet .</param>
         /// <param name="WhiteListStatus">Enables the communication of trusted beneficiary/whitelist status between the ACS, the DS and the 3DS Requestor.  Possible Values:  Y - 3DS Requestor is whitelisted by cardholder  N - 3DS Requestor is not whitelisted by cardholder .</param>
         public Riskv1authenticationsConsumerAuthenticationInformation(Riskv1authenticationsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Riskv1authenticationsConsumerAuthenticationInformationStrongAuthentication), string AuthenticationType = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string))
         {
-            // to ensure "Mcc" is required (not null)
-            if (Mcc == null)
-            {
-                throw new InvalidDataException("Mcc is a required property for Riskv1authenticationsConsumerAuthenticationInformation and cannot be null");
-            }
-            else
-            {
-                this.Mcc = Mcc;
-            }
-            // to ensure "OverrideCountryCode" is required (not null)
-            if (OverrideCountryCode == null)
-            {
-                throw new InvalidDataException("OverrideCountryCode is a required property for Riskv1authenticationsConsumerAuthenticationInformation and cannot be null");
-            }
-            else
-            {
-                this.OverrideCountryCode = OverrideCountryCode;
-            }
-            // to ensure "ReferenceId" is required (not null)
-            if (ReferenceId == null)
-            {
-                throw new InvalidDataException("ReferenceId is a required property for Riskv1authenticationsConsumerAuthenticationInformation and cannot be null");
-            }
-            else
-            {
-                this.ReferenceId = ReferenceId;
-            }
-            // to ensure "TransactionMode" is required (not null)
-            if (TransactionMode == null)
-            {
-                throw new InvalidDataException("TransactionMode is a required property for Riskv1authenticationsConsumerAuthenticationInformation and cannot be null");
-            }
-            else
-            {
-                this.TransactionMode = TransactionMode;
-            }
             this.StrongAuthentication = StrongAuthentication;
             this.AuthenticationType = AuthenticationType;
             this.AcsWindowSize = AcsWindowSize;
@@ -135,10 +94,12 @@ namespace CyberSource.Model
             this.MerchantFraudRate = MerchantFraudRate;
             this.MarketingOptIn = MarketingOptIn;
             this.MarketingSource = MarketingSource;
+            this.Mcc = Mcc;
             this.MerchantScore = MerchantScore;
             this.MessageCategory = MessageCategory;
             this.NpaCode = NpaCode;
             this.OverridePaymentMethod = OverridePaymentMethod;
+            this.OverrideCountryCode = OverrideCountryCode;
             this.PriorAuthenticationData = PriorAuthenticationData;
             this.PriorAuthenticationMethod = PriorAuthenticationMethod;
             this.PriorAuthenticationReferenceId = PriorAuthenticationReferenceId;
@@ -147,8 +108,10 @@ namespace CyberSource.Model
             this.RequestorId = RequestorId;
             this.RequestorInitiatedAuthenticationIndicator = RequestorInitiatedAuthenticationIndicator;
             this.RequestorName = RequestorName;
+            this.ReferenceId = ReferenceId;
             this.SdkMaxTimeout = SdkMaxTimeout;
             this.SecureCorporatePaymentIndicator = SecureCorporatePaymentIndicator;
+            this.TransactionMode = TransactionMode;
             this.WhiteListStatus = WhiteListStatus;
         }
         

@@ -72,7 +72,7 @@ No authorization required
 
 <a name="getfiledetail"></a>
 # **GetFileDetail**
-> V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null)
+> V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null)
 
 Get List of Files
 
@@ -96,11 +96,12 @@ namespace Example
             var startDate = 2013-10-20;  // DateTime? | Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd 
             var endDate = 2013-10-20;  // DateTime? | Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd 
             var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
+            var name = name_example;  // string | **Tailored to searches for specific files with in given Date range** example : MyTransactionDetailreport.xml  (optional) 
 
             try
             {
                 // Get List of Files
-                V1FileDetailsGet200Response result = apiInstance.GetFileDetail(startDate, endDate, organizationId);
+                V1FileDetailsGet200Response result = apiInstance.GetFileDetail(startDate, endDate, organizationId, name);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -119,6 +120,7 @@ Name | Type | Description  | Notes
  **startDate** | **DateTime?**| Valid start date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd  | 
  **endDate** | **DateTime?**| Valid end date in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd  | 
  **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
+ **name** | **string**| **Tailored to searches for specific files with in given Date range** example : MyTransactionDetailreport.xml  | [optional] 
 
 ### Return type
 

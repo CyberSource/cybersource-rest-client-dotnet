@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="FluidData">FluidData.</param>
         /// <param name="Customer">Customer.</param>
         /// <param name="PaymentType">PaymentType.</param>
-        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType))
+        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsidrefundsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsidrefundsPaymentInformationPaymentType))
         {
             this.Card = Card;
             this.Bank = Bank;
@@ -83,7 +83,7 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentType
         /// </summary>
         [DataMember(Name="paymentType", EmitDefaultValue=false)]
-        public Ptsv2paymentsPaymentInformationPaymentType PaymentType { get; set; }
+        public Ptsv2paymentsidrefundsPaymentInformationPaymentType PaymentType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

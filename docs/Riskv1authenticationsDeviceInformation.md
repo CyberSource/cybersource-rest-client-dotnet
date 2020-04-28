@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IpAddress** | **string** | IP address of the customer.  | [optional] 
-**RawData** | [**List&lt;Riskv1authenticationsDeviceInformationRawData&gt;**](Riskv1authenticationsDeviceInformationRawData.md) |  | [optional] 
+**RawData** | [**List&lt;Ptsv2paymentsDeviceInformationRawData&gt;**](Ptsv2paymentsDeviceInformationRawData.md) |  | [optional] 
 **HttpAcceptBrowserValue** | **string** | Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request.  | [optional] 
 **HttpAcceptContent** | **string** | The exact content of the HTTP accept header.  | [optional] 
 **HttpBrowserLanguage** | **string** | Value represents the browser language as defined in IETF BCP47. Example:en-US, refer  https://en.wikipedia.org/wiki/IETF_language_tag for more details.  | [optional] 

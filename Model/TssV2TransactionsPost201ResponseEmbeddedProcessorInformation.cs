@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedProcessorInformation" /> class.
         /// </summary>
         /// <param name="Processor">Processor.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedProcessorInformation(TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor = default(TssV2TransactionsGet200ResponseProcessorInformationProcessor))
+        /// <param name="ApprovalCode">Authorization code. Returned only when the processor returns this value. .</param>
+        public TssV2TransactionsPost201ResponseEmbeddedProcessorInformation(TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor = default(TssV2TransactionsGet200ResponseProcessorInformationProcessor), string ApprovalCode = default(string))
         {
             this.Processor = Processor;
+            this.ApprovalCode = ApprovalCode;
         }
         
         /// <summary>
@@ -44,6 +46,13 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="processor", EmitDefaultValue=false)]
         public TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor { get; set; }
+
+        /// <summary>
+        /// Authorization code. Returned only when the processor returns this value. 
+        /// </summary>
+        /// <value>Authorization code. Returned only when the processor returns this value. </value>
+        [DataMember(Name="approvalCode", EmitDefaultValue=false)]
+        public string ApprovalCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +63,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedProcessorInformation {\n");
             sb.Append("  Processor: ").Append(Processor).Append("\n");
+            sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +104,11 @@ namespace CyberSource.Model
                     this.Processor == other.Processor ||
                     this.Processor != null &&
                     this.Processor.Equals(other.Processor)
+                ) && 
+                (
+                    this.ApprovalCode == other.ApprovalCode ||
+                    this.ApprovalCode != null &&
+                    this.ApprovalCode.Equals(other.ApprovalCode)
                 );
         }
 
@@ -110,6 +125,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Processor != null)
                     hash = hash * 59 + this.Processor.GetHashCode();
+                if (this.ApprovalCode != null)
+                    hash = hash * 59 + this.ApprovalCode.GetHashCode();
                 return hash;
             }
         }

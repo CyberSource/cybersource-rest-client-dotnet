@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddNegative**](DecisionManagerApi.md#addnegative) | **POST** /risk/v1/lists/{type}/entries | List Management
 [**CreateDecisionManagerCase**](DecisionManagerApi.md#createdecisionmanagercase) | **POST** /risk/v1/decisions | Create Decision Manager Case
-[**FraudUdate**](DecisionManagerApi.md#fraududate) | **POST** /risk/v1/decisions/{id}/marking | Fraud Marking
+[**FraudUpdate**](DecisionManagerApi.md#fraudupdate) | **POST** /risk/v1/decisions/{id}/marking | Fraud Marking
 
 
 <a name="addnegative"></a>
@@ -133,9 +133,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="fraududate"></a>
-# **FraudUdate**
-> RiskV1UpdatePost201Response FraudUdate (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
+<a name="fraudupdate"></a>
+# **FraudUpdate**
+> RiskV1UpdatePost201Response FraudUpdate (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
 
 Fraud Marking
 
@@ -151,7 +151,7 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class FraudUdateExample
+    public class FraudUpdateExample
     {
         public void main()
         {
@@ -162,12 +162,12 @@ namespace Example
             try
             {
                 // Fraud Marking
-                RiskV1UpdatePost201Response result = apiInstance.FraudUdate(id, fraudMarkingActionRequest);
+                RiskV1UpdatePost201Response result = apiInstance.FraudUpdate(id, fraudMarkingActionRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DecisionManagerApi.FraudUdate: " + e.Message );
+                Debug.Print("Exception when calling DecisionManagerApi.FraudUpdate: " + e.Message );
             }
         }
     }

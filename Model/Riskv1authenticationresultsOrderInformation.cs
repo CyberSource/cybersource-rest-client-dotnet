@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="LineItems">LineItems.</param>
-        public Riskv1authenticationresultsOrderInformation(Riskv1decisionsOrderInformationAmountDetails AmountDetails = default(Riskv1decisionsOrderInformationAmountDetails), List<Riskv1authenticationresultsOrderInformationLineItems> LineItems = default(List<Riskv1authenticationresultsOrderInformationLineItems>))
+        public Riskv1authenticationresultsOrderInformation(Riskv1authenticationsOrderInformationAmountDetails AmountDetails = default(Riskv1authenticationsOrderInformationAmountDetails), List<Riskv1authenticationresultsOrderInformationLineItems> LineItems = default(List<Riskv1authenticationresultsOrderInformationLineItems>))
         {
             this.AmountDetails = AmountDetails;
             this.LineItems = LineItems;
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// Gets or Sets AmountDetails
         /// </summary>
         [DataMember(Name="amountDetails", EmitDefaultValue=false)]
-        public Riskv1decisionsOrderInformationAmountDetails AmountDetails { get; set; }
+        public Riskv1authenticationsOrderInformationAmountDetails AmountDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets LineItems

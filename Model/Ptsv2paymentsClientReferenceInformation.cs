@@ -37,12 +37,18 @@ namespace CyberSource.Model
         /// <param name="TransactionId">Identifier that you assign to the transaction.  **Note** Use this field only if you want to support merchant-initiated reversal and void operations.  For details, see \&quot;Merchant-Initiated Reversals and Voids\&quot; in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="Comments">Comments.</param>
         /// <param name="Partner">Partner.</param>
-        public Ptsv2paymentsClientReferenceInformation(string Code = default(string), string TransactionId = default(string), string Comments = default(string), Ptsv2paymentsClientReferenceInformationPartner Partner = default(Ptsv2paymentsClientReferenceInformationPartner))
+        /// <param name="ApplicationName">The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. .</param>
+        /// <param name="ApplicationVersion">Version of the CyberSource application or integration used for a transaction. .</param>
+        /// <param name="ApplicationUser">The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. .</param>
+        public Ptsv2paymentsClientReferenceInformation(string Code = default(string), string TransactionId = default(string), string Comments = default(string), Ptsv2paymentsClientReferenceInformationPartner Partner = default(Ptsv2paymentsClientReferenceInformationPartner), string ApplicationName = default(string), string ApplicationVersion = default(string), string ApplicationUser = default(string))
         {
             this.Code = Code;
             this.TransactionId = TransactionId;
             this.Comments = Comments;
             this.Partner = Partner;
+            this.ApplicationName = ApplicationName;
+            this.ApplicationVersion = ApplicationVersion;
+            this.ApplicationUser = ApplicationUser;
         }
         
         /// <summary>
@@ -73,6 +79,27 @@ namespace CyberSource.Model
         public Ptsv2paymentsClientReferenceInformationPartner Partner { get; set; }
 
         /// <summary>
+        /// The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. 
+        /// </summary>
+        /// <value>The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. </value>
+        [DataMember(Name="applicationName", EmitDefaultValue=false)]
+        public string ApplicationName { get; set; }
+
+        /// <summary>
+        /// Version of the CyberSource application or integration used for a transaction. 
+        /// </summary>
+        /// <value>Version of the CyberSource application or integration used for a transaction. </value>
+        [DataMember(Name="applicationVersion", EmitDefaultValue=false)]
+        public string ApplicationVersion { get; set; }
+
+        /// <summary>
+        /// The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. 
+        /// </summary>
+        /// <value>The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. </value>
+        [DataMember(Name="applicationUser", EmitDefaultValue=false)]
+        public string ApplicationUser { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,6 +111,9 @@ namespace CyberSource.Model
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
             sb.Append("  Partner: ").Append(Partner).Append("\n");
+            sb.Append("  ApplicationName: ").Append(ApplicationName).Append("\n");
+            sb.Append("  ApplicationVersion: ").Append(ApplicationVersion).Append("\n");
+            sb.Append("  ApplicationUser: ").Append(ApplicationUser).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +169,21 @@ namespace CyberSource.Model
                     this.Partner == other.Partner ||
                     this.Partner != null &&
                     this.Partner.Equals(other.Partner)
+                ) && 
+                (
+                    this.ApplicationName == other.ApplicationName ||
+                    this.ApplicationName != null &&
+                    this.ApplicationName.Equals(other.ApplicationName)
+                ) && 
+                (
+                    this.ApplicationVersion == other.ApplicationVersion ||
+                    this.ApplicationVersion != null &&
+                    this.ApplicationVersion.Equals(other.ApplicationVersion)
+                ) && 
+                (
+                    this.ApplicationUser == other.ApplicationUser ||
+                    this.ApplicationUser != null &&
+                    this.ApplicationUser.Equals(other.ApplicationUser)
                 );
         }
 
@@ -161,6 +206,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Comments.GetHashCode();
                 if (this.Partner != null)
                     hash = hash * 59 + this.Partner.GetHashCode();
+                if (this.ApplicationName != null)
+                    hash = hash * 59 + this.ApplicationName.GetHashCode();
+                if (this.ApplicationVersion != null)
+                    hash = hash * 59 + this.ApplicationVersion.GetHashCode();
+                if (this.ApplicationUser != null)
+                    hash = hash * 59 + this.ApplicationUser.GetHashCode();
                 return hash;
             }
         }

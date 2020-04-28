@@ -39,7 +39,12 @@ namespace CyberSource.Model
         /// <param name="LineItems">LineItems.</param>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
         /// <param name="ShippingDetails">ShippingDetails.</param>
-        public Ptsv2paymentsOrderInformation(Ptsv2paymentsOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsOrderInformationAmountDetails), Ptsv2paymentsOrderInformationBillTo BillTo = default(Ptsv2paymentsOrderInformationBillTo), Ptsv2paymentsOrderInformationShipTo ShipTo = default(Ptsv2paymentsOrderInformationShipTo), List<Ptsv2paymentsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsOrderInformationLineItems>), Ptsv2paymentsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsOrderInformationInvoiceDetails), Ptsv2paymentsOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsOrderInformationShippingDetails))
+        /// <param name="ReturnsAccepted">This is only needed when you are requesting both payment and DM service at same time.  Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. .</param>
+        /// <param name="PreOrder">Indicates whether cardholder is placing an order with a future availability or release date. This field can contain one of these values: - MERCHANDISE_AVAILABLE: Merchandise available - FUTURE_AVAILABILITY: Future availability .</param>
+        /// <param name="PreOrderDate">Expected date that a pre-ordered purchase will be available. Format: YYYYMMDD .</param>
+        /// <param name="Reordered">Indicates whether the cardholder is reordering previously purchased merchandise. This field can contain one of these values: - false: First time ordered - true: Reordered .</param>
+        /// <param name="TotalOffersCount">Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 .</param>
+        public Ptsv2paymentsOrderInformation(Ptsv2paymentsOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsOrderInformationAmountDetails), Ptsv2paymentsOrderInformationBillTo BillTo = default(Ptsv2paymentsOrderInformationBillTo), Ptsv2paymentsOrderInformationShipTo ShipTo = default(Ptsv2paymentsOrderInformationShipTo), List<Ptsv2paymentsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsOrderInformationLineItems>), Ptsv2paymentsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsOrderInformationInvoiceDetails), Ptsv2paymentsOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsOrderInformationShippingDetails), bool? ReturnsAccepted = default(bool?), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), string TotalOffersCount = default(string))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
@@ -47,6 +52,11 @@ namespace CyberSource.Model
             this.LineItems = LineItems;
             this.InvoiceDetails = InvoiceDetails;
             this.ShippingDetails = ShippingDetails;
+            this.ReturnsAccepted = ReturnsAccepted;
+            this.PreOrder = PreOrder;
+            this.PreOrderDate = PreOrderDate;
+            this.Reordered = Reordered;
+            this.TotalOffersCount = TotalOffersCount;
         }
         
         /// <summary>
@@ -86,6 +96,41 @@ namespace CyberSource.Model
         public Ptsv2paymentsOrderInformationShippingDetails ShippingDetails { get; set; }
 
         /// <summary>
+        /// This is only needed when you are requesting both payment and DM service at same time.  Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. 
+        /// </summary>
+        /// <value>This is only needed when you are requesting both payment and DM service at same time.  Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. </value>
+        [DataMember(Name="returnsAccepted", EmitDefaultValue=false)]
+        public bool? ReturnsAccepted { get; set; }
+
+        /// <summary>
+        /// Indicates whether cardholder is placing an order with a future availability or release date. This field can contain one of these values: - MERCHANDISE_AVAILABLE: Merchandise available - FUTURE_AVAILABILITY: Future availability 
+        /// </summary>
+        /// <value>Indicates whether cardholder is placing an order with a future availability or release date. This field can contain one of these values: - MERCHANDISE_AVAILABLE: Merchandise available - FUTURE_AVAILABILITY: Future availability </value>
+        [DataMember(Name="preOrder", EmitDefaultValue=false)]
+        public string PreOrder { get; set; }
+
+        /// <summary>
+        /// Expected date that a pre-ordered purchase will be available. Format: YYYYMMDD 
+        /// </summary>
+        /// <value>Expected date that a pre-ordered purchase will be available. Format: YYYYMMDD </value>
+        [DataMember(Name="preOrderDate", EmitDefaultValue=false)]
+        public string PreOrderDate { get; set; }
+
+        /// <summary>
+        /// Indicates whether the cardholder is reordering previously purchased merchandise. This field can contain one of these values: - false: First time ordered - true: Reordered 
+        /// </summary>
+        /// <value>Indicates whether the cardholder is reordering previously purchased merchandise. This field can contain one of these values: - false: First time ordered - true: Reordered </value>
+        [DataMember(Name="reordered", EmitDefaultValue=false)]
+        public bool? Reordered { get; set; }
+
+        /// <summary>
+        /// Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 
+        /// </summary>
+        /// <value>Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 </value>
+        [DataMember(Name="totalOffersCount", EmitDefaultValue=false)]
+        public string TotalOffersCount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -99,6 +144,11 @@ namespace CyberSource.Model
             sb.Append("  LineItems: ").Append(LineItems).Append("\n");
             sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
             sb.Append("  ShippingDetails: ").Append(ShippingDetails).Append("\n");
+            sb.Append("  ReturnsAccepted: ").Append(ReturnsAccepted).Append("\n");
+            sb.Append("  PreOrder: ").Append(PreOrder).Append("\n");
+            sb.Append("  PreOrderDate: ").Append(PreOrderDate).Append("\n");
+            sb.Append("  Reordered: ").Append(Reordered).Append("\n");
+            sb.Append("  TotalOffersCount: ").Append(TotalOffersCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -164,6 +214,31 @@ namespace CyberSource.Model
                     this.ShippingDetails == other.ShippingDetails ||
                     this.ShippingDetails != null &&
                     this.ShippingDetails.Equals(other.ShippingDetails)
+                ) && 
+                (
+                    this.ReturnsAccepted == other.ReturnsAccepted ||
+                    this.ReturnsAccepted != null &&
+                    this.ReturnsAccepted.Equals(other.ReturnsAccepted)
+                ) && 
+                (
+                    this.PreOrder == other.PreOrder ||
+                    this.PreOrder != null &&
+                    this.PreOrder.Equals(other.PreOrder)
+                ) && 
+                (
+                    this.PreOrderDate == other.PreOrderDate ||
+                    this.PreOrderDate != null &&
+                    this.PreOrderDate.Equals(other.PreOrderDate)
+                ) && 
+                (
+                    this.Reordered == other.Reordered ||
+                    this.Reordered != null &&
+                    this.Reordered.Equals(other.Reordered)
+                ) && 
+                (
+                    this.TotalOffersCount == other.TotalOffersCount ||
+                    this.TotalOffersCount != null &&
+                    this.TotalOffersCount.Equals(other.TotalOffersCount)
                 );
         }
 
@@ -190,6 +265,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InvoiceDetails.GetHashCode();
                 if (this.ShippingDetails != null)
                     hash = hash * 59 + this.ShippingDetails.GetHashCode();
+                if (this.ReturnsAccepted != null)
+                    hash = hash * 59 + this.ReturnsAccepted.GetHashCode();
+                if (this.PreOrder != null)
+                    hash = hash * 59 + this.PreOrder.GetHashCode();
+                if (this.PreOrderDate != null)
+                    hash = hash * 59 + this.PreOrderDate.GetHashCode();
+                if (this.Reordered != null)
+                    hash = hash * 59 + this.Reordered.GetHashCode();
+                if (this.TotalOffersCount != null)
+                    hash = hash * 59 + this.TotalOffersCount.GetHashCode();
                 return hash;
             }
         }
@@ -201,6 +286,18 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // PreOrderDate (string) maxLength
+            if(this.PreOrderDate != null && this.PreOrderDate.Length >= 10)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreOrderDate, length must be less than or equal to 10.", new [] { "PreOrderDate" });
+            }
+
+            // TotalOffersCount (string) maxLength
+            if(this.TotalOffersCount != null && this.TotalOffersCount.Length >= 2)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalOffersCount, length must be less than or equal to 2.", new [] { "TotalOffersCount" });
+            }
+
             yield break;
         }
     }

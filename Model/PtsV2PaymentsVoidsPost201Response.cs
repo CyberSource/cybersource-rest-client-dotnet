@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// <param name="Status">The status of the submitted transaction.  Possible values:  - VOIDED .</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="VoidAmountDetails">VoidAmountDetails.</param>
-        public PtsV2PaymentsVoidsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails VoidAmountDetails = default(PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails))
+        /// <param name="ProcessorInformation">ProcessorInformation.</param>
+        public PtsV2PaymentsVoidsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails VoidAmountDetails = default(PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails), PtsV2PaymentsVoidsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsVoidsPost201ResponseProcessorInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -47,6 +48,7 @@ namespace CyberSource.Model
             this.Status = Status;
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.VoidAmountDetails = VoidAmountDetails;
+            this.ProcessorInformation = ProcessorInformation;
         }
         
         /// <summary>
@@ -89,6 +91,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails VoidAmountDetails { get; set; }
 
         /// <summary>
+        /// Gets or Sets ProcessorInformation
+        /// </summary>
+        [DataMember(Name="processorInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsVoidsPost201ResponseProcessorInformation ProcessorInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -102,6 +110,7 @@ namespace CyberSource.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  VoidAmountDetails: ").Append(VoidAmountDetails).Append("\n");
+            sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +176,11 @@ namespace CyberSource.Model
                     this.VoidAmountDetails == other.VoidAmountDetails ||
                     this.VoidAmountDetails != null &&
                     this.VoidAmountDetails.Equals(other.VoidAmountDetails)
+                ) && 
+                (
+                    this.ProcessorInformation == other.ProcessorInformation ||
+                    this.ProcessorInformation != null &&
+                    this.ProcessorInformation.Equals(other.ProcessorInformation)
                 );
         }
 
@@ -193,6 +207,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 if (this.VoidAmountDetails != null)
                     hash = hash * 59 + this.VoidAmountDetails.GetHashCode();
+                if (this.ProcessorInformation != null)
+                    hash = hash * 59 + this.ProcessorInformation.GetHashCode();
                 return hash;
             }
         }

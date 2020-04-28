@@ -33,12 +33,25 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1authenticationsBuyerInformation" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected Riskv1authenticationsBuyerInformation() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Riskv1authenticationsBuyerInformation" /> class.
+        /// </summary>
         /// <param name="PersonalIdentification">This array contains detailed information about the buyer&#39;s form of persoanl identification..</param>
-        /// <param name="MobilePhone">Cardholder’s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
+        /// <param name="MobilePhone">Cardholder’s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions.  (required).</param>
         public Riskv1authenticationsBuyerInformation(List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), int? MobilePhone = default(int?))
         {
+            // to ensure "MobilePhone" is required (not null)
+            if (MobilePhone == null)
+            {
+                throw new InvalidDataException("MobilePhone is a required property for Riskv1authenticationsBuyerInformation and cannot be null");
+            }
+            else
+            {
+                this.MobilePhone = MobilePhone;
+            }
             this.PersonalIdentification = PersonalIdentification;
-            this.MobilePhone = MobilePhone;
         }
         
         /// <summary>

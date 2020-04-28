@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidvoidsPaymentInformation" /> class.
         /// </summary>
         /// <param name="PaymentType">PaymentType.</param>
-        public Ptsv2paymentsidvoidsPaymentInformation(Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType))
+        public Ptsv2paymentsidvoidsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsidrefundsPaymentInformationPaymentType))
         {
             this.PaymentType = PaymentType;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentType
         /// </summary>
         [DataMember(Name="paymentType", EmitDefaultValue=false)]
-        public Ptsv2paymentsPaymentInformationPaymentType PaymentType { get; set; }
+        public Ptsv2paymentsidrefundsPaymentInformationPaymentType PaymentType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

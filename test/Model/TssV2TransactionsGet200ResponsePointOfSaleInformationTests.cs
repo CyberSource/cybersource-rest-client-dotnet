@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TerminalCapability'
         }
+        /// <summary>
+        /// Test the property 'Emv'
+        /// </summary>
+        [Test]
+        public void EmvTest()
+        {
+            // TODO unit test for the property 'Emv'
+        }
 
     }
 

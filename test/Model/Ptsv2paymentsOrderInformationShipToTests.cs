@@ -160,6 +160,30 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Company'
         }
+        /// <summary>
+        /// Test the property 'DestinationTypes'
+        /// </summary>
+        [Test]
+        public void DestinationTypesTest()
+        {
+            // TODO unit test for the property 'DestinationTypes'
+        }
+        /// <summary>
+        /// Test the property 'DestinationCode'
+        /// </summary>
+        [Test]
+        public void DestinationCodeTest()
+        {
+            // TODO unit test for the property 'DestinationCode'
+        }
+        /// <summary>
+        /// Test the property 'Method'
+        /// </summary>
+        [Test]
+        public void MethodTest()
+        {
+            // TODO unit test for the property 'Method'
+        }
 
     }
 

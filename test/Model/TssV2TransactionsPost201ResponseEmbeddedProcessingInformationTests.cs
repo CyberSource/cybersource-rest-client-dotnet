@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'BusinessApplicationId'
         }
+        /// <summary>
+        /// Test the property 'CommerceIndicator'
+        /// </summary>
+        [Test]
+        public void CommerceIndicatorTest()
+        {
+            // TODO unit test for the property 'CommerceIndicator'
+        }
 
     }
 

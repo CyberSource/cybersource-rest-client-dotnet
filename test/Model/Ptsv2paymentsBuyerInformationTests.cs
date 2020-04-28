@@ -112,6 +112,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'HashedPassword'
         }
+        /// <summary>
+        /// Test the property 'MobilePhone'
+        /// </summary>
+        [Test]
+        public void MobilePhoneTest()
+        {
+            // TODO unit test for the property 'MobilePhone'
+        }
 
     }
 

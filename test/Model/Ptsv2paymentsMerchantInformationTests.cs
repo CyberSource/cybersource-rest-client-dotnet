@@ -136,6 +136,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ServiceFeeDescriptor'
         }
+        /// <summary>
+        /// Test the property 'MerchantName'
+        /// </summary>
+        [Test]
+        public void MerchantNameTest()
+        {
+            // TODO unit test for the property 'MerchantName'
+        }
 
     }
 

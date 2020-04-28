@@ -90,15 +90,15 @@ namespace CyberSource.Test
         }
         
         /// <summary>
-        /// Test FraudUdate
+        /// Test FraudUpdate
         /// </summary>
         [Test]
-        public void FraudUdateTest()
+        public void FraudUpdateTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
             //FraudMarkingActionRequest fraudMarkingActionRequest = null;
-            //var response = instance.FraudUdate(id, fraudMarkingActionRequest);
+            //var response = instance.FraudUpdate(id, fraudMarkingActionRequest);
             //Assert.IsInstanceOf<RiskV1UpdatePost201Response> (response, "response is RiskV1UpdatePost201Response");
         }
         
