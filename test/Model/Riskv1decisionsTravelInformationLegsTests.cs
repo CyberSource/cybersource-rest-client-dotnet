@@ -81,12 +81,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Destination'
         }
         /// <summary>
-        /// Test the property 'DepartureDateTime'
+        /// Test the property 'CarrierCode'
         /// </summary>
         [Test]
-        public void DepartureDateTimeTest()
+        public void CarrierCodeTest()
         {
-            // TODO unit test for the property 'DepartureDateTime'
+            // TODO unit test for the property 'CarrierCode'
+        }
+        /// <summary>
+        /// Test the property 'DepartureDate'
+        /// </summary>
+        [Test]
+        public void DepartureDateTest()
+        {
+            // TODO unit test for the property 'DepartureDate'
         }
 
     }

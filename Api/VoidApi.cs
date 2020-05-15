@@ -25,10 +25,10 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Merchant Initiated Void
+        /// Timeout Void
         /// </summary>
         /// <remarks>
-        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to timeout). This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in your payment, capture, refund, or credit API call and use same transactionId in this API request payload to reverse the payment.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitVoidRequest"></param>
@@ -36,10 +36,10 @@ namespace CyberSource.Api
         PtsV2PaymentsVoidsPost201Response MitVoid (MitVoidRequest mitVoidRequest);
 
         /// <summary>
-        /// Merchant Initiated Void
+        /// Timeout Void
         /// </summary>
         /// <remarks>
-        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to timeout). This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in your payment, capture, refund, or credit API call and use same transactionId in this API request payload to reverse the payment.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitVoidRequest"></param>
@@ -49,7 +49,7 @@ namespace CyberSource.Api
         /// Void a Capture
         /// </summary>
         /// <remarks>
-        /// Include the capture ID in the POST request to cancel the capture.
+        /// Refund a capture API is only used, if you have requested Capture independenlty using [/pts/v2/payments/{id}/captures](https://developer.cybersource.com/api-reference-assets/index.html#payments_capture) API call.  Include the capture ID in the POST request to cancel the capture. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
@@ -61,7 +61,7 @@ namespace CyberSource.Api
         /// Void a Capture
         /// </summary>
         /// <remarks>
-        /// Include the capture ID in the POST request to cancel the capture.
+        /// Refund a capture API is only used, if you have requested Capture independenlty using [/pts/v2/payments/{id}/captures](https://developer.cybersource.com/api-reference-assets/index.html#payments_capture) API call.  Include the capture ID in the POST request to cancel the capture. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
@@ -95,7 +95,7 @@ namespace CyberSource.Api
         /// Void a Payment
         /// </summary>
         /// <remarks>
-        /// Include the payment ID in the POST request to cancel the payment.
+        /// Void a Payment API is only used, if you have requested Authorization and Capture together in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call.  Include the payment ID in the POST request to cancel the payment. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
@@ -107,7 +107,7 @@ namespace CyberSource.Api
         /// Void a Payment
         /// </summary>
         /// <remarks>
-        /// Include the payment ID in the POST request to cancel the payment.
+        /// Void a Payment API is only used, if you have requested Authorization and Capture together in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call.  Include the payment ID in the POST request to cancel the payment. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
@@ -140,10 +140,10 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Merchant Initiated Void
+        /// Timeout Void
         /// </summary>
         /// <remarks>
-        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to timeout). This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in your payment, capture, refund, or credit API call and use same transactionId in this API request payload to reverse the payment.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitVoidRequest"></param>
@@ -151,10 +151,10 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<PtsV2PaymentsVoidsPost201Response> MitVoidAsync (MitVoidRequest mitVoidRequest);
 
         /// <summary>
-        /// Merchant Initiated Void
+        /// Timeout Void
         /// </summary>
         /// <remarks>
-        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to timeout). This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in your payment, capture, refund, or credit API call and use same transactionId in this API request payload to reverse the payment.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitVoidRequest"></param>
@@ -164,7 +164,7 @@ namespace CyberSource.Api
         /// Void a Capture
         /// </summary>
         /// <remarks>
-        /// Include the capture ID in the POST request to cancel the capture.
+        /// Refund a capture API is only used, if you have requested Capture independenlty using [/pts/v2/payments/{id}/captures](https://developer.cybersource.com/api-reference-assets/index.html#payments_capture) API call.  Include the capture ID in the POST request to cancel the capture. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
@@ -176,7 +176,7 @@ namespace CyberSource.Api
         /// Void a Capture
         /// </summary>
         /// <remarks>
-        /// Include the capture ID in the POST request to cancel the capture.
+        /// Refund a capture API is only used, if you have requested Capture independenlty using [/pts/v2/payments/{id}/captures](https://developer.cybersource.com/api-reference-assets/index.html#payments_capture) API call.  Include the capture ID in the POST request to cancel the capture. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
@@ -210,7 +210,7 @@ namespace CyberSource.Api
         /// Void a Payment
         /// </summary>
         /// <remarks>
-        /// Include the payment ID in the POST request to cancel the payment.
+        /// Void a Payment API is only used, if you have requested Authorization and Capture together in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call.  Include the payment ID in the POST request to cancel the payment. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
@@ -222,7 +222,7 @@ namespace CyberSource.Api
         /// Void a Payment
         /// </summary>
         /// <remarks>
-        /// Include the payment ID in the POST request to cancel the payment.
+        /// Void a Payment API is only used, if you have requested Authorization and Capture together in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call.  Include the payment ID in the POST request to cancel the payment. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
@@ -361,7 +361,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Merchant Initiated Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// Timeout Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to timeout). This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in your payment, capture, refund, or credit API call and use same transactionId in this API request payload to reverse the payment.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitVoidRequest"></param>
@@ -373,7 +373,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Merchant Initiated Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// Timeout Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to timeout). This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in your payment, capture, refund, or credit API call and use same transactionId in this API request payload to reverse the payment.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitVoidRequest"></param>
@@ -431,11 +431,11 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Merchant Initiated Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// Timeout Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to timeout). This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in your payment, capture, refund, or credit API call and use same transactionId in this API request payload to reverse the payment.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitVoidRequest"></param>
@@ -448,7 +448,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Merchant Initiated Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply.
+        /// Timeout Void This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to timeout). This is to void a previous payment, capture, refund, or credit that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in your payment, capture, refund, or credit API call and use same transactionId in this API request payload to reverse the payment.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitVoidRequest"></param>
@@ -506,11 +506,11 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Void a Capture Include the capture ID in the POST request to cancel the capture.
+        /// Void a Capture Refund a capture API is only used, if you have requested Capture independenlty using [/pts/v2/payments/{id}/captures](https://developer.cybersource.com/api-reference-assets/index.html#payments_capture) API call.  Include the capture ID in the POST request to cancel the capture. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
@@ -523,7 +523,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Void a Capture Include the capture ID in the POST request to cancel the capture.
+        /// Void a Capture Refund a capture API is only used, if you have requested Capture independenlty using [/pts/v2/payments/{id}/captures](https://developer.cybersource.com/api-reference-assets/index.html#payments_capture) API call.  Include the capture ID in the POST request to cancel the capture. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
@@ -586,11 +586,11 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Void a Capture Include the capture ID in the POST request to cancel the capture.
+        /// Void a Capture Refund a capture API is only used, if you have requested Capture independenlty using [/pts/v2/payments/{id}/captures](https://developer.cybersource.com/api-reference-assets/index.html#payments_capture) API call.  Include the capture ID in the POST request to cancel the capture. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
@@ -604,7 +604,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Void a Capture Include the capture ID in the POST request to cancel the capture.
+        /// Void a Capture Refund a capture API is only used, if you have requested Capture independenlty using [/pts/v2/payments/{id}/captures](https://developer.cybersource.com/api-reference-assets/index.html#payments_capture) API call.  Include the capture ID in the POST request to cancel the capture. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidCaptureRequest"></param>
@@ -667,7 +667,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -747,7 +747,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -828,11 +828,11 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Void a Payment Include the payment ID in the POST request to cancel the payment.
+        /// Void a Payment Void a Payment API is only used, if you have requested Authorization and Capture together in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call.  Include the payment ID in the POST request to cancel the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
@@ -845,7 +845,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Void a Payment Include the payment ID in the POST request to cancel the payment.
+        /// Void a Payment Void a Payment API is only used, if you have requested Authorization and Capture together in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call.  Include the payment ID in the POST request to cancel the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
@@ -908,11 +908,11 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Void a Payment Include the payment ID in the POST request to cancel the payment.
+        /// Void a Payment Void a Payment API is only used, if you have requested Authorization and Capture together in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call.  Include the payment ID in the POST request to cancel the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
@@ -926,7 +926,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Void a Payment Include the payment ID in the POST request to cancel the payment.
+        /// Void a Payment Void a Payment API is only used, if you have requested Authorization and Capture together in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call.  Include the payment ID in the POST request to cancel the payment. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voidPaymentRequest"></param>
@@ -989,7 +989,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -1069,7 +1069,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -1150,7 +1150,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsVoidsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response)));
+                (PtsV2PaymentsVoidsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsVoidsPost201Response))); // Return statement
         }
 
     }

@@ -161,9 +161,9 @@ namespace CyberSource.Model
             }
 
             // Id (string) minLength
-            if(this.Id != null && this.Id.Length <= 16)
+            if(this.Id != null && this.Id.Length <= 12)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than or equal to 16.", new [] { "Id" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than or equal to 12.", new [] { "Id" });
             }
 
             yield break;

@@ -51,23 +51,23 @@ namespace CyberSource.Api
         /// Create Decision Manager Case
         /// </summary>
         /// <remarks>
-        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDecisionManagerCaseRequest"></param>
+        /// <param name="createBundledDecisionManagerCaseRequest"></param>
         /// <returns>RiskV1DecisionsPost201Response</returns>
-        RiskV1DecisionsPost201Response CreateDecisionManagerCase (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest);
+        RiskV1DecisionsPost201Response CreateBundledDecisionManagerCase (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest);
 
         /// <summary>
         /// Create Decision Manager Case
         /// </summary>
         /// <remarks>
-        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDecisionManagerCaseRequest"></param>
+        /// <param name="createBundledDecisionManagerCaseRequest"></param>
         /// <returns>ApiResponse of RiskV1DecisionsPost201Response</returns>
-        ApiResponse<RiskV1DecisionsPost201Response> CreateDecisionManagerCaseWithHttpInfo (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest);
+        ApiResponse<RiskV1DecisionsPost201Response> CreateBundledDecisionManagerCaseWithHttpInfo (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest);
         /// <summary>
         /// Fraud Marking
         /// </summary>
@@ -120,23 +120,23 @@ namespace CyberSource.Api
         /// Create Decision Manager Case
         /// </summary>
         /// <remarks>
-        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDecisionManagerCaseRequest"></param>
+        /// <param name="createBundledDecisionManagerCaseRequest"></param>
         /// <returns>Task of RiskV1DecisionsPost201Response</returns>
-        System.Threading.Tasks.Task<RiskV1DecisionsPost201Response> CreateDecisionManagerCaseAsync (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest);
+        System.Threading.Tasks.Task<RiskV1DecisionsPost201Response> CreateBundledDecisionManagerCaseAsync (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest);
 
         /// <summary>
         /// Create Decision Manager Case
         /// </summary>
         /// <remarks>
-        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDecisionManagerCaseRequest"></param>
+        /// <param name="createBundledDecisionManagerCaseRequest"></param>
         /// <returns>Task of ApiResponse (RiskV1DecisionsPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RiskV1DecisionsPost201Response>> CreateDecisionManagerCaseAsyncWithHttpInfo (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest);
+        System.Threading.Tasks.Task<ApiResponse<RiskV1DecisionsPost201Response>> CreateBundledDecisionManagerCaseAsyncWithHttpInfo (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest);
         /// <summary>
         /// Fraud Marking
         /// </summary>
@@ -345,7 +345,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response)));
+                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response))); // Return statement
         }
 
         /// <summary>
@@ -426,32 +426,32 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response)));
+                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDecisionManagerCaseRequest"></param>
+        /// <param name="createBundledDecisionManagerCaseRequest"></param>
         /// <returns>RiskV1DecisionsPost201Response</returns>
-        public RiskV1DecisionsPost201Response CreateDecisionManagerCase (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest)
+        public RiskV1DecisionsPost201Response CreateBundledDecisionManagerCase (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
-             ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = CreateDecisionManagerCaseWithHttpInfo(createDecisionManagerCaseRequest);
+             ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = CreateBundledDecisionManagerCaseWithHttpInfo(createBundledDecisionManagerCaseRequest);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDecisionManagerCaseRequest"></param>
+        /// <param name="createBundledDecisionManagerCaseRequest"></param>
         /// <returns>ApiResponse of RiskV1DecisionsPost201Response</returns>
-        public ApiResponse< RiskV1DecisionsPost201Response > CreateDecisionManagerCaseWithHttpInfo (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest)
+        public ApiResponse< RiskV1DecisionsPost201Response > CreateBundledDecisionManagerCaseWithHttpInfo (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
-            // verify the required parameter 'createDecisionManagerCaseRequest' is set
-            if (createDecisionManagerCaseRequest == null)
-                throw new ApiException(400, "Missing required parameter 'createDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateDecisionManagerCase");
+            // verify the required parameter 'createBundledDecisionManagerCaseRequest' is set
+            if (createBundledDecisionManagerCaseRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
 
             var localVarPath = $"/risk/v1/decisions";
             var localVarPathParams = new Dictionary<String, String>();
@@ -475,13 +475,13 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (createDecisionManagerCaseRequest != null && createDecisionManagerCaseRequest.GetType() != typeof(byte[]))
+            if (createBundledDecisionManagerCaseRequest != null && createBundledDecisionManagerCaseRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(createDecisionManagerCaseRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(createBundledDecisionManagerCaseRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = createDecisionManagerCaseRequest; // byte array
+                localVarPostBody = createBundledDecisionManagerCaseRequest; // byte array
             }
 
 
@@ -494,39 +494,39 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateDecisionManagerCase", localVarResponse);
+                Exception exception = ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1DecisionsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1DecisionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1DecisionsPost201Response)));
+                (RiskV1DecisionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1DecisionsPost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDecisionManagerCaseRequest"></param>
+        /// <param name="createBundledDecisionManagerCaseRequest"></param>
         /// <returns>Task of RiskV1DecisionsPost201Response</returns>
-        public async System.Threading.Tasks.Task<RiskV1DecisionsPost201Response> CreateDecisionManagerCaseAsync (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest)
+        public async System.Threading.Tasks.Task<RiskV1DecisionsPost201Response> CreateBundledDecisionManagerCaseAsync (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
-             ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = await CreateDecisionManagerCaseAsyncWithHttpInfo(createDecisionManagerCaseRequest);
+             ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = await CreateBundledDecisionManagerCaseAsyncWithHttpInfo(createBundledDecisionManagerCaseRequest);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDecisionManagerCaseRequest"></param>
+        /// <param name="createBundledDecisionManagerCaseRequest"></param>
         /// <returns>Task of ApiResponse (RiskV1DecisionsPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RiskV1DecisionsPost201Response>> CreateDecisionManagerCaseAsyncWithHttpInfo (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<RiskV1DecisionsPost201Response>> CreateBundledDecisionManagerCaseAsyncWithHttpInfo (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
-            // verify the required parameter 'createDecisionManagerCaseRequest' is set
-            if (createDecisionManagerCaseRequest == null)
-                throw new ApiException(400, "Missing required parameter 'createDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateDecisionManagerCase");
+            // verify the required parameter 'createBundledDecisionManagerCaseRequest' is set
+            if (createBundledDecisionManagerCaseRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
 
             var localVarPath = $"/risk/v1/decisions";
             var localVarPathParams = new Dictionary<String, String>();
@@ -550,13 +550,13 @@ namespace CyberSource.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (createDecisionManagerCaseRequest != null && createDecisionManagerCaseRequest.GetType() != typeof(byte[]))
+            if (createBundledDecisionManagerCaseRequest != null && createBundledDecisionManagerCaseRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(createDecisionManagerCaseRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(createBundledDecisionManagerCaseRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = createDecisionManagerCaseRequest; // byte array
+                localVarPostBody = createBundledDecisionManagerCaseRequest; // byte array
             }
 
 
@@ -569,13 +569,13 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateDecisionManagerCase", localVarResponse);
+                Exception exception = ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1DecisionsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1DecisionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1DecisionsPost201Response)));
+                (RiskV1DecisionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1DecisionsPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -655,7 +655,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response)));
+                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response))); // Return statement
         }
 
         /// <summary>
@@ -736,7 +736,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response)));
+                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response))); // Return statement
         }
 
     }

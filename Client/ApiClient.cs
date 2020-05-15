@@ -100,6 +100,12 @@ namespace CyberSource.Client
         public Configuration Configuration { get; set; }
 
         /// <summary>
+        /// Sets the Accept Header Type.
+        /// </summary>
+        /// <value>User-defined Accept Header Type.</value>
+        public string AcceptHeader { get; set; }
+
+        /// <summary>
         /// Gets or sets the RestClient.
         /// </summary>
         /// <value>An instance of the RestClient</value>
@@ -309,6 +315,14 @@ namespace CyberSource.Client
             string httpResponseData = string.Empty;
 
             var response = new RestResponse();
+
+            if (!string.IsNullOrEmpty(AcceptHeader))
+            {
+                var defaultAcceptHeader = "," + headerParams["Accept"];
+                defaultAcceptHeader = AcceptHeader + defaultAcceptHeader.Replace("," + AcceptHeader, "");
+                headerParams.Remove("Accept");
+                headerParams.Add("Accept", defaultAcceptHeader);
+            }
 
             //check if the Response is to be downloaded as a file, this value to be set by the calling API class
             if (string.IsNullOrEmpty(DownloadReponseFileName))
@@ -767,11 +781,11 @@ namespace CyberSource.Client
                     int proxyPortTest;
 
                     if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyAddress) && int.TryParse(merchantConfig.ProxyPort, out proxyPortTest)) 
-					{
+                    {
                         WebProxy proxy = new WebProxy(merchantConfig.ProxyAddress, proxyPortTest);
                         
                         if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyUsername) && !string.IsNullOrWhiteSpace(merchantConfig.ProxyPassword)) 
-						{
+                        {
                             proxy.Credentials = new NetworkCredential(merchantConfig.ProxyUsername, merchantConfig.ProxyPassword);
                         }
                         

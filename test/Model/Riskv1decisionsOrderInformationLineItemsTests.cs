@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'TotalAmount'
+        /// </summary>
+        [Test]
+        public void TotalAmountTest()
+        {
+            // TODO unit test for the property 'TotalAmount'
+        }
+        /// <summary>
         /// Test the property 'UnitPrice'
         /// </summary>
         [Test]
@@ -81,6 +89,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Quantity'
         }
         /// <summary>
+        /// Test the property 'GiftCardCurrency'
+        /// </summary>
+        [Test]
+        public void GiftCardCurrencyTest()
+        {
+            // TODO unit test for the property 'GiftCardCurrency'
+        }
+        /// <summary>
         /// Test the property 'ProductSKU'
         /// </summary>
         [Test]
@@ -95,6 +111,14 @@ namespace CyberSource.Test
         public void ProductRiskTest()
         {
             // TODO unit test for the property 'ProductRisk'
+        }
+        /// <summary>
+        /// Test the property 'ProductDescription'
+        /// </summary>
+        [Test]
+        public void ProductDescriptionTest()
+        {
+            // TODO unit test for the property 'ProductDescription'
         }
         /// <summary>
         /// Test the property 'ProductName'
@@ -135,6 +159,22 @@ namespace CyberSource.Test
         public void PassengerTest()
         {
             // TODO unit test for the property 'Passenger'
+        }
+        /// <summary>
+        /// Test the property 'ShippingDestinationTypes'
+        /// </summary>
+        [Test]
+        public void ShippingDestinationTypesTest()
+        {
+            // TODO unit test for the property 'ShippingDestinationTypes'
+        }
+        /// <summary>
+        /// Test the property 'TaxAmount'
+        /// </summary>
+        [Test]
+        public void TaxAmountTest()
+        {
+            // TODO unit test for the property 'TaxAmount'
         }
 
     }

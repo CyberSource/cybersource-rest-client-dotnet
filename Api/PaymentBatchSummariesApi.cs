@@ -249,7 +249,9 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                "application/hal+json"
+                "application/hal+json",
+                "text/csv",
+                "application/xml"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -278,7 +280,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3PaymentBatchSummariesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3PaymentBatchSummariesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PaymentBatchSummariesGet200Response)));
+                (ReportingV3PaymentBatchSummariesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PaymentBatchSummariesGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -335,7 +337,9 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                "application/hal+json"
+                "application/hal+json",
+                "text/csv",
+                "application/xml"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -364,7 +368,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3PaymentBatchSummariesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3PaymentBatchSummariesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PaymentBatchSummariesGet200Response)));
+                (ReportingV3PaymentBatchSummariesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PaymentBatchSummariesGet200Response))); // Return statement
         }
 
     }

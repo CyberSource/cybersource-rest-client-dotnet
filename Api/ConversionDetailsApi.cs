@@ -258,7 +258,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3ConversionDetailsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3ConversionDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ConversionDetailsGet200Response)));
+                (ReportingV3ConversionDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ConversionDetailsGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -336,7 +336,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3ConversionDetailsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3ConversionDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ConversionDetailsGet200Response)));
+                (ReportingV3ConversionDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ConversionDetailsGet200Response))); // Return statement
         }
 
     }

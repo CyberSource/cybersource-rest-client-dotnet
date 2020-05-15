@@ -35,10 +35,10 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. .</param>
         /// <param name="RootId">Payment Request Id.</param>
-        /// <param name="ReconciliationId">The reconciliation id for the submitted transaction. This value is not returned for all processors. .</param>
+        /// <param name="ReconciliationId">Reference number for the transaction. This value is not returned for all processors.  Returned by authorization service.  #### Atos Positive string (6)  #### All other processors String (60) .</param>
         /// <param name="MerchantId">Your CyberSource merchant ID..</param>
         /// <param name="Status">The status of the submitted transaction..</param>
-        /// <param name="SubmitTimeUTC">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
+        /// <param name="SubmitTimeUTC">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. .</param>
         /// <param name="ApplicationInformation">ApplicationInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
@@ -100,9 +100,9 @@ namespace CyberSource.Model
         public string RootId { get; set; }
 
         /// <summary>
-        /// The reconciliation id for the submitted transaction. This value is not returned for all processors. 
+        /// Reference number for the transaction. This value is not returned for all processors.  Returned by authorization service.  #### Atos Positive string (6)  #### All other processors String (60) 
         /// </summary>
-        /// <value>The reconciliation id for the submitted transaction. This value is not returned for all processors. </value>
+        /// <value>Reference number for the transaction. This value is not returned for all processors.  Returned by authorization service.  #### Atos Positive string (6)  #### All other processors String (60) </value>
         [DataMember(Name="reconciliationId", EmitDefaultValue=false)]
         public string ReconciliationId { get; set; }
 
@@ -121,9 +121,9 @@ namespace CyberSource.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. </value>
         [DataMember(Name="submitTimeUTC", EmitDefaultValue=false)]
         public string SubmitTimeUTC { get; set; }
 

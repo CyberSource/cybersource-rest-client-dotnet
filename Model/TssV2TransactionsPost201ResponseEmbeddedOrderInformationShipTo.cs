@@ -33,10 +33,10 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedOrderInformationShipTo" /> class.
         /// </summary>
-        /// <param name="FirstName">First name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
-        /// <param name="LastName">Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
-        /// <param name="Address1">First line of the shipping address..</param>
-        /// <param name="Country">Country of the shipping address. Use the two-character ISO Standard Country Codes..</param>
+        /// <param name="FirstName">First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
+        /// <param name="LastName">Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
+        /// <param name="Address1">First line of the shipping address.  Required field for authorization if any shipping address information is included in the request; otherwise, optional. .</param>
+        /// <param name="Country">Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional. .</param>
         /// <param name="PhoneNumber">Phone number associated with the shipping address..</param>
         public TssV2TransactionsPost201ResponseEmbeddedOrderInformationShipTo(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Country = default(string), string PhoneNumber = default(string))
         {
@@ -48,30 +48,30 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// First name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 
+        /// First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. 
         /// </summary>
-        /// <value>First name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 </value>
+        /// <value>First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. </value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 
+        /// Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. 
         /// </summary>
-        /// <value>Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 </value>
+        /// <value>Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. </value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// First line of the shipping address.
+        /// First line of the shipping address.  Required field for authorization if any shipping address information is included in the request; otherwise, optional. 
         /// </summary>
-        /// <value>First line of the shipping address.</value>
+        /// <value>First line of the shipping address.  Required field for authorization if any shipping address information is included in the request; otherwise, optional. </value>
         [DataMember(Name="address1", EmitDefaultValue=false)]
         public string Address1 { get; set; }
 
         /// <summary>
-        /// Country of the shipping address. Use the two-character ISO Standard Country Codes.
+        /// Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional. 
         /// </summary>
-        /// <value>Country of the shipping address. Use the two-character ISO Standard Country Codes.</value>
+        /// <value>Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional. </value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 

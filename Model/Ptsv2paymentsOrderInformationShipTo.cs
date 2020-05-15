@@ -33,14 +33,14 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsOrderInformationShipTo" /> class.
         /// </summary>
-        /// <param name="FirstName">First name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
-        /// <param name="LastName">Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
-        /// <param name="Address1">First line of the shipping address..</param>
-        /// <param name="Address2">Second line of the shipping address..</param>
-        /// <param name="Locality">City of the shipping address..</param>
-        /// <param name="AdministrativeArea">State or province of the shipping address. Use the State, Province, and Territory Codes for the United States and Canada. .</param>
-        /// <param name="PostalCode">Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  **American Express Direct**\\ Before sending the postal code to the processor, CyberSource removes all nonalphanumeric characters and, if the remaining value is longer than nine characters, truncates the value starting from the right side. .</param>
-        /// <param name="Country">Country of the shipping address. Use the two-character ISO Standard Country Codes..</param>
+        /// <param name="FirstName">First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
+        /// <param name="LastName">Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
+        /// <param name="Address1">First line of the shipping address.  Required field for authorization if any shipping address information is included in the request; otherwise, optional. .</param>
+        /// <param name="Address2">Second line of the shipping address.  Optional field. .</param>
+        /// <param name="Locality">City of the shipping address.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. .</param>
+        /// <param name="AdministrativeArea">State or province of the shipping address. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf)  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. .</param>
+        /// <param name="PostalCode">Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  #### American Express Direct Before sending the postal code to the processor, all nonalphanumeric characters are removed and, if the remaining value is longer than nine characters, the value is truncated starting from the right side. .</param>
+        /// <param name="Country">Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional. .</param>
         /// <param name="District">Neighborhood, community, or region within a city or municipality..</param>
         /// <param name="BuildingNumber">Building number in the street address. For example, the building number is 187 in the following address:  Rua da Quitanda 187 .</param>
         /// <param name="PhoneNumber">Phone number associated with the shipping address..</param>
@@ -68,58 +68,58 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// First name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 
+        /// First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. 
         /// </summary>
-        /// <value>First name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 </value>
+        /// <value>First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. </value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 
+        /// Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. 
         /// </summary>
-        /// <value>Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 </value>
+        /// <value>Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. </value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// First line of the shipping address.
+        /// First line of the shipping address.  Required field for authorization if any shipping address information is included in the request; otherwise, optional. 
         /// </summary>
-        /// <value>First line of the shipping address.</value>
+        /// <value>First line of the shipping address.  Required field for authorization if any shipping address information is included in the request; otherwise, optional. </value>
         [DataMember(Name="address1", EmitDefaultValue=false)]
         public string Address1 { get; set; }
 
         /// <summary>
-        /// Second line of the shipping address.
+        /// Second line of the shipping address.  Optional field. 
         /// </summary>
-        /// <value>Second line of the shipping address.</value>
+        /// <value>Second line of the shipping address.  Optional field. </value>
         [DataMember(Name="address2", EmitDefaultValue=false)]
         public string Address2 { get; set; }
 
         /// <summary>
-        /// City of the shipping address.
+        /// City of the shipping address.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. 
         /// </summary>
-        /// <value>City of the shipping address.</value>
+        /// <value>City of the shipping address.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. </value>
         [DataMember(Name="locality", EmitDefaultValue=false)]
         public string Locality { get; set; }
 
         /// <summary>
-        /// State or province of the shipping address. Use the State, Province, and Territory Codes for the United States and Canada. 
+        /// State or province of the shipping address. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf)  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. 
         /// </summary>
-        /// <value>State or province of the shipping address. Use the State, Province, and Territory Codes for the United States and Canada. </value>
+        /// <value>State or province of the shipping address. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf)  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. </value>
         [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
         public string AdministrativeArea { get; set; }
 
         /// <summary>
-        /// Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  **American Express Direct**\\ Before sending the postal code to the processor, CyberSource removes all nonalphanumeric characters and, if the remaining value is longer than nine characters, truncates the value starting from the right side. 
+        /// Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  #### American Express Direct Before sending the postal code to the processor, all nonalphanumeric characters are removed and, if the remaining value is longer than nine characters, the value is truncated starting from the right side. 
         /// </summary>
-        /// <value>Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  **American Express Direct**\\ Before sending the postal code to the processor, CyberSource removes all nonalphanumeric characters and, if the remaining value is longer than nine characters, truncates the value starting from the right side. </value>
+        /// <value>Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  #### American Express Direct Before sending the postal code to the processor, all nonalphanumeric characters are removed and, if the remaining value is longer than nine characters, the value is truncated starting from the right side. </value>
         [DataMember(Name="postalCode", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Country of the shipping address. Use the two-character ISO Standard Country Codes.
+        /// Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional. 
         /// </summary>
-        /// <value>Country of the shipping address. Use the two-character ISO Standard Country Codes.</value>
+        /// <value>Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional. </value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 

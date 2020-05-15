@@ -289,7 +289,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1ExportComplianceInquiriesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1ExportComplianceInquiriesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1ExportComplianceInquiriesPost201Response)));
+                (RiskV1ExportComplianceInquiriesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1ExportComplianceInquiriesPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -364,7 +364,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1ExportComplianceInquiriesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1ExportComplianceInquiriesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1ExportComplianceInquiriesPost201Response)));
+                (RiskV1ExportComplianceInquiriesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1ExportComplianceInquiriesPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -438,7 +438,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AddressVerificationsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1AddressVerificationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AddressVerificationsPost201Response)));
+                (RiskV1AddressVerificationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AddressVerificationsPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -513,7 +513,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AddressVerificationsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1AddressVerificationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AddressVerificationsPost201Response)));
+                (RiskV1AddressVerificationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AddressVerificationsPost201Response))); // Return statement
         }
 
     }

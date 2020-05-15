@@ -137,7 +137,7 @@ No authorization required
 
 <a name="deletesubscription"></a>
 # **DeleteSubscription**
-> void DeleteSubscription (string reportName)
+> void DeleteSubscription (string reportName, string organizationId = null)
 
 Delete Subscription of a Report Name by Organization
 
@@ -159,11 +159,12 @@ namespace Example
         {
             var apiInstance = new ReportSubscriptionsApi();
             var reportName = reportName_example;  // string | Name of the Report to Delete
+            var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
 
             try
             {
                 // Delete Subscription of a Report Name by Organization
-                apiInstance.DeleteSubscription(reportName);
+                apiInstance.DeleteSubscription(reportName, organizationId);
             }
             catch (Exception e)
             {
@@ -179,6 +180,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reportName** | **string**| Name of the Report to Delete | 
+ **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
 
 ### Return type
 
@@ -197,7 +199,7 @@ No authorization required
 
 <a name="getallsubscriptions"></a>
 # **GetAllSubscriptions**
-> ReportingV3ReportSubscriptionsGet200Response GetAllSubscriptions ()
+> ReportingV3ReportSubscriptionsGet200Response GetAllSubscriptions (string organizationId = null)
 
 Get All Subscriptions
 
@@ -218,11 +220,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new ReportSubscriptionsApi();
+            var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
 
             try
             {
                 // Get All Subscriptions
-                ReportingV3ReportSubscriptionsGet200Response result = apiInstance.GetAllSubscriptions();
+                ReportingV3ReportSubscriptionsGet200Response result = apiInstance.GetAllSubscriptions(organizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -235,7 +238,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
 
 ### Return type
 
@@ -254,7 +260,7 @@ No authorization required
 
 <a name="getsubscription"></a>
 # **GetSubscription**
-> ReportingV3ReportSubscriptionsGet200ResponseSubscriptions GetSubscription (string reportName)
+> ReportingV3ReportSubscriptionsGet200ResponseSubscriptions GetSubscription (string reportName, string organizationId = null)
 
 Get Subscription for Report Name
 
@@ -276,11 +282,12 @@ namespace Example
         {
             var apiInstance = new ReportSubscriptionsApi();
             var reportName = reportName_example;  // string | Name of the Report to Retrieve
+            var organizationId = organizationId_example;  // string | Valid Cybersource Organization Id (optional) 
 
             try
             {
                 // Get Subscription for Report Name
-                ReportingV3ReportSubscriptionsGet200ResponseSubscriptions result = apiInstance.GetSubscription(reportName);
+                ReportingV3ReportSubscriptionsGet200ResponseSubscriptions result = apiInstance.GetSubscription(reportName, organizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -297,6 +304,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reportName** | **string**| Name of the Report to Retrieve | 
+ **organizationId** | **string**| Valid Cybersource Organization Id | [optional] 
 
 ### Return type
 

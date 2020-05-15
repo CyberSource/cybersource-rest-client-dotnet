@@ -4,16 +4,16 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetUsers**](UserManagementApi.md#getusers) | **GET** /ums/v1/users | Get User Information
+[**GetUsers**](UserManagementApi.md#getusers) | **GET** /ums/v1/users | Get User Information - Deprecated
 
 
 <a name="getusers"></a>
 # **GetUsers**
 > UmsV1UsersGet200Response GetUsers (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
 
-Get User Information
+Get User Information - Deprecated
 
-This endpoint is to get all the user information depending on the filter criteria passed in the query.
+This endpoint is deprecated. Please use the search end point.
 
 ### Example
 ```csharp
@@ -37,7 +37,7 @@ namespace Example
 
             try
             {
-                // Get User Information
+                // Get User Information - Deprecated
                 UmsV1UsersGet200Response result = apiInstance.GetUsers(organizationId, userName, permissionId, roleId);
                 Debug.WriteLine(result);
             }

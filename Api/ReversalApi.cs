@@ -48,10 +48,10 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV2PaymentsReversalsPost201Response</returns>
         ApiResponse<PtsV2PaymentsReversalsPost201Response> AuthReversalWithHttpInfo (string id, AuthReversalRequest authReversalRequest);
         /// <summary>
-        /// Merchant Initiated Reversal
+        /// Timeout Reversal
         /// </summary>
         /// <remarks>
-        /// This is to reverse a previous payment that merchant does not receive a reply.
+        /// This is to reverse a previous payment that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call and use same transactionId in this API request payload to reverse the payment.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitReversalRequest"></param>
@@ -59,10 +59,10 @@ namespace CyberSource.Api
         PtsV2PaymentsReversalsPost201Response MitReversal (MitReversalRequest mitReversalRequest);
 
         /// <summary>
-        /// Merchant Initiated Reversal
+        /// Timeout Reversal
         /// </summary>
         /// <remarks>
-        /// This is to reverse a previous payment that merchant does not receive a reply.
+        /// This is to reverse a previous payment that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call and use same transactionId in this API request payload to reverse the payment.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitReversalRequest"></param>
@@ -94,10 +94,10 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV2PaymentsReversalsPost201Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> AuthReversalAsyncWithHttpInfo (string id, AuthReversalRequest authReversalRequest);
         /// <summary>
-        /// Merchant Initiated Reversal
+        /// Timeout Reversal
         /// </summary>
         /// <remarks>
-        /// This is to reverse a previous payment that merchant does not receive a reply.
+        /// This is to reverse a previous payment that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call and use same transactionId in this API request payload to reverse the payment.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitReversalRequest"></param>
@@ -105,10 +105,10 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<PtsV2PaymentsReversalsPost201Response> MitReversalAsync (MitReversalRequest mitReversalRequest);
 
         /// <summary>
-        /// Merchant Initiated Reversal
+        /// Timeout Reversal
         /// </summary>
         /// <remarks>
-        /// This is to reverse a previous payment that merchant does not receive a reply.
+        /// This is to reverse a previous payment that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call and use same transactionId in this API request payload to reverse the payment.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitReversalRequest"></param>
@@ -299,7 +299,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response)));
+                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -380,11 +380,11 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response)));
+                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Merchant Initiated Reversal This is to reverse a previous payment that merchant does not receive a reply.
+        /// Timeout Reversal This is to reverse a previous payment that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call and use same transactionId in this API request payload to reverse the payment.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitReversalRequest"></param>
@@ -396,7 +396,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Merchant Initiated Reversal This is to reverse a previous payment that merchant does not receive a reply.
+        /// Timeout Reversal This is to reverse a previous payment that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call and use same transactionId in this API request payload to reverse the payment.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitReversalRequest"></param>
@@ -454,11 +454,11 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response)));
+                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Merchant Initiated Reversal This is to reverse a previous payment that merchant does not receive a reply.
+        /// Timeout Reversal This is to reverse a previous payment that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call and use same transactionId in this API request payload to reverse the payment.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitReversalRequest"></param>
@@ -471,7 +471,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Merchant Initiated Reversal This is to reverse a previous payment that merchant does not receive a reply.
+        /// Timeout Reversal This is to reverse a previous payment that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -&gt; transactionId in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call and use same transactionId in this API request payload to reverse the payment.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mitReversalRequest"></param>
@@ -529,7 +529,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response)));
+                (PtsV2PaymentsReversalsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response))); // Return statement
         }
 
     }

@@ -40,12 +40,12 @@ namespace CyberSource.Model
         /// <param name="CheckDigit">Check digit for the ticket number. CyberSource recommends that you validate the check digit. With Discover and Diners Club, a valid ticket number has these characteristics: - The value is numeric. - The first three digits are a valid IATA2 license plate carrier code. - The last digit is a check digit or zero (0). - All remaining digits are nonzero. .</param>
         /// <param name="RestrictedTicketIndicator">Flag that indicates whether or not the ticket is restricted (nonrefundable). Possible values: - 0: No restriction (refundable) - 1: Restricted (nonrefundable) .</param>
         /// <param name="TransactionType">Type of charge. Possible values: - 01: Charge is for an airline ticket - 02: Charge is for an item that is not an airline ticket .</param>
-        /// <param name="ExtendedPaymentCode">Airline process identifier. This value is the airline’s three-digit IATA1 code which is used to process extended payment airline tickets.. .</param>
+        /// <param name="ExtendedPaymentCode">The field is not currently supported. .</param>
         /// <param name="PassengerName">Name of the passenger to whom the ticket was issued. This will always be a single passenger&#39;s name. If there are more than one passengers, provide only the primary passenger&#39;s name. Do not include special characters such as commas, hyphens, or apostrophes. Only ASCII characters are supported. .</param>
         /// <param name="CustomerCode">1.Reference number or code that identifies the cardholder. 2. Code provided by the cardholder. 3. Address of the ticket issuer. The first 13 characters will appear onthe cardholder’s statement. 4. Customer reference. .</param>
         /// <param name="DocumentType">Airline document type code that specifies the purpose of the transaction. For the possible values, see Appendix A, \&quot;Airline Document Type Codes\&quot;. .</param>
-        /// <param name="DocumentNumber">Ticket number or a value that might be a booking reference number. .</param>
-        /// <param name="DocumentNumberOfParts">Number of travel legs. Numbering for the travel legs: 0 to 3. .</param>
+        /// <param name="DocumentNumber">The field is not currently supported. .</param>
+        /// <param name="DocumentNumberOfParts">The field is not currently supported. .</param>
         /// <param name="InvoiceNumber">Invoice number for the airline transaction. .</param>
         /// <param name="InvoiceDate">Invoice date. The format is YYYYMMDD. If this value is included in the request, it is used in the creation of the invoice number. See \&quot;Invoice Number,\&quot; .</param>
         /// <param name="AdditionalCharges">Description of the charge if the charge does not involve an airline ticket. For example: Excess baggage. .</param>
@@ -67,7 +67,7 @@ namespace CyberSource.Model
         /// <param name="RestrictedTicketDesciption">Text that describes the ticket limitations, such as nonrefundable. Format: English characters only. .</param>
         /// <param name="ExchangeTicketAmount">Amount of the exchanged ticket. Format: English characters only. .</param>
         /// <param name="ExchangeTicketFeeAmount">Fee for exchanging the ticket. Format: English characters only .</param>
-        /// <param name="ReservationType">Type of journey such as one way or round trip. .</param>
+        /// <param name="ReservationType">The field is not currently supported. .</param>
         /// <param name="BoardingFeeAmount">Boarding fee. .</param>
         /// <param name="Legs">Legs.</param>
         /// <param name="AncillaryInformation">AncillaryInformation.</param>
@@ -162,9 +162,9 @@ namespace CyberSource.Model
         public int? TransactionType { get; set; }
 
         /// <summary>
-        /// Airline process identifier. This value is the airline’s three-digit IATA1 code which is used to process extended payment airline tickets.. 
+        /// The field is not currently supported. 
         /// </summary>
-        /// <value>Airline process identifier. This value is the airline’s three-digit IATA1 code which is used to process extended payment airline tickets.. </value>
+        /// <value>The field is not currently supported. </value>
         [DataMember(Name="extendedPaymentCode", EmitDefaultValue=false)]
         public string ExtendedPaymentCode { get; set; }
 
@@ -190,16 +190,16 @@ namespace CyberSource.Model
         public string DocumentType { get; set; }
 
         /// <summary>
-        /// Ticket number or a value that might be a booking reference number. 
+        /// The field is not currently supported. 
         /// </summary>
-        /// <value>Ticket number or a value that might be a booking reference number. </value>
+        /// <value>The field is not currently supported. </value>
         [DataMember(Name="documentNumber", EmitDefaultValue=false)]
         public string DocumentNumber { get; set; }
 
         /// <summary>
-        /// Number of travel legs. Numbering for the travel legs: 0 to 3. 
+        /// The field is not currently supported. 
         /// </summary>
-        /// <value>Number of travel legs. Numbering for the travel legs: 0 to 3. </value>
+        /// <value>The field is not currently supported. </value>
         [DataMember(Name="documentNumberOfParts", EmitDefaultValue=false)]
         public int? DocumentNumberOfParts { get; set; }
 
@@ -351,9 +351,9 @@ namespace CyberSource.Model
         public string ExchangeTicketFeeAmount { get; set; }
 
         /// <summary>
-        /// Type of journey such as one way or round trip. 
+        /// The field is not currently supported. 
         /// </summary>
-        /// <value>Type of journey such as one way or round trip. </value>
+        /// <value>The field is not currently supported. </value>
         [DataMember(Name="reservationType", EmitDefaultValue=false)]
         public string ReservationType { get; set; }
 

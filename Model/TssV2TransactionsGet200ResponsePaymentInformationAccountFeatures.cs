@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures" /> class.
         /// </summary>
-        /// <param name="BalanceAmount">Remaining balance on the account. .</param>
-        /// <param name="PreviousBalanceAmount">Remaining balance on the account. .</param>
-        /// <param name="Currency">Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;auth_account_balance_currency&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="BalanceAmount">Remaining balance on the account.  Returned by authorization service. .</param>
+        /// <param name="PreviousBalanceAmount">Remaining balance on the account.  Returned by authorization service. .</param>
+        /// <param name="Currency">Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  Returned by authorization service. .</param>
         public TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures(string BalanceAmount = default(string), string PreviousBalanceAmount = default(string), string Currency = default(string))
         {
             this.BalanceAmount = BalanceAmount;
@@ -44,23 +44,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Remaining balance on the account. 
+        /// Remaining balance on the account.  Returned by authorization service. 
         /// </summary>
-        /// <value>Remaining balance on the account. </value>
+        /// <value>Remaining balance on the account.  Returned by authorization service. </value>
         [DataMember(Name="balanceAmount", EmitDefaultValue=false)]
         public string BalanceAmount { get; set; }
 
         /// <summary>
-        /// Remaining balance on the account. 
+        /// Remaining balance on the account.  Returned by authorization service. 
         /// </summary>
-        /// <value>Remaining balance on the account. </value>
+        /// <value>Remaining balance on the account.  Returned by authorization service. </value>
         [DataMember(Name="previousBalanceAmount", EmitDefaultValue=false)]
         public string PreviousBalanceAmount { get; set; }
 
         /// <summary>
-        /// Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;auth_account_balance_currency&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+        /// Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  Returned by authorization service. 
         /// </summary>
-        /// <value>Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  For details, see &#x60;auth_account_balance_currency&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
+        /// <value>Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  Returned by authorization service. </value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
 

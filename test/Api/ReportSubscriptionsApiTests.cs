@@ -98,7 +98,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string reportName = null;
-            //instance.DeleteSubscription(reportName);
+            //string organizationId = null;
+            //instance.DeleteSubscription(reportName, organizationId);
             
         }
         
@@ -109,7 +110,8 @@ namespace CyberSource.Test
         public void GetAllSubscriptionsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetAllSubscriptions();
+            //string organizationId = null;
+            //var response = instance.GetAllSubscriptions(organizationId);
             //Assert.IsInstanceOf<ReportingV3ReportSubscriptionsGet200Response> (response, "response is ReportingV3ReportSubscriptionsGet200Response");
         }
         
@@ -121,7 +123,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string reportName = null;
-            //var response = instance.GetSubscription(reportName);
+            //string organizationId = null;
+            //var response = instance.GetSubscription(reportName, organizationId);
             //Assert.IsInstanceOf<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> (response, "response is ReportingV3ReportSubscriptionsGet200ResponseSubscriptions");
         }
         

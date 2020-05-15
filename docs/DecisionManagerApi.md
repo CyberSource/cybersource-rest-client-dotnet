@@ -5,7 +5,7 @@ All URIs are relative to *https://apitest.cybersource.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddNegative**](DecisionManagerApi.md#addnegative) | **POST** /risk/v1/lists/{type}/entries | List Management
-[**CreateDecisionManagerCase**](DecisionManagerApi.md#createdecisionmanagercase) | **POST** /risk/v1/decisions | Create Decision Manager Case
+[**CreateBundledDecisionManagerCase**](DecisionManagerApi.md#createbundleddecisionmanagercase) | **POST** /risk/v1/decisions | Create Decision Manager Case
 [**FraudUpdate**](DecisionManagerApi.md#fraudupdate) | **POST** /risk/v1/decisions/{id}/marking | Fraud Marking
 
 
@@ -72,13 +72,13 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="createdecisionmanagercase"></a>
-# **CreateDecisionManagerCase**
-> RiskV1DecisionsPost201Response CreateDecisionManagerCase (CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest)
+<a name="createbundleddecisionmanagercase"></a>
+# **CreateBundledDecisionManagerCase**
+> RiskV1DecisionsPost201Response CreateBundledDecisionManagerCase (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
 
 Create Decision Manager Case
 
-This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values. 
+This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
 
 ### Example
 ```csharp
@@ -90,22 +90,22 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class CreateDecisionManagerCaseExample
+    public class CreateBundledDecisionManagerCaseExample
     {
         public void main()
         {
             var apiInstance = new DecisionManagerApi();
-            var createDecisionManagerCaseRequest = new CreateDecisionManagerCaseRequest(); // CreateDecisionManagerCaseRequest | 
+            var createBundledDecisionManagerCaseRequest = new CreateBundledDecisionManagerCaseRequest(); // CreateBundledDecisionManagerCaseRequest | 
 
             try
             {
                 // Create Decision Manager Case
-                RiskV1DecisionsPost201Response result = apiInstance.CreateDecisionManagerCase(createDecisionManagerCaseRequest);
+                RiskV1DecisionsPost201Response result = apiInstance.CreateBundledDecisionManagerCase(createBundledDecisionManagerCaseRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DecisionManagerApi.CreateDecisionManagerCase: " + e.Message );
+                Debug.Print("Exception when calling DecisionManagerApi.CreateBundledDecisionManagerCase: " + e.Message );
             }
         }
     }
@@ -116,7 +116,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createDecisionManagerCaseRequest** | [**CreateDecisionManagerCaseRequest**](CreateDecisionManagerCaseRequest.md)|  | 
+ **createBundledDecisionManagerCaseRequest** | [**CreateBundledDecisionManagerCaseRequest**](CreateBundledDecisionManagerCaseRequest.md)|  | 
 
 ### Return type
 

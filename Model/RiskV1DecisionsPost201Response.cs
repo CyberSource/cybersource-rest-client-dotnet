@@ -35,13 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Links">Links.</param>
         /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. .</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. .</param>
         /// <param name="SubmitTimeLocal">Time that the transaction was submitted in local time..</param>
-        /// <param name="Status">The status of the submitted transaction.  Possible values:   - &#x60;ACCEPTED&#x60;   - &#x60;REJECTED&#x60;   - &#x60;PENDING_REVIEW&#x60;   - &#x60;DECLINED&#x60;   - &#x60;CHALLENGE&#x60;   - &#x60;PENDING_AUTHENTICATION&#x60; .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:   - &#x60;ACCEPTED&#x60;   - &#x60;REJECTED&#x60;   - &#x60;PENDING_REVIEW&#x60;   - &#x60;DECLINED&#x60;   - &#x60;PENDING_AUTHENTICATION&#x60;   - &#x60;INVALID_REQUEST&#x60;   - &#x60;AUTHENTICATION_FAILED&#x60;   - &#x60;CHALLENGE&#x60; .</param>
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
+        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
+        /// <param name="OrderInformation">OrderInformation.</param>
+        /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        public RiskV1DecisionsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), PtsV2PaymentsPost201ResponseRiskInformation RiskInformation = default(PtsV2PaymentsPost201ResponseRiskInformation), RiskV1DecisionsPost201ResponsePaymentInformation PaymentInformation = default(RiskV1DecisionsPost201ResponsePaymentInformation), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation))
+        public RiskV1DecisionsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), PtsV2PaymentsPost201ResponseRiskInformation RiskInformation = default(PtsV2PaymentsPost201ResponseRiskInformation), RiskV1DecisionsPost201ResponsePaymentInformation PaymentInformation = default(RiskV1DecisionsPost201ResponsePaymentInformation), PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation), RiskV1DecisionsPost201ResponseOrderInformation OrderInformation = default(RiskV1DecisionsPost201ResponseOrderInformation), RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation), RiskV1DecisionsPost201ResponseErrorInformation ErrorInformation = default(RiskV1DecisionsPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -50,6 +53,9 @@ namespace CyberSource.Model
             this.Status = Status;
             this.RiskInformation = RiskInformation;
             this.PaymentInformation = PaymentInformation;
+            this.ClientReferenceInformation = ClientReferenceInformation;
+            this.OrderInformation = OrderInformation;
+            this.ConsumerAuthenticationInformation = ConsumerAuthenticationInformation;
             this.ErrorInformation = ErrorInformation;
         }
         
@@ -67,9 +73,9 @@ namespace CyberSource.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
@@ -81,9 +87,9 @@ namespace CyberSource.Model
         public string SubmitTimeLocal { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:   - &#x60;ACCEPTED&#x60;   - &#x60;REJECTED&#x60;   - &#x60;PENDING_REVIEW&#x60;   - &#x60;DECLINED&#x60;   - &#x60;CHALLENGE&#x60;   - &#x60;PENDING_AUTHENTICATION&#x60; 
+        /// The status of the submitted transaction.  Possible values:   - &#x60;ACCEPTED&#x60;   - &#x60;REJECTED&#x60;   - &#x60;PENDING_REVIEW&#x60;   - &#x60;DECLINED&#x60;   - &#x60;PENDING_AUTHENTICATION&#x60;   - &#x60;INVALID_REQUEST&#x60;   - &#x60;AUTHENTICATION_FAILED&#x60;   - &#x60;CHALLENGE&#x60; 
         /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:   - &#x60;ACCEPTED&#x60;   - &#x60;REJECTED&#x60;   - &#x60;PENDING_REVIEW&#x60;   - &#x60;DECLINED&#x60;   - &#x60;CHALLENGE&#x60;   - &#x60;PENDING_AUTHENTICATION&#x60; </value>
+        /// <value>The status of the submitted transaction.  Possible values:   - &#x60;ACCEPTED&#x60;   - &#x60;REJECTED&#x60;   - &#x60;PENDING_REVIEW&#x60;   - &#x60;DECLINED&#x60;   - &#x60;PENDING_AUTHENTICATION&#x60;   - &#x60;INVALID_REQUEST&#x60;   - &#x60;AUTHENTICATION_FAILED&#x60;   - &#x60;CHALLENGE&#x60; </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
@@ -100,10 +106,28 @@ namespace CyberSource.Model
         public RiskV1DecisionsPost201ResponsePaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ClientReferenceInformation
+        /// </summary>
+        [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
+        public PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OrderInformation
+        /// </summary>
+        [DataMember(Name="orderInformation", EmitDefaultValue=false)]
+        public RiskV1DecisionsPost201ResponseOrderInformation OrderInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ConsumerAuthenticationInformation
+        /// </summary>
+        [DataMember(Name="consumerAuthenticationInformation", EmitDefaultValue=false)]
+        public RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets ErrorInformation
         /// </summary>
         [DataMember(Name="errorInformation", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation { get; set; }
+        public RiskV1DecisionsPost201ResponseErrorInformation ErrorInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -120,6 +144,9 @@ namespace CyberSource.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
             sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
             sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -193,6 +220,21 @@ namespace CyberSource.Model
                     this.PaymentInformation.Equals(other.PaymentInformation)
                 ) && 
                 (
+                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
+                    this.ClientReferenceInformation != null &&
+                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
+                ) && 
+                (
+                    this.OrderInformation == other.OrderInformation ||
+                    this.OrderInformation != null &&
+                    this.OrderInformation.Equals(other.OrderInformation)
+                ) && 
+                (
+                    this.ConsumerAuthenticationInformation == other.ConsumerAuthenticationInformation ||
+                    this.ConsumerAuthenticationInformation != null &&
+                    this.ConsumerAuthenticationInformation.Equals(other.ConsumerAuthenticationInformation)
+                ) && 
+                (
                     this.ErrorInformation == other.ErrorInformation ||
                     this.ErrorInformation != null &&
                     this.ErrorInformation.Equals(other.ErrorInformation)
@@ -224,6 +266,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RiskInformation.GetHashCode();
                 if (this.PaymentInformation != null)
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
+                if (this.ClientReferenceInformation != null)
+                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
+                if (this.OrderInformation != null)
+                    hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.ConsumerAuthenticationInformation != null)
+                    hash = hash * 59 + this.ConsumerAuthenticationInformation.GetHashCode();
                 if (this.ErrorInformation != null)
                     hash = hash * 59 + this.ErrorInformation.GetHashCode();
                 return hash;

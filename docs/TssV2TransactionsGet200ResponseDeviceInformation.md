@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IpAddress** | **string** | IP address of the customer.  | [optional] 
+**IpAddress** | **string** | IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field.  | [optional] 
 **HostName** | **string** | DNS resolved hostname from &#x60;ipAddress&#x60;. | [optional] 
 **CookiesAccepted** | **string** | Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies.  | [optional] 
 

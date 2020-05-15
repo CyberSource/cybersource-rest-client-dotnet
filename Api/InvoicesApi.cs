@@ -469,7 +469,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response)));
+                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -544,7 +544,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response)));
+                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -620,7 +620,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesAllGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesAllGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesAllGet200Response)));
+                (InvoicingV2InvoicesAllGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesAllGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -697,7 +697,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesAllGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesAllGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesAllGet200Response)));
+                (InvoicingV2InvoicesAllGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesAllGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -764,7 +764,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesGet200Response)));
+                (InvoicingV2InvoicesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -832,7 +832,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesGet200Response)));
+                (InvoicingV2InvoicesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -899,7 +899,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response)));
+                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -967,7 +967,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response)));
+                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -1034,7 +1034,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response)));
+                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -1102,7 +1102,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response)));
+                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -1182,7 +1182,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response)));
+                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -1263,7 +1263,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response)));
+                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
 
     }

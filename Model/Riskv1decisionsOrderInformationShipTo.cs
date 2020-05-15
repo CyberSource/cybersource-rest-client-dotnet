@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Contains recipient shipping information.
+    /// Riskv1decisionsOrderInformationShipTo
     /// </summary>
     [DataContract]
     public partial class Riskv1decisionsOrderInformationShipTo :  IEquatable<Riskv1decisionsOrderInformationShipTo>, IValidatableObject
@@ -33,74 +33,87 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1decisionsOrderInformationShipTo" /> class.
         /// </summary>
-        /// <param name="Address1">First line of the shipping address..</param>
-        /// <param name="Address2">Second line of the shipping address..</param>
-        /// <param name="AdministrativeArea">State or province of the shipping address. Use the State, Province, and Territory Codes for the United States and Canada. .</param>
-        /// <param name="Country">Country of the shipping address. Use the two-character ISO Standard Country Codes..</param>
-        /// <param name="Locality">City of the shipping address..</param>
-        /// <param name="FirstName">First name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
-        /// <param name="LastName">Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 .</param>
+        /// <param name="Address1">First line of the shipping address.  Required field for authorization if any shipping address information is included in the request; otherwise, optional. .</param>
+        /// <param name="Address2">Second line of the shipping address.  Optional field. .</param>
+        /// <param name="AdministrativeArea">State or province of the shipping address. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf)  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. .</param>
+        /// <param name="Country">Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional. .</param>
+        /// <param name="DestinationTypes">Shipping destination of item. Example: Commercial, Residential, Store .</param>
+        /// <param name="Locality">City of the shipping address.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. .</param>
+        /// <param name="FirstName">First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
+        /// <param name="LastName">Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
         /// <param name="PhoneNumber">Phone number associated with the shipping address..</param>
-        /// <param name="PostalCode">Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  **American Express Direct**\\ Before sending the postal code to the processor, CyberSource removes all nonalphanumeric characters and, if the remaining value is longer than nine characters, truncates the value starting from the right side. .</param>
-        public Riskv1decisionsOrderInformationShipTo(string Address1 = default(string), string Address2 = default(string), string AdministrativeArea = default(string), string Country = default(string), string Locality = default(string), string FirstName = default(string), string LastName = default(string), string PhoneNumber = default(string), string PostalCode = default(string))
+        /// <param name="PostalCode">Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  #### American Express Direct Before sending the postal code to the processor, all nonalphanumeric characters are removed and, if the remaining value is longer than nine characters, the value is truncated starting from the right side. .</param>
+        /// <param name="DestinationCode">Indicates destination chosen for the transaction. Possible values: - 01- Ship to cardholder billing address - 02- Ship to another verified address on file with merchant - 03- Ship to address that is different than billing address - 04- Ship to store (store address should be populated on request) - 05- Digital goods - 06- Travel and event tickets, not shipped - 07- Other .</param>
+        /// <param name="Method">Shipping method for the product. Possible values: - lowcost: Lowest-cost service - sameday: Courier or same-day service - oneday: Next-day or overnight service - twoday: Two-day service - threeday: Three-day service - pickup: Store pick-up - other: Other shipping method - none: No shipping method because product is a service or subscription Required for American Express SafeKey (U.S.). .</param>
+        public Riskv1decisionsOrderInformationShipTo(string Address1 = default(string), string Address2 = default(string), string AdministrativeArea = default(string), string Country = default(string), string DestinationTypes = default(string), string Locality = default(string), string FirstName = default(string), string LastName = default(string), string PhoneNumber = default(string), string PostalCode = default(string), int? DestinationCode = default(int?), string Method = default(string))
         {
             this.Address1 = Address1;
             this.Address2 = Address2;
             this.AdministrativeArea = AdministrativeArea;
             this.Country = Country;
+            this.DestinationTypes = DestinationTypes;
             this.Locality = Locality;
             this.FirstName = FirstName;
             this.LastName = LastName;
             this.PhoneNumber = PhoneNumber;
             this.PostalCode = PostalCode;
+            this.DestinationCode = DestinationCode;
+            this.Method = Method;
         }
         
         /// <summary>
-        /// First line of the shipping address.
+        /// First line of the shipping address.  Required field for authorization if any shipping address information is included in the request; otherwise, optional. 
         /// </summary>
-        /// <value>First line of the shipping address.</value>
+        /// <value>First line of the shipping address.  Required field for authorization if any shipping address information is included in the request; otherwise, optional. </value>
         [DataMember(Name="address1", EmitDefaultValue=false)]
         public string Address1 { get; set; }
 
         /// <summary>
-        /// Second line of the shipping address.
+        /// Second line of the shipping address.  Optional field. 
         /// </summary>
-        /// <value>Second line of the shipping address.</value>
+        /// <value>Second line of the shipping address.  Optional field. </value>
         [DataMember(Name="address2", EmitDefaultValue=false)]
         public string Address2 { get; set; }
 
         /// <summary>
-        /// State or province of the shipping address. Use the State, Province, and Territory Codes for the United States and Canada. 
+        /// State or province of the shipping address. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf)  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. 
         /// </summary>
-        /// <value>State or province of the shipping address. Use the State, Province, and Territory Codes for the United States and Canada. </value>
+        /// <value>State or province of the shipping address. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf)  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. </value>
         [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
         public string AdministrativeArea { get; set; }
 
         /// <summary>
-        /// Country of the shipping address. Use the two-character ISO Standard Country Codes.
+        /// Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional. 
         /// </summary>
-        /// <value>Country of the shipping address. Use the two-character ISO Standard Country Codes.</value>
+        /// <value>Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional. </value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 
         /// <summary>
-        /// City of the shipping address.
+        /// Shipping destination of item. Example: Commercial, Residential, Store 
         /// </summary>
-        /// <value>City of the shipping address.</value>
+        /// <value>Shipping destination of item. Example: Commercial, Residential, Store </value>
+        [DataMember(Name="destinationTypes", EmitDefaultValue=false)]
+        public string DestinationTypes { get; set; }
+
+        /// <summary>
+        /// City of the shipping address.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. 
+        /// </summary>
+        /// <value>City of the shipping address.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional. </value>
         [DataMember(Name="locality", EmitDefaultValue=false)]
         public string Locality { get; set; }
 
         /// <summary>
-        /// First name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 
+        /// First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. 
         /// </summary>
-        /// <value>First name of the recipient.  **Processor specific maximum length**  - Litle: 25 - All other processors: 60 </value>
+        /// <value>First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. </value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 
+        /// Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. 
         /// </summary>
-        /// <value>Last name of the recipient.  **Processor-specific maximum length**  - Litle: 25 - All other processors: 60 </value>
+        /// <value>Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. </value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
@@ -112,11 +125,25 @@ namespace CyberSource.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  **American Express Direct**\\ Before sending the postal code to the processor, CyberSource removes all nonalphanumeric characters and, if the remaining value is longer than nine characters, truncates the value starting from the right side. 
+        /// Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  #### American Express Direct Before sending the postal code to the processor, all nonalphanumeric characters are removed and, if the remaining value is longer than nine characters, the value is truncated starting from the right side. 
         /// </summary>
-        /// <value>Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  **American Express Direct**\\ Before sending the postal code to the processor, CyberSource removes all nonalphanumeric characters and, if the remaining value is longer than nine characters, truncates the value starting from the right side. </value>
+        /// <value>Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  #### American Express Direct Before sending the postal code to the processor, all nonalphanumeric characters are removed and, if the remaining value is longer than nine characters, the value is truncated starting from the right side. </value>
         [DataMember(Name="postalCode", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
+
+        /// <summary>
+        /// Indicates destination chosen for the transaction. Possible values: - 01- Ship to cardholder billing address - 02- Ship to another verified address on file with merchant - 03- Ship to address that is different than billing address - 04- Ship to store (store address should be populated on request) - 05- Digital goods - 06- Travel and event tickets, not shipped - 07- Other 
+        /// </summary>
+        /// <value>Indicates destination chosen for the transaction. Possible values: - 01- Ship to cardholder billing address - 02- Ship to another verified address on file with merchant - 03- Ship to address that is different than billing address - 04- Ship to store (store address should be populated on request) - 05- Digital goods - 06- Travel and event tickets, not shipped - 07- Other </value>
+        [DataMember(Name="destinationCode", EmitDefaultValue=false)]
+        public int? DestinationCode { get; set; }
+
+        /// <summary>
+        /// Shipping method for the product. Possible values: - lowcost: Lowest-cost service - sameday: Courier or same-day service - oneday: Next-day or overnight service - twoday: Two-day service - threeday: Three-day service - pickup: Store pick-up - other: Other shipping method - none: No shipping method because product is a service or subscription Required for American Express SafeKey (U.S.). 
+        /// </summary>
+        /// <value>Shipping method for the product. Possible values: - lowcost: Lowest-cost service - sameday: Courier or same-day service - oneday: Next-day or overnight service - twoday: Two-day service - threeday: Three-day service - pickup: Store pick-up - other: Other shipping method - none: No shipping method because product is a service or subscription Required for American Express SafeKey (U.S.). </value>
+        [DataMember(Name="method", EmitDefaultValue=false)]
+        public string Method { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -130,11 +157,14 @@ namespace CyberSource.Model
             sb.Append("  Address2: ").Append(Address2).Append("\n");
             sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
+            sb.Append("  DestinationTypes: ").Append(DestinationTypes).Append("\n");
             sb.Append("  Locality: ").Append(Locality).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            sb.Append("  DestinationCode: ").Append(DestinationCode).Append("\n");
+            sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +222,11 @@ namespace CyberSource.Model
                     this.Country.Equals(other.Country)
                 ) && 
                 (
+                    this.DestinationTypes == other.DestinationTypes ||
+                    this.DestinationTypes != null &&
+                    this.DestinationTypes.Equals(other.DestinationTypes)
+                ) && 
+                (
                     this.Locality == other.Locality ||
                     this.Locality != null &&
                     this.Locality.Equals(other.Locality)
@@ -215,6 +250,16 @@ namespace CyberSource.Model
                     this.PostalCode == other.PostalCode ||
                     this.PostalCode != null &&
                     this.PostalCode.Equals(other.PostalCode)
+                ) && 
+                (
+                    this.DestinationCode == other.DestinationCode ||
+                    this.DestinationCode != null &&
+                    this.DestinationCode.Equals(other.DestinationCode)
+                ) && 
+                (
+                    this.Method == other.Method ||
+                    this.Method != null &&
+                    this.Method.Equals(other.Method)
                 );
         }
 
@@ -237,6 +282,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AdministrativeArea.GetHashCode();
                 if (this.Country != null)
                     hash = hash * 59 + this.Country.GetHashCode();
+                if (this.DestinationTypes != null)
+                    hash = hash * 59 + this.DestinationTypes.GetHashCode();
                 if (this.Locality != null)
                     hash = hash * 59 + this.Locality.GetHashCode();
                 if (this.FirstName != null)
@@ -247,6 +294,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 if (this.PostalCode != null)
                     hash = hash * 59 + this.PostalCode.GetHashCode();
+                if (this.DestinationCode != null)
+                    hash = hash * 59 + this.DestinationCode.GetHashCode();
+                if (this.Method != null)
+                    hash = hash * 59 + this.Method.GetHashCode();
                 return hash;
             }
         }
@@ -282,6 +333,12 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 2.", new [] { "Country" });
             }
 
+            // DestinationTypes (string) maxLength
+            if(this.DestinationTypes != null && this.DestinationTypes.Length >= 25)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DestinationTypes, length must be less than or equal to 25.", new [] { "DestinationTypes" });
+            }
+
             // Locality (string) maxLength
             if(this.Locality != null && this.Locality.Length >= 50)
             {
@@ -310,6 +367,12 @@ namespace CyberSource.Model
             if(this.PostalCode != null && this.PostalCode.Length >= 10)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than or equal to 10.", new [] { "PostalCode" });
+            }
+
+            // Method (string) maxLength
+            if(this.Method != null && this.Method.Length >= 10)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Method, length must be less than or equal to 10.", new [] { "Method" });
             }
 
             yield break;

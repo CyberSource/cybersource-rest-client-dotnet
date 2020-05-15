@@ -4,7 +4,7 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDTDV2**](DownloadDTDApi.md#getdtdv2) | **GET** /dtds/{reportDefinitionNameVersion} | Download DTD for Report
+[**GetDTDV2**](DownloadDTDApi.md#getdtdv2) | **GET** /reporting/v3/dtds/{reportDefinitionNameVersion} | Download DTD for Report
 
 
 <a name="getdtdv2"></a>

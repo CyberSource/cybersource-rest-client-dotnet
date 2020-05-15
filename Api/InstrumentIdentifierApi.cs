@@ -453,7 +453,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TmsV1InstrumentIdentifiersPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response)));
+                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response))); // Return statement
         }
 
         /// <summary>
@@ -534,7 +534,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TmsV1InstrumentIdentifiersPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response)));
+                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response))); // Return statement
         }
 
         /// <summary>
@@ -606,7 +606,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                null); // Return statement
         }
 
         /// <summary>
@@ -679,7 +679,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                null); // Return statement
         }
 
         /// <summary>
@@ -758,7 +758,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response)));
+                (TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -838,7 +838,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response)));
+                (TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -911,7 +911,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TmsV1InstrumentIdentifiersPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response)));
+                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response))); // Return statement
         }
 
         /// <summary>
@@ -985,7 +985,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TmsV1InstrumentIdentifiersPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response)));
+                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response))); // Return statement
         }
 
         /// <summary>
@@ -1071,7 +1071,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TmsV1InstrumentIdentifiersPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response)));
+                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response))); // Return statement
         }
 
         /// <summary>
@@ -1158,7 +1158,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TmsV1InstrumentIdentifiersPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response)));
+                (TmsV1InstrumentIdentifiersPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV1InstrumentIdentifiersPost200Response))); // Return statement
         }
 
     }

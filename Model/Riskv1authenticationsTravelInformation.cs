@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="Legs">Legs.</param>
         /// <param name="NumberOfPassengers">Number of passengers for whom the ticket was issued. If you do not include this field in your request, CyberSource uses a default value of 1. Required for American Express SafeKey (U.S.) for travel-related requests. .</param>
         /// <param name="Passengers">Passengers.</param>
-        public Riskv1authenticationsTravelInformation(List<Riskv1authenticationsTravelInformationLegs> Legs = default(List<Riskv1authenticationsTravelInformationLegs>), int? NumberOfPassengers = default(int?), List<Riskv1authenticationsTravelInformationPassengers> Passengers = default(List<Riskv1authenticationsTravelInformationPassengers>))
+        public Riskv1authenticationsTravelInformation(List<Riskv1decisionsTravelInformationLegs> Legs = default(List<Riskv1decisionsTravelInformationLegs>), int? NumberOfPassengers = default(int?), List<Riskv1decisionsTravelInformationPassengers> Passengers = default(List<Riskv1decisionsTravelInformationPassengers>))
         {
             this.Legs = Legs;
             this.NumberOfPassengers = NumberOfPassengers;
@@ -47,7 +47,7 @@ namespace CyberSource.Model
         /// Gets or Sets Legs
         /// </summary>
         [DataMember(Name="legs", EmitDefaultValue=false)]
-        public List<Riskv1authenticationsTravelInformationLegs> Legs { get; set; }
+        public List<Riskv1decisionsTravelInformationLegs> Legs { get; set; }
 
         /// <summary>
         /// Number of passengers for whom the ticket was issued. If you do not include this field in your request, CyberSource uses a default value of 1. Required for American Express SafeKey (U.S.) for travel-related requests. 
@@ -60,7 +60,7 @@ namespace CyberSource.Model
         /// Gets or Sets Passengers
         /// </summary>
         [DataMember(Name="passengers", EmitDefaultValue=false)]
-        public List<Riskv1authenticationsTravelInformationPassengers> Passengers { get; set; }
+        public List<Riskv1decisionsTravelInformationPassengers> Passengers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

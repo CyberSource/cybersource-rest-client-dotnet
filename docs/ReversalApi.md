@@ -5,7 +5,7 @@ All URIs are relative to *https://apitest.cybersource.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AuthReversal**](ReversalApi.md#authreversal) | **POST** /pts/v2/payments/{id}/reversals | Process an Authorization Reversal
-[**MitReversal**](ReversalApi.md#mitreversal) | **POST** /pts/v2/reversals/ | Merchant Initiated Reversal
+[**MitReversal**](ReversalApi.md#mitreversal) | **POST** /pts/v2/reversals/ | Timeout Reversal
 
 
 <a name="authreversal"></a>
@@ -75,9 +75,9 @@ No authorization required
 # **MitReversal**
 > PtsV2PaymentsReversalsPost201Response MitReversal (MitReversalRequest mitReversalRequest)
 
-Merchant Initiated Reversal
+Timeout Reversal
 
-This is to reverse a previous payment that merchant does not receive a reply.
+This is to reverse a previous payment that merchant does not receive a reply(Mostly due to Timeout). To use this feature/API, make sure to pass unique value to field - clientReferenceInformation -> transactionId in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call and use same transactionId in this API request payload to reverse the payment.
 
 ### Example
 ```csharp
@@ -98,7 +98,7 @@ namespace Example
 
             try
             {
-                // Merchant Initiated Reversal
+                // Timeout Reversal
                 PtsV2PaymentsReversalsPost201Response result = apiInstance.MitReversal(mitReversalRequest);
                 Debug.WriteLine(result);
             }

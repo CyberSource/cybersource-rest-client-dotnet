@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RiskV1DecisionsPost400Response" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
-        /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
-        /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE .</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - &#x60;INVALID_REQUEST&#x60;  - &#x60;DECLINED&#x60; .</param>
+        /// <param name="Reason">The reason of the status.  Possible values:  - &#x60;MISSING_FIELD&#x60;  - &#x60;INVALID_DATA&#x60;  - &#x60;INVALID_ACCOUNT&#x60; .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
         public RiskV1DecisionsPost400Response(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
@@ -48,23 +48,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
+        /// The status of the submitted transaction.  Possible values:  - &#x60;INVALID_REQUEST&#x60;  - &#x60;DECLINED&#x60; 
         /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
+        /// <value>The status of the submitted transaction.  Possible values:  - &#x60;INVALID_REQUEST&#x60;  - &#x60;DECLINED&#x60; </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
         /// <summary>
-        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE 
+        /// The reason of the status.  Possible values:  - &#x60;MISSING_FIELD&#x60;  - &#x60;INVALID_DATA&#x60;  - &#x60;INVALID_ACCOUNT&#x60; 
         /// </summary>
-        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE </value>
+        /// <value>The reason of the status.  Possible values:  - &#x60;MISSING_FIELD&#x60;  - &#x60;INVALID_DATA&#x60;  - &#x60;INVALID_ACCOUNT&#x60; </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 

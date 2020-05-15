@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1authenticationsDeviceInformation" /> class.
         /// </summary>
-        /// <param name="IpAddress">IP address of the customer. .</param>
+        /// <param name="IpAddress">IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. .</param>
         /// <param name="RawData">RawData.</param>
         /// <param name="HttpAcceptBrowserValue">Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. .</param>
         /// <param name="HttpAcceptContent">The exact content of the HTTP accept header. .</param>
@@ -62,9 +62,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// IP address of the customer. 
+        /// IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. 
         /// </summary>
-        /// <value>IP address of the customer. </value>
+        /// <value>IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 
