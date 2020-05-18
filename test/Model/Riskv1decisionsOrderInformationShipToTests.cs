@@ -97,6 +97,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Country'
         }
         /// <summary>
+        /// Test the property 'DestinationTypes'
+        /// </summary>
+        [Test]
+        public void DestinationTypesTest()
+        {
+            // TODO unit test for the property 'DestinationTypes'
+        }
+        /// <summary>
         /// Test the property 'Locality'
         /// </summary>
         [Test]
@@ -135,6 +143,22 @@ namespace CyberSource.Test
         public void PostalCodeTest()
         {
             // TODO unit test for the property 'PostalCode'
+        }
+        /// <summary>
+        /// Test the property 'DestinationCode'
+        /// </summary>
+        [Test]
+        public void DestinationCodeTest()
+        {
+            // TODO unit test for the property 'DestinationCode'
+        }
+        /// <summary>
+        /// Test the property 'Method'
+        /// </summary>
+        [Test]
+        public void MethodTest()
+        {
+            // TODO unit test for the property 'Method'
         }
 
     }

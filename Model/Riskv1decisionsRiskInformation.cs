@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Profile">Profile.</param>
         /// <param name="EventType">Specifies one of the following types of events: - login - account_creation - account_update For regular payment transactions, do not send this field. .</param>
-        public Riskv1decisionsRiskInformation(Ptsv2paymentsRiskInformationProfile Profile = default(Ptsv2paymentsRiskInformationProfile), string EventType = default(string))
+        /// <param name="BuyerHistory">BuyerHistory.</param>
+        public Riskv1decisionsRiskInformation(Ptsv2paymentsRiskInformationProfile Profile = default(Ptsv2paymentsRiskInformationProfile), string EventType = default(string), Ptsv2paymentsRiskInformationBuyerHistory BuyerHistory = default(Ptsv2paymentsRiskInformationBuyerHistory))
         {
             this.Profile = Profile;
             this.EventType = EventType;
+            this.BuyerHistory = BuyerHistory;
         }
         
         /// <summary>
@@ -55,6 +57,12 @@ namespace CyberSource.Model
         public string EventType { get; set; }
 
         /// <summary>
+        /// Gets or Sets BuyerHistory
+        /// </summary>
+        [DataMember(Name="buyerHistory", EmitDefaultValue=false)]
+        public Ptsv2paymentsRiskInformationBuyerHistory BuyerHistory { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +72,7 @@ namespace CyberSource.Model
             sb.Append("class Riskv1decisionsRiskInformation {\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
+            sb.Append("  BuyerHistory: ").Append(BuyerHistory).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +118,11 @@ namespace CyberSource.Model
                     this.EventType == other.EventType ||
                     this.EventType != null &&
                     this.EventType.Equals(other.EventType)
+                ) && 
+                (
+                    this.BuyerHistory == other.BuyerHistory ||
+                    this.BuyerHistory != null &&
+                    this.BuyerHistory.Equals(other.BuyerHistory)
                 );
         }
 
@@ -127,6 +141,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Profile.GetHashCode();
                 if (this.EventType != null)
                     hash = hash * 59 + this.EventType.GetHashCode();
+                if (this.BuyerHistory != null)
+                    hash = hash * 59 + this.BuyerHistory.GetHashCode();
                 return hash;
             }
         }

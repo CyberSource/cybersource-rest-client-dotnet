@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidcapturesDeviceInformation" /> class.
         /// </summary>
         /// <param name="HostName">DNS resolved hostname from &#x60;ipAddress&#x60;..</param>
-        /// <param name="IpAddress">IP address of the customer. .</param>
+        /// <param name="IpAddress">IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. .</param>
         /// <param name="UserAgent">Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. .</param>
         public Ptsv2paymentsidcapturesDeviceInformation(string HostName = default(string), string IpAddress = default(string), string UserAgent = default(string))
         {
@@ -51,9 +51,9 @@ namespace CyberSource.Model
         public string HostName { get; set; }
 
         /// <summary>
-        /// IP address of the customer. 
+        /// IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. 
         /// </summary>
-        /// <value>IP address of the customer. </value>
+        /// <value>IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 

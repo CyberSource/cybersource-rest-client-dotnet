@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1liststypeentriesDeviceInformation" /> class.
         /// </summary>
-        /// <param name="IpAddress">IP address of the customer. .</param>
+        /// <param name="IpAddress">IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. .</param>
         /// <param name="NetworkIpAddress">Network IP address of the customer (for example, 10.1.27). A network IP address includes up to 256 IP addresses. .</param>
         public Riskv1liststypeentriesDeviceInformation(string IpAddress = default(string), string NetworkIpAddress = default(string))
         {
@@ -42,9 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// IP address of the customer. 
+        /// IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. 
         /// </summary>
-        /// <value>IP address of the customer. </value>
+        /// <value>IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 

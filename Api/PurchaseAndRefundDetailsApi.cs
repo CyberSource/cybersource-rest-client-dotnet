@@ -261,7 +261,9 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                "application/hal+json"
+                "application/hal+json",
+                "application/xml",
+                "text/csv"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -292,7 +294,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3PurchaseRefundDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PurchaseRefundDetailsGet200Response)));
+                (ReportingV3PurchaseRefundDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PurchaseRefundDetailsGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -353,7 +355,9 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                "application/hal+json"
+                "application/hal+json",
+                "application/xml",
+                "text/csv"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -384,7 +388,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3PurchaseRefundDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PurchaseRefundDetailsGet200Response)));
+                (ReportingV3PurchaseRefundDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PurchaseRefundDetailsGet200Response))); // Return statement
         }
 
     }

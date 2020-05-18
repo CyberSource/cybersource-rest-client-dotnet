@@ -34,12 +34,23 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Riskv1decisionsDeviceInformation" /> class.
         /// </summary>
         /// <param name="CookiesAccepted">Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. .</param>
-        /// <param name="IpAddress">IP address of the customer. .</param>
+        /// <param name="IpAddress">IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. .</param>
         /// <param name="HostName">DNS resolved hostname from &#x60;ipAddress&#x60;..</param>
         /// <param name="FingerprintSessionId">Field that contains the session ID that you send to Decision Manager to obtain the device fingerprint information. The string can contain uppercase and lowercase letters, digits, hyphen (-), and underscore (_). However, do not use the same uppercase and lowercase letters to indicate different session IDs.  The session ID must be unique for each merchant ID. You can use any string that you are already generating, such as an order number or web session ID.  The session ID must be unique for each page load, regardless of an individual’s web session ID. If a user navigates to a profiled page and is assigned a web session, navigates away from the profiled page, then navigates back to the profiled page, the generated session ID should be different and unique. You may use a web session ID, but it is preferable to use an application GUID (Globally Unique Identifier). This measure ensures that a unique ID is generated every time the page is loaded, even if it is the same user reloading the page. .</param>
         /// <param name="HttpBrowserEmail">Email address set in the customer’s browser, which may differ from customer email. .</param>
         /// <param name="UserAgent">Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. .</param>
-        public Riskv1decisionsDeviceInformation(string CookiesAccepted = default(string), string IpAddress = default(string), string HostName = default(string), string FingerprintSessionId = default(string), string HttpBrowserEmail = default(string), string UserAgent = default(string))
+        /// <param name="RawData">RawData.</param>
+        /// <param name="HttpAcceptBrowserValue">Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. .</param>
+        /// <param name="HttpAcceptContent">The exact content of the HTTP accept header. .</param>
+        /// <param name="HttpBrowserLanguage">Value represents the browser language as defined in IETF BCP47. Example:en-US, refer  https://en.wikipedia.org/wiki/IETF_language_tag for more details. .</param>
+        /// <param name="HttpBrowserJavaEnabled">A Boolean value that represents the ability of the cardholder browser to execute Java. Value is returned from the navigator.javaEnabled property. Possible Values:True/False .</param>
+        /// <param name="HttpBrowserJavaScriptEnabled">A Boolean value that represents the ability of the cardholder browser to execute JavaScript. Possible Values:True/False. **Note**: Merchants should be able to know the values from fingerprint details of cardholder&#39;s browser. .</param>
+        /// <param name="HttpBrowserColorDepth">Value represents the bit depth of the color palette for displaying images, in bits per pixel. Example : 24, refer https://en.wikipedia.org/wiki/Color_depth for more details .</param>
+        /// <param name="HttpBrowserScreenHeight">Total height of the Cardholder&#39;s scree in pixels, example: 864. .</param>
+        /// <param name="HttpBrowserScreenWidth">Total width of the cardholder&#39;s screen in pixels. Example: 1536. .</param>
+        /// <param name="HttpBrowserTimeDifference">Time difference between UTC time and the cardholder browser local time, in minutes, Example:300 .</param>
+        /// <param name="UserAgentBrowserValue">Value of the User-Agent header sent by the customer’s web browser. Note If the customer’s browser provides a value, you must include it in your request. .</param>
+        public Riskv1decisionsDeviceInformation(string CookiesAccepted = default(string), string IpAddress = default(string), string HostName = default(string), string FingerprintSessionId = default(string), string HttpBrowserEmail = default(string), string UserAgent = default(string), List<Ptsv2paymentsDeviceInformationRawData> RawData = default(List<Ptsv2paymentsDeviceInformationRawData>), string HttpAcceptBrowserValue = default(string), string HttpAcceptContent = default(string), string HttpBrowserLanguage = default(string), bool? HttpBrowserJavaEnabled = default(bool?), bool? HttpBrowserJavaScriptEnabled = default(bool?), string HttpBrowserColorDepth = default(string), string HttpBrowserScreenHeight = default(string), string HttpBrowserScreenWidth = default(string), string HttpBrowserTimeDifference = default(string), string UserAgentBrowserValue = default(string))
         {
             this.CookiesAccepted = CookiesAccepted;
             this.IpAddress = IpAddress;
@@ -47,6 +58,17 @@ namespace CyberSource.Model
             this.FingerprintSessionId = FingerprintSessionId;
             this.HttpBrowserEmail = HttpBrowserEmail;
             this.UserAgent = UserAgent;
+            this.RawData = RawData;
+            this.HttpAcceptBrowserValue = HttpAcceptBrowserValue;
+            this.HttpAcceptContent = HttpAcceptContent;
+            this.HttpBrowserLanguage = HttpBrowserLanguage;
+            this.HttpBrowserJavaEnabled = HttpBrowserJavaEnabled;
+            this.HttpBrowserJavaScriptEnabled = HttpBrowserJavaScriptEnabled;
+            this.HttpBrowserColorDepth = HttpBrowserColorDepth;
+            this.HttpBrowserScreenHeight = HttpBrowserScreenHeight;
+            this.HttpBrowserScreenWidth = HttpBrowserScreenWidth;
+            this.HttpBrowserTimeDifference = HttpBrowserTimeDifference;
+            this.UserAgentBrowserValue = UserAgentBrowserValue;
         }
         
         /// <summary>
@@ -57,9 +79,9 @@ namespace CyberSource.Model
         public string CookiesAccepted { get; set; }
 
         /// <summary>
-        /// IP address of the customer. 
+        /// IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. 
         /// </summary>
-        /// <value>IP address of the customer. </value>
+        /// <value>IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. </value>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 
@@ -92,6 +114,82 @@ namespace CyberSource.Model
         public string UserAgent { get; set; }
 
         /// <summary>
+        /// Gets or Sets RawData
+        /// </summary>
+        [DataMember(Name="rawData", EmitDefaultValue=false)]
+        public List<Ptsv2paymentsDeviceInformationRawData> RawData { get; set; }
+
+        /// <summary>
+        /// Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. 
+        /// </summary>
+        /// <value>Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. </value>
+        [DataMember(Name="httpAcceptBrowserValue", EmitDefaultValue=false)]
+        public string HttpAcceptBrowserValue { get; set; }
+
+        /// <summary>
+        /// The exact content of the HTTP accept header. 
+        /// </summary>
+        /// <value>The exact content of the HTTP accept header. </value>
+        [DataMember(Name="httpAcceptContent", EmitDefaultValue=false)]
+        public string HttpAcceptContent { get; set; }
+
+        /// <summary>
+        /// Value represents the browser language as defined in IETF BCP47. Example:en-US, refer  https://en.wikipedia.org/wiki/IETF_language_tag for more details. 
+        /// </summary>
+        /// <value>Value represents the browser language as defined in IETF BCP47. Example:en-US, refer  https://en.wikipedia.org/wiki/IETF_language_tag for more details. </value>
+        [DataMember(Name="httpBrowserLanguage", EmitDefaultValue=false)]
+        public string HttpBrowserLanguage { get; set; }
+
+        /// <summary>
+        /// A Boolean value that represents the ability of the cardholder browser to execute Java. Value is returned from the navigator.javaEnabled property. Possible Values:True/False 
+        /// </summary>
+        /// <value>A Boolean value that represents the ability of the cardholder browser to execute Java. Value is returned from the navigator.javaEnabled property. Possible Values:True/False </value>
+        [DataMember(Name="httpBrowserJavaEnabled", EmitDefaultValue=false)]
+        public bool? HttpBrowserJavaEnabled { get; set; }
+
+        /// <summary>
+        /// A Boolean value that represents the ability of the cardholder browser to execute JavaScript. Possible Values:True/False. **Note**: Merchants should be able to know the values from fingerprint details of cardholder&#39;s browser. 
+        /// </summary>
+        /// <value>A Boolean value that represents the ability of the cardholder browser to execute JavaScript. Possible Values:True/False. **Note**: Merchants should be able to know the values from fingerprint details of cardholder&#39;s browser. </value>
+        [DataMember(Name="httpBrowserJavaScriptEnabled", EmitDefaultValue=false)]
+        public bool? HttpBrowserJavaScriptEnabled { get; set; }
+
+        /// <summary>
+        /// Value represents the bit depth of the color palette for displaying images, in bits per pixel. Example : 24, refer https://en.wikipedia.org/wiki/Color_depth for more details 
+        /// </summary>
+        /// <value>Value represents the bit depth of the color palette for displaying images, in bits per pixel. Example : 24, refer https://en.wikipedia.org/wiki/Color_depth for more details </value>
+        [DataMember(Name="httpBrowserColorDepth", EmitDefaultValue=false)]
+        public string HttpBrowserColorDepth { get; set; }
+
+        /// <summary>
+        /// Total height of the Cardholder&#39;s scree in pixels, example: 864. 
+        /// </summary>
+        /// <value>Total height of the Cardholder&#39;s scree in pixels, example: 864. </value>
+        [DataMember(Name="httpBrowserScreenHeight", EmitDefaultValue=false)]
+        public string HttpBrowserScreenHeight { get; set; }
+
+        /// <summary>
+        /// Total width of the cardholder&#39;s screen in pixels. Example: 1536. 
+        /// </summary>
+        /// <value>Total width of the cardholder&#39;s screen in pixels. Example: 1536. </value>
+        [DataMember(Name="httpBrowserScreenWidth", EmitDefaultValue=false)]
+        public string HttpBrowserScreenWidth { get; set; }
+
+        /// <summary>
+        /// Time difference between UTC time and the cardholder browser local time, in minutes, Example:300 
+        /// </summary>
+        /// <value>Time difference between UTC time and the cardholder browser local time, in minutes, Example:300 </value>
+        [DataMember(Name="httpBrowserTimeDifference", EmitDefaultValue=false)]
+        public string HttpBrowserTimeDifference { get; set; }
+
+        /// <summary>
+        /// Value of the User-Agent header sent by the customer’s web browser. Note If the customer’s browser provides a value, you must include it in your request. 
+        /// </summary>
+        /// <value>Value of the User-Agent header sent by the customer’s web browser. Note If the customer’s browser provides a value, you must include it in your request. </value>
+        [DataMember(Name="userAgentBrowserValue", EmitDefaultValue=false)]
+        public string UserAgentBrowserValue { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +203,17 @@ namespace CyberSource.Model
             sb.Append("  FingerprintSessionId: ").Append(FingerprintSessionId).Append("\n");
             sb.Append("  HttpBrowserEmail: ").Append(HttpBrowserEmail).Append("\n");
             sb.Append("  UserAgent: ").Append(UserAgent).Append("\n");
+            sb.Append("  RawData: ").Append(RawData).Append("\n");
+            sb.Append("  HttpAcceptBrowserValue: ").Append(HttpAcceptBrowserValue).Append("\n");
+            sb.Append("  HttpAcceptContent: ").Append(HttpAcceptContent).Append("\n");
+            sb.Append("  HttpBrowserLanguage: ").Append(HttpBrowserLanguage).Append("\n");
+            sb.Append("  HttpBrowserJavaEnabled: ").Append(HttpBrowserJavaEnabled).Append("\n");
+            sb.Append("  HttpBrowserJavaScriptEnabled: ").Append(HttpBrowserJavaScriptEnabled).Append("\n");
+            sb.Append("  HttpBrowserColorDepth: ").Append(HttpBrowserColorDepth).Append("\n");
+            sb.Append("  HttpBrowserScreenHeight: ").Append(HttpBrowserScreenHeight).Append("\n");
+            sb.Append("  HttpBrowserScreenWidth: ").Append(HttpBrowserScreenWidth).Append("\n");
+            sb.Append("  HttpBrowserTimeDifference: ").Append(HttpBrowserTimeDifference).Append("\n");
+            sb.Append("  UserAgentBrowserValue: ").Append(UserAgentBrowserValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +279,61 @@ namespace CyberSource.Model
                     this.UserAgent == other.UserAgent ||
                     this.UserAgent != null &&
                     this.UserAgent.Equals(other.UserAgent)
+                ) && 
+                (
+                    this.RawData == other.RawData ||
+                    this.RawData != null &&
+                    this.RawData.SequenceEqual(other.RawData)
+                ) && 
+                (
+                    this.HttpAcceptBrowserValue == other.HttpAcceptBrowserValue ||
+                    this.HttpAcceptBrowserValue != null &&
+                    this.HttpAcceptBrowserValue.Equals(other.HttpAcceptBrowserValue)
+                ) && 
+                (
+                    this.HttpAcceptContent == other.HttpAcceptContent ||
+                    this.HttpAcceptContent != null &&
+                    this.HttpAcceptContent.Equals(other.HttpAcceptContent)
+                ) && 
+                (
+                    this.HttpBrowserLanguage == other.HttpBrowserLanguage ||
+                    this.HttpBrowserLanguage != null &&
+                    this.HttpBrowserLanguage.Equals(other.HttpBrowserLanguage)
+                ) && 
+                (
+                    this.HttpBrowserJavaEnabled == other.HttpBrowserJavaEnabled ||
+                    this.HttpBrowserJavaEnabled != null &&
+                    this.HttpBrowserJavaEnabled.Equals(other.HttpBrowserJavaEnabled)
+                ) && 
+                (
+                    this.HttpBrowserJavaScriptEnabled == other.HttpBrowserJavaScriptEnabled ||
+                    this.HttpBrowserJavaScriptEnabled != null &&
+                    this.HttpBrowserJavaScriptEnabled.Equals(other.HttpBrowserJavaScriptEnabled)
+                ) && 
+                (
+                    this.HttpBrowserColorDepth == other.HttpBrowserColorDepth ||
+                    this.HttpBrowserColorDepth != null &&
+                    this.HttpBrowserColorDepth.Equals(other.HttpBrowserColorDepth)
+                ) && 
+                (
+                    this.HttpBrowserScreenHeight == other.HttpBrowserScreenHeight ||
+                    this.HttpBrowserScreenHeight != null &&
+                    this.HttpBrowserScreenHeight.Equals(other.HttpBrowserScreenHeight)
+                ) && 
+                (
+                    this.HttpBrowserScreenWidth == other.HttpBrowserScreenWidth ||
+                    this.HttpBrowserScreenWidth != null &&
+                    this.HttpBrowserScreenWidth.Equals(other.HttpBrowserScreenWidth)
+                ) && 
+                (
+                    this.HttpBrowserTimeDifference == other.HttpBrowserTimeDifference ||
+                    this.HttpBrowserTimeDifference != null &&
+                    this.HttpBrowserTimeDifference.Equals(other.HttpBrowserTimeDifference)
+                ) && 
+                (
+                    this.UserAgentBrowserValue == other.UserAgentBrowserValue ||
+                    this.UserAgentBrowserValue != null &&
+                    this.UserAgentBrowserValue.Equals(other.UserAgentBrowserValue)
                 );
         }
 
@@ -196,6 +360,28 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.HttpBrowserEmail.GetHashCode();
                 if (this.UserAgent != null)
                     hash = hash * 59 + this.UserAgent.GetHashCode();
+                if (this.RawData != null)
+                    hash = hash * 59 + this.RawData.GetHashCode();
+                if (this.HttpAcceptBrowserValue != null)
+                    hash = hash * 59 + this.HttpAcceptBrowserValue.GetHashCode();
+                if (this.HttpAcceptContent != null)
+                    hash = hash * 59 + this.HttpAcceptContent.GetHashCode();
+                if (this.HttpBrowserLanguage != null)
+                    hash = hash * 59 + this.HttpBrowserLanguage.GetHashCode();
+                if (this.HttpBrowserJavaEnabled != null)
+                    hash = hash * 59 + this.HttpBrowserJavaEnabled.GetHashCode();
+                if (this.HttpBrowserJavaScriptEnabled != null)
+                    hash = hash * 59 + this.HttpBrowserJavaScriptEnabled.GetHashCode();
+                if (this.HttpBrowserColorDepth != null)
+                    hash = hash * 59 + this.HttpBrowserColorDepth.GetHashCode();
+                if (this.HttpBrowserScreenHeight != null)
+                    hash = hash * 59 + this.HttpBrowserScreenHeight.GetHashCode();
+                if (this.HttpBrowserScreenWidth != null)
+                    hash = hash * 59 + this.HttpBrowserScreenWidth.GetHashCode();
+                if (this.HttpBrowserTimeDifference != null)
+                    hash = hash * 59 + this.HttpBrowserTimeDifference.GetHashCode();
+                if (this.UserAgentBrowserValue != null)
+                    hash = hash * 59 + this.UserAgentBrowserValue.GetHashCode();
                 return hash;
             }
         }
@@ -223,6 +409,54 @@ namespace CyberSource.Model
             if(this.UserAgent != null && this.UserAgent.Length >= 40)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserAgent, length must be less than or equal to 40.", new [] { "UserAgent" });
+            }
+
+            // HttpAcceptBrowserValue (string) maxLength
+            if(this.HttpAcceptBrowserValue != null && this.HttpAcceptBrowserValue.Length >= 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HttpAcceptBrowserValue, length must be less than or equal to 255.", new [] { "HttpAcceptBrowserValue" });
+            }
+
+            // HttpAcceptContent (string) maxLength
+            if(this.HttpAcceptContent != null && this.HttpAcceptContent.Length >= 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HttpAcceptContent, length must be less than or equal to 256.", new [] { "HttpAcceptContent" });
+            }
+
+            // HttpBrowserLanguage (string) maxLength
+            if(this.HttpBrowserLanguage != null && this.HttpBrowserLanguage.Length >= 8)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HttpBrowserLanguage, length must be less than or equal to 8.", new [] { "HttpBrowserLanguage" });
+            }
+
+            // HttpBrowserColorDepth (string) maxLength
+            if(this.HttpBrowserColorDepth != null && this.HttpBrowserColorDepth.Length >= 2)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HttpBrowserColorDepth, length must be less than or equal to 2.", new [] { "HttpBrowserColorDepth" });
+            }
+
+            // HttpBrowserScreenHeight (string) maxLength
+            if(this.HttpBrowserScreenHeight != null && this.HttpBrowserScreenHeight.Length >= 6)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HttpBrowserScreenHeight, length must be less than or equal to 6.", new [] { "HttpBrowserScreenHeight" });
+            }
+
+            // HttpBrowserScreenWidth (string) maxLength
+            if(this.HttpBrowserScreenWidth != null && this.HttpBrowserScreenWidth.Length >= 6)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HttpBrowserScreenWidth, length must be less than or equal to 6.", new [] { "HttpBrowserScreenWidth" });
+            }
+
+            // HttpBrowserTimeDifference (string) maxLength
+            if(this.HttpBrowserTimeDifference != null && this.HttpBrowserTimeDifference.Length >= 5)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HttpBrowserTimeDifference, length must be less than or equal to 5.", new [] { "HttpBrowserTimeDifference" });
+            }
+
+            // UserAgentBrowserValue (string) maxLength
+            if(this.UserAgentBrowserValue != null && this.UserAgentBrowserValue.Length >= 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserAgentBrowserValue, length must be less than or equal to 255.", new [] { "UserAgentBrowserValue" });
             }
 
             yield break;

@@ -35,10 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Card">Card.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
-        public Riskv1decisionsPaymentInformation(Riskv1decisionsPaymentInformationCard Card = default(Riskv1decisionsPaymentInformationCard), Riskv1decisionsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1decisionsPaymentInformationTokenizedCard))
+        /// <param name="Customer">Customer.</param>
+        /// <param name="Bank">Bank.</param>
+        /// <param name="Method">Method of payment used for the order. This field can contain one of the following values:   - &#x60;consumer&#x60; (default): Customer credit card   - &#x60;corporate&#x60;: Corporate credit card   - &#x60;debit&#x60;: Debit card, such as a Maestro (UK Domestic) card   - &#x60;cod&#x60;: Collect on delivery   - &#x60;check&#x60;: Electronic check   - &#x60;p2p&#x60;: Person-to-person payment   - &#x60;private1&#x60;: Private label credit card   - &#x60;other&#x60;: Other payment method .</param>
+        public Riskv1decisionsPaymentInformation(Riskv1decisionsPaymentInformationCard Card = default(Riskv1decisionsPaymentInformationCard), Riskv1decisionsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1decisionsPaymentInformationTokenizedCard), Riskv1decisionsPaymentInformationCustomer Customer = default(Riskv1decisionsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), string Method = default(string))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
+            this.Customer = Customer;
+            this.Bank = Bank;
+            this.Method = Method;
         }
         
         /// <summary>
@@ -54,6 +60,25 @@ namespace CyberSource.Model
         public Riskv1decisionsPaymentInformationTokenizedCard TokenizedCard { get; set; }
 
         /// <summary>
+        /// Gets or Sets Customer
+        /// </summary>
+        [DataMember(Name="customer", EmitDefaultValue=false)]
+        public Riskv1decisionsPaymentInformationCustomer Customer { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Bank
+        /// </summary>
+        [DataMember(Name="bank", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationBank Bank { get; set; }
+
+        /// <summary>
+        /// Method of payment used for the order. This field can contain one of the following values:   - &#x60;consumer&#x60; (default): Customer credit card   - &#x60;corporate&#x60;: Corporate credit card   - &#x60;debit&#x60;: Debit card, such as a Maestro (UK Domestic) card   - &#x60;cod&#x60;: Collect on delivery   - &#x60;check&#x60;: Electronic check   - &#x60;p2p&#x60;: Person-to-person payment   - &#x60;private1&#x60;: Private label credit card   - &#x60;other&#x60;: Other payment method 
+        /// </summary>
+        /// <value>Method of payment used for the order. This field can contain one of the following values:   - &#x60;consumer&#x60; (default): Customer credit card   - &#x60;corporate&#x60;: Corporate credit card   - &#x60;debit&#x60;: Debit card, such as a Maestro (UK Domestic) card   - &#x60;cod&#x60;: Collect on delivery   - &#x60;check&#x60;: Electronic check   - &#x60;p2p&#x60;: Person-to-person payment   - &#x60;private1&#x60;: Private label credit card   - &#x60;other&#x60;: Other payment method </value>
+        [DataMember(Name="method", EmitDefaultValue=false)]
+        public string Method { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +88,9 @@ namespace CyberSource.Model
             sb.Append("class Riskv1decisionsPaymentInformation {\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
+            sb.Append("  Customer: ").Append(Customer).Append("\n");
+            sb.Append("  Bank: ").Append(Bank).Append("\n");
+            sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +136,21 @@ namespace CyberSource.Model
                     this.TokenizedCard == other.TokenizedCard ||
                     this.TokenizedCard != null &&
                     this.TokenizedCard.Equals(other.TokenizedCard)
+                ) && 
+                (
+                    this.Customer == other.Customer ||
+                    this.Customer != null &&
+                    this.Customer.Equals(other.Customer)
+                ) && 
+                (
+                    this.Bank == other.Bank ||
+                    this.Bank != null &&
+                    this.Bank.Equals(other.Bank)
+                ) && 
+                (
+                    this.Method == other.Method ||
+                    this.Method != null &&
+                    this.Method.Equals(other.Method)
                 );
         }
 
@@ -126,6 +169,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.TokenizedCard != null)
                     hash = hash * 59 + this.TokenizedCard.GetHashCode();
+                if (this.Customer != null)
+                    hash = hash * 59 + this.Customer.GetHashCode();
+                if (this.Bank != null)
+                    hash = hash * 59 + this.Bank.GetHashCode();
+                if (this.Method != null)
+                    hash = hash * 59 + this.Method.GetHashCode();
                 return hash;
             }
         }
@@ -137,6 +186,12 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Method (string) maxLength
+            if(this.Method != null && this.Method.Length >= 10)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Method, length must be less than or equal to 10.", new [] { "Method" });
+            }
+
             yield break;
         }
     }

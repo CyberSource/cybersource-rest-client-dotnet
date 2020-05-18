@@ -35,12 +35,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Origination">Use to specify the airport code for the origin of the leg of the trip, which is designated by the pound (#) symbol in the field name. This code is usually three digits long, for example: SFO &#x3D; San Francisco. Do not use the colon (:) or the dash (-). For airport codes, see the IATA Airline and Airport Code Search. The leg number can be a positive integer from 0 to N. For example: &#x60;travelInformation.legs.0.origination&#x3D;SFO&#x60; &#x60;travelInformation.legs.1.origination&#x3D;SFO&#x60;  **Note** In your request, send either the complete route or the individual legs (&#x60;legs.0.origination&#x60; and &#x60;legs.n.destination&#x60;). If you send all the fields, the complete route takes precedence over the individual legs.  For details, see the &#x60;decision_manager_travel_leg#_orig&#x60; field description in _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="Destination">Use to specify the airport code for the destination of the leg of the trip, which is designated by the pound (#) symbol in the field name. This code is usually three digits long, for example: SFO &#x3D; San Francisco. Do not use the colon (:) or the dash (-). For airport codes, see [IATA Airline and Airport Code Search](https://www.iata.org/publications/Pages/code-search.aspx). The leg number can be a positive integer from 0 to N. For example:  &#x60;travelInformation.legs.0.destination&#x3D;SFO&#x60; &#x60;travelInformation.legs.1.destination&#x3D;SFO&#x60;  **Note** In your request, send either the complete route or the individual legs (&#x60;legs.0.origination&#x60; and &#x60;legs.n.destination&#x60;). If you send all the fields, the complete route takes precedence over the individual legs.  For details, see the &#x60;decision_manager_travel_leg#_dest&#x60; field description in _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
-        /// <param name="DepartureDateTime">Departure date and time for the each leg of the trip. Use one of the following formats: - &#x60;yyyy-MM-dd HH:mm z&#x60; - &#x60;yyyy-MM-dd hh:mm a z&#x60; - &#x60;yyyy-MM-dd hh:mma z&#x60;  Where:\\ &#x60;HH&#x60; &#x3D; hour in 24-hour format\\ &#x60;hh&#x60; &#x3D; hour in 12-hour format\\ &#x60;a&#x60; &#x3D; am or pm (case insensitive)\\ &#x60;z&#x60; &#x3D; time zone of the departing flight. For example, if the airline is based in city A, but the flight departs from city B, &#x60;z&#x60; is the time zone of city B at the time of departure.\\ **Important** For travel information, use GMT instead of UTC, or use the local time zone.  #### Examples  2011-03-20 11:30 PM PDT\\ 2011-03-20 11:30pm GMT\\ 2011-03-20 11:30pm GMT-05:00\\ Eastern Standard Time: GMT-05:00 or EST\\  **Note** When specifying an offset from GMT, the format must be exactly as specified in the example. Insert no spaces between the time zone and the offset. .</param>
-        public Riskv1decisionsTravelInformationLegs(string Origination = default(string), string Destination = default(string), string DepartureDateTime = default(string))
+        /// <param name="CarrierCode">International Air Transport Association (IATA) code for the carrier for this leg of the trip. Required for each leg. Required for American Express SafeKey (U.S.) for travel-related requests.  For details, see &#x60;airline_leg#_carrier_code&#x60; in [Airline Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Airline_SCMP_API/Airline_SCMP_API.pdf) .</param>
+        /// <param name="DepartureDate">Departure date for the first leg of the trip. Format: YYYYMMDD. Required for American Express SafeKey (U.S.) for travel-related requests.  For details, see &#x60;airline_leg#_leg_departure_date&#x60; in [Airline Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Airline_SCMP_API/Airline_SCMP_API.pdf) .</param>
+        public Riskv1decisionsTravelInformationLegs(string Origination = default(string), string Destination = default(string), string CarrierCode = default(string), string DepartureDate = default(string))
         {
             this.Origination = Origination;
             this.Destination = Destination;
-            this.DepartureDateTime = DepartureDateTime;
+            this.CarrierCode = CarrierCode;
+            this.DepartureDate = DepartureDate;
         }
         
         /// <summary>
@@ -58,11 +60,18 @@ namespace CyberSource.Model
         public string Destination { get; set; }
 
         /// <summary>
-        /// Departure date and time for the each leg of the trip. Use one of the following formats: - &#x60;yyyy-MM-dd HH:mm z&#x60; - &#x60;yyyy-MM-dd hh:mm a z&#x60; - &#x60;yyyy-MM-dd hh:mma z&#x60;  Where:\\ &#x60;HH&#x60; &#x3D; hour in 24-hour format\\ &#x60;hh&#x60; &#x3D; hour in 12-hour format\\ &#x60;a&#x60; &#x3D; am or pm (case insensitive)\\ &#x60;z&#x60; &#x3D; time zone of the departing flight. For example, if the airline is based in city A, but the flight departs from city B, &#x60;z&#x60; is the time zone of city B at the time of departure.\\ **Important** For travel information, use GMT instead of UTC, or use the local time zone.  #### Examples  2011-03-20 11:30 PM PDT\\ 2011-03-20 11:30pm GMT\\ 2011-03-20 11:30pm GMT-05:00\\ Eastern Standard Time: GMT-05:00 or EST\\  **Note** When specifying an offset from GMT, the format must be exactly as specified in the example. Insert no spaces between the time zone and the offset. 
+        /// International Air Transport Association (IATA) code for the carrier for this leg of the trip. Required for each leg. Required for American Express SafeKey (U.S.) for travel-related requests.  For details, see &#x60;airline_leg#_carrier_code&#x60; in [Airline Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Airline_SCMP_API/Airline_SCMP_API.pdf) 
         /// </summary>
-        /// <value>Departure date and time for the each leg of the trip. Use one of the following formats: - &#x60;yyyy-MM-dd HH:mm z&#x60; - &#x60;yyyy-MM-dd hh:mm a z&#x60; - &#x60;yyyy-MM-dd hh:mma z&#x60;  Where:\\ &#x60;HH&#x60; &#x3D; hour in 24-hour format\\ &#x60;hh&#x60; &#x3D; hour in 12-hour format\\ &#x60;a&#x60; &#x3D; am or pm (case insensitive)\\ &#x60;z&#x60; &#x3D; time zone of the departing flight. For example, if the airline is based in city A, but the flight departs from city B, &#x60;z&#x60; is the time zone of city B at the time of departure.\\ **Important** For travel information, use GMT instead of UTC, or use the local time zone.  #### Examples  2011-03-20 11:30 PM PDT\\ 2011-03-20 11:30pm GMT\\ 2011-03-20 11:30pm GMT-05:00\\ Eastern Standard Time: GMT-05:00 or EST\\  **Note** When specifying an offset from GMT, the format must be exactly as specified in the example. Insert no spaces between the time zone and the offset. </value>
-        [DataMember(Name="departureDateTime", EmitDefaultValue=false)]
-        public string DepartureDateTime { get; set; }
+        /// <value>International Air Transport Association (IATA) code for the carrier for this leg of the trip. Required for each leg. Required for American Express SafeKey (U.S.) for travel-related requests.  For details, see &#x60;airline_leg#_carrier_code&#x60; in [Airline Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Airline_SCMP_API/Airline_SCMP_API.pdf) </value>
+        [DataMember(Name="carrierCode", EmitDefaultValue=false)]
+        public string CarrierCode { get; set; }
+
+        /// <summary>
+        /// Departure date for the first leg of the trip. Format: YYYYMMDD. Required for American Express SafeKey (U.S.) for travel-related requests.  For details, see &#x60;airline_leg#_leg_departure_date&#x60; in [Airline Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Airline_SCMP_API/Airline_SCMP_API.pdf) 
+        /// </summary>
+        /// <value>Departure date for the first leg of the trip. Format: YYYYMMDD. Required for American Express SafeKey (U.S.) for travel-related requests.  For details, see &#x60;airline_leg#_leg_departure_date&#x60; in [Airline Processing Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Airline_SCMP_API/Airline_SCMP_API.pdf) </value>
+        [DataMember(Name="departureDate", EmitDefaultValue=false)]
+        public string DepartureDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,7 +83,8 @@ namespace CyberSource.Model
             sb.Append("class Riskv1decisionsTravelInformationLegs {\n");
             sb.Append("  Origination: ").Append(Origination).Append("\n");
             sb.Append("  Destination: ").Append(Destination).Append("\n");
-            sb.Append("  DepartureDateTime: ").Append(DepartureDateTime).Append("\n");
+            sb.Append("  CarrierCode: ").Append(CarrierCode).Append("\n");
+            sb.Append("  DepartureDate: ").Append(DepartureDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,9 +132,14 @@ namespace CyberSource.Model
                     this.Destination.Equals(other.Destination)
                 ) && 
                 (
-                    this.DepartureDateTime == other.DepartureDateTime ||
-                    this.DepartureDateTime != null &&
-                    this.DepartureDateTime.Equals(other.DepartureDateTime)
+                    this.CarrierCode == other.CarrierCode ||
+                    this.CarrierCode != null &&
+                    this.CarrierCode.Equals(other.CarrierCode)
+                ) && 
+                (
+                    this.DepartureDate == other.DepartureDate ||
+                    this.DepartureDate != null &&
+                    this.DepartureDate.Equals(other.DepartureDate)
                 );
         }
 
@@ -143,8 +158,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Origination.GetHashCode();
                 if (this.Destination != null)
                     hash = hash * 59 + this.Destination.GetHashCode();
-                if (this.DepartureDateTime != null)
-                    hash = hash * 59 + this.DepartureDateTime.GetHashCode();
+                if (this.CarrierCode != null)
+                    hash = hash * 59 + this.CarrierCode.GetHashCode();
+                if (this.DepartureDate != null)
+                    hash = hash * 59 + this.DepartureDate.GetHashCode();
                 return hash;
             }
         }
@@ -168,10 +185,10 @@ namespace CyberSource.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Destination, length must be less than or equal to 3.", new [] { "Destination" });
             }
 
-            // DepartureDateTime (string) maxLength
-            if(this.DepartureDateTime != null && this.DepartureDateTime.Length >= 25)
+            // CarrierCode (string) maxLength
+            if(this.CarrierCode != null && this.CarrierCode.Length >= 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DepartureDateTime, length must be less than or equal to 25.", new [] { "DepartureDateTime" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CarrierCode, length must be less than or equal to 2.", new [] { "CarrierCode" });
             }
 
             yield break;

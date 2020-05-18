@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="CaptureSequenceNumber">Capture number when requesting multiple partial captures for one authorization. Used along with &#x60;totalCaptureCount&#x60; to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber_ &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; .</param>
         /// <param name="TotalCaptureCount">Total number of captures when requesting multiple partial captures for one payment. Used along with &#x60;captureSequenceNumber&#x60; field to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; .</param>
-        /// <param name="DateToCapture">Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet.\\ &#x60;Format: MMDD&#x60; .</param>
+        /// <param name="DateToCapture">Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet. Format: &#x60;MMDD&#x60;  #### Used by **Authorization** Optional field. .</param>
         public Ptsv2paymentsProcessingInformationCaptureOptions(int? CaptureSequenceNumber = default(int?), int? TotalCaptureCount = default(int?), string DateToCapture = default(string))
         {
             this.CaptureSequenceNumber = CaptureSequenceNumber;
@@ -58,9 +58,9 @@ namespace CyberSource.Model
         public int? TotalCaptureCount { get; set; }
 
         /// <summary>
-        /// Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet.\\ &#x60;Format: MMDD&#x60; 
+        /// Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet. Format: &#x60;MMDD&#x60;  #### Used by **Authorization** Optional field. 
         /// </summary>
-        /// <value>Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet.\\ &#x60;Format: MMDD&#x60; </value>
+        /// <value>Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet. Format: &#x60;MMDD&#x60;  #### Used by **Authorization** Optional field. </value>
         [DataMember(Name="dateToCapture", EmitDefaultValue=false)]
         public string DateToCapture { get; set; }
 

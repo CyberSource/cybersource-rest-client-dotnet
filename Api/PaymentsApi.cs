@@ -28,7 +28,7 @@ namespace CyberSource.Api
         /// Process a Payment
         /// </summary>
         /// <remarks>
-        /// Authorize the payment for the transaction. 
+        /// Authorize the payment for the transaction. Authorization can be requested with Capture, Decision Manager, Payer Authentication(3ds). Find more on [Authorization with Add-On Features page.] (https://developer.cybersource.com/api/authorization-add-ons.html) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
@@ -39,7 +39,7 @@ namespace CyberSource.Api
         /// Process a Payment
         /// </summary>
         /// <remarks>
-        /// Authorize the payment for the transaction. 
+        /// Authorize the payment for the transaction. Authorization can be requested with Capture, Decision Manager, Payer Authentication(3ds). Find more on [Authorization with Add-On Features page.] (https://developer.cybersource.com/api/authorization-add-ons.html) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
@@ -74,7 +74,7 @@ namespace CyberSource.Api
         /// Process a Payment
         /// </summary>
         /// <remarks>
-        /// Authorize the payment for the transaction. 
+        /// Authorize the payment for the transaction. Authorization can be requested with Capture, Decision Manager, Payer Authentication(3ds). Find more on [Authorization with Add-On Features page.] (https://developer.cybersource.com/api/authorization-add-ons.html) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
@@ -85,7 +85,7 @@ namespace CyberSource.Api
         /// Process a Payment
         /// </summary>
         /// <remarks>
-        /// Authorize the payment for the transaction. 
+        /// Authorize the payment for the transaction. Authorization can be requested with Capture, Decision Manager, Payer Authentication(3ds). Find more on [Authorization with Add-On Features page.] (https://developer.cybersource.com/api/authorization-add-ons.html) 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
@@ -223,7 +223,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Process a Payment Authorize the payment for the transaction. 
+        /// Process a Payment Authorize the payment for the transaction. Authorization can be requested with Capture, Decision Manager, Payer Authentication(3ds). Find more on [Authorization with Add-On Features page.] (https://developer.cybersource.com/api/authorization-add-ons.html) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
@@ -235,7 +235,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Process a Payment Authorize the payment for the transaction. 
+        /// Process a Payment Authorize the payment for the transaction. Authorization can be requested with Capture, Decision Manager, Payer Authentication(3ds). Find more on [Authorization with Add-On Features page.] (https://developer.cybersource.com/api/authorization-add-ons.html) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
@@ -293,11 +293,11 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response)));
+                (PtsV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Process a Payment Authorize the payment for the transaction. 
+        /// Process a Payment Authorize the payment for the transaction. Authorization can be requested with Capture, Decision Manager, Payer Authentication(3ds). Find more on [Authorization with Add-On Features page.] (https://developer.cybersource.com/api/authorization-add-ons.html) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
@@ -310,7 +310,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Process a Payment Authorize the payment for the transaction. 
+        /// Process a Payment Authorize the payment for the transaction. Authorization can be requested with Capture, Decision Manager, Payer Authentication(3ds). Find more on [Authorization with Add-On Features page.] (https://developer.cybersource.com/api/authorization-add-ons.html) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentRequest"></param>
@@ -368,7 +368,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response)));
+                (PtsV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -448,7 +448,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2IncrementalAuthorizationPatch201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2IncrementalAuthorizationPatch201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2IncrementalAuthorizationPatch201Response)));
+                (PtsV2IncrementalAuthorizationPatch201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2IncrementalAuthorizationPatch201Response))); // Return statement
         }
 
         /// <summary>
@@ -529,7 +529,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2IncrementalAuthorizationPatch201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2IncrementalAuthorizationPatch201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2IncrementalAuthorizationPatch201Response)));
+                (PtsV2IncrementalAuthorizationPatch201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2IncrementalAuthorizationPatch201Response))); // Return statement
         }
 
     }

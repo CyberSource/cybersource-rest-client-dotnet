@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedProcessorInformation" /> class.
         /// </summary>
         /// <param name="Processor">Processor.</param>
-        /// <param name="ApprovalCode">Authorization code. Returned only when the processor returns this value. .</param>
+        /// <param name="ApprovalCode">Authorization code. Returned only when the processor returns this value.  The length of this value depends on your processor.  Returned by authorization service.  #### Elavon Encrypted Account Number Program The returned value is OFFLINE. See \&quot;Encoded Account Numbers,\&quot; page 136.  #### TSYS Acquiring Solutions The returned value for a successful zero amount authorization is 000000. See \&quot;Zero Amount Authorizations,\&quot; page 230. .</param>
         public TssV2TransactionsPost201ResponseEmbeddedProcessorInformation(TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor = default(TssV2TransactionsGet200ResponseProcessorInformationProcessor), string ApprovalCode = default(string))
         {
             this.Processor = Processor;
@@ -48,9 +48,9 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor { get; set; }
 
         /// <summary>
-        /// Authorization code. Returned only when the processor returns this value. 
+        /// Authorization code. Returned only when the processor returns this value.  The length of this value depends on your processor.  Returned by authorization service.  #### Elavon Encrypted Account Number Program The returned value is OFFLINE. See \&quot;Encoded Account Numbers,\&quot; page 136.  #### TSYS Acquiring Solutions The returned value for a successful zero amount authorization is 000000. See \&quot;Zero Amount Authorizations,\&quot; page 230. 
         /// </summary>
-        /// <value>Authorization code. Returned only when the processor returns this value. </value>
+        /// <value>Authorization code. Returned only when the processor returns this value.  The length of this value depends on your processor.  Returned by authorization service.  #### Elavon Encrypted Account Number Program The returned value is OFFLINE. See \&quot;Encoded Account Numbers,\&quot; page 136.  #### TSYS Acquiring Solutions The returned value for a successful zero amount authorization is 000000. See \&quot;Zero Amount Authorizations,\&quot; page 230. </value>
         [DataMember(Name="approvalCode", EmitDefaultValue=false)]
         public string ApprovalCode { get; set; }
 

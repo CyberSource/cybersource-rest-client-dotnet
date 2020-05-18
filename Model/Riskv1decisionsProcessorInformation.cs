@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Riskv1decisionsProcessorInformation" /> class.
         /// </summary>
         /// <param name="Avs">Avs.</param>
-        public Riskv1decisionsProcessorInformation(Riskv1decisionsProcessorInformationAvs Avs = default(Riskv1decisionsProcessorInformationAvs))
+        /// <param name="CardVerification">CardVerification.</param>
+        public Riskv1decisionsProcessorInformation(Riskv1decisionsProcessorInformationAvs Avs = default(Riskv1decisionsProcessorInformationAvs), Riskv1decisionsProcessorInformationCardVerification CardVerification = default(Riskv1decisionsProcessorInformationCardVerification))
         {
             this.Avs = Avs;
+            this.CardVerification = CardVerification;
         }
         
         /// <summary>
@@ -44,6 +46,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="avs", EmitDefaultValue=false)]
         public Riskv1decisionsProcessorInformationAvs Avs { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CardVerification
+        /// </summary>
+        [DataMember(Name="cardVerification", EmitDefaultValue=false)]
+        public Riskv1decisionsProcessorInformationCardVerification CardVerification { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +62,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsProcessorInformation {\n");
             sb.Append("  Avs: ").Append(Avs).Append("\n");
+            sb.Append("  CardVerification: ").Append(CardVerification).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +103,11 @@ namespace CyberSource.Model
                     this.Avs == other.Avs ||
                     this.Avs != null &&
                     this.Avs.Equals(other.Avs)
+                ) && 
+                (
+                    this.CardVerification == other.CardVerification ||
+                    this.CardVerification != null &&
+                    this.CardVerification.Equals(other.CardVerification)
                 );
         }
 
@@ -110,6 +124,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Avs != null)
                     hash = hash * 59 + this.Avs.GetHashCode();
+                if (this.CardVerification != null)
+                    hash = hash * 59 + this.CardVerification.GetHashCode();
                 return hash;
             }
         }

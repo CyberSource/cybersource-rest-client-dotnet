@@ -121,6 +121,30 @@ namespace CyberSource.Test
             // TODO unit test for the property 'PaymentInformation'
         }
         /// <summary>
+        /// Test the property 'ClientReferenceInformation'
+        /// </summary>
+        [Test]
+        public void ClientReferenceInformationTest()
+        {
+            // TODO unit test for the property 'ClientReferenceInformation'
+        }
+        /// <summary>
+        /// Test the property 'OrderInformation'
+        /// </summary>
+        [Test]
+        public void OrderInformationTest()
+        {
+            // TODO unit test for the property 'OrderInformation'
+        }
+        /// <summary>
+        /// Test the property 'ConsumerAuthenticationInformation'
+        /// </summary>
+        [Test]
+        public void ConsumerAuthenticationInformationTest()
+        {
+            // TODO unit test for the property 'ConsumerAuthenticationInformation'
+        }
+        /// <summary>
         /// Test the property 'ErrorInformation'
         /// </summary>
         [Test]

@@ -25,10 +25,10 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get User Information
+        /// Get User Information - Deprecated
         /// </summary>
         /// <remarks>
-        /// This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// This endpoint is deprecated. Please use the search end point.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>
@@ -39,10 +39,10 @@ namespace CyberSource.Api
         UmsV1UsersGet200Response GetUsers (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
 
         /// <summary>
-        /// Get User Information
+        /// Get User Information - Deprecated
         /// </summary>
         /// <remarks>
-        /// This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// This endpoint is deprecated. Please use the search end point.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>
@@ -54,10 +54,10 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get User Information
+        /// Get User Information - Deprecated
         /// </summary>
         /// <remarks>
-        /// This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// This endpoint is deprecated. Please use the search end point.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>
@@ -68,10 +68,10 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<UmsV1UsersGet200Response> GetUsersAsync (string organizationId = null, string userName = null, string permissionId = null, string roleId = null);
 
         /// <summary>
-        /// Get User Information
+        /// Get User Information - Deprecated
         /// </summary>
         /// <remarks>
-        /// This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// This endpoint is deprecated. Please use the search end point.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>
@@ -189,7 +189,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get User Information This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// Get User Information - Deprecated This endpoint is deprecated. Please use the search end point.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>
@@ -204,7 +204,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get User Information This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// Get User Information - Deprecated This endpoint is deprecated. Please use the search end point.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>
@@ -258,11 +258,11 @@ namespace CyberSource.Api
 
             return new ApiResponse<UmsV1UsersGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (UmsV1UsersGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UmsV1UsersGet200Response)));
+                (UmsV1UsersGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UmsV1UsersGet200Response))); // Return statement
         }
 
         /// <summary>
-        /// Get User Information This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// Get User Information - Deprecated This endpoint is deprecated. Please use the search end point.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>
@@ -278,7 +278,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get User Information This endpoint is to get all the user information depending on the filter criteria passed in the query.
+        /// Get User Information - Deprecated This endpoint is deprecated. Please use the search end point.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">This is the orgId of the organization which the user belongs to. (optional)</param>
@@ -332,7 +332,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<UmsV1UsersGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (UmsV1UsersGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UmsV1UsersGet200Response)));
+                (UmsV1UsersGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UmsV1UsersGet200Response))); // Return statement
         }
 
     }

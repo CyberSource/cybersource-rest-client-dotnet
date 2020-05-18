@@ -198,7 +198,7 @@ namespace CyberSource.Api
             if (reportDefinitionNameVersion == null)
                 throw new ApiException(400, "Missing required parameter 'reportDefinitionNameVersion' when calling DownloadXSDApi->GetXSDV2");
 
-            var localVarPath = $"/xsds/{reportDefinitionNameVersion}";
+            var localVarPath = $"/reporting/v3/xsds/{reportDefinitionNameVersion}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -238,7 +238,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                null); // Return statement
         }
 
         /// <summary>
@@ -265,7 +265,7 @@ namespace CyberSource.Api
             if (reportDefinitionNameVersion == null)
                 throw new ApiException(400, "Missing required parameter 'reportDefinitionNameVersion' when calling DownloadXSDApi->GetXSDV2");
 
-            var localVarPath = $"/xsds/{reportDefinitionNameVersion}";
+            var localVarPath = $"/reporting/v3/xsds/{reportDefinitionNameVersion}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -305,7 +305,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                null); // Return statement
         }
 
     }

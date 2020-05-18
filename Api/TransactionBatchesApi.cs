@@ -343,7 +343,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                localVarResponse.Content);
+                localVarResponse.Content); // Return statement
         }
 
         /// <summary>
@@ -418,7 +418,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                localVarResponse.Content);
+                localVarResponse.Content); // Return statement
         }
 
         /// <summary>
@@ -485,7 +485,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV1TransactionBatchesIdGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV1TransactionBatchesIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesIdGet200Response)));
+                (PtsV1TransactionBatchesIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesIdGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -553,7 +553,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV1TransactionBatchesIdGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV1TransactionBatchesIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesIdGet200Response)));
+                (PtsV1TransactionBatchesIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesIdGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -626,7 +626,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV1TransactionBatchesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV1TransactionBatchesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesGet200Response)));
+                (PtsV1TransactionBatchesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -700,7 +700,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV1TransactionBatchesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV1TransactionBatchesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesGet200Response)));
+                (PtsV1TransactionBatchesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesGet200Response))); // Return statement
         }
 
     }

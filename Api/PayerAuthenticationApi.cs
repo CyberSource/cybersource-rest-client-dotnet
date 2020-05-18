@@ -289,7 +289,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AuthenticationsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1AuthenticationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationsPost201Response)));
+                (RiskV1AuthenticationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationsPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -364,7 +364,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AuthenticationsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1AuthenticationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationsPost201Response)));
+                (RiskV1AuthenticationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationsPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -438,7 +438,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AuthenticationResultsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1AuthenticationResultsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationResultsPost201Response)));
+                (RiskV1AuthenticationResultsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationResultsPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -513,7 +513,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AuthenticationResultsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RiskV1AuthenticationResultsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationResultsPost201Response)));
+                (RiskV1AuthenticationResultsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationResultsPost201Response))); // Return statement
         }
 
     }

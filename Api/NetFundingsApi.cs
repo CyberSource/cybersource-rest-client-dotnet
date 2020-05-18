@@ -265,7 +265,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3NetFundingsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3NetFundingsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NetFundingsGet200Response)));
+                (ReportingV3NetFundingsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NetFundingsGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -346,7 +346,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3NetFundingsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ReportingV3NetFundingsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NetFundingsGet200Response)));
+                (ReportingV3NetFundingsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NetFundingsGet200Response))); // Return statement
         }
 
     }

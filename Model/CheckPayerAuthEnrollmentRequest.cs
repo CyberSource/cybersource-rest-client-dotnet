@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="TravelInformation">TravelInformation.</param>
         /// <param name="MerchantDefinedInformation">MerchantDefinedInformation.</param>
-        public CheckPayerAuthEnrollmentRequest(Riskv1authenticationsClientReferenceInformation ClientReferenceInformation = default(Riskv1authenticationsClientReferenceInformation), Riskv1authenticationsOrderInformation OrderInformation = default(Riskv1authenticationsOrderInformation), Riskv1authenticationsPaymentInformation PaymentInformation = default(Riskv1authenticationsPaymentInformation), Riskv1authenticationsProcessingInformation ProcessingInformation = default(Riskv1authenticationsProcessingInformation), Riskv1authenticationsBuyerInformation BuyerInformation = default(Riskv1authenticationsBuyerInformation), Riskv1authenticationsDeviceInformation DeviceInformation = default(Riskv1authenticationsDeviceInformation), Riskv1authenticationsMerchantInformation MerchantInformation = default(Riskv1authenticationsMerchantInformation), Ptsv2paymentsAcquirerInformation AcquirerInformation = default(Ptsv2paymentsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation), Riskv1authenticationsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1authenticationsConsumerAuthenticationInformation), Riskv1authenticationsRiskInformation RiskInformation = default(Riskv1authenticationsRiskInformation), Riskv1authenticationsTravelInformation TravelInformation = default(Riskv1authenticationsTravelInformation), List<Riskv1decisionsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Riskv1decisionsMerchantDefinedInformation>))
+        public CheckPayerAuthEnrollmentRequest(Riskv1authenticationsClientReferenceInformation ClientReferenceInformation = default(Riskv1authenticationsClientReferenceInformation), Riskv1authenticationsOrderInformation OrderInformation = default(Riskv1authenticationsOrderInformation), Riskv1authenticationsPaymentInformation PaymentInformation = default(Riskv1authenticationsPaymentInformation), Riskv1authenticationsProcessingInformation ProcessingInformation = default(Riskv1authenticationsProcessingInformation), Riskv1authenticationsBuyerInformation BuyerInformation = default(Riskv1authenticationsBuyerInformation), Riskv1authenticationsDeviceInformation DeviceInformation = default(Riskv1authenticationsDeviceInformation), Riskv1decisionsMerchantInformation MerchantInformation = default(Riskv1decisionsMerchantInformation), Ptsv2paymentsAcquirerInformation AcquirerInformation = default(Ptsv2paymentsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation), Riskv1decisionsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1decisionsConsumerAuthenticationInformation), Riskv1authenticationsRiskInformation RiskInformation = default(Riskv1authenticationsRiskInformation), Riskv1authenticationsTravelInformation TravelInformation = default(Riskv1authenticationsTravelInformation), List<Riskv1decisionsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Riskv1decisionsMerchantDefinedInformation>))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
@@ -103,7 +103,7 @@ namespace CyberSource.Model
         /// Gets or Sets MerchantInformation
         /// </summary>
         [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
-        public Riskv1authenticationsMerchantInformation MerchantInformation { get; set; }
+        public Riskv1decisionsMerchantInformation MerchantInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets AcquirerInformation
@@ -121,7 +121,7 @@ namespace CyberSource.Model
         /// Gets or Sets ConsumerAuthenticationInformation
         /// </summary>
         [DataMember(Name="consumerAuthenticationInformation", EmitDefaultValue=false)]
-        public Riskv1authenticationsConsumerAuthenticationInformation ConsumerAuthenticationInformation { get; set; }
+        public Riskv1decisionsConsumerAuthenticationInformation ConsumerAuthenticationInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets RiskInformation

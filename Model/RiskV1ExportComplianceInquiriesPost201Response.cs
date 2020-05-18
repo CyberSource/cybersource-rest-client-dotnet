@@ -35,22 +35,20 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Links">Links.</param>
         /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. .</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. .</param>
         /// <param name="SubmitTimeLocal">Time that the transaction was submitted in local time..</param>
         /// <param name="Status">The status for the call can be: - COMPLETED - INVALID_REQUEST - DECLINED .</param>
-        /// <param name="Reason">The reason of the status. Value can be   - CUSTOMER_WATCHLIST_MATCH   - ADDRESS_COUNTRY_WATCHLIST_MATCH   - EMAIL_COUNTRY_WATCHLIST_MATCH   - IP_COUNTRY_WATCHLIST_MATCH .</param>
         /// <param name="Message">The message describing the reason of the status. Value can be   - The customer matched the Denied Parties List   - The Export bill_country/ship_country  match   - Export email_country match   - Export hostname_country/ip_country match .</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ExportComplianceInformation">ExportComplianceInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        public RiskV1ExportComplianceInquiriesPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation), RiskV1ExportComplianceInquiriesPost201ResponseExportComplianceInformation ExportComplianceInformation = default(RiskV1ExportComplianceInquiriesPost201ResponseExportComplianceInformation), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation))
+        public RiskV1ExportComplianceInquiriesPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), string Message = default(string), PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation), RiskV1ExportComplianceInquiriesPost201ResponseExportComplianceInformation ExportComplianceInformation = default(RiskV1ExportComplianceInquiriesPost201ResponseExportComplianceInformation), RiskV1ExportComplianceInquiriesPost201ResponseErrorInformation ErrorInformation = default(RiskV1ExportComplianceInquiriesPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.SubmitTimeLocal = SubmitTimeLocal;
             this.Status = Status;
-            this.Reason = Reason;
             this.Message = Message;
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ExportComplianceInformation = ExportComplianceInformation;
@@ -71,9 +69,9 @@ namespace CyberSource.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
@@ -90,13 +88,6 @@ namespace CyberSource.Model
         /// <value>The status for the call can be: - COMPLETED - INVALID_REQUEST - DECLINED </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
-
-        /// <summary>
-        /// The reason of the status. Value can be   - CUSTOMER_WATCHLIST_MATCH   - ADDRESS_COUNTRY_WATCHLIST_MATCH   - EMAIL_COUNTRY_WATCHLIST_MATCH   - IP_COUNTRY_WATCHLIST_MATCH 
-        /// </summary>
-        /// <value>The reason of the status. Value can be   - CUSTOMER_WATCHLIST_MATCH   - ADDRESS_COUNTRY_WATCHLIST_MATCH   - EMAIL_COUNTRY_WATCHLIST_MATCH   - IP_COUNTRY_WATCHLIST_MATCH </value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public string Reason { get; set; }
 
         /// <summary>
         /// The message describing the reason of the status. Value can be   - The customer matched the Denied Parties List   - The Export bill_country/ship_country  match   - Export email_country match   - Export hostname_country/ip_country match 
@@ -121,7 +112,7 @@ namespace CyberSource.Model
         /// Gets or Sets ErrorInformation
         /// </summary>
         [DataMember(Name="errorInformation", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation { get; set; }
+        public RiskV1ExportComplianceInquiriesPost201ResponseErrorInformation ErrorInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -136,7 +127,6 @@ namespace CyberSource.Model
             sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             sb.Append("  SubmitTimeLocal: ").Append(SubmitTimeLocal).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  ExportComplianceInformation: ").Append(ExportComplianceInformation).Append("\n");
@@ -203,11 +193,6 @@ namespace CyberSource.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
-                ) && 
-                (
                     this.Message == other.Message ||
                     this.Message != null &&
                     this.Message.Equals(other.Message)
@@ -250,8 +235,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SubmitTimeLocal.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
                 if (this.ClientReferenceInformation != null)

@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessorInformationAvs" /> class.
         /// </summary>
-        /// <param name="Code">AVS result code. .</param>
-        /// <param name="CodeRaw">AVS result code sent directly from the processor. Returned only when the processor returns this value. Important Do not use this field to evaluate the result of AVS. Use for debugging purposes only. .</param>
+        /// <param name="Code">AVS result code.  Returned by authorization service. .</param>
+        /// <param name="CodeRaw">AVS result code sent directly from the processor. Returned only when the processor returns this value. **Important** Do not use this field to evaluate the result of AVS. Use for debugging purposes only.  Returned by authorization service. .</param>
         public PtsV2PaymentsPost201ResponseProcessorInformationAvs(string Code = default(string), string CodeRaw = default(string))
         {
             this.Code = Code;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// AVS result code. 
+        /// AVS result code.  Returned by authorization service. 
         /// </summary>
-        /// <value>AVS result code. </value>
+        /// <value>AVS result code.  Returned by authorization service. </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// AVS result code sent directly from the processor. Returned only when the processor returns this value. Important Do not use this field to evaluate the result of AVS. Use for debugging purposes only. 
+        /// AVS result code sent directly from the processor. Returned only when the processor returns this value. **Important** Do not use this field to evaluate the result of AVS. Use for debugging purposes only.  Returned by authorization service. 
         /// </summary>
-        /// <value>AVS result code sent directly from the processor. Returned only when the processor returns this value. Important Do not use this field to evaluate the result of AVS. Use for debugging purposes only. </value>
+        /// <value>AVS result code sent directly from the processor. Returned only when the processor returns this value. **Important** Do not use this field to evaluate the result of AVS. Use for debugging purposes only.  Returned by authorization service. </value>
         [DataMember(Name="codeRaw", EmitDefaultValue=false)]
         public string CodeRaw { get; set; }
 

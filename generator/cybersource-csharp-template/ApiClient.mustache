@@ -110,6 +110,12 @@ namespace {{packageName}}.Client
         public Configuration Configuration { get; set; }
 
         /// <summary>
+        /// Sets the Accept Header Type.
+        /// </summary>
+        /// <value>User-defined Accept Header Type.</value>
+        public string AcceptHeader { get; set; }
+
+        /// <summary>
         /// Gets or sets the RestClient.
         /// </summary>
         /// <value>An instance of the RestClient</value>
@@ -345,6 +351,14 @@ namespace {{packageName}}.Client
             string httpResponseData = string.Empty;
 
             var response = new RestResponse();
+
+            if (!string.IsNullOrEmpty(AcceptHeader))
+            {
+                var defaultAcceptHeader = "," + headerParams["Accept"];
+                defaultAcceptHeader = AcceptHeader + defaultAcceptHeader.Replace("," + AcceptHeader, "");
+                headerParams.Remove("Accept");
+                headerParams.Add("Accept", defaultAcceptHeader);
+            }
 
             //check if the Response is to be downloaded as a file, this value to be set by the calling API class
             if (string.IsNullOrEmpty(DownloadReponseFileName))

@@ -78,14 +78,14 @@ namespace CyberSource.Test
         }
         
         /// <summary>
-        /// Test CreateDecisionManagerCase
+        /// Test CreateBundledDecisionManagerCase
         /// </summary>
         [Test]
-        public void CreateDecisionManagerCaseTest()
+        public void CreateBundledDecisionManagerCaseTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //CreateDecisionManagerCaseRequest createDecisionManagerCaseRequest = null;
-            //var response = instance.CreateDecisionManagerCase(createDecisionManagerCaseRequest);
+            //CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest = null;
+            //var response = instance.CreateBundledDecisionManagerCase(createBundledDecisionManagerCaseRequest);
             //Assert.IsInstanceOf<RiskV1DecisionsPost201Response> (response, "response is RiskV1DecisionsPost201Response");
         }
         

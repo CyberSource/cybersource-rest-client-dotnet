@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="LineItems">This array contains detailed information about individual products in the order..</param>
         /// <param name="BillTo">BillTo.</param>
         /// <param name="TotalOffersCount">Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 .</param>
-        public Riskv1authenticationsOrderInformation(Riskv1authenticationsOrderInformationAmountDetails AmountDetails = default(Riskv1authenticationsOrderInformationAmountDetails), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), Riskv1authenticationsOrderInformationShipTo ShipTo = default(Riskv1authenticationsOrderInformationShipTo), List<Riskv1authenticationsOrderInformationLineItems> LineItems = default(List<Riskv1authenticationsOrderInformationLineItems>), Riskv1authenticationsOrderInformationBillTo BillTo = default(Riskv1authenticationsOrderInformationBillTo), string TotalOffersCount = default(string))
+        public Riskv1authenticationsOrderInformation(Riskv1authenticationsOrderInformationAmountDetails AmountDetails = default(Riskv1authenticationsOrderInformationAmountDetails), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), Riskv1decisionsOrderInformationShipTo ShipTo = default(Riskv1decisionsOrderInformationShipTo), List<Riskv1authenticationsOrderInformationLineItems> LineItems = default(List<Riskv1authenticationsOrderInformationLineItems>), Riskv1authenticationsOrderInformationBillTo BillTo = default(Riskv1authenticationsOrderInformationBillTo), string TotalOffersCount = default(string))
         {
             this.AmountDetails = AmountDetails;
             this.PreOrder = PreOrder;
@@ -84,7 +84,7 @@ namespace CyberSource.Model
         /// Gets or Sets ShipTo
         /// </summary>
         [DataMember(Name="shipTo", EmitDefaultValue=false)]
-        public Riskv1authenticationsOrderInformationShipTo ShipTo { get; set; }
+        public Riskv1decisionsOrderInformationShipTo ShipTo { get; set; }
 
         /// <summary>
         /// This array contains detailed information about individual products in the order.

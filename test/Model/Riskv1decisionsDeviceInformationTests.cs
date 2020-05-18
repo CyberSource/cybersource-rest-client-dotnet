@@ -112,6 +112,94 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'UserAgent'
         }
+        /// <summary>
+        /// Test the property 'RawData'
+        /// </summary>
+        [Test]
+        public void RawDataTest()
+        {
+            // TODO unit test for the property 'RawData'
+        }
+        /// <summary>
+        /// Test the property 'HttpAcceptBrowserValue'
+        /// </summary>
+        [Test]
+        public void HttpAcceptBrowserValueTest()
+        {
+            // TODO unit test for the property 'HttpAcceptBrowserValue'
+        }
+        /// <summary>
+        /// Test the property 'HttpAcceptContent'
+        /// </summary>
+        [Test]
+        public void HttpAcceptContentTest()
+        {
+            // TODO unit test for the property 'HttpAcceptContent'
+        }
+        /// <summary>
+        /// Test the property 'HttpBrowserLanguage'
+        /// </summary>
+        [Test]
+        public void HttpBrowserLanguageTest()
+        {
+            // TODO unit test for the property 'HttpBrowserLanguage'
+        }
+        /// <summary>
+        /// Test the property 'HttpBrowserJavaEnabled'
+        /// </summary>
+        [Test]
+        public void HttpBrowserJavaEnabledTest()
+        {
+            // TODO unit test for the property 'HttpBrowserJavaEnabled'
+        }
+        /// <summary>
+        /// Test the property 'HttpBrowserJavaScriptEnabled'
+        /// </summary>
+        [Test]
+        public void HttpBrowserJavaScriptEnabledTest()
+        {
+            // TODO unit test for the property 'HttpBrowserJavaScriptEnabled'
+        }
+        /// <summary>
+        /// Test the property 'HttpBrowserColorDepth'
+        /// </summary>
+        [Test]
+        public void HttpBrowserColorDepthTest()
+        {
+            // TODO unit test for the property 'HttpBrowserColorDepth'
+        }
+        /// <summary>
+        /// Test the property 'HttpBrowserScreenHeight'
+        /// </summary>
+        [Test]
+        public void HttpBrowserScreenHeightTest()
+        {
+            // TODO unit test for the property 'HttpBrowserScreenHeight'
+        }
+        /// <summary>
+        /// Test the property 'HttpBrowserScreenWidth'
+        /// </summary>
+        [Test]
+        public void HttpBrowserScreenWidthTest()
+        {
+            // TODO unit test for the property 'HttpBrowserScreenWidth'
+        }
+        /// <summary>
+        /// Test the property 'HttpBrowserTimeDifference'
+        /// </summary>
+        [Test]
+        public void HttpBrowserTimeDifferenceTest()
+        {
+            // TODO unit test for the property 'HttpBrowserTimeDifference'
+        }
+        /// <summary>
+        /// Test the property 'UserAgentBrowserValue'
+        /// </summary>
+        [Test]
+        public void UserAgentBrowserValueTest()
+        {
+            // TODO unit test for the property 'UserAgentBrowserValue'
+        }
 
     }
 

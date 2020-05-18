@@ -254,7 +254,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<FlexV1KeysPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (FlexV1KeysPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(FlexV1KeysPost200Response)));
+                (FlexV1KeysPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(FlexV1KeysPost200Response))); // Return statement
         }
 
         /// <summary>
@@ -332,7 +332,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<FlexV1KeysPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (FlexV1KeysPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(FlexV1KeysPost200Response)));
+                (FlexV1KeysPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(FlexV1KeysPost200Response))); // Return statement
         }
 
     }

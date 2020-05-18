@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions" /> class.
         /// </summary>
         /// <param name="PaymentMethod">This value is a 2-digit code indicating the payment method. Use Payment Method Code value that applies to the tranasction. - 10 (One-time payment) - 21, 22, 23, 24  (Bonus(one-time)payment) - 61 (Installment payment) - 31, 32, 33, 34  (Integrated (Bonus + Installment)payment) - 80 (Revolving payment) .</param>
-        /// <param name="TerminalId">This value is the 13-digit JCCA number..</param>
+        /// <param name="TerminalId">Unique Japan Credit Card Association (JCCA) terminal identifier.  The difference between this field and the &#x60;pointOfSaleInformation.terminalID&#x60; field is that you can define &#x60;pointOfSaleInformation.terminalID&#x60;, but &#x60;processingInformation.japanPaymentOptions.terminalId&#x60; is defined by the JCCA and is used only in Japan.  This field is supported only on CyberSource through VisaNet and JCN Gateway.  Optional field. .</param>
         /// <param name="BusinessName">Business name in Japanese characters. This field is supported only on JCN Gateway and for the Sumitomo Mitsui Card Co. acquirer on CyberSource through VisaNet. .</param>
         /// <param name="BusinessNameKatakana">Business name in Katakana characters. This field is supported only on JCN Gateway and for the Sumitomo Mitsui Card Co. acquirer on CyberSource through VisaNet. .</param>
         public TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions(string PaymentMethod = default(string), string TerminalId = default(string), string BusinessName = default(string), string BusinessNameKatakana = default(string))
@@ -53,9 +53,9 @@ namespace CyberSource.Model
         public string PaymentMethod { get; set; }
 
         /// <summary>
-        /// This value is the 13-digit JCCA number.
+        /// Unique Japan Credit Card Association (JCCA) terminal identifier.  The difference between this field and the &#x60;pointOfSaleInformation.terminalID&#x60; field is that you can define &#x60;pointOfSaleInformation.terminalID&#x60;, but &#x60;processingInformation.japanPaymentOptions.terminalId&#x60; is defined by the JCCA and is used only in Japan.  This field is supported only on CyberSource through VisaNet and JCN Gateway.  Optional field. 
         /// </summary>
-        /// <value>This value is the 13-digit JCCA number.</value>
+        /// <value>Unique Japan Credit Card Association (JCCA) terminal identifier.  The difference between this field and the &#x60;pointOfSaleInformation.terminalID&#x60; field is that you can define &#x60;pointOfSaleInformation.terminalID&#x60;, but &#x60;processingInformation.japanPaymentOptions.terminalId&#x60; is defined by the JCCA and is used only in Japan.  This field is supported only on CyberSource through VisaNet and JCN Gateway.  Optional field. </value>
         [DataMember(Name="terminalId", EmitDefaultValue=false)]
         public string TerminalId { get; set; }
 
