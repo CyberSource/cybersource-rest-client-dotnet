@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InvoicingV2InvoicesGet200ResponseInvoiceHistory" /> class.
         /// </summary>
         /// <param name="_Event">The event triggered for the invoice.  Possible values:  - &#x60;CREATE&#x60;  - &#x60;UPDATE&#x60;  - &#x60;SEND&#x60;  - &#x60;RESEND&#x60;  - &#x60;REMINDER&#x60;  - &#x60;PAYMENT&#x60;  - &#x60;CANCEL&#x60; .</param>
-        /// <param name="Date">The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day .</param>
+        /// <param name="Date">The date and time when the invoice event was triggered in ISO 8601 format. Format: YYYY-MM-DDThh:mm:ssZ .</param>
         /// <param name="TransactionDetails">TransactionDetails.</param>
         public InvoicingV2InvoicesGet200ResponseInvoiceHistory(string _Event = default(string), DateTime? Date = default(DateTime?), InvoicingV2InvoicesGet200ResponseTransactionDetails TransactionDetails = default(InvoicingV2InvoicesGet200ResponseTransactionDetails))
         {
@@ -51,11 +51,10 @@ namespace CyberSource.Model
         public string _Event { get; set; }
 
         /// <summary>
-        /// The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day 
+        /// The date and time when the invoice event was triggered in ISO 8601 format. Format: YYYY-MM-DDThh:mm:ssZ 
         /// </summary>
-        /// <value>The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day </value>
+        /// <value>The date and time when the invoice event was triggered in ISO 8601 format. Format: YYYY-MM-DDThh:mm:ssZ </value>
         [DataMember(Name="date", EmitDefaultValue=false)]
-        [JsonConverter(typeof(SwaggerDateConverter))]
         public DateTime? Date { get; set; }
 
         /// <summary>

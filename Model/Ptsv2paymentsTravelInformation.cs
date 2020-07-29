@@ -33,22 +33,24 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsTravelInformation" /> class.
         /// </summary>
-        /// <param name="Duration">Duration for which the vehicle was rented or lodge/hotel was booked. .</param>
+        /// <param name="Duration">Duration of the auto rental or lodging rental.  #### Auto rental This field is supported for Visa, MasterCard, and American Express. **Important** If this field is not included when the &#x60;processingInformation.industryDataType&#x60; is auto rental, the transaction is declined. .</param>
         /// <param name="Agency">Agency.</param>
+        /// <param name="AutoRental">AutoRental.</param>
         /// <param name="Lodging">Lodging.</param>
         /// <param name="Transit">Transit.</param>
-        public Ptsv2paymentsTravelInformation(string Duration = default(string), Ptsv2paymentsTravelInformationAgency Agency = default(Ptsv2paymentsTravelInformationAgency), Ptsv2paymentsTravelInformationLodging Lodging = default(Ptsv2paymentsTravelInformationLodging), Ptsv2paymentsTravelInformationTransit Transit = default(Ptsv2paymentsTravelInformationTransit))
+        public Ptsv2paymentsTravelInformation(string Duration = default(string), Ptsv2paymentsTravelInformationAgency Agency = default(Ptsv2paymentsTravelInformationAgency), Ptsv2paymentsTravelInformationAutoRental AutoRental = default(Ptsv2paymentsTravelInformationAutoRental), Ptsv2paymentsTravelInformationLodging Lodging = default(Ptsv2paymentsTravelInformationLodging), Ptsv2paymentsTravelInformationTransit Transit = default(Ptsv2paymentsTravelInformationTransit))
         {
             this.Duration = Duration;
             this.Agency = Agency;
+            this.AutoRental = AutoRental;
             this.Lodging = Lodging;
             this.Transit = Transit;
         }
         
         /// <summary>
-        /// Duration for which the vehicle was rented or lodge/hotel was booked. 
+        /// Duration of the auto rental or lodging rental.  #### Auto rental This field is supported for Visa, MasterCard, and American Express. **Important** If this field is not included when the &#x60;processingInformation.industryDataType&#x60; is auto rental, the transaction is declined. 
         /// </summary>
-        /// <value>Duration for which the vehicle was rented or lodge/hotel was booked. </value>
+        /// <value>Duration of the auto rental or lodging rental.  #### Auto rental This field is supported for Visa, MasterCard, and American Express. **Important** If this field is not included when the &#x60;processingInformation.industryDataType&#x60; is auto rental, the transaction is declined. </value>
         [DataMember(Name="duration", EmitDefaultValue=false)]
         public string Duration { get; set; }
 
@@ -57,6 +59,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="agency", EmitDefaultValue=false)]
         public Ptsv2paymentsTravelInformationAgency Agency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AutoRental
+        /// </summary>
+        [DataMember(Name="autoRental", EmitDefaultValue=false)]
+        public Ptsv2paymentsTravelInformationAutoRental AutoRental { get; set; }
 
         /// <summary>
         /// Gets or Sets Lodging
@@ -80,6 +88,7 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsTravelInformation {\n");
             sb.Append("  Duration: ").Append(Duration).Append("\n");
             sb.Append("  Agency: ").Append(Agency).Append("\n");
+            sb.Append("  AutoRental: ").Append(AutoRental).Append("\n");
             sb.Append("  Lodging: ").Append(Lodging).Append("\n");
             sb.Append("  Transit: ").Append(Transit).Append("\n");
             sb.Append("}\n");
@@ -129,6 +138,11 @@ namespace CyberSource.Model
                     this.Agency.Equals(other.Agency)
                 ) && 
                 (
+                    this.AutoRental == other.AutoRental ||
+                    this.AutoRental != null &&
+                    this.AutoRental.Equals(other.AutoRental)
+                ) && 
+                (
                     this.Lodging == other.Lodging ||
                     this.Lodging != null &&
                     this.Lodging.Equals(other.Lodging)
@@ -155,6 +169,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Duration.GetHashCode();
                 if (this.Agency != null)
                     hash = hash * 59 + this.Agency.GetHashCode();
+                if (this.AutoRental != null)
+                    hash = hash * 59 + this.AutoRental.GetHashCode();
                 if (this.Lodging != null)
                     hash = hash * 59 + this.Lodging.GetHashCode();
                 if (this.Transit != null)

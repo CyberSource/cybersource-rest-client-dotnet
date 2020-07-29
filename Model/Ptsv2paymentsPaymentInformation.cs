@@ -37,15 +37,23 @@ namespace CyberSource.Model
         /// <param name="TokenizedCard">TokenizedCard.</param>
         /// <param name="FluidData">FluidData.</param>
         /// <param name="Customer">Customer.</param>
+        /// <param name="PaymentInstrument">PaymentInstrument.</param>
+        /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
+        /// <param name="ShippingAddress">ShippingAddress.</param>
+        /// <param name="LegacyToken">LegacyToken.</param>
         /// <param name="Bank">Bank.</param>
         /// <param name="PaymentType">PaymentType.</param>
-        /// <param name="InitiationChannel">Mastercard-defined code that indicates how the account information was obtained.  - &#x60;00&#x60; (default): Card - &#x60;01&#x60;: Removable secure element that is personalized for use with a mobile phone and controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;02&#x60;: Key fob - &#x60;03&#x60;: Watch - &#x60;04&#x60;: Mobile tag - &#x60;05&#x60;: Wristband - &#x60;06&#x60;: Mobile phone case or sleeve - &#x60;07&#x60;: Mobile phone with a non-removable, secure element that is controlled by the wireless service provider; for example, code division multiple access (CDMA) - &#x60;08&#x60;: Removable secure element that is personalized for use with a mobile phone and not controlled by the wireless service provider; example: memory card - &#x60;09&#x60;: Mobile phone with a non-removable, secure element that is not controlled by the wireless service provider - &#x60;10&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;11&#x60;: Tablet or e-book with a non-removable, secure element that is controlled by the wireless service provider - &#x60;12&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is not controlled by the wireless service provider - &#x60;13&#x60;: Tablet or e-book with a non-removable, secure element that is not controlled by the wireless service provider  This field is supported only for Mastercard on CyberSource through VisaNet.  #### Used by **Authorization**\\ Optional field. .</param>
-        public Ptsv2paymentsPaymentInformation(Ptsv2paymentsPaymentInformationCard Card = default(Ptsv2paymentsPaymentInformationCard), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType), string InitiationChannel = default(string))
+        /// <param name="InitiationChannel">Mastercard-defined code that indicates how the account information was obtained.  - &#x60;00&#x60; (default): Card - &#x60;01&#x60;: Removable secure element that is personalized for use with a mobile phone and controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;02&#x60;: Key fob - &#x60;03&#x60;: Watch - &#x60;04&#x60;: Mobile tag - &#x60;05&#x60;: Wristband - &#x60;06&#x60;: Mobile phone case or sleeve - &#x60;07&#x60;: Mobile phone with a non-removable, secure element that is controlled by the wireless service provider; for example, code division multiple access (CDMA) - &#x60;08&#x60;: Removable secure element that is personalized for use with a mobile phone and not controlled by the wireless service provider; example: memory card - &#x60;09&#x60;: Mobile phone with a non-removable, secure element that is not controlled by the wireless service provider - &#x60;10&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;11&#x60;: Tablet or e-book with a non-removable, secure element that is controlled by the wireless service provider - &#x60;12&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is not controlled by the wireless service provider - &#x60;13&#x60;: Tablet or e-book with a non-removable, secure element that is not controlled by the wireless service provider  This field is supported only for Mastercard on CyberSource through VisaNet.  #### Used by **Authorization** Optional field. .</param>
+        public Ptsv2paymentsPaymentInformation(Ptsv2paymentsPaymentInformationCard Card = default(Ptsv2paymentsPaymentInformationCard), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType), string InitiationChannel = default(string))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
             this.FluidData = FluidData;
             this.Customer = Customer;
+            this.PaymentInstrument = PaymentInstrument;
+            this.InstrumentIdentifier = InstrumentIdentifier;
+            this.ShippingAddress = ShippingAddress;
+            this.LegacyToken = LegacyToken;
             this.Bank = Bank;
             this.PaymentType = PaymentType;
             this.InitiationChannel = InitiationChannel;
@@ -76,6 +84,30 @@ namespace CyberSource.Model
         public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentInstrument
+        /// </summary>
+        [DataMember(Name="paymentInstrument", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InstrumentIdentifier
+        /// </summary>
+        [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShippingAddress
+        /// </summary>
+        [DataMember(Name="shippingAddress", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LegacyToken
+        /// </summary>
+        [DataMember(Name="legacyToken", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationLegacyToken LegacyToken { get; set; }
+
+        /// <summary>
         /// Gets or Sets Bank
         /// </summary>
         [DataMember(Name="bank", EmitDefaultValue=false)]
@@ -88,9 +120,9 @@ namespace CyberSource.Model
         public Ptsv2paymentsPaymentInformationPaymentType PaymentType { get; set; }
 
         /// <summary>
-        /// Mastercard-defined code that indicates how the account information was obtained.  - &#x60;00&#x60; (default): Card - &#x60;01&#x60;: Removable secure element that is personalized for use with a mobile phone and controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;02&#x60;: Key fob - &#x60;03&#x60;: Watch - &#x60;04&#x60;: Mobile tag - &#x60;05&#x60;: Wristband - &#x60;06&#x60;: Mobile phone case or sleeve - &#x60;07&#x60;: Mobile phone with a non-removable, secure element that is controlled by the wireless service provider; for example, code division multiple access (CDMA) - &#x60;08&#x60;: Removable secure element that is personalized for use with a mobile phone and not controlled by the wireless service provider; example: memory card - &#x60;09&#x60;: Mobile phone with a non-removable, secure element that is not controlled by the wireless service provider - &#x60;10&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;11&#x60;: Tablet or e-book with a non-removable, secure element that is controlled by the wireless service provider - &#x60;12&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is not controlled by the wireless service provider - &#x60;13&#x60;: Tablet or e-book with a non-removable, secure element that is not controlled by the wireless service provider  This field is supported only for Mastercard on CyberSource through VisaNet.  #### Used by **Authorization**\\ Optional field. 
+        /// Mastercard-defined code that indicates how the account information was obtained.  - &#x60;00&#x60; (default): Card - &#x60;01&#x60;: Removable secure element that is personalized for use with a mobile phone and controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;02&#x60;: Key fob - &#x60;03&#x60;: Watch - &#x60;04&#x60;: Mobile tag - &#x60;05&#x60;: Wristband - &#x60;06&#x60;: Mobile phone case or sleeve - &#x60;07&#x60;: Mobile phone with a non-removable, secure element that is controlled by the wireless service provider; for example, code division multiple access (CDMA) - &#x60;08&#x60;: Removable secure element that is personalized for use with a mobile phone and not controlled by the wireless service provider; example: memory card - &#x60;09&#x60;: Mobile phone with a non-removable, secure element that is not controlled by the wireless service provider - &#x60;10&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;11&#x60;: Tablet or e-book with a non-removable, secure element that is controlled by the wireless service provider - &#x60;12&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is not controlled by the wireless service provider - &#x60;13&#x60;: Tablet or e-book with a non-removable, secure element that is not controlled by the wireless service provider  This field is supported only for Mastercard on CyberSource through VisaNet.  #### Used by **Authorization** Optional field. 
         /// </summary>
-        /// <value>Mastercard-defined code that indicates how the account information was obtained.  - &#x60;00&#x60; (default): Card - &#x60;01&#x60;: Removable secure element that is personalized for use with a mobile phone and controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;02&#x60;: Key fob - &#x60;03&#x60;: Watch - &#x60;04&#x60;: Mobile tag - &#x60;05&#x60;: Wristband - &#x60;06&#x60;: Mobile phone case or sleeve - &#x60;07&#x60;: Mobile phone with a non-removable, secure element that is controlled by the wireless service provider; for example, code division multiple access (CDMA) - &#x60;08&#x60;: Removable secure element that is personalized for use with a mobile phone and not controlled by the wireless service provider; example: memory card - &#x60;09&#x60;: Mobile phone with a non-removable, secure element that is not controlled by the wireless service provider - &#x60;10&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;11&#x60;: Tablet or e-book with a non-removable, secure element that is controlled by the wireless service provider - &#x60;12&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is not controlled by the wireless service provider - &#x60;13&#x60;: Tablet or e-book with a non-removable, secure element that is not controlled by the wireless service provider  This field is supported only for Mastercard on CyberSource through VisaNet.  #### Used by **Authorization**\\ Optional field. </value>
+        /// <value>Mastercard-defined code that indicates how the account information was obtained.  - &#x60;00&#x60; (default): Card - &#x60;01&#x60;: Removable secure element that is personalized for use with a mobile phone and controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;02&#x60;: Key fob - &#x60;03&#x60;: Watch - &#x60;04&#x60;: Mobile tag - &#x60;05&#x60;: Wristband - &#x60;06&#x60;: Mobile phone case or sleeve - &#x60;07&#x60;: Mobile phone with a non-removable, secure element that is controlled by the wireless service provider; for example, code division multiple access (CDMA) - &#x60;08&#x60;: Removable secure element that is personalized for use with a mobile phone and not controlled by the wireless service provider; example: memory card - &#x60;09&#x60;: Mobile phone with a non-removable, secure element that is not controlled by the wireless service provider - &#x60;10&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is controlled by the wireless service provider; examples: subscriber identity module (SIM), universal integrated circuit card (UICC) - &#x60;11&#x60;: Tablet or e-book with a non-removable, secure element that is controlled by the wireless service provider - &#x60;12&#x60;: Removable secure element that is personalized for use with a tablet or e-book and is not controlled by the wireless service provider - &#x60;13&#x60;: Tablet or e-book with a non-removable, secure element that is not controlled by the wireless service provider  This field is supported only for Mastercard on CyberSource through VisaNet.  #### Used by **Authorization** Optional field. </value>
         [DataMember(Name="initiationChannel", EmitDefaultValue=false)]
         public string InitiationChannel { get; set; }
 
@@ -106,6 +138,10 @@ namespace CyberSource.Model
             sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             sb.Append("  FluidData: ").Append(FluidData).Append("\n");
             sb.Append("  Customer: ").Append(Customer).Append("\n");
+            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            sb.Append("  LegacyToken: ").Append(LegacyToken).Append("\n");
             sb.Append("  Bank: ").Append(Bank).Append("\n");
             sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("  InitiationChannel: ").Append(InitiationChannel).Append("\n");
@@ -166,6 +202,26 @@ namespace CyberSource.Model
                     this.Customer.Equals(other.Customer)
                 ) && 
                 (
+                    this.PaymentInstrument == other.PaymentInstrument ||
+                    this.PaymentInstrument != null &&
+                    this.PaymentInstrument.Equals(other.PaymentInstrument)
+                ) && 
+                (
+                    this.InstrumentIdentifier == other.InstrumentIdentifier ||
+                    this.InstrumentIdentifier != null &&
+                    this.InstrumentIdentifier.Equals(other.InstrumentIdentifier)
+                ) && 
+                (
+                    this.ShippingAddress == other.ShippingAddress ||
+                    this.ShippingAddress != null &&
+                    this.ShippingAddress.Equals(other.ShippingAddress)
+                ) && 
+                (
+                    this.LegacyToken == other.LegacyToken ||
+                    this.LegacyToken != null &&
+                    this.LegacyToken.Equals(other.LegacyToken)
+                ) && 
+                (
                     this.Bank == other.Bank ||
                     this.Bank != null &&
                     this.Bank.Equals(other.Bank)
@@ -201,6 +257,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FluidData.GetHashCode();
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
+                if (this.PaymentInstrument != null)
+                    hash = hash * 59 + this.PaymentInstrument.GetHashCode();
+                if (this.InstrumentIdentifier != null)
+                    hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
+                if (this.ShippingAddress != null)
+                    hash = hash * 59 + this.ShippingAddress.GetHashCode();
+                if (this.LegacyToken != null)
+                    hash = hash * 59 + this.LegacyToken.GetHashCode();
                 if (this.Bank != null)
                     hash = hash * 59 + this.Bank.GetHashCode();
                 if (this.PaymentType != null)

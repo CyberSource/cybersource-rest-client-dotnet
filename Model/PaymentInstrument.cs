@@ -34,24 +34,28 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PaymentInstrument" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
+        /// <param name="Id">The id of the Payment Instrument Token..</param>
         /// <param name="BankAccount">BankAccount.</param>
         /// <param name="Card">Card.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="BillTo">BillTo.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
-        /// <param name="MetaData">MetaData.</param>
+        /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
+        /// <param name="Metadata">Metadata.</param>
         /// <param name="Embedded">Embedded.</param>
-        public PaymentInstrument(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedLinks Links = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedLinks), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount BankAccount = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard Card = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation BuyerInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo BillTo = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation ProcessingInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation MerchantInformation = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation), TmsV1InstrumentIdentifiersPost200ResponseMetadata MetaData = default(TmsV1InstrumentIdentifiersPost200ResponseMetadata), TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedEmbedded Embedded = default(TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedEmbedded))
+        public PaymentInstrument(Tmsv2customersEmbeddedDefaultPaymentInstrumentLinks Links = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentLinks), string Id = default(string), Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount BankAccount = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount), Tmsv2customersEmbeddedDefaultPaymentInstrumentCard Card = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentCard), Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformation BuyerInformation = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformation), Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo BillTo = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo), Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformation ProcessingInformation = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformation), Tmsv2customersEmbeddedDefaultPaymentInstrumentMerchantInformation MerchantInformation = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentMerchantInformation), Tmsv2customersEmbeddedDefaultPaymentInstrumentInstrumentIdentifier InstrumentIdentifier = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentInstrumentIdentifier), Tmsv2customersEmbeddedDefaultPaymentInstrumentMetadata Metadata = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentMetadata), Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded Embedded = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded))
         {
             this.Links = Links;
+            this.Id = Id;
             this.BankAccount = BankAccount;
             this.Card = Card;
             this.BuyerInformation = BuyerInformation;
             this.BillTo = BillTo;
             this.ProcessingInformation = ProcessingInformation;
             this.MerchantInformation = MerchantInformation;
-            this.MetaData = MetaData;
+            this.InstrumentIdentifier = InstrumentIdentifier;
+            this.Metadata = Metadata;
             this.Embedded = Embedded;
         }
         
@@ -59,26 +63,26 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedLinks Links { get; set; }
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentLinks Links { get; set; }
 
         /// <summary>
-        /// Unique identification number assigned by CyberSource to the submitted request.
+        /// The id of the Payment Instrument Token.
         /// </summary>
-        /// <value>Unique identification number assigned by CyberSource to the submitted request.</value>
+        /// <value>The id of the Payment Instrument Token.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; private set; }
+        public string Id { get; set; }
 
         /// <summary>
-        /// &#39;Describes type of token.&#39;  Valid values: - instrumentIdentifier 
+        /// The type of token.  Valid values: - paymentInstrument 
         /// </summary>
-        /// <value>&#39;Describes type of token.&#39;  Valid values: - instrumentIdentifier </value>
+        /// <value>The type of token.  Valid values: - paymentInstrument </value>
         [DataMember(Name="object", EmitDefaultValue=false)]
         public string _Object { get; private set; }
 
         /// <summary>
-        /// &#39;Current state of the token.&#39;  Valid values: - ACTIVE - CLOSED 
+        /// Issuers state for the card number. Valid values: - ACTIVE - CLOSED : The account has been closed. 
         /// </summary>
-        /// <value>&#39;Current state of the token.&#39;  Valid values: - ACTIVE - CLOSED </value>
+        /// <value>Issuers state for the card number. Valid values: - ACTIVE - CLOSED : The account has been closed. </value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; private set; }
 
@@ -86,49 +90,55 @@ namespace CyberSource.Model
         /// Gets or Sets BankAccount
         /// </summary>
         [DataMember(Name="bankAccount", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBankAccount BankAccount { get; set; }
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount BankAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets Card
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedCard Card { get; set; }
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentCard Card { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
         /// </summary>
         [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBuyerInformation BuyerInformation { get; set; }
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformation BuyerInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BillTo
         /// </summary>
         [DataMember(Name="billTo", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedBillTo BillTo { get; set; }
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo BillTo { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation
         /// </summary>
         [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedProcessingInformation ProcessingInformation { get; set; }
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInformation
         /// </summary>
         [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedMerchantInformation MerchantInformation { get; set; }
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentMerchantInformation MerchantInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets MetaData
+        /// Gets or Sets InstrumentIdentifier
         /// </summary>
-        [DataMember(Name="metaData", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPost200ResponseMetadata MetaData { get; set; }
+        [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentInstrumentIdentifier InstrumentIdentifier { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Metadata
+        /// </summary>
+        [DataMember(Name="metadata", EmitDefaultValue=false)]
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentMetadata Metadata { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
         [DataMember(Name="_embedded", EmitDefaultValue=false)]
-        public TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedEmbedded Embedded { get; set; }
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -148,7 +158,8 @@ namespace CyberSource.Model
             sb.Append("  BillTo: ").Append(BillTo).Append("\n");
             sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
-            sb.Append("  MetaData: ").Append(MetaData).Append("\n");
+            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -237,9 +248,14 @@ namespace CyberSource.Model
                     this.MerchantInformation.Equals(other.MerchantInformation)
                 ) && 
                 (
-                    this.MetaData == other.MetaData ||
-                    this.MetaData != null &&
-                    this.MetaData.Equals(other.MetaData)
+                    this.InstrumentIdentifier == other.InstrumentIdentifier ||
+                    this.InstrumentIdentifier != null &&
+                    this.InstrumentIdentifier.Equals(other.InstrumentIdentifier)
+                ) && 
+                (
+                    this.Metadata == other.Metadata ||
+                    this.Metadata != null &&
+                    this.Metadata.Equals(other.Metadata)
                 ) && 
                 (
                     this.Embedded == other.Embedded ||
@@ -279,8 +295,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.MerchantInformation != null)
                     hash = hash * 59 + this.MerchantInformation.GetHashCode();
-                if (this.MetaData != null)
-                    hash = hash * 59 + this.MetaData.GetHashCode();
+                if (this.InstrumentIdentifier != null)
+                    hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
+                if (this.Metadata != null)
+                    hash = hash * 59 + this.Metadata.GetHashCode();
                 if (this.Embedded != null)
                     hash = hash * 59 + this.Embedded.GetHashCode();
                 return hash;
@@ -294,6 +312,18 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Id (string) maxLength
+            if(this.Id != null && this.Id.Length >= 32)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than or equal to 32.", new [] { "Id" });
+            }
+
+            // Id (string) minLength
+            if(this.Id != null && this.Id.Length <= 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than or equal to 1.", new [] { "Id" });
+            }
+
             yield break;
         }
     }

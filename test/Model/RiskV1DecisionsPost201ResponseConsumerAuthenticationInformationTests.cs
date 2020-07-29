@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'AccessToken'
+        /// </summary>
+        [Test]
+        public void AccessTokenTest()
+        {
+            // TODO unit test for the property 'AccessToken'
+        }
+        /// <summary>
         /// Test the property 'AcsRenderingType'
         /// </summary>
         [Test]

@@ -35,12 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Type">Passenger classification associated with the price of the ticket. You can use one of the following values: - &#x60;ADT&#x60;: Adult - &#x60;CNN&#x60;: Child - &#x60;INF&#x60;: Infant - &#x60;YTH&#x60;: Youth - &#x60;STU&#x60;: Student - &#x60;SCR&#x60;: Senior Citizen - &#x60;MIL&#x60;: Military .</param>
         /// <param name="Status">Your company&#39;s passenger classification, such as with a frequent flyer program. In this case, you might use values such as &#x60;standard&#x60;, &#x60;gold&#x60;, or &#x60;platinum&#x60;. .</param>
-        /// <param name="Phone">Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) .</param>
+        /// <param name="Phone">Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). .</param>
         /// <param name="FirstName">Passenger&#39;s first name..</param>
         /// <param name="LastName">Passenger&#39;s last name..</param>
         /// <param name="Id">ID of the passenger to whom the ticket was issued. For example, you can use this field for the frequent flyer number. .</param>
         /// <param name="Email">Passenger&#39;s email address, including the full domain name, such as jdoe@example.com..</param>
-        /// <param name="Nationality">Passenger&#39;s nationality country. Use the two character ISO Standard Country Codes..</param>
+        /// <param name="Nationality">Passenger&#39;s nationality country. Use the two character [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)..</param>
         public Ptsv2paymentsOrderInformationPassenger(string Type = default(string), string Status = default(string), string Phone = default(string), string FirstName = default(string), string LastName = default(string), string Id = default(string), string Email = default(string), string Nationality = default(string))
         {
             this.Type = Type;
@@ -68,9 +68,9 @@ namespace CyberSource.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) 
+        /// Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). 
         /// </summary>
-        /// <value>Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) </value>
+        /// <value>Passenger&#39;s phone number. If the order is from outside the U.S., CyberSource recommends that you include the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). </value>
         [DataMember(Name="phone", EmitDefaultValue=false)]
         public string Phone { get; set; }
 
@@ -103,9 +103,9 @@ namespace CyberSource.Model
         public string Email { get; set; }
 
         /// <summary>
-        /// Passenger&#39;s nationality country. Use the two character ISO Standard Country Codes.
+        /// Passenger&#39;s nationality country. Use the two character [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf).
         /// </summary>
-        /// <value>Passenger&#39;s nationality country. Use the two character ISO Standard Country Codes.</value>
+        /// <value>Passenger&#39;s nationality country. Use the two character [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf).</value>
         [DataMember(Name="nationality", EmitDefaultValue=false)]
         public string Nationality { get; set; }
 

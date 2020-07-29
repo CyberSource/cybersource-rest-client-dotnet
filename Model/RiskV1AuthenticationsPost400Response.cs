@@ -33,10 +33,10 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RiskV1AuthenticationsPost400Response" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. .</param>
-        /// <param name="Status">The status for payerAuthentication 201 enroll and validate calls. Value is: - &#x60;INVALID_REQUEST&#x60; .</param>
-        /// <param name="Reason">The reason of the status.  Possible Values: - &#x60;MISSING_FIELD&#x60; - &#x60;INVALID_DATA&#x60; .</param>
-        /// <param name="Message">The message describing the reason of the status. Value is: - Encountered a Payer Authentication problem. Payer could not be authenticated. .</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. .</param>
+        /// <param name="Status">The status for payerAuthentication 400 setup calls. Possible values are: - INVALID_REQUEST .</param>
+        /// <param name="Reason">The reason of the status. .</param>
+        /// <param name="Message">The message describing the reason of the status. Value is: - Encountered a Payer Authentication problem. Payer could not be setup. .</param>
         /// <param name="Details">Details.</param>
         public RiskV1AuthenticationsPost400Response(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
@@ -48,30 +48,30 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The status for payerAuthentication 201 enroll and validate calls. Value is: - &#x60;INVALID_REQUEST&#x60; 
+        /// The status for payerAuthentication 400 setup calls. Possible values are: - INVALID_REQUEST 
         /// </summary>
-        /// <value>The status for payerAuthentication 201 enroll and validate calls. Value is: - &#x60;INVALID_REQUEST&#x60; </value>
+        /// <value>The status for payerAuthentication 400 setup calls. Possible values are: - INVALID_REQUEST </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
         /// <summary>
-        /// The reason of the status.  Possible Values: - &#x60;MISSING_FIELD&#x60; - &#x60;INVALID_DATA&#x60; 
+        /// The reason of the status. 
         /// </summary>
-        /// <value>The reason of the status.  Possible Values: - &#x60;MISSING_FIELD&#x60; - &#x60;INVALID_DATA&#x60; </value>
+        /// <value>The reason of the status. </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 
         /// <summary>
-        /// The message describing the reason of the status. Value is: - Encountered a Payer Authentication problem. Payer could not be authenticated. 
+        /// The message describing the reason of the status. Value is: - Encountered a Payer Authentication problem. Payer could not be setup. 
         /// </summary>
-        /// <value>The message describing the reason of the status. Value is: - Encountered a Payer Authentication problem. Payer could not be authenticated. </value>
+        /// <value>The message describing the reason of the status. Value is: - Encountered a Payer Authentication problem. Payer could not be setup. </value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 

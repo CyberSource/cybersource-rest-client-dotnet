@@ -168,6 +168,38 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'RedemptionInquiry'
         }
+        /// <summary>
+        /// Test the property 'TransitTransactionType'
+        /// </summary>
+        [Test]
+        public void TransitTransactionTypeTest()
+        {
+            // TODO unit test for the property 'TransitTransactionType'
+        }
+        /// <summary>
+        /// Test the property 'AggregatedAuthIndicator'
+        /// </summary>
+        [Test]
+        public void AggregatedAuthIndicatorTest()
+        {
+            // TODO unit test for the property 'AggregatedAuthIndicator'
+        }
+        /// <summary>
+        /// Test the property 'DebtRecoveryIndicator'
+        /// </summary>
+        [Test]
+        public void DebtRecoveryIndicatorTest()
+        {
+            // TODO unit test for the property 'DebtRecoveryIndicator'
+        }
+        /// <summary>
+        /// Test the property 'DeferredAuthIndicator'
+        /// </summary>
+        [Test]
+        public void DeferredAuthIndicatorTest()
+        {
+            // TODO unit test for the property 'DeferredAuthIndicator'
+        }
 
     }
 

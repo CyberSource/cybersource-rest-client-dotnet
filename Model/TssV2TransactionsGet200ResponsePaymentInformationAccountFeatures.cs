@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures" /> class.
         /// </summary>
-        /// <param name="BalanceAmount">Remaining balance on the account.  Returned by authorization service. .</param>
-        /// <param name="PreviousBalanceAmount">Remaining balance on the account.  Returned by authorization service. .</param>
-        /// <param name="Currency">Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  Returned by authorization service. .</param>
+        /// <param name="BalanceAmount">Remaining balance on the account.  Returned by authorization service.  #### PIN debit Remaining balance on the prepaid card.  Returned by PIN debit purchase. .</param>
+        /// <param name="PreviousBalanceAmount">Remaining balance on the account.  Returned by authorization service.  #### PIN debit Remaining balance on the prepaid card.  Returned by PIN debit purchase. .</param>
+        /// <param name="Currency">Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  Returned by authorization service.  #### PIN debit Currency of the remaining balance on the prepaid card.  Returned by PIN debit purchase. .</param>
         public TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures(string BalanceAmount = default(string), string PreviousBalanceAmount = default(string), string Currency = default(string))
         {
             this.BalanceAmount = BalanceAmount;
@@ -44,23 +44,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Remaining balance on the account.  Returned by authorization service. 
+        /// Remaining balance on the account.  Returned by authorization service.  #### PIN debit Remaining balance on the prepaid card.  Returned by PIN debit purchase. 
         /// </summary>
-        /// <value>Remaining balance on the account.  Returned by authorization service. </value>
+        /// <value>Remaining balance on the account.  Returned by authorization service.  #### PIN debit Remaining balance on the prepaid card.  Returned by PIN debit purchase. </value>
         [DataMember(Name="balanceAmount", EmitDefaultValue=false)]
         public string BalanceAmount { get; set; }
 
         /// <summary>
-        /// Remaining balance on the account.  Returned by authorization service. 
+        /// Remaining balance on the account.  Returned by authorization service.  #### PIN debit Remaining balance on the prepaid card.  Returned by PIN debit purchase. 
         /// </summary>
-        /// <value>Remaining balance on the account.  Returned by authorization service. </value>
+        /// <value>Remaining balance on the account.  Returned by authorization service.  #### PIN debit Remaining balance on the prepaid card.  Returned by PIN debit purchase. </value>
         [DataMember(Name="previousBalanceAmount", EmitDefaultValue=false)]
         public string PreviousBalanceAmount { get; set; }
 
         /// <summary>
-        /// Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  Returned by authorization service. 
+        /// Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  Returned by authorization service.  #### PIN debit Currency of the remaining balance on the prepaid card.  Returned by PIN debit purchase. 
         /// </summary>
-        /// <value>Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  Returned by authorization service. </value>
+        /// <value>Currency of the remaining balance on the account. For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  Returned by authorization service.  #### PIN debit Currency of the remaining balance on the prepaid card.  Returned by PIN debit purchase. </value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
 

@@ -113,6 +113,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Xid'
         }
         /// <summary>
+        /// Test the property 'UcafCollectionIndicator'
+        /// </summary>
+        [Test]
+        public void UcafCollectionIndicatorTest()
+        {
+            // TODO unit test for the property 'UcafCollectionIndicator'
+        }
+        /// <summary>
         /// Test the property 'UcafAuthenticationData'
         /// </summary>
         [Test]

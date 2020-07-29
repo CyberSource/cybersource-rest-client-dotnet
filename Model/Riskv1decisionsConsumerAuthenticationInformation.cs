@@ -58,12 +58,13 @@ namespace CyberSource.Model
         /// <param name="MessageCategory">Category of the message for a specific use case. Possible values:  - &#x60;01&#x60;: PA- payment authentication - &#x60;02&#x60;: NPA- non-payment authentication - &#x60;03-79&#x60;: Reserved for EMVCo future use (values invalid until defined by EMVCo) - &#x60;80-99&#x60;: Reserved for DS use .</param>
         /// <param name="NpaCode">Non-Payer Authentication Indicator. Possible values: - &#x60;01&#x60;: Add card - &#x60;02&#x60;: Maintain card information - &#x60;03&#x60;: Cardholder verification for EMV token - &#x60;04-80&#x60; Reserved for EMVCo - &#x60;80-90&#x60; Reserved DS .</param>
         /// <param name="OverridePaymentMethod">Specifies the Brazilian payment account type used for the transaction. This field overrides other payment types that might be specified in the request. Use one of the following values for this field: - &#x60;NA&#x60;: Not applicable. Do not override other payment types that are specified in the request. - &#x60;CR&#x60;: Credit card. - &#x60;DB&#x60;: Debit card. - &#x60;VSAVR&#x60;: Visa Vale Refeicao - &#x60;VSAVA&#x60;: Visa Vale Alimentacao **Important** Required only for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
-        /// <param name="OverrideCountryCode">Two-character ISO standard Country Codes. .</param>
+        /// <param name="OverrideCountryCode">Two-character [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf).. .</param>
         /// <param name="PriorAuthenticationData">This field carry data that the ACS can use to verify the authentication process. .</param>
         /// <param name="PriorAuthenticationMethod">Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor.  01 - Frictionless authentication occurred by ACS  02 - Cardholder challenge occurred by ACS  03 - AVS verified  04 - Other issuer methods  05-79 - Reserved for EMVCo future use (values invalid until defined by EMVCo)  80-99 - Reserved for DS use .</param>
         /// <param name="PriorAuthenticationReferenceId">This data element contains a ACS Transaction ID for a prior authenticated transaction. For example, the first recurring transaction that was authenticated with the cardholder .</param>
         /// <param name="PriorAuthenticationTime">Date and time in UTC of the prior cardholder authentication. Format – YYYYMMDDHHMM .</param>
         /// <param name="ProductCode">Specifies the product code, which designates the type of transaction. Specify one of the following values for this field: - AIR: Airline purchase Important Required for American Express SafeKey (U.S.). - &#x60;ACC&#x60;: Accommodation Rental - &#x60;ACF&#x60;: Account funding - &#x60;CHA&#x60;: Check acceptance - &#x60;DIG&#x60;: Digital Goods - &#x60;DSP&#x60;: Cash Dispensing - &#x60;GAS&#x60;: Fuel - &#x60;GEN&#x60;: General Retail - &#x60;LUX&#x60;: Luxury Retail - &#x60;PAL&#x60;: Prepaid activation and load - &#x60;PHY&#x60;: Goods or services purchase - &#x60;QCT&#x60;: Quasi-cash transaction - &#x60;REN&#x60;: Car Rental - &#x60;RES&#x60;: Restaurant - &#x60;SVC&#x60;: Services - &#x60;TBD&#x60;: Other - &#x60;TRA&#x60;: Travel **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
+        /// <param name="ReturnUrl">The URL of the merchant’s return page. CyberSource adds this return URL to the step-up JWT and returns it in the response of the Payer Authentication enrollment call. The merchant&#39;s return URL page serves as a listening URL. Once the bank session completes, the merchant receives a POST to their URL. This response contains the completed bank session’s transactionId. The merchant’s return page should capture the transaction ID and send it in the Payer Authentication validation call. .</param>
         /// <param name="RequestorId">Cardinal&#39;s directory server assigned 3DS Requestor ID value.</param>
         /// <param name="RequestorInitiatedAuthenticationIndicator">Indicates the type of 3RI request.  Possible Values:  01 - Recurring transaction  02 - Installment transaction  03 - Add card  04 - Maintain card  05 - Account verification  06 - Split/delayed shipment  07 - Top-up  08 - Mail Order  09 - Telephone Order  10 - Whitelist status check  11 - Other payment .</param>
         /// <param name="RequestorName">Cardinal&#39;s directory server assigned 3DS Requestor Name value.</param>
@@ -72,7 +73,7 @@ namespace CyberSource.Model
         /// <param name="SecureCorporatePaymentIndicator">Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies. Possible Values : 0/1 .</param>
         /// <param name="TransactionMode">Transaction mode identifier. Identifies the channel from which the transaction originates. Possible values:  - &#x60;M&#x60;: MOTO (Mail Order Telephone Order) - &#x60;R&#x60;: Retail - &#x60;S&#x60;: eCommerce - &#x60;P&#x60;: Mobile Device - &#x60;T&#x60;: Tablet .</param>
         /// <param name="WhiteListStatus">Enables the communication of trusted beneficiary/whitelist status between the ACS, the DS and the 3DS Requestor.  Possible Values:  Y - 3DS Requestor is whitelisted by cardholder  N - 3DS Requestor is not whitelisted by cardholder .</param>
-        public Riskv1decisionsConsumerAuthenticationInformation(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication), string AuthenticationType = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string))
+        public Riskv1decisionsConsumerAuthenticationInformation(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication), string AuthenticationType = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string ReturnUrl = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string))
         {
             this.StrongAuthentication = StrongAuthentication;
             this.AuthenticationType = AuthenticationType;
@@ -105,6 +106,7 @@ namespace CyberSource.Model
             this.PriorAuthenticationReferenceId = PriorAuthenticationReferenceId;
             this.PriorAuthenticationTime = PriorAuthenticationTime;
             this.ProductCode = ProductCode;
+            this.ReturnUrl = ReturnUrl;
             this.RequestorId = RequestorId;
             this.RequestorInitiatedAuthenticationIndicator = RequestorInitiatedAuthenticationIndicator;
             this.RequestorName = RequestorName;
@@ -290,9 +292,9 @@ namespace CyberSource.Model
         public string OverridePaymentMethod { get; set; }
 
         /// <summary>
-        /// Two-character ISO standard Country Codes. 
+        /// Two-character [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf).. 
         /// </summary>
-        /// <value>Two-character ISO standard Country Codes. </value>
+        /// <value>Two-character [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf).. </value>
         [DataMember(Name="overrideCountryCode", EmitDefaultValue=false)]
         public string OverrideCountryCode { get; set; }
 
@@ -330,6 +332,13 @@ namespace CyberSource.Model
         /// <value>Specifies the product code, which designates the type of transaction. Specify one of the following values for this field: - AIR: Airline purchase Important Required for American Express SafeKey (U.S.). - &#x60;ACC&#x60;: Accommodation Rental - &#x60;ACF&#x60;: Account funding - &#x60;CHA&#x60;: Check acceptance - &#x60;DIG&#x60;: Digital Goods - &#x60;DSP&#x60;: Cash Dispensing - &#x60;GAS&#x60;: Fuel - &#x60;GEN&#x60;: General Retail - &#x60;LUX&#x60;: Luxury Retail - &#x60;PAL&#x60;: Prepaid activation and load - &#x60;PHY&#x60;: Goods or services purchase - &#x60;QCT&#x60;: Quasi-cash transaction - &#x60;REN&#x60;: Car Rental - &#x60;RES&#x60;: Restaurant - &#x60;SVC&#x60;: Services - &#x60;TBD&#x60;: Other - &#x60;TRA&#x60;: Travel **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. </value>
         [DataMember(Name="productCode", EmitDefaultValue=false)]
         public string ProductCode { get; set; }
+
+        /// <summary>
+        /// The URL of the merchant’s return page. CyberSource adds this return URL to the step-up JWT and returns it in the response of the Payer Authentication enrollment call. The merchant&#39;s return URL page serves as a listening URL. Once the bank session completes, the merchant receives a POST to their URL. This response contains the completed bank session’s transactionId. The merchant’s return page should capture the transaction ID and send it in the Payer Authentication validation call. 
+        /// </summary>
+        /// <value>The URL of the merchant’s return page. CyberSource adds this return URL to the step-up JWT and returns it in the response of the Payer Authentication enrollment call. The merchant&#39;s return URL page serves as a listening URL. Once the bank session completes, the merchant receives a POST to their URL. This response contains the completed bank session’s transactionId. The merchant’s return page should capture the transaction ID and send it in the Payer Authentication validation call. </value>
+        [DataMember(Name="returnUrl", EmitDefaultValue=false)]
+        public string ReturnUrl { get; set; }
 
         /// <summary>
         /// Cardinal&#39;s directory server assigned 3DS Requestor ID value
@@ -426,6 +435,7 @@ namespace CyberSource.Model
             sb.Append("  PriorAuthenticationReferenceId: ").Append(PriorAuthenticationReferenceId).Append("\n");
             sb.Append("  PriorAuthenticationTime: ").Append(PriorAuthenticationTime).Append("\n");
             sb.Append("  ProductCode: ").Append(ProductCode).Append("\n");
+            sb.Append("  ReturnUrl: ").Append(ReturnUrl).Append("\n");
             sb.Append("  RequestorId: ").Append(RequestorId).Append("\n");
             sb.Append("  RequestorInitiatedAuthenticationIndicator: ").Append(RequestorInitiatedAuthenticationIndicator).Append("\n");
             sb.Append("  RequestorName: ").Append(RequestorName).Append("\n");
@@ -626,6 +636,11 @@ namespace CyberSource.Model
                     this.ProductCode.Equals(other.ProductCode)
                 ) && 
                 (
+                    this.ReturnUrl == other.ReturnUrl ||
+                    this.ReturnUrl != null &&
+                    this.ReturnUrl.Equals(other.ReturnUrl)
+                ) && 
+                (
                     this.RequestorId == other.RequestorId ||
                     this.RequestorId != null &&
                     this.RequestorId.Equals(other.RequestorId)
@@ -740,6 +755,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PriorAuthenticationTime.GetHashCode();
                 if (this.ProductCode != null)
                     hash = hash * 59 + this.ProductCode.GetHashCode();
+                if (this.ReturnUrl != null)
+                    hash = hash * 59 + this.ReturnUrl.GetHashCode();
                 if (this.RequestorId != null)
                     hash = hash * 59 + this.RequestorId.GetHashCode();
                 if (this.RequestorInitiatedAuthenticationIndicator != null)
@@ -897,6 +914,12 @@ namespace CyberSource.Model
             if(this.ProductCode != null && this.ProductCode.Length >= 3)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductCode, length must be less than or equal to 3.", new [] { "ProductCode" });
+            }
+
+            // ReturnUrl (string) maxLength
+            if(this.ReturnUrl != null && this.ReturnUrl.Length >= 2048)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReturnUrl, length must be less than or equal to 2048.", new [] { "ReturnUrl" });
             }
 
             // RequestorId (string) maxLength

@@ -1,8 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28307.1000
+VisualStudioVersion = 15.0.28307.1145
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet", "cybersource-rest-client-dotnet.csproj", "{698BCEA4-11A3-4814-98E0-B10E1484A2C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet", "cybersource-rest-client-dotnet.csproj", "{2377B5D6-4E65-490D-BD1E-BFBC2CE7D8C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet.Test", "test\cybersource-rest-client-dotnet.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{698BCEA4-11A3-4814-98E0-B10E1484A2C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{698BCEA4-11A3-4814-98E0-B10E1484A2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{698BCEA4-11A3-4814-98E0-B10E1484A2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{698BCEA4-11A3-4814-98E0-B10E1484A2C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2377B5D6-4E65-490D-BD1E-BFBC2CE7D8C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2377B5D6-4E65-490D-BD1E-BFBC2CE7D8C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2377B5D6-4E65-490D-BD1E-BFBC2CE7D8C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2377B5D6-4E65-490D-BD1E-BFBC2CE7D8C3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -25,6 +25,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {80B49A6D-A0F9-420B-896D-D34A0AC9A66B}
+		SolutionGuid = {C9E1C1BF-F189-480C-8BBE-07A7EE5FC6F9}
 	EndGlobalSection
 EndGlobal

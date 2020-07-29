@@ -33,13 +33,13 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateSearchRequest" /> class.
         /// </summary>
-        /// <param name="Save">save or not save..</param>
-        /// <param name="Name">The description for this field is not available. .</param>
-        /// <param name="Timezone">Time Zone in ISO format..</param>
-        /// <param name="Query">transaction search query string..</param>
-        /// <param name="Offset">offset..</param>
-        /// <param name="Limit">Limit on number of results..</param>
-        /// <param name="Sort">A comma separated list of the following form - fieldName1 asc or desc, fieldName2 asc or desc, etc..</param>
+        /// <param name="Save">Indicates whether or not you want to save this search request for future use. The options are:  * &#x60;true&#x60; * &#x60;false&#x60; (default value)  If set to &#x60;true&#x60;, this field returns &#x60;searchID&#x60; in the response. You can use this value to retrieve the details of the saved search. .</param>
+        /// <param name="Name">Name of this search. When &#x60;save&#x60; is set to &#x60;true&#x60;, this search is saved with this name. .</param>
+        /// <param name="Timezone">Merchant’s time zone in ISO standard, using the TZ database format. For example: &#x60;America/Chicago&#x60; .</param>
+        /// <param name="Query">String that contains the filters and variables for which you want to search. For information about supported field-filters and operators, see the [Query Filters]( https://developer.cybersource.com/api/developer-guides/dita-txn-search-details-rest-api-dev-guide-102718/txn_search_api/creating_txn_search_request.html) section of the Transaction Search Developer Guide. .</param>
+        /// <param name="Offset">Controls the starting point within the collection of results, which defaults to 0. The first item in the collection is retrieved by setting a zero offset.  For example, if you have a collection of 15 items to be retrieved from a resource and you specify limit&#x3D;5, you can retrieve the entire set of results in 3 successive requests by varying the offset value like this:  &#x60;offset&#x3D;0&#x60; &#x60;offset&#x3D;5&#x60; &#x60;offset&#x3D;10&#x60;  **Note:** If an offset larger than the number of results is provided, this will result in no embedded object being returned. .</param>
+        /// <param name="Limit">Controls the maximum number of items that may be returned for a single request. The default is 20, the maximum is 2000. .</param>
+        /// <param name="Sort">A comma separated list of the following form:  &#x60;submitTimeUtc:desc&#x60; .</param>
         public CreateSearchRequest(bool? Save = default(bool?), string Name = default(string), string Timezone = default(string), string Query = default(string), int? Offset = default(int?), int? Limit = default(int?), string Sort = default(string))
         {
             this.Save = Save;
@@ -52,51 +52,51 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// save or not save.
+        /// Indicates whether or not you want to save this search request for future use. The options are:  * &#x60;true&#x60; * &#x60;false&#x60; (default value)  If set to &#x60;true&#x60;, this field returns &#x60;searchID&#x60; in the response. You can use this value to retrieve the details of the saved search. 
         /// </summary>
-        /// <value>save or not save.</value>
+        /// <value>Indicates whether or not you want to save this search request for future use. The options are:  * &#x60;true&#x60; * &#x60;false&#x60; (default value)  If set to &#x60;true&#x60;, this field returns &#x60;searchID&#x60; in the response. You can use this value to retrieve the details of the saved search. </value>
         [DataMember(Name="save", EmitDefaultValue=false)]
         public bool? Save { get; set; }
 
         /// <summary>
-        /// The description for this field is not available. 
+        /// Name of this search. When &#x60;save&#x60; is set to &#x60;true&#x60;, this search is saved with this name. 
         /// </summary>
-        /// <value>The description for this field is not available. </value>
+        /// <value>Name of this search. When &#x60;save&#x60; is set to &#x60;true&#x60;, this search is saved with this name. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Time Zone in ISO format.
+        /// Merchant’s time zone in ISO standard, using the TZ database format. For example: &#x60;America/Chicago&#x60; 
         /// </summary>
-        /// <value>Time Zone in ISO format.</value>
+        /// <value>Merchant’s time zone in ISO standard, using the TZ database format. For example: &#x60;America/Chicago&#x60; </value>
         [DataMember(Name="timezone", EmitDefaultValue=false)]
         public string Timezone { get; set; }
 
         /// <summary>
-        /// transaction search query string.
+        /// String that contains the filters and variables for which you want to search. For information about supported field-filters and operators, see the [Query Filters]( https://developer.cybersource.com/api/developer-guides/dita-txn-search-details-rest-api-dev-guide-102718/txn_search_api/creating_txn_search_request.html) section of the Transaction Search Developer Guide. 
         /// </summary>
-        /// <value>transaction search query string.</value>
+        /// <value>String that contains the filters and variables for which you want to search. For information about supported field-filters and operators, see the [Query Filters]( https://developer.cybersource.com/api/developer-guides/dita-txn-search-details-rest-api-dev-guide-102718/txn_search_api/creating_txn_search_request.html) section of the Transaction Search Developer Guide. </value>
         [DataMember(Name="query", EmitDefaultValue=false)]
         public string Query { get; set; }
 
         /// <summary>
-        /// offset.
+        /// Controls the starting point within the collection of results, which defaults to 0. The first item in the collection is retrieved by setting a zero offset.  For example, if you have a collection of 15 items to be retrieved from a resource and you specify limit&#x3D;5, you can retrieve the entire set of results in 3 successive requests by varying the offset value like this:  &#x60;offset&#x3D;0&#x60; &#x60;offset&#x3D;5&#x60; &#x60;offset&#x3D;10&#x60;  **Note:** If an offset larger than the number of results is provided, this will result in no embedded object being returned. 
         /// </summary>
-        /// <value>offset.</value>
+        /// <value>Controls the starting point within the collection of results, which defaults to 0. The first item in the collection is retrieved by setting a zero offset.  For example, if you have a collection of 15 items to be retrieved from a resource and you specify limit&#x3D;5, you can retrieve the entire set of results in 3 successive requests by varying the offset value like this:  &#x60;offset&#x3D;0&#x60; &#x60;offset&#x3D;5&#x60; &#x60;offset&#x3D;10&#x60;  **Note:** If an offset larger than the number of results is provided, this will result in no embedded object being returned. </value>
         [DataMember(Name="offset", EmitDefaultValue=false)]
         public int? Offset { get; set; }
 
         /// <summary>
-        /// Limit on number of results.
+        /// Controls the maximum number of items that may be returned for a single request. The default is 20, the maximum is 2000. 
         /// </summary>
-        /// <value>Limit on number of results.</value>
+        /// <value>Controls the maximum number of items that may be returned for a single request. The default is 20, the maximum is 2000. </value>
         [DataMember(Name="limit", EmitDefaultValue=false)]
         public int? Limit { get; set; }
 
         /// <summary>
-        /// A comma separated list of the following form - fieldName1 asc or desc, fieldName2 asc or desc, etc.
+        /// A comma separated list of the following form:  &#x60;submitTimeUtc:desc&#x60; 
         /// </summary>
-        /// <value>A comma separated list of the following form - fieldName1 asc or desc, fieldName2 asc or desc, etc.</value>
+        /// <value>A comma separated list of the following form:  &#x60;submitTimeUtc:desc&#x60; </value>
         [DataMember(Name="sort", EmitDefaultValue=false)]
         public string Sort { get; set; }
 

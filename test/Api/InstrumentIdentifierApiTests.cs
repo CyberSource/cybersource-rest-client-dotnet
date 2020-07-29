@@ -65,44 +65,16 @@ namespace CyberSource.Test
 
         
         /// <summary>
-        /// Test CreateInstrumentIdentifier
-        /// </summary>
-        [Test]
-        public void CreateInstrumentIdentifierTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //CreateInstrumentIdentifierRequest createInstrumentIdentifierRequest = null;
-            //var response = instance.CreateInstrumentIdentifier(profileId, createInstrumentIdentifierRequest);
-            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
-        }
-        
-        /// <summary>
         /// Test DeleteInstrumentIdentifier
         /// </summary>
         [Test]
         public void DeleteInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string instrumentIdentifierTokenId = null;
             //string profileId = null;
-            //string tokenId = null;
-            //instance.DeleteInstrumentIdentifier(profileId, tokenId);
+            //instance.DeleteInstrumentIdentifier(instrumentIdentifierTokenId, profileId);
             
-        }
-        
-        /// <summary>
-        /// Test GetAllPaymentInstruments
-        /// </summary>
-        [Test]
-        public void GetAllPaymentInstrumentsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //string tokenId = null;
-            //long? offset = null;
-            //long? limit = null;
-            //var response = instance.GetAllPaymentInstruments(profileId, tokenId, offset, limit);
-            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response> (response, "response is TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response");
         }
         
         /// <summary>
@@ -112,24 +84,53 @@ namespace CyberSource.Test
         public void GetInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string instrumentIdentifierTokenId = null;
             //string profileId = null;
-            //string tokenId = null;
-            //var response = instance.GetInstrumentIdentifier(profileId, tokenId);
-            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
+            //var response = instance.GetInstrumentIdentifier(instrumentIdentifierTokenId, profileId);
+            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier");
         }
         
         /// <summary>
-        /// Test UpdateInstrumentIdentifier
+        /// Test GetInstrumentIdentifierPaymentInstrumentsList
         /// </summary>
         [Test]
-        public void UpdateInstrumentIdentifierTest()
+        public void GetInstrumentIdentifierPaymentInstrumentsListTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string instrumentIdentifierTokenId = null;
             //string profileId = null;
-            //string tokenId = null;
-            //UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest = null;
-            //var response = instance.UpdateInstrumentIdentifier(profileId, tokenId, updateInstrumentIdentifierRequest);
-            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPost200Response> (response, "response is TmsV1InstrumentIdentifiersPost200Response");
+            //long? offset = null;
+            //long? limit = null;
+            //var response = instance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierTokenId, profileId, offset, limit);
+            //Assert.IsInstanceOf<PaymentInstrumentListForCustomer> (response, "response is PaymentInstrumentListForCustomer");
+        }
+        
+        /// <summary>
+        /// Test PatchInstrumentIdentifier
+        /// </summary>
+        [Test]
+        public void PatchInstrumentIdentifierTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string instrumentIdentifierTokenId = null;
+            //PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest = null;
+            //string profileId = null;
+            //string ifMatch = null;
+            //var response = instance.PatchInstrumentIdentifier(instrumentIdentifierTokenId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier");
+        }
+        
+        /// <summary>
+        /// Test PostInstrumentIdentifier
+        /// </summary>
+        [Test]
+        public void PostInstrumentIdentifierTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //PostInstrumentIdentifierRequest postInstrumentIdentifierRequest = null;
+            //string profileId = null;
+            //var response = instance.PostInstrumentIdentifier(postInstrumentIdentifierRequest, profileId);
+            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier");
         }
         
     }

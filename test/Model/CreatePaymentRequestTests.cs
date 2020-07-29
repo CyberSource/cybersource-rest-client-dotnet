@@ -185,6 +185,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'TravelInformation'
         }
         /// <summary>
+        /// Test the property 'HealthCareInformation'
+        /// </summary>
+        [Test]
+        public void HealthCareInformationTest()
+        {
+            // TODO unit test for the property 'HealthCareInformation'
+        }
+        /// <summary>
         /// Test the property 'PromotionInformation'
         /// </summary>
         [Test]

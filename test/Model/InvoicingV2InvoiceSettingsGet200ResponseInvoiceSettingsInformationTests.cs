@@ -104,6 +104,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'HeaderStyle'
         }
+        /// <summary>
+        /// Test the property 'DeliveryLanguage'
+        /// </summary>
+        [Test]
+        public void DeliveryLanguageTest()
+        {
+            // TODO unit test for the property 'DeliveryLanguage'
+        }
+        /// <summary>
+        /// Test the property 'DefaultCurrencyCode'
+        /// </summary>
+        [Test]
+        public void DefaultCurrencyCodeTest()
+        {
+            // TODO unit test for the property 'DefaultCurrencyCode'
+        }
 
     }
 

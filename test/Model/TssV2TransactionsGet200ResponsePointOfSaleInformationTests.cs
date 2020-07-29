@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'TerminalId'
+        /// </summary>
+        [Test]
+        public void TerminalIdTest()
+        {
+            // TODO unit test for the property 'TerminalId'
+        }
+        /// <summary>
         /// Test the property 'EntryMode'
         /// </summary>
         [Test]

@@ -41,8 +41,8 @@ namespace CyberSource.Model
         /// <param name="Name">Name of sender.  **Funds Disbursement**  This value is the name of the originator sending the funds disbursement. * CTV, Paymentech (30) .</param>
         /// <param name="Address1">Street address of sender.  **Funds Disbursement**  This value is the address of the originator sending the funds disbursement. .</param>
         /// <param name="Locality">City of sender.  **Funds Disbursement**  This value is the city of the originator sending the funds disbursement. .</param>
-        /// <param name="AdministrativeArea">Sender’s state. Use the State, Province, and Territory Codes for the United States and Canada. .</param>
-        /// <param name="CountryCode">Country of sender. Use the ISO Standard Country Codes. * CTV (3) .</param>
+        /// <param name="AdministrativeArea">Sender’s state. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf). .</param>
+        /// <param name="CountryCode">Country of sender. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). * CTV (3) .</param>
         /// <param name="PostalCode">Sender’s postal code. Required only for FDCCompass..</param>
         /// <param name="PhoneNumber">Sender’s phone number. Required only for FDCCompass..</param>
         /// <param name="DateOfBirth">Sender’s date of birth in YYYYMMDD format. Required only for FDCCompass..</param>
@@ -121,16 +121,16 @@ namespace CyberSource.Model
         public string Locality { get; set; }
 
         /// <summary>
-        /// Sender’s state. Use the State, Province, and Territory Codes for the United States and Canada. 
+        /// Sender’s state. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf). 
         /// </summary>
-        /// <value>Sender’s state. Use the State, Province, and Territory Codes for the United States and Canada. </value>
+        /// <value>Sender’s state. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf). </value>
         [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
         public string AdministrativeArea { get; set; }
 
         /// <summary>
-        /// Country of sender. Use the ISO Standard Country Codes. * CTV (3) 
+        /// Country of sender. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). * CTV (3) 
         /// </summary>
-        /// <value>Country of sender. Use the ISO Standard Country Codes. * CTV (3) </value>
+        /// <value>Country of sender. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). * CTV (3) </value>
         [DataMember(Name="countryCode", EmitDefaultValue=false)]
         public string CountryCode { get; set; }
 

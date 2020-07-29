@@ -48,12 +48,13 @@ namespace CyberSource.Model
         /// <param name="MerchantDefinedInformation">The object containing the custom data that the merchant defines. .</param>
         /// <param name="InstallmentInformation">InstallmentInformation.</param>
         /// <param name="TravelInformation">TravelInformation.</param>
+        /// <param name="HealthCareInformation">HealthCareInformation.</param>
         /// <param name="PromotionInformation">PromotionInformation.</param>
         /// <param name="TokenInformation">TokenInformation.</param>
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="AcquirerInformation">AcquirerInformation.</param>
         /// <param name="RecurringPaymentInformation">RecurringPaymentInformation.</param>
-        public CreatePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsProcessingInformation ProcessingInformation = default(Ptsv2paymentsProcessingInformation), Ptsv2paymentsIssuerInformation IssuerInformation = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsPaymentInformation PaymentInformation = default(Ptsv2paymentsPaymentInformation), Ptsv2paymentsOrderInformation OrderInformation = default(Ptsv2paymentsOrderInformation), Ptsv2paymentsBuyerInformation BuyerInformation = default(Ptsv2paymentsBuyerInformation), Ptsv2paymentsRecipientInformation RecipientInformation = default(Ptsv2paymentsRecipientInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsMerchantInformation MerchantInformation = default(Ptsv2paymentsMerchantInformation), Ptsv2paymentsAggregatorInformation AggregatorInformation = default(Ptsv2paymentsAggregatorInformation), Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2paymentsConsumerAuthenticationInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsInstallmentInformation InstallmentInformation = default(Ptsv2paymentsInstallmentInformation), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation), Ptsv2paymentsTokenInformation TokenInformation = default(Ptsv2paymentsTokenInformation), Ptsv2paymentsRiskInformation RiskInformation = default(Ptsv2paymentsRiskInformation), Ptsv2paymentsAcquirerInformation AcquirerInformation = default(Ptsv2paymentsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation))
+        public CreatePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsProcessingInformation ProcessingInformation = default(Ptsv2paymentsProcessingInformation), Ptsv2paymentsIssuerInformation IssuerInformation = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsPaymentInformation PaymentInformation = default(Ptsv2paymentsPaymentInformation), Ptsv2paymentsOrderInformation OrderInformation = default(Ptsv2paymentsOrderInformation), Ptsv2paymentsBuyerInformation BuyerInformation = default(Ptsv2paymentsBuyerInformation), Ptsv2paymentsRecipientInformation RecipientInformation = default(Ptsv2paymentsRecipientInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsMerchantInformation MerchantInformation = default(Ptsv2paymentsMerchantInformation), Ptsv2paymentsAggregatorInformation AggregatorInformation = default(Ptsv2paymentsAggregatorInformation), Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2paymentsConsumerAuthenticationInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsInstallmentInformation InstallmentInformation = default(Ptsv2paymentsInstallmentInformation), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation), Ptsv2paymentsTokenInformation TokenInformation = default(Ptsv2paymentsTokenInformation), Ptsv2paymentsRiskInformation RiskInformation = default(Ptsv2paymentsRiskInformation), Ptsv2paymentsAcquirerInformation AcquirerInformation = default(Ptsv2paymentsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -70,6 +71,7 @@ namespace CyberSource.Model
             this.MerchantDefinedInformation = MerchantDefinedInformation;
             this.InstallmentInformation = InstallmentInformation;
             this.TravelInformation = TravelInformation;
+            this.HealthCareInformation = HealthCareInformation;
             this.PromotionInformation = PromotionInformation;
             this.TokenInformation = TokenInformation;
             this.RiskInformation = RiskInformation;
@@ -169,6 +171,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsTravelInformation TravelInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets HealthCareInformation
+        /// </summary>
+        [DataMember(Name="healthCareInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsHealthCareInformation HealthCareInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets PromotionInformation
         /// </summary>
         [DataMember(Name="promotionInformation", EmitDefaultValue=false)]
@@ -221,6 +229,7 @@ namespace CyberSource.Model
             sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
             sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
             sb.Append("  TravelInformation: ").Append(TravelInformation).Append("\n");
+            sb.Append("  HealthCareInformation: ").Append(HealthCareInformation).Append("\n");
             sb.Append("  PromotionInformation: ").Append(PromotionInformation).Append("\n");
             sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
             sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
@@ -338,6 +347,11 @@ namespace CyberSource.Model
                     this.TravelInformation.Equals(other.TravelInformation)
                 ) && 
                 (
+                    this.HealthCareInformation == other.HealthCareInformation ||
+                    this.HealthCareInformation != null &&
+                    this.HealthCareInformation.Equals(other.HealthCareInformation)
+                ) && 
+                (
                     this.PromotionInformation == other.PromotionInformation ||
                     this.PromotionInformation != null &&
                     this.PromotionInformation.Equals(other.PromotionInformation)
@@ -405,6 +419,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InstallmentInformation.GetHashCode();
                 if (this.TravelInformation != null)
                     hash = hash * 59 + this.TravelInformation.GetHashCode();
+                if (this.HealthCareInformation != null)
+                    hash = hash * 59 + this.HealthCareInformation.GetHashCode();
                 if (this.PromotionInformation != null)
                     hash = hash * 59 + this.PromotionInformation.GetHashCode();
                 if (this.TokenInformation != null)

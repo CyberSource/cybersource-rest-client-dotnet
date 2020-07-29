@@ -146,9 +146,9 @@ namespace CyberSource.Model
             }
 
             // CodeRaw (string) maxLength
-            if(this.CodeRaw != null && this.CodeRaw.Length >= 2)
+            if(this.CodeRaw != null && this.CodeRaw.Length >= 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CodeRaw, length must be less than or equal to 2.", new [] { "CodeRaw" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CodeRaw, length must be less than or equal to 4.", new [] { "CodeRaw" });
             }
 
             yield break;

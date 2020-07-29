@@ -36,11 +36,19 @@ namespace CyberSource.Model
         /// <param name="Self">Self.</param>
         /// <param name="Reversal">Reversal.</param>
         /// <param name="Capture">Capture.</param>
-        public PtsV2PaymentsPost201ResponseLinks(PtsV2PaymentsPost201ResponseLinksSelf Self = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Reversal = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Capture = default(PtsV2PaymentsPost201ResponseLinksSelf))
+        /// <param name="Customer">Customer.</param>
+        /// <param name="PaymentInstrument">PaymentInstrument.</param>
+        /// <param name="ShippingAddress">ShippingAddress.</param>
+        /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
+        public PtsV2PaymentsPost201ResponseLinks(PtsV2PaymentsPost201ResponseLinksSelf Self = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Reversal = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Capture = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Customer = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf PaymentInstrument = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf ShippingAddress = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf InstrumentIdentifier = default(PtsV2PaymentsPost201ResponseLinksSelf))
         {
             this.Self = Self;
             this.Reversal = Reversal;
             this.Capture = Capture;
+            this.Customer = Customer;
+            this.PaymentInstrument = PaymentInstrument;
+            this.ShippingAddress = ShippingAddress;
+            this.InstrumentIdentifier = InstrumentIdentifier;
         }
         
         /// <summary>
@@ -62,6 +70,30 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseLinksSelf Capture { get; set; }
 
         /// <summary>
+        /// Gets or Sets Customer
+        /// </summary>
+        [DataMember(Name="customer", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseLinksSelf Customer { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentInstrument
+        /// </summary>
+        [DataMember(Name="paymentInstrument", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseLinksSelf PaymentInstrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShippingAddress
+        /// </summary>
+        [DataMember(Name="shippingAddress", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseLinksSelf ShippingAddress { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InstrumentIdentifier
+        /// </summary>
+        [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseLinksSelf InstrumentIdentifier { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +104,10 @@ namespace CyberSource.Model
             sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("  Reversal: ").Append(Reversal).Append("\n");
             sb.Append("  Capture: ").Append(Capture).Append("\n");
+            sb.Append("  Customer: ").Append(Customer).Append("\n");
+            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +158,26 @@ namespace CyberSource.Model
                     this.Capture == other.Capture ||
                     this.Capture != null &&
                     this.Capture.Equals(other.Capture)
+                ) && 
+                (
+                    this.Customer == other.Customer ||
+                    this.Customer != null &&
+                    this.Customer.Equals(other.Customer)
+                ) && 
+                (
+                    this.PaymentInstrument == other.PaymentInstrument ||
+                    this.PaymentInstrument != null &&
+                    this.PaymentInstrument.Equals(other.PaymentInstrument)
+                ) && 
+                (
+                    this.ShippingAddress == other.ShippingAddress ||
+                    this.ShippingAddress != null &&
+                    this.ShippingAddress.Equals(other.ShippingAddress)
+                ) && 
+                (
+                    this.InstrumentIdentifier == other.InstrumentIdentifier ||
+                    this.InstrumentIdentifier != null &&
+                    this.InstrumentIdentifier.Equals(other.InstrumentIdentifier)
                 );
         }
 
@@ -142,6 +198,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Reversal.GetHashCode();
                 if (this.Capture != null)
                     hash = hash * 59 + this.Capture.GetHashCode();
+                if (this.Customer != null)
+                    hash = hash * 59 + this.Customer.GetHashCode();
+                if (this.PaymentInstrument != null)
+                    hash = hash * 59 + this.PaymentInstrument.GetHashCode();
+                if (this.ShippingAddress != null)
+                    hash = hash * 59 + this.ShippingAddress.GetHashCode();
+                if (this.InstrumentIdentifier != null)
+                    hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
                 return hash;
             }
         }

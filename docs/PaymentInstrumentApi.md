@@ -4,76 +4,15 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreatePaymentInstrument**](PaymentInstrumentApi.md#createpaymentinstrument) | **POST** /tms/v1/paymentinstruments | Create a Payment Instrument
-[**DeletePaymentInstrument**](PaymentInstrumentApi.md#deletepaymentinstrument) | **DELETE** /tms/v1/paymentinstruments/{tokenId} | Delete a Payment Instrument
-[**GetPaymentInstrument**](PaymentInstrumentApi.md#getpaymentinstrument) | **GET** /tms/v1/paymentinstruments/{tokenId} | Retrieve a Payment Instrument
-[**UpdatePaymentInstrument**](PaymentInstrumentApi.md#updatepaymentinstrument) | **PATCH** /tms/v1/paymentinstruments/{tokenId} | Update a Payment Instrument
+[**DeletePaymentInstrument**](PaymentInstrumentApi.md#deletepaymentinstrument) | **DELETE** /tms/v1/paymentinstruments/{paymentInstrumentTokenId} | Delete a Payment Instrument
+[**GetPaymentInstrument**](PaymentInstrumentApi.md#getpaymentinstrument) | **GET** /tms/v1/paymentinstruments/{paymentInstrumentTokenId} | Retrieve a Payment Instrument
+[**PatchPaymentInstrument**](PaymentInstrumentApi.md#patchpaymentinstrument) | **PATCH** /tms/v1/paymentinstruments/{paymentInstrumentTokenId} | Update a Payment Instrument
+[**PostPaymentInstrument**](PaymentInstrumentApi.md#postpaymentinstrument) | **POST** /tms/v1/paymentinstruments | Create a Payment Instrument
 
-
-<a name="createpaymentinstrument"></a>
-# **CreatePaymentInstrument**
-> TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments CreatePaymentInstrument (string profileId, CreatePaymentInstrumentRequest createPaymentInstrumentRequest)
-
-Create a Payment Instrument
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CyberSource.Api;
-using CyberSource.Client;
-using CyberSource.Model;
-
-namespace Example
-{
-    public class CreatePaymentInstrumentExample
-    {
-        public void main()
-        {
-            var apiInstance = new PaymentInstrumentApi();
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
-            var createPaymentInstrumentRequest = new CreatePaymentInstrumentRequest(); // CreatePaymentInstrumentRequest | Specify the customer's payment details for card or bank account.
-
-            try
-            {
-                // Create a Payment Instrument
-                TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments result = apiInstance.CreatePaymentInstrument(profileId, createPaymentInstrumentRequest);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling PaymentInstrumentApi.CreatePaymentInstrument: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
- **createPaymentInstrumentRequest** | [**CreatePaymentInstrumentRequest**](CreatePaymentInstrumentRequest.md)| Specify the customer&#39;s payment details for card or bank account. | 
-
-### Return type
-
-[**TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments**](TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="deletepaymentinstrument"></a>
 # **DeletePaymentInstrument**
-> void DeletePaymentInstrument (string profileId, string tokenId)
+> void DeletePaymentInstrument (string paymentInstrumentTokenId, string profileId = null)
 
 Delete a Payment Instrument
 
@@ -92,13 +31,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new PaymentInstrumentApi();
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
-            var tokenId = tokenId_example;  // string | The TokenId of a Payment Instrument.
+            var paymentInstrumentTokenId = paymentInstrumentTokenId_example;  // string | The TokenId of a payment instrument.
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration. (optional) 
 
             try
             {
                 // Delete a Payment Instrument
-                apiInstance.DeletePaymentInstrument(profileId, tokenId);
+                apiInstance.DeletePaymentInstrument(paymentInstrumentTokenId, profileId);
             }
             catch (Exception e)
             {
@@ -113,8 +52,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
- **tokenId** | **string**| The TokenId of a Payment Instrument. | 
+ **paymentInstrumentTokenId** | **string**| The TokenId of a payment instrument. | 
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | [optional] 
 
 ### Return type
 
@@ -133,7 +72,7 @@ No authorization required
 
 <a name="getpaymentinstrument"></a>
 # **GetPaymentInstrument**
-> TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments GetPaymentInstrument (string profileId, string tokenId)
+> Tmsv2customersEmbeddedDefaultPaymentInstrument GetPaymentInstrument (string paymentInstrumentTokenId, string profileId = null)
 
 Retrieve a Payment Instrument
 
@@ -152,13 +91,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new PaymentInstrumentApi();
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
-            var tokenId = tokenId_example;  // string | The TokenId of a Payment Instrument.
+            var paymentInstrumentTokenId = paymentInstrumentTokenId_example;  // string | The TokenId of a payment instrument.
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration. (optional) 
 
             try
             {
                 // Retrieve a Payment Instrument
-                TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments result = apiInstance.GetPaymentInstrument(profileId, tokenId);
+                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.GetPaymentInstrument(paymentInstrumentTokenId, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -174,12 +113,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
- **tokenId** | **string**| The TokenId of a Payment Instrument. | 
+ **paymentInstrumentTokenId** | **string**| The TokenId of a payment instrument. | 
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | [optional] 
 
 ### Return type
 
-[**TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments**](TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments.md)
+[**Tmsv2customersEmbeddedDefaultPaymentInstrument**](Tmsv2customersEmbeddedDefaultPaymentInstrument.md)
 
 ### Authorization
 
@@ -192,9 +131,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatepaymentinstrument"></a>
-# **UpdatePaymentInstrument**
-> TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments UpdatePaymentInstrument (string profileId, string tokenId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest)
+<a name="patchpaymentinstrument"></a>
+# **PatchPaymentInstrument**
+> Tmsv2customersEmbeddedDefaultPaymentInstrument PatchPaymentInstrument (string paymentInstrumentTokenId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
 
 Update a Payment Instrument
 
@@ -208,24 +147,25 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class UpdatePaymentInstrumentExample
+    public class PatchPaymentInstrumentExample
     {
         public void main()
         {
             var apiInstance = new PaymentInstrumentApi();
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration.
-            var tokenId = tokenId_example;  // string | The TokenId of a Payment Instrument.
-            var updatePaymentInstrumentRequest = new UpdatePaymentInstrumentRequest(); // UpdatePaymentInstrumentRequest | Specify the customer's payment details.
+            var paymentInstrumentTokenId = paymentInstrumentTokenId_example;  // string | The TokenId of a payment instrument.
+            var patchPaymentInstrumentRequest = new PatchPaymentInstrumentRequest(); // PatchPaymentInstrumentRequest | 
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration. (optional) 
+            var ifMatch = ifMatch_example;  // string | Contains an ETag value from a GET request to make the request conditional. (optional) 
 
             try
             {
                 // Update a Payment Instrument
-                TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments result = apiInstance.UpdatePaymentInstrument(profileId, tokenId, updatePaymentInstrumentRequest);
+                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.PatchPaymentInstrument(paymentInstrumentTokenId, patchPaymentInstrumentRequest, profileId, ifMatch);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling PaymentInstrumentApi.UpdatePaymentInstrument: " + e.Message );
+                Debug.Print("Exception when calling PaymentInstrumentApi.PatchPaymentInstrument: " + e.Message );
             }
         }
     }
@@ -236,13 +176,75 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | 
- **tokenId** | **string**| The TokenId of a Payment Instrument. | 
- **updatePaymentInstrumentRequest** | [**UpdatePaymentInstrumentRequest**](UpdatePaymentInstrumentRequest.md)| Specify the customer&#39;s payment details. | 
+ **paymentInstrumentTokenId** | **string**| The TokenId of a payment instrument. | 
+ **patchPaymentInstrumentRequest** | [**PatchPaymentInstrumentRequest**](PatchPaymentInstrumentRequest.md)|  | 
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | [optional] 
+ **ifMatch** | **string**| Contains an ETag value from a GET request to make the request conditional. | [optional] 
 
 ### Return type
 
-[**TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments**](TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments.md)
+[**Tmsv2customersEmbeddedDefaultPaymentInstrument**](Tmsv2customersEmbeddedDefaultPaymentInstrument.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="postpaymentinstrument"></a>
+# **PostPaymentInstrument**
+> Tmsv2customersEmbeddedDefaultPaymentInstrument PostPaymentInstrument (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null)
+
+Create a Payment Instrument
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class PostPaymentInstrumentExample
+    {
+        public void main()
+        {
+            var apiInstance = new PaymentInstrumentApi();
+            var postPaymentInstrumentRequest = new PostPaymentInstrumentRequest(); // PostPaymentInstrumentRequest | 
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration. (optional) 
+
+            try
+            {
+                // Create a Payment Instrument
+                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.PostPaymentInstrument(postPaymentInstrumentRequest, profileId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PaymentInstrumentApi.PostPaymentInstrument: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postPaymentInstrumentRequest** | [**PostPaymentInstrumentRequest**](PostPaymentInstrumentRequest.md)|  | 
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | [optional] 
+
+### Return type
+
+[**Tmsv2customersEmbeddedDefaultPaymentInstrument**](Tmsv2customersEmbeddedDefaultPaymentInstrument.md)
 
 ### Authorization
 

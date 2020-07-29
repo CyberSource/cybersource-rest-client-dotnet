@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformationService" /> class.
         /// </summary>
-        /// <param name="CategoryCode">Category code for the ancillary service that is provided. Obtain the codes from the International Air Transport Association (IATA). Note is either 0, 1, 2, or 3. Important This field is required in the U.S. in order for you to qualify for either the custom payment service (CPS) or the electronic interchange reimbursement fee (EIRF)program..</param>
-        /// <param name="SubCategoryCode">Subcategory code for the ancillary service category. Obtain the codes from the International Air Transport Association (IATA). Note  is 0, 1, 2, or 3. Format  English characters only.</param>
+        /// <param name="CategoryCode">Category code for the ancillary service that is provided. Obtain the codes from the International Air Transport Association (IATA). **Note** &#x60;#&#x60; is either 0, 1, 2, or 3. **Important** This field is required in the U.S. in order for you to qualify for either the custom payment service (CPS) or the electronic interchange reimbursement fee (EIRF)program. Format: English characters only. Optional request field for ancillary services. .</param>
+        /// <param name="SubCategoryCode">Subcategory code for the ancillary service category. Obtain the codes from the International Air Transport Association (IATA). **Note** &#x60;#&#x60; is either 0, 1, 2, or 3. Format  English characters only. Optional request field for ancillary services. .</param>
         public Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformationService(string CategoryCode = default(string), string SubCategoryCode = default(string))
         {
             this.CategoryCode = CategoryCode;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Category code for the ancillary service that is provided. Obtain the codes from the International Air Transport Association (IATA). Note is either 0, 1, 2, or 3. Important This field is required in the U.S. in order for you to qualify for either the custom payment service (CPS) or the electronic interchange reimbursement fee (EIRF)program.
+        /// Category code for the ancillary service that is provided. Obtain the codes from the International Air Transport Association (IATA). **Note** &#x60;#&#x60; is either 0, 1, 2, or 3. **Important** This field is required in the U.S. in order for you to qualify for either the custom payment service (CPS) or the electronic interchange reimbursement fee (EIRF)program. Format: English characters only. Optional request field for ancillary services. 
         /// </summary>
-        /// <value>Category code for the ancillary service that is provided. Obtain the codes from the International Air Transport Association (IATA). Note is either 0, 1, 2, or 3. Important This field is required in the U.S. in order for you to qualify for either the custom payment service (CPS) or the electronic interchange reimbursement fee (EIRF)program.</value>
+        /// <value>Category code for the ancillary service that is provided. Obtain the codes from the International Air Transport Association (IATA). **Note** &#x60;#&#x60; is either 0, 1, 2, or 3. **Important** This field is required in the U.S. in order for you to qualify for either the custom payment service (CPS) or the electronic interchange reimbursement fee (EIRF)program. Format: English characters only. Optional request field for ancillary services. </value>
         [DataMember(Name="categoryCode", EmitDefaultValue=false)]
         public string CategoryCode { get; set; }
 
         /// <summary>
-        /// Subcategory code for the ancillary service category. Obtain the codes from the International Air Transport Association (IATA). Note  is 0, 1, 2, or 3. Format  English characters only
+        /// Subcategory code for the ancillary service category. Obtain the codes from the International Air Transport Association (IATA). **Note** &#x60;#&#x60; is either 0, 1, 2, or 3. Format  English characters only. Optional request field for ancillary services. 
         /// </summary>
-        /// <value>Subcategory code for the ancillary service category. Obtain the codes from the International Air Transport Association (IATA). Note  is 0, 1, 2, or 3. Format  English characters only</value>
+        /// <value>Subcategory code for the ancillary service category. Obtain the codes from the International Air Transport Association (IATA). **Note** &#x60;#&#x60; is either 0, 1, 2, or 3. Format  English characters only. Optional request field for ancillary services. </value>
         [DataMember(Name="subCategoryCode", EmitDefaultValue=false)]
         public string SubCategoryCode { get; set; }
 

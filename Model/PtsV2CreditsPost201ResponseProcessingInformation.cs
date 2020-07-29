@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2CreditsPost201ResponseProcessingInformation" /> class.
         /// </summary>
         /// <param name="BankTransferOptions">BankTransferOptions.</param>
-        /// <param name="EnhancedDataEnabled">- true : the airline data was included in the request to the processor. - false : the airline data was not included in the request to the processor. .</param>
+        /// <param name="EnhancedDataEnabled">The possible values for the reply field are: - &#x60;true&#x60; : the airline data was included in the request to the processor. - &#x60;false&#x60; : the airline data was not included in the request to the processor.  Returned by authorization, capture, or credit services. .</param>
         public PtsV2CreditsPost201ResponseProcessingInformation(PtsV2CreditsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(PtsV2CreditsPost201ResponseProcessingInformationBankTransferOptions), bool? EnhancedDataEnabled = default(bool?))
         {
             this.BankTransferOptions = BankTransferOptions;
@@ -48,9 +48,9 @@ namespace CyberSource.Model
         public PtsV2CreditsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions { get; set; }
 
         /// <summary>
-        /// - true : the airline data was included in the request to the processor. - false : the airline data was not included in the request to the processor. 
+        /// The possible values for the reply field are: - &#x60;true&#x60; : the airline data was included in the request to the processor. - &#x60;false&#x60; : the airline data was not included in the request to the processor.  Returned by authorization, capture, or credit services. 
         /// </summary>
-        /// <value>- true : the airline data was included in the request to the processor. - false : the airline data was not included in the request to the processor. </value>
+        /// <value>The possible values for the reply field are: - &#x60;true&#x60; : the airline data was included in the request to the processor. - &#x60;false&#x60; : the airline data was not included in the request to the processor.  Returned by authorization, capture, or credit services. </value>
         [DataMember(Name="enhancedDataEnabled", EmitDefaultValue=false)]
         public bool? EnhancedDataEnabled { get; set; }
 

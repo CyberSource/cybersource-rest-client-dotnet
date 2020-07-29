@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="generatepublickey"></a>
 # **GeneratePublicKey**
-> FlexV1KeysPost200Response GeneratePublicKey (GeneratePublicKeyRequest generatePublicKeyRequest, string format = null)
+> FlexV1KeysPost200Response GeneratePublicKey (string format, GeneratePublicKeyRequest generatePublicKeyRequest)
 
 Generate Key
 
@@ -30,13 +30,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new KeyGenerationApi();
+            var format = format_example;  // string | Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) (default to JWT)
             var generatePublicKeyRequest = new GeneratePublicKeyRequest(); // GeneratePublicKeyRequest | 
-            var format = format_example;  // string | Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) (optional)  (default to legacy)
 
             try
             {
                 // Generate Key
-                FlexV1KeysPost200Response result = apiInstance.GeneratePublicKey(generatePublicKeyRequest, format);
+                FlexV1KeysPost200Response result = apiInstance.GeneratePublicKey(format, generatePublicKeyRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -52,8 +52,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **format** | **string**| Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) | [default to JWT]
  **generatePublicKeyRequest** | [**GeneratePublicKeyRequest**](GeneratePublicKeyRequest.md)|  | 
- **format** | **string**| Indicator to enable the receipt of the Keys response in Flex 11+ format (JWT) or legacy (parameter not required) | [optional] [default to legacy]
 
 ### Return type
 

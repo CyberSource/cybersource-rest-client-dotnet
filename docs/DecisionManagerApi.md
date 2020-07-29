@@ -5,7 +5,7 @@ All URIs are relative to *https://apitest.cybersource.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddNegative**](DecisionManagerApi.md#addnegative) | **POST** /risk/v1/lists/{type}/entries | List Management
-[**CreateBundledDecisionManagerCase**](DecisionManagerApi.md#createbundleddecisionmanagercase) | **POST** /risk/v1/decisions | Create Decision Manager Case
+[**CreateBundledDecisionManagerCase**](DecisionManagerApi.md#createbundleddecisionmanagercase) | **POST** /risk/v1/decisions | Create Decision Manager
 [**FraudUpdate**](DecisionManagerApi.md#fraudupdate) | **POST** /risk/v1/decisions/{id}/marking | Fraud Marking
 
 
@@ -76,9 +76,9 @@ No authorization required
 # **CreateBundledDecisionManagerCase**
 > RiskV1DecisionsPost201Response CreateBundledDecisionManagerCase (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
 
-Create Decision Manager Case
+Create Decision Manager
 
-This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
+Decision Manager can help you automate and streamline your fraud operations. Decision Manager will return a decision based on the request values.
 
 ### Example
 ```csharp
@@ -99,7 +99,7 @@ namespace Example
 
             try
             {
-                // Create Decision Manager Case
+                // Create Decision Manager
                 RiskV1DecisionsPost201Response result = apiInstance.CreateBundledDecisionManagerCase(createBundledDecisionManagerCaseRequest);
                 Debug.WriteLine(result);
             }

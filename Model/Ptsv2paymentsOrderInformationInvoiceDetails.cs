@@ -47,7 +47,8 @@ namespace CyberSource.Model
         /// <param name="ReferenceDataCode">Code that identifies the value of the &#x60;referenceDataNumber&#x60; field.  For the possible values, see \&quot;Reference Data Codes\&quot; in [Level II and Level III Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/).  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
         /// <param name="ReferenceDataNumber">Reference number. The meaning of this value is identified by the value of the &#x60;referenceDataCode&#x60; field.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
         /// <param name="SalesSlipNumber">Transaction identifier that is generated. You have the option of printing the sales slip number on the receipt. This field is supported only on Cybersource through Visanet and JCN gateway.  Optional field.  #### Card Present processing message If you included this field in the request, the returned value is the value that you sent in the request. If you did not include this field in the request, the system generated this value for you.  The difference between this reply field and the &#x60;processorInformation.systemTraceAuditNumber&#x60; field is that the system generates the system trace audit number (STAN), and you must print the receipt number on the receipt; whereas you can generate the sales slip number, and you can choose to print the sales slip number on the receipt. .</param>
-        public Ptsv2paymentsOrderInformationInvoiceDetails(string InvoiceNumber = default(string), string BarcodeNumber = default(string), string ExpirationDate = default(string), string PurchaseOrderNumber = default(string), string PurchaseOrderDate = default(string), string PurchaseContactName = default(string), bool? Taxable = default(bool?), string VatInvoiceReferenceNumber = default(string), string CommodityCode = default(string), int? MerchandiseCode = default(int?), List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum> TransactionAdviceAddendum = default(List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum>), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), int? SalesSlipNumber = default(int?))
+        /// <param name="InvoiceDate">Date of the tax calculation. Use format YYYYMMDD. You can provide a date in the past if you are calculating tax for a refund and want to know what the tax was on the date the order was placed. You can provide a date in the future if you are calculating the tax for a future date, such as an upcoming tax holiday.  The default is the date, in Pacific time, that the bank receives the request. Keep this in mind if you are in a different time zone and want the tax calculated with the rates that are applicable on a specific date.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. .</param>
+        public Ptsv2paymentsOrderInformationInvoiceDetails(string InvoiceNumber = default(string), string BarcodeNumber = default(string), string ExpirationDate = default(string), string PurchaseOrderNumber = default(string), string PurchaseOrderDate = default(string), string PurchaseContactName = default(string), bool? Taxable = default(bool?), string VatInvoiceReferenceNumber = default(string), string CommodityCode = default(string), int? MerchandiseCode = default(int?), List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum> TransactionAdviceAddendum = default(List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum>), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), int? SalesSlipNumber = default(int?), string InvoiceDate = default(string))
         {
             this.InvoiceNumber = InvoiceNumber;
             this.BarcodeNumber = BarcodeNumber;
@@ -63,6 +64,7 @@ namespace CyberSource.Model
             this.ReferenceDataCode = ReferenceDataCode;
             this.ReferenceDataNumber = ReferenceDataNumber;
             this.SalesSlipNumber = SalesSlipNumber;
+            this.InvoiceDate = InvoiceDate;
         }
         
         /// <summary>
@@ -163,6 +165,13 @@ namespace CyberSource.Model
         public int? SalesSlipNumber { get; set; }
 
         /// <summary>
+        /// Date of the tax calculation. Use format YYYYMMDD. You can provide a date in the past if you are calculating tax for a refund and want to know what the tax was on the date the order was placed. You can provide a date in the future if you are calculating the tax for a future date, such as an upcoming tax holiday.  The default is the date, in Pacific time, that the bank receives the request. Keep this in mind if you are in a different time zone and want the tax calculated with the rates that are applicable on a specific date.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. 
+        /// </summary>
+        /// <value>Date of the tax calculation. Use format YYYYMMDD. You can provide a date in the past if you are calculating tax for a refund and want to know what the tax was on the date the order was placed. You can provide a date in the future if you are calculating the tax for a future date, such as an upcoming tax holiday.  The default is the date, in Pacific time, that the bank receives the request. Keep this in mind if you are in a different time zone and want the tax calculated with the rates that are applicable on a specific date.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. </value>
+        [DataMember(Name="invoiceDate", EmitDefaultValue=false)]
+        public string InvoiceDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -184,6 +193,7 @@ namespace CyberSource.Model
             sb.Append("  ReferenceDataCode: ").Append(ReferenceDataCode).Append("\n");
             sb.Append("  ReferenceDataNumber: ").Append(ReferenceDataNumber).Append("\n");
             sb.Append("  SalesSlipNumber: ").Append(SalesSlipNumber).Append("\n");
+            sb.Append("  InvoiceDate: ").Append(InvoiceDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -289,6 +299,11 @@ namespace CyberSource.Model
                     this.SalesSlipNumber == other.SalesSlipNumber ||
                     this.SalesSlipNumber != null &&
                     this.SalesSlipNumber.Equals(other.SalesSlipNumber)
+                ) && 
+                (
+                    this.InvoiceDate == other.InvoiceDate ||
+                    this.InvoiceDate != null &&
+                    this.InvoiceDate.Equals(other.InvoiceDate)
                 );
         }
 
@@ -331,6 +346,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReferenceDataNumber.GetHashCode();
                 if (this.SalesSlipNumber != null)
                     hash = hash * 59 + this.SalesSlipNumber.GetHashCode();
+                if (this.InvoiceDate != null)
+                    hash = hash * 59 + this.InvoiceDate.GetHashCode();
                 return hash;
             }
         }
@@ -388,6 +405,12 @@ namespace CyberSource.Model
             if(this.SalesSlipNumber >= (int?)99999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SalesSlipNumber, must be a value less than or equal to 99999.", new [] { "SalesSlipNumber" });
+            }
+
+            // InvoiceDate (string) maxLength
+            if(this.InvoiceDate != null && this.InvoiceDate.Length >= 8)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvoiceDate, length must be less than or equal to 8.", new [] { "InvoiceDate" });
             }
 
             yield break;

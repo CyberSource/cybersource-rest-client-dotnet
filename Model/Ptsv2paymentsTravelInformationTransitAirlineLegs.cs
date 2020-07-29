@@ -33,26 +33,26 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsTravelInformationTransitAirlineLegs" /> class.
         /// </summary>
-        /// <param name="CarrierCode">Carrier Code: IATA1 code for the carrier for this leg of the trip. .</param>
-        /// <param name="FlightNumber">Flight number for this leg of the trip. .</param>
-        /// <param name="OriginatingAirportCode">IATA1 code for the originating airport for this leg of the trip. .</param>
-        /// <param name="_Class">IATA1 code for the class of service for this leg of the trip. .</param>
-        /// <param name="StopoverIndicator">Code that indicates whether a stopover is allowed on this leg of the trip. Possible Values: O(capital letter \&quot;O\&quot;): stopover allowed.  X(capital letter \&quot;X\&quot;): Stopover not allowed. .</param>
-        /// <param name="DepartureDate">Departure date for the first leg of the trip. Format: YYYYMMDD. .</param>
-        /// <param name="DestinationAirportCode">IATA1 code for the destination airport for this leg of the trip. .</param>
-        /// <param name="FareBasis">Code for the fare basis for this leg of the trip. The fare basis is assigned by the carriers and indicates a particular ticket type, such as business class or discounted/nonrefundable. .</param>
+        /// <param name="CarrierCode">IATA code for the carrier for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
+        /// <param name="FlightNumber">Flight number for this leg of the trip. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable ticket or a 3-day minimum stay. Format: English characters only. Optional request field for travel legs. .</param>
+        /// <param name="OriginatingAirportCode">IATA code for the originating airport for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
+        /// <param name="_Class">IATA code for the class of service for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
+        /// <param name="StopoverIndicator">Code that indicates whether a stopover is allowed on this leg of the trip. Possible values: - &#x60;O&#x60; (capital letter “O”) (default): Stopover allowed - &#x60;X&#x60; (capital letter “X”): Stopover not allowed Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
+        /// <param name="DepartureDate">Departure date for the first leg of the trip. Format: &#x60;YYYYMMDD&#x60;. Format: English characters only. Optional request field for travel legs. .</param>
+        /// <param name="DestinationAirportCode">IATA code for the destination airport for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
+        /// <param name="FareBasis">Code for the fare basis for this leg of the trip. The fare basis is assigned by the carriers and indicates a particular ticket type, such as business class or discounted/nonrefundable. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Format: English characters only. Optional request field for travel legs.auto_rental_regular_mileage_cost .</param>
         /// <param name="DepartTaxAmount">Amount of departure tax for this leg of the trip. .</param>
-        /// <param name="ConjunctionTicket">Ticket that contains additional coupons for this leg of the trip on an itinerary that has more than four segments. .</param>
-        /// <param name="ExchangeTicketNumber">New ticket number that is issued when the ticket is exchanged for this leg of the trip. .</param>
-        /// <param name="CouponNumber">Each leg on the ticket requires a separate coupon, and each coupon is identified by the coupon number. .</param>
-        /// <param name="DepartureTime">Time of departure for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be 00-23 and the minutes must be 00-59 .</param>
-        /// <param name="DepartureTimeMeridian">AM or PM for the departure time. Possible values: - A: 12:00 midnight to 11:59 a.m. - P: 12:00 noon to 11:59 p.m .</param>
-        /// <param name="ArrivalTime">Time of arrival for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be 00-23 and the minutes must be 00-59 .</param>
-        /// <param name="ArrivalTimeMeridian">AM or PM for the arrival time for this leg of the trip. Possible values: - A: 12:00 midnight to 11:59 a.m. - P: 12:00 noon to 11:59 p.m. Format: English characters only .</param>
-        /// <param name="EndorsementsRestrictions">Notes or notations about endorsements and restrictions for this leg of the trip. Endorsements can be notations added by the travel agency, including mandatory government required notations such as value added tax. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable tic. .</param>
-        /// <param name="TotalFareAmount">Total fare for this leg of the trip. .</param>
-        /// <param name="FeeAmount">Fee for this leg of the trip, such as an airport fee or country fee. .</param>
-        /// <param name="TaxAmount">Tax for this leg of the trip .</param>
+        /// <param name="ConjunctionTicket">Ticket that contains additional coupons for this leg of the trip on an itinerary that has more than four segments. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
+        /// <param name="ExchangeTicketNumber">New ticket number that is issued when the ticket is exchanged for this leg of the trip. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable ticket or a 3-day minimum stay. Format: English characters only. Optional request field for travel legs. .</param>
+        /// <param name="CouponNumber">Coupon number. Each leg on the ticket requires a separate coupon, and each coupon is identified by the coupon number. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
+        /// <param name="DepartureTime">Time of departure for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be &#x60;00-23&#x60; and the minutes must be &#x60;00-59&#x60;. Format: English characters only. Optional request field for travel legs. .</param>
+        /// <param name="DepartureTimeMeridian">AM or PM for the departure time. Possible values: - A: 12:00 midnight to 11:59 a.m. - P: 12:00 noon to 11:59 p.m Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
+        /// <param name="ArrivalTime">Time of arrival for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be &#x60;00-23&#x60; and the minutes must be &#x60;00-59&#x60; Format: English characters only. Optional request field for travel legs. .</param>
+        /// <param name="ArrivalTimeMeridian">AM or PM for the arrival time for this leg of the trip. Possible values: - &#x60;A&#x60;: 12:00 midnight to 11:59 a.m. - &#x60;P&#x60;: 12:00 noon to 11:59 p.m. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
+        /// <param name="EndorsementsRestrictions">Notes or notations about endorsements and restrictions for this leg of the trip. Endorsements can be notations added by the travel agency, including mandatory government-required notations such as value added tax. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable ticket or a 3-day minimum stay. Format: English characters only. Optional request field for travel legs. .</param>
+        /// <param name="TotalFareAmount">Total fare for this leg of the trip. Format: English characters only. Optional request field for travel legs. .</param>
+        /// <param name="FeeAmount">Fee for this leg of the trip, such as an airport fee or country fee. Format: English characters only. Optional request field for travel legs. .</param>
+        /// <param name="TaxAmount">Tax for this leg of the trip. Format: English characters only. Optional request field for travel legs. .</param>
         public Ptsv2paymentsTravelInformationTransitAirlineLegs(string CarrierCode = default(string), string FlightNumber = default(string), string OriginatingAirportCode = default(string), string _Class = default(string), int? StopoverIndicator = default(int?), int? DepartureDate = default(int?), string DestinationAirportCode = default(string), string FareBasis = default(string), string DepartTaxAmount = default(string), string ConjunctionTicket = default(string), string ExchangeTicketNumber = default(string), string CouponNumber = default(string), int? DepartureTime = default(int?), string DepartureTimeMeridian = default(string), int? ArrivalTime = default(int?), string ArrivalTimeMeridian = default(string), string EndorsementsRestrictions = default(string), string TotalFareAmount = default(string), string FeeAmount = default(string), string TaxAmount = default(string))
         {
             this.CarrierCode = CarrierCode;
@@ -78,58 +78,58 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Carrier Code: IATA1 code for the carrier for this leg of the trip. 
+        /// IATA code for the carrier for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Carrier Code: IATA1 code for the carrier for this leg of the trip. </value>
+        /// <value>IATA code for the carrier for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. </value>
         [DataMember(Name="carrierCode", EmitDefaultValue=false)]
         public string CarrierCode { get; set; }
 
         /// <summary>
-        /// Flight number for this leg of the trip. 
+        /// Flight number for this leg of the trip. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable ticket or a 3-day minimum stay. Format: English characters only. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Flight number for this leg of the trip. </value>
+        /// <value>Flight number for this leg of the trip. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable ticket or a 3-day minimum stay. Format: English characters only. Optional request field for travel legs. </value>
         [DataMember(Name="flightNumber", EmitDefaultValue=false)]
         public string FlightNumber { get; set; }
 
         /// <summary>
-        /// IATA1 code for the originating airport for this leg of the trip. 
+        /// IATA code for the originating airport for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. 
         /// </summary>
-        /// <value>IATA1 code for the originating airport for this leg of the trip. </value>
+        /// <value>IATA code for the originating airport for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. </value>
         [DataMember(Name="originatingAirportCode", EmitDefaultValue=false)]
         public string OriginatingAirportCode { get; set; }
 
         /// <summary>
-        /// IATA1 code for the class of service for this leg of the trip. 
+        /// IATA code for the class of service for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. 
         /// </summary>
-        /// <value>IATA1 code for the class of service for this leg of the trip. </value>
+        /// <value>IATA code for the class of service for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. </value>
         [DataMember(Name="class", EmitDefaultValue=false)]
         public string _Class { get; set; }
 
         /// <summary>
-        /// Code that indicates whether a stopover is allowed on this leg of the trip. Possible Values: O(capital letter \&quot;O\&quot;): stopover allowed.  X(capital letter \&quot;X\&quot;): Stopover not allowed. 
+        /// Code that indicates whether a stopover is allowed on this leg of the trip. Possible values: - &#x60;O&#x60; (capital letter “O”) (default): Stopover allowed - &#x60;X&#x60; (capital letter “X”): Stopover not allowed Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Code that indicates whether a stopover is allowed on this leg of the trip. Possible Values: O(capital letter \&quot;O\&quot;): stopover allowed.  X(capital letter \&quot;X\&quot;): Stopover not allowed. </value>
+        /// <value>Code that indicates whether a stopover is allowed on this leg of the trip. Possible values: - &#x60;O&#x60; (capital letter “O”) (default): Stopover allowed - &#x60;X&#x60; (capital letter “X”): Stopover not allowed Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. </value>
         [DataMember(Name="stopoverIndicator", EmitDefaultValue=false)]
         public int? StopoverIndicator { get; set; }
 
         /// <summary>
-        /// Departure date for the first leg of the trip. Format: YYYYMMDD. 
+        /// Departure date for the first leg of the trip. Format: &#x60;YYYYMMDD&#x60;. Format: English characters only. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Departure date for the first leg of the trip. Format: YYYYMMDD. </value>
+        /// <value>Departure date for the first leg of the trip. Format: &#x60;YYYYMMDD&#x60;. Format: English characters only. Optional request field for travel legs. </value>
         [DataMember(Name="departureDate", EmitDefaultValue=false)]
         public int? DepartureDate { get; set; }
 
         /// <summary>
-        /// IATA1 code for the destination airport for this leg of the trip. 
+        /// IATA code for the destination airport for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. 
         /// </summary>
-        /// <value>IATA1 code for the destination airport for this leg of the trip. </value>
+        /// <value>IATA code for the destination airport for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. </value>
         [DataMember(Name="destinationAirportCode", EmitDefaultValue=false)]
         public string DestinationAirportCode { get; set; }
 
         /// <summary>
-        /// Code for the fare basis for this leg of the trip. The fare basis is assigned by the carriers and indicates a particular ticket type, such as business class or discounted/nonrefundable. 
+        /// Code for the fare basis for this leg of the trip. The fare basis is assigned by the carriers and indicates a particular ticket type, such as business class or discounted/nonrefundable. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Format: English characters only. Optional request field for travel legs.auto_rental_regular_mileage_cost 
         /// </summary>
-        /// <value>Code for the fare basis for this leg of the trip. The fare basis is assigned by the carriers and indicates a particular ticket type, such as business class or discounted/nonrefundable. </value>
+        /// <value>Code for the fare basis for this leg of the trip. The fare basis is assigned by the carriers and indicates a particular ticket type, such as business class or discounted/nonrefundable. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Format: English characters only. Optional request field for travel legs.auto_rental_regular_mileage_cost </value>
         [DataMember(Name="fareBasis", EmitDefaultValue=false)]
         public string FareBasis { get; set; }
 
@@ -141,79 +141,79 @@ namespace CyberSource.Model
         public string DepartTaxAmount { get; set; }
 
         /// <summary>
-        /// Ticket that contains additional coupons for this leg of the trip on an itinerary that has more than four segments. 
+        /// Ticket that contains additional coupons for this leg of the trip on an itinerary that has more than four segments. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Ticket that contains additional coupons for this leg of the trip on an itinerary that has more than four segments. </value>
+        /// <value>Ticket that contains additional coupons for this leg of the trip on an itinerary that has more than four segments. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. </value>
         [DataMember(Name="conjunctionTicket", EmitDefaultValue=false)]
         public string ConjunctionTicket { get; set; }
 
         /// <summary>
-        /// New ticket number that is issued when the ticket is exchanged for this leg of the trip. 
+        /// New ticket number that is issued when the ticket is exchanged for this leg of the trip. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable ticket or a 3-day minimum stay. Format: English characters only. Optional request field for travel legs. 
         /// </summary>
-        /// <value>New ticket number that is issued when the ticket is exchanged for this leg of the trip. </value>
+        /// <value>New ticket number that is issued when the ticket is exchanged for this leg of the trip. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable ticket or a 3-day minimum stay. Format: English characters only. Optional request field for travel legs. </value>
         [DataMember(Name="exchangeTicketNumber", EmitDefaultValue=false)]
         public string ExchangeTicketNumber { get; set; }
 
         /// <summary>
-        /// Each leg on the ticket requires a separate coupon, and each coupon is identified by the coupon number. 
+        /// Coupon number. Each leg on the ticket requires a separate coupon, and each coupon is identified by the coupon number. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Each leg on the ticket requires a separate coupon, and each coupon is identified by the coupon number. </value>
+        /// <value>Coupon number. Each leg on the ticket requires a separate coupon, and each coupon is identified by the coupon number. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. </value>
         [DataMember(Name="couponNumber", EmitDefaultValue=false)]
         public string CouponNumber { get; set; }
 
         /// <summary>
-        /// Time of departure for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be 00-23 and the minutes must be 00-59 
+        /// Time of departure for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be &#x60;00-23&#x60; and the minutes must be &#x60;00-59&#x60;. Format: English characters only. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Time of departure for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be 00-23 and the minutes must be 00-59 </value>
+        /// <value>Time of departure for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be &#x60;00-23&#x60; and the minutes must be &#x60;00-59&#x60;. Format: English characters only. Optional request field for travel legs. </value>
         [DataMember(Name="departureTime", EmitDefaultValue=false)]
         public int? DepartureTime { get; set; }
 
         /// <summary>
-        /// AM or PM for the departure time. Possible values: - A: 12:00 midnight to 11:59 a.m. - P: 12:00 noon to 11:59 p.m 
+        /// AM or PM for the departure time. Possible values: - A: 12:00 midnight to 11:59 a.m. - P: 12:00 noon to 11:59 p.m Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. 
         /// </summary>
-        /// <value>AM or PM for the departure time. Possible values: - A: 12:00 midnight to 11:59 a.m. - P: 12:00 noon to 11:59 p.m </value>
+        /// <value>AM or PM for the departure time. Possible values: - A: 12:00 midnight to 11:59 a.m. - P: 12:00 noon to 11:59 p.m Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. </value>
         [DataMember(Name="departureTimeMeridian", EmitDefaultValue=false)]
         public string DepartureTimeMeridian { get; set; }
 
         /// <summary>
-        /// Time of arrival for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be 00-23 and the minutes must be 00-59 
+        /// Time of arrival for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be &#x60;00-23&#x60; and the minutes must be &#x60;00-59&#x60; Format: English characters only. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Time of arrival for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be 00-23 and the minutes must be 00-59 </value>
+        /// <value>Time of arrival for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be &#x60;00-23&#x60; and the minutes must be &#x60;00-59&#x60; Format: English characters only. Optional request field for travel legs. </value>
         [DataMember(Name="arrivalTime", EmitDefaultValue=false)]
         public int? ArrivalTime { get; set; }
 
         /// <summary>
-        /// AM or PM for the arrival time for this leg of the trip. Possible values: - A: 12:00 midnight to 11:59 a.m. - P: 12:00 noon to 11:59 p.m. Format: English characters only 
+        /// AM or PM for the arrival time for this leg of the trip. Possible values: - &#x60;A&#x60;: 12:00 midnight to 11:59 a.m. - &#x60;P&#x60;: 12:00 noon to 11:59 p.m. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. 
         /// </summary>
-        /// <value>AM or PM for the arrival time for this leg of the trip. Possible values: - A: 12:00 midnight to 11:59 a.m. - P: 12:00 noon to 11:59 p.m. Format: English characters only </value>
+        /// <value>AM or PM for the arrival time for this leg of the trip. Possible values: - &#x60;A&#x60;: 12:00 midnight to 11:59 a.m. - &#x60;P&#x60;: 12:00 noon to 11:59 p.m. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. </value>
         [DataMember(Name="arrivalTimeMeridian", EmitDefaultValue=false)]
         public string ArrivalTimeMeridian { get; set; }
 
         /// <summary>
-        /// Notes or notations about endorsements and restrictions for this leg of the trip. Endorsements can be notations added by the travel agency, including mandatory government required notations such as value added tax. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable tic. 
+        /// Notes or notations about endorsements and restrictions for this leg of the trip. Endorsements can be notations added by the travel agency, including mandatory government-required notations such as value added tax. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable ticket or a 3-day minimum stay. Format: English characters only. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Notes or notations about endorsements and restrictions for this leg of the trip. Endorsements can be notations added by the travel agency, including mandatory government required notations such as value added tax. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable tic. </value>
+        /// <value>Notes or notations about endorsements and restrictions for this leg of the trip. Endorsements can be notations added by the travel agency, including mandatory government-required notations such as value added tax. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable ticket or a 3-day minimum stay. Format: English characters only. Optional request field for travel legs. </value>
         [DataMember(Name="endorsementsRestrictions", EmitDefaultValue=false)]
         public string EndorsementsRestrictions { get; set; }
 
         /// <summary>
-        /// Total fare for this leg of the trip. 
+        /// Total fare for this leg of the trip. Format: English characters only. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Total fare for this leg of the trip. </value>
+        /// <value>Total fare for this leg of the trip. Format: English characters only. Optional request field for travel legs. </value>
         [DataMember(Name="totalFareAmount", EmitDefaultValue=false)]
         public string TotalFareAmount { get; set; }
 
         /// <summary>
-        /// Fee for this leg of the trip, such as an airport fee or country fee. 
+        /// Fee for this leg of the trip, such as an airport fee or country fee. Format: English characters only. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Fee for this leg of the trip, such as an airport fee or country fee. </value>
+        /// <value>Fee for this leg of the trip, such as an airport fee or country fee. Format: English characters only. Optional request field for travel legs. </value>
         [DataMember(Name="feeAmount", EmitDefaultValue=false)]
         public string FeeAmount { get; set; }
 
         /// <summary>
-        /// Tax for this leg of the trip 
+        /// Tax for this leg of the trip. Format: English characters only. Optional request field for travel legs. 
         /// </summary>
-        /// <value>Tax for this leg of the trip </value>
+        /// <value>Tax for this leg of the trip. Format: English characters only. Optional request field for travel legs. </value>
         [DataMember(Name="taxAmount", EmitDefaultValue=false)]
         public string TaxAmount { get; set; }
 

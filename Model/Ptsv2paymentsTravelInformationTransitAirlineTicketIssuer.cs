@@ -33,10 +33,10 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsTravelInformationTransitAirlineTicketIssuer" /> class.
         /// </summary>
-        /// <param name="Code">IATA2 airline code. Format: English characters only. .</param>
+        /// <param name="Code">IATA2 airline code. Format: English characters only. Required for Mastercard; optional for all other card types. .</param>
         /// <param name="Name">Name of the ticket issuer. If you do not include this field, CyberSource uses the value for your merchant name that is in the CyberSource merchant configuration database. .</param>
         /// <param name="Address">Address of the company issuing the ticket. .</param>
-        /// <param name="Locality">City in which the transactionoccurred. If the name of the city exceeds 18 characters, use meaningful abbreviations. Format: English characters only .</param>
+        /// <param name="Locality">City in which the transaction occurred. If the name of the city exceeds 18 characters, use meaningful abbreviations. Format: English characters only. Optional request field. .</param>
         /// <param name="AdministrativeArea">State in which transaction occured. .</param>
         /// <param name="PostalCode">Zip code of the city in which transaction occured. .</param>
         /// <param name="Country">Country in which transaction occured. .</param>
@@ -52,9 +52,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// IATA2 airline code. Format: English characters only. 
+        /// IATA2 airline code. Format: English characters only. Required for Mastercard; optional for all other card types. 
         /// </summary>
-        /// <value>IATA2 airline code. Format: English characters only. </value>
+        /// <value>IATA2 airline code. Format: English characters only. Required for Mastercard; optional for all other card types. </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
@@ -73,9 +73,9 @@ namespace CyberSource.Model
         public string Address { get; set; }
 
         /// <summary>
-        /// City in which the transactionoccurred. If the name of the city exceeds 18 characters, use meaningful abbreviations. Format: English characters only 
+        /// City in which the transaction occurred. If the name of the city exceeds 18 characters, use meaningful abbreviations. Format: English characters only. Optional request field. 
         /// </summary>
-        /// <value>City in which the transactionoccurred. If the name of the city exceeds 18 characters, use meaningful abbreviations. Format: English characters only </value>
+        /// <value>City in which the transaction occurred. If the name of the city exceeds 18 characters, use meaningful abbreviations. Format: English characters only. Optional request field. </value>
         [DataMember(Name="locality", EmitDefaultValue=false)]
         public string Locality { get; set; }
 
