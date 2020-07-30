@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsTravelInformationAgency" /> class.
         /// </summary>
-        /// <param name="Code">Code of travel agency that made the vehicle rental reservation. .</param>
+        /// <param name="Code">International Air Transport Association (IATA) code of travel agency that made the vehicle rental reservation. .</param>
         /// <param name="Name">Name of travel agency that made the reservation. .</param>
         public Ptsv2paymentsTravelInformationAgency(string Code = default(string), string Name = default(string))
         {
@@ -42,9 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Code of travel agency that made the vehicle rental reservation. 
+        /// International Air Transport Association (IATA) code of travel agency that made the vehicle rental reservation. 
         /// </summary>
-        /// <value>Code of travel agency that made the vehicle rental reservation. </value>
+        /// <value>International Air Transport Association (IATA) code of travel agency that made the vehicle rental reservation. </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 

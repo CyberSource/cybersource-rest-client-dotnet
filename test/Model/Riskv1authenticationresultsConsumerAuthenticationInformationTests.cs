@@ -89,6 +89,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'EffectiveAuthenticationType'
         }
         /// <summary>
+        /// Test the property 'ResponseAccessToken'
+        /// </summary>
+        [Test]
+        public void ResponseAccessTokenTest()
+        {
+            // TODO unit test for the property 'ResponseAccessToken'
+        }
+        /// <summary>
         /// Test the property 'SignedParesStatusReason'
         /// </summary>
         [Test]

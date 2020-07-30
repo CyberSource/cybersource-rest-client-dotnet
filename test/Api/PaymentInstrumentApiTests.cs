@@ -65,28 +65,15 @@ namespace CyberSource.Test
 
         
         /// <summary>
-        /// Test CreatePaymentInstrument
-        /// </summary>
-        [Test]
-        public void CreatePaymentInstrumentTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string profileId = null;
-            //CreatePaymentInstrumentRequest createPaymentInstrumentRequest = null;
-            //var response = instance.CreatePaymentInstrument(profileId, createPaymentInstrumentRequest);
-            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments> (response, "response is TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments");
-        }
-        
-        /// <summary>
         /// Test DeletePaymentInstrument
         /// </summary>
         [Test]
         public void DeletePaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string paymentInstrumentTokenId = null;
             //string profileId = null;
-            //string tokenId = null;
-            //instance.DeletePaymentInstrument(profileId, tokenId);
+            //instance.DeletePaymentInstrument(paymentInstrumentTokenId, profileId);
             
         }
         
@@ -97,24 +84,38 @@ namespace CyberSource.Test
         public void GetPaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string paymentInstrumentTokenId = null;
             //string profileId = null;
-            //string tokenId = null;
-            //var response = instance.GetPaymentInstrument(profileId, tokenId);
-            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments> (response, "response is TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments");
+            //var response = instance.GetPaymentInstrument(paymentInstrumentTokenId, profileId);
+            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrument> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrument");
         }
         
         /// <summary>
-        /// Test UpdatePaymentInstrument
+        /// Test PatchPaymentInstrument
         /// </summary>
         [Test]
-        public void UpdatePaymentInstrumentTest()
+        public void PatchPaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string paymentInstrumentTokenId = null;
+            //PatchPaymentInstrumentRequest patchPaymentInstrumentRequest = null;
             //string profileId = null;
-            //string tokenId = null;
-            //UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest = null;
-            //var response = instance.UpdatePaymentInstrument(profileId, tokenId, updatePaymentInstrumentRequest);
-            //Assert.IsInstanceOf<TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments> (response, "response is TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedPaymentInstruments");
+            //string ifMatch = null;
+            //var response = instance.PatchPaymentInstrument(paymentInstrumentTokenId, patchPaymentInstrumentRequest, profileId, ifMatch);
+            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrument> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrument");
+        }
+        
+        /// <summary>
+        /// Test PostPaymentInstrument
+        /// </summary>
+        [Test]
+        public void PostPaymentInstrumentTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //PostPaymentInstrumentRequest postPaymentInstrumentRequest = null;
+            //string profileId = null;
+            //var response = instance.PostPaymentInstrument(postPaymentInstrumentRequest, profileId);
+            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrument> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrument");
         }
         
     }

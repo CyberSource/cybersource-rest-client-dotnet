@@ -34,16 +34,16 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsCapturesPost201Response" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
-        /// <param name="Id">An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. .</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. .</param>
+        /// <param name="Id">An unique identification number to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response.  #### PIN debit Returned for all PIN debit services. .</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. .</param>
         /// <param name="Status">The status of the submitted transaction.  Possible values:  - PENDING .</param>
-        /// <param name="ReconciliationId">Reference number for the transaction. This value is not returned for all processors.  Returned by authorization service.  #### Atos Positive string (6)  #### All other processors String (60) .</param>
+        /// <param name="ReconciliationId">Reference number for the transaction. This value is not returned for all processors.  Returned by authorization service.  ##### PIN debit Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### Atos Positive string (6)  #### All other processors String (60) .</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        public PtsV2PaymentsCapturesPost201Response(PtsV2PaymentsCapturesPost201ResponseLinks Links = default(PtsV2PaymentsCapturesPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsCapturesPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessorInformation), PtsV2PaymentsCapturesPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsCapturesPost201ResponseOrderInformation), PtsV2PaymentsCapturesPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessingInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation))
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
+        public PtsV2PaymentsCapturesPost201Response(PtsV2PaymentsCapturesPost201ResponseLinks Links = default(PtsV2PaymentsCapturesPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsCapturesPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessorInformation), PtsV2PaymentsCapturesPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsCapturesPost201ResponseOrderInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation), PtsV2PaymentsCapturesPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessingInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -53,8 +53,8 @@ namespace CyberSource.Model
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessorInformation = ProcessorInformation;
             this.OrderInformation = OrderInformation;
-            this.ProcessingInformation = ProcessingInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
+            this.ProcessingInformation = ProcessingInformation;
         }
         
         /// <summary>
@@ -64,16 +64,16 @@ namespace CyberSource.Model
         public PtsV2PaymentsCapturesPost201ResponseLinks Links { get; set; }
 
         /// <summary>
-        /// An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. 
+        /// An unique identification number to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response.  #### PIN debit Returned for all PIN debit services. 
         /// </summary>
-        /// <value>An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response. </value>
+        /// <value>An unique identification number to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response.  #### PIN debit Returned for all PIN debit services. </value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service. </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
@@ -85,9 +85,9 @@ namespace CyberSource.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// Reference number for the transaction. This value is not returned for all processors.  Returned by authorization service.  #### Atos Positive string (6)  #### All other processors String (60) 
+        /// Reference number for the transaction. This value is not returned for all processors.  Returned by authorization service.  ##### PIN debit Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### Atos Positive string (6)  #### All other processors String (60) 
         /// </summary>
-        /// <value>Reference number for the transaction. This value is not returned for all processors.  Returned by authorization service.  #### Atos Positive string (6)  #### All other processors String (60) </value>
+        /// <value>Reference number for the transaction. This value is not returned for all processors.  Returned by authorization service.  ##### PIN debit Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### Atos Positive string (6)  #### All other processors String (60) </value>
         [DataMember(Name="reconciliationId", EmitDefaultValue=false)]
         public string ReconciliationId { get; set; }
 
@@ -110,16 +110,16 @@ namespace CyberSource.Model
         public PtsV2PaymentsCapturesPost201ResponseOrderInformation OrderInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProcessingInformation
-        /// </summary>
-        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
-        public PtsV2PaymentsCapturesPost201ResponseProcessingInformation ProcessingInformation { get; set; }
-
-        /// <summary>
         /// Gets or Sets PointOfSaleInformation
         /// </summary>
         [DataMember(Name="pointOfSaleInformation", EmitDefaultValue=false)]
         public PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProcessingInformation
+        /// </summary>
+        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsCapturesPost201ResponseProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -137,8 +137,8 @@ namespace CyberSource.Model
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
-            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
+            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -216,14 +216,14 @@ namespace CyberSource.Model
                     this.OrderInformation.Equals(other.OrderInformation)
                 ) && 
                 (
-                    this.ProcessingInformation == other.ProcessingInformation ||
-                    this.ProcessingInformation != null &&
-                    this.ProcessingInformation.Equals(other.ProcessingInformation)
-                ) && 
-                (
                     this.PointOfSaleInformation == other.PointOfSaleInformation ||
                     this.PointOfSaleInformation != null &&
                     this.PointOfSaleInformation.Equals(other.PointOfSaleInformation)
+                ) && 
+                (
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
                 );
         }
 
@@ -254,10 +254,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProcessorInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
-                if (this.ProcessingInformation != null)
-                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.PointOfSaleInformation != null)
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 return hash;
             }
         }

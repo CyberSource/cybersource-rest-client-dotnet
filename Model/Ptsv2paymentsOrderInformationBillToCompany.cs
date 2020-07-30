@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="Locality">City in the address of the company purchasing the product..</param>
         /// <param name="AdministrativeArea">State or province in the address of the company purchasing the product. Use the State, Province, and Territory Codes for the United States and Canada. .</param>
         /// <param name="PostalCode">Postal code in the address of the company purchasing the product. The postal code must consist of 5 to 9 digits.  When the company country is the U.S., the 9-digit postal code must follow this format: **[5 digits][dash][4 digits]** #### Example &#x60;12345-6789&#x60;  When the company country is Canada, the 6-digit postal code must follow this format: **[alpha][numeric][alpha][space][numeric][alpha][numeric]** #### Example &#x60;A1B 2C3&#x60; .</param>
-        /// <param name="Country">Country in the address of the company purchasing the product. Use the [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) .</param>
+        /// <param name="Country">Country in the address of the company purchasing the product. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). .</param>
         public Ptsv2paymentsOrderInformationBillToCompany(string Name = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string))
         {
             this.Name = Name;
@@ -94,9 +94,9 @@ namespace CyberSource.Model
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Country in the address of the company purchasing the product. Use the [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) 
+        /// Country in the address of the company purchasing the product. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). 
         /// </summary>
-        /// <value>Country in the address of the company purchasing the product. Use the [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) </value>
+        /// <value>Country in the address of the company purchasing the product. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). </value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 

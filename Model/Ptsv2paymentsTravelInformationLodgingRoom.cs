@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsTravelInformationLodgingRoom" /> class.
         /// </summary>
         /// <param name="DailyRate">Daily cost of the room. .</param>
-        /// <param name="NumberOfNights">Number of nights billed at the rate specified by lodging_daily_room_rate_1. .</param>
+        /// <param name="NumberOfNights">Number of nights billed at the rate specified by &#x60;travelInformation.lodging.room[].dailyRate&#x60;. .</param>
         public Ptsv2paymentsTravelInformationLodgingRoom(string DailyRate = default(string), int? NumberOfNights = default(int?))
         {
             this.DailyRate = DailyRate;
@@ -49,9 +49,9 @@ namespace CyberSource.Model
         public string DailyRate { get; set; }
 
         /// <summary>
-        /// Number of nights billed at the rate specified by lodging_daily_room_rate_1. 
+        /// Number of nights billed at the rate specified by &#x60;travelInformation.lodging.room[].dailyRate&#x60;. 
         /// </summary>
-        /// <value>Number of nights billed at the rate specified by lodging_daily_room_rate_1. </value>
+        /// <value>Number of nights billed at the rate specified by &#x60;travelInformation.lodging.room[].dailyRate&#x60;. </value>
         [DataMember(Name="numberOfNights", EmitDefaultValue=false)]
         public int? NumberOfNights { get; set; }
 

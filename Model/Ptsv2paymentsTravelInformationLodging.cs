@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsTravelInformationLodging" /> class.
         /// </summary>
-        /// <param name="CheckInDate">Date on which the guest checked in. In the case of a no-show or a reservation, the scheduled arrival date. Format: MMDDYY. For best interchange rates, make sure it is a valid date. .</param>
-        /// <param name="CheckOutDate">Date on which the guest checked out. Format: MMDDYY. For best interchange rates, make sure it is a valid date. .</param>
+        /// <param name="CheckInDate">Date on which the guest checked in. In the case of a no-show or a reservation, the scheduled arrival date. Format: &#x60;MMDDYY&#x60;. For best interchange rates, make sure it is a valid date. .</param>
+        /// <param name="CheckOutDate">Date on which the guest checked out. Format: &#x60;MMDDYY&#x60;. For best interchange rates, make sure it is a valid date. .</param>
         /// <param name="Room">The object containing the number of nights and the daily rate that applies for that no of nights. .</param>
         /// <param name="SmokingPreference">Smoking preference of the guest. Possible values: - &#x60;Y&#x60;: smoking room - &#x60;N&#x60;: non-smoking room .</param>
         /// <param name="NumberOfRooms">Number of rooms booked by the cardholder. .</param>
@@ -122,16 +122,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Date on which the guest checked in. In the case of a no-show or a reservation, the scheduled arrival date. Format: MMDDYY. For best interchange rates, make sure it is a valid date. 
+        /// Date on which the guest checked in. In the case of a no-show or a reservation, the scheduled arrival date. Format: &#x60;MMDDYY&#x60;. For best interchange rates, make sure it is a valid date. 
         /// </summary>
-        /// <value>Date on which the guest checked in. In the case of a no-show or a reservation, the scheduled arrival date. Format: MMDDYY. For best interchange rates, make sure it is a valid date. </value>
+        /// <value>Date on which the guest checked in. In the case of a no-show or a reservation, the scheduled arrival date. Format: &#x60;MMDDYY&#x60;. For best interchange rates, make sure it is a valid date. </value>
         [DataMember(Name="checkInDate", EmitDefaultValue=false)]
         public string CheckInDate { get; set; }
 
         /// <summary>
-        /// Date on which the guest checked out. Format: MMDDYY. For best interchange rates, make sure it is a valid date. 
+        /// Date on which the guest checked out. Format: &#x60;MMDDYY&#x60;. For best interchange rates, make sure it is a valid date. 
         /// </summary>
-        /// <value>Date on which the guest checked out. Format: MMDDYY. For best interchange rates, make sure it is a valid date. </value>
+        /// <value>Date on which the guest checked out. Format: &#x60;MMDDYY&#x60;. For best interchange rates, make sure it is a valid date. </value>
         [DataMember(Name="checkOutDate", EmitDefaultValue=false)]
         public string CheckOutDate { get; set; }
 

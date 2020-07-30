@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidreversalsReversalInformation" /> class.
         /// </summary>
         /// <param name="AmountDetails">AmountDetails.</param>
-        /// <param name="Reason">Reason for the authorization reversal. Possible value:   - &#x60;34&#x60;: Suspected fraud  CyberSource ignores this field for processors that do not support this value.  For details, see &#x60;auth_reversal_reason&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="Reason">Reason for the authorization reversal. Possible value:   - &#x60;34&#x60;: Suspected fraud  This field is ignored for processors that do not support this value.  Returned by authorization reversal. .</param>
         public Ptsv2paymentsidreversalsReversalInformation(Ptsv2paymentsidreversalsReversalInformationAmountDetails AmountDetails = default(Ptsv2paymentsidreversalsReversalInformationAmountDetails), string Reason = default(string))
         {
             this.AmountDetails = AmountDetails;
@@ -48,9 +48,9 @@ namespace CyberSource.Model
         public Ptsv2paymentsidreversalsReversalInformationAmountDetails AmountDetails { get; set; }
 
         /// <summary>
-        /// Reason for the authorization reversal. Possible value:   - &#x60;34&#x60;: Suspected fraud  CyberSource ignores this field for processors that do not support this value.  For details, see &#x60;auth_reversal_reason&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+        /// Reason for the authorization reversal. Possible value:   - &#x60;34&#x60;: Suspected fraud  This field is ignored for processors that do not support this value.  Returned by authorization reversal. 
         /// </summary>
-        /// <value>Reason for the authorization reversal. Possible value:   - &#x60;34&#x60;: Suspected fraud  CyberSource ignores this field for processors that do not support this value.  For details, see &#x60;auth_reversal_reason&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
+        /// <value>Reason for the authorization reversal. Possible value:   - &#x60;34&#x60;: Suspected fraud  This field is ignored for processors that do not support this value.  Returned by authorization reversal. </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 

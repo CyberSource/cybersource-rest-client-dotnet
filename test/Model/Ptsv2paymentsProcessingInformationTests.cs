@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ActionList'
         }
         /// <summary>
+        /// Test the property 'ActionTokenTypes'
+        /// </summary>
+        [Test]
+        public void ActionTokenTypesTest()
+        {
+            // TODO unit test for the property 'ActionTokenTypes'
+        }
+        /// <summary>
         /// Test the property 'Capture'
         /// </summary>
         [Test]

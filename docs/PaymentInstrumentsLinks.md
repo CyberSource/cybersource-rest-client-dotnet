@@ -1,9 +1,0 @@
-# CyberSource.Model.PaymentInstrumentsLinks
-## Properties
-
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**Self** | [**TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedLinksSelf**](TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbeddedLinksSelf.md) |  | [optional] 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-

@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="Card">Card.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
         /// <param name="FluidData">FluidData.</param>
-        public Riskv1authenticationsPaymentInformation(Riskv1authenticationsPaymentInformationCard Card = default(Riskv1authenticationsPaymentInformationCard), Riskv1authenticationsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1authenticationsPaymentInformationTokenizedCard), Riskv1authenticationsPaymentInformationFluidData FluidData = default(Riskv1authenticationsPaymentInformationFluidData))
+        /// <param name="Customer">Customer.</param>
+        public Riskv1authenticationsPaymentInformation(Riskv1authenticationsPaymentInformationCard Card = default(Riskv1authenticationsPaymentInformationCard), Riskv1authenticationsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1authenticationsPaymentInformationTokenizedCard), Riskv1authenticationsetupsPaymentInformationFluidData FluidData = default(Riskv1authenticationsetupsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
             this.FluidData = FluidData;
+            this.Customer = Customer;
         }
         
         /// <summary>
@@ -59,7 +61,13 @@ namespace CyberSource.Model
         /// Gets or Sets FluidData
         /// </summary>
         [DataMember(Name="fluidData", EmitDefaultValue=false)]
-        public Riskv1authenticationsPaymentInformationFluidData FluidData { get; set; }
+        public Riskv1authenticationsetupsPaymentInformationFluidData FluidData { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Customer
+        /// </summary>
+        [DataMember(Name="customer", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,6 +80,7 @@ namespace CyberSource.Model
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             sb.Append("  FluidData: ").Append(FluidData).Append("\n");
+            sb.Append("  Customer: ").Append(Customer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +131,11 @@ namespace CyberSource.Model
                     this.FluidData == other.FluidData ||
                     this.FluidData != null &&
                     this.FluidData.Equals(other.FluidData)
+                ) && 
+                (
+                    this.Customer == other.Customer ||
+                    this.Customer != null &&
+                    this.Customer.Equals(other.Customer)
                 );
         }
 
@@ -142,6 +156,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TokenizedCard.GetHashCode();
                 if (this.FluidData != null)
                     hash = hash * 59 + this.FluidData.GetHashCode();
+                if (this.Customer != null)
+                    hash = hash * 59 + this.Customer.GetHashCode();
                 return hash;
             }
         }

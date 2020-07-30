@@ -81,6 +81,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Agency'
         }
         /// <summary>
+        /// Test the property 'AutoRental'
+        /// </summary>
+        [Test]
+        public void AutoRentalTest()
+        {
+            // TODO unit test for the property 'AutoRental'
+        }
+        /// <summary>
         /// Test the property 'Lodging'
         /// </summary>
         [Test]

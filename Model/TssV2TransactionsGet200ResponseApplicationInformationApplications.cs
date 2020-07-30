@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="ReconciliationId">Reference number that you use to reconcile your CyberSource reports with your processor reports. .</param>
         /// <param name="RMessage">Message that explains the reply flag for the application. .</param>
         /// <param name="ReturnCode">The description for this field is not available..</param>
-        public TssV2TransactionsGet200ResponseApplicationInformationApplications(string Name = default(string), string Status = default(string), string ReasonCode = default(string), string RCode = default(string), string RFlag = default(string), string ReconciliationId = default(string), string RMessage = default(string), string ReturnCode = default(string))
+        public TssV2TransactionsGet200ResponseApplicationInformationApplications(string Name = default(string), string Status = default(string), string ReasonCode = default(string), string RCode = default(string), string RFlag = default(string), string ReconciliationId = default(string), string RMessage = default(string), int? ReturnCode = default(int?))
         {
             this.Name = Name;
             this.Status = Status;
@@ -107,7 +107,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The description for this field is not available.</value>
         [DataMember(Name="returnCode", EmitDefaultValue=false)]
-        public string ReturnCode { get; set; }
+        public int? ReturnCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

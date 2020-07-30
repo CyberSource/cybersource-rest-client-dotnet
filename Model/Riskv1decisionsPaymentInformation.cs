@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="Customer">Customer.</param>
         /// <param name="Bank">Bank.</param>
         /// <param name="Method">Method of payment used for the order. This field can contain one of the following values:   - &#x60;consumer&#x60; (default): Customer credit card   - &#x60;corporate&#x60;: Corporate credit card   - &#x60;debit&#x60;: Debit card, such as a Maestro (UK Domestic) card   - &#x60;cod&#x60;: Collect on delivery   - &#x60;check&#x60;: Electronic check   - &#x60;p2p&#x60;: Person-to-person payment   - &#x60;private1&#x60;: Private label credit card   - &#x60;other&#x60;: Other payment method .</param>
-        public Riskv1decisionsPaymentInformation(Riskv1decisionsPaymentInformationCard Card = default(Riskv1decisionsPaymentInformationCard), Riskv1decisionsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1decisionsPaymentInformationTokenizedCard), Riskv1decisionsPaymentInformationCustomer Customer = default(Riskv1decisionsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), string Method = default(string))
+        public Riskv1decisionsPaymentInformation(Riskv1decisionsPaymentInformationCard Card = default(Riskv1decisionsPaymentInformationCard), Riskv1decisionsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1decisionsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), string Method = default(string))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
@@ -63,7 +63,7 @@ namespace CyberSource.Model
         /// Gets or Sets Customer
         /// </summary>
         [DataMember(Name="customer", EmitDefaultValue=false)]
-        public Riskv1decisionsPaymentInformationCustomer Customer { get; set; }
+        public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
         /// Gets or Sets Bank

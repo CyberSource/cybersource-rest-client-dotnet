@@ -226,7 +226,7 @@ namespace CyberSource.Api
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json",
-                "application/csv",
+                "text/csv",
                 "application/xml"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
@@ -302,7 +302,7 @@ namespace CyberSource.Api
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json",
-                "application/csv",
+                "text/csv",
                 "application/xml"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);

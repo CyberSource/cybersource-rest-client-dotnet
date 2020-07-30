@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsCapturesPost201ResponseProcessingInformation" /> class.
         /// </summary>
-        /// <param name="EnhancedDataEnabled">- true : the airline data was included in the request to the processor. - false : the airline data was not included in the request to the processor. .</param>
+        /// <param name="EnhancedDataEnabled">The possible values for the reply field are: - &#x60;true&#x60; : the airline data was included in the request to the processor. - &#x60;false&#x60; : the airline data was not included in the request to the processor.  Returned by authorization, capture, or credit services. .</param>
         public PtsV2PaymentsCapturesPost201ResponseProcessingInformation(bool? EnhancedDataEnabled = default(bool?))
         {
             this.EnhancedDataEnabled = EnhancedDataEnabled;
         }
         
         /// <summary>
-        /// - true : the airline data was included in the request to the processor. - false : the airline data was not included in the request to the processor. 
+        /// The possible values for the reply field are: - &#x60;true&#x60; : the airline data was included in the request to the processor. - &#x60;false&#x60; : the airline data was not included in the request to the processor.  Returned by authorization, capture, or credit services. 
         /// </summary>
-        /// <value>- true : the airline data was included in the request to the processor. - false : the airline data was not included in the request to the processor. </value>
+        /// <value>The possible values for the reply field are: - &#x60;true&#x60; : the airline data was included in the request to the processor. - &#x60;false&#x60; : the airline data was not included in the request to the processor.  Returned by authorization, capture, or credit services. </value>
         [DataMember(Name="enhancedDataEnabled", EmitDefaultValue=false)]
         public bool? EnhancedDataEnabled { get; set; }
 

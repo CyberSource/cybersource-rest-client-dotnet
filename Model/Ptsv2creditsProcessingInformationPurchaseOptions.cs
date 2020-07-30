@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2creditsProcessingInformationPurchaseOptions" /> class.
         /// </summary>
-        /// <param name="IsElectronicBenefitsTransfer">Flag that indicates that this transaction is an EBT transaction.Possible values: - **true** - **false** .</param>
+        /// <param name="IsElectronicBenefitsTransfer">Flag that indicates whether this transaction is an EBT transaction. Possible values: - &#x60;true&#x60; - &#x60;false&#x60;  #### PIN debit Required field for EBT and EBT voucher transactions that use PIN debit credit or PIN debit purchase; otherwise, not used. .</param>
         public Ptsv2creditsProcessingInformationPurchaseOptions(bool? IsElectronicBenefitsTransfer = default(bool?))
         {
             this.IsElectronicBenefitsTransfer = IsElectronicBenefitsTransfer;
         }
         
         /// <summary>
-        /// Flag that indicates that this transaction is an EBT transaction.Possible values: - **true** - **false** 
+        /// Flag that indicates whether this transaction is an EBT transaction. Possible values: - &#x60;true&#x60; - &#x60;false&#x60;  #### PIN debit Required field for EBT and EBT voucher transactions that use PIN debit credit or PIN debit purchase; otherwise, not used. 
         /// </summary>
-        /// <value>Flag that indicates that this transaction is an EBT transaction.Possible values: - **true** - **false** </value>
+        /// <value>Flag that indicates whether this transaction is an EBT transaction. Possible values: - &#x60;true&#x60; - &#x60;false&#x60;  #### PIN debit Required field for EBT and EBT voucher transactions that use PIN debit credit or PIN debit purchase; otherwise, not used. </value>
         [DataMember(Name="isElectronicBenefitsTransfer", EmitDefaultValue=false)]
         public bool? IsElectronicBenefitsTransfer { get; set; }
 

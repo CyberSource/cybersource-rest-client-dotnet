@@ -38,14 +38,22 @@ namespace CyberSource.Model
         /// <param name="TokenizedCard">TokenizedCard.</param>
         /// <param name="FluidData">FluidData.</param>
         /// <param name="Customer">Customer.</param>
+        /// <param name="PaymentInstrument">PaymentInstrument.</param>
+        /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
+        /// <param name="ShippingAddress">ShippingAddress.</param>
+        /// <param name="LegacyToken">LegacyToken.</param>
         /// <param name="PaymentType">PaymentType.</param>
-        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType))
+        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType))
         {
             this.Card = Card;
             this.Bank = Bank;
             this.TokenizedCard = TokenizedCard;
             this.FluidData = FluidData;
             this.Customer = Customer;
+            this.PaymentInstrument = PaymentInstrument;
+            this.InstrumentIdentifier = InstrumentIdentifier;
+            this.ShippingAddress = ShippingAddress;
+            this.LegacyToken = LegacyToken;
             this.PaymentType = PaymentType;
         }
         
@@ -80,6 +88,30 @@ namespace CyberSource.Model
         public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentInstrument
+        /// </summary>
+        [DataMember(Name="paymentInstrument", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InstrumentIdentifier
+        /// </summary>
+        [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShippingAddress
+        /// </summary>
+        [DataMember(Name="shippingAddress", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LegacyToken
+        /// </summary>
+        [DataMember(Name="legacyToken", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationLegacyToken LegacyToken { get; set; }
+
+        /// <summary>
         /// Gets or Sets PaymentType
         /// </summary>
         [DataMember(Name="paymentType", EmitDefaultValue=false)]
@@ -98,6 +130,10 @@ namespace CyberSource.Model
             sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             sb.Append("  FluidData: ").Append(FluidData).Append("\n");
             sb.Append("  Customer: ").Append(Customer).Append("\n");
+            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            sb.Append("  LegacyToken: ").Append(LegacyToken).Append("\n");
             sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -161,6 +197,26 @@ namespace CyberSource.Model
                     this.Customer.Equals(other.Customer)
                 ) && 
                 (
+                    this.PaymentInstrument == other.PaymentInstrument ||
+                    this.PaymentInstrument != null &&
+                    this.PaymentInstrument.Equals(other.PaymentInstrument)
+                ) && 
+                (
+                    this.InstrumentIdentifier == other.InstrumentIdentifier ||
+                    this.InstrumentIdentifier != null &&
+                    this.InstrumentIdentifier.Equals(other.InstrumentIdentifier)
+                ) && 
+                (
+                    this.ShippingAddress == other.ShippingAddress ||
+                    this.ShippingAddress != null &&
+                    this.ShippingAddress.Equals(other.ShippingAddress)
+                ) && 
+                (
+                    this.LegacyToken == other.LegacyToken ||
+                    this.LegacyToken != null &&
+                    this.LegacyToken.Equals(other.LegacyToken)
+                ) && 
+                (
                     this.PaymentType == other.PaymentType ||
                     this.PaymentType != null &&
                     this.PaymentType.Equals(other.PaymentType)
@@ -188,6 +244,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FluidData.GetHashCode();
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
+                if (this.PaymentInstrument != null)
+                    hash = hash * 59 + this.PaymentInstrument.GetHashCode();
+                if (this.InstrumentIdentifier != null)
+                    hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
+                if (this.ShippingAddress != null)
+                    hash = hash * 59 + this.ShippingAddress.GetHashCode();
+                if (this.LegacyToken != null)
+                    hash = hash * 59 + this.LegacyToken.GetHashCode();
                 if (this.PaymentType != null)
                     hash = hash * 59 + this.PaymentType.GetHashCode();
                 return hash;

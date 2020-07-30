@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseRiskInformationVelocityMorphing" /> class.
         /// </summary>
-        /// <param name="Count">Morphing count specified by the number #.  **Note** The count is not returned for the initial transaction.  For all possible values, see the &#x60;decision_velocity_morphing_#_count&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="Count">Morphing count specified by the number #.  **Note** The count is not returned for the initial transaction. .</param>
         /// <param name="FieldName">Field name of the morphing element. specified by the setting that you chose in the Velocity Editor.  For all possible values, see the &#x60;decisionReply_morphingElement_#_fieldName&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="InformationCode">Identifier that CyberSource assigned to the velocity rule specified by the number #.  For all possible values, see the &#x60;decision_velocity_morphing_#_info_code&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         public PtsV2PaymentsPost201ResponseRiskInformationVelocityMorphing(int? Count = default(int?), string FieldName = default(string), string InformationCode = default(string))
@@ -44,9 +44,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Morphing count specified by the number #.  **Note** The count is not returned for the initial transaction.  For all possible values, see the &#x60;decision_velocity_morphing_#_count&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
+        /// Morphing count specified by the number #.  **Note** The count is not returned for the initial transaction. 
         /// </summary>
-        /// <value>Morphing count specified by the number #.  **Note** The count is not returned for the initial transaction.  For all possible values, see the &#x60;decision_velocity_morphing_#_count&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
+        /// <value>Morphing count specified by the number #.  **Note** The count is not returned for the initial transaction. </value>
         [DataMember(Name="count", EmitDefaultValue=false)]
         public int? Count { get; set; }
 

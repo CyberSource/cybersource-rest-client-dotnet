@@ -145,12 +145,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'MerchantInformation'
         }
         /// <summary>
-        /// Test the property 'MetaData'
+        /// Test the property 'InstrumentIdentifier'
         /// </summary>
         [Test]
-        public void MetaDataTest()
+        public void InstrumentIdentifierTest()
         {
-            // TODO unit test for the property 'MetaData'
+            // TODO unit test for the property 'InstrumentIdentifier'
+        }
+        /// <summary>
+        /// Test the property 'Metadata'
+        /// </summary>
+        [Test]
+        public void MetadataTest()
+        {
+            // TODO unit test for the property 'Metadata'
         }
         /// <summary>
         /// Test the property 'Embedded'

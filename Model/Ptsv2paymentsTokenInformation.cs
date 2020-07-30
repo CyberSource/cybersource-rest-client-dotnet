@@ -35,10 +35,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Jti">TMS Transient Token, 64 hexadecimal id value representing captured payment credentials (including Sensitive Authentication Data, e.g. CVV). .</param>
         /// <param name="TransientTokenJwt">Flex API Transient Token encoded as JWT (JSON Web Token), e.g. Flex microform or Unified Payment checkout result. .</param>
-        public Ptsv2paymentsTokenInformation(string Jti = default(string), string TransientTokenJwt = default(string))
+        /// <param name="PaymentInstrument">PaymentInstrument.</param>
+        /// <param name="ShippingAddress">ShippingAddress.</param>
+        public Ptsv2paymentsTokenInformation(string Jti = default(string), string TransientTokenJwt = default(string), Ptsv2paymentsTokenInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsTokenInformationPaymentInstrument), Ptsv2paymentsTokenInformationShippingAddress ShippingAddress = default(Ptsv2paymentsTokenInformationShippingAddress))
         {
             this.Jti = Jti;
             this.TransientTokenJwt = TransientTokenJwt;
+            this.PaymentInstrument = PaymentInstrument;
+            this.ShippingAddress = ShippingAddress;
         }
         
         /// <summary>
@@ -56,6 +60,18 @@ namespace CyberSource.Model
         public string TransientTokenJwt { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentInstrument
+        /// </summary>
+        [DataMember(Name="paymentInstrument", EmitDefaultValue=false)]
+        public Ptsv2paymentsTokenInformationPaymentInstrument PaymentInstrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShippingAddress
+        /// </summary>
+        [DataMember(Name="shippingAddress", EmitDefaultValue=false)]
+        public Ptsv2paymentsTokenInformationShippingAddress ShippingAddress { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +81,8 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsTokenInformation {\n");
             sb.Append("  Jti: ").Append(Jti).Append("\n");
             sb.Append("  TransientTokenJwt: ").Append(TransientTokenJwt).Append("\n");
+            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +128,16 @@ namespace CyberSource.Model
                     this.TransientTokenJwt == other.TransientTokenJwt ||
                     this.TransientTokenJwt != null &&
                     this.TransientTokenJwt.Equals(other.TransientTokenJwt)
+                ) && 
+                (
+                    this.PaymentInstrument == other.PaymentInstrument ||
+                    this.PaymentInstrument != null &&
+                    this.PaymentInstrument.Equals(other.PaymentInstrument)
+                ) && 
+                (
+                    this.ShippingAddress == other.ShippingAddress ||
+                    this.ShippingAddress != null &&
+                    this.ShippingAddress.Equals(other.ShippingAddress)
                 );
         }
 
@@ -128,6 +156,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Jti.GetHashCode();
                 if (this.TransientTokenJwt != null)
                     hash = hash * 59 + this.TransientTokenJwt.GetHashCode();
+                if (this.PaymentInstrument != null)
+                    hash = hash * 59 + this.PaymentInstrument.GetHashCode();
+                if (this.ShippingAddress != null)
+                    hash = hash * 59 + this.ShippingAddress.GetHashCode();
                 return hash;
             }
         }

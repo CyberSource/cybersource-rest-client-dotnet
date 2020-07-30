@@ -48,10 +48,10 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of RiskV1UpdatePost201Response</returns>
         ApiResponse<RiskV1UpdatePost201Response> AddNegativeWithHttpInfo (string type, AddNegativeListRequest addNegativeListRequest);
         /// <summary>
-        /// Create Decision Manager Case
+        /// Create Decision Manager
         /// </summary>
         /// <remarks>
-        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
+        /// Decision Manager can help you automate and streamline your fraud operations. Decision Manager will return a decision based on the request values.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBundledDecisionManagerCaseRequest"></param>
@@ -59,10 +59,10 @@ namespace CyberSource.Api
         RiskV1DecisionsPost201Response CreateBundledDecisionManagerCase (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest);
 
         /// <summary>
-        /// Create Decision Manager Case
+        /// Create Decision Manager
         /// </summary>
         /// <remarks>
-        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
+        /// Decision Manager can help you automate and streamline your fraud operations. Decision Manager will return a decision based on the request values.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBundledDecisionManagerCaseRequest"></param>
@@ -117,10 +117,10 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (RiskV1UpdatePost201Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<RiskV1UpdatePost201Response>> AddNegativeAsyncWithHttpInfo (string type, AddNegativeListRequest addNegativeListRequest);
         /// <summary>
-        /// Create Decision Manager Case
+        /// Create Decision Manager
         /// </summary>
         /// <remarks>
-        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
+        /// Decision Manager can help you automate and streamline your fraud operations. Decision Manager will return a decision based on the request values.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBundledDecisionManagerCaseRequest"></param>
@@ -128,10 +128,10 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<RiskV1DecisionsPost201Response> CreateBundledDecisionManagerCaseAsync (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest);
 
         /// <summary>
-        /// Create Decision Manager Case
+        /// Create Decision Manager
         /// </summary>
         /// <remarks>
-        /// This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
+        /// Decision Manager can help you automate and streamline your fraud operations. Decision Manager will return a decision based on the request values.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBundledDecisionManagerCaseRequest"></param>
@@ -430,7 +430,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
+        /// Create Decision Manager Decision Manager can help you automate and streamline your fraud operations. Decision Manager will return a decision based on the request values.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBundledDecisionManagerCaseRequest"></param>
@@ -442,7 +442,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
+        /// Create Decision Manager Decision Manager can help you automate and streamline your fraud operations. Decision Manager will return a decision based on the request values.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBundledDecisionManagerCaseRequest"></param>
@@ -504,7 +504,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
+        /// Create Decision Manager Decision Manager can help you automate and streamline your fraud operations. Decision Manager will return a decision based on the request values.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBundledDecisionManagerCaseRequest"></param>
@@ -517,7 +517,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create Decision Manager Case This is the combined request to the Decision Manager Service for a transaction sent to Cybersource. Decision Manager will return a decision based on the request values.
+        /// Create Decision Manager Decision Manager can help you automate and streamline your fraud operations. Decision Manager will return a decision based on the request values.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBundledDecisionManagerCaseRequest"></param>

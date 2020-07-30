@@ -34,9 +34,17 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2CreditsPost201ResponsePaymentInformation" /> class.
         /// </summary>
         /// <param name="Bank">Bank.</param>
-        public PtsV2CreditsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentInformationBank Bank = default(PtsV2PaymentsPost201ResponsePaymentInformationBank))
+        /// <param name="Customer">Customer.</param>
+        /// <param name="PaymentInstrument">PaymentInstrument.</param>
+        /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
+        /// <param name="ShippingAddress">ShippingAddress.</param>
+        public PtsV2CreditsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentInformationBank Bank = default(PtsV2PaymentsPost201ResponsePaymentInformationBank), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress))
         {
             this.Bank = Bank;
+            this.Customer = Customer;
+            this.PaymentInstrument = PaymentInstrument;
+            this.InstrumentIdentifier = InstrumentIdentifier;
+            this.ShippingAddress = ShippingAddress;
         }
         
         /// <summary>
@@ -44,6 +52,30 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="bank", EmitDefaultValue=false)]
         public PtsV2PaymentsPost201ResponsePaymentInformationBank Bank { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Customer
+        /// </summary>
+        [DataMember(Name="customer", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentInstrument
+        /// </summary>
+        [DataMember(Name="paymentInstrument", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InstrumentIdentifier
+        /// </summary>
+        [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShippingAddress
+        /// </summary>
+        [DataMember(Name="shippingAddress", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +86,10 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2CreditsPost201ResponsePaymentInformation {\n");
             sb.Append("  Bank: ").Append(Bank).Append("\n");
+            sb.Append("  Customer: ").Append(Customer).Append("\n");
+            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +130,26 @@ namespace CyberSource.Model
                     this.Bank == other.Bank ||
                     this.Bank != null &&
                     this.Bank.Equals(other.Bank)
+                ) && 
+                (
+                    this.Customer == other.Customer ||
+                    this.Customer != null &&
+                    this.Customer.Equals(other.Customer)
+                ) && 
+                (
+                    this.PaymentInstrument == other.PaymentInstrument ||
+                    this.PaymentInstrument != null &&
+                    this.PaymentInstrument.Equals(other.PaymentInstrument)
+                ) && 
+                (
+                    this.InstrumentIdentifier == other.InstrumentIdentifier ||
+                    this.InstrumentIdentifier != null &&
+                    this.InstrumentIdentifier.Equals(other.InstrumentIdentifier)
+                ) && 
+                (
+                    this.ShippingAddress == other.ShippingAddress ||
+                    this.ShippingAddress != null &&
+                    this.ShippingAddress.Equals(other.ShippingAddress)
                 );
         }
 
@@ -110,6 +166,14 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Bank != null)
                     hash = hash * 59 + this.Bank.GetHashCode();
+                if (this.Customer != null)
+                    hash = hash * 59 + this.Customer.GetHashCode();
+                if (this.PaymentInstrument != null)
+                    hash = hash * 59 + this.PaymentInstrument.GetHashCode();
+                if (this.InstrumentIdentifier != null)
+                    hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
+                if (this.ShippingAddress != null)
+                    hash = hash * 59 + this.ShippingAddress.GetHashCode();
                 return hash;
             }
         }

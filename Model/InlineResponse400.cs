@@ -33,34 +33,17 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse400" /> class.
         /// </summary>
-        /// <param name="Type">Type.</param>
-        /// <param name="Message">The detailed message related to the type stated above..</param>
-        /// <param name="Details">Details.</param>
-        public InlineResponse400(string Type = default(string), string Message = default(string), Tmsv1instrumentidentifiersDetails Details = default(Tmsv1instrumentidentifiersDetails))
+        /// <param name="Errors">Errors.</param>
+        public InlineResponse400(List<InlineResponse400Errors> Errors = default(List<InlineResponse400Errors>))
         {
-            this.Type = Type;
-            this.Message = Message;
-            this.Details = Details;
+            this.Errors = Errors;
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Gets or Sets Errors
         /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// The detailed message related to the type stated above.
-        /// </summary>
-        /// <value>The detailed message related to the type stated above.</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Details
-        /// </summary>
-        [DataMember(Name="details", EmitDefaultValue=false)]
-        public Tmsv1instrumentidentifiersDetails Details { get; set; }
+        [DataMember(Name="errors", EmitDefaultValue=false)]
+        public List<InlineResponse400Errors> Errors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,9 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse400 {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,19 +91,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
-                ) && 
-                (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
-                ) && 
-                (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.Equals(other.Details)
+                    this.Errors == other.Errors ||
+                    this.Errors != null &&
+                    this.Errors.SequenceEqual(other.Errors)
                 );
         }
 
@@ -137,12 +108,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
+                if (this.Errors != null)
+                    hash = hash * 59 + this.Errors.GetHashCode();
                 return hash;
             }
         }

@@ -80,6 +80,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TransientTokenJwt'
         }
+        /// <summary>
+        /// Test the property 'PaymentInstrument'
+        /// </summary>
+        [Test]
+        public void PaymentInstrumentTest()
+        {
+            // TODO unit test for the property 'PaymentInstrument'
+        }
+        /// <summary>
+        /// Test the property 'ShippingAddress'
+        /// </summary>
+        [Test]
+        public void ShippingAddressTest()
+        {
+            // TODO unit test for the property 'ShippingAddress'
+        }
 
     }
 

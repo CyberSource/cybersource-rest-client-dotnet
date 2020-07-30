@@ -33,15 +33,13 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedApplicationInformation" /> class.
         /// </summary>
-        /// <param name="Status">The status of the submitted transaction..</param>
         /// <param name="ReasonCode">Indicates the reason why a request succeeded or failed and possible action to take if a request fails.  For details, see the appendix of reason codes in the documentation for the relevant payment method. .</param>
-        /// <param name="RCode">Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful.  For details, see &#x60;auth_rcode&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
-        /// <param name="RFlag">One-word description of the result of the application.  For details, see &#x60;auth_rflag&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="RCode">Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful. .</param>
+        /// <param name="RFlag">One-word description of the result of the application. .</param>
         /// <param name="Applications">Applications.</param>
         /// <param name="ReturnCode">The description for this field is not available..</param>
-        public TssV2TransactionsPost201ResponseEmbeddedApplicationInformation(string Status = default(string), string ReasonCode = default(string), string RCode = default(string), string RFlag = default(string), List<TssV2TransactionsGet200ResponseApplicationInformationApplications> Applications = default(List<TssV2TransactionsGet200ResponseApplicationInformationApplications>), string ReturnCode = default(string))
+        public TssV2TransactionsPost201ResponseEmbeddedApplicationInformation(string ReasonCode = default(string), string RCode = default(string), string RFlag = default(string), List<TssV2TransactionsPost201ResponseEmbeddedApplicationInformationApplications> Applications = default(List<TssV2TransactionsPost201ResponseEmbeddedApplicationInformationApplications>), int? ReturnCode = default(int?))
         {
-            this.Status = Status;
             this.ReasonCode = ReasonCode;
             this.RCode = RCode;
             this.RFlag = RFlag;
@@ -50,13 +48,6 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The status of the submitted transaction.
-        /// </summary>
-        /// <value>The status of the submitted transaction.</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
-
-        /// <summary>
         /// Indicates the reason why a request succeeded or failed and possible action to take if a request fails.  For details, see the appendix of reason codes in the documentation for the relevant payment method. 
         /// </summary>
         /// <value>Indicates the reason why a request succeeded or failed and possible action to take if a request fails.  For details, see the appendix of reason codes in the documentation for the relevant payment method. </value>
@@ -64,16 +55,16 @@ namespace CyberSource.Model
         public string ReasonCode { get; set; }
 
         /// <summary>
-        /// Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful.  For details, see &#x60;auth_rcode&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+        /// Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful. 
         /// </summary>
-        /// <value>Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful.  For details, see &#x60;auth_rcode&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
+        /// <value>Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful. </value>
         [DataMember(Name="rCode", EmitDefaultValue=false)]
         public string RCode { get; set; }
 
         /// <summary>
-        /// One-word description of the result of the application.  For details, see &#x60;auth_rflag&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+        /// One-word description of the result of the application. 
         /// </summary>
-        /// <value>One-word description of the result of the application.  For details, see &#x60;auth_rflag&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
+        /// <value>One-word description of the result of the application. </value>
         [DataMember(Name="rFlag", EmitDefaultValue=false)]
         public string RFlag { get; set; }
 
@@ -81,14 +72,14 @@ namespace CyberSource.Model
         /// Gets or Sets Applications
         /// </summary>
         [DataMember(Name="applications", EmitDefaultValue=false)]
-        public List<TssV2TransactionsGet200ResponseApplicationInformationApplications> Applications { get; set; }
+        public List<TssV2TransactionsPost201ResponseEmbeddedApplicationInformationApplications> Applications { get; set; }
 
         /// <summary>
         /// The description for this field is not available.
         /// </summary>
         /// <value>The description for this field is not available.</value>
         [DataMember(Name="returnCode", EmitDefaultValue=false)]
-        public string ReturnCode { get; set; }
+        public int? ReturnCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,7 +89,6 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedApplicationInformation {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
             sb.Append("  RCode: ").Append(RCode).Append("\n");
             sb.Append("  RFlag: ").Append(RFlag).Append("\n");
@@ -141,11 +131,6 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
-                ) && 
-                (
                     this.ReasonCode == other.ReasonCode ||
                     this.ReasonCode != null &&
                     this.ReasonCode.Equals(other.ReasonCode)
@@ -183,8 +168,6 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
                 if (this.ReasonCode != null)
                     hash = hash * 59 + this.ReasonCode.GetHashCode();
                 if (this.RCode != null)
