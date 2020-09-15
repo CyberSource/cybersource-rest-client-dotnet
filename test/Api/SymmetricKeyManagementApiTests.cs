@@ -73,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //CreateSharedSecretKeysRequest createSharedSecretKeysRequest = null;
             //var response = instance.CreateV2SharedSecretKeys(createSharedSecretKeysRequest);
-            //Assert.IsInstanceOf<InlineResponse201> (response, "response is InlineResponse201");
+            //Assert.IsInstanceOf<KmsV2KeysSymPost201Response> (response, "response is KmsV2KeysSymPost201Response");
         }
         
         /// <summary>
@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest = null;
             //var response = instance.DeleteBulkSymmetricKeys(deleteBulkSymmetricKeysRequest);
-            //Assert.IsInstanceOf<InlineResponse2001> (response, "response is InlineResponse2001");
+            //Assert.IsInstanceOf<KmsV2KeysSymDeletesPost200Response> (response, "response is KmsV2KeysSymDeletesPost200Response");
         }
         
         /// <summary>
@@ -97,7 +97,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string keyId = null;
             //var response = instance.GetKeyDetails(keyId);
-            //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
+            //Assert.IsInstanceOf<KmsV2KeysSymGet200Response> (response, "response is KmsV2KeysSymGet200Response");
         }
         
     }

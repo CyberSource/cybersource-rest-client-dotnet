@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="createv2sharedsecretkeys"></a>
 # **CreateV2SharedSecretKeys**
-> InlineResponse201 CreateV2SharedSecretKeys (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
+> KmsV2KeysSymPost201Response CreateV2SharedSecretKeys (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
 
 Create Shared-Secret Keys
 
@@ -37,7 +37,7 @@ namespace Example
             try
             {
                 // Create Shared-Secret Keys
-                InlineResponse201 result = apiInstance.CreateV2SharedSecretKeys(createSharedSecretKeysRequest);
+                KmsV2KeysSymPost201Response result = apiInstance.CreateV2SharedSecretKeys(createSharedSecretKeysRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**KmsV2KeysSymPost201Response**](KmsV2KeysSymPost201Response.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ No authorization required
 
 <a name="deletebulksymmetrickeys"></a>
 # **DeleteBulkSymmetricKeys**
-> InlineResponse2001 DeleteBulkSymmetricKeys (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
+> KmsV2KeysSymDeletesPost200Response DeleteBulkSymmetricKeys (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
 
 Delete one or more Symmetric keys
 
@@ -98,7 +98,7 @@ namespace Example
             try
             {
                 // Delete one or more Symmetric keys
-                InlineResponse2001 result = apiInstance.DeleteBulkSymmetricKeys(deleteBulkSymmetricKeysRequest);
+                KmsV2KeysSymDeletesPost200Response result = apiInstance.DeleteBulkSymmetricKeys(deleteBulkSymmetricKeysRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**KmsV2KeysSymDeletesPost200Response**](KmsV2KeysSymDeletesPost200Response.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ No authorization required
 
 <a name="getkeydetails"></a>
 # **GetKeyDetails**
-> InlineResponse200 GetKeyDetails (string keyId)
+> KmsV2KeysSymGet200Response GetKeyDetails (string keyId)
 
 Retrieves shared secret key details
 
@@ -159,7 +159,7 @@ namespace Example
             try
             {
                 // Retrieves shared secret key details
-                InlineResponse200 result = apiInstance.GetKeyDetails(keyId);
+                KmsV2KeysSymGet200Response result = apiInstance.GetKeyDetails(keyId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**KmsV2KeysSymGet200Response**](KmsV2KeysSymGet200Response.md)
 
 ### Authorization
 

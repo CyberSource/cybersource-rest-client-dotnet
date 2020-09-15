@@ -73,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //CreateP12KeysRequest createP12KeysRequest = null;
             //var response = instance.CreateP12Keys(createP12KeysRequest);
-            //Assert.IsInstanceOf<InlineResponse2011> (response, "response is InlineResponse2011");
+            //Assert.IsInstanceOf<KmsV2KeysAsymPost201Response> (response, "response is KmsV2KeysAsymPost201Response");
         }
         
         /// <summary>
@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //DeleteBulkP12KeysRequest deleteBulkP12KeysRequest = null;
             //var response = instance.DeleteBulkP12Keys(deleteBulkP12KeysRequest);
-            //Assert.IsInstanceOf<InlineResponse2003> (response, "response is InlineResponse2003");
+            //Assert.IsInstanceOf<KmsV2KeysAsymDeletesPost200Response> (response, "response is KmsV2KeysAsymDeletesPost200Response");
         }
         
         /// <summary>
@@ -97,7 +97,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string keyId = null;
             //var response = instance.GetP12KeyDetails(keyId);
-            //Assert.IsInstanceOf<InlineResponse2002> (response, "response is InlineResponse2002");
+            //Assert.IsInstanceOf<KmsV2KeysAsymGet200Response> (response, "response is KmsV2KeysAsymGet200Response");
         }
         
     }

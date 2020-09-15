@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="createp12keys"></a>
 # **CreateP12Keys**
-> InlineResponse2011 CreateP12Keys (CreateP12KeysRequest createP12KeysRequest)
+> KmsV2KeysAsymPost201Response CreateP12Keys (CreateP12KeysRequest createP12KeysRequest)
 
 Create one or more PKCS#12 keys
 
@@ -37,7 +37,7 @@ namespace Example
             try
             {
                 // Create one or more PKCS#12 keys
-                InlineResponse2011 result = apiInstance.CreateP12Keys(createP12KeysRequest);
+                KmsV2KeysAsymPost201Response result = apiInstance.CreateP12Keys(createP12KeysRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**KmsV2KeysAsymPost201Response**](KmsV2KeysAsymPost201Response.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ No authorization required
 
 <a name="deletebulkp12keys"></a>
 # **DeleteBulkP12Keys**
-> InlineResponse2003 DeleteBulkP12Keys (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
+> KmsV2KeysAsymDeletesPost200Response DeleteBulkP12Keys (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
 
 Delete one or more PKCS#12 keys
 
@@ -98,7 +98,7 @@ namespace Example
             try
             {
                 // Delete one or more PKCS#12 keys
-                InlineResponse2003 result = apiInstance.DeleteBulkP12Keys(deleteBulkP12KeysRequest);
+                KmsV2KeysAsymDeletesPost200Response result = apiInstance.DeleteBulkP12Keys(deleteBulkP12KeysRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**KmsV2KeysAsymDeletesPost200Response**](KmsV2KeysAsymDeletesPost200Response.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ No authorization required
 
 <a name="getp12keydetails"></a>
 # **GetP12KeyDetails**
-> InlineResponse2002 GetP12KeyDetails (string keyId)
+> KmsV2KeysAsymGet200Response GetP12KeyDetails (string keyId)
 
 Retrieves PKCS#12 key details
 
@@ -159,7 +159,7 @@ namespace Example
             try
             {
                 // Retrieves PKCS#12 key details
-                InlineResponse2002 result = apiInstance.GetP12KeyDetails(keyId);
+                KmsV2KeysAsymGet200Response result = apiInstance.GetP12KeyDetails(keyId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**KmsV2KeysAsymGet200Response**](KmsV2KeysAsymGet200Response.md)
 
 ### Authorization
 
