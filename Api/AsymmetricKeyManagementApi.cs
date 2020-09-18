@@ -32,8 +32,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
-        /// <returns>InlineResponse2011</returns>
-        InlineResponse2011 CreateP12Keys (CreateP12KeysRequest createP12KeysRequest);
+        /// <returns>KmsV2KeysAsymPost201Response</returns>
+        KmsV2KeysAsymPost201Response CreateP12Keys (CreateP12KeysRequest createP12KeysRequest);
 
         /// <summary>
         /// Create one or more PKCS#12 keys
@@ -43,8 +43,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2011</returns>
-        ApiResponse<InlineResponse2011> CreateP12KeysWithHttpInfo (CreateP12KeysRequest createP12KeysRequest);
+        /// <returns>ApiResponse of KmsV2KeysAsymPost201Response</returns>
+        ApiResponse<KmsV2KeysAsymPost201Response> CreateP12KeysWithHttpInfo (CreateP12KeysRequest createP12KeysRequest);
         /// <summary>
         /// Delete one or more PKCS#12 keys
         /// </summary>
@@ -53,8 +53,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
-        /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 DeleteBulkP12Keys (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
+        /// <returns>KmsV2KeysAsymDeletesPost200Response</returns>
+        KmsV2KeysAsymDeletesPost200Response DeleteBulkP12Keys (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
 
         /// <summary>
         /// Delete one or more PKCS#12 keys
@@ -64,8 +64,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> DeleteBulkP12KeysWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
+        /// <returns>ApiResponse of KmsV2KeysAsymDeletesPost200Response</returns>
+        ApiResponse<KmsV2KeysAsymDeletesPost200Response> DeleteBulkP12KeysWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
         /// <summary>
         /// Retrieves PKCS#12 key details
         /// </summary>
@@ -74,8 +74,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 GetP12KeyDetails (string keyId);
+        /// <returns>KmsV2KeysAsymGet200Response</returns>
+        KmsV2KeysAsymGet200Response GetP12KeyDetails (string keyId);
 
         /// <summary>
         /// Retrieves PKCS#12 key details
@@ -85,8 +85,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> GetP12KeyDetailsWithHttpInfo (string keyId);
+        /// <returns>ApiResponse of KmsV2KeysAsymGet200Response</returns>
+        ApiResponse<KmsV2KeysAsymGet200Response> GetP12KeyDetailsWithHttpInfo (string keyId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -97,8 +97,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
-        /// <returns>Task of InlineResponse2011</returns>
-        System.Threading.Tasks.Task<InlineResponse2011> CreateP12KeysAsync (CreateP12KeysRequest createP12KeysRequest);
+        /// <returns>Task of KmsV2KeysAsymPost201Response</returns>
+        System.Threading.Tasks.Task<KmsV2KeysAsymPost201Response> CreateP12KeysAsync (CreateP12KeysRequest createP12KeysRequest);
 
         /// <summary>
         /// Create one or more PKCS#12 keys
@@ -108,8 +108,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CreateP12KeysAsyncWithHttpInfo (CreateP12KeysRequest createP12KeysRequest);
+        /// <returns>Task of ApiResponse (KmsV2KeysAsymPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymPost201Response>> CreateP12KeysAsyncWithHttpInfo (CreateP12KeysRequest createP12KeysRequest);
         /// <summary>
         /// Delete one or more PKCS#12 keys
         /// </summary>
@@ -118,8 +118,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
-        /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> DeleteBulkP12KeysAsync (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
+        /// <returns>Task of KmsV2KeysAsymDeletesPost200Response</returns>
+        System.Threading.Tasks.Task<KmsV2KeysAsymDeletesPost200Response> DeleteBulkP12KeysAsync (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
 
         /// <summary>
         /// Delete one or more PKCS#12 keys
@@ -129,8 +129,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> DeleteBulkP12KeysAsyncWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
+        /// <returns>Task of ApiResponse (KmsV2KeysAsymDeletesPost200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymDeletesPost200Response>> DeleteBulkP12KeysAsyncWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
         /// <summary>
         /// Retrieves PKCS#12 key details
         /// </summary>
@@ -139,8 +139,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> GetP12KeyDetailsAsync (string keyId);
+        /// <returns>Task of KmsV2KeysAsymGet200Response</returns>
+        System.Threading.Tasks.Task<KmsV2KeysAsymGet200Response> GetP12KeyDetailsAsync (string keyId);
 
         /// <summary>
         /// Retrieves PKCS#12 key details
@@ -150,8 +150,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetP12KeyDetailsAsyncWithHttpInfo (string keyId);
+        /// <returns>Task of ApiResponse (KmsV2KeysAsymGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymGet200Response>> GetP12KeyDetailsAsyncWithHttpInfo (string keyId);
         #endregion Asynchronous Operations
     }
 
@@ -265,10 +265,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
-        /// <returns>InlineResponse2011</returns>
-        public InlineResponse2011 CreateP12Keys (CreateP12KeysRequest createP12KeysRequest)
+        /// <returns>KmsV2KeysAsymPost201Response</returns>
+        public KmsV2KeysAsymPost201Response CreateP12Keys (CreateP12KeysRequest createP12KeysRequest)
         {
-             ApiResponse<InlineResponse2011> localVarResponse = CreateP12KeysWithHttpInfo(createP12KeysRequest);
+             ApiResponse<KmsV2KeysAsymPost201Response> localVarResponse = CreateP12KeysWithHttpInfo(createP12KeysRequest);
              return localVarResponse.Data;
         }
 
@@ -277,8 +277,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2011</returns>
-        public ApiResponse< InlineResponse2011 > CreateP12KeysWithHttpInfo (CreateP12KeysRequest createP12KeysRequest)
+        /// <returns>ApiResponse of KmsV2KeysAsymPost201Response</returns>
+        public ApiResponse< KmsV2KeysAsymPost201Response > CreateP12KeysWithHttpInfo (CreateP12KeysRequest createP12KeysRequest)
         {
             // verify the required parameter 'createP12KeysRequest' is set
             if (createP12KeysRequest == null)
@@ -329,9 +329,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysAsymPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011))); // Return statement
+                (KmsV2KeysAsymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -339,10 +339,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
-        /// <returns>Task of InlineResponse2011</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2011> CreateP12KeysAsync (CreateP12KeysRequest createP12KeysRequest)
+        /// <returns>Task of KmsV2KeysAsymPost201Response</returns>
+        public async System.Threading.Tasks.Task<KmsV2KeysAsymPost201Response> CreateP12KeysAsync (CreateP12KeysRequest createP12KeysRequest)
         {
-             ApiResponse<InlineResponse2011> localVarResponse = await CreateP12KeysAsyncWithHttpInfo(createP12KeysRequest);
+             ApiResponse<KmsV2KeysAsymPost201Response> localVarResponse = await CreateP12KeysAsyncWithHttpInfo(createP12KeysRequest);
              return localVarResponse.Data;
 
         }
@@ -352,8 +352,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CreateP12KeysAsyncWithHttpInfo (CreateP12KeysRequest createP12KeysRequest)
+        /// <returns>Task of ApiResponse (KmsV2KeysAsymPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymPost201Response>> CreateP12KeysAsyncWithHttpInfo (CreateP12KeysRequest createP12KeysRequest)
         {
             // verify the required parameter 'createP12KeysRequest' is set
             if (createP12KeysRequest == null)
@@ -404,9 +404,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysAsymPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011))); // Return statement
+                (KmsV2KeysAsymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -414,10 +414,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
-        /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 DeleteBulkP12Keys (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
+        /// <returns>KmsV2KeysAsymDeletesPost200Response</returns>
+        public KmsV2KeysAsymDeletesPost200Response DeleteBulkP12Keys (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
         {
-             ApiResponse<InlineResponse2003> localVarResponse = DeleteBulkP12KeysWithHttpInfo(deleteBulkP12KeysRequest);
+             ApiResponse<KmsV2KeysAsymDeletesPost200Response> localVarResponse = DeleteBulkP12KeysWithHttpInfo(deleteBulkP12KeysRequest);
              return localVarResponse.Data;
         }
 
@@ -426,8 +426,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        public ApiResponse< InlineResponse2003 > DeleteBulkP12KeysWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
+        /// <returns>ApiResponse of KmsV2KeysAsymDeletesPost200Response</returns>
+        public ApiResponse< KmsV2KeysAsymDeletesPost200Response > DeleteBulkP12KeysWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
         {
             // verify the required parameter 'deleteBulkP12KeysRequest' is set
             if (deleteBulkP12KeysRequest == null)
@@ -478,9 +478,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysAsymDeletesPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003))); // Return statement
+                (KmsV2KeysAsymDeletesPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymDeletesPost200Response))); // Return statement
         }
 
         /// <summary>
@@ -488,10 +488,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
-        /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> DeleteBulkP12KeysAsync (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
+        /// <returns>Task of KmsV2KeysAsymDeletesPost200Response</returns>
+        public async System.Threading.Tasks.Task<KmsV2KeysAsymDeletesPost200Response> DeleteBulkP12KeysAsync (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
         {
-             ApiResponse<InlineResponse2003> localVarResponse = await DeleteBulkP12KeysAsyncWithHttpInfo(deleteBulkP12KeysRequest);
+             ApiResponse<KmsV2KeysAsymDeletesPost200Response> localVarResponse = await DeleteBulkP12KeysAsyncWithHttpInfo(deleteBulkP12KeysRequest);
              return localVarResponse.Data;
 
         }
@@ -501,8 +501,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> DeleteBulkP12KeysAsyncWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
+        /// <returns>Task of ApiResponse (KmsV2KeysAsymDeletesPost200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymDeletesPost200Response>> DeleteBulkP12KeysAsyncWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
         {
             // verify the required parameter 'deleteBulkP12KeysRequest' is set
             if (deleteBulkP12KeysRequest == null)
@@ -553,9 +553,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysAsymDeletesPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003))); // Return statement
+                (KmsV2KeysAsymDeletesPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymDeletesPost200Response))); // Return statement
         }
 
         /// <summary>
@@ -563,10 +563,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 GetP12KeyDetails (string keyId)
+        /// <returns>KmsV2KeysAsymGet200Response</returns>
+        public KmsV2KeysAsymGet200Response GetP12KeyDetails (string keyId)
         {
-             ApiResponse<InlineResponse2002> localVarResponse = GetP12KeyDetailsWithHttpInfo(keyId);
+             ApiResponse<KmsV2KeysAsymGet200Response> localVarResponse = GetP12KeyDetailsWithHttpInfo(keyId);
              return localVarResponse.Data;
         }
 
@@ -575,8 +575,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse< InlineResponse2002 > GetP12KeyDetailsWithHttpInfo (string keyId)
+        /// <returns>ApiResponse of KmsV2KeysAsymGet200Response</returns>
+        public ApiResponse< KmsV2KeysAsymGet200Response > GetP12KeyDetailsWithHttpInfo (string keyId)
         {
             // verify the required parameter 'keyId' is set
             if (keyId == null)
@@ -620,9 +620,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysAsymGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002))); // Return statement
+                (KmsV2KeysAsymGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -630,10 +630,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetP12KeyDetailsAsync (string keyId)
+        /// <returns>Task of KmsV2KeysAsymGet200Response</returns>
+        public async System.Threading.Tasks.Task<KmsV2KeysAsymGet200Response> GetP12KeyDetailsAsync (string keyId)
         {
-             ApiResponse<InlineResponse2002> localVarResponse = await GetP12KeyDetailsAsyncWithHttpInfo(keyId);
+             ApiResponse<KmsV2KeysAsymGet200Response> localVarResponse = await GetP12KeyDetailsAsyncWithHttpInfo(keyId);
              return localVarResponse.Data;
 
         }
@@ -643,8 +643,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetP12KeyDetailsAsyncWithHttpInfo (string keyId)
+        /// <returns>Task of ApiResponse (KmsV2KeysAsymGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymGet200Response>> GetP12KeyDetailsAsyncWithHttpInfo (string keyId)
         {
             // verify the required parameter 'keyId' is set
             if (keyId == null)
@@ -688,9 +688,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysAsymGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002))); // Return statement
+                (KmsV2KeysAsymGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymGet200Response))); // Return statement
         }
 
     }

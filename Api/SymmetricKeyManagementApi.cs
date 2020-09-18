@@ -32,8 +32,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSharedSecretKeysRequest"></param>
-        /// <returns>InlineResponse201</returns>
-        InlineResponse201 CreateV2SharedSecretKeys (CreateSharedSecretKeysRequest createSharedSecretKeysRequest);
+        /// <returns>KmsV2KeysSymPost201Response</returns>
+        KmsV2KeysSymPost201Response CreateV2SharedSecretKeys (CreateSharedSecretKeysRequest createSharedSecretKeysRequest);
 
         /// <summary>
         /// Create Shared-Secret Keys
@@ -43,8 +43,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSharedSecretKeysRequest"></param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        ApiResponse<InlineResponse201> CreateV2SharedSecretKeysWithHttpInfo (CreateSharedSecretKeysRequest createSharedSecretKeysRequest);
+        /// <returns>ApiResponse of KmsV2KeysSymPost201Response</returns>
+        ApiResponse<KmsV2KeysSymPost201Response> CreateV2SharedSecretKeysWithHttpInfo (CreateSharedSecretKeysRequest createSharedSecretKeysRequest);
         /// <summary>
         /// Delete one or more Symmetric keys
         /// </summary>
@@ -53,8 +53,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkSymmetricKeysRequest"></param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 DeleteBulkSymmetricKeys (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest);
+        /// <returns>KmsV2KeysSymDeletesPost200Response</returns>
+        KmsV2KeysSymDeletesPost200Response DeleteBulkSymmetricKeys (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest);
 
         /// <summary>
         /// Delete one or more Symmetric keys
@@ -64,8 +64,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkSymmetricKeysRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> DeleteBulkSymmetricKeysWithHttpInfo (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest);
+        /// <returns>ApiResponse of KmsV2KeysSymDeletesPost200Response</returns>
+        ApiResponse<KmsV2KeysSymDeletesPost200Response> DeleteBulkSymmetricKeysWithHttpInfo (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest);
         /// <summary>
         /// Retrieves shared secret key details
         /// </summary>
@@ -74,8 +74,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 GetKeyDetails (string keyId);
+        /// <returns>KmsV2KeysSymGet200Response</returns>
+        KmsV2KeysSymGet200Response GetKeyDetails (string keyId);
 
         /// <summary>
         /// Retrieves shared secret key details
@@ -85,8 +85,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> GetKeyDetailsWithHttpInfo (string keyId);
+        /// <returns>ApiResponse of KmsV2KeysSymGet200Response</returns>
+        ApiResponse<KmsV2KeysSymGet200Response> GetKeyDetailsWithHttpInfo (string keyId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -97,8 +97,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSharedSecretKeysRequest"></param>
-        /// <returns>Task of InlineResponse201</returns>
-        System.Threading.Tasks.Task<InlineResponse201> CreateV2SharedSecretKeysAsync (CreateSharedSecretKeysRequest createSharedSecretKeysRequest);
+        /// <returns>Task of KmsV2KeysSymPost201Response</returns>
+        System.Threading.Tasks.Task<KmsV2KeysSymPost201Response> CreateV2SharedSecretKeysAsync (CreateSharedSecretKeysRequest createSharedSecretKeysRequest);
 
         /// <summary>
         /// Create Shared-Secret Keys
@@ -108,8 +108,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSharedSecretKeysRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreateV2SharedSecretKeysAsyncWithHttpInfo (CreateSharedSecretKeysRequest createSharedSecretKeysRequest);
+        /// <returns>Task of ApiResponse (KmsV2KeysSymPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KmsV2KeysSymPost201Response>> CreateV2SharedSecretKeysAsyncWithHttpInfo (CreateSharedSecretKeysRequest createSharedSecretKeysRequest);
         /// <summary>
         /// Delete one or more Symmetric keys
         /// </summary>
@@ -118,8 +118,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkSymmetricKeysRequest"></param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> DeleteBulkSymmetricKeysAsync (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest);
+        /// <returns>Task of KmsV2KeysSymDeletesPost200Response</returns>
+        System.Threading.Tasks.Task<KmsV2KeysSymDeletesPost200Response> DeleteBulkSymmetricKeysAsync (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest);
 
         /// <summary>
         /// Delete one or more Symmetric keys
@@ -129,8 +129,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkSymmetricKeysRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> DeleteBulkSymmetricKeysAsyncWithHttpInfo (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest);
+        /// <returns>Task of ApiResponse (KmsV2KeysSymDeletesPost200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KmsV2KeysSymDeletesPost200Response>> DeleteBulkSymmetricKeysAsyncWithHttpInfo (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest);
         /// <summary>
         /// Retrieves shared secret key details
         /// </summary>
@@ -139,8 +139,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> GetKeyDetailsAsync (string keyId);
+        /// <returns>Task of KmsV2KeysSymGet200Response</returns>
+        System.Threading.Tasks.Task<KmsV2KeysSymGet200Response> GetKeyDetailsAsync (string keyId);
 
         /// <summary>
         /// Retrieves shared secret key details
@@ -150,8 +150,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetKeyDetailsAsyncWithHttpInfo (string keyId);
+        /// <returns>Task of ApiResponse (KmsV2KeysSymGet200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KmsV2KeysSymGet200Response>> GetKeyDetailsAsyncWithHttpInfo (string keyId);
         #endregion Asynchronous Operations
     }
 
@@ -265,10 +265,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSharedSecretKeysRequest"></param>
-        /// <returns>InlineResponse201</returns>
-        public InlineResponse201 CreateV2SharedSecretKeys (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
+        /// <returns>KmsV2KeysSymPost201Response</returns>
+        public KmsV2KeysSymPost201Response CreateV2SharedSecretKeys (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
         {
-             ApiResponse<InlineResponse201> localVarResponse = CreateV2SharedSecretKeysWithHttpInfo(createSharedSecretKeysRequest);
+             ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = CreateV2SharedSecretKeysWithHttpInfo(createSharedSecretKeysRequest);
              return localVarResponse.Data;
         }
 
@@ -277,8 +277,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSharedSecretKeysRequest"></param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        public ApiResponse< InlineResponse201 > CreateV2SharedSecretKeysWithHttpInfo (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
+        /// <returns>ApiResponse of KmsV2KeysSymPost201Response</returns>
+        public ApiResponse< KmsV2KeysSymPost201Response > CreateV2SharedSecretKeysWithHttpInfo (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
         {
             // verify the required parameter 'createSharedSecretKeysRequest' is set
             if (createSharedSecretKeysRequest == null)
@@ -329,9 +329,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse201>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysSymPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse201) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201))); // Return statement
+                (KmsV2KeysSymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -339,10 +339,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSharedSecretKeysRequest"></param>
-        /// <returns>Task of InlineResponse201</returns>
-        public async System.Threading.Tasks.Task<InlineResponse201> CreateV2SharedSecretKeysAsync (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
+        /// <returns>Task of KmsV2KeysSymPost201Response</returns>
+        public async System.Threading.Tasks.Task<KmsV2KeysSymPost201Response> CreateV2SharedSecretKeysAsync (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
         {
-             ApiResponse<InlineResponse201> localVarResponse = await CreateV2SharedSecretKeysAsyncWithHttpInfo(createSharedSecretKeysRequest);
+             ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = await CreateV2SharedSecretKeysAsyncWithHttpInfo(createSharedSecretKeysRequest);
              return localVarResponse.Data;
 
         }
@@ -352,8 +352,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSharedSecretKeysRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreateV2SharedSecretKeysAsyncWithHttpInfo (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
+        /// <returns>Task of ApiResponse (KmsV2KeysSymPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<KmsV2KeysSymPost201Response>> CreateV2SharedSecretKeysAsyncWithHttpInfo (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
         {
             // verify the required parameter 'createSharedSecretKeysRequest' is set
             if (createSharedSecretKeysRequest == null)
@@ -404,9 +404,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse201>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysSymPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse201) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201))); // Return statement
+                (KmsV2KeysSymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymPost201Response))); // Return statement
         }
 
         /// <summary>
@@ -414,10 +414,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkSymmetricKeysRequest"></param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 DeleteBulkSymmetricKeys (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
+        /// <returns>KmsV2KeysSymDeletesPost200Response</returns>
+        public KmsV2KeysSymDeletesPost200Response DeleteBulkSymmetricKeys (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
         {
-             ApiResponse<InlineResponse2001> localVarResponse = DeleteBulkSymmetricKeysWithHttpInfo(deleteBulkSymmetricKeysRequest);
+             ApiResponse<KmsV2KeysSymDeletesPost200Response> localVarResponse = DeleteBulkSymmetricKeysWithHttpInfo(deleteBulkSymmetricKeysRequest);
              return localVarResponse.Data;
         }
 
@@ -426,8 +426,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkSymmetricKeysRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse< InlineResponse2001 > DeleteBulkSymmetricKeysWithHttpInfo (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
+        /// <returns>ApiResponse of KmsV2KeysSymDeletesPost200Response</returns>
+        public ApiResponse< KmsV2KeysSymDeletesPost200Response > DeleteBulkSymmetricKeysWithHttpInfo (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
         {
             // verify the required parameter 'deleteBulkSymmetricKeysRequest' is set
             if (deleteBulkSymmetricKeysRequest == null)
@@ -478,9 +478,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysSymDeletesPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001))); // Return statement
+                (KmsV2KeysSymDeletesPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymDeletesPost200Response))); // Return statement
         }
 
         /// <summary>
@@ -488,10 +488,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkSymmetricKeysRequest"></param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> DeleteBulkSymmetricKeysAsync (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
+        /// <returns>Task of KmsV2KeysSymDeletesPost200Response</returns>
+        public async System.Threading.Tasks.Task<KmsV2KeysSymDeletesPost200Response> DeleteBulkSymmetricKeysAsync (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
         {
-             ApiResponse<InlineResponse2001> localVarResponse = await DeleteBulkSymmetricKeysAsyncWithHttpInfo(deleteBulkSymmetricKeysRequest);
+             ApiResponse<KmsV2KeysSymDeletesPost200Response> localVarResponse = await DeleteBulkSymmetricKeysAsyncWithHttpInfo(deleteBulkSymmetricKeysRequest);
              return localVarResponse.Data;
 
         }
@@ -501,8 +501,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkSymmetricKeysRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> DeleteBulkSymmetricKeysAsyncWithHttpInfo (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
+        /// <returns>Task of ApiResponse (KmsV2KeysSymDeletesPost200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<KmsV2KeysSymDeletesPost200Response>> DeleteBulkSymmetricKeysAsyncWithHttpInfo (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
         {
             // verify the required parameter 'deleteBulkSymmetricKeysRequest' is set
             if (deleteBulkSymmetricKeysRequest == null)
@@ -553,9 +553,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysSymDeletesPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001))); // Return statement
+                (KmsV2KeysSymDeletesPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymDeletesPost200Response))); // Return statement
         }
 
         /// <summary>
@@ -563,10 +563,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>InlineResponse200</returns>
-        public InlineResponse200 GetKeyDetails (string keyId)
+        /// <returns>KmsV2KeysSymGet200Response</returns>
+        public KmsV2KeysSymGet200Response GetKeyDetails (string keyId)
         {
-             ApiResponse<InlineResponse200> localVarResponse = GetKeyDetailsWithHttpInfo(keyId);
+             ApiResponse<KmsV2KeysSymGet200Response> localVarResponse = GetKeyDetailsWithHttpInfo(keyId);
              return localVarResponse.Data;
         }
 
@@ -575,8 +575,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > GetKeyDetailsWithHttpInfo (string keyId)
+        /// <returns>ApiResponse of KmsV2KeysSymGet200Response</returns>
+        public ApiResponse< KmsV2KeysSymGet200Response > GetKeyDetailsWithHttpInfo (string keyId)
         {
             // verify the required parameter 'keyId' is set
             if (keyId == null)
@@ -620,9 +620,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysSymGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+                (KmsV2KeysSymGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymGet200Response))); // Return statement
         }
 
         /// <summary>
@@ -630,10 +630,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetKeyDetailsAsync (string keyId)
+        /// <returns>Task of KmsV2KeysSymGet200Response</returns>
+        public async System.Threading.Tasks.Task<KmsV2KeysSymGet200Response> GetKeyDetailsAsync (string keyId)
         {
-             ApiResponse<InlineResponse200> localVarResponse = await GetKeyDetailsAsyncWithHttpInfo(keyId);
+             ApiResponse<KmsV2KeysSymGet200Response> localVarResponse = await GetKeyDetailsAsyncWithHttpInfo(keyId);
              return localVarResponse.Data;
 
         }
@@ -643,8 +643,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetKeyDetailsAsyncWithHttpInfo (string keyId)
+        /// <returns>Task of ApiResponse (KmsV2KeysSymGet200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<KmsV2KeysSymGet200Response>> GetKeyDetailsAsyncWithHttpInfo (string keyId)
         {
             // verify the required parameter 'keyId' is set
             if (keyId == null)
@@ -688,9 +688,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<KmsV2KeysSymGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+                (KmsV2KeysSymGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymGet200Response))); // Return statement
         }
 
     }
