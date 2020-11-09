@@ -120,6 +120,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'DefaultCurrencyCode'
         }
+        /// <summary>
+        /// Test the property 'PayerAuthentication3DSVersion'
+        /// </summary>
+        [Test]
+        public void PayerAuthentication3DSVersionTest()
+        {
+            // TODO unit test for the property 'PayerAuthentication3DSVersion'
+        }
 
     }
 

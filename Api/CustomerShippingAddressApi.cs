@@ -134,7 +134,7 @@ namespace CyberSource.Api
         /// Create a Customer Shipping Address
         /// </summary>
         /// <remarks>
-        /// 
+        /// Include an existing TMS Customer token id in the request URI. * A Customer token can be created by calling: **POST *_/tms/v2/customers*** 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerTokenId">The TokenId of a customer.</param>
@@ -147,7 +147,7 @@ namespace CyberSource.Api
         /// Create a Customer Shipping Address
         /// </summary>
         /// <remarks>
-        /// 
+        /// Include an existing TMS Customer token id in the request URI. * A Customer token can be created by calling: **POST *_/tms/v2/customers*** 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerTokenId">The TokenId of a customer.</param>
@@ -267,7 +267,7 @@ namespace CyberSource.Api
         /// Create a Customer Shipping Address
         /// </summary>
         /// <remarks>
-        /// 
+        /// Include an existing TMS Customer token id in the request URI. * A Customer token can be created by calling: **POST *_/tms/v2/customers*** 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerTokenId">The TokenId of a customer.</param>
@@ -280,7 +280,7 @@ namespace CyberSource.Api
         /// Create a Customer Shipping Address
         /// </summary>
         /// <remarks>
-        /// 
+        /// Include an existing TMS Customer token id in the request URI. * A Customer token can be created by calling: **POST *_/tms/v2/customers*** 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerTokenId">The TokenId of a customer.</param>
@@ -1039,7 +1039,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Customer Shipping Address 
+        /// Create a Customer Shipping Address Include an existing TMS Customer token id in the request URI. * A Customer token can be created by calling: **POST *_/tms/v2/customers*** 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerTokenId">The TokenId of a customer.</param>
@@ -1053,7 +1053,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Customer Shipping Address 
+        /// Create a Customer Shipping Address Include an existing TMS Customer token id in the request URI. * A Customer token can be created by calling: **POST *_/tms/v2/customers*** 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerTokenId">The TokenId of a customer.</param>
@@ -1122,7 +1122,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Customer Shipping Address 
+        /// Create a Customer Shipping Address Include an existing TMS Customer token id in the request URI. * A Customer token can be created by calling: **POST *_/tms/v2/customers*** 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerTokenId">The TokenId of a customer.</param>
@@ -1137,7 +1137,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Customer Shipping Address 
+        /// Create a Customer Shipping Address Include an existing TMS Customer token id in the request URI. * A Customer token can be created by calling: **POST *_/tms/v2/customers*** 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerTokenId">The TokenId of a customer.</param>

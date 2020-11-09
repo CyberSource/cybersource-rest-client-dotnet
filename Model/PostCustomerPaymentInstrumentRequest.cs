@@ -35,6 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Links">Links.</param>
         /// <param name="Id">The id of the Payment Instrument Token..</param>
+        /// <param name="_Default">Flag that indicates whether customer payment instrument is the dafault. Valid values:  - &#x60;true&#x60;: Payment instrument is customer&#39;s default.  - &#x60;false&#x60;: Payment instrument is not customer&#39;s default. .</param>
         /// <param name="BankAccount">BankAccount.</param>
         /// <param name="Card">Card.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
@@ -44,10 +45,11 @@ namespace CyberSource.Model
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
         /// <param name="Metadata">Metadata.</param>
         /// <param name="Embedded">Embedded.</param>
-        public PostCustomerPaymentInstrumentRequest(Tmsv2customersEmbeddedDefaultPaymentInstrumentLinks Links = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentLinks), string Id = default(string), Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount BankAccount = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount), Tmsv2customersEmbeddedDefaultPaymentInstrumentCard Card = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentCard), Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformation BuyerInformation = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformation), Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo BillTo = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo), Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformation ProcessingInformation = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformation), Tmsv2customersEmbeddedDefaultPaymentInstrumentMerchantInformation MerchantInformation = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentMerchantInformation), Tmsv2customersEmbeddedDefaultPaymentInstrumentInstrumentIdentifier InstrumentIdentifier = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentInstrumentIdentifier), Tmsv2customersEmbeddedDefaultPaymentInstrumentMetadata Metadata = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentMetadata), Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded Embedded = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded))
+        public PostCustomerPaymentInstrumentRequest(Tmsv2customersEmbeddedDefaultPaymentInstrumentLinks Links = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentLinks), string Id = default(string), bool? _Default = default(bool?), Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount BankAccount = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount), Tmsv2customersEmbeddedDefaultPaymentInstrumentCard Card = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentCard), Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformation BuyerInformation = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformation), Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo BillTo = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo), Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformation ProcessingInformation = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentProcessingInformation), Tmsv2customersEmbeddedDefaultPaymentInstrumentMerchantInformation MerchantInformation = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentMerchantInformation), Tmsv2customersEmbeddedDefaultPaymentInstrumentInstrumentIdentifier InstrumentIdentifier = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentInstrumentIdentifier), Tmsv2customersEmbeddedDefaultPaymentInstrumentMetadata Metadata = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentMetadata), Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded Embedded = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded))
         {
             this.Links = Links;
             this.Id = Id;
+            this._Default = _Default;
             this.BankAccount = BankAccount;
             this.Card = Card;
             this.BuyerInformation = BuyerInformation;
@@ -78,6 +80,13 @@ namespace CyberSource.Model
         /// <value>The type of token.  Valid values: - paymentInstrument </value>
         [DataMember(Name="object", EmitDefaultValue=false)]
         public string _Object { get; private set; }
+
+        /// <summary>
+        /// Flag that indicates whether customer payment instrument is the dafault. Valid values:  - &#x60;true&#x60;: Payment instrument is customer&#39;s default.  - &#x60;false&#x60;: Payment instrument is not customer&#39;s default. 
+        /// </summary>
+        /// <value>Flag that indicates whether customer payment instrument is the dafault. Valid values:  - &#x60;true&#x60;: Payment instrument is customer&#39;s default.  - &#x60;false&#x60;: Payment instrument is not customer&#39;s default. </value>
+        [DataMember(Name="default", EmitDefaultValue=false)]
+        public bool? _Default { get; set; }
 
         /// <summary>
         /// Issuers state for the card number. Valid values: - ACTIVE - CLOSED : The account has been closed. 
@@ -151,6 +160,7 @@ namespace CyberSource.Model
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  _Object: ").Append(_Object).Append("\n");
+            sb.Append("  _Default: ").Append(_Default).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
@@ -211,6 +221,11 @@ namespace CyberSource.Model
                     this._Object == other._Object ||
                     this._Object != null &&
                     this._Object.Equals(other._Object)
+                ) && 
+                (
+                    this._Default == other._Default ||
+                    this._Default != null &&
+                    this._Default.Equals(other._Default)
                 ) && 
                 (
                     this.State == other.State ||
@@ -281,6 +296,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Id.GetHashCode();
                 if (this._Object != null)
                     hash = hash * 59 + this._Object.GetHashCode();
+                if (this._Default != null)
+                    hash = hash * 59 + this._Default.GetHashCode();
                 if (this.State != null)
                     hash = hash * 59 + this.State.GetHashCode();
                 if (this.BankAccount != null)

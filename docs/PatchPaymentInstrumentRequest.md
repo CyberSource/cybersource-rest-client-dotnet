@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Links** | [**Tmsv2customersEmbeddedDefaultPaymentInstrumentLinks**](Tmsv2customersEmbeddedDefaultPaymentInstrumentLinks.md) |  | [optional] 
 **Id** | **string** | The id of the Payment Instrument Token. | [optional] 
 **_Object** | **string** | The type of token.  Valid values: - paymentInstrument  | [optional] 
+**_Default** | **bool?** | Flag that indicates whether customer payment instrument is the dafault. Valid values:  - &#x60;true&#x60;: Payment instrument is customer&#39;s default.  - &#x60;false&#x60;: Payment instrument is not customer&#39;s default.  | [optional] 
 **State** | **string** | Issuers state for the card number. Valid values: - ACTIVE - CLOSED : The account has been closed.  | [optional] 
 **BankAccount** | [**Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount**](Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount.md) |  | [optional] 
 **Card** | [**Tmsv2customersEmbeddedDefaultPaymentInstrumentCard**](Tmsv2customersEmbeddedDefaultPaymentInstrumentCard.md) |  | [optional] 

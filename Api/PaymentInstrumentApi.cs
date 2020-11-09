@@ -101,7 +101,7 @@ namespace CyberSource.Api
         /// Create a Payment Instrument
         /// </summary>
         /// <remarks>
-        /// 
+        /// Include an existing TMS Instrument Identifier id in the request body. * An Instrument Identifier token can be created by calling: **POST *_/tms/v1/instrumentidentifiers*** 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
@@ -113,7 +113,7 @@ namespace CyberSource.Api
         /// Create a Payment Instrument
         /// </summary>
         /// <remarks>
-        /// 
+        /// Include an existing TMS Instrument Identifier id in the request body. * An Instrument Identifier token can be created by calling: **POST *_/tms/v1/instrumentidentifiers*** 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
@@ -199,7 +199,7 @@ namespace CyberSource.Api
         /// Create a Payment Instrument
         /// </summary>
         /// <remarks>
-        /// 
+        /// Include an existing TMS Instrument Identifier id in the request body. * An Instrument Identifier token can be created by calling: **POST *_/tms/v1/instrumentidentifiers*** 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
@@ -211,7 +211,7 @@ namespace CyberSource.Api
         /// Create a Payment Instrument
         /// </summary>
         /// <remarks>
-        /// 
+        /// Include an existing TMS Instrument Identifier id in the request body. * An Instrument Identifier token can be created by calling: **POST *_/tms/v1/instrumentidentifiers*** 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
@@ -780,7 +780,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Payment Instrument 
+        /// Create a Payment Instrument Include an existing TMS Instrument Identifier id in the request body. * An Instrument Identifier token can be created by calling: **POST *_/tms/v1/instrumentidentifiers*** 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
@@ -793,7 +793,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Payment Instrument 
+        /// Create a Payment Instrument Include an existing TMS Instrument Identifier id in the request body. * An Instrument Identifier token can be created by calling: **POST *_/tms/v1/instrumentidentifiers*** 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
@@ -857,7 +857,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Payment Instrument 
+        /// Create a Payment Instrument Include an existing TMS Instrument Identifier id in the request body. * An Instrument Identifier token can be created by calling: **POST *_/tms/v1/instrumentidentifiers*** 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
@@ -871,7 +871,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Payment Instrument 
+        /// Create a Payment Instrument Include an existing TMS Instrument Identifier id in the request body. * An Instrument Identifier token can be created by calling: **POST *_/tms/v1/instrumentidentifiers*** 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>

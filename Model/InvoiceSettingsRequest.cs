@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InvoiceSettingsRequest" /> class.
         /// </summary>
         /// <param name="InvoiceSettingsInformation">InvoiceSettingsInformation.</param>
-        public InvoiceSettingsRequest(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformation InvoiceSettingsInformation = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformation))
+        public InvoiceSettingsRequest(Invoicingv2invoiceSettingsInvoiceSettingsInformation InvoiceSettingsInformation = default(Invoicingv2invoiceSettingsInvoiceSettingsInformation))
         {
             this.InvoiceSettingsInformation = InvoiceSettingsInformation;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets InvoiceSettingsInformation
         /// </summary>
         [DataMember(Name="invoiceSettingsInformation", EmitDefaultValue=false)]
-        public InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformation InvoiceSettingsInformation { get; set; }
+        public Invoicingv2invoiceSettingsInvoiceSettingsInformation InvoiceSettingsInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

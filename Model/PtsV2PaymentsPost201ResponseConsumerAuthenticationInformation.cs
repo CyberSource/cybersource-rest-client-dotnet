@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// <param name="ChallengeCancelCode">An indicator as to why the transaction was canceled. Possible Values:  - &#x60;01&#x60;: Cardholder selected Cancel. - &#x60;02&#x60;: Reserved for future EMVCo use (values invalid until defined by EMVCo). - &#x60;03&#x60;: Transaction Timed Out—Decoupled Authentication - &#x60;04&#x60;: Transaction timed out at ACS—other timeouts - &#x60;05&#x60;: Transaction Timed out at ACS - First CReq not received by ACS - &#x60;06&#x60;: Transaction Error - &#x60;07&#x60;: Unknown - &#x60;08&#x60;: Transaction Timed Out at SDK .</param>
         /// <param name="ChallengeRequired">Indicates whether a challenge is required in order to complete authentication. **Note** Regional mandates might determine that a challenge is required.  Possible values: - &#x60;Y&#x60;: Challenge required - &#x60;N&#x60;: Challenge not required **Note**  Used by the Hybrid integration. .</param>
         /// <param name="DecoupledAuthenticationIndicator">Indicates whether the 3DS Requestor requests the ACS to utilize Decoupled Authentication and agrees to utilize Decoupled Authentication if the ACS confirms its use.  Possible Values:  Y - Decoupled Authentication is supported and preferred if challenge is necessary  N - Do not use Decoupled Authentication  **Default Value**: N .</param>
-        /// <param name="DirectoryServerErrorCode">The directory server error code indicating a problem with this transaction. .</param>
+        /// <param name="DirectoryServerErrorCode">The directory server error code indicating a problem with this transaction. Note - Max Length of this field is typically 3 characters. .</param>
         /// <param name="DirectoryServerErrorDescription">Directory server text and additional detail about the error for this transaction. .</param>
         /// <param name="EcommerceIndicator">Commerce indicator for cards not enrolled. This field contains one of these values: - &#x60;internet&#x60;: Card not enrolled, or card type not supported by payer authentication. No liability shift. - &#x60;js_attempted&#x60;: Card not enrolled, but attempt to authenticate is recorded. Liability shift. - &#x60;js_failure&#x60;: J/Secure directory service is not available. No liability shift. - &#x60;spa&#x60;: Mastercard card not enrolled in the SecureCode program. No liability shift. - &#x60;vbv_attempted&#x60;: Card not enrolled, but attempt to authenticate is recorded. Liability shift. - &#x60;vbv_failure&#x60;: For payment processor Barclays, Streamline, AIBMS, or FDC Germany, you receive this result if Visa’s directory service is not available. No liability shift. .</param>
         /// <param name="Eci">Note This field applies only to non-U.S-issued cards.  For enroll, Numeric electronic commerce indicator (ECI) returned only for Visa, American Express, JCB, Diners Club, and Discover transactions when the card is not enrolled. For more information, see \&quot;Interpreting the Reply,\&quot; page 22.  If you are not using the CyberSource payment services, you must send this value to your payment processor in the subsequent request for card authorization. This field contains one of these values: - &#x60;06&#x60;: The card can be enrolled. Liability shift. - &#x60;07&#x60;: The card cannot be enrolled. No liability shift.  For validate, Numeric electronic commerce indicator (ECI) returned only for Visa, American Express, JCB, Diners Club, and Discover transactions. The field is absent when authentication fails. You must send this value to your payment processor in the subsequent request for card authorization. This field contains one of these values: - &#x60;05&#x60;: Successful authentication - &#x60;06&#x60;: Authentication attempted - &#x60;07&#x60;: Failed authentication (No response from the merchant because of a problem.) .</param>
@@ -202,9 +202,9 @@ namespace CyberSource.Model
         public string DecoupledAuthenticationIndicator { get; set; }
 
         /// <summary>
-        /// The directory server error code indicating a problem with this transaction. 
+        /// The directory server error code indicating a problem with this transaction. Note - Max Length of this field is typically 3 characters. 
         /// </summary>
-        /// <value>The directory server error code indicating a problem with this transaction. </value>
+        /// <value>The directory server error code indicating a problem with this transaction. Note - Max Length of this field is typically 3 characters. </value>
         [DataMember(Name="directoryServerErrorCode", EmitDefaultValue=false)]
         public string DirectoryServerErrorCode { get; set; }
 
@@ -836,12 +836,6 @@ namespace CyberSource.Model
             if(this.DecoupledAuthenticationIndicator != null && this.DecoupledAuthenticationIndicator.Length >= 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DecoupledAuthenticationIndicator, length must be less than or equal to 1.", new [] { "DecoupledAuthenticationIndicator" });
-            }
-
-            // DirectoryServerErrorCode (string) maxLength
-            if(this.DirectoryServerErrorCode != null && this.DirectoryServerErrorCode.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DirectoryServerErrorCode, length must be less than or equal to 3.", new [] { "DirectoryServerErrorCode" });
             }
 
             // DirectoryServerErrorDescription (string) maxLength
