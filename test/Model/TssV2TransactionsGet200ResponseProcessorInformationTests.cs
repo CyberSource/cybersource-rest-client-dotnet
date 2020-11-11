@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Processor'
         }
         /// <summary>
+        /// Test the property 'MultiProcessorRouting'
+        /// </summary>
+        [Test]
+        public void MultiProcessorRoutingTest()
+        {
+            // TODO unit test for the property 'MultiProcessorRouting'
+        }
+        /// <summary>
         /// Test the property 'TransactionId'
         /// </summary>
         [Test]

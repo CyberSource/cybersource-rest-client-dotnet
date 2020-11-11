@@ -35,12 +35,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Links">Links.</param>
         /// <param name="Id">The id of the Shipping Address Token..</param>
+        /// <param name="_Default">Flag that indicates whether customer shipping address is the dafault. Valid values:  - &#x60;true&#x60;: Shipping Address is customer&#39;s default.  - &#x60;false&#x60;: Shipping Address is not customer&#39;s default. .</param>
         /// <param name="ShipTo">ShipTo.</param>
         /// <param name="Metadata">Metadata.</param>
-        public PostCustomerShippingAddressRequest(Tmsv2customersEmbeddedDefaultShippingAddressLinks Links = default(Tmsv2customersEmbeddedDefaultShippingAddressLinks), string Id = default(string), Tmsv2customersEmbeddedDefaultShippingAddressShipTo ShipTo = default(Tmsv2customersEmbeddedDefaultShippingAddressShipTo), Tmsv2customersEmbeddedDefaultShippingAddressMetadata Metadata = default(Tmsv2customersEmbeddedDefaultShippingAddressMetadata))
+        public PostCustomerShippingAddressRequest(Tmsv2customersEmbeddedDefaultShippingAddressLinks Links = default(Tmsv2customersEmbeddedDefaultShippingAddressLinks), string Id = default(string), bool? _Default = default(bool?), Tmsv2customersEmbeddedDefaultShippingAddressShipTo ShipTo = default(Tmsv2customersEmbeddedDefaultShippingAddressShipTo), Tmsv2customersEmbeddedDefaultShippingAddressMetadata Metadata = default(Tmsv2customersEmbeddedDefaultShippingAddressMetadata))
         {
             this.Links = Links;
             this.Id = Id;
+            this._Default = _Default;
             this.ShipTo = ShipTo;
             this.Metadata = Metadata;
         }
@@ -57,6 +59,13 @@ namespace CyberSource.Model
         /// <value>The id of the Shipping Address Token.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
+        /// <summary>
+        /// Flag that indicates whether customer shipping address is the dafault. Valid values:  - &#x60;true&#x60;: Shipping Address is customer&#39;s default.  - &#x60;false&#x60;: Shipping Address is not customer&#39;s default. 
+        /// </summary>
+        /// <value>Flag that indicates whether customer shipping address is the dafault. Valid values:  - &#x60;true&#x60;: Shipping Address is customer&#39;s default.  - &#x60;false&#x60;: Shipping Address is not customer&#39;s default. </value>
+        [DataMember(Name="default", EmitDefaultValue=false)]
+        public bool? _Default { get; set; }
 
         /// <summary>
         /// Gets or Sets ShipTo
@@ -80,6 +89,7 @@ namespace CyberSource.Model
             sb.Append("class PostCustomerShippingAddressRequest {\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  _Default: ").Append(_Default).Append("\n");
             sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
@@ -129,6 +139,11 @@ namespace CyberSource.Model
                     this.Id.Equals(other.Id)
                 ) && 
                 (
+                    this._Default == other._Default ||
+                    this._Default != null &&
+                    this._Default.Equals(other._Default)
+                ) && 
+                (
                     this.ShipTo == other.ShipTo ||
                     this.ShipTo != null &&
                     this.ShipTo.Equals(other.ShipTo)
@@ -155,6 +170,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Links.GetHashCode();
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
+                if (this._Default != null)
+                    hash = hash * 59 + this._Default.GetHashCode();
                 if (this.ShipTo != null)
                     hash = hash * 59 + this.ShipTo.GetHashCode();
                 if (this.Metadata != null)

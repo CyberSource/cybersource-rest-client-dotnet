@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RiskV1AuthenticationSetupsPost201ResponseConsumerAuthenticationInformation" /> class.
         /// </summary>
-        /// <param name="AccessToken">JSON Web Token (JWT) used to authenticate the consumer with the authentication provider, such as, CardinalCommerce or Rupay. .</param>
+        /// <param name="AccessToken">JSON Web Token (JWT) used to authenticate the consumer with the authentication provider, such as, CardinalCommerce or Rupay. Note - Max Length of this field is 2048 characters. .</param>
         /// <param name="ReferenceId">This identifier represents cardinal has started device data collection session and this must be passed in Authentication JWT to Cardinal when invoking the deviceDataCollectionUrl. .</param>
         /// <param name="DeviceDataCollectionUrl">The deviceDataCollectionUrl is the location to send the Authentication JWT when invoking the Device Data collection process. .</param>
         public RiskV1AuthenticationSetupsPost201ResponseConsumerAuthenticationInformation(string AccessToken = default(string), string ReferenceId = default(string), string DeviceDataCollectionUrl = default(string))
@@ -44,9 +44,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// JSON Web Token (JWT) used to authenticate the consumer with the authentication provider, such as, CardinalCommerce or Rupay. 
+        /// JSON Web Token (JWT) used to authenticate the consumer with the authentication provider, such as, CardinalCommerce or Rupay. Note - Max Length of this field is 2048 characters. 
         /// </summary>
-        /// <value>JSON Web Token (JWT) used to authenticate the consumer with the authentication provider, such as, CardinalCommerce or Rupay. </value>
+        /// <value>JSON Web Token (JWT) used to authenticate the consumer with the authentication provider, such as, CardinalCommerce or Rupay. Note - Max Length of this field is 2048 characters. </value>
         [DataMember(Name="accessToken", EmitDefaultValue=false)]
         public string AccessToken { get; set; }
 
@@ -156,12 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AccessToken (string) maxLength
-            if(this.AccessToken != null && this.AccessToken.Length >= 2048)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccessToken, length must be less than or equal to 2048.", new [] { "AccessToken" });
-            }
-
             // ReferenceId (string) maxLength
             if(this.ReferenceId != null && this.ReferenceId.Length >= 50)
             {

@@ -41,7 +41,12 @@ namespace CyberSource.Model
         /// <param name="PaymentInstrument">PaymentInstrument.</param>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
         /// <param name="ShippingAddress">ShippingAddress.</param>
-        public PtsV2PaymentsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentInformationCard Card = default(PtsV2PaymentsPost201ResponsePaymentInformationCard), PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard TokenizedCard = default(PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard), PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures AccountFeatures = default(PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures), PtsV2PaymentsPost201ResponsePaymentInformationBank Bank = default(PtsV2PaymentsPost201ResponsePaymentInformationBank), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress))
+        /// <param name="Scheme">Subtype of card account. This field can contain one of the following values: - Maestro International - Maestro UK Domestic - MasterCard Credit - MasterCard Debit - Visa Credit - Visa Debit - Visa Electron  **Note** Additional values may be present.  For all possible values, see the &#x60;score_card_scheme&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="Bin">Credit card BIN (the first six digits of the credit card).Derived either from the &#x60;cc_bin&#x60; request field or from the first six characters of the &#x60;customer_cc_num&#x60; field.  For all possible values, see the &#x60;score_cc_bin&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="AccountType">Type of payment card account. This field can refer to a credit card, debit card, or prepaid card account type.  For all possible values, see the &#x60;score_card_account_type&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="Issuer">Name of the bank or entity that issued the card account.  For all possible values, see the &#x60;score_card_issuer&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="BinCountry">Country (two-digit country code) associated with the BIN of the customer’s card used for the payment. Returned if the information is available. Use this field for additional information when reviewing orders. This information is also displayed in the details page of the CyberSource Business Center.  For all possible values, see the &#x60;bin_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        public PtsV2PaymentsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentInformationCard Card = default(PtsV2PaymentsPost201ResponsePaymentInformationCard), PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard TokenizedCard = default(PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard), PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures AccountFeatures = default(PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures), PtsV2PaymentsPost201ResponsePaymentInformationBank Bank = default(PtsV2PaymentsPost201ResponsePaymentInformationBank), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), string Scheme = default(string), string Bin = default(string), string AccountType = default(string), string Issuer = default(string), string BinCountry = default(string))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
@@ -51,6 +56,11 @@ namespace CyberSource.Model
             this.PaymentInstrument = PaymentInstrument;
             this.InstrumentIdentifier = InstrumentIdentifier;
             this.ShippingAddress = ShippingAddress;
+            this.Scheme = Scheme;
+            this.Bin = Bin;
+            this.AccountType = AccountType;
+            this.Issuer = Issuer;
+            this.BinCountry = BinCountry;
         }
         
         /// <summary>
@@ -102,6 +112,41 @@ namespace CyberSource.Model
         public Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress { get; set; }
 
         /// <summary>
+        /// Subtype of card account. This field can contain one of the following values: - Maestro International - Maestro UK Domestic - MasterCard Credit - MasterCard Debit - Visa Credit - Visa Debit - Visa Electron  **Note** Additional values may be present.  For all possible values, see the &#x60;score_card_scheme&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
+        /// </summary>
+        /// <value>Subtype of card account. This field can contain one of the following values: - Maestro International - Maestro UK Domestic - MasterCard Credit - MasterCard Debit - Visa Credit - Visa Debit - Visa Electron  **Note** Additional values may be present.  For all possible values, see the &#x60;score_card_scheme&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
+        [DataMember(Name="scheme", EmitDefaultValue=false)]
+        public string Scheme { get; set; }
+
+        /// <summary>
+        /// Credit card BIN (the first six digits of the credit card).Derived either from the &#x60;cc_bin&#x60; request field or from the first six characters of the &#x60;customer_cc_num&#x60; field.  For all possible values, see the &#x60;score_cc_bin&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
+        /// </summary>
+        /// <value>Credit card BIN (the first six digits of the credit card).Derived either from the &#x60;cc_bin&#x60; request field or from the first six characters of the &#x60;customer_cc_num&#x60; field.  For all possible values, see the &#x60;score_cc_bin&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
+        [DataMember(Name="bin", EmitDefaultValue=false)]
+        public string Bin { get; set; }
+
+        /// <summary>
+        /// Type of payment card account. This field can refer to a credit card, debit card, or prepaid card account type.  For all possible values, see the &#x60;score_card_account_type&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
+        /// </summary>
+        /// <value>Type of payment card account. This field can refer to a credit card, debit card, or prepaid card account type.  For all possible values, see the &#x60;score_card_account_type&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
+        [DataMember(Name="accountType", EmitDefaultValue=false)]
+        public string AccountType { get; set; }
+
+        /// <summary>
+        /// Name of the bank or entity that issued the card account.  For all possible values, see the &#x60;score_card_issuer&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
+        /// </summary>
+        /// <value>Name of the bank or entity that issued the card account.  For all possible values, see the &#x60;score_card_issuer&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
+        [DataMember(Name="issuer", EmitDefaultValue=false)]
+        public string Issuer { get; set; }
+
+        /// <summary>
+        /// Country (two-digit country code) associated with the BIN of the customer’s card used for the payment. Returned if the information is available. Use this field for additional information when reviewing orders. This information is also displayed in the details page of the CyberSource Business Center.  For all possible values, see the &#x60;bin_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
+        /// </summary>
+        /// <value>Country (two-digit country code) associated with the BIN of the customer’s card used for the payment. Returned if the information is available. Use this field for additional information when reviewing orders. This information is also displayed in the details page of the CyberSource Business Center.  For all possible values, see the &#x60;bin_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
+        [DataMember(Name="binCountry", EmitDefaultValue=false)]
+        public string BinCountry { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -117,6 +162,11 @@ namespace CyberSource.Model
             sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
             sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
             sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            sb.Append("  Scheme: ").Append(Scheme).Append("\n");
+            sb.Append("  Bin: ").Append(Bin).Append("\n");
+            sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            sb.Append("  Issuer: ").Append(Issuer).Append("\n");
+            sb.Append("  BinCountry: ").Append(BinCountry).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +242,31 @@ namespace CyberSource.Model
                     this.ShippingAddress == other.ShippingAddress ||
                     this.ShippingAddress != null &&
                     this.ShippingAddress.Equals(other.ShippingAddress)
+                ) && 
+                (
+                    this.Scheme == other.Scheme ||
+                    this.Scheme != null &&
+                    this.Scheme.Equals(other.Scheme)
+                ) && 
+                (
+                    this.Bin == other.Bin ||
+                    this.Bin != null &&
+                    this.Bin.Equals(other.Bin)
+                ) && 
+                (
+                    this.AccountType == other.AccountType ||
+                    this.AccountType != null &&
+                    this.AccountType.Equals(other.AccountType)
+                ) && 
+                (
+                    this.Issuer == other.Issuer ||
+                    this.Issuer != null &&
+                    this.Issuer.Equals(other.Issuer)
+                ) && 
+                (
+                    this.BinCountry == other.BinCountry ||
+                    this.BinCountry != null &&
+                    this.BinCountry.Equals(other.BinCountry)
                 );
         }
 
@@ -222,6 +297,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
                 if (this.ShippingAddress != null)
                     hash = hash * 59 + this.ShippingAddress.GetHashCode();
+                if (this.Scheme != null)
+                    hash = hash * 59 + this.Scheme.GetHashCode();
+                if (this.Bin != null)
+                    hash = hash * 59 + this.Bin.GetHashCode();
+                if (this.AccountType != null)
+                    hash = hash * 59 + this.AccountType.GetHashCode();
+                if (this.Issuer != null)
+                    hash = hash * 59 + this.Issuer.GetHashCode();
+                if (this.BinCountry != null)
+                    hash = hash * 59 + this.BinCountry.GetHashCode();
                 return hash;
             }
         }
@@ -233,6 +318,36 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Scheme (string) maxLength
+            if(this.Scheme != null && this.Scheme.Length >= 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scheme, length must be less than or equal to 255.", new [] { "Scheme" });
+            }
+
+            // Bin (string) maxLength
+            if(this.Bin != null && this.Bin.Length >= 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bin, length must be less than or equal to 255.", new [] { "Bin" });
+            }
+
+            // AccountType (string) maxLength
+            if(this.AccountType != null && this.AccountType.Length >= 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountType, length must be less than or equal to 255.", new [] { "AccountType" });
+            }
+
+            // Issuer (string) maxLength
+            if(this.Issuer != null && this.Issuer.Length >= 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Issuer, length must be less than or equal to 255.", new [] { "Issuer" });
+            }
+
+            // BinCountry (string) maxLength
+            if(this.BinCountry != null && this.BinCountry.Length >= 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BinCountry, length must be less than or equal to 255.", new [] { "BinCountry" });
+            }
+
             yield break;
         }
     }

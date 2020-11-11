@@ -128,6 +128,46 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ShippingAddress'
         }
+        /// <summary>
+        /// Test the property 'Scheme'
+        /// </summary>
+        [Test]
+        public void SchemeTest()
+        {
+            // TODO unit test for the property 'Scheme'
+        }
+        /// <summary>
+        /// Test the property 'Bin'
+        /// </summary>
+        [Test]
+        public void BinTest()
+        {
+            // TODO unit test for the property 'Bin'
+        }
+        /// <summary>
+        /// Test the property 'AccountType'
+        /// </summary>
+        [Test]
+        public void AccountTypeTest()
+        {
+            // TODO unit test for the property 'AccountType'
+        }
+        /// <summary>
+        /// Test the property 'Issuer'
+        /// </summary>
+        [Test]
+        public void IssuerTest()
+        {
+            // TODO unit test for the property 'Issuer'
+        }
+        /// <summary>
+        /// Test the property 'BinCountry'
+        /// </summary>
+        [Test]
+        public void BinCountryTest()
+        {
+            // TODO unit test for the property 'BinCountry'
+        }
 
     }
 
