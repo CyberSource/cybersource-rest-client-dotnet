@@ -133,6 +133,20 @@ namespace CyberSource.Test
             //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier");
         }
         
+        /// <summary>
+        /// Test PostInstrumentIdentifierEnrollment
+        /// </summary>
+        [Test]
+        public void PostInstrumentIdentifierEnrollmentTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string instrumentIdentifierTokenId = null;
+            //PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest = null;
+            //string profileId = null;
+            //instance.PostInstrumentIdentifierEnrollment(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
+            
+        }
+        
     }
 
 }

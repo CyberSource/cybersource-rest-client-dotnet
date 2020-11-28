@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 CyberSource Merged Spec
 
@@ -9,10 +9,9 @@ OpenAPI spec version: 0.0.1
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{916D10BD-4CDB-439A-806A-A13D2F38C9DD}</ProjectGuid>
+    <ProjectGuid>{98BDC679-65E8-4071-B382-76C9A64DF83A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CyberSource</RootNamespace>
@@ -49,27 +48,25 @@ OpenAPI spec version: 0.0.1
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="AuthenticationSdk">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.7\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.8\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-        <HintPath>packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
+      <HintPath>packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs"
-             Exclude="obj\**;test\**" />
+    <Compile Include="**\*.cs" Exclude="obj\**;test\**" />
   </ItemGroup>
   <ItemGroup>
-      <None Include="packages.config" />
-      <None Include="cybersource-rest-client-dotnet.nuspec" />
-      <None Include="README.md" />
+    <None Include="packages.config" />
+    <None Include="cybersource-rest-client-dotnet.nuspec" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
-

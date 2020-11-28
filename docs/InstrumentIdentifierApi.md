@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetInstrumentIdentifierPaymentInstrumentsList**](InstrumentIdentifierApi.md#getinstrumentidentifierpaymentinstrumentslist) | **GET** /tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/paymentinstruments | List Payment Instruments for an Instrument Identifier
 [**PatchInstrumentIdentifier**](InstrumentIdentifierApi.md#patchinstrumentidentifier) | **PATCH** /tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId} | Update an Instrument Identifier
 [**PostInstrumentIdentifier**](InstrumentIdentifierApi.md#postinstrumentidentifier) | **POST** /tms/v1/instrumentidentifiers | Create an Instrument Identifier
+[**PostInstrumentIdentifierEnrollment**](InstrumentIdentifierApi.md#postinstrumentidentifierenrollment) | **POST** /tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/enrollment | Enroll an Instrument Identifier for Network Tokenization
 
 
 <a name="deleteinstrumentidentifier"></a>
@@ -283,7 +284,7 @@ namespace Example
         public void main()
         {
             var apiInstance = new InstrumentIdentifierApi();
-            var postInstrumentIdentifierRequest = new PostInstrumentIdentifierRequest(); // PostInstrumentIdentifierRequest | Please specify either a Card, Bank Account or Enrollable Card
+            var postInstrumentIdentifierRequest = new PostInstrumentIdentifierRequest(); // PostInstrumentIdentifierRequest | Specify either a Card, Bank Account or Enrollable Card
             var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration. (optional) 
 
             try
@@ -305,12 +306,74 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postInstrumentIdentifierRequest** | [**PostInstrumentIdentifierRequest**](PostInstrumentIdentifierRequest.md)| Please specify either a Card, Bank Account or Enrollable Card | 
+ **postInstrumentIdentifierRequest** | [**PostInstrumentIdentifierRequest**](PostInstrumentIdentifierRequest.md)| Specify either a Card, Bank Account or Enrollable Card | 
  **profileId** | **string**| The id of a profile containing user specific TMS configuration. | [optional] 
 
 ### Return type
 
 [**Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier**](Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="postinstrumentidentifierenrollment"></a>
+# **PostInstrumentIdentifierEnrollment**
+> void PostInstrumentIdentifierEnrollment (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
+
+Enroll an Instrument Identifier for Network Tokenization
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class PostInstrumentIdentifierEnrollmentExample
+    {
+        public void main()
+        {
+            var apiInstance = new InstrumentIdentifierApi();
+            var instrumentIdentifierTokenId = instrumentIdentifierTokenId_example;  // string | The TokenId of a Instrument Identifier.
+            var postInstrumentIdentifierEnrollmentRequest = new PostInstrumentIdentifierEnrollmentRequest(); // PostInstrumentIdentifierEnrollmentRequest | Specify Enrollable Card details
+            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration. (optional) 
+
+            try
+            {
+                // Enroll an Instrument Identifier for Network Tokenization
+                apiInstance.PostInstrumentIdentifierEnrollment(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling InstrumentIdentifierApi.PostInstrumentIdentifierEnrollment: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instrumentIdentifierTokenId** | **string**| The TokenId of a Instrument Identifier. | 
+ **postInstrumentIdentifierEnrollmentRequest** | [**PostInstrumentIdentifierEnrollmentRequest**](PostInstrumentIdentifierEnrollmentRequest.md)| Specify Enrollable Card details | 
+ **profileId** | **string**| The id of a profile containing user specific TMS configuration. | [optional] 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
