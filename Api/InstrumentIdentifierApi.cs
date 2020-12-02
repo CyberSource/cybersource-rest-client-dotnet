@@ -131,7 +131,7 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
+        /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
@@ -143,10 +143,35 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
+        /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
+        /// <summary>
+        /// Enroll an Instrument Identifier for Network Tokenization
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
+        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns></returns>
+        void PostInstrumentIdentifierEnrollment (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
+
+        /// <summary>
+        /// Enroll an Instrument Identifier for Network Tokenization
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
+        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> PostInstrumentIdentifierEnrollmentWithHttpInfo (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -256,7 +281,7 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
+        /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
@@ -268,10 +293,35 @@ namespace CyberSource.Api
         /// 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
+        /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
         System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
+        /// <summary>
+        /// Enroll an Instrument Identifier for Network Tokenization
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
+        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task PostInstrumentIdentifierEnrollmentAsync (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
+
+        /// <summary>
+        /// Enroll an Instrument Identifier for Network Tokenization
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
+        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
         #endregion Asynchronous Operations
     }
 
@@ -990,7 +1040,7 @@ namespace CyberSource.Api
         /// Create an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
+        /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
@@ -1003,7 +1053,7 @@ namespace CyberSource.Api
         /// Create an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
+        /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier > PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
@@ -1067,7 +1117,7 @@ namespace CyberSource.Api
         /// Create an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
+        /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
@@ -1081,7 +1131,7 @@ namespace CyberSource.Api
         /// Create an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postInstrumentIdentifierRequest">Please specify either a Card, Bank Account or Enrollable Card</param>
+        /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
@@ -1139,6 +1189,171 @@ namespace CyberSource.Api
             return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
+        }
+
+        /// <summary>
+        /// Enroll an Instrument Identifier for Network Tokenization 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
+        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns></returns>
+        public void PostInstrumentIdentifierEnrollment (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
+        {
+             PostInstrumentIdentifierEnrollmentWithHttpInfo(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
+        }
+
+        /// <summary>
+        /// Enroll an Instrument Identifier for Network Tokenization 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
+        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> PostInstrumentIdentifierEnrollmentWithHttpInfo (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
+        {
+            // verify the required parameter 'instrumentIdentifierTokenId' is set
+            if (instrumentIdentifierTokenId == null)
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+            // verify the required parameter 'postInstrumentIdentifierEnrollmentRequest' is set
+            if (postInstrumentIdentifierEnrollmentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/enrollment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            if (postInstrumentIdentifierEnrollmentRequest != null && postInstrumentIdentifierEnrollmentRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(postInstrumentIdentifierEnrollmentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = postInstrumentIdentifierEnrollmentRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null); // Return statement
+        }
+
+        /// <summary>
+        /// Enroll an Instrument Identifier for Network Tokenization 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
+        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task PostInstrumentIdentifierEnrollmentAsync (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
+        {
+             await PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
+
+        }
+
+        /// <summary>
+        /// Enroll an Instrument Identifier for Network Tokenization 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
+        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
+        {
+            // verify the required parameter 'instrumentIdentifierTokenId' is set
+            if (instrumentIdentifierTokenId == null)
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+            // verify the required parameter 'postInstrumentIdentifierEnrollmentRequest' is set
+            if (postInstrumentIdentifierEnrollmentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/enrollment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json;charset=utf-8"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            if (postInstrumentIdentifierEnrollmentRequest != null && postInstrumentIdentifierEnrollmentRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(postInstrumentIdentifierEnrollmentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = postInstrumentIdentifierEnrollmentRequest; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null); // Return statement
         }
 
     }

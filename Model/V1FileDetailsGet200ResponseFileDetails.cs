@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="Date">Date and time for the file in PST.</param>
         /// <param name="MimeType">&#39;File extension&#39;  Valid values: - &#39;application/xml&#39; - &#39;text/csv&#39; - &#39;application/pdf&#39; - &#39;application/octet-stream&#39; .</param>
         /// <param name="Size">Size of the file in bytes.</param>
-        public V1FileDetailsGet200ResponseFileDetails(string FileId = default(string), string Name = default(string), DateTime? CreatedTime = default(DateTime?), DateTime? LastModifiedTime = default(DateTime?), DateTime? Date = default(DateTime?), string MimeType = default(string), int? Size = default(int?))
+        public V1FileDetailsGet200ResponseFileDetails(string FileId = default(string), string Name = default(string), DateTime? CreatedTime = default(DateTime?), DateTime? LastModifiedTime = default(DateTime?), DateTime? Date = default(DateTime?), string MimeType = default(string), decimal? Size = default(decimal?))
         {
             this.FileId = FileId;
             this.Name = Name;
@@ -99,7 +99,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Size of the file in bytes</value>
         [DataMember(Name="size", EmitDefaultValue=false)]
-        public int? Size { get; set; }
+        public decimal? Size { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

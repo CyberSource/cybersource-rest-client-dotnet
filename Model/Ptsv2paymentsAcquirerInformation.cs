@@ -174,9 +174,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AcquirerBin (string) maxLength
-            if(this.AcquirerBin != null && this.AcquirerBin.Length >= 6)
+            if(this.AcquirerBin != null && this.AcquirerBin.Length >= 11)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcquirerBin, length must be less than or equal to 6.", new [] { "AcquirerBin" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcquirerBin, length must be less than or equal to 11.", new [] { "AcquirerBin" });
             }
 
             // Country (string) maxLength
