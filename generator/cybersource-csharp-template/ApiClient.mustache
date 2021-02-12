@@ -229,27 +229,27 @@ namespace {{packageName}}.Client
             {
                 if (postBody.GetType() == typeof(String))
                 {
-					if (contentType == "application/x-www-form-urlencoded")
+                    if (contentType == "application/x-www-form-urlencoded")
                     {
                         var bodyParams = JsonConvert.DeserializeObject<Dictionary<string, string>>((string)postBody);
                         foreach (KeyValuePair<string, string> param in bodyParams)
                         {
-							{{#netStandard}}
-							request.AddParameter(new Parameter { Value = param.Value, Type = ParameterType.GetOrPost, Name = param.Key });
-							{{/netStandard}}
-							{{^netStandard}}
-							request.AddParameter(param.Key, param.Value, ParameterType.GetOrPost);
-							{{/netStandard}}
+                            {{#netStandard}}
+                            request.AddParameter(new Parameter { Value = param.Value, Type = ParameterType.GetOrPost, Name = param.Key });
+                            {{/netStandard}}
+                            {{^netStandard}}
+                            request.AddParameter(param.Key, param.Value, ParameterType.GetOrPost);
+                            {{/netStandard}}
                         }
                     }
                     else
                     {
                         {{#netStandard}}
-						request.AddParameter(new Parameter { Value = postBody, Type = ParameterType.RequestBody, ContentType = "application/json" });
-						{{/netStandard}}
-						{{^netStandard}}
-						request.AddParameter("application/json", postBody, ParameterType.RequestBody);
-						{{/netStandard}}
+                        request.AddParameter(new Parameter { Value = postBody, Type = ParameterType.RequestBody, ContentType = "application/json" });
+                        {{/netStandard}}
+                        {{^netStandard}}
+                        request.AddParameter("application/json", postBody, ParameterType.RequestBody);
+                        {{/netStandard}}
                     }                    
                 }
                 else if (postBody.GetType() == typeof(byte[]))
@@ -395,8 +395,8 @@ namespace {{packageName}}.Client
                 {
                     RestClient.Proxy = Configuration.Proxy;
                 }            
-				
-				// Adding Client Cert
+                
+                // Adding Client Cert
                 if(Equals(bool.Parse(Configuration.MerchantConfigDictionaryObj["enableClientCert"]), true))
                 {
                     string clientCertDirectory = Configuration.MerchantConfigDictionaryObj["clientCertDirectory"];
@@ -857,7 +857,7 @@ namespace {{packageName}}.Client
                 if (merchantConfig.IsPostRequest || merchantConfig.IsPutRequest || merchantConfig.IsPatchRequest)
                     authenticationHeaders.Add("Digest", httpSign.Digest);
             }
-			else if (merchantConfig.IsOAuthTokenAuthType)
+            else if (merchantConfig.IsOAuthTokenAuthType)
             {
                 var oAuthToken = authorize.GetOAuthToken();
                 authenticationHeaders.Add("Authorization", oAuthToken.AccessToken);
