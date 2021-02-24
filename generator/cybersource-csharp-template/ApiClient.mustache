@@ -22,6 +22,7 @@ using RestSharp.Portable.HttpClient;
 using RestSharp;
 {{/netStandard}}
 using AuthenticationSdk.core;
+using System.Security.Cryptography.X509Certificates;
 
 namespace {{packageName}}.Client
 {
@@ -228,12 +229,28 @@ namespace {{packageName}}.Client
             {
                 if (postBody.GetType() == typeof(String))
                 {
-                    {{#netStandard}}
-                    request.AddParameter(new Parameter { Value = postBody, Type = ParameterType.RequestBody, ContentType = "application/json" });
-                    {{/netStandard}}
-                    {{^netStandard}}
-                    request.AddParameter("application/json", postBody, ParameterType.RequestBody);
-                    {{/netStandard}}
+                    if (contentType == "application/x-www-form-urlencoded")
+                    {
+                        var bodyParams = JsonConvert.DeserializeObject<Dictionary<string, string>>((string)postBody);
+                        foreach (KeyValuePair<string, string> param in bodyParams)
+                        {
+                            {{#netStandard}}
+                            request.AddParameter(new Parameter { Value = param.Value, Type = ParameterType.GetOrPost, Name = param.Key });
+                            {{/netStandard}}
+                            {{^netStandard}}
+                            request.AddParameter(param.Key, param.Value, ParameterType.GetOrPost);
+                            {{/netStandard}}
+                        }
+                    }
+                    else
+                    {
+                        {{#netStandard}}
+                        request.AddParameter(new Parameter { Value = postBody, Type = ParameterType.RequestBody, ContentType = "application/json" });
+                        {{/netStandard}}
+                        {{^netStandard}}
+                        request.AddParameter("application/json", postBody, ParameterType.RequestBody);
+                        {{/netStandard}}
+                    }                    
                 }
                 else if (postBody.GetType() == typeof(byte[]))
                 {
@@ -378,6 +395,18 @@ namespace {{packageName}}.Client
                 {
                     RestClient.Proxy = Configuration.Proxy;
                 }            
+                
+                // Adding Client Cert
+                if(Equals(bool.Parse(Configuration.MerchantConfigDictionaryObj["enableClientCert"]), true))
+                {
+                    string clientCertDirectory = Configuration.MerchantConfigDictionaryObj["clientCertDirectory"];
+                    string clientCertFile = Configuration.MerchantConfigDictionaryObj["clientCertFile"];
+                    string clientCertPassword = Configuration.MerchantConfigDictionaryObj["clientCertPassword"];
+                    string fileName = Path.Combine(clientCertDirectory, clientCertFile);
+                    // Importing Certificates
+                    var certificate = new X509Certificate2(fileName, clientCertPassword);
+                    RestClient.ClientCertificates = new X509CertificateCollection { certificate };
+                }
 
                 InterceptRequest(request);
                 {{#netStandard}}
@@ -827,6 +856,11 @@ namespace {{packageName}}.Client
 
                 if (merchantConfig.IsPostRequest || merchantConfig.IsPutRequest || merchantConfig.IsPatchRequest)
                     authenticationHeaders.Add("Digest", httpSign.Digest);
+            }
+            else if (merchantConfig.IsOAuthTokenAuthType)
+            {
+                var oAuthToken = authorize.GetOAuthToken();
+                authenticationHeaders.Add("Authorization", oAuthToken.AccessToken);
             }
 
             if (!string.IsNullOrEmpty(Configuration.ClientId))

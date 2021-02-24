@@ -21,6 +21,7 @@ using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 using AuthenticationSdk.core;
+using System.Security.Cryptography.X509Certificates;
 
 namespace CyberSource.Client
 {
@@ -202,7 +203,18 @@ namespace CyberSource.Client
             {
                 if (postBody.GetType() == typeof(String))
                 {
-                    request.AddParameter("application/json", postBody, ParameterType.RequestBody);
+                    if (contentType == "application/x-www-form-urlencoded")
+                    {
+                        var bodyParams = JsonConvert.DeserializeObject<Dictionary<string, string>>((string)postBody);
+                        foreach (KeyValuePair<string, string> param in bodyParams)
+                        {
+                            request.AddParameter(param.Key, param.Value, ParameterType.GetOrPost);
+                        }
+                    }
+                    else
+                    {
+                        request.AddParameter("application/json", postBody, ParameterType.RequestBody);
+                    }
                 }
                 else if (postBody.GetType() == typeof(byte[]))
                 {
@@ -342,6 +354,18 @@ namespace CyberSource.Client
                 {
                     RestClient.Proxy = Configuration.Proxy;
                 }            
+
+                // Adding Client Cert
+                if(Equals(bool.Parse(Configuration.MerchantConfigDictionaryObj["enableClientCert"]), true))
+                {
+                    string clientCertDirectory = Configuration.MerchantConfigDictionaryObj["clientCertDirectory"];
+                    string clientCertFile = Configuration.MerchantConfigDictionaryObj["clientCertFile"];
+                    string clientCertPassword = Configuration.MerchantConfigDictionaryObj["clientCertPassword"];
+                    string fileName = Path.Combine(clientCertDirectory, clientCertFile);
+                    // Importing Certificates
+                    var certificate = new X509Certificate2(fileName, clientCertPassword);
+                    RestClient.ClientCertificates = new X509CertificateCollection { certificate };
+                }
 
                 InterceptRequest(request);
                 response = (RestResponse) RestClient.Execute(request);
@@ -763,6 +787,11 @@ namespace CyberSource.Client
                 if (merchantConfig.IsPostRequest || merchantConfig.IsPutRequest || merchantConfig.IsPatchRequest)
                     authenticationHeaders.Add("Digest", httpSign.Digest);
             }
+            else if (merchantConfig.IsOAuthTokenAuthType)
+            {
+                var oAuthToken = authorize.GetOAuthToken();
+                authenticationHeaders.Add("Authorization", oAuthToken.AccessToken);
+            }
 
             if (!string.IsNullOrEmpty(Configuration.ClientId))
             {
@@ -773,7 +802,7 @@ namespace CyberSource.Client
             // {
             //     authenticationHeaders.Add("v-c-solution-id", Configuration.SolutionId);
             // }
-            
+
             if (Configuration.Proxy == null && merchantConfig.UseProxy != null)
             {
                 if (bool.Parse(merchantConfig.UseProxy))
