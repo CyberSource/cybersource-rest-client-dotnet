@@ -1,8 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30621.155
+VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet", "cybersource-rest-client-dotnet.csproj", "{98BDC679-65E8-4071-B382-76C9A64DF83A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet", "cybersource-rest-client-dotnet.csproj", "{A741C74D-7866-4DCD-91E2-A2E3617E39C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cybersource-rest-client-dotnet.Test", "test\cybersource-rest-client-dotnet.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{98BDC679-65E8-4071-B382-76C9A64DF83A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98BDC679-65E8-4071-B382-76C9A64DF83A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98BDC679-65E8-4071-B382-76C9A64DF83A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98BDC679-65E8-4071-B382-76C9A64DF83A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A741C74D-7866-4DCD-91E2-A2E3617E39C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A741C74D-7866-4DCD-91E2-A2E3617E39C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A741C74D-7866-4DCD-91E2-A2E3617E39C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A741C74D-7866-4DCD-91E2-A2E3617E39C7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -25,6 +25,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {84A720B9-BB06-4A6D-BC54-BC832687E1C6}
+		SolutionGuid = {F0F537D3-76CF-400A-9D0A-A230E77701A8}
 	EndGlobalSection
 EndGlobal

@@ -89,6 +89,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CustomerList'
         }
         /// <summary>
+        /// Test the property 'DeviceBehavior'
+        /// </summary>
+        [Test]
+        public void DeviceBehaviorTest()
+        {
+            // TODO unit test for the property 'DeviceBehavior'
+        }
+        /// <summary>
         /// Test the property 'IdentityChange'
         /// </summary>
         [Test]

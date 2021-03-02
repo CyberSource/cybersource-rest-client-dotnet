@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        public RiskV1AuthenticationResultsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), string Message = default(string), PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation), RiskV1AuthenticationResultsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1AuthenticationResultsPost201ResponseConsumerAuthenticationInformation), RiskV1AuthenticationsPost201ResponseErrorInformation ErrorInformation = default(RiskV1AuthenticationsPost201ResponseErrorInformation))
+        public RiskV1AuthenticationResultsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), string Message = default(string), RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(RiskV1DecisionsPost201ResponseClientReferenceInformation), RiskV1AuthenticationResultsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1AuthenticationResultsPost201ResponseConsumerAuthenticationInformation), RiskV1AuthenticationsPost201ResponseErrorInformation ErrorInformation = default(RiskV1AuthenticationsPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -100,7 +100,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
+        public RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ConsumerAuthenticationInformation

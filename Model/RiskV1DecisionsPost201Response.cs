@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        public RiskV1DecisionsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), PtsV2PaymentsPost201ResponseRiskInformation RiskInformation = default(PtsV2PaymentsPost201ResponseRiskInformation), RiskV1DecisionsPost201ResponsePaymentInformation PaymentInformation = default(RiskV1DecisionsPost201ResponsePaymentInformation), PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation), RiskV1DecisionsPost201ResponseOrderInformation OrderInformation = default(RiskV1DecisionsPost201ResponseOrderInformation), RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation), RiskV1DecisionsPost201ResponseErrorInformation ErrorInformation = default(RiskV1DecisionsPost201ResponseErrorInformation))
+        public RiskV1DecisionsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), PtsV2PaymentsPost201ResponseRiskInformation RiskInformation = default(PtsV2PaymentsPost201ResponseRiskInformation), RiskV1DecisionsPost201ResponsePaymentInformation PaymentInformation = default(RiskV1DecisionsPost201ResponsePaymentInformation), RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(RiskV1DecisionsPost201ResponseClientReferenceInformation), RiskV1DecisionsPost201ResponseOrderInformation OrderInformation = default(RiskV1DecisionsPost201ResponseOrderInformation), RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation), RiskV1DecisionsPost201ResponseErrorInformation ErrorInformation = default(RiskV1DecisionsPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -109,7 +109,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
+        public RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation

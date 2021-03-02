@@ -25,33 +25,22 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Riskv1addressverificationsClientReferenceInformation
+    /// RiskV1DecisionsPost201ResponseClientReferenceInformation
     /// </summary>
     [DataContract]
-    public partial class Riskv1addressverificationsClientReferenceInformation :  IEquatable<Riskv1addressverificationsClientReferenceInformation>, IValidatableObject
+    public partial class RiskV1DecisionsPost201ResponseClientReferenceInformation :  IEquatable<RiskV1DecisionsPost201ResponseClientReferenceInformation>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Riskv1addressverificationsClientReferenceInformation" /> class.
+        /// Initializes a new instance of the <see cref="RiskV1DecisionsPost201ResponseClientReferenceInformation" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Riskv1addressverificationsClientReferenceInformation() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Riskv1addressverificationsClientReferenceInformation" /> class.
-        /// </summary>
-        /// <param name="Code">Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports.  (required).</param>
+        /// <param name="Code">Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. .</param>
         /// <param name="Comments">Brief description of the order or any comment you wish to add to the order. .</param>
-        public Riskv1addressverificationsClientReferenceInformation(string Code = default(string), string Comments = default(string))
+        /// <param name="Partner">Partner.</param>
+        public RiskV1DecisionsPost201ResponseClientReferenceInformation(string Code = default(string), string Comments = default(string), Riskv1decisionsClientReferenceInformationPartner Partner = default(Riskv1decisionsClientReferenceInformationPartner))
         {
-            // to ensure "Code" is required (not null)
-            if (Code == null)
-            {
-                throw new InvalidDataException("Code is a required property for Riskv1addressverificationsClientReferenceInformation and cannot be null");
-            }
-            else
-            {
-                this.Code = Code;
-            }
+            this.Code = Code;
             this.Comments = Comments;
+            this.Partner = Partner;
         }
         
         /// <summary>
@@ -69,15 +58,22 @@ namespace CyberSource.Model
         public string Comments { get; set; }
 
         /// <summary>
+        /// Gets or Sets Partner
+        /// </summary>
+        [DataMember(Name="partner", EmitDefaultValue=false)]
+        public Riskv1decisionsClientReferenceInformationPartner Partner { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Riskv1addressverificationsClientReferenceInformation {\n");
+            sb.Append("class RiskV1DecisionsPost201ResponseClientReferenceInformation {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
+            sb.Append("  Partner: ").Append(Partner).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,15 +95,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Riskv1addressverificationsClientReferenceInformation);
+            return this.Equals(obj as RiskV1DecisionsPost201ResponseClientReferenceInformation);
         }
 
         /// <summary>
-        /// Returns true if Riskv1addressverificationsClientReferenceInformation instances are equal
+        /// Returns true if RiskV1DecisionsPost201ResponseClientReferenceInformation instances are equal
         /// </summary>
-        /// <param name="other">Instance of Riskv1addressverificationsClientReferenceInformation to be compared</param>
+        /// <param name="other">Instance of RiskV1DecisionsPost201ResponseClientReferenceInformation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Riskv1addressverificationsClientReferenceInformation other)
+        public bool Equals(RiskV1DecisionsPost201ResponseClientReferenceInformation other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -123,6 +119,11 @@ namespace CyberSource.Model
                     this.Comments == other.Comments ||
                     this.Comments != null &&
                     this.Comments.Equals(other.Comments)
+                ) && 
+                (
+                    this.Partner == other.Partner ||
+                    this.Partner != null &&
+                    this.Partner.Equals(other.Partner)
                 );
         }
 
@@ -141,6 +142,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Code.GetHashCode();
                 if (this.Comments != null)
                     hash = hash * 59 + this.Comments.GetHashCode();
+                if (this.Partner != null)
+                    hash = hash * 59 + this.Partner.GetHashCode();
                 return hash;
             }
         }

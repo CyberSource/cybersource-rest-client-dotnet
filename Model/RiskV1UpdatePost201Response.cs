@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="Id">An unique identification number to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response.  #### PIN debit Returned for all PIN debit services. .</param>
         /// <param name="Status">The status for risk update 201 calls. Possible values are: - INVALID_REQUEST - COMPLETED .</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. .</param>
-        public RiskV1UpdatePost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformaton = default(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation), string Id = default(string), string Status = default(string), string SubmitTimeUtc = default(string))
+        public RiskV1UpdatePost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformaton = default(RiskV1DecisionsPost201ResponseClientReferenceInformation), string Id = default(string), string Status = default(string), string SubmitTimeUtc = default(string))
         {
             this.Links = Links;
             this.ClientReferenceInformaton = ClientReferenceInformaton;
@@ -57,7 +57,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformaton
         /// </summary>
         [DataMember(Name="clientReferenceInformaton", EmitDefaultValue=false)]
-        public PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformaton { get; set; }
+        public RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformaton { get; set; }
 
         /// <summary>
         /// An unique identification number to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response.  #### PIN debit Returned for all PIN debit services. 

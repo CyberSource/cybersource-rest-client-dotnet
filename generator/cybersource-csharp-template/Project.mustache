@@ -68,13 +68,13 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="AuthenticationSdk">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.7\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.8\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.11.0.2\lib\{{targetFrameworkNuget}}\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-        <HintPath>packages\RestSharp.106.5.4\lib\{{targetFrameworkNuget}}2\RestSharp.dll</HintPath>
+      <HintPath>packages\RestSharp.106.5.4\lib\{{targetFrameworkNuget}}2\RestSharp.dll</HintPath>
     </Reference>
     {{#generatePropertyChanged}}
     <Reference Include="PropertyChanged">
@@ -88,14 +88,13 @@
     {{/netStandard}}
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs"
-             Exclude="obj\**;test\**" />
+    <Compile Include="**\*.cs" Exclude="obj\**;test\**" />
   </ItemGroup>
   {{^netStandard}}
   <ItemGroup>
-      <None Include="packages.config" />
-      <None Include="{{packageName}}.nuspec" />
-      <None Include="README.md" />
+    <None Include="packages.config" />
+    <None Include="{{packageName}}.nuspec" />
+    <None Include="README.md" />
       {{#generatePropertyChanged}}
       <None Include="FodyWeavers.xml" />
       {{/generatePropertyChanged}}
@@ -113,4 +112,3 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   {{/netStandard}}
 </Project>
-

@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="FraudMarkingActionRequest" /> class.
         /// </summary>
         /// <param name="RiskInformation">RiskInformation.</param>
-        public FraudMarkingActionRequest(Riskv1decisionsidmarkingRiskInformation RiskInformation = default(Riskv1decisionsidmarkingRiskInformation))
+        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
+        public FraudMarkingActionRequest(Riskv1decisionsidmarkingRiskInformation RiskInformation = default(Riskv1decisionsidmarkingRiskInformation), Riskv1decisionsClientReferenceInformation ClientReferenceInformation = default(Riskv1decisionsClientReferenceInformation))
         {
             this.RiskInformation = RiskInformation;
+            this.ClientReferenceInformation = ClientReferenceInformation;
         }
         
         /// <summary>
@@ -44,6 +46,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="riskInformation", EmitDefaultValue=false)]
         public Riskv1decisionsidmarkingRiskInformation RiskInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ClientReferenceInformation
+        /// </summary>
+        [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
+        public Riskv1decisionsClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +62,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class FraudMarkingActionRequest {\n");
             sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
+            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +103,11 @@ namespace CyberSource.Model
                     this.RiskInformation == other.RiskInformation ||
                     this.RiskInformation != null &&
                     this.RiskInformation.Equals(other.RiskInformation)
+                ) && 
+                (
+                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
+                    this.ClientReferenceInformation != null &&
+                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
                 );
         }
 
@@ -110,6 +124,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.RiskInformation != null)
                     hash = hash * 59 + this.RiskInformation.GetHashCode();
+                if (this.ClientReferenceInformation != null)
+                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 return hash;
             }
         }

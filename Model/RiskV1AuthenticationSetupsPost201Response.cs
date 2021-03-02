@@ -38,14 +38,16 @@ namespace CyberSource.Model
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. .</param>
         /// <param name="Status">The status for payerAuthentication 201 setup calls. Possible value is: - COMPLETED - FAILED .</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
+        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        public RiskV1AuthenticationSetupsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), RiskV1AuthenticationSetupsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1AuthenticationSetupsPost201ResponseConsumerAuthenticationInformation), RiskV1AuthenticationSetupsPost201ResponseErrorInformation ErrorInformation = default(RiskV1AuthenticationSetupsPost201ResponseErrorInformation))
+        public RiskV1AuthenticationSetupsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), RiskV1AuthenticationSetupsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1AuthenticationSetupsPost201ResponseConsumerAuthenticationInformation), RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(RiskV1DecisionsPost201ResponseClientReferenceInformation), RiskV1AuthenticationSetupsPost201ResponseErrorInformation ErrorInformation = default(RiskV1AuthenticationSetupsPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
             this.ConsumerAuthenticationInformation = ConsumerAuthenticationInformation;
+            this.ClientReferenceInformation = ClientReferenceInformation;
             this.ErrorInformation = ErrorInformation;
         }
         
@@ -83,6 +85,12 @@ namespace CyberSource.Model
         public RiskV1AuthenticationSetupsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ClientReferenceInformation
+        /// </summary>
+        [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
+        public RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets ErrorInformation
         /// </summary>
         [DataMember(Name="errorInformation", EmitDefaultValue=false)]
@@ -101,6 +109,7 @@ namespace CyberSource.Model
             sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
+            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -164,6 +173,11 @@ namespace CyberSource.Model
                     this.ConsumerAuthenticationInformation.Equals(other.ConsumerAuthenticationInformation)
                 ) && 
                 (
+                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
+                    this.ClientReferenceInformation != null &&
+                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
+                ) && 
+                (
                     this.ErrorInformation == other.ErrorInformation ||
                     this.ErrorInformation != null &&
                     this.ErrorInformation.Equals(other.ErrorInformation)
@@ -191,6 +205,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Status.GetHashCode();
                 if (this.ConsumerAuthenticationInformation != null)
                     hash = hash * 59 + this.ConsumerAuthenticationInformation.GetHashCode();
+                if (this.ClientReferenceInformation != null)
+                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 if (this.ErrorInformation != null)
                     hash = hash * 59 + this.ErrorInformation.GetHashCode();
                 return hash;

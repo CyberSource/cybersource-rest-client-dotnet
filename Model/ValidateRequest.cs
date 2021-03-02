@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
-        public ValidateRequest(Riskv1authenticationsetupsClientReferenceInformation ClientReferenceInformation = default(Riskv1authenticationsetupsClientReferenceInformation), Riskv1authenticationsetupsProcessingInformation ProcessingInformation = default(Riskv1authenticationsetupsProcessingInformation), Riskv1authenticationresultsOrderInformation OrderInformation = default(Riskv1authenticationresultsOrderInformation), Riskv1authenticationresultsPaymentInformation PaymentInformation = default(Riskv1authenticationresultsPaymentInformation), Riskv1authenticationresultsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1authenticationresultsConsumerAuthenticationInformation))
+        public ValidateRequest(Riskv1decisionsClientReferenceInformation ClientReferenceInformation = default(Riskv1decisionsClientReferenceInformation), Riskv1authenticationsetupsProcessingInformation ProcessingInformation = default(Riskv1authenticationsetupsProcessingInformation), Riskv1authenticationresultsOrderInformation OrderInformation = default(Riskv1authenticationresultsOrderInformation), Riskv1authenticationresultsPaymentInformation PaymentInformation = default(Riskv1authenticationresultsPaymentInformation), Riskv1authenticationresultsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1authenticationresultsConsumerAuthenticationInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Riskv1authenticationsetupsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Riskv1decisionsClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation

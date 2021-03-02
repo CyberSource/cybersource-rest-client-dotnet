@@ -25,17 +25,17 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Vasv2taxClientReferenceInformationPartner
+    /// Riskv1decisionsClientReferenceInformationPartner
     /// </summary>
     [DataContract]
-    public partial class Vasv2taxClientReferenceInformationPartner :  IEquatable<Vasv2taxClientReferenceInformationPartner>, IValidatableObject
+    public partial class Riskv1decisionsClientReferenceInformationPartner :  IEquatable<Riskv1decisionsClientReferenceInformationPartner>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Vasv2taxClientReferenceInformationPartner" /> class.
+        /// Initializes a new instance of the <see cref="Riskv1decisionsClientReferenceInformationPartner" /> class.
         /// </summary>
         /// <param name="DeveloperId">Identifier for the developer that helped integrate a partner solution to CyberSource.  Send this value in all requests that are sent through the partner solutions built by that developer. CyberSource assigns the ID to the developer.  **Note** When you see a developer ID of 999 in reports, the developer ID that was submitted is incorrect. .</param>
         /// <param name="SolutionId">Identifier for the partner that is integrated to CyberSource.  Send this value in all requests that are sent through the partner solution. CyberSource assigns the ID to the partner.  **Note** When you see a solutionId of 999 in reports, the solutionId that was submitted is incorrect. .</param>
-        public Vasv2taxClientReferenceInformationPartner(string DeveloperId = default(string), string SolutionId = default(string))
+        public Riskv1decisionsClientReferenceInformationPartner(string DeveloperId = default(string), string SolutionId = default(string))
         {
             this.DeveloperId = DeveloperId;
             this.SolutionId = SolutionId;
@@ -62,7 +62,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Vasv2taxClientReferenceInformationPartner {\n");
+            sb.Append("class Riskv1decisionsClientReferenceInformationPartner {\n");
             sb.Append("  DeveloperId: ").Append(DeveloperId).Append("\n");
             sb.Append("  SolutionId: ").Append(SolutionId).Append("\n");
             sb.Append("}\n");
@@ -86,15 +86,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Vasv2taxClientReferenceInformationPartner);
+            return this.Equals(obj as Riskv1decisionsClientReferenceInformationPartner);
         }
 
         /// <summary>
-        /// Returns true if Vasv2taxClientReferenceInformationPartner instances are equal
+        /// Returns true if Riskv1decisionsClientReferenceInformationPartner instances are equal
         /// </summary>
-        /// <param name="other">Instance of Vasv2taxClientReferenceInformationPartner to be compared</param>
+        /// <param name="other">Instance of Riskv1decisionsClientReferenceInformationPartner to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Vasv2taxClientReferenceInformationPartner other)
+        public bool Equals(Riskv1decisionsClientReferenceInformationPartner other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
