@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RiskV1AuthenticationsPost201ResponseErrorInformation" /> class.
         /// </summary>
-        /// <param name="Reason">The reason of the status. Possible values are: - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;PENDING_AUTHENTICATION&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; .</param>
+        /// <param name="Reason">The reason of the status. Possible values are: - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60; - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
         public RiskV1AuthenticationsPost201ResponseErrorInformation(string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
@@ -44,9 +44,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The reason of the status. Possible values are: - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;PENDING_AUTHENTICATION&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; 
+        /// The reason of the status. Possible values are: - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60; - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; 
         /// </summary>
-        /// <value>The reason of the status. Possible values are: - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;PENDING_AUTHENTICATION&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; </value>
+        /// <value>The reason of the status. Possible values are: - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60; - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 

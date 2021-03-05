@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="Code">Client-generated order reference or tracking number. CyberSource recommends that you send a unique value. .</param>
         /// <param name="Comments">Comments.</param>
         /// <param name="Partner">Partner.</param>
-        public Kmsv2keyssymClientReferenceInformation(string Code = default(string), string Comments = default(string), Vasv2taxClientReferenceInformationPartner Partner = default(Vasv2taxClientReferenceInformationPartner))
+        public Kmsv2keyssymClientReferenceInformation(string Code = default(string), string Comments = default(string), Riskv1decisionsClientReferenceInformationPartner Partner = default(Riskv1decisionsClientReferenceInformationPartner))
         {
             this.Code = Code;
             this.Comments = Comments;
@@ -61,7 +61,7 @@ namespace CyberSource.Model
         /// Gets or Sets Partner
         /// </summary>
         [DataMember(Name="partner", EmitDefaultValue=false)]
-        public Vasv2taxClientReferenceInformationPartner Partner { get; set; }
+        public Riskv1decisionsClientReferenceInformationPartner Partner { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

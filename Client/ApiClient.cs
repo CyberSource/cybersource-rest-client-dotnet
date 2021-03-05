@@ -214,7 +214,7 @@ namespace CyberSource.Client
                     else
                     {
                         request.AddParameter("application/json", postBody, ParameterType.RequestBody);
-                    }
+                    }                    
                 }
                 else if (postBody.GetType() == typeof(byte[]))
                 {
@@ -354,7 +354,7 @@ namespace CyberSource.Client
                 {
                     RestClient.Proxy = Configuration.Proxy;
                 }            
-
+                
                 // Adding Client Cert
                 if(Equals(bool.Parse(Configuration.MerchantConfigDictionaryObj["enableClientCert"]), true))
                 {
@@ -802,7 +802,7 @@ namespace CyberSource.Client
             // {
             //     authenticationHeaders.Add("v-c-solution-id", Configuration.SolutionId);
             // }
-
+            
             if (Configuration.Proxy == null && merchantConfig.UseProxy != null)
             {
                 if (bool.Parse(merchantConfig.UseProxy))

@@ -1,4 +1,4 @@
-# CyberSource.Model.Vasv2taxClientReferenceInformationPartner
+# CyberSource.Model.Riskv1decisionsClientReferenceInformationPartner
 ## Properties
 
 Name | Type | Description | Notes

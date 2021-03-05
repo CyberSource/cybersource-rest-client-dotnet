@@ -66,7 +66,7 @@ OpenAPI spec version: 0.0.1
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\cybersource-rest-client-dotnet.csproj">
-          <Project>{98BDC679-65E8-4071-B382-76C9A64DF83A}</Project>
+          <Project>{A741C74D-7866-4DCD-91E2-A2E3617E39C7}</Project>
           <Name>cybersource-rest-client-dotnet</Name>
       </ProjectReference>
   </ItemGroup>

@@ -47,6 +47,7 @@ namespace CyberSource.Model
         /// <param name="ErrorInformation">ErrorInformation.</param>
         /// <param name="InstallmentInformation">InstallmentInformation.</param>
         /// <param name="FraudMarkingInformation">FraudMarkingInformation.</param>
+        /// <param name="HealthCareInformation">HealthCareInformation.</param>
         /// <param name="MerchantDefinedInformation">The object containing the custom data that the merchant defines. .</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
@@ -57,7 +58,7 @@ namespace CyberSource.Model
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="Links">Links.</param>
-        public TssV2TransactionsGet200Response(string Id = default(string), string RootId = default(string), string ReconciliationId = default(string), string MerchantId = default(string), string Status = default(string), string SubmitTimeUTC = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsGet200ResponseBuyerInformation BuyerInformation = default(TssV2TransactionsGet200ResponseBuyerInformation), TssV2TransactionsGet200ResponseClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsGet200ResponseClientReferenceInformation), TssV2TransactionsGet200ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformation), TssV2TransactionsGet200ResponseDeviceInformation DeviceInformation = default(TssV2TransactionsGet200ResponseDeviceInformation), TssV2TransactionsGet200ResponseErrorInformation ErrorInformation = default(TssV2TransactionsGet200ResponseErrorInformation), TssV2TransactionsGet200ResponseInstallmentInformation InstallmentInformation = default(TssV2TransactionsGet200ResponseInstallmentInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsGet200ResponseMerchantInformation MerchantInformation = default(TssV2TransactionsGet200ResponseMerchantInformation), TssV2TransactionsGet200ResponseOrderInformation OrderInformation = default(TssV2TransactionsGet200ResponseOrderInformation), TssV2TransactionsGet200ResponsePaymentInformation PaymentInformation = default(TssV2TransactionsGet200ResponsePaymentInformation), TssV2TransactionsGet200ResponseProcessingInformation ProcessingInformation = default(TssV2TransactionsGet200ResponseProcessingInformation), TssV2TransactionsGet200ResponseProcessorInformation ProcessorInformation = default(TssV2TransactionsGet200ResponseProcessorInformation), TssV2TransactionsGet200ResponsePointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsGet200ResponsePointOfSaleInformation), TssV2TransactionsGet200ResponseRiskInformation RiskInformation = default(TssV2TransactionsGet200ResponseRiskInformation), TssV2TransactionsGet200ResponseSenderInformation SenderInformation = default(TssV2TransactionsGet200ResponseSenderInformation), TssV2TransactionsGet200ResponseLinks Links = default(TssV2TransactionsGet200ResponseLinks))
+        public TssV2TransactionsGet200Response(string Id = default(string), string RootId = default(string), string ReconciliationId = default(string), string MerchantId = default(string), string Status = default(string), string SubmitTimeUTC = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsGet200ResponseBuyerInformation BuyerInformation = default(TssV2TransactionsGet200ResponseBuyerInformation), TssV2TransactionsGet200ResponseClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsGet200ResponseClientReferenceInformation), TssV2TransactionsGet200ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformation), TssV2TransactionsGet200ResponseDeviceInformation DeviceInformation = default(TssV2TransactionsGet200ResponseDeviceInformation), TssV2TransactionsGet200ResponseErrorInformation ErrorInformation = default(TssV2TransactionsGet200ResponseErrorInformation), TssV2TransactionsGet200ResponseInstallmentInformation InstallmentInformation = default(TssV2TransactionsGet200ResponseInstallmentInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsGet200ResponseMerchantInformation MerchantInformation = default(TssV2TransactionsGet200ResponseMerchantInformation), TssV2TransactionsGet200ResponseOrderInformation OrderInformation = default(TssV2TransactionsGet200ResponseOrderInformation), TssV2TransactionsGet200ResponsePaymentInformation PaymentInformation = default(TssV2TransactionsGet200ResponsePaymentInformation), TssV2TransactionsGet200ResponseProcessingInformation ProcessingInformation = default(TssV2TransactionsGet200ResponseProcessingInformation), TssV2TransactionsGet200ResponseProcessorInformation ProcessorInformation = default(TssV2TransactionsGet200ResponseProcessorInformation), TssV2TransactionsGet200ResponsePointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsGet200ResponsePointOfSaleInformation), TssV2TransactionsGet200ResponseRiskInformation RiskInformation = default(TssV2TransactionsGet200ResponseRiskInformation), TssV2TransactionsGet200ResponseSenderInformation SenderInformation = default(TssV2TransactionsGet200ResponseSenderInformation), TssV2TransactionsGet200ResponseLinks Links = default(TssV2TransactionsGet200ResponseLinks))
         {
             this.Id = Id;
             this.RootId = RootId;
@@ -73,6 +74,7 @@ namespace CyberSource.Model
             this.ErrorInformation = ErrorInformation;
             this.InstallmentInformation = InstallmentInformation;
             this.FraudMarkingInformation = FraudMarkingInformation;
+            this.HealthCareInformation = HealthCareInformation;
             this.MerchantDefinedInformation = MerchantDefinedInformation;
             this.MerchantInformation = MerchantInformation;
             this.OrderInformation = OrderInformation;
@@ -176,6 +178,12 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets HealthCareInformation
+        /// </summary>
+        [DataMember(Name="healthCareInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsHealthCareInformation HealthCareInformation { get; set; }
+
+        /// <summary>
         /// The object containing the custom data that the merchant defines. 
         /// </summary>
         /// <value>The object containing the custom data that the merchant defines. </value>
@@ -258,6 +266,7 @@ namespace CyberSource.Model
             sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
             sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
             sb.Append("  FraudMarkingInformation: ").Append(FraudMarkingInformation).Append("\n");
+            sb.Append("  HealthCareInformation: ").Append(HealthCareInformation).Append("\n");
             sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
             sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
@@ -375,6 +384,11 @@ namespace CyberSource.Model
                     this.FraudMarkingInformation.Equals(other.FraudMarkingInformation)
                 ) && 
                 (
+                    this.HealthCareInformation == other.HealthCareInformation ||
+                    this.HealthCareInformation != null &&
+                    this.HealthCareInformation.Equals(other.HealthCareInformation)
+                ) && 
+                (
                     this.MerchantDefinedInformation == other.MerchantDefinedInformation ||
                     this.MerchantDefinedInformation != null &&
                     this.MerchantDefinedInformation.SequenceEqual(other.MerchantDefinedInformation)
@@ -465,6 +479,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InstallmentInformation.GetHashCode();
                 if (this.FraudMarkingInformation != null)
                     hash = hash * 59 + this.FraudMarkingInformation.GetHashCode();
+                if (this.HealthCareInformation != null)
+                    hash = hash * 59 + this.HealthCareInformation.GetHashCode();
                 if (this.MerchantDefinedInformation != null)
                     hash = hash * 59 + this.MerchantDefinedInformation.GetHashCode();
                 if (this.MerchantInformation != null)

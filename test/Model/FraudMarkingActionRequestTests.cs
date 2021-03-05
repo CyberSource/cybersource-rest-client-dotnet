@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'RiskInformation'
         }
+        /// <summary>
+        /// Test the property 'ClientReferenceInformation'
+        /// </summary>
+        [Test]
+        public void ClientReferenceInformationTest()
+        {
+            // TODO unit test for the property 'ClientReferenceInformation'
+        }
 
     }
 

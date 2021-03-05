@@ -33,14 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseProcessingInformation" /> class.
         /// </summary>
+        /// <param name="IndustryDataType">Indicates that the transaction includes industry-specific data.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; - &#x60;transit&#x60;  #### Card Present, Airlines and Auto Rental You must set this field to &#x60;airline&#x60; in order for airline data to be sent to the processor. For example, if this field is not set to &#x60;airline&#x60; or is not included in the request, no airline data is sent to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor. When this field is not set to &#x60;restaurant&#x60; or is not included in the request, no restaurant data is sent to the processor.  You must set this field to &#x60;auto_rental&#x60; in order for auto rental data to be sent to the processor. For example, if this field is not set to &#x60;auto_rental&#x60; or is not included in the request, no auto rental data is sent to the processor.  Restaurant data is supported only on CyberSource through VisaNet. .</param>
         /// <param name="PaymentSolution">Type of digital payment solution for the transaction.  .</param>
         /// <param name="CommerceIndicator">Type of transaction. Some payment card companies use this information when determining discount rates.  #### Used by **Authorization** Required payer authentication transactions; otherwise, optional. **Credit** Required for standalone credits on Chase Paymentech solutions; otherwise, optional. Only &#x60;internet&#x60;, &#x60;moto&#x60;, &#x60;install&#x60;, &#x60;recurring&#x60;, and &#x60;recurring_internet&#x60; are valid values.  #### Ingenico ePayments When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value (listed in Appendix I, \&quot;Commerce Indicators,\&quot; on page 441.)  #### Payer Authentication Transactions For the possible values and requirements, see \&quot;Payer Authentication,\&quot; page 195.  #### Other Types of Transactions See Appendix I, \&quot;Commerce Indicators,\&quot; on page 441.  #### Card Present You must set this field to &#x60;retail&#x60;. This field is required for a card-present transaction. Note that this should ONLY be used when the cardholder and card are present at the time of the transaction. For all keyed transactions originated from a POS terminal where the cardholder and card are not present, commerceIndicator should be submitted as “moto\&quot; .</param>
         /// <param name="BusinessApplicationId">Payouts transaction type. Required for OCT transactions. This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. **Note** When the request includes this field, this value overrides the information in your CyberSource account.  For valid values, see the &#x60;invoiceHeader_businessApplicationID&#x60; field description in [Payouts Using the Simple Order API.](http://apps.cybersource.com/library/documentation/dev_guides/payouts_SO/Payouts_SO_API.pdf) .</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         /// <param name="BankTransferOptions">BankTransferOptions.</param>
         /// <param name="JapanPaymentOptions">JapanPaymentOptions.</param>
-        public TssV2TransactionsGet200ResponseProcessingInformation(string PaymentSolution = default(string), string CommerceIndicator = default(string), string BusinessApplicationId = default(string), TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions AuthorizationOptions = default(TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions), TssV2TransactionsGet200ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(TssV2TransactionsGet200ResponseProcessingInformationBankTransferOptions), TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions))
+        public TssV2TransactionsGet200ResponseProcessingInformation(string IndustryDataType = default(string), string PaymentSolution = default(string), string CommerceIndicator = default(string), string BusinessApplicationId = default(string), TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions AuthorizationOptions = default(TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions), TssV2TransactionsGet200ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(TssV2TransactionsGet200ResponseProcessingInformationBankTransferOptions), TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions))
         {
+            this.IndustryDataType = IndustryDataType;
             this.PaymentSolution = PaymentSolution;
             this.CommerceIndicator = CommerceIndicator;
             this.BusinessApplicationId = BusinessApplicationId;
@@ -49,6 +51,13 @@ namespace CyberSource.Model
             this.JapanPaymentOptions = JapanPaymentOptions;
         }
         
+        /// <summary>
+        /// Indicates that the transaction includes industry-specific data.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; - &#x60;transit&#x60;  #### Card Present, Airlines and Auto Rental You must set this field to &#x60;airline&#x60; in order for airline data to be sent to the processor. For example, if this field is not set to &#x60;airline&#x60; or is not included in the request, no airline data is sent to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor. When this field is not set to &#x60;restaurant&#x60; or is not included in the request, no restaurant data is sent to the processor.  You must set this field to &#x60;auto_rental&#x60; in order for auto rental data to be sent to the processor. For example, if this field is not set to &#x60;auto_rental&#x60; or is not included in the request, no auto rental data is sent to the processor.  Restaurant data is supported only on CyberSource through VisaNet. 
+        /// </summary>
+        /// <value>Indicates that the transaction includes industry-specific data.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; - &#x60;transit&#x60;  #### Card Present, Airlines and Auto Rental You must set this field to &#x60;airline&#x60; in order for airline data to be sent to the processor. For example, if this field is not set to &#x60;airline&#x60; or is not included in the request, no airline data is sent to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor. When this field is not set to &#x60;restaurant&#x60; or is not included in the request, no restaurant data is sent to the processor.  You must set this field to &#x60;auto_rental&#x60; in order for auto rental data to be sent to the processor. For example, if this field is not set to &#x60;auto_rental&#x60; or is not included in the request, no auto rental data is sent to the processor.  Restaurant data is supported only on CyberSource through VisaNet. </value>
+        [DataMember(Name="industryDataType", EmitDefaultValue=false)]
+        public string IndustryDataType { get; set; }
+
         /// <summary>
         /// Type of digital payment solution for the transaction.  
         /// </summary>
@@ -96,6 +105,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessingInformation {\n");
+            sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
             sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
             sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
             sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
@@ -139,6 +149,11 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.IndustryDataType == other.IndustryDataType ||
+                    this.IndustryDataType != null &&
+                    this.IndustryDataType.Equals(other.IndustryDataType)
+                ) && 
+                (
                     this.PaymentSolution == other.PaymentSolution ||
                     this.PaymentSolution != null &&
                     this.PaymentSolution.Equals(other.PaymentSolution)
@@ -181,6 +196,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.IndustryDataType != null)
+                    hash = hash * 59 + this.IndustryDataType.GetHashCode();
                 if (this.PaymentSolution != null)
                     hash = hash * 59 + this.PaymentSolution.GetHashCode();
                 if (this.CommerceIndicator != null)
@@ -204,6 +221,12 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // IndustryDataType (string) maxLength
+            if(this.IndustryDataType != null && this.IndustryDataType.Length >= 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IndustryDataType, length must be less than or equal to 20.", new [] { "IndustryDataType" });
+            }
+
             // PaymentSolution (string) maxLength
             if(this.PaymentSolution != null && this.PaymentSolution.Length >= 50)
             {

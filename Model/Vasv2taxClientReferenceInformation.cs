@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="Code">Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. .</param>
         /// <param name="Partner">Partner.</param>
         /// <param name="Comments">Comments.</param>
-        public Vasv2taxClientReferenceInformation(string Code = default(string), Vasv2taxClientReferenceInformationPartner Partner = default(Vasv2taxClientReferenceInformationPartner), string Comments = default(string))
+        public Vasv2taxClientReferenceInformation(string Code = default(string), Riskv1decisionsClientReferenceInformationPartner Partner = default(Riskv1decisionsClientReferenceInformationPartner), string Comments = default(string))
         {
             this.Code = Code;
             this.Partner = Partner;
@@ -54,7 +54,7 @@ namespace CyberSource.Model
         /// Gets or Sets Partner
         /// </summary>
         [DataMember(Name="partner", EmitDefaultValue=false)]
-        public Vasv2taxClientReferenceInformationPartner Partner { get; set; }
+        public Riskv1decisionsClientReferenceInformationPartner Partner { get; set; }
 
         /// <summary>
         /// Comments

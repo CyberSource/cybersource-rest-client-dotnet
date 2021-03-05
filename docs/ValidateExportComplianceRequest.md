@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientReferenceInformation** | [**Riskv1addressverificationsClientReferenceInformation**](Riskv1addressverificationsClientReferenceInformation.md) |  | [optional] 
+**ClientReferenceInformation** | [**Riskv1decisionsClientReferenceInformation**](Riskv1decisionsClientReferenceInformation.md) |  | [optional] 
 **OrderInformation** | [**Riskv1exportcomplianceinquiriesOrderInformation**](Riskv1exportcomplianceinquiriesOrderInformation.md) |  | [optional] 
 **BuyerInformation** | [**Riskv1addressverificationsBuyerInformation**](Riskv1addressverificationsBuyerInformation.md) |  | [optional] 
 **DeviceInformation** | [**Riskv1exportcomplianceinquiriesDeviceInformation**](Riskv1exportcomplianceinquiriesDeviceInformation.md) |  | [optional] 

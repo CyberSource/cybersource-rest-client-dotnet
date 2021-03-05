@@ -33,12 +33,27 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1decisionsClientReferenceInformation" /> class.
         /// </summary>
-        /// <param name="Code">Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. .</param>
+        [JsonConstructorAttribute]
+        protected Riskv1decisionsClientReferenceInformation() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Riskv1decisionsClientReferenceInformation" /> class.
+        /// </summary>
+        /// <param name="Code">Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports.  (required).</param>
         /// <param name="Comments">Brief description of the order or any comment you wish to add to the order. .</param>
-        public Riskv1decisionsClientReferenceInformation(string Code = default(string), string Comments = default(string))
+        /// <param name="Partner">Partner.</param>
+        public Riskv1decisionsClientReferenceInformation(string Code = default(string), string Comments = default(string), Riskv1decisionsClientReferenceInformationPartner Partner = default(Riskv1decisionsClientReferenceInformationPartner))
         {
-            this.Code = Code;
+            // to ensure "Code" is required (not null)
+            if (Code == null)
+            {
+                throw new InvalidDataException("Code is a required property for Riskv1decisionsClientReferenceInformation and cannot be null");
+            }
+            else
+            {
+                this.Code = Code;
+            }
             this.Comments = Comments;
+            this.Partner = Partner;
         }
         
         /// <summary>
@@ -56,6 +71,12 @@ namespace CyberSource.Model
         public string Comments { get; set; }
 
         /// <summary>
+        /// Gets or Sets Partner
+        /// </summary>
+        [DataMember(Name="partner", EmitDefaultValue=false)]
+        public Riskv1decisionsClientReferenceInformationPartner Partner { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +86,7 @@ namespace CyberSource.Model
             sb.Append("class Riskv1decisionsClientReferenceInformation {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
+            sb.Append("  Partner: ").Append(Partner).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +132,11 @@ namespace CyberSource.Model
                     this.Comments == other.Comments ||
                     this.Comments != null &&
                     this.Comments.Equals(other.Comments)
+                ) && 
+                (
+                    this.Partner == other.Partner ||
+                    this.Partner != null &&
+                    this.Partner.Equals(other.Partner)
                 );
         }
 
@@ -128,6 +155,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Code.GetHashCode();
                 if (this.Comments != null)
                     hash = hash * 59 + this.Comments.GetHashCode();
+                if (this.Partner != null)
+                    hash = hash * 59 + this.Partner.GetHashCode();
                 return hash;
             }
         }
