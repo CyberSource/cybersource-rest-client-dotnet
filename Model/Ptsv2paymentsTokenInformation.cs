@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="TransientTokenJwt">Flex API Transient Token encoded as JWT (JSON Web Token), e.g. Flex microform or Unified Payment checkout result. .</param>
         /// <param name="PaymentInstrument">PaymentInstrument.</param>
         /// <param name="ShippingAddress">ShippingAddress.</param>
-        public Ptsv2paymentsTokenInformation(string Jti = default(string), string TransientTokenJwt = default(string), Ptsv2paymentsTokenInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsTokenInformationPaymentInstrument), Ptsv2paymentsTokenInformationShippingAddress ShippingAddress = default(Ptsv2paymentsTokenInformationShippingAddress))
+        /// <param name="NetworkTokenOption">Indicates whether a payment network token associated with a TMS token should be used for authorization. This field can contain one of following values:  - &#x60;ignore&#x60;: Use a tokenized card number for an authorization, even if the TMS token has an associated payment network token. - &#x60;prefer&#x60;: (Default) Use an associated payment network token for an authorization if the TMS token has one; otherwise, use the tokenized card number. .</param>
+        public Ptsv2paymentsTokenInformation(string Jti = default(string), string TransientTokenJwt = default(string), Ptsv2paymentsTokenInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsTokenInformationPaymentInstrument), Ptsv2paymentsTokenInformationShippingAddress ShippingAddress = default(Ptsv2paymentsTokenInformationShippingAddress), string NetworkTokenOption = default(string))
         {
             this.Jti = Jti;
             this.TransientTokenJwt = TransientTokenJwt;
             this.PaymentInstrument = PaymentInstrument;
             this.ShippingAddress = ShippingAddress;
+            this.NetworkTokenOption = NetworkTokenOption;
         }
         
         /// <summary>
@@ -72,6 +74,13 @@ namespace CyberSource.Model
         public Ptsv2paymentsTokenInformationShippingAddress ShippingAddress { get; set; }
 
         /// <summary>
+        /// Indicates whether a payment network token associated with a TMS token should be used for authorization. This field can contain one of following values:  - &#x60;ignore&#x60;: Use a tokenized card number for an authorization, even if the TMS token has an associated payment network token. - &#x60;prefer&#x60;: (Default) Use an associated payment network token for an authorization if the TMS token has one; otherwise, use the tokenized card number. 
+        /// </summary>
+        /// <value>Indicates whether a payment network token associated with a TMS token should be used for authorization. This field can contain one of following values:  - &#x60;ignore&#x60;: Use a tokenized card number for an authorization, even if the TMS token has an associated payment network token. - &#x60;prefer&#x60;: (Default) Use an associated payment network token for an authorization if the TMS token has one; otherwise, use the tokenized card number. </value>
+        [DataMember(Name="networkTokenOption", EmitDefaultValue=false)]
+        public string NetworkTokenOption { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +92,7 @@ namespace CyberSource.Model
             sb.Append("  TransientTokenJwt: ").Append(TransientTokenJwt).Append("\n");
             sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
             sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            sb.Append("  NetworkTokenOption: ").Append(NetworkTokenOption).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +148,11 @@ namespace CyberSource.Model
                     this.ShippingAddress == other.ShippingAddress ||
                     this.ShippingAddress != null &&
                     this.ShippingAddress.Equals(other.ShippingAddress)
+                ) && 
+                (
+                    this.NetworkTokenOption == other.NetworkTokenOption ||
+                    this.NetworkTokenOption != null &&
+                    this.NetworkTokenOption.Equals(other.NetworkTokenOption)
                 );
         }
 
@@ -160,6 +175,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInstrument.GetHashCode();
                 if (this.ShippingAddress != null)
                     hash = hash * 59 + this.ShippingAddress.GetHashCode();
+                if (this.NetworkTokenOption != null)
+                    hash = hash * 59 + this.NetworkTokenOption.GetHashCode();
                 return hash;
             }
         }

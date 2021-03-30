@@ -34,10 +34,12 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessingInformation" /> class.
         /// </summary>
         /// <param name="BankTransferOptions">BankTransferOptions.</param>
+        /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token. .</param>
         /// <param name="EnhancedDataEnabled">The possible values for the reply field are: - &#x60;true&#x60; : the airline data was included in the request to the processor. - &#x60;false&#x60; : the airline data was not included in the request to the processor.  Returned by authorization, capture, or credit services. .</param>
-        public PtsV2PaymentsPost201ResponseProcessingInformation(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions), bool? EnhancedDataEnabled = default(bool?))
+        public PtsV2PaymentsPost201ResponseProcessingInformation(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions), string PaymentSolution = default(string), bool? EnhancedDataEnabled = default(bool?))
         {
             this.BankTransferOptions = BankTransferOptions;
+            this.PaymentSolution = PaymentSolution;
             this.EnhancedDataEnabled = EnhancedDataEnabled;
         }
         
@@ -46,6 +48,13 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="bankTransferOptions", EmitDefaultValue=false)]
         public PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions { get; set; }
+
+        /// <summary>
+        /// Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token. 
+        /// </summary>
+        /// <value>Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token. </value>
+        [DataMember(Name="paymentSolution", EmitDefaultValue=false)]
+        public string PaymentSolution { get; set; }
 
         /// <summary>
         /// The possible values for the reply field are: - &#x60;true&#x60; : the airline data was included in the request to the processor. - &#x60;false&#x60; : the airline data was not included in the request to the processor.  Returned by authorization, capture, or credit services. 
@@ -63,6 +72,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseProcessingInformation {\n");
             sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
+            sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
             sb.Append("  EnhancedDataEnabled: ").Append(EnhancedDataEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -106,6 +116,11 @@ namespace CyberSource.Model
                     this.BankTransferOptions.Equals(other.BankTransferOptions)
                 ) && 
                 (
+                    this.PaymentSolution == other.PaymentSolution ||
+                    this.PaymentSolution != null &&
+                    this.PaymentSolution.Equals(other.PaymentSolution)
+                ) && 
+                (
                     this.EnhancedDataEnabled == other.EnhancedDataEnabled ||
                     this.EnhancedDataEnabled != null &&
                     this.EnhancedDataEnabled.Equals(other.EnhancedDataEnabled)
@@ -125,6 +140,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.BankTransferOptions != null)
                     hash = hash * 59 + this.BankTransferOptions.GetHashCode();
+                if (this.PaymentSolution != null)
+                    hash = hash * 59 + this.PaymentSolution.GetHashCode();
                 if (this.EnhancedDataEnabled != null)
                     hash = hash * 59 + this.EnhancedDataEnabled.GetHashCode();
                 return hash;
@@ -138,6 +155,12 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // PaymentSolution (string) maxLength
+            if(this.PaymentSolution != null && this.PaymentSolution.Length >= 12)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentSolution, length must be less than or equal to 12.", new [] { "PaymentSolution" });
+            }
+
             yield break;
         }
     }
