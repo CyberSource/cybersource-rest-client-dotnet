@@ -96,6 +96,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ShippingAddress'
         }
+        /// <summary>
+        /// Test the property 'NetworkTokenOption'
+        /// </summary>
+        [Test]
+        public void NetworkTokenOptionTest()
+        {
+            // TODO unit test for the property 'NetworkTokenOption'
+        }
 
     }
 
