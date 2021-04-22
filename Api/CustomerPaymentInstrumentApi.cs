@@ -85,8 +85,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>PaymentInstrumentListForCustomer</returns>
-        PaymentInstrumentListForCustomer GetCustomerPaymentInstrumentsList (string customerTokenId, string profileId = null, long? offset = null, long? limit = null);
+        /// <returns>PaymentInstrumentList</returns>
+        PaymentInstrumentList GetCustomerPaymentInstrumentsList (string customerTokenId, string profileId = null, long? offset = null, long? limit = null);
 
         /// <summary>
         /// List Payment Instruments for a Customer
@@ -99,8 +99,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>ApiResponse of PaymentInstrumentListForCustomer</returns>
-        ApiResponse<PaymentInstrumentListForCustomer> GetCustomerPaymentInstrumentsListWithHttpInfo (string customerTokenId, string profileId = null, long? offset = null, long? limit = null);
+        /// <returns>ApiResponse of PaymentInstrumentList</returns>
+        ApiResponse<PaymentInstrumentList> GetCustomerPaymentInstrumentsListWithHttpInfo (string customerTokenId, string profileId = null, long? offset = null, long? limit = null);
         /// <summary>
         /// Update a Customer Payment Instrument
         /// </summary>
@@ -218,8 +218,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of PaymentInstrumentListForCustomer</returns>
-        System.Threading.Tasks.Task<PaymentInstrumentListForCustomer> GetCustomerPaymentInstrumentsListAsync (string customerTokenId, string profileId = null, long? offset = null, long? limit = null);
+        /// <returns>Task of PaymentInstrumentList</returns>
+        System.Threading.Tasks.Task<PaymentInstrumentList> GetCustomerPaymentInstrumentsListAsync (string customerTokenId, string profileId = null, long? offset = null, long? limit = null);
 
         /// <summary>
         /// List Payment Instruments for a Customer
@@ -232,8 +232,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of ApiResponse (PaymentInstrumentListForCustomer)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentListForCustomer>> GetCustomerPaymentInstrumentsListAsyncWithHttpInfo (string customerTokenId, string profileId = null, long? offset = null, long? limit = null);
+        /// <returns>Task of ApiResponse (PaymentInstrumentList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList>> GetCustomerPaymentInstrumentsListAsyncWithHttpInfo (string customerTokenId, string profileId = null, long? offset = null, long? limit = null);
         /// <summary>
         /// Update a Customer Payment Instrument
         /// </summary>
@@ -708,10 +708,10 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>PaymentInstrumentListForCustomer</returns>
-        public PaymentInstrumentListForCustomer GetCustomerPaymentInstrumentsList (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
+        /// <returns>PaymentInstrumentList</returns>
+        public PaymentInstrumentList GetCustomerPaymentInstrumentsList (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
-             ApiResponse<PaymentInstrumentListForCustomer> localVarResponse = GetCustomerPaymentInstrumentsListWithHttpInfo(customerTokenId, profileId, offset, limit);
+             ApiResponse<PaymentInstrumentList> localVarResponse = GetCustomerPaymentInstrumentsListWithHttpInfo(customerTokenId, profileId, offset, limit);
              return localVarResponse.Data;
         }
 
@@ -723,8 +723,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>ApiResponse of PaymentInstrumentListForCustomer</returns>
-        public ApiResponse< PaymentInstrumentListForCustomer > GetCustomerPaymentInstrumentsListWithHttpInfo (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
+        /// <returns>ApiResponse of PaymentInstrumentList</returns>
+        public ApiResponse< PaymentInstrumentList > GetCustomerPaymentInstrumentsListWithHttpInfo (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
@@ -771,9 +771,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<PaymentInstrumentListForCustomer>(localVarStatusCode,
+            return new ApiResponse<PaymentInstrumentList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PaymentInstrumentListForCustomer) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentListForCustomer))); // Return statement
+                (PaymentInstrumentList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList))); // Return statement
         }
 
         /// <summary>
@@ -784,10 +784,10 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of PaymentInstrumentListForCustomer</returns>
-        public async System.Threading.Tasks.Task<PaymentInstrumentListForCustomer> GetCustomerPaymentInstrumentsListAsync (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
+        /// <returns>Task of PaymentInstrumentList</returns>
+        public async System.Threading.Tasks.Task<PaymentInstrumentList> GetCustomerPaymentInstrumentsListAsync (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
-             ApiResponse<PaymentInstrumentListForCustomer> localVarResponse = await GetCustomerPaymentInstrumentsListAsyncWithHttpInfo(customerTokenId, profileId, offset, limit);
+             ApiResponse<PaymentInstrumentList> localVarResponse = await GetCustomerPaymentInstrumentsListAsyncWithHttpInfo(customerTokenId, profileId, offset, limit);
              return localVarResponse.Data;
 
         }
@@ -800,8 +800,8 @@ namespace CyberSource.Api
         /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of ApiResponse (PaymentInstrumentListForCustomer)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentListForCustomer>> GetCustomerPaymentInstrumentsListAsyncWithHttpInfo (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
+        /// <returns>Task of ApiResponse (PaymentInstrumentList)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList>> GetCustomerPaymentInstrumentsListAsyncWithHttpInfo (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
@@ -848,9 +848,9 @@ namespace CyberSource.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<PaymentInstrumentListForCustomer>(localVarStatusCode,
+            return new ApiResponse<PaymentInstrumentList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PaymentInstrumentListForCustomer) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentListForCustomer))); // Return statement
+                (PaymentInstrumentList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList))); // Return statement
         }
 
         /// <summary>

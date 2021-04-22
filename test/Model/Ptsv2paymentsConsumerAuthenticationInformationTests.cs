@@ -161,6 +161,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AuthenticationType'
         }
         /// <summary>
+        /// Test the property 'AcsTransactionId'
+        /// </summary>
+        [Test]
+        public void AcsTransactionIdTest()
+        {
+            // TODO unit test for the property 'AcsTransactionId'
+        }
+        /// <summary>
         /// Test the property 'AcsWindowSize'
         /// </summary>
         [Test]
@@ -327,6 +335,14 @@ namespace CyberSource.Test
         public void MessageCategoryTest()
         {
             // TODO unit test for the property 'MessageCategory'
+        }
+        /// <summary>
+        /// Test the property 'NetworkScore'
+        /// </summary>
+        [Test]
+        public void NetworkScoreTest()
+        {
+            // TODO unit test for the property 'NetworkScore'
         }
         /// <summary>
         /// Test the property 'NpaCode'
