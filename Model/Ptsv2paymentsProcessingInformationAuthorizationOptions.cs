@@ -46,11 +46,11 @@ namespace CyberSource.Model
         /// <param name="BillPayment">Indicates payment for bill or payment towards existing contractual loan.  Possible values: - &#x60;true&#x60;: Bill payment or loan payment. - &#x60;false&#x60; (default): Not a bill payment or loan payment.  Optional request field. .</param>
         /// <param name="BillPaymentType">Reason for the payment.  Possible values: - 001: Utility payment - 002: Government services - 003: Mobile phone top-up - 004: Coupon payment  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR0 - Position: 48-50 - Field: Bill Payment Transaction Type Identifier  This field is supported only for bill payments in Brazil with Mastercard on CyberSource through VisaNet. .</param>
         /// <param name="RedemptionInquiry">Flag that indicates the payment request is a redemption inquiry.  Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
-        /// <param name="TransitTransactionType">Type of transportation mode :  Possible Values: - 00 &#x3D; Unknown - 01 &#x3D; Urban bus - 02 &#x3D; Interurban bus - 03&#x3D;Lighttrainmasstransit(Underground Metro LTR) - 04 &#x3D; Train - 05 &#x3D; Commuter train - 06 &#x3D; Water-borne vehicle - 07 &#x3D; Toll - 08 &#x3D; Parking - 09 &#x3D; Taxi - 10 &#x3D; High-speed train - 11 &#x3D; Rural bus - 12 &#x3D; Express commuter train - 13 &#x3D; Para transit - 14 &#x3D; Self drive vehicle - 15 &#x3D; Coach - 16 &#x3D; Locomotive - 17 &#x3D; Powered motor coach - 18 &#x3D; Trailer - 19 &#x3D; Regional train - 20 &#x3D; Inter-city - 21 &#x3D; Funicular train - 22 &#x3D; Cable car .</param>
+        /// <param name="TransportationMode">Type of transportation mode :  Possible Values: - 00 &#x3D; Unknown - 01 &#x3D; Urban bus - 02 &#x3D; Interurban bus - 03&#x3D;Lighttrainmasstransit(Underground Metro LTR) - 04 &#x3D; Train - 05 &#x3D; Commuter train - 06 &#x3D; Water-borne vehicle - 07 &#x3D; Toll - 08 &#x3D; Parking - 09 &#x3D; Taxi - 10 &#x3D; High-speed train - 11 &#x3D; Rural bus - 12 &#x3D; Express commuter train - 13 &#x3D; Para transit - 14 &#x3D; Self drive vehicle - 15 &#x3D; Coach - 16 &#x3D; Locomotive - 17 &#x3D; Powered motor coach - 18 &#x3D; Trailer - 19 &#x3D; Regional train - 20 &#x3D; Inter-city - 21 &#x3D; Funicular train - 22 &#x3D; Cable car .</param>
         /// <param name="AggregatedAuthIndicator">Indicates if transaction is an aggregated auth  Possible values: - **true** - **false** .</param>
         /// <param name="DebtRecoveryIndicator">Indicates if transaction is a debt recovery request  Possible values: - **true** - **false** .</param>
         /// <param name="DeferredAuthIndicator">Flag that indicates whether the authorization request was delayed because connectivity was interrupted.  Possible values:   - &#x60;true&#x60; (Deferred authorization)   - &#x60;false&#x60; (default: Not a deferred authorization) .</param>
-        public Ptsv2paymentsProcessingInformationAuthorizationOptions(string AuthType = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), bool? IgnoreCvResult = false, Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator Initiator = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string), bool? RedemptionInquiry = default(bool?), string TransitTransactionType = default(string), string AggregatedAuthIndicator = default(string), string DebtRecoveryIndicator = default(string), bool? DeferredAuthIndicator = default(bool?))
+        public Ptsv2paymentsProcessingInformationAuthorizationOptions(string AuthType = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), bool? IgnoreCvResult = false, Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator Initiator = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string), bool? RedemptionInquiry = default(bool?), string TransportationMode = default(string), string AggregatedAuthIndicator = default(string), string DebtRecoveryIndicator = default(string), bool? DeferredAuthIndicator = default(bool?))
         {
             this.AuthType = AuthType;
             this.VerbalAuthCode = VerbalAuthCode;
@@ -81,7 +81,7 @@ namespace CyberSource.Model
             this.BillPayment = BillPayment;
             this.BillPaymentType = BillPaymentType;
             this.RedemptionInquiry = RedemptionInquiry;
-            this.TransitTransactionType = TransitTransactionType;
+            this.TransportationMode = TransportationMode;
             this.AggregatedAuthIndicator = AggregatedAuthIndicator;
             this.DebtRecoveryIndicator = DebtRecoveryIndicator;
             this.DeferredAuthIndicator = DeferredAuthIndicator;
@@ -181,8 +181,8 @@ namespace CyberSource.Model
         /// Type of transportation mode :  Possible Values: - 00 &#x3D; Unknown - 01 &#x3D; Urban bus - 02 &#x3D; Interurban bus - 03&#x3D;Lighttrainmasstransit(Underground Metro LTR) - 04 &#x3D; Train - 05 &#x3D; Commuter train - 06 &#x3D; Water-borne vehicle - 07 &#x3D; Toll - 08 &#x3D; Parking - 09 &#x3D; Taxi - 10 &#x3D; High-speed train - 11 &#x3D; Rural bus - 12 &#x3D; Express commuter train - 13 &#x3D; Para transit - 14 &#x3D; Self drive vehicle - 15 &#x3D; Coach - 16 &#x3D; Locomotive - 17 &#x3D; Powered motor coach - 18 &#x3D; Trailer - 19 &#x3D; Regional train - 20 &#x3D; Inter-city - 21 &#x3D; Funicular train - 22 &#x3D; Cable car 
         /// </summary>
         /// <value>Type of transportation mode :  Possible Values: - 00 &#x3D; Unknown - 01 &#x3D; Urban bus - 02 &#x3D; Interurban bus - 03&#x3D;Lighttrainmasstransit(Underground Metro LTR) - 04 &#x3D; Train - 05 &#x3D; Commuter train - 06 &#x3D; Water-borne vehicle - 07 &#x3D; Toll - 08 &#x3D; Parking - 09 &#x3D; Taxi - 10 &#x3D; High-speed train - 11 &#x3D; Rural bus - 12 &#x3D; Express commuter train - 13 &#x3D; Para transit - 14 &#x3D; Self drive vehicle - 15 &#x3D; Coach - 16 &#x3D; Locomotive - 17 &#x3D; Powered motor coach - 18 &#x3D; Trailer - 19 &#x3D; Regional train - 20 &#x3D; Inter-city - 21 &#x3D; Funicular train - 22 &#x3D; Cable car </value>
-        [DataMember(Name="transitTransactionType", EmitDefaultValue=false)]
-        public string TransitTransactionType { get; set; }
+        [DataMember(Name="transportationMode", EmitDefaultValue=false)]
+        public string TransportationMode { get; set; }
 
         /// <summary>
         /// Indicates if transaction is an aggregated auth  Possible values: - **true** - **false** 
@@ -226,7 +226,7 @@ namespace CyberSource.Model
             sb.Append("  BillPayment: ").Append(BillPayment).Append("\n");
             sb.Append("  BillPaymentType: ").Append(BillPaymentType).Append("\n");
             sb.Append("  RedemptionInquiry: ").Append(RedemptionInquiry).Append("\n");
-            sb.Append("  TransitTransactionType: ").Append(TransitTransactionType).Append("\n");
+            sb.Append("  TransportationMode: ").Append(TransportationMode).Append("\n");
             sb.Append("  AggregatedAuthIndicator: ").Append(AggregatedAuthIndicator).Append("\n");
             sb.Append("  DebtRecoveryIndicator: ").Append(DebtRecoveryIndicator).Append("\n");
             sb.Append("  DeferredAuthIndicator: ").Append(DeferredAuthIndicator).Append("\n");
@@ -332,9 +332,9 @@ namespace CyberSource.Model
                     this.RedemptionInquiry.Equals(other.RedemptionInquiry)
                 ) && 
                 (
-                    this.TransitTransactionType == other.TransitTransactionType ||
-                    this.TransitTransactionType != null &&
-                    this.TransitTransactionType.Equals(other.TransitTransactionType)
+                    this.TransportationMode == other.TransportationMode ||
+                    this.TransportationMode != null &&
+                    this.TransportationMode.Equals(other.TransportationMode)
                 ) && 
                 (
                     this.AggregatedAuthIndicator == other.AggregatedAuthIndicator ||
@@ -390,8 +390,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BillPaymentType.GetHashCode();
                 if (this.RedemptionInquiry != null)
                     hash = hash * 59 + this.RedemptionInquiry.GetHashCode();
-                if (this.TransitTransactionType != null)
-                    hash = hash * 59 + this.TransitTransactionType.GetHashCode();
+                if (this.TransportationMode != null)
+                    hash = hash * 59 + this.TransportationMode.GetHashCode();
                 if (this.AggregatedAuthIndicator != null)
                     hash = hash * 59 + this.AggregatedAuthIndicator.GetHashCode();
                 if (this.DebtRecoveryIndicator != null)

@@ -356,7 +356,7 @@ namespace CyberSource.Client
                 }            
                 
                 // Adding Client Cert
-                if(Equals(bool.Parse(Configuration.MerchantConfigDictionaryObj["enableClientCert"]), true))
+                if(Configuration.MerchantConfigDictionaryObj.ContainsKey("enableClientCert") && Equals(bool.Parse(Configuration.MerchantConfigDictionaryObj["enableClientCert"]), true))
                 {
                     string clientCertDirectory = Configuration.MerchantConfigDictionaryObj["clientCertDirectory"];
                     string clientCertFile = Configuration.MerchantConfigDictionaryObj["clientCertFile"];

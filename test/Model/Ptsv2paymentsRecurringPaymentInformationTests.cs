@@ -81,12 +81,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Frequency'
         }
         /// <summary>
+        /// Test the property 'NumberOfPayments'
+        /// </summary>
+        [Test]
+        public void NumberOfPaymentsTest()
+        {
+            // TODO unit test for the property 'NumberOfPayments'
+        }
+        /// <summary>
         /// Test the property 'OriginalPurchaseDate'
         /// </summary>
         [Test]
         public void OriginalPurchaseDateTest()
         {
             // TODO unit test for the property 'OriginalPurchaseDate'
+        }
+        /// <summary>
+        /// Test the property 'SequenceNumber'
+        /// </summary>
+        [Test]
+        public void SequenceNumberTest()
+        {
+            // TODO unit test for the property 'SequenceNumber'
         }
 
     }

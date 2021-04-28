@@ -169,12 +169,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'RedemptionInquiry'
         }
         /// <summary>
-        /// Test the property 'TransitTransactionType'
+        /// Test the property 'TransportationMode'
         /// </summary>
         [Test]
-        public void TransitTransactionTypeTest()
+        public void TransportationModeTest()
         {
-            // TODO unit test for the property 'TransitTransactionType'
+            // TODO unit test for the property 'TransportationMode'
         }
         /// <summary>
         /// Test the property 'AggregatedAuthIndicator'

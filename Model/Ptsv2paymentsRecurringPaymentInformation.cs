@@ -35,12 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="EndDate">The date after which no further recurring authorizations should be performed. Format: &#x60;YYYY-MM-DD&#x60; **Note** This field is required for recurring transactions. .</param>
         /// <param name="Frequency">Integer value indicating the minimum number of days between recurring authorizations. A frequency of monthly is indicated by the value 28. Multiple of 28 days will be used to indicate months.  Example: 6 months &#x3D; 168  Example values accepted (31 days): - 31 - 031 - 0031  **Note** This field is required for recurring transactions. .</param>
+        /// <param name="NumberOfPayments">Total number of payments for the duration of the recurring subscription. .</param>
         /// <param name="OriginalPurchaseDate">Date of original purchase. Required for recurring transactions. Format: &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; **Note**: If this field is empty, the current date is used. .</param>
-        public Ptsv2paymentsRecurringPaymentInformation(string EndDate = default(string), int? Frequency = default(int?), string OriginalPurchaseDate = default(string))
+        /// <param name="SequenceNumber">This field is mandatory for Cartes Bancaires recurring transactions on Credit Mutuel-CIC.       This field records recurring sequence, e.g. 1st for initial,  2 for subsequent, 3 etc .</param>
+        public Ptsv2paymentsRecurringPaymentInformation(string EndDate = default(string), int? Frequency = default(int?), int? NumberOfPayments = default(int?), string OriginalPurchaseDate = default(string), int? SequenceNumber = default(int?))
         {
             this.EndDate = EndDate;
             this.Frequency = Frequency;
+            this.NumberOfPayments = NumberOfPayments;
             this.OriginalPurchaseDate = OriginalPurchaseDate;
+            this.SequenceNumber = SequenceNumber;
         }
         
         /// <summary>
@@ -58,11 +62,25 @@ namespace CyberSource.Model
         public int? Frequency { get; set; }
 
         /// <summary>
+        /// Total number of payments for the duration of the recurring subscription. 
+        /// </summary>
+        /// <value>Total number of payments for the duration of the recurring subscription. </value>
+        [DataMember(Name="numberOfPayments", EmitDefaultValue=false)]
+        public int? NumberOfPayments { get; set; }
+
+        /// <summary>
         /// Date of original purchase. Required for recurring transactions. Format: &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; **Note**: If this field is empty, the current date is used. 
         /// </summary>
         /// <value>Date of original purchase. Required for recurring transactions. Format: &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; **Note**: If this field is empty, the current date is used. </value>
         [DataMember(Name="originalPurchaseDate", EmitDefaultValue=false)]
         public string OriginalPurchaseDate { get; set; }
+
+        /// <summary>
+        /// This field is mandatory for Cartes Bancaires recurring transactions on Credit Mutuel-CIC.       This field records recurring sequence, e.g. 1st for initial,  2 for subsequent, 3 etc 
+        /// </summary>
+        /// <value>This field is mandatory for Cartes Bancaires recurring transactions on Credit Mutuel-CIC.       This field records recurring sequence, e.g. 1st for initial,  2 for subsequent, 3 etc </value>
+        [DataMember(Name="sequenceNumber", EmitDefaultValue=false)]
+        public int? SequenceNumber { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,7 +92,9 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsRecurringPaymentInformation {\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            sb.Append("  NumberOfPayments: ").Append(NumberOfPayments).Append("\n");
             sb.Append("  OriginalPurchaseDate: ").Append(OriginalPurchaseDate).Append("\n");
+            sb.Append("  SequenceNumber: ").Append(SequenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,9 +142,19 @@ namespace CyberSource.Model
                     this.Frequency.Equals(other.Frequency)
                 ) && 
                 (
+                    this.NumberOfPayments == other.NumberOfPayments ||
+                    this.NumberOfPayments != null &&
+                    this.NumberOfPayments.Equals(other.NumberOfPayments)
+                ) && 
+                (
                     this.OriginalPurchaseDate == other.OriginalPurchaseDate ||
                     this.OriginalPurchaseDate != null &&
                     this.OriginalPurchaseDate.Equals(other.OriginalPurchaseDate)
+                ) && 
+                (
+                    this.SequenceNumber == other.SequenceNumber ||
+                    this.SequenceNumber != null &&
+                    this.SequenceNumber.Equals(other.SequenceNumber)
                 );
         }
 
@@ -143,8 +173,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EndDate.GetHashCode();
                 if (this.Frequency != null)
                     hash = hash * 59 + this.Frequency.GetHashCode();
+                if (this.NumberOfPayments != null)
+                    hash = hash * 59 + this.NumberOfPayments.GetHashCode();
                 if (this.OriginalPurchaseDate != null)
                     hash = hash * 59 + this.OriginalPurchaseDate.GetHashCode();
+                if (this.SequenceNumber != null)
+                    hash = hash * 59 + this.SequenceNumber.GetHashCode();
                 return hash;
             }
         }
