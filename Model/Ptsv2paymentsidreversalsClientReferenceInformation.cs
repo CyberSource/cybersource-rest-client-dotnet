@@ -34,14 +34,16 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidreversalsClientReferenceInformation" /> class.
         /// </summary>
         /// <param name="Code">Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. .</param>
+        /// <param name="PausedRequestId">Used to resume a transaction that was paused for an order modification rule to allow for payer authentication to complete. To resume and continue with the authorization/decision service flow, call the services and include the request id from the prior decision call. .</param>
         /// <param name="Comments">Comments.</param>
         /// <param name="Partner">Partner.</param>
         /// <param name="ApplicationName">The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. .</param>
         /// <param name="ApplicationVersion">Version of the CyberSource application or integration used for a transaction. .</param>
         /// <param name="ApplicationUser">The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. .</param>
-        public Ptsv2paymentsidreversalsClientReferenceInformation(string Code = default(string), string Comments = default(string), Ptsv2paymentsidreversalsClientReferenceInformationPartner Partner = default(Ptsv2paymentsidreversalsClientReferenceInformationPartner), string ApplicationName = default(string), string ApplicationVersion = default(string), string ApplicationUser = default(string))
+        public Ptsv2paymentsidreversalsClientReferenceInformation(string Code = default(string), string PausedRequestId = default(string), string Comments = default(string), Ptsv2paymentsidreversalsClientReferenceInformationPartner Partner = default(Ptsv2paymentsidreversalsClientReferenceInformationPartner), string ApplicationName = default(string), string ApplicationVersion = default(string), string ApplicationUser = default(string))
         {
             this.Code = Code;
+            this.PausedRequestId = PausedRequestId;
             this.Comments = Comments;
             this.Partner = Partner;
             this.ApplicationName = ApplicationName;
@@ -55,6 +57,13 @@ namespace CyberSource.Model
         /// <value>Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
+
+        /// <summary>
+        /// Used to resume a transaction that was paused for an order modification rule to allow for payer authentication to complete. To resume and continue with the authorization/decision service flow, call the services and include the request id from the prior decision call. 
+        /// </summary>
+        /// <value>Used to resume a transaction that was paused for an order modification rule to allow for payer authentication to complete. To resume and continue with the authorization/decision service flow, call the services and include the request id from the prior decision call. </value>
+        [DataMember(Name="pausedRequestId", EmitDefaultValue=false)]
+        public string PausedRequestId { get; set; }
 
         /// <summary>
         /// Comments
@@ -99,6 +108,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidreversalsClientReferenceInformation {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  PausedRequestId: ").Append(PausedRequestId).Append("\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
             sb.Append("  Partner: ").Append(Partner).Append("\n");
             sb.Append("  ApplicationName: ").Append(ApplicationName).Append("\n");
@@ -146,6 +156,11 @@ namespace CyberSource.Model
                     this.Code.Equals(other.Code)
                 ) && 
                 (
+                    this.PausedRequestId == other.PausedRequestId ||
+                    this.PausedRequestId != null &&
+                    this.PausedRequestId.Equals(other.PausedRequestId)
+                ) && 
+                (
                     this.Comments == other.Comments ||
                     this.Comments != null &&
                     this.Comments.Equals(other.Comments)
@@ -185,6 +200,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Code != null)
                     hash = hash * 59 + this.Code.GetHashCode();
+                if (this.PausedRequestId != null)
+                    hash = hash * 59 + this.PausedRequestId.GetHashCode();
                 if (this.Comments != null)
                     hash = hash * 59 + this.Comments.GetHashCode();
                 if (this.Partner != null)
@@ -210,6 +227,12 @@ namespace CyberSource.Model
             if(this.Code != null && this.Code.Length >= 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than or equal to 50.", new [] { "Code" });
+            }
+
+            // PausedRequestId (string) maxLength
+            if(this.PausedRequestId != null && this.PausedRequestId.Length >= 26)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PausedRequestId, length must be less than or equal to 26.", new [] { "PausedRequestId" });
             }
 
             yield break;

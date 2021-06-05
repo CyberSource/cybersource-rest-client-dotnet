@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
-        public FraudMarkingActionRequest(Riskv1decisionsidmarkingRiskInformation RiskInformation = default(Riskv1decisionsidmarkingRiskInformation), Riskv1decisionsClientReferenceInformation ClientReferenceInformation = default(Riskv1decisionsClientReferenceInformation))
+        public FraudMarkingActionRequest(Riskv1decisionsidmarkingRiskInformation RiskInformation = default(Riskv1decisionsidmarkingRiskInformation), Riskv1liststypeentriesClientReferenceInformation ClientReferenceInformation = default(Riskv1liststypeentriesClientReferenceInformation))
         {
             this.RiskInformation = RiskInformation;
             this.ClientReferenceInformation = ClientReferenceInformation;
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Riskv1decisionsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Riskv1liststypeentriesClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

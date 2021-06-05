@@ -72,6 +72,38 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Suffix'
         }
+        /// <summary>
+        /// Test the property 'ExpirationMonth'
+        /// </summary>
+        [Test]
+        public void ExpirationMonthTest()
+        {
+            // TODO unit test for the property 'ExpirationMonth'
+        }
+        /// <summary>
+        /// Test the property 'ExpirationYear'
+        /// </summary>
+        [Test]
+        public void ExpirationYearTest()
+        {
+            // TODO unit test for the property 'ExpirationYear'
+        }
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'Prefix'
+        /// </summary>
+        [Test]
+        public void PrefixTest()
+        {
+            // TODO unit test for the property 'Prefix'
+        }
 
     }
 
