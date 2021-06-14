@@ -56,20 +56,20 @@ For more detailed information on OAuth, refer to the documentation at [Cybersour
 In order to use OAuth, set the run environment to OAuth enabled URLs. OAuth only works in these run environments.
 
 ```csharp
-   // For TESTING use
-   _configurationDictionary.Add("runEnvironment", "cybersource.environment.mutualauth.sandbox")
-   // For PRODUCTION use
-   // _configurationDictionary.Add("runEnvironment", "cybersource.environment.mutualauth.production")
-```
+    // For TESTING use
+    _configurationDictionary.Add("runEnvironment", "api-matest.cybersource.com")
+    // For PRODUCTION use
+    // _configurationDictionary.Add("runEnvironment", "api-ma.cybersource.com")
+    ```
 
 ### Switching between the sandbox environment and the production environment
 Cybersource maintains a complete sandbox environment for testing and development purposes. This sandbox environment is an exact duplicate of our production environment with the transaction authorization and settlement process simulated. By default, this SDK is configured to communicate with the sandbox environment. To switch to the production environment, set the `runEnvironment` property in the SDK Configuration.  See our sample at https://github.com/CyberSource/cybersource-rest-samples-csharp/blob/master/src/Configuration.cs.  
 
 ```csharp
-// For TESTING use
-_configurationDictionary.Add("runEnvironment", "cybersource.environment.sandbox");
-// For PRODUCTION use
-// _configurationDictionary.Add("runEnvironment", "cybersource.environment.production");
+	// For TESTING use
+	_configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
+	// For PRODUCTION use
+	// _configurationDictionary.Add("runEnvironment", "api.cybersource.com");
 ```
 
 API credentials are different for each environment, so be sure to switch to the appropriate credentials when switching environments.
