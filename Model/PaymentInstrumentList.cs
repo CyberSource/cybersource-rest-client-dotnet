@@ -25,17 +25,17 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// PaymentInstrumentListForCustomer
+    /// PaymentInstrumentList
     /// </summary>
     [DataContract]
-    public partial class PaymentInstrumentListForCustomer :  IEquatable<PaymentInstrumentListForCustomer>, IValidatableObject
+    public partial class PaymentInstrumentList :  IEquatable<PaymentInstrumentList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentInstrumentListForCustomer" /> class.
+        /// Initializes a new instance of the <see cref="PaymentInstrumentList" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
         /// <param name="Embedded">Embedded.</param>
-        public PaymentInstrumentListForCustomer(PaymentInstrumentListForCustomerLinks Links = default(PaymentInstrumentListForCustomerLinks), PaymentInstrumentListForCustomerEmbedded Embedded = default(PaymentInstrumentListForCustomerEmbedded))
+        public PaymentInstrumentList(PaymentInstrumentListLinks Links = default(PaymentInstrumentListLinks), PaymentInstrumentListEmbedded Embedded = default(PaymentInstrumentListEmbedded))
         {
             this.Links = Links;
             this.Embedded = Embedded;
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public PaymentInstrumentListForCustomerLinks Links { get; set; }
+        public PaymentInstrumentListLinks Links { get; set; }
 
         /// <summary>
         /// The offset parameter supplied in the request.
@@ -79,7 +79,7 @@ namespace CyberSource.Model
         /// Gets or Sets Embedded
         /// </summary>
         [DataMember(Name="_embedded", EmitDefaultValue=false)]
-        public PaymentInstrumentListForCustomerEmbedded Embedded { get; set; }
+        public PaymentInstrumentListEmbedded Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -88,7 +88,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PaymentInstrumentListForCustomer {\n");
+            sb.Append("class PaymentInstrumentList {\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("  Offset: ").Append(Offset).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
@@ -116,15 +116,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as PaymentInstrumentListForCustomer);
+            return this.Equals(obj as PaymentInstrumentList);
         }
 
         /// <summary>
-        /// Returns true if PaymentInstrumentListForCustomer instances are equal
+        /// Returns true if PaymentInstrumentList instances are equal
         /// </summary>
-        /// <param name="other">Instance of PaymentInstrumentListForCustomer to be compared</param>
+        /// <param name="other">Instance of PaymentInstrumentList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymentInstrumentListForCustomer other)
+        public bool Equals(PaymentInstrumentList other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

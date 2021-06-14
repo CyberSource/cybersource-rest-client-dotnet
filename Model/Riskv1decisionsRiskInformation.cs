@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="Profile">Profile.</param>
         /// <param name="EventType">Specifies one of the following types of events: - login - account_creation - account_update For regular payment transactions, do not send this field. .</param>
         /// <param name="BuyerHistory">BuyerHistory.</param>
-        public Riskv1decisionsRiskInformation(Ptsv2paymentsRiskInformationProfile Profile = default(Ptsv2paymentsRiskInformationProfile), string EventType = default(string), Ptsv2paymentsRiskInformationBuyerHistory BuyerHistory = default(Ptsv2paymentsRiskInformationBuyerHistory))
+        /// <param name="AuxiliaryData">AuxiliaryData.</param>
+        public Riskv1decisionsRiskInformation(Ptsv2paymentsRiskInformationProfile Profile = default(Ptsv2paymentsRiskInformationProfile), string EventType = default(string), Ptsv2paymentsRiskInformationBuyerHistory BuyerHistory = default(Ptsv2paymentsRiskInformationBuyerHistory), List<Ptsv2paymentsRiskInformationAuxiliaryData> AuxiliaryData = default(List<Ptsv2paymentsRiskInformationAuxiliaryData>))
         {
             this.Profile = Profile;
             this.EventType = EventType;
             this.BuyerHistory = BuyerHistory;
+            this.AuxiliaryData = AuxiliaryData;
         }
         
         /// <summary>
@@ -63,6 +65,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsRiskInformationBuyerHistory BuyerHistory { get; set; }
 
         /// <summary>
+        /// Gets or Sets AuxiliaryData
+        /// </summary>
+        [DataMember(Name="auxiliaryData", EmitDefaultValue=false)]
+        public List<Ptsv2paymentsRiskInformationAuxiliaryData> AuxiliaryData { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +81,7 @@ namespace CyberSource.Model
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("  BuyerHistory: ").Append(BuyerHistory).Append("\n");
+            sb.Append("  AuxiliaryData: ").Append(AuxiliaryData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +132,11 @@ namespace CyberSource.Model
                     this.BuyerHistory == other.BuyerHistory ||
                     this.BuyerHistory != null &&
                     this.BuyerHistory.Equals(other.BuyerHistory)
+                ) && 
+                (
+                    this.AuxiliaryData == other.AuxiliaryData ||
+                    this.AuxiliaryData != null &&
+                    this.AuxiliaryData.SequenceEqual(other.AuxiliaryData)
                 );
         }
 
@@ -143,6 +157,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EventType.GetHashCode();
                 if (this.BuyerHistory != null)
                     hash = hash * 59 + this.BuyerHistory.GetHashCode();
+                if (this.AuxiliaryData != null)
+                    hash = hash * 59 + this.AuxiliaryData.GetHashCode();
                 return hash;
             }
         }

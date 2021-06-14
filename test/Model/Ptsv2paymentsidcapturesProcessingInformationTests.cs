@@ -152,6 +152,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'LoanOptions'
         }
+        /// <summary>
+        /// Test the property 'PayByPointsIndicator'
+        /// </summary>
+        [Test]
+        public void PayByPointsIndicatorTest()
+        {
+            // TODO unit test for the property 'PayByPointsIndicator'
+        }
 
     }
 

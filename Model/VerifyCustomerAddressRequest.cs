@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
-        public VerifyCustomerAddressRequest(Riskv1decisionsClientReferenceInformation ClientReferenceInformation = default(Riskv1decisionsClientReferenceInformation), Riskv1addressverificationsOrderInformation OrderInformation = default(Riskv1addressverificationsOrderInformation), Riskv1addressverificationsBuyerInformation BuyerInformation = default(Riskv1addressverificationsBuyerInformation))
+        public VerifyCustomerAddressRequest(Riskv1liststypeentriesClientReferenceInformation ClientReferenceInformation = default(Riskv1liststypeentriesClientReferenceInformation), Riskv1addressverificationsOrderInformation OrderInformation = default(Riskv1addressverificationsOrderInformation), Riskv1addressverificationsBuyerInformation BuyerInformation = default(Riskv1addressverificationsBuyerInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
@@ -47,7 +47,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Riskv1decisionsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Riskv1liststypeentriesClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation

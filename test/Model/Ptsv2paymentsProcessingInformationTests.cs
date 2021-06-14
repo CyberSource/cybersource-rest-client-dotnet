@@ -272,6 +272,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'NetworkRoutingOrder'
         }
+        /// <summary>
+        /// Test the property 'PayByPointsIndicator'
+        /// </summary>
+        [Test]
+        public void PayByPointsIndicatorTest()
+        {
+            // TODO unit test for the property 'PayByPointsIndicator'
+        }
 
     }
 

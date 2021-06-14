@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
-        public AddNegativeListRequest(Riskv1liststypeentriesOrderInformation OrderInformation = default(Riskv1liststypeentriesOrderInformation), Riskv1liststypeentriesPaymentInformation PaymentInformation = default(Riskv1liststypeentriesPaymentInformation), Riskv1decisionsClientReferenceInformation ClientReferenceInformation = default(Riskv1decisionsClientReferenceInformation), Riskv1liststypeentriesDeviceInformation DeviceInformation = default(Riskv1liststypeentriesDeviceInformation), Riskv1liststypeentriesRiskInformation RiskInformation = default(Riskv1liststypeentriesRiskInformation), Riskv1liststypeentriesBuyerInformation BuyerInformation = default(Riskv1liststypeentriesBuyerInformation))
+        public AddNegativeListRequest(Riskv1liststypeentriesOrderInformation OrderInformation = default(Riskv1liststypeentriesOrderInformation), Riskv1liststypeentriesPaymentInformation PaymentInformation = default(Riskv1liststypeentriesPaymentInformation), Riskv1liststypeentriesClientReferenceInformation ClientReferenceInformation = default(Riskv1liststypeentriesClientReferenceInformation), Riskv1liststypeentriesDeviceInformation DeviceInformation = default(Riskv1liststypeentriesDeviceInformation), Riskv1liststypeentriesRiskInformation RiskInformation = default(Riskv1liststypeentriesRiskInformation), Riskv1liststypeentriesBuyerInformation BuyerInformation = default(Riskv1liststypeentriesBuyerInformation))
         {
             this.OrderInformation = OrderInformation;
             this.PaymentInformation = PaymentInformation;
@@ -65,7 +65,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Riskv1decisionsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Riskv1liststypeentriesClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceInformation

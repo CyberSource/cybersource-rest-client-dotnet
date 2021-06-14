@@ -33,6 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation" /> class.
         /// </summary>
+        /// <param name="AccessToken">JSON Web Token (JWT) used to authenticate the consumer with the authentication provider, such as, CardinalCommerce or Rupay. Note - Max Length of this field is 2048 characters. .</param>
         /// <param name="AcsRenderingType">Identifies the UI Type the ACS will use to complete the challenge. **NOTE**: Only available for App transactions using the Cardinal Mobile SDK. .</param>
         /// <param name="AcsTransactionId">Unique transaction identifier assigned by the ACS to identify a single transaction. .</param>
         /// <param name="AcsUrl">URL for the card-issuing bank’s authentication form that you receive when the card is enrolled. The value can be very large. .</param>
@@ -73,8 +74,9 @@ namespace CyberSource.Model
         /// <param name="Indicator">Indicator used to differentiate Internet transactions from other types. The authentication failed if this field is not returned. For Visa, if your payment processor is Streamline, Barclays, AIBMS, or FDC Germany, you receive the value vbv_failure instead of internet when eci is 07. The value of this field is passed automatically to the authorization service if you request the services together. This field contains one of these values: - &#x60;aesk&#x60;: American Express SafeKey authentication verified successfully. - &#x60;aesk_attempted&#x60;: Card not enrolled in American Express SafeKey, but the attempt to authenticate was recorded. - &#x60;dipb&#x60;: Discover ProtectBuy authentication verified successfully. - &#x60;dipb_attempted&#x60;: Card not enrolled in Discover ProtectBuy, but the attempt to authenticate was recorded. - &#x60;internet&#x60;: Authentication was not verified successfully. - &#x60;js&#x60;: J/Secure authentication verified successfully. - &#x60;js_attempted&#x60;: Card not enrolled in J/Secure, but the attempt to authenticate was recorded. - &#x60;moto&#x60;: Mail or telephone order. - &#x60;pb_attempted&#x60;: Card not enrolled in Diners Club ProtectBuy, but the attempt to authenticate was recorded. - &#x60;recurring&#x60;: Recurring transaction. - &#x60;spa&#x60;: Mastercard Identity Check authentication verified successfully. - &#x60;spa_failure&#x60;: Mastercard Identity Check failed authentication. - &#x60;vbv&#x60;: Visa Secure authentication verified successfully. - &#x60;vbv_attempted&#x60;: Card not enrolled in Visa Secure, but the attempt to authenticate was recorded. - &#x60;vbv_failure&#x60;: Visa Secure authentication unavailable. .</param>
         /// <param name="InteractionCounter">Indicates the number of authentication cycles attempted by the cardholder and is tracked by the Issuing Banks ACS.Example: if customer gets the challenge window and enter in their one time password and hit submit then that interaction counter should just be 1. When customer gets the challenge window and the bank asks if they want to have the one time password  sent to their phone or their email and they have to choose before going to the next screen to enter in their one time password then this interaction count would be 2. One for the selection of how they want the one time password delivered and another with them actually entering in the one time password and hitting the submit button. .</param>
         /// <param name="WhiteListStatus">Enables the communication of trusted beneficiary/whitelist status between the ACS, the DS and the 3DS Requestor.  Possible Values:  Y - 3DS Requestor is whitelisted by cardholder  N - 3DS Requestor is not whitelisted by cardholder .</param>
-        public PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation(string AcsRenderingType = default(string), string AcsTransactionId = default(string), string AcsUrl = default(string), string AuthenticationPath = default(string), string AuthorizationPayload = default(string), string AuthenticationTransactionId = default(string), string CardholderMessage = default(string), string Cavv = default(string), string CavvAlgorithm = default(string), string ChallengeCancelCode = default(string), string ChallengeRequired = default(string), string DecoupledAuthenticationIndicator = default(string), string DirectoryServerErrorCode = default(string), string DirectoryServerErrorDescription = default(string), string EcommerceIndicator = default(string), string Eci = default(string), string EciRaw = default(string), string EffectiveAuthenticationType = default(string), PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationIvr Ivr = default(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationIvr), string NetworkScore = default(string), string Pareq = default(string), string ParesStatus = default(string), string ProofXml = default(string), string ProxyPan = default(string), string SdkTransactionId = default(string), string SignedParesStatusReason = default(string), string SpecificationVersion = default(string), string StepUpUrl = default(string), string ThreeDSServerTransactionId = default(string), string UcafAuthenticationData = default(string), string UcafCollectionIndicator = default(string), string VeresEnrolled = default(string), string WhiteListStatusSource = default(string), string Xid = default(string), string DirectoryServerTransactionId = default(string), string AuthenticationResult = default(string), string AuthenticationStatusMsg = default(string), string Indicator = default(string), string InteractionCounter = default(string), string WhiteListStatus = default(string))
+        public PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation(string AccessToken = default(string), string AcsRenderingType = default(string), string AcsTransactionId = default(string), string AcsUrl = default(string), string AuthenticationPath = default(string), string AuthorizationPayload = default(string), string AuthenticationTransactionId = default(string), string CardholderMessage = default(string), string Cavv = default(string), string CavvAlgorithm = default(string), string ChallengeCancelCode = default(string), string ChallengeRequired = default(string), string DecoupledAuthenticationIndicator = default(string), string DirectoryServerErrorCode = default(string), string DirectoryServerErrorDescription = default(string), string EcommerceIndicator = default(string), string Eci = default(string), string EciRaw = default(string), string EffectiveAuthenticationType = default(string), PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationIvr Ivr = default(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationIvr), string NetworkScore = default(string), string Pareq = default(string), string ParesStatus = default(string), string ProofXml = default(string), string ProxyPan = default(string), string SdkTransactionId = default(string), string SignedParesStatusReason = default(string), string SpecificationVersion = default(string), string StepUpUrl = default(string), string ThreeDSServerTransactionId = default(string), string UcafAuthenticationData = default(string), string UcafCollectionIndicator = default(string), string VeresEnrolled = default(string), string WhiteListStatusSource = default(string), string Xid = default(string), string DirectoryServerTransactionId = default(string), string AuthenticationResult = default(string), string AuthenticationStatusMsg = default(string), string Indicator = default(string), string InteractionCounter = default(string), string WhiteListStatus = default(string))
         {
+            this.AccessToken = AccessToken;
             this.AcsRenderingType = AcsRenderingType;
             this.AcsTransactionId = AcsTransactionId;
             this.AcsUrl = AcsUrl;
@@ -117,6 +119,13 @@ namespace CyberSource.Model
             this.WhiteListStatus = WhiteListStatus;
         }
         
+        /// <summary>
+        /// JSON Web Token (JWT) used to authenticate the consumer with the authentication provider, such as, CardinalCommerce or Rupay. Note - Max Length of this field is 2048 characters. 
+        /// </summary>
+        /// <value>JSON Web Token (JWT) used to authenticate the consumer with the authentication provider, such as, CardinalCommerce or Rupay. Note - Max Length of this field is 2048 characters. </value>
+        [DataMember(Name="accessToken", EmitDefaultValue=false)]
+        public string AccessToken { get; set; }
+
         /// <summary>
         /// Identifies the UI Type the ACS will use to complete the challenge. **NOTE**: Only available for App transactions using the Cardinal Mobile SDK. 
         /// </summary>
@@ -404,6 +413,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation {\n");
+            sb.Append("  AccessToken: ").Append(AccessToken).Append("\n");
             sb.Append("  AcsRenderingType: ").Append(AcsRenderingType).Append("\n");
             sb.Append("  AcsTransactionId: ").Append(AcsTransactionId).Append("\n");
             sb.Append("  AcsUrl: ").Append(AcsUrl).Append("\n");
@@ -480,6 +490,11 @@ namespace CyberSource.Model
                 return false;
 
             return 
+                (
+                    this.AccessToken == other.AccessToken ||
+                    this.AccessToken != null &&
+                    this.AccessToken.Equals(other.AccessToken)
+                ) && 
                 (
                     this.AcsRenderingType == other.AcsRenderingType ||
                     this.AcsRenderingType != null &&
@@ -693,6 +708,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.AccessToken != null)
+                    hash = hash * 59 + this.AccessToken.GetHashCode();
                 if (this.AcsRenderingType != null)
                     hash = hash * 59 + this.AcsRenderingType.GetHashCode();
                 if (this.AcsTransactionId != null)

@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
-        public PtsV2PaymentsPost201ResponseOrderInformation(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails), PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails))
+        /// <param name="RewardPointsDetails">RewardPointsDetails.</param>
+        public PtsV2PaymentsPost201ResponseOrderInformation(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails), PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails), PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails RewardPointsDetails = default(PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails))
         {
             this.AmountDetails = AmountDetails;
             this.InvoiceDetails = InvoiceDetails;
+            this.RewardPointsDetails = RewardPointsDetails;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails InvoiceDetails { get; set; }
 
         /// <summary>
+        /// Gets or Sets RewardPointsDetails
+        /// </summary>
+        [DataMember(Name="rewardPointsDetails", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails RewardPointsDetails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsPost201ResponseOrderInformation {\n");
             sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
             sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
+            sb.Append("  RewardPointsDetails: ").Append(RewardPointsDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +117,11 @@ namespace CyberSource.Model
                     this.InvoiceDetails == other.InvoiceDetails ||
                     this.InvoiceDetails != null &&
                     this.InvoiceDetails.Equals(other.InvoiceDetails)
+                ) && 
+                (
+                    this.RewardPointsDetails == other.RewardPointsDetails ||
+                    this.RewardPointsDetails != null &&
+                    this.RewardPointsDetails.Equals(other.RewardPointsDetails)
                 );
         }
 
@@ -126,6 +140,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AmountDetails.GetHashCode();
                 if (this.InvoiceDetails != null)
                     hash = hash * 59 + this.InvoiceDetails.GetHashCode();
+                if (this.RewardPointsDetails != null)
+                    hash = hash * 59 + this.RewardPointsDetails.GetHashCode();
                 return hash;
             }
         }

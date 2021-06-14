@@ -25,16 +25,16 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// PaymentInstrumentListForCustomerLinksFirst
+    /// PaymentInstrumentListLinksFirst
     /// </summary>
     [DataContract]
-    public partial class PaymentInstrumentListForCustomerLinksFirst :  IEquatable<PaymentInstrumentListForCustomerLinksFirst>, IValidatableObject
+    public partial class PaymentInstrumentListLinksFirst :  IEquatable<PaymentInstrumentListLinksFirst>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentInstrumentListForCustomerLinksFirst" /> class.
+        /// Initializes a new instance of the <see cref="PaymentInstrumentListLinksFirst" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public PaymentInstrumentListForCustomerLinksFirst()
+        public PaymentInstrumentListLinksFirst()
         {
         }
         
@@ -52,7 +52,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PaymentInstrumentListForCustomerLinksFirst {\n");
+            sb.Append("class PaymentInstrumentListLinksFirst {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -75,15 +75,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as PaymentInstrumentListForCustomerLinksFirst);
+            return this.Equals(obj as PaymentInstrumentListLinksFirst);
         }
 
         /// <summary>
-        /// Returns true if PaymentInstrumentListForCustomerLinksFirst instances are equal
+        /// Returns true if PaymentInstrumentListLinksFirst instances are equal
         /// </summary>
-        /// <param name="other">Instance of PaymentInstrumentListForCustomerLinksFirst to be compared</param>
+        /// <param name="other">Instance of PaymentInstrumentListLinksFirst to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymentInstrumentListForCustomerLinksFirst other)
+        public bool Equals(PaymentInstrumentListLinksFirst other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

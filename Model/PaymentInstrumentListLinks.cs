@@ -25,20 +25,20 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// PaymentInstrumentListForCustomerLinks
+    /// PaymentInstrumentListLinks
     /// </summary>
     [DataContract]
-    public partial class PaymentInstrumentListForCustomerLinks :  IEquatable<PaymentInstrumentListForCustomerLinks>, IValidatableObject
+    public partial class PaymentInstrumentListLinks :  IEquatable<PaymentInstrumentListLinks>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentInstrumentListForCustomerLinks" /> class.
+        /// Initializes a new instance of the <see cref="PaymentInstrumentListLinks" /> class.
         /// </summary>
         /// <param name="Self">Self.</param>
         /// <param name="First">First.</param>
         /// <param name="Prev">Prev.</param>
         /// <param name="Next">Next.</param>
         /// <param name="Last">Last.</param>
-        public PaymentInstrumentListForCustomerLinks(PaymentInstrumentListForCustomerLinksSelf Self = default(PaymentInstrumentListForCustomerLinksSelf), PaymentInstrumentListForCustomerLinksFirst First = default(PaymentInstrumentListForCustomerLinksFirst), PaymentInstrumentListForCustomerLinksPrev Prev = default(PaymentInstrumentListForCustomerLinksPrev), PaymentInstrumentListForCustomerLinksNext Next = default(PaymentInstrumentListForCustomerLinksNext), PaymentInstrumentListForCustomerLinksLast Last = default(PaymentInstrumentListForCustomerLinksLast))
+        public PaymentInstrumentListLinks(PaymentInstrumentListLinksSelf Self = default(PaymentInstrumentListLinksSelf), PaymentInstrumentListLinksFirst First = default(PaymentInstrumentListLinksFirst), PaymentInstrumentListLinksPrev Prev = default(PaymentInstrumentListLinksPrev), PaymentInstrumentListLinksNext Next = default(PaymentInstrumentListLinksNext), PaymentInstrumentListLinksLast Last = default(PaymentInstrumentListLinksLast))
         {
             this.Self = Self;
             this.First = First;
@@ -51,31 +51,31 @@ namespace CyberSource.Model
         /// Gets or Sets Self
         /// </summary>
         [DataMember(Name="self", EmitDefaultValue=false)]
-        public PaymentInstrumentListForCustomerLinksSelf Self { get; set; }
+        public PaymentInstrumentListLinksSelf Self { get; set; }
 
         /// <summary>
         /// Gets or Sets First
         /// </summary>
         [DataMember(Name="first", EmitDefaultValue=false)]
-        public PaymentInstrumentListForCustomerLinksFirst First { get; set; }
+        public PaymentInstrumentListLinksFirst First { get; set; }
 
         /// <summary>
         /// Gets or Sets Prev
         /// </summary>
         [DataMember(Name="prev", EmitDefaultValue=false)]
-        public PaymentInstrumentListForCustomerLinksPrev Prev { get; set; }
+        public PaymentInstrumentListLinksPrev Prev { get; set; }
 
         /// <summary>
         /// Gets or Sets Next
         /// </summary>
         [DataMember(Name="next", EmitDefaultValue=false)]
-        public PaymentInstrumentListForCustomerLinksNext Next { get; set; }
+        public PaymentInstrumentListLinksNext Next { get; set; }
 
         /// <summary>
         /// Gets or Sets Last
         /// </summary>
         [DataMember(Name="last", EmitDefaultValue=false)]
-        public PaymentInstrumentListForCustomerLinksLast Last { get; set; }
+        public PaymentInstrumentListLinksLast Last { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,7 +84,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PaymentInstrumentListForCustomerLinks {\n");
+            sb.Append("class PaymentInstrumentListLinks {\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("  First: ").Append(First).Append("\n");
             sb.Append("  Prev: ").Append(Prev).Append("\n");
@@ -111,15 +111,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as PaymentInstrumentListForCustomerLinks);
+            return this.Equals(obj as PaymentInstrumentListLinks);
         }
 
         /// <summary>
-        /// Returns true if PaymentInstrumentListForCustomerLinks instances are equal
+        /// Returns true if PaymentInstrumentListLinks instances are equal
         /// </summary>
-        /// <param name="other">Instance of PaymentInstrumentListForCustomerLinks to be compared</param>
+        /// <param name="other">Instance of PaymentInstrumentListLinks to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymentInstrumentListForCustomerLinks other)
+        public bool Equals(PaymentInstrumentListLinks other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

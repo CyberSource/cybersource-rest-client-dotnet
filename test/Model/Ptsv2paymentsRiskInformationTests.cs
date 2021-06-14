@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'BuyerHistory'
         }
+        /// <summary>
+        /// Test the property 'AuxiliaryData'
+        /// </summary>
+        [Test]
+        public void AuxiliaryDataTest()
+        {
+            // TODO unit test for the property 'AuxiliaryData'
+        }
 
     }
 

@@ -25,23 +25,23 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// PaymentInstrumentListForCustomerLinksNext
+    /// PaymentInstrumentListLinksSelf
     /// </summary>
     [DataContract]
-    public partial class PaymentInstrumentListForCustomerLinksNext :  IEquatable<PaymentInstrumentListForCustomerLinksNext>, IValidatableObject
+    public partial class PaymentInstrumentListLinksSelf :  IEquatable<PaymentInstrumentListLinksSelf>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentInstrumentListForCustomerLinksNext" /> class.
+        /// Initializes a new instance of the <see cref="PaymentInstrumentListLinksSelf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public PaymentInstrumentListForCustomerLinksNext()
+        public PaymentInstrumentListLinksSelf()
         {
         }
         
         /// <summary>
-        /// Link to the next page. 
+        /// Link to the current page. 
         /// </summary>
-        /// <value>Link to the next page. </value>
+        /// <value>Link to the current page. </value>
         [DataMember(Name="href", EmitDefaultValue=false)]
         public string Href { get; private set; }
 
@@ -52,7 +52,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PaymentInstrumentListForCustomerLinksNext {\n");
+            sb.Append("class PaymentInstrumentListLinksSelf {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -75,15 +75,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as PaymentInstrumentListForCustomerLinksNext);
+            return this.Equals(obj as PaymentInstrumentListLinksSelf);
         }
 
         /// <summary>
-        /// Returns true if PaymentInstrumentListForCustomerLinksNext instances are equal
+        /// Returns true if PaymentInstrumentListLinksSelf instances are equal
         /// </summary>
-        /// <param name="other">Instance of PaymentInstrumentListForCustomerLinksNext to be compared</param>
+        /// <param name="other">Instance of PaymentInstrumentListLinksSelf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymentInstrumentListForCustomerLinksNext other)
+        public bool Equals(PaymentInstrumentListLinksSelf other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

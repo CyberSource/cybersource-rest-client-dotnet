@@ -25,25 +25,25 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// PaymentInstrumentListForCustomerLinksLast
+    /// Payment Instrument Resources. 
     /// </summary>
     [DataContract]
-    public partial class PaymentInstrumentListForCustomerLinksLast :  IEquatable<PaymentInstrumentListForCustomerLinksLast>, IValidatableObject
+    public partial class PaymentInstrumentListEmbedded :  IEquatable<PaymentInstrumentListEmbedded>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentInstrumentListForCustomerLinksLast" /> class.
+        /// Initializes a new instance of the <see cref="PaymentInstrumentListEmbedded" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public PaymentInstrumentListForCustomerLinksLast()
+        /// <param name="PaymentInstruments">PaymentInstruments.</param>
+        public PaymentInstrumentListEmbedded(List<Tmsv2customersEmbeddedDefaultPaymentInstrument> PaymentInstruments = default(List<Tmsv2customersEmbeddedDefaultPaymentInstrument>))
         {
+            this.PaymentInstruments = PaymentInstruments;
         }
         
         /// <summary>
-        /// Link to the last page. 
+        /// Gets or Sets PaymentInstruments
         /// </summary>
-        /// <value>Link to the last page. </value>
-        [DataMember(Name="href", EmitDefaultValue=false)]
-        public string Href { get; private set; }
+        [DataMember(Name="paymentInstruments", EmitDefaultValue=false)]
+        public List<Tmsv2customersEmbeddedDefaultPaymentInstrument> PaymentInstruments { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +52,8 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PaymentInstrumentListForCustomerLinksLast {\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("class PaymentInstrumentListEmbedded {\n");
+            sb.Append("  PaymentInstruments: ").Append(PaymentInstruments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,15 +75,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as PaymentInstrumentListForCustomerLinksLast);
+            return this.Equals(obj as PaymentInstrumentListEmbedded);
         }
 
         /// <summary>
-        /// Returns true if PaymentInstrumentListForCustomerLinksLast instances are equal
+        /// Returns true if PaymentInstrumentListEmbedded instances are equal
         /// </summary>
-        /// <param name="other">Instance of PaymentInstrumentListForCustomerLinksLast to be compared</param>
+        /// <param name="other">Instance of PaymentInstrumentListEmbedded to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymentInstrumentListForCustomerLinksLast other)
+        public bool Equals(PaymentInstrumentListEmbedded other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -91,9 +91,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Href == other.Href ||
-                    this.Href != null &&
-                    this.Href.Equals(other.Href)
+                    this.PaymentInstruments == other.PaymentInstruments ||
+                    this.PaymentInstruments != null &&
+                    this.PaymentInstruments.SequenceEqual(other.PaymentInstruments)
                 );
         }
 
@@ -108,8 +108,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Href != null)
-                    hash = hash * 59 + this.Href.GetHashCode();
+                if (this.PaymentInstruments != null)
+                    hash = hash * 59 + this.PaymentInstruments.GetHashCode();
                 return hash;
             }
         }

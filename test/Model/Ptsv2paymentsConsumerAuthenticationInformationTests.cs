@@ -161,6 +161,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AuthenticationType'
         }
         /// <summary>
+        /// Test the property 'ResponseAccessToken'
+        /// </summary>
+        [Test]
+        public void ResponseAccessTokenTest()
+        {
+            // TODO unit test for the property 'ResponseAccessToken'
+        }
+        /// <summary>
+        /// Test the property 'AcsTransactionId'
+        /// </summary>
+        [Test]
+        public void AcsTransactionIdTest()
+        {
+            // TODO unit test for the property 'AcsTransactionId'
+        }
+        /// <summary>
         /// Test the property 'AcsWindowSize'
         /// </summary>
         [Test]
@@ -329,6 +345,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'MessageCategory'
         }
         /// <summary>
+        /// Test the property 'NetworkScore'
+        /// </summary>
+        [Test]
+        public void NetworkScoreTest()
+        {
+            // TODO unit test for the property 'NetworkScore'
+        }
+        /// <summary>
         /// Test the property 'NpaCode'
         /// </summary>
         [Test]
@@ -391,6 +415,14 @@ namespace CyberSource.Test
         public void ProductCodeTest()
         {
             // TODO unit test for the property 'ProductCode'
+        }
+        /// <summary>
+        /// Test the property 'ReturnUrl'
+        /// </summary>
+        [Test]
+        public void ReturnUrlTest()
+        {
+            // TODO unit test for the property 'ReturnUrl'
         }
         /// <summary>
         /// Test the property 'RequestorId'
