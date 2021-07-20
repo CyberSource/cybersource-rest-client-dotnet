@@ -15,6 +15,8 @@ using System.Linq;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Model;
+using NLog;
+using AuthenticationSdk.util;
 
 namespace CyberSource.Api
 {
@@ -160,22 +162,28 @@ namespace CyberSource.Api
     /// </summary>
     public partial class SymmetricKeyManagementApi : ISymmetricKeyManagementApi
     {
-        private CyberSource.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private static Logger logger;
+        private ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SymmetricKeyManagementApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public SymmetricKeyManagementApi(String basePath)
+        public SymmetricKeyManagementApi(string basePath)
         {
-            this.Configuration = new Configuration(new ApiClient(basePath));
+            Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
             {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
+                Configuration.ApiClient.Configuration = Configuration;
+            }
+
+            if (logger == null)
+            {
+                logger = LogManager.GetCurrentClassLogger();
             }
         }
 
@@ -188,22 +196,27 @@ namespace CyberSource.Api
         public SymmetricKeyManagementApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
+                Configuration = Configuration.Default;
             else
-                this.Configuration = configuration;
+                Configuration = configuration;
 
-            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Configuration.DefaultExceptionFactory;
 
-            this.Configuration.ApiClient.Configuration = this.Configuration;
+            Configuration.ApiClient.Configuration = Configuration;
+
+            if (logger == null)
+            {
+                logger = LogManager.GetCurrentClassLogger();
+            }
         }
 
         /// <summary>
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public String GetBasePath()
+        public string GetBasePath()
         {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return Configuration.ApiClient.RestClient.BaseUrl.ToString();
         }
 
         /// <summary>
@@ -211,7 +224,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <value>The base path</value>
         [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(String basePath)
+        public void SetBasePath(string basePath)
         {
             // do nothing
         }
@@ -220,17 +233,18 @@ namespace CyberSource.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration {get; set;}
+        public Configuration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public CyberSource.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
+                    logger.Error("InvalidOperationException : Multicast delegate for ExceptionFactory is unsupported.");
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
@@ -243,9 +257,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<String, String> DefaultHeader()
+        public Dictionary<string, string> DefaultHeader()
         {
-            return this.Configuration.DefaultHeader;
+            return Configuration.DefaultHeader;
         }
 
         /// <summary>
@@ -257,7 +271,7 @@ namespace CyberSource.Api
         [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
         public void AddDefaultHeader(string key, string value)
         {
-            this.Configuration.AddDefaultHeader(key, value);
+            Configuration.AddDefaultHeader(key, value);
         }
 
         /// <summary>
@@ -268,8 +282,10 @@ namespace CyberSource.Api
         /// <returns>KmsV2KeysSymPost201Response</returns>
         public KmsV2KeysSymPost201Response CreateV2SharedSecretKeys (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
         {
-             ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = CreateV2SharedSecretKeysWithHttpInfo(createSharedSecretKeysRequest);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"CreateV2SharedSecretKeys\" STARTED");
+            ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = CreateV2SharedSecretKeysWithHttpInfo(createSharedSecretKeysRequest);
+            logger.Debug("CALLING API \"CreateV2SharedSecretKeys\" ENDED");
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -282,29 +298,34 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'createSharedSecretKeysRequest' is set
             if (createSharedSecretKeysRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'createSharedSecretKeysRequest' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeys");
                 throw new ApiException(400, "Missing required parameter 'createSharedSecretKeysRequest' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeys");
+            }
 
             var localVarPath = $"/kms/v2/keys-sym";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
             if (createSharedSecretKeysRequest != null && createSharedSecretKeysRequest.GetType() != typeof(byte[]))
             {
@@ -313,6 +334,15 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = createSharedSecretKeysRequest; // byte array
+            }
+
+            if (LogUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -326,7 +356,11 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CreateV2SharedSecretKeys", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<KmsV2KeysSymPost201Response>(localVarStatusCode,
@@ -342,8 +376,10 @@ namespace CyberSource.Api
         /// <returns>Task of KmsV2KeysSymPost201Response</returns>
         public async System.Threading.Tasks.Task<KmsV2KeysSymPost201Response> CreateV2SharedSecretKeysAsync (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
         {
-             ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = await CreateV2SharedSecretKeysAsyncWithHttpInfo(createSharedSecretKeysRequest);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"CreateV2SharedSecretKeysAsync\" STARTED");
+            ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = await CreateV2SharedSecretKeysAsyncWithHttpInfo(createSharedSecretKeysRequest);
+            logger.Debug("CALLING API \"CreateV2SharedSecretKeysAsync\" STARTED");
+            return localVarResponse.Data;
 
         }
 
@@ -357,29 +393,34 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'createSharedSecretKeysRequest' is set
             if (createSharedSecretKeysRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'createSharedSecretKeysRequest' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeys");
                 throw new ApiException(400, "Missing required parameter 'createSharedSecretKeysRequest' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeys");
+            }
 
             var localVarPath = $"/kms/v2/keys-sym";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
             if (createSharedSecretKeysRequest != null && createSharedSecretKeysRequest.GetType() != typeof(byte[]))
             {
@@ -390,25 +431,37 @@ namespace CyberSource.Api
                 localVarPostBody = createSharedSecretKeysRequest; // byte array
             }
 
+            if (LogUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CreateV2SharedSecretKeys", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<KmsV2KeysSymPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (KmsV2KeysSymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymPost201Response))); // Return statement
         }
-
         /// <summary>
         /// Delete one or more Symmetric keys &#39;Delete one or more Symmetric keys&#39; 
         /// </summary>
@@ -417,8 +470,10 @@ namespace CyberSource.Api
         /// <returns>KmsV2KeysSymDeletesPost200Response</returns>
         public KmsV2KeysSymDeletesPost200Response DeleteBulkSymmetricKeys (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
         {
-             ApiResponse<KmsV2KeysSymDeletesPost200Response> localVarResponse = DeleteBulkSymmetricKeysWithHttpInfo(deleteBulkSymmetricKeysRequest);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"DeleteBulkSymmetricKeys\" STARTED");
+            ApiResponse<KmsV2KeysSymDeletesPost200Response> localVarResponse = DeleteBulkSymmetricKeysWithHttpInfo(deleteBulkSymmetricKeysRequest);
+            logger.Debug("CALLING API \"DeleteBulkSymmetricKeys\" ENDED");
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -431,29 +486,34 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'deleteBulkSymmetricKeysRequest' is set
             if (deleteBulkSymmetricKeysRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'deleteBulkSymmetricKeysRequest' when calling SymmetricKeyManagementApi->DeleteBulkSymmetricKeys");
                 throw new ApiException(400, "Missing required parameter 'deleteBulkSymmetricKeysRequest' when calling SymmetricKeyManagementApi->DeleteBulkSymmetricKeys");
+            }
 
             var localVarPath = $"/kms/v2/keys-sym/deletes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
             if (deleteBulkSymmetricKeysRequest != null && deleteBulkSymmetricKeysRequest.GetType() != typeof(byte[]))
             {
@@ -462,6 +522,15 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = deleteBulkSymmetricKeysRequest; // byte array
+            }
+
+            if (LogUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -475,7 +544,11 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DeleteBulkSymmetricKeys", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<KmsV2KeysSymDeletesPost200Response>(localVarStatusCode,
@@ -491,8 +564,10 @@ namespace CyberSource.Api
         /// <returns>Task of KmsV2KeysSymDeletesPost200Response</returns>
         public async System.Threading.Tasks.Task<KmsV2KeysSymDeletesPost200Response> DeleteBulkSymmetricKeysAsync (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
         {
-             ApiResponse<KmsV2KeysSymDeletesPost200Response> localVarResponse = await DeleteBulkSymmetricKeysAsyncWithHttpInfo(deleteBulkSymmetricKeysRequest);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"DeleteBulkSymmetricKeysAsync\" STARTED");
+            ApiResponse<KmsV2KeysSymDeletesPost200Response> localVarResponse = await DeleteBulkSymmetricKeysAsyncWithHttpInfo(deleteBulkSymmetricKeysRequest);
+            logger.Debug("CALLING API \"DeleteBulkSymmetricKeysAsync\" STARTED");
+            return localVarResponse.Data;
 
         }
 
@@ -506,29 +581,34 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'deleteBulkSymmetricKeysRequest' is set
             if (deleteBulkSymmetricKeysRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'deleteBulkSymmetricKeysRequest' when calling SymmetricKeyManagementApi->DeleteBulkSymmetricKeys");
                 throw new ApiException(400, "Missing required parameter 'deleteBulkSymmetricKeysRequest' when calling SymmetricKeyManagementApi->DeleteBulkSymmetricKeys");
+            }
 
             var localVarPath = $"/kms/v2/keys-sym/deletes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
             if (deleteBulkSymmetricKeysRequest != null && deleteBulkSymmetricKeysRequest.GetType() != typeof(byte[]))
             {
@@ -539,25 +619,37 @@ namespace CyberSource.Api
                 localVarPostBody = deleteBulkSymmetricKeysRequest; // byte array
             }
 
+            if (LogUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DeleteBulkSymmetricKeys", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<KmsV2KeysSymDeletesPost200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (KmsV2KeysSymDeletesPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymDeletesPost200Response))); // Return statement
         }
-
         /// <summary>
         /// Retrieves shared secret key details Retrieves keys details by providing the key id.
         /// </summary>
@@ -566,8 +658,10 @@ namespace CyberSource.Api
         /// <returns>KmsV2KeysSymGet200Response</returns>
         public KmsV2KeysSymGet200Response GetKeyDetails (string keyId)
         {
-             ApiResponse<KmsV2KeysSymGet200Response> localVarResponse = GetKeyDetailsWithHttpInfo(keyId);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"GetKeyDetails\" STARTED");
+            ApiResponse<KmsV2KeysSymGet200Response> localVarResponse = GetKeyDetailsWithHttpInfo(keyId);
+            logger.Debug("CALLING API \"GetKeyDetails\" ENDED");
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -580,31 +674,40 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'keyId' is set
             if (keyId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'keyId' when calling SymmetricKeyManagementApi->GetKeyDetails");
                 throw new ApiException(400, "Missing required parameter 'keyId' when calling SymmetricKeyManagementApi->GetKeyDetails");
+            }
 
             var localVarPath = $"/kms/v2/keys-sym/{keyId}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (keyId != null) localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
+            if (keyId != null)
+            {
+                localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -617,7 +720,11 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetKeyDetails", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<KmsV2KeysSymGet200Response>(localVarStatusCode,
@@ -633,8 +740,10 @@ namespace CyberSource.Api
         /// <returns>Task of KmsV2KeysSymGet200Response</returns>
         public async System.Threading.Tasks.Task<KmsV2KeysSymGet200Response> GetKeyDetailsAsync (string keyId)
         {
-             ApiResponse<KmsV2KeysSymGet200Response> localVarResponse = await GetKeyDetailsAsyncWithHttpInfo(keyId);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"GetKeyDetailsAsync\" STARTED");
+            ApiResponse<KmsV2KeysSymGet200Response> localVarResponse = await GetKeyDetailsAsyncWithHttpInfo(keyId);
+            logger.Debug("CALLING API \"GetKeyDetailsAsync\" STARTED");
+            return localVarResponse.Data;
 
         }
 
@@ -648,50 +757,62 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'keyId' is set
             if (keyId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'keyId' when calling SymmetricKeyManagementApi->GetKeyDetails");
                 throw new ApiException(400, "Missing required parameter 'keyId' when calling SymmetricKeyManagementApi->GetKeyDetails");
+            }
 
             var localVarPath = $"/kms/v2/keys-sym/{keyId}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (keyId != null) localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
+            if (keyId != null)
+            {
+                localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetKeyDetails", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<KmsV2KeysSymGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (KmsV2KeysSymGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymGet200Response))); // Return statement
         }
-
     }
 }

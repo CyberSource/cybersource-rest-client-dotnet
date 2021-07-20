@@ -15,6 +15,8 @@ using System.Linq;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Model;
+using NLog;
+using AuthenticationSdk.util;
 
 namespace CyberSource.Api
 {
@@ -298,22 +300,28 @@ namespace CyberSource.Api
     /// </summary>
     public partial class InvoicesApi : IInvoicesApi
     {
-        private CyberSource.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private static Logger logger;
+        private ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InvoicesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public InvoicesApi(String basePath)
+        public InvoicesApi(string basePath)
         {
-            this.Configuration = new Configuration(new ApiClient(basePath));
+            Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
             {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
+                Configuration.ApiClient.Configuration = Configuration;
+            }
+
+            if (logger == null)
+            {
+                logger = LogManager.GetCurrentClassLogger();
             }
         }
 
@@ -326,22 +334,27 @@ namespace CyberSource.Api
         public InvoicesApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
+                Configuration = Configuration.Default;
             else
-                this.Configuration = configuration;
+                Configuration = configuration;
 
-            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Configuration.DefaultExceptionFactory;
 
-            this.Configuration.ApiClient.Configuration = this.Configuration;
+            Configuration.ApiClient.Configuration = Configuration;
+
+            if (logger == null)
+            {
+                logger = LogManager.GetCurrentClassLogger();
+            }
         }
 
         /// <summary>
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public String GetBasePath()
+        public string GetBasePath()
         {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return Configuration.ApiClient.RestClient.BaseUrl.ToString();
         }
 
         /// <summary>
@@ -349,7 +362,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <value>The base path</value>
         [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(String basePath)
+        public void SetBasePath(string basePath)
         {
             // do nothing
         }
@@ -358,17 +371,18 @@ namespace CyberSource.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration {get; set;}
+        public Configuration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public CyberSource.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
+                    logger.Error("InvalidOperationException : Multicast delegate for ExceptionFactory is unsupported.");
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
@@ -381,9 +395,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<String, String> DefaultHeader()
+        public Dictionary<string, string> DefaultHeader()
         {
-            return this.Configuration.DefaultHeader;
+            return Configuration.DefaultHeader;
         }
 
         /// <summary>
@@ -395,7 +409,7 @@ namespace CyberSource.Api
         [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
         public void AddDefaultHeader(string key, string value)
         {
-            this.Configuration.AddDefaultHeader(key, value);
+            Configuration.AddDefaultHeader(key, value);
         }
 
         /// <summary>
@@ -406,8 +420,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesPost201Response</returns>
         public InvoicingV2InvoicesPost201Response CreateInvoice (CreateInvoiceRequest createInvoiceRequest)
         {
-             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = CreateInvoiceWithHttpInfo(createInvoiceRequest);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"CreateInvoice\" STARTED");
+            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = CreateInvoiceWithHttpInfo(createInvoiceRequest);
+            logger.Debug("CALLING API \"CreateInvoice\" ENDED");
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -420,29 +436,34 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'createInvoiceRequest' is set
             if (createInvoiceRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'createInvoiceRequest' when calling InvoicesApi->CreateInvoice");
                 throw new ApiException(400, "Missing required parameter 'createInvoiceRequest' when calling InvoicesApi->CreateInvoice");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
             if (createInvoiceRequest != null && createInvoiceRequest.GetType() != typeof(byte[]))
             {
@@ -451,6 +472,15 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = createInvoiceRequest; // byte array
+            }
+
+            if (LogUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -464,7 +494,11 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CreateInvoice", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
@@ -480,8 +514,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesPost201Response</returns>
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> CreateInvoiceAsync (CreateInvoiceRequest createInvoiceRequest)
         {
-             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await CreateInvoiceAsyncWithHttpInfo(createInvoiceRequest);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"CreateInvoiceAsync\" STARTED");
+            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await CreateInvoiceAsyncWithHttpInfo(createInvoiceRequest);
+            logger.Debug("CALLING API \"CreateInvoiceAsync\" STARTED");
+            return localVarResponse.Data;
 
         }
 
@@ -495,29 +531,34 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'createInvoiceRequest' is set
             if (createInvoiceRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'createInvoiceRequest' when calling InvoicesApi->CreateInvoice");
                 throw new ApiException(400, "Missing required parameter 'createInvoiceRequest' when calling InvoicesApi->CreateInvoice");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
             if (createInvoiceRequest != null && createInvoiceRequest.GetType() != typeof(byte[]))
             {
@@ -528,25 +569,37 @@ namespace CyberSource.Api
                 localVarPostBody = createInvoiceRequest; // byte array
             }
 
+            if (LogUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CreateInvoice", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
-
         /// <summary>
         /// Get a List of Invoices Get a list of invoices.
         /// </summary>
@@ -557,8 +610,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesAllGet200Response</returns>
         public InvoicingV2InvoicesAllGet200Response GetAllInvoices (int? offset, int? limit, string status = null)
         {
-             ApiResponse<InvoicingV2InvoicesAllGet200Response> localVarResponse = GetAllInvoicesWithHttpInfo(offset, limit, status);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"GetAllInvoices\" STARTED");
+            ApiResponse<InvoicingV2InvoicesAllGet200Response> localVarResponse = GetAllInvoicesWithHttpInfo(offset, limit, status);
+            logger.Debug("CALLING API \"GetAllInvoices\" ENDED");
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -573,36 +628,56 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'offset' is set
             if (offset == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'offset' when calling InvoicesApi->GetAllInvoices");
                 throw new ApiException(400, "Missing required parameter 'offset' when calling InvoicesApi->GetAllInvoices");
+            }
             // verify the required parameter 'limit' is set
             if (limit == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'limit' when calling InvoicesApi->GetAllInvoices");
                 throw new ApiException(400, "Missing required parameter 'limit' when calling InvoicesApi->GetAllInvoices");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (status != null) localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+            if (offset != null)
+            {
+                localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            }
+            if (limit != null)
+            {
+                localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            }
+            if (status != null)
+            {
+                localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -615,7 +690,11 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetAllInvoices", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesAllGet200Response>(localVarStatusCode,
@@ -633,8 +712,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesAllGet200Response</returns>
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesAllGet200Response> GetAllInvoicesAsync (int? offset, int? limit, string status = null)
         {
-             ApiResponse<InvoicingV2InvoicesAllGet200Response> localVarResponse = await GetAllInvoicesAsyncWithHttpInfo(offset, limit, status);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"GetAllInvoicesAsync\" STARTED");
+            ApiResponse<InvoicingV2InvoicesAllGet200Response> localVarResponse = await GetAllInvoicesAsyncWithHttpInfo(offset, limit, status);
+            logger.Debug("CALLING API \"GetAllInvoicesAsync\" STARTED");
+            return localVarResponse.Data;
 
         }
 
@@ -650,56 +731,79 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'offset' is set
             if (offset == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'offset' when calling InvoicesApi->GetAllInvoices");
                 throw new ApiException(400, "Missing required parameter 'offset' when calling InvoicesApi->GetAllInvoices");
+            }
             // verify the required parameter 'limit' is set
             if (limit == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'limit' when calling InvoicesApi->GetAllInvoices");
                 throw new ApiException(400, "Missing required parameter 'limit' when calling InvoicesApi->GetAllInvoices");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (status != null) localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+            if (offset != null)
+            {
+                localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            }
+            if (limit != null)
+            {
+                localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            }
+            if (status != null)
+            {
+                localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetAllInvoices", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesAllGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (InvoicingV2InvoicesAllGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesAllGet200Response))); // Return statement
         }
-
         /// <summary>
         /// Get Invoice Details Get the details of a specific invoice.
         /// </summary>
@@ -708,8 +812,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesGet200Response</returns>
         public InvoicingV2InvoicesGet200Response GetInvoice (string id)
         {
-             ApiResponse<InvoicingV2InvoicesGet200Response> localVarResponse = GetInvoiceWithHttpInfo(id);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"GetInvoice\" STARTED");
+            ApiResponse<InvoicingV2InvoicesGet200Response> localVarResponse = GetInvoiceWithHttpInfo(id);
+            logger.Debug("CALLING API \"GetInvoice\" ENDED");
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -722,31 +828,40 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->GetInvoice");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->GetInvoice");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -759,7 +874,11 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetInvoice", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesGet200Response>(localVarStatusCode,
@@ -775,8 +894,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesGet200Response</returns>
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesGet200Response> GetInvoiceAsync (string id)
         {
-             ApiResponse<InvoicingV2InvoicesGet200Response> localVarResponse = await GetInvoiceAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"GetInvoiceAsync\" STARTED");
+            ApiResponse<InvoicingV2InvoicesGet200Response> localVarResponse = await GetInvoiceAsyncWithHttpInfo(id);
+            logger.Debug("CALLING API \"GetInvoiceAsync\" STARTED");
+            return localVarResponse.Data;
 
         }
 
@@ -790,51 +911,63 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->GetInvoice");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->GetInvoice");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetInvoice", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (InvoicingV2InvoicesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesGet200Response))); // Return statement
         }
-
         /// <summary>
         /// Cancel an Invoice Cancel an invoice.
         /// </summary>
@@ -843,8 +976,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesPost201Response</returns>
         public InvoicingV2InvoicesPost201Response PerformCancelAction (string id)
         {
-             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = PerformCancelActionWithHttpInfo(id);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"PerformCancelAction\" STARTED");
+            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = PerformCancelActionWithHttpInfo(id);
+            logger.Debug("CALLING API \"PerformCancelAction\" ENDED");
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -857,31 +992,40 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformCancelAction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformCancelAction");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices/{id}/cancelation";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -894,7 +1038,11 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PerformCancelAction", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
@@ -910,8 +1058,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesPost201Response</returns>
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> PerformCancelActionAsync (string id)
         {
-             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await PerformCancelActionAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"PerformCancelActionAsync\" STARTED");
+            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await PerformCancelActionAsyncWithHttpInfo(id);
+            logger.Debug("CALLING API \"PerformCancelActionAsync\" STARTED");
+            return localVarResponse.Data;
 
         }
 
@@ -925,51 +1075,63 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformCancelAction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformCancelAction");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices/{id}/cancelation";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PerformCancelAction", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
-
         /// <summary>
         /// Send an Invoice Send an invoice.
         /// </summary>
@@ -978,8 +1140,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesPost201Response</returns>
         public InvoicingV2InvoicesPost201Response PerformSendAction (string id)
         {
-             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = PerformSendActionWithHttpInfo(id);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"PerformSendAction\" STARTED");
+            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = PerformSendActionWithHttpInfo(id);
+            logger.Debug("CALLING API \"PerformSendAction\" ENDED");
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -992,31 +1156,40 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformSendAction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformSendAction");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices/{id}/delivery";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -1029,7 +1202,11 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PerformSendAction", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
@@ -1045,8 +1222,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesPost201Response</returns>
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> PerformSendActionAsync (string id)
         {
-             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await PerformSendActionAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"PerformSendActionAsync\" STARTED");
+            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await PerformSendActionAsyncWithHttpInfo(id);
+            logger.Debug("CALLING API \"PerformSendActionAsync\" STARTED");
+            return localVarResponse.Data;
 
         }
 
@@ -1060,51 +1239,63 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformSendAction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformSendAction");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices/{id}/delivery";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PerformSendAction", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
-
         /// <summary>
         /// Update an Invoice Update an invoice.
         /// </summary>
@@ -1114,8 +1305,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesPost201Response</returns>
         public InvoicingV2InvoicesPost201Response UpdateInvoice (string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
-             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = UpdateInvoiceWithHttpInfo(id, updateInvoiceRequest);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"UpdateInvoice\" STARTED");
+            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = UpdateInvoiceWithHttpInfo(id, updateInvoiceRequest);
+            logger.Debug("CALLING API \"UpdateInvoice\" ENDED");
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1129,34 +1322,46 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->UpdateInvoice");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->UpdateInvoice");
+            }
             // verify the required parameter 'updateInvoiceRequest' is set
             if (updateInvoiceRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'updateInvoiceRequest' when calling InvoicesApi->UpdateInvoice");
                 throw new ApiException(400, "Missing required parameter 'updateInvoiceRequest' when calling InvoicesApi->UpdateInvoice");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updateInvoiceRequest != null && updateInvoiceRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(updateInvoiceRequest); // http body (model) parameter
@@ -1164,6 +1369,15 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = updateInvoiceRequest; // byte array
+            }
+
+            if (LogUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -1177,7 +1391,11 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("UpdateInvoice", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
@@ -1194,8 +1412,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesPost201Response</returns>
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> UpdateInvoiceAsync (string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
-             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await UpdateInvoiceAsyncWithHttpInfo(id, updateInvoiceRequest);
-             return localVarResponse.Data;
+            logger.Debug("CALLING API \"UpdateInvoiceAsync\" STARTED");
+            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await UpdateInvoiceAsyncWithHttpInfo(id, updateInvoiceRequest);
+            logger.Debug("CALLING API \"UpdateInvoiceAsync\" STARTED");
+            return localVarResponse.Data;
 
         }
 
@@ -1210,34 +1430,46 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->UpdateInvoice");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->UpdateInvoice");
+            }
             // verify the required parameter 'updateInvoiceRequest' is set
             if (updateInvoiceRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'updateInvoiceRequest' when calling InvoicesApi->UpdateInvoice");
                 throw new ApiException(400, "Missing required parameter 'updateInvoiceRequest' when calling InvoicesApi->UpdateInvoice");
+            }
 
             var localVarPath = $"/invoicing/v2/invoices/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/hal+json;charset=utf-8"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updateInvoiceRequest != null && updateInvoiceRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(updateInvoiceRequest); // http body (model) parameter
@@ -1247,24 +1479,36 @@ namespace CyberSource.Api
                 localVarPostBody = updateInvoiceRequest; // byte array
             }
 
+            if (LogUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("UpdateInvoice", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
             return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
-
     }
 }

@@ -113,14 +113,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'TerminalCapability'
         }
         /// <summary>
-        /// Test the property 'PinEntryCapability'
-        /// </summary>
-        [Test]
-        public void PinEntryCapabilityTest()
-        {
-            // TODO unit test for the property 'PinEntryCapability'
-        }
-        /// <summary>
         /// Test the property 'OperatingEnvironment'
         /// </summary>
         [Test]
@@ -263,6 +255,22 @@ namespace CyberSource.Test
         public void IsDedicatedHardwareTerminalTest()
         {
             // TODO unit test for the property 'IsDedicatedHardwareTerminal'
+        }
+        /// <summary>
+        /// Test the property 'TerminalModel'
+        /// </summary>
+        [Test]
+        public void TerminalModelTest()
+        {
+            // TODO unit test for the property 'TerminalModel'
+        }
+        /// <summary>
+        /// Test the property 'TerminalMake'
+        /// </summary>
+        [Test]
+        public void TerminalMakeTest()
+        {
+            // TODO unit test for the property 'TerminalMake'
         }
 
     }

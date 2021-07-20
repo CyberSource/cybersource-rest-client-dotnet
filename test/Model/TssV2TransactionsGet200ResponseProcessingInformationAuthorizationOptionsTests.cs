@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AuthType'
         }
+        /// <summary>
+        /// Test the property 'Initiator'
+        /// </summary>
+        [Test]
+        public void InitiatorTest()
+        {
+            // TODO unit test for the property 'Initiator'
+        }
 
     }
 
