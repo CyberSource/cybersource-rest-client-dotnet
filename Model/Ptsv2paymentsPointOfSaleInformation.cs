@@ -39,6 +39,7 @@ namespace CyberSource.Model
         /// <param name="CatLevel">Type of cardholder-activated terminal. Possible values:   - 1: Automated dispensing machine  - 2: Self-service terminal  - 3: Limited amount terminal  - 4: In-flight commerce (IFC) terminal  - 5: Radio frequency device  - 6: Mobile acceptance terminal  - 7: Electronic cash register  - 8: E-commerce device at your location  - 9: Terminal or cash register that uses a dialup connection to connect to the transaction processing network  #### Chase Paymentech Solutions Only values 1, 2, and 3 are supported.  Required if &#x60;pointOfSaleInformation.terminalID&#x60; is included in the request; otherwise, optional.  #### CyberSource through VisaNet Values 1 through 6 are supported on CyberSource through VisaNet, but some acquirers do not support all six values.  Optional field.  #### FDC Nashville Global Only values 7, 8, and 9 are supported.  Optional field for EMV transactions; otherwise, not used.  #### GPN Only values 6, 7, 8, and 9 are supported.  Required field.  #### JCN Gateway Only values 6, 7, 8, and 9 are supported.  Required field.  #### TSYS Acquiring Solutions Only value 6 is supported.  Required for transactions from mobile devices; otherwise, not used.  #### All other processors Not used.  Nonnegative integer. .</param>
         /// <param name="EntryMode">Method of entering payment card information into the POS terminal. Possible values:   - &#x60;contact&#x60;: Read from direct contact with chip card.  - &#x60;contactless&#x60;: Read from a contactless interface using chip data.  - &#x60;keyed&#x60;: Manually keyed into POS terminal. This value is not supported on OmniPay Direct.  - &#x60;msd&#x60;: Read from a contactless interface using magnetic stripe data (MSD). This value is not supported on OmniPay Direct.  - &#x60;swiped&#x60;: Read from credit card magnetic stripe.  The &#x60;contact&#x60;, &#x60;contactless&#x60;, and &#x60;msd&#x60; values are supported only for EMV transactions.  #### Used by **Authorization** Required field.  #### Card Present Card present information about EMV applies only to credit card processing and PIN debit processing. All other card present information applies only to credit card processing.  #### PIN debit Required for a PIN debit purchase and a PIN debit credit request. .</param>
         /// <param name="TerminalCapability">POS terminal’s capability. Possible values:   - &#x60;1&#x60;: Terminal has a magnetic stripe reader only.  - &#x60;2&#x60;: Terminal has a magnetic stripe reader and manual entry capability.  - &#x60;3&#x60;: Terminal has manual entry capability only.  - &#x60;4&#x60;: Terminal can read chip cards.  - &#x60;5&#x60;: Terminal can read contactless chip cards; cannot use contact to read chip cards.  For an EMV transaction, the value of this field must be &#x60;4&#x60; or &#x60;5&#x60;.  #### PIN debit Required for PIN debit purchase and PIN debit credit request.  #### Used by **Authorization** Required for the following processors: - American Express Direct - Chase Paymentech Solutions - Credit Mutuel-CIC - FDC Nashville Global - FDMS Nashville - OmniPay Direct - SIX - Worldpay VAP  Optional for the following processors: - CyberSource through VisaNet - GPN - GPX - JCN Gateway - RBS WorldPay Atlanta - TSYS Acquiring Solutions .</param>
+        /// <param name="PinEntryCapability">A one-digit code that identifies the capability of terminal to capture PINs. This code does not necessarily mean that a PIN was entered or is included in this message. For Payouts: This field is applicable for CtV. For details, see the &#x60;terminal_pin_capability&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) .</param>
         /// <param name="OperatingEnvironment">Operating environment.  Possible values for all card types except Mastercard: - &#x60;0&#x60;: No terminal used or unknown environment. - &#x60;1&#x60;: On merchant premises, attended. - &#x60;2&#x60;: On merchant premises, unattended. Examples: oil, kiosks, self-checkout, mobile telephone, personal digital assistant (PDA). - &#x60;3&#x60;: Off merchant premises, attended. Examples: portable POS devices at trade shows, at service calls, or in taxis. - &#x60;4&#x60;: Off merchant premises, unattended. Examples: vending machines, home computer, mobile telephone, PDA. - &#x60;5&#x60;: On premises of cardholder, unattended. - &#x60;9&#x60;: Unknown delivery mode. - &#x60;S&#x60;: Electronic delivery of product. Examples: music, software, or eTickets that are downloaded over the internet. - &#x60;T&#x60;: Physical delivery of product. Examples: music or software that is delivered by mail or by a courier.  #### Possible values for Mastercard: - &#x60;2&#x60;: On merchant premises, unattended, or cardholder terminal. Examples: oil, kiosks, self-checkout, home computer, mobile telephone, personal digital assistant (PDA). Cardholder terminal is supported only for Mastercard transactions on CyberSource through VisaNet. - &#x60;4&#x60;: Off merchant premises, unattended, or cardholder terminal. Examples: vending machines, home computer, mobile telephone, PDA. Cardholder terminal is supported only for Mastercard transactions on CyberSource through VisaNet.  This field is supported only for American Express Direct and CyberSource through VisaNet. .</param>
         /// <param name="Emv">Emv.</param>
         /// <param name="AmexCapnData">Point-of-sale details for the transaction. This value is returned only for **American Express Direct**. CyberSource generates this value, which consists of a series of codes that identify terminal capability, security data, and specific conditions present at the time the transaction occurred. To comply with the CAPN requirements, this value must be included in all subsequent follow-on requests, such as captures and follow-on credits.  When you perform authorizations, captures, and credits through CyberSource, CyberSource passes this value from the authorization service to the subsequent services for you. However, when you perform authorizations through CyberSource and perform subsequent services through other financial institutions, you must ensure that your requests for captures and credits include this value.  For details, see &#x60;auth_pos_data&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
@@ -57,9 +58,7 @@ namespace CyberSource.Model
         /// <param name="EmvApplicationIdentifierAndDedicatedFileName">This 32 byte length-maximum EBCDIC-K value is used to identify which chip application was performed between the terminal and the chip product. The included values are the Application Identifier (AID) and the Dedicated File (DF) name. It is available to early- or full-option VSDC issuers. Only single byte Katakana characters that can map to the EBCDIC-K table expected in the name. .</param>
         /// <param name="TerminalCompliance">Flag that indicates whether the terminal is compliant with standards mandated by the Reserve Bank of India for card-present domestic transactions in India.  Format: - First character indicates whether the terminal supports terminal line encryption (TLE). Possible values:   - 1: Not certified   - 2: Certified - Second character indicates whether the terminal supports Unique Key Per Transaction (UKPT) and Derived Unique Key Per Transaction (DUKPT). Possible values:   - 1: Not certified   - 2: Certified  **Example** &#x60;21&#x60; indicates that the terminal supports TLE but does not support UKPT/DUKPT.  You and the terminal vendors are responsible for terminal certification. If you have questions, contact your acquirer.  This field is supported only for Mastercard transactions on CyberSource through VisaNet.  **Note** On CyberSource through VisaNet, the value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 92-93 - Field: Mastercard Terminal Compliance Indicator  The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant’s acquirer, who uses this information to facilitate end-of-day clearing processing with payment networks.  #### Used by **Authorization** Required for card-present transactions in India. Otherwise, not used. .</param>
         /// <param name="IsDedicatedHardwareTerminal">Type of mPOS device. Possible values: - 0: Dongle - 1: Phone or tablet  This optional field is supported only for Mastercard transactions on CyberSource through VisaNet.  The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 141 - Field: Mastercard mPOS Transaction  The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant’s acquirer, who uses this information to facilitate end-of-day clearing processing with payment networks. .</param>
-        /// <param name="TerminalModel">This is the model name of the reader which is used to accept the payment. Possible values:  - E3555  - P400  - A920 .</param>
-        /// <param name="TerminalMake">This is the manufacturer name of the reader which is used to accept the payment. Possible values:  - PAX  - Verifone  - Ingenico .</param>
-        public Ptsv2paymentsPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string LaneNumber = default(string), int? CatLevel = default(int?), string EntryMode = default(string), int? TerminalCapability = default(int?), string OperatingEnvironment = default(string), Ptsv2paymentsPointOfSaleInformationEmv Emv = default(Ptsv2paymentsPointOfSaleInformationEmv), string AmexCapnData = default(string), string TrackData = default(string), string StoreAndForwardIndicator = default(string), List<string> CardholderVerificationMethod = default(List<string>), List<string> TerminalInputCapability = default(List<string>), string TerminalCardCaptureCapability = default(string), string TerminalOutputCapability = default(string), int? TerminalPinCapability = default(int?), string DeviceId = default(string), int? PinBlockEncodingFormat = default(int?), string EncryptedPin = default(string), string EncryptedKeySerialNumber = default(string), string PartnerSdkVersion = default(string), string EmvApplicationIdentifierAndDedicatedFileName = default(string), string TerminalCompliance = default(string), string IsDedicatedHardwareTerminal = default(string), string TerminalModel = default(string), string TerminalMake = default(string))
+        public Ptsv2paymentsPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string LaneNumber = default(string), int? CatLevel = default(int?), string EntryMode = default(string), int? TerminalCapability = default(int?), int? PinEntryCapability = default(int?), string OperatingEnvironment = default(string), Ptsv2paymentsPointOfSaleInformationEmv Emv = default(Ptsv2paymentsPointOfSaleInformationEmv), string AmexCapnData = default(string), string TrackData = default(string), string StoreAndForwardIndicator = default(string), List<string> CardholderVerificationMethod = default(List<string>), List<string> TerminalInputCapability = default(List<string>), string TerminalCardCaptureCapability = default(string), string TerminalOutputCapability = default(string), int? TerminalPinCapability = default(int?), string DeviceId = default(string), int? PinBlockEncodingFormat = default(int?), string EncryptedPin = default(string), string EncryptedKeySerialNumber = default(string), string PartnerSdkVersion = default(string), string EmvApplicationIdentifierAndDedicatedFileName = default(string), string TerminalCompliance = default(string), string IsDedicatedHardwareTerminal = default(string))
         {
             this.TerminalId = TerminalId;
             this.TerminalSerialNumber = TerminalSerialNumber;
@@ -67,6 +66,7 @@ namespace CyberSource.Model
             this.CatLevel = CatLevel;
             this.EntryMode = EntryMode;
             this.TerminalCapability = TerminalCapability;
+            this.PinEntryCapability = PinEntryCapability;
             this.OperatingEnvironment = OperatingEnvironment;
             this.Emv = Emv;
             this.AmexCapnData = AmexCapnData;
@@ -85,8 +85,6 @@ namespace CyberSource.Model
             this.EmvApplicationIdentifierAndDedicatedFileName = EmvApplicationIdentifierAndDedicatedFileName;
             this.TerminalCompliance = TerminalCompliance;
             this.IsDedicatedHardwareTerminal = IsDedicatedHardwareTerminal;
-            this.TerminalModel = TerminalModel;
-            this.TerminalMake = TerminalMake;
         }
         
         /// <summary>
@@ -130,6 +128,13 @@ namespace CyberSource.Model
         /// <value>POS terminal’s capability. Possible values:   - &#x60;1&#x60;: Terminal has a magnetic stripe reader only.  - &#x60;2&#x60;: Terminal has a magnetic stripe reader and manual entry capability.  - &#x60;3&#x60;: Terminal has manual entry capability only.  - &#x60;4&#x60;: Terminal can read chip cards.  - &#x60;5&#x60;: Terminal can read contactless chip cards; cannot use contact to read chip cards.  For an EMV transaction, the value of this field must be &#x60;4&#x60; or &#x60;5&#x60;.  #### PIN debit Required for PIN debit purchase and PIN debit credit request.  #### Used by **Authorization** Required for the following processors: - American Express Direct - Chase Paymentech Solutions - Credit Mutuel-CIC - FDC Nashville Global - FDMS Nashville - OmniPay Direct - SIX - Worldpay VAP  Optional for the following processors: - CyberSource through VisaNet - GPN - GPX - JCN Gateway - RBS WorldPay Atlanta - TSYS Acquiring Solutions </value>
         [DataMember(Name="terminalCapability", EmitDefaultValue=false)]
         public int? TerminalCapability { get; set; }
+
+        /// <summary>
+        /// A one-digit code that identifies the capability of terminal to capture PINs. This code does not necessarily mean that a PIN was entered or is included in this message. For Payouts: This field is applicable for CtV. For details, see the &#x60;terminal_pin_capability&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) 
+        /// </summary>
+        /// <value>A one-digit code that identifies the capability of terminal to capture PINs. This code does not necessarily mean that a PIN was entered or is included in this message. For Payouts: This field is applicable for CtV. For details, see the &#x60;terminal_pin_capability&#x60; field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/) </value>
+        [DataMember(Name="pinEntryCapability", EmitDefaultValue=false)]
+        public int? PinEntryCapability { get; set; }
 
         /// <summary>
         /// Operating environment.  Possible values for all card types except Mastercard: - &#x60;0&#x60;: No terminal used or unknown environment. - &#x60;1&#x60;: On merchant premises, attended. - &#x60;2&#x60;: On merchant premises, unattended. Examples: oil, kiosks, self-checkout, mobile telephone, personal digital assistant (PDA). - &#x60;3&#x60;: Off merchant premises, attended. Examples: portable POS devices at trade shows, at service calls, or in taxis. - &#x60;4&#x60;: Off merchant premises, unattended. Examples: vending machines, home computer, mobile telephone, PDA. - &#x60;5&#x60;: On premises of cardholder, unattended. - &#x60;9&#x60;: Unknown delivery mode. - &#x60;S&#x60;: Electronic delivery of product. Examples: music, software, or eTickets that are downloaded over the internet. - &#x60;T&#x60;: Physical delivery of product. Examples: music or software that is delivered by mail or by a courier.  #### Possible values for Mastercard: - &#x60;2&#x60;: On merchant premises, unattended, or cardholder terminal. Examples: oil, kiosks, self-checkout, home computer, mobile telephone, personal digital assistant (PDA). Cardholder terminal is supported only for Mastercard transactions on CyberSource through VisaNet. - &#x60;4&#x60;: Off merchant premises, unattended, or cardholder terminal. Examples: vending machines, home computer, mobile telephone, PDA. Cardholder terminal is supported only for Mastercard transactions on CyberSource through VisaNet.  This field is supported only for American Express Direct and CyberSource through VisaNet. 
@@ -255,20 +260,6 @@ namespace CyberSource.Model
         public string IsDedicatedHardwareTerminal { get; set; }
 
         /// <summary>
-        /// This is the model name of the reader which is used to accept the payment. Possible values:  - E3555  - P400  - A920 
-        /// </summary>
-        /// <value>This is the model name of the reader which is used to accept the payment. Possible values:  - E3555  - P400  - A920 </value>
-        [DataMember(Name="terminalModel", EmitDefaultValue=false)]
-        public string TerminalModel { get; set; }
-
-        /// <summary>
-        /// This is the manufacturer name of the reader which is used to accept the payment. Possible values:  - PAX  - Verifone  - Ingenico 
-        /// </summary>
-        /// <value>This is the manufacturer name of the reader which is used to accept the payment. Possible values:  - PAX  - Verifone  - Ingenico </value>
-        [DataMember(Name="terminalMake", EmitDefaultValue=false)]
-        public string TerminalMake { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -282,6 +273,7 @@ namespace CyberSource.Model
             sb.Append("  CatLevel: ").Append(CatLevel).Append("\n");
             sb.Append("  EntryMode: ").Append(EntryMode).Append("\n");
             sb.Append("  TerminalCapability: ").Append(TerminalCapability).Append("\n");
+            sb.Append("  PinEntryCapability: ").Append(PinEntryCapability).Append("\n");
             sb.Append("  OperatingEnvironment: ").Append(OperatingEnvironment).Append("\n");
             sb.Append("  Emv: ").Append(Emv).Append("\n");
             sb.Append("  AmexCapnData: ").Append(AmexCapnData).Append("\n");
@@ -300,8 +292,6 @@ namespace CyberSource.Model
             sb.Append("  EmvApplicationIdentifierAndDedicatedFileName: ").Append(EmvApplicationIdentifierAndDedicatedFileName).Append("\n");
             sb.Append("  TerminalCompliance: ").Append(TerminalCompliance).Append("\n");
             sb.Append("  IsDedicatedHardwareTerminal: ").Append(IsDedicatedHardwareTerminal).Append("\n");
-            sb.Append("  TerminalModel: ").Append(TerminalModel).Append("\n");
-            sb.Append("  TerminalMake: ").Append(TerminalMake).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -367,6 +357,11 @@ namespace CyberSource.Model
                     this.TerminalCapability == other.TerminalCapability ||
                     this.TerminalCapability != null &&
                     this.TerminalCapability.Equals(other.TerminalCapability)
+                ) && 
+                (
+                    this.PinEntryCapability == other.PinEntryCapability ||
+                    this.PinEntryCapability != null &&
+                    this.PinEntryCapability.Equals(other.PinEntryCapability)
                 ) && 
                 (
                     this.OperatingEnvironment == other.OperatingEnvironment ||
@@ -457,16 +452,6 @@ namespace CyberSource.Model
                     this.IsDedicatedHardwareTerminal == other.IsDedicatedHardwareTerminal ||
                     this.IsDedicatedHardwareTerminal != null &&
                     this.IsDedicatedHardwareTerminal.Equals(other.IsDedicatedHardwareTerminal)
-                ) && 
-                (
-                    this.TerminalModel == other.TerminalModel ||
-                    this.TerminalModel != null &&
-                    this.TerminalModel.Equals(other.TerminalModel)
-                ) && 
-                (
-                    this.TerminalMake == other.TerminalMake ||
-                    this.TerminalMake != null &&
-                    this.TerminalMake.Equals(other.TerminalMake)
                 );
         }
 
@@ -493,6 +478,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EntryMode.GetHashCode();
                 if (this.TerminalCapability != null)
                     hash = hash * 59 + this.TerminalCapability.GetHashCode();
+                if (this.PinEntryCapability != null)
+                    hash = hash * 59 + this.PinEntryCapability.GetHashCode();
                 if (this.OperatingEnvironment != null)
                     hash = hash * 59 + this.OperatingEnvironment.GetHashCode();
                 if (this.Emv != null)
@@ -529,10 +516,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TerminalCompliance.GetHashCode();
                 if (this.IsDedicatedHardwareTerminal != null)
                     hash = hash * 59 + this.IsDedicatedHardwareTerminal.GetHashCode();
-                if (this.TerminalModel != null)
-                    hash = hash * 59 + this.TerminalModel.GetHashCode();
-                if (this.TerminalMake != null)
-                    hash = hash * 59 + this.TerminalMake.GetHashCode();
                 return hash;
             }
         }
@@ -590,6 +573,18 @@ namespace CyberSource.Model
             if(this.TerminalCapability <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCapability, must be a value greater than or equal to 1.", new [] { "TerminalCapability" });
+            }
+
+            // PinEntryCapability (int?) maximum
+            if(this.PinEntryCapability >= (int?)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PinEntryCapability, must be a value less than or equal to 1.", new [] { "PinEntryCapability" });
+            }
+
+            // PinEntryCapability (int?) minimum
+            if(this.PinEntryCapability <= (int?)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PinEntryCapability, must be a value greater than or equal to 1.", new [] { "PinEntryCapability" });
             }
 
             // OperatingEnvironment (string) maxLength
@@ -668,18 +663,6 @@ namespace CyberSource.Model
             if(this.IsDedicatedHardwareTerminal != null && this.IsDedicatedHardwareTerminal.Length >= 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IsDedicatedHardwareTerminal, length must be less than or equal to 1.", new [] { "IsDedicatedHardwareTerminal" });
-            }
-
-            // TerminalModel (string) maxLength
-            if(this.TerminalModel != null && this.TerminalModel.Length >= 32)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalModel, length must be less than or equal to 32.", new [] { "TerminalModel" });
-            }
-
-            // TerminalMake (string) maxLength
-            if(this.TerminalMake != null && this.TerminalMake.Length >= 32)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalMake, length must be less than or equal to 32.", new [] { "TerminalMake" });
             }
 
             yield break;

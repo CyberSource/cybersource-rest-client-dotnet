@@ -15,8 +15,6 @@ using System.Linq;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Model;
-using NLog;
-using AuthenticationSdk.util;
 
 namespace CyberSource.Api
 {
@@ -332,28 +330,22 @@ namespace CyberSource.Api
     /// </summary>
     public partial class InstrumentIdentifierApi : IInstrumentIdentifierApi
     {
-        private static Logger logger;
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private CyberSource.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InstrumentIdentifierApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public InstrumentIdentifierApi(string basePath)
+        public InstrumentIdentifierApi(String basePath)
         {
-            Configuration = new Configuration(new ApiClient(basePath));
+            this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
             {
-                Configuration.ApiClient.Configuration = Configuration;
-            }
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
+                this.Configuration.ApiClient.Configuration = this.Configuration;
             }
         }
 
@@ -366,27 +358,22 @@ namespace CyberSource.Api
         public InstrumentIdentifierApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                Configuration = Configuration.Default;
+                this.Configuration = Configuration.Default;
             else
-                Configuration = configuration;
+                this.Configuration = configuration;
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
-            Configuration.ApiClient.Configuration = Configuration;
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
-            }
+            this.Configuration.ApiClient.Configuration = this.Configuration;
         }
 
         /// <summary>
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public string GetBasePath()
+        public String GetBasePath()
         {
-            return Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
         }
 
         /// <summary>
@@ -394,7 +381,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <value>The base path</value>
         [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(string basePath)
+        public void SetBasePath(String basePath)
         {
             // do nothing
         }
@@ -403,18 +390,17 @@ namespace CyberSource.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration { get; set; }
+        public Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public CyberSource.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    logger.Error("InvalidOperationException : Multicast delegate for ExceptionFactory is unsupported.");
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
@@ -427,9 +413,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<string, string> DefaultHeader()
+        public Dictionary<String, String> DefaultHeader()
         {
-            return Configuration.DefaultHeader;
+            return this.Configuration.DefaultHeader;
         }
 
         /// <summary>
@@ -441,7 +427,7 @@ namespace CyberSource.Api
         [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
         public void AddDefaultHeader(string key, string value)
         {
-            Configuration.AddDefaultHeader(key, value);
+            this.Configuration.AddDefaultHeader(key, value);
         }
 
         /// <summary>
@@ -453,8 +439,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void DeleteInstrumentIdentifier (string instrumentIdentifierTokenId, string profileId = null)
         {
-            logger.Debug("CALLING API \"DeleteInstrumentIdentifier\" STARTED");
-            DeleteInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, profileId);
+             DeleteInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, profileId);
         }
 
         /// <summary>
@@ -468,44 +453,32 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'instrumentIdentifierTokenId' is set
             if (instrumentIdentifierTokenId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (instrumentIdentifierTokenId != null)
-            {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
 
 
             // make the HTTP request
@@ -518,16 +491,12 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                localVarResponse.Content); // Return statement
+                null); // Return statement
         }
 
         /// <summary>
@@ -539,8 +508,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteInstrumentIdentifierAsync (string instrumentIdentifierTokenId, string profileId = null)
         {
-            logger.Debug("CALLING API \"DeleteInstrumentIdentifierAsync\" STARTED");
-            await DeleteInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId);
+             await DeleteInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId);
 
         }
 
@@ -555,67 +523,52 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'instrumentIdentifierTokenId' is set
             if (instrumentIdentifierTokenId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (instrumentIdentifierTokenId != null)
-            {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                localVarResponse.Content); // Return statement
+                null); // Return statement
         }
+
         /// <summary>
         /// Retrieve an Instrument Identifier 
         /// </summary>
@@ -625,10 +578,8 @@ namespace CyberSource.Api
         /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierTokenId, string profileId = null)
         {
-            logger.Debug("CALLING API \"GetInstrumentIdentifier\" STARTED");
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = GetInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, profileId);
-            logger.Debug("CALLING API \"GetInstrumentIdentifier\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = GetInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, profileId);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -642,44 +593,32 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'instrumentIdentifierTokenId' is set
             if (instrumentIdentifierTokenId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (instrumentIdentifierTokenId != null)
-            {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
 
 
             // make the HTTP request
@@ -692,11 +631,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
@@ -713,10 +648,8 @@ namespace CyberSource.Api
         /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> GetInstrumentIdentifierAsync (string instrumentIdentifierTokenId, string profileId = null)
         {
-            logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" STARTED");
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId);
-            logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId);
+             return localVarResponse.Data;
 
         }
 
@@ -731,67 +664,52 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'instrumentIdentifierTokenId' is set
             if (instrumentIdentifierTokenId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (instrumentIdentifierTokenId != null)
-            {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
         }
+
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier 
         /// </summary>
@@ -803,10 +721,8 @@ namespace CyberSource.Api
         /// <returns>PaymentInstrumentList</returns>
         public PaymentInstrumentList GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
-            logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" STARTED");
-            ApiResponse<PaymentInstrumentList> localVarResponse = GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo(instrumentIdentifierTokenId, profileId, offset, limit);
-            logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<PaymentInstrumentList> localVarResponse = GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo(instrumentIdentifierTokenId, profileId, offset, limit);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -822,54 +738,34 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'instrumentIdentifierTokenId' is set
             if (instrumentIdentifierTokenId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/paymentinstruments";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (instrumentIdentifierTokenId != null)
-            {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (offset != null)
-            {
-                localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            }
-            if (limit != null)
-            {
-                localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
 
 
             // make the HTTP request
@@ -882,11 +778,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<PaymentInstrumentList>(localVarStatusCode,
@@ -905,10 +797,8 @@ namespace CyberSource.Api
         /// <returns>Task of PaymentInstrumentList</returns>
         public async System.Threading.Tasks.Task<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
-            logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" STARTED");
-            ApiResponse<PaymentInstrumentList> localVarResponse = await GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId, offset, limit);
-            logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<PaymentInstrumentList> localVarResponse = await GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId, offset, limit);
+             return localVarResponse.Data;
 
         }
 
@@ -925,77 +815,54 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'instrumentIdentifierTokenId' is set
             if (instrumentIdentifierTokenId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/paymentinstruments";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (instrumentIdentifierTokenId != null)
-            {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (offset != null)
-            {
-                localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            }
-            if (limit != null)
-            {
-                localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<PaymentInstrumentList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PaymentInstrumentList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList))); // Return statement
         }
+
         /// <summary>
         /// Update an Instrument Identifier 
         /// </summary>
@@ -1007,10 +874,8 @@ namespace CyberSource.Api
         /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
-            logger.Debug("CALLING API \"PatchInstrumentIdentifier\" STARTED");
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = PatchInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, patchInstrumentIdentifierRequest, profileId, ifMatch);
-            logger.Debug("CALLING API \"PatchInstrumentIdentifier\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = PatchInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1026,54 +891,36 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'instrumentIdentifierTokenId' is set
             if (instrumentIdentifierTokenId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
-            }
             // verify the required parameter 'patchInstrumentIdentifierRequest' is set
             if (patchInstrumentIdentifierRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (instrumentIdentifierTokenId != null)
-            {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
-            if (ifMatch != null)
-            {
-                localVarHeaderParams.Add("if-match", Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
-            }
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            if (ifMatch != null) localVarHeaderParams.Add("if-match", Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
             if (patchInstrumentIdentifierRequest != null && patchInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(patchInstrumentIdentifierRequest); // http body (model) parameter
@@ -1081,15 +928,6 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = patchInstrumentIdentifierRequest; // byte array
-            }
-
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -1103,11 +941,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
@@ -1126,10 +960,8 @@ namespace CyberSource.Api
         /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierAsync (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
-            logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" STARTED");
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PatchInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, patchInstrumentIdentifierRequest, profileId, ifMatch);
-            logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PatchInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+             return localVarResponse.Data;
 
         }
 
@@ -1146,54 +978,36 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'instrumentIdentifierTokenId' is set
             if (instrumentIdentifierTokenId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
-            }
             // verify the required parameter 'patchInstrumentIdentifierRequest' is set
             if (patchInstrumentIdentifierRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (instrumentIdentifierTokenId != null)
-            {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
-            if (ifMatch != null)
-            {
-                localVarHeaderParams.Add("if-match", Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
-            }
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            if (ifMatch != null) localVarHeaderParams.Add("if-match", Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
             if (patchInstrumentIdentifierRequest != null && patchInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(patchInstrumentIdentifierRequest); // http body (model) parameter
@@ -1203,37 +1017,25 @@ namespace CyberSource.Api
                 localVarPostBody = patchInstrumentIdentifierRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
-
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
         }
+
         /// <summary>
         /// Create an Instrument Identifier 
         /// </summary>
@@ -1243,10 +1045,8 @@ namespace CyberSource.Api
         /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostInstrumentIdentifier\" STARTED");
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = PostInstrumentIdentifierWithHttpInfo(postInstrumentIdentifierRequest, profileId);
-            logger.Debug("CALLING API \"PostInstrumentIdentifier\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = PostInstrumentIdentifierWithHttpInfo(postInstrumentIdentifierRequest, profileId);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1260,39 +1060,31 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'postInstrumentIdentifierRequest' is set
             if (postInstrumentIdentifierRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'postInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifier");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             if (postInstrumentIdentifierRequest != null && postInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(postInstrumentIdentifierRequest); // http body (model) parameter
@@ -1300,15 +1092,6 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = postInstrumentIdentifierRequest; // byte array
-            }
-
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -1322,11 +1105,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
@@ -1343,10 +1122,8 @@ namespace CyberSource.Api
         /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" STARTED");
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PostInstrumentIdentifierAsyncWithHttpInfo(postInstrumentIdentifierRequest, profileId);
-            logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PostInstrumentIdentifierAsyncWithHttpInfo(postInstrumentIdentifierRequest, profileId);
+             return localVarResponse.Data;
 
         }
 
@@ -1361,39 +1138,31 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'postInstrumentIdentifierRequest' is set
             if (postInstrumentIdentifierRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'postInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifier");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             if (postInstrumentIdentifierRequest != null && postInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(postInstrumentIdentifierRequest); // http body (model) parameter
@@ -1403,37 +1172,25 @@ namespace CyberSource.Api
                 localVarPostBody = postInstrumentIdentifierRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
-
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
         }
+
         /// <summary>
         /// Enroll an Instrument Identifier for Network Tokenization 
         /// </summary>
@@ -1444,8 +1201,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void PostInstrumentIdentifierEnrollment (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostInstrumentIdentifierEnrollment\" STARTED");
-            PostInstrumentIdentifierEnrollmentWithHttpInfo(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
+             PostInstrumentIdentifierEnrollmentWithHttpInfo(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
         }
 
         /// <summary>
@@ -1460,50 +1216,35 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'instrumentIdentifierTokenId' is set
             if (instrumentIdentifierTokenId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
-            }
             // verify the required parameter 'postInstrumentIdentifierEnrollmentRequest' is set
             if (postInstrumentIdentifierEnrollmentRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
                 throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/enrollment";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (instrumentIdentifierTokenId != null)
-            {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             if (postInstrumentIdentifierEnrollmentRequest != null && postInstrumentIdentifierEnrollmentRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(postInstrumentIdentifierEnrollmentRequest); // http body (model) parameter
@@ -1511,15 +1252,6 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = postInstrumentIdentifierEnrollmentRequest; // byte array
-            }
-
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -1533,16 +1265,12 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                localVarResponse.Content); // Return statement
+                null); // Return statement
         }
 
         /// <summary>
@@ -1555,8 +1283,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task PostInstrumentIdentifierEnrollmentAsync (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostInstrumentIdentifierEnrollmentAsync\" STARTED");
-            await PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
+             await PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
 
         }
 
@@ -1572,50 +1299,35 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'instrumentIdentifierTokenId' is set
             if (instrumentIdentifierTokenId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
-            }
             // verify the required parameter 'postInstrumentIdentifierEnrollmentRequest' is set
             if (postInstrumentIdentifierEnrollmentRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
                 throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
-            }
 
             var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/enrollment";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (instrumentIdentifierTokenId != null)
-            {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (profileId != null)
-            {
-                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
-            }
+            if (instrumentIdentifierTokenId != null) localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+            if (profileId != null) localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             if (postInstrumentIdentifierEnrollmentRequest != null && postInstrumentIdentifierEnrollmentRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(postInstrumentIdentifierEnrollmentRequest); // http body (model) parameter
@@ -1625,36 +1337,24 @@ namespace CyberSource.Api
                 localVarPostBody = postInstrumentIdentifierEnrollmentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
-
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                localVarResponse.Content); // Return statement
+                null); // Return statement
         }
+
     }
 }

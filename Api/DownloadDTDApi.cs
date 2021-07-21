@@ -14,8 +14,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CyberSource.Client;
-using NLog;
-using AuthenticationSdk.util;
 
 namespace CyberSource.Api
 {
@@ -77,28 +75,22 @@ namespace CyberSource.Api
     /// </summary>
     public partial class DownloadDTDApi : IDownloadDTDApi
     {
-        private static Logger logger;
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private CyberSource.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DownloadDTDApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public DownloadDTDApi(string basePath)
+        public DownloadDTDApi(String basePath)
         {
-            Configuration = new Configuration(new ApiClient(basePath));
+            this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
             {
-                Configuration.ApiClient.Configuration = Configuration;
-            }
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
+                this.Configuration.ApiClient.Configuration = this.Configuration;
             }
         }
 
@@ -111,27 +103,22 @@ namespace CyberSource.Api
         public DownloadDTDApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                Configuration = Configuration.Default;
+                this.Configuration = Configuration.Default;
             else
-                Configuration = configuration;
+                this.Configuration = configuration;
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
-            Configuration.ApiClient.Configuration = Configuration;
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
-            }
+            this.Configuration.ApiClient.Configuration = this.Configuration;
         }
 
         /// <summary>
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public string GetBasePath()
+        public String GetBasePath()
         {
-            return Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
         }
 
         /// <summary>
@@ -139,7 +126,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <value>The base path</value>
         [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(string basePath)
+        public void SetBasePath(String basePath)
         {
             // do nothing
         }
@@ -148,18 +135,17 @@ namespace CyberSource.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration { get; set; }
+        public Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public CyberSource.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    logger.Error("InvalidOperationException : Multicast delegate for ExceptionFactory is unsupported.");
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
@@ -172,9 +158,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<string, string> DefaultHeader()
+        public Dictionary<String, String> DefaultHeader()
         {
-            return Configuration.DefaultHeader;
+            return this.Configuration.DefaultHeader;
         }
 
         /// <summary>
@@ -186,7 +172,7 @@ namespace CyberSource.Api
         [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
         public void AddDefaultHeader(string key, string value)
         {
-            Configuration.AddDefaultHeader(key, value);
+            this.Configuration.AddDefaultHeader(key, value);
         }
 
         /// <summary>
@@ -197,8 +183,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void GetDTDV2 (string reportDefinitionNameVersion)
         {
-            logger.Debug("CALLING API \"GetDTDV2\" STARTED");
-            GetDTDV2WithHttpInfo(reportDefinitionNameVersion);
+             GetDTDV2WithHttpInfo(reportDefinitionNameVersion);
         }
 
         /// <summary>
@@ -211,40 +196,31 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'reportDefinitionNameVersion' is set
             if (reportDefinitionNameVersion == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'reportDefinitionNameVersion' when calling DownloadDTDApi->GetDTDV2");
                 throw new ApiException(400, "Missing required parameter 'reportDefinitionNameVersion' when calling DownloadDTDApi->GetDTDV2");
-            }
 
             var localVarPath = $"/reporting/v3/dtds/{reportDefinitionNameVersion}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/xml-dtd"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (reportDefinitionNameVersion != null)
-            {
-                localVarPathParams.Add("reportDefinitionNameVersion", Configuration.ApiClient.ParameterToString(reportDefinitionNameVersion)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (reportDefinitionNameVersion != null) localVarPathParams.Add("reportDefinitionNameVersion", Configuration.ApiClient.ParameterToString(reportDefinitionNameVersion)); // path parameter
 
 
             // make the HTTP request
@@ -257,16 +233,12 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetDTDV2", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                localVarResponse.Content); // Return statement
+                null); // Return statement
         }
 
         /// <summary>
@@ -277,8 +249,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task GetDTDV2Async (string reportDefinitionNameVersion)
         {
-            logger.Debug("CALLING API \"GetDTDV2Async\" STARTED");
-            await GetDTDV2AsyncWithHttpInfo(reportDefinitionNameVersion);
+             await GetDTDV2AsyncWithHttpInfo(reportDefinitionNameVersion);
 
         }
 
@@ -292,62 +263,50 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'reportDefinitionNameVersion' is set
             if (reportDefinitionNameVersion == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'reportDefinitionNameVersion' when calling DownloadDTDApi->GetDTDV2");
                 throw new ApiException(400, "Missing required parameter 'reportDefinitionNameVersion' when calling DownloadDTDApi->GetDTDV2");
-            }
 
             var localVarPath = $"/reporting/v3/dtds/{reportDefinitionNameVersion}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/xml-dtd"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (reportDefinitionNameVersion != null)
-            {
-                localVarPathParams.Add("reportDefinitionNameVersion", Configuration.ApiClient.ParameterToString(reportDefinitionNameVersion)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (reportDefinitionNameVersion != null) localVarPathParams.Add("reportDefinitionNameVersion", Configuration.ApiClient.ParameterToString(reportDefinitionNameVersion)); // path parameter
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetDTDV2", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                localVarResponse.Content); // Return statement
+                null); // Return statement
         }
+
     }
 }

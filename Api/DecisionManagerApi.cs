@@ -15,8 +15,6 @@ using System.Linq;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Model;
-using NLog;
-using AuthenticationSdk.util;
 
 namespace CyberSource.Api
 {
@@ -170,28 +168,22 @@ namespace CyberSource.Api
     /// </summary>
     public partial class DecisionManagerApi : IDecisionManagerApi
     {
-        private static Logger logger;
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private CyberSource.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DecisionManagerApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public DecisionManagerApi(string basePath)
+        public DecisionManagerApi(String basePath)
         {
-            Configuration = new Configuration(new ApiClient(basePath));
+            this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
             {
-                Configuration.ApiClient.Configuration = Configuration;
-            }
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
+                this.Configuration.ApiClient.Configuration = this.Configuration;
             }
         }
 
@@ -204,27 +196,22 @@ namespace CyberSource.Api
         public DecisionManagerApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                Configuration = Configuration.Default;
+                this.Configuration = Configuration.Default;
             else
-                Configuration = configuration;
+                this.Configuration = configuration;
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
-            Configuration.ApiClient.Configuration = Configuration;
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
-            }
+            this.Configuration.ApiClient.Configuration = this.Configuration;
         }
 
         /// <summary>
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public string GetBasePath()
+        public String GetBasePath()
         {
-            return Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
         }
 
         /// <summary>
@@ -232,7 +219,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <value>The base path</value>
         [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(string basePath)
+        public void SetBasePath(String basePath)
         {
             // do nothing
         }
@@ -241,18 +228,17 @@ namespace CyberSource.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration { get; set; }
+        public Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public CyberSource.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    logger.Error("InvalidOperationException : Multicast delegate for ExceptionFactory is unsupported.");
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
@@ -265,9 +251,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<string, string> DefaultHeader()
+        public Dictionary<String, String> DefaultHeader()
         {
-            return Configuration.DefaultHeader;
+            return this.Configuration.DefaultHeader;
         }
 
         /// <summary>
@@ -279,7 +265,7 @@ namespace CyberSource.Api
         [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
         public void AddDefaultHeader(string key, string value)
         {
-            Configuration.AddDefaultHeader(key, value);
+            this.Configuration.AddDefaultHeader(key, value);
         }
 
         /// <summary>
@@ -291,10 +277,8 @@ namespace CyberSource.Api
         /// <returns>RiskV1UpdatePost201Response</returns>
         public RiskV1UpdatePost201Response AddNegative (string type, AddNegativeListRequest addNegativeListRequest)
         {
-            logger.Debug("CALLING API \"AddNegative\" STARTED");
-            ApiResponse<RiskV1UpdatePost201Response> localVarResponse = AddNegativeWithHttpInfo(type, addNegativeListRequest);
-            logger.Debug("CALLING API \"AddNegative\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = AddNegativeWithHttpInfo(type, addNegativeListRequest);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -308,46 +292,34 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'type' is set
             if (type == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
                 throw new ApiException(400, "Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
-            }
             // verify the required parameter 'addNegativeListRequest' is set
             if (addNegativeListRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
                 throw new ApiException(400, "Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
-            }
 
             var localVarPath = $"/risk/v1/lists/{type}/entries";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (type != null)
-            {
-                localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
             if (addNegativeListRequest != null && addNegativeListRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(addNegativeListRequest); // http body (model) parameter
@@ -355,15 +327,6 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = addNegativeListRequest; // byte array
-            }
-
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -377,11 +340,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("AddNegative", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
@@ -398,10 +357,8 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1UpdatePost201Response</returns>
         public async System.Threading.Tasks.Task<RiskV1UpdatePost201Response> AddNegativeAsync (string type, AddNegativeListRequest addNegativeListRequest)
         {
-            logger.Debug("CALLING API \"AddNegativeAsync\" STARTED");
-            ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await AddNegativeAsyncWithHttpInfo(type, addNegativeListRequest);
-            logger.Debug("CALLING API \"AddNegativeAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await AddNegativeAsyncWithHttpInfo(type, addNegativeListRequest);
+             return localVarResponse.Data;
 
         }
 
@@ -416,46 +373,34 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'type' is set
             if (type == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
                 throw new ApiException(400, "Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
-            }
             // verify the required parameter 'addNegativeListRequest' is set
             if (addNegativeListRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
                 throw new ApiException(400, "Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
-            }
 
             var localVarPath = $"/risk/v1/lists/{type}/entries";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (type != null)
-            {
-                localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
             if (addNegativeListRequest != null && addNegativeListRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(addNegativeListRequest); // http body (model) parameter
@@ -465,37 +410,25 @@ namespace CyberSource.Api
                 localVarPostBody = addNegativeListRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
-
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("AddNegative", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response))); // Return statement
         }
+
         /// <summary>
         /// Create Decision Manager Decision Manager can help you automate and streamline your fraud operations. Decision Manager will return a decision based on the request values.
         /// </summary>
@@ -504,10 +437,8 @@ namespace CyberSource.Api
         /// <returns>RiskV1DecisionsPost201Response</returns>
         public RiskV1DecisionsPost201Response CreateBundledDecisionManagerCase (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
-            logger.Debug("CALLING API \"CreateBundledDecisionManagerCase\" STARTED");
-            ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = CreateBundledDecisionManagerCaseWithHttpInfo(createBundledDecisionManagerCaseRequest);
-            logger.Debug("CALLING API \"CreateBundledDecisionManagerCase\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = CreateBundledDecisionManagerCaseWithHttpInfo(createBundledDecisionManagerCaseRequest);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -520,34 +451,29 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'createBundledDecisionManagerCaseRequest' is set
             if (createBundledDecisionManagerCaseRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
-            }
 
             var localVarPath = $"/risk/v1/decisions";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
             if (createBundledDecisionManagerCaseRequest != null && createBundledDecisionManagerCaseRequest.GetType() != typeof(byte[]))
             {
@@ -556,15 +482,6 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = createBundledDecisionManagerCaseRequest; // byte array
-            }
-
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -578,11 +495,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1DecisionsPost201Response>(localVarStatusCode,
@@ -598,10 +511,8 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1DecisionsPost201Response</returns>
         public async System.Threading.Tasks.Task<RiskV1DecisionsPost201Response> CreateBundledDecisionManagerCaseAsync (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
-            logger.Debug("CALLING API \"CreateBundledDecisionManagerCaseAsync\" STARTED");
-            ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = await CreateBundledDecisionManagerCaseAsyncWithHttpInfo(createBundledDecisionManagerCaseRequest);
-            logger.Debug("CALLING API \"CreateBundledDecisionManagerCaseAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = await CreateBundledDecisionManagerCaseAsyncWithHttpInfo(createBundledDecisionManagerCaseRequest);
+             return localVarResponse.Data;
 
         }
 
@@ -615,34 +526,29 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'createBundledDecisionManagerCaseRequest' is set
             if (createBundledDecisionManagerCaseRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
-            }
 
             var localVarPath = $"/risk/v1/decisions";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
             if (createBundledDecisionManagerCaseRequest != null && createBundledDecisionManagerCaseRequest.GetType() != typeof(byte[]))
             {
@@ -653,37 +559,25 @@ namespace CyberSource.Api
                 localVarPostBody = createBundledDecisionManagerCaseRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
-
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1DecisionsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (RiskV1DecisionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1DecisionsPost201Response))); // Return statement
         }
+
         /// <summary>
         /// Fraud Marking This can be used to - 1. Add known fraudulent data to the fraud history 2. Remove data added to history with Transaction Marking Tool or by uploading chargeback files 3. Remove chargeback data from history that was automatically added. For detailed information, contact your Cybersource representative  Place the request ID of the transaction you want to mark as suspect (or remove from history) as the path parameter in this request. 
         /// </summary>
@@ -693,10 +587,8 @@ namespace CyberSource.Api
         /// <returns>RiskV1UpdatePost201Response</returns>
         public RiskV1UpdatePost201Response FraudUpdate (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
-            logger.Debug("CALLING API \"FraudUpdate\" STARTED");
-            ApiResponse<RiskV1UpdatePost201Response> localVarResponse = FraudUpdateWithHttpInfo(id, fraudMarkingActionRequest);
-            logger.Debug("CALLING API \"FraudUpdate\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = FraudUpdateWithHttpInfo(id, fraudMarkingActionRequest);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -710,46 +602,34 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
                 throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
-            }
             // verify the required parameter 'fraudMarkingActionRequest' is set
             if (fraudMarkingActionRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
                 throw new ApiException(400, "Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
-            }
 
             var localVarPath = $"/risk/v1/decisions/{id}/marking";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (id != null)
-            {
-                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (fraudMarkingActionRequest != null && fraudMarkingActionRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(fraudMarkingActionRequest); // http body (model) parameter
@@ -757,15 +637,6 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = fraudMarkingActionRequest; // byte array
-            }
-
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -779,11 +650,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
@@ -800,10 +667,8 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1UpdatePost201Response</returns>
         public async System.Threading.Tasks.Task<RiskV1UpdatePost201Response> FraudUpdateAsync (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
-            logger.Debug("CALLING API \"FraudUpdateAsync\" STARTED");
-            ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await FraudUpdateAsyncWithHttpInfo(id, fraudMarkingActionRequest);
-            logger.Debug("CALLING API \"FraudUpdateAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await FraudUpdateAsyncWithHttpInfo(id, fraudMarkingActionRequest);
+             return localVarResponse.Data;
 
         }
 
@@ -818,46 +683,34 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
                 throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
-            }
             // verify the required parameter 'fraudMarkingActionRequest' is set
             if (fraudMarkingActionRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
                 throw new ApiException(400, "Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
-            }
 
             var localVarPath = $"/risk/v1/decisions/{id}/marking";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (id != null)
-            {
-                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (fraudMarkingActionRequest != null && fraudMarkingActionRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(fraudMarkingActionRequest); // http body (model) parameter
@@ -867,36 +720,24 @@ namespace CyberSource.Api
                 localVarPostBody = fraudMarkingActionRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
-
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response))); // Return statement
         }
+
     }
 }

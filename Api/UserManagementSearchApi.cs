@@ -15,8 +15,6 @@ using System.Linq;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Model;
-using NLog;
-using AuthenticationSdk.util;
 
 namespace CyberSource.Api
 {
@@ -78,28 +76,22 @@ namespace CyberSource.Api
     /// </summary>
     public partial class UserManagementSearchApi : IUserManagementSearchApi
     {
-        private static Logger logger;
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private CyberSource.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserManagementSearchApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public UserManagementSearchApi(string basePath)
+        public UserManagementSearchApi(String basePath)
         {
-            Configuration = new Configuration(new ApiClient(basePath));
+            this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
             {
-                Configuration.ApiClient.Configuration = Configuration;
-            }
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
+                this.Configuration.ApiClient.Configuration = this.Configuration;
             }
         }
 
@@ -112,27 +104,22 @@ namespace CyberSource.Api
         public UserManagementSearchApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                Configuration = Configuration.Default;
+                this.Configuration = Configuration.Default;
             else
-                Configuration = configuration;
+                this.Configuration = configuration;
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
-            Configuration.ApiClient.Configuration = Configuration;
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
-            }
+            this.Configuration.ApiClient.Configuration = this.Configuration;
         }
 
         /// <summary>
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public string GetBasePath()
+        public String GetBasePath()
         {
-            return Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
         }
 
         /// <summary>
@@ -140,7 +127,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <value>The base path</value>
         [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(string basePath)
+        public void SetBasePath(String basePath)
         {
             // do nothing
         }
@@ -149,18 +136,17 @@ namespace CyberSource.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration { get; set; }
+        public Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public CyberSource.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    logger.Error("InvalidOperationException : Multicast delegate for ExceptionFactory is unsupported.");
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
@@ -173,9 +159,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<string, string> DefaultHeader()
+        public Dictionary<String, String> DefaultHeader()
         {
-            return Configuration.DefaultHeader;
+            return this.Configuration.DefaultHeader;
         }
 
         /// <summary>
@@ -187,7 +173,7 @@ namespace CyberSource.Api
         [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
         public void AddDefaultHeader(string key, string value)
         {
-            Configuration.AddDefaultHeader(key, value);
+            this.Configuration.AddDefaultHeader(key, value);
         }
 
         /// <summary>
@@ -198,10 +184,8 @@ namespace CyberSource.Api
         /// <returns>UmsV1UsersGet200Response</returns>
         public UmsV1UsersGet200Response SearchUsers (SearchRequest searchRequest)
         {
-            logger.Debug("CALLING API \"SearchUsers\" STARTED");
-            ApiResponse<UmsV1UsersGet200Response> localVarResponse = SearchUsersWithHttpInfo(searchRequest);
-            logger.Debug("CALLING API \"SearchUsers\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<UmsV1UsersGet200Response> localVarResponse = SearchUsersWithHttpInfo(searchRequest);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -214,34 +198,29 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'searchRequest' is set
             if (searchRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'searchRequest' when calling UserManagementSearchApi->SearchUsers");
                 throw new ApiException(400, "Missing required parameter 'searchRequest' when calling UserManagementSearchApi->SearchUsers");
-            }
 
             var localVarPath = $"/ums/v1/users/search";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
             if (searchRequest != null && searchRequest.GetType() != typeof(byte[]))
             {
@@ -250,15 +229,6 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = searchRequest; // byte array
-            }
-
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -272,11 +242,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("SearchUsers", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<UmsV1UsersGet200Response>(localVarStatusCode,
@@ -292,10 +258,8 @@ namespace CyberSource.Api
         /// <returns>Task of UmsV1UsersGet200Response</returns>
         public async System.Threading.Tasks.Task<UmsV1UsersGet200Response> SearchUsersAsync (SearchRequest searchRequest)
         {
-            logger.Debug("CALLING API \"SearchUsersAsync\" STARTED");
-            ApiResponse<UmsV1UsersGet200Response> localVarResponse = await SearchUsersAsyncWithHttpInfo(searchRequest);
-            logger.Debug("CALLING API \"SearchUsersAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<UmsV1UsersGet200Response> localVarResponse = await SearchUsersAsyncWithHttpInfo(searchRequest);
+             return localVarResponse.Data;
 
         }
 
@@ -309,34 +273,29 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'searchRequest' is set
             if (searchRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'searchRequest' when calling UserManagementSearchApi->SearchUsers");
                 throw new ApiException(400, "Missing required parameter 'searchRequest' when calling UserManagementSearchApi->SearchUsers");
-            }
 
             var localVarPath = $"/ums/v1/users/search";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
             if (searchRequest != null && searchRequest.GetType() != typeof(byte[]))
             {
@@ -347,36 +306,24 @@ namespace CyberSource.Api
                 localVarPostBody = searchRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
-
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("SearchUsers", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<UmsV1UsersGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (UmsV1UsersGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UmsV1UsersGet200Response))); // Return statement
         }
+
     }
 }

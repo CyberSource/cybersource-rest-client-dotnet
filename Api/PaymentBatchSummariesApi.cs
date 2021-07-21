@@ -15,8 +15,6 @@ using System.Linq;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Model;
-using NLog;
-using AuthenticationSdk.util;
 
 namespace CyberSource.Api
 {
@@ -98,28 +96,22 @@ namespace CyberSource.Api
     /// </summary>
     public partial class PaymentBatchSummariesApi : IPaymentBatchSummariesApi
     {
-        private static Logger logger;
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private CyberSource.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentBatchSummariesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public PaymentBatchSummariesApi(string basePath)
+        public PaymentBatchSummariesApi(String basePath)
         {
-            Configuration = new Configuration(new ApiClient(basePath));
+            this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
             {
-                Configuration.ApiClient.Configuration = Configuration;
-            }
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
+                this.Configuration.ApiClient.Configuration = this.Configuration;
             }
         }
 
@@ -132,27 +124,22 @@ namespace CyberSource.Api
         public PaymentBatchSummariesApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                Configuration = Configuration.Default;
+                this.Configuration = Configuration.Default;
             else
-                Configuration = configuration;
+                this.Configuration = configuration;
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
-            Configuration.ApiClient.Configuration = Configuration;
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
-            }
+            this.Configuration.ApiClient.Configuration = this.Configuration;
         }
 
         /// <summary>
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public string GetBasePath()
+        public String GetBasePath()
         {
-            return Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
         }
 
         /// <summary>
@@ -160,7 +147,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <value>The base path</value>
         [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(string basePath)
+        public void SetBasePath(String basePath)
         {
             // do nothing
         }
@@ -169,18 +156,17 @@ namespace CyberSource.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration { get; set; }
+        public Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public CyberSource.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    logger.Error("InvalidOperationException : Multicast delegate for ExceptionFactory is unsupported.");
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
@@ -193,9 +179,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<string, string> DefaultHeader()
+        public Dictionary<String, String> DefaultHeader()
         {
-            return Configuration.DefaultHeader;
+            return this.Configuration.DefaultHeader;
         }
 
         /// <summary>
@@ -207,7 +193,7 @@ namespace CyberSource.Api
         [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
         public void AddDefaultHeader(string key, string value)
         {
-            Configuration.AddDefaultHeader(key, value);
+            this.Configuration.AddDefaultHeader(key, value);
         }
 
         /// <summary>
@@ -223,10 +209,8 @@ namespace CyberSource.Api
         /// <returns>ReportingV3PaymentBatchSummariesGet200Response</returns>
         public ReportingV3PaymentBatchSummariesGet200Response GetPaymentBatchSummary (DateTime? startTime, DateTime? endTime, string organizationId = null, string rollUp = null, string breakdown = null, int? startDayOfWeek = null)
         {
-            logger.Debug("CALLING API \"GetPaymentBatchSummary\" STARTED");
-            ApiResponse<ReportingV3PaymentBatchSummariesGet200Response> localVarResponse = GetPaymentBatchSummaryWithHttpInfo(startTime, endTime, organizationId, rollUp, breakdown, startDayOfWeek);
-            logger.Debug("CALLING API \"GetPaymentBatchSummary\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<ReportingV3PaymentBatchSummariesGet200Response> localVarResponse = GetPaymentBatchSummaryWithHttpInfo(startTime, endTime, organizationId, rollUp, breakdown, startDayOfWeek);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -244,73 +228,41 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling PaymentBatchSummariesApi->GetPaymentBatchSummary");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling PaymentBatchSummariesApi->GetPaymentBatchSummary");
-            }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling PaymentBatchSummariesApi->GetPaymentBatchSummary");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PaymentBatchSummariesApi->GetPaymentBatchSummary");
-            }
 
             var localVarPath = $"/reporting/v3/payment-batch-summaries";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json",
                 "text/csv",
                 "application/xml"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (startTime != null)
-            {
-                localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
-            }
-            if (endTime != null)
-            {
-                localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
-            }
-            if (organizationId != null)
-            {
-                localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            }
-            if (rollUp != null)
-            {
-                localVarQueryParams.Add("rollUp", Configuration.ApiClient.ParameterToString(rollUp)); // query parameter
-            }
-            if (breakdown != null)
-            {
-                localVarQueryParams.Add("breakdown", Configuration.ApiClient.ParameterToString(breakdown)); // query parameter
-            }
-            if (startDayOfWeek != null)
-            {
-                localVarQueryParams.Add("startDayOfWeek", Configuration.ApiClient.ParameterToString(startDayOfWeek)); // query parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
+            if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
+            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (rollUp != null) localVarQueryParams.Add("rollUp", Configuration.ApiClient.ParameterToString(rollUp)); // query parameter
+            if (breakdown != null) localVarQueryParams.Add("breakdown", Configuration.ApiClient.ParameterToString(breakdown)); // query parameter
+            if (startDayOfWeek != null) localVarQueryParams.Add("startDayOfWeek", Configuration.ApiClient.ParameterToString(startDayOfWeek)); // query parameter
 
 
             // make the HTTP request
@@ -323,11 +275,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetPaymentBatchSummary", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<ReportingV3PaymentBatchSummariesGet200Response>(localVarStatusCode,
@@ -348,10 +296,8 @@ namespace CyberSource.Api
         /// <returns>Task of ReportingV3PaymentBatchSummariesGet200Response</returns>
         public async System.Threading.Tasks.Task<ReportingV3PaymentBatchSummariesGet200Response> GetPaymentBatchSummaryAsync (DateTime? startTime, DateTime? endTime, string organizationId = null, string rollUp = null, string breakdown = null, int? startDayOfWeek = null)
         {
-            logger.Debug("CALLING API \"GetPaymentBatchSummaryAsync\" STARTED");
-            ApiResponse<ReportingV3PaymentBatchSummariesGet200Response> localVarResponse = await GetPaymentBatchSummaryAsyncWithHttpInfo(startTime, endTime, organizationId, rollUp, breakdown, startDayOfWeek);
-            logger.Debug("CALLING API \"GetPaymentBatchSummaryAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<ReportingV3PaymentBatchSummariesGet200Response> localVarResponse = await GetPaymentBatchSummaryAsyncWithHttpInfo(startTime, endTime, organizationId, rollUp, breakdown, startDayOfWeek);
+             return localVarResponse.Data;
 
         }
 
@@ -370,95 +316,60 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'startTime' is set
             if (startTime == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling PaymentBatchSummariesApi->GetPaymentBatchSummary");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling PaymentBatchSummariesApi->GetPaymentBatchSummary");
-            }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling PaymentBatchSummariesApi->GetPaymentBatchSummary");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PaymentBatchSummariesApi->GetPaymentBatchSummary");
-            }
 
             var localVarPath = $"/reporting/v3/payment-batch-summaries";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json",
                 "text/csv",
                 "application/xml"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
-            if (startTime != null)
-            {
-                localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
-            }
-            if (endTime != null)
-            {
-                localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
-            }
-            if (organizationId != null)
-            {
-                localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            }
-            if (rollUp != null)
-            {
-                localVarQueryParams.Add("rollUp", Configuration.ApiClient.ParameterToString(rollUp)); // query parameter
-            }
-            if (breakdown != null)
-            {
-                localVarQueryParams.Add("breakdown", Configuration.ApiClient.ParameterToString(breakdown)); // query parameter
-            }
-            if (startDayOfWeek != null)
-            {
-                localVarQueryParams.Add("startDayOfWeek", Configuration.ApiClient.ParameterToString(startDayOfWeek)); // query parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (startTime != null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime)); // query parameter
+            if (endTime != null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
+            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            if (rollUp != null) localVarQueryParams.Add("rollUp", Configuration.ApiClient.ParameterToString(rollUp)); // query parameter
+            if (breakdown != null) localVarQueryParams.Add("breakdown", Configuration.ApiClient.ParameterToString(breakdown)); // query parameter
+            if (startDayOfWeek != null) localVarQueryParams.Add("startDayOfWeek", Configuration.ApiClient.ParameterToString(startDayOfWeek)); // query parameter
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetPaymentBatchSummary", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<ReportingV3PaymentBatchSummariesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ReportingV3PaymentBatchSummariesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PaymentBatchSummariesGet200Response))); // Return statement
         }
+
     }
 }

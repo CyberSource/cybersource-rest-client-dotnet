@@ -34,11 +34,9 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InvoicingV2InvoicesAllGet200ResponseCustomerInformation" /> class.
         /// </summary>
         /// <param name="Name">Payer name for the invoice..</param>
-        /// <param name="MerchantCustomerId">Your identifier for the customer.  When a subscription or customer profile is being created, the maximum length for this field for most processors is 30. Otherwise, the maximum length is 100.  #### Comercio Latino For recurring payments in Mexico, the value is the customer’s contract number. Note Before you request the authorization, you must inform the issuer of the customer contract numbers that will be used for recurring transactions.  #### Worldpay VAP For a follow-on credit with Worldpay VAP, CyberSource checks the following locations, in the order given, for a customer account ID value and uses the first value it finds: 1. &#x60;customer_account_id&#x60; value in the follow-on credit request 2. Customer account ID value that was used for the capture that is being credited 3. Customer account ID value that was used for the original authorization If a customer account ID value cannot be found in any of these locations, then no value is used.  For processor-specific information, see the &#x60;customer_account_id&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        public InvoicingV2InvoicesAllGet200ResponseCustomerInformation(string Name = default(string), string MerchantCustomerId = default(string))
+        public InvoicingV2InvoicesAllGet200ResponseCustomerInformation(string Name = default(string))
         {
             this.Name = Name;
-            this.MerchantCustomerId = MerchantCustomerId;
         }
         
         /// <summary>
@@ -49,13 +47,6 @@ namespace CyberSource.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Your identifier for the customer.  When a subscription or customer profile is being created, the maximum length for this field for most processors is 30. Otherwise, the maximum length is 100.  #### Comercio Latino For recurring payments in Mexico, the value is the customer’s contract number. Note Before you request the authorization, you must inform the issuer of the customer contract numbers that will be used for recurring transactions.  #### Worldpay VAP For a follow-on credit with Worldpay VAP, CyberSource checks the following locations, in the order given, for a customer account ID value and uses the first value it finds: 1. &#x60;customer_account_id&#x60; value in the follow-on credit request 2. Customer account ID value that was used for the capture that is being credited 3. Customer account ID value that was used for the original authorization If a customer account ID value cannot be found in any of these locations, then no value is used.  For processor-specific information, see the &#x60;customer_account_id&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
-        /// </summary>
-        /// <value>Your identifier for the customer.  When a subscription or customer profile is being created, the maximum length for this field for most processors is 30. Otherwise, the maximum length is 100.  #### Comercio Latino For recurring payments in Mexico, the value is the customer’s contract number. Note Before you request the authorization, you must inform the issuer of the customer contract numbers that will be used for recurring transactions.  #### Worldpay VAP For a follow-on credit with Worldpay VAP, CyberSource checks the following locations, in the order given, for a customer account ID value and uses the first value it finds: 1. &#x60;customer_account_id&#x60; value in the follow-on credit request 2. Customer account ID value that was used for the capture that is being credited 3. Customer account ID value that was used for the original authorization If a customer account ID value cannot be found in any of these locations, then no value is used.  For processor-specific information, see the &#x60;customer_account_id&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
-        [DataMember(Name="merchantCustomerId", EmitDefaultValue=false)]
-        public string MerchantCustomerId { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,7 +55,6 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class InvoicingV2InvoicesAllGet200ResponseCustomerInformation {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,11 +95,6 @@ namespace CyberSource.Model
                     this.Name == other.Name ||
                     this.Name != null &&
                     this.Name.Equals(other.Name)
-                ) && 
-                (
-                    this.MerchantCustomerId == other.MerchantCustomerId ||
-                    this.MerchantCustomerId != null &&
-                    this.MerchantCustomerId.Equals(other.MerchantCustomerId)
                 );
         }
 
@@ -126,8 +111,6 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
-                if (this.MerchantCustomerId != null)
-                    hash = hash * 59 + this.MerchantCustomerId.GetHashCode();
                 return hash;
             }
         }
@@ -143,12 +126,6 @@ namespace CyberSource.Model
             if(this.Name != null && this.Name.Length >= 100)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than or equal to 100.", new [] { "Name" });
-            }
-
-            // MerchantCustomerId (string) maxLength
-            if(this.MerchantCustomerId != null && this.MerchantCustomerId.Length >= 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantCustomerId, length must be less than or equal to 100.", new [] { "MerchantCustomerId" });
             }
 
             yield break;

@@ -15,8 +15,6 @@ using System.Linq;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Model;
-using NLog;
-using AuthenticationSdk.util;
 
 namespace CyberSource.Api
 {
@@ -162,28 +160,22 @@ namespace CyberSource.Api
     /// </summary>
     public partial class PayerAuthenticationApi : IPayerAuthenticationApi
     {
-        private static Logger logger;
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private CyberSource.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PayerAuthenticationApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public PayerAuthenticationApi(string basePath)
+        public PayerAuthenticationApi(String basePath)
         {
-            Configuration = new Configuration(new ApiClient(basePath));
+            this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
             {
-                Configuration.ApiClient.Configuration = Configuration;
-            }
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
+                this.Configuration.ApiClient.Configuration = this.Configuration;
             }
         }
 
@@ -196,27 +188,22 @@ namespace CyberSource.Api
         public PayerAuthenticationApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                Configuration = Configuration.Default;
+                this.Configuration = Configuration.Default;
             else
-                Configuration = configuration;
+                this.Configuration = configuration;
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
 
-            Configuration.ApiClient.Configuration = Configuration;
-
-            if (logger == null)
-            {
-                logger = LogManager.GetCurrentClassLogger();
-            }
+            this.Configuration.ApiClient.Configuration = this.Configuration;
         }
 
         /// <summary>
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public string GetBasePath()
+        public String GetBasePath()
         {
-            return Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
         }
 
         /// <summary>
@@ -224,7 +211,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <value>The base path</value>
         [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(string basePath)
+        public void SetBasePath(String basePath)
         {
             // do nothing
         }
@@ -233,18 +220,17 @@ namespace CyberSource.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration { get; set; }
+        public Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public CyberSource.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    logger.Error("InvalidOperationException : Multicast delegate for ExceptionFactory is unsupported.");
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
@@ -257,9 +243,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<string, string> DefaultHeader()
+        public Dictionary<String, String> DefaultHeader()
         {
-            return Configuration.DefaultHeader;
+            return this.Configuration.DefaultHeader;
         }
 
         /// <summary>
@@ -271,7 +257,7 @@ namespace CyberSource.Api
         [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
         public void AddDefaultHeader(string key, string value)
         {
-            Configuration.AddDefaultHeader(key, value);
+            this.Configuration.AddDefaultHeader(key, value);
         }
 
         /// <summary>
@@ -282,10 +268,8 @@ namespace CyberSource.Api
         /// <returns>RiskV1AuthenticationsPost201Response</returns>
         public RiskV1AuthenticationsPost201Response CheckPayerAuthEnrollment (CheckPayerAuthEnrollmentRequest checkPayerAuthEnrollmentRequest)
         {
-            logger.Debug("CALLING API \"CheckPayerAuthEnrollment\" STARTED");
-            ApiResponse<RiskV1AuthenticationsPost201Response> localVarResponse = CheckPayerAuthEnrollmentWithHttpInfo(checkPayerAuthEnrollmentRequest);
-            logger.Debug("CALLING API \"CheckPayerAuthEnrollment\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1AuthenticationsPost201Response> localVarResponse = CheckPayerAuthEnrollmentWithHttpInfo(checkPayerAuthEnrollmentRequest);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -298,34 +282,29 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'checkPayerAuthEnrollmentRequest' is set
             if (checkPayerAuthEnrollmentRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'checkPayerAuthEnrollmentRequest' when calling PayerAuthenticationApi->CheckPayerAuthEnrollment");
                 throw new ApiException(400, "Missing required parameter 'checkPayerAuthEnrollmentRequest' when calling PayerAuthenticationApi->CheckPayerAuthEnrollment");
-            }
 
             var localVarPath = $"/risk/v1/authentications";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
             if (checkPayerAuthEnrollmentRequest != null && checkPayerAuthEnrollmentRequest.GetType() != typeof(byte[]))
             {
@@ -334,15 +313,6 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = checkPayerAuthEnrollmentRequest; // byte array
-            }
-
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -356,11 +326,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1AuthenticationsPost201Response>(localVarStatusCode,
@@ -376,10 +342,8 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1AuthenticationsPost201Response</returns>
         public async System.Threading.Tasks.Task<RiskV1AuthenticationsPost201Response> CheckPayerAuthEnrollmentAsync (CheckPayerAuthEnrollmentRequest checkPayerAuthEnrollmentRequest)
         {
-            logger.Debug("CALLING API \"CheckPayerAuthEnrollmentAsync\" STARTED");
-            ApiResponse<RiskV1AuthenticationsPost201Response> localVarResponse = await CheckPayerAuthEnrollmentAsyncWithHttpInfo(checkPayerAuthEnrollmentRequest);
-            logger.Debug("CALLING API \"CheckPayerAuthEnrollmentAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1AuthenticationsPost201Response> localVarResponse = await CheckPayerAuthEnrollmentAsyncWithHttpInfo(checkPayerAuthEnrollmentRequest);
+             return localVarResponse.Data;
 
         }
 
@@ -393,34 +357,29 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'checkPayerAuthEnrollmentRequest' is set
             if (checkPayerAuthEnrollmentRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'checkPayerAuthEnrollmentRequest' when calling PayerAuthenticationApi->CheckPayerAuthEnrollment");
                 throw new ApiException(400, "Missing required parameter 'checkPayerAuthEnrollmentRequest' when calling PayerAuthenticationApi->CheckPayerAuthEnrollment");
-            }
 
             var localVarPath = $"/risk/v1/authentications";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
             if (checkPayerAuthEnrollmentRequest != null && checkPayerAuthEnrollmentRequest.GetType() != typeof(byte[]))
             {
@@ -431,37 +390,25 @@ namespace CyberSource.Api
                 localVarPostBody = checkPayerAuthEnrollmentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
-
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1AuthenticationsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (RiskV1AuthenticationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationsPost201Response))); // Return statement
         }
+
         /// <summary>
         /// Setup Payer Auth A new service for Merchants to get reference_id for Digital Wallets to use in place of BIN number in Cardinal. Set up file while authenticating with Cardinal. This service should be called by Merchant when payment instrument chosen or changes. This service has to be called before enrollment check.
         /// </summary>
@@ -470,10 +417,8 @@ namespace CyberSource.Api
         /// <returns>RiskV1AuthenticationSetupsPost201Response</returns>
         public RiskV1AuthenticationSetupsPost201Response PayerAuthSetup (PayerAuthSetupRequest payerAuthSetupRequest)
         {
-            logger.Debug("CALLING API \"PayerAuthSetup\" STARTED");
-            ApiResponse<RiskV1AuthenticationSetupsPost201Response> localVarResponse = PayerAuthSetupWithHttpInfo(payerAuthSetupRequest);
-            logger.Debug("CALLING API \"PayerAuthSetup\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1AuthenticationSetupsPost201Response> localVarResponse = PayerAuthSetupWithHttpInfo(payerAuthSetupRequest);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -486,34 +431,29 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'payerAuthSetupRequest' is set
             if (payerAuthSetupRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
                 throw new ApiException(400, "Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
-            }
 
             var localVarPath = $"/risk/v1/authentication-setups";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
             if (payerAuthSetupRequest != null && payerAuthSetupRequest.GetType() != typeof(byte[]))
             {
@@ -522,15 +462,6 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = payerAuthSetupRequest; // byte array
-            }
-
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -544,11 +475,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PayerAuthSetup", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1AuthenticationSetupsPost201Response>(localVarStatusCode,
@@ -564,10 +491,8 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1AuthenticationSetupsPost201Response</returns>
         public async System.Threading.Tasks.Task<RiskV1AuthenticationSetupsPost201Response> PayerAuthSetupAsync (PayerAuthSetupRequest payerAuthSetupRequest)
         {
-            logger.Debug("CALLING API \"PayerAuthSetupAsync\" STARTED");
-            ApiResponse<RiskV1AuthenticationSetupsPost201Response> localVarResponse = await PayerAuthSetupAsyncWithHttpInfo(payerAuthSetupRequest);
-            logger.Debug("CALLING API \"PayerAuthSetupAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1AuthenticationSetupsPost201Response> localVarResponse = await PayerAuthSetupAsyncWithHttpInfo(payerAuthSetupRequest);
+             return localVarResponse.Data;
 
         }
 
@@ -581,34 +506,29 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'payerAuthSetupRequest' is set
             if (payerAuthSetupRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
                 throw new ApiException(400, "Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
-            }
 
             var localVarPath = $"/risk/v1/authentication-setups";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
             if (payerAuthSetupRequest != null && payerAuthSetupRequest.GetType() != typeof(byte[]))
             {
@@ -619,37 +539,25 @@ namespace CyberSource.Api
                 localVarPostBody = payerAuthSetupRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
-
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PayerAuthSetup", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1AuthenticationSetupsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (RiskV1AuthenticationSetupsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationSetupsPost201Response))); // Return statement
         }
+
         /// <summary>
         /// Validate Authentication Results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
         /// </summary>
@@ -658,10 +566,8 @@ namespace CyberSource.Api
         /// <returns>RiskV1AuthenticationResultsPost201Response</returns>
         public RiskV1AuthenticationResultsPost201Response ValidateAuthenticationResults (ValidateRequest validateRequest)
         {
-            logger.Debug("CALLING API \"ValidateAuthenticationResults\" STARTED");
-            ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = ValidateAuthenticationResultsWithHttpInfo(validateRequest);
-            logger.Debug("CALLING API \"ValidateAuthenticationResults\" ENDED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = ValidateAuthenticationResultsWithHttpInfo(validateRequest);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -674,34 +580,29 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'validateRequest' is set
             if (validateRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
                 throw new ApiException(400, "Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
-            }
 
             var localVarPath = $"/risk/v1/authentication-results";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
             if (validateRequest != null && validateRequest.GetType() != typeof(byte[]))
             {
@@ -710,15 +611,6 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = validateRequest; // byte array
-            }
-
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -732,11 +624,7 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1AuthenticationResultsPost201Response>(localVarStatusCode,
@@ -752,10 +640,8 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1AuthenticationResultsPost201Response</returns>
         public async System.Threading.Tasks.Task<RiskV1AuthenticationResultsPost201Response> ValidateAuthenticationResultsAsync (ValidateRequest validateRequest)
         {
-            logger.Debug("CALLING API \"ValidateAuthenticationResultsAsync\" STARTED");
-            ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = await ValidateAuthenticationResultsAsyncWithHttpInfo(validateRequest);
-            logger.Debug("CALLING API \"ValidateAuthenticationResultsAsync\" STARTED");
-            return localVarResponse.Data;
+             ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = await ValidateAuthenticationResultsAsyncWithHttpInfo(validateRequest);
+             return localVarResponse.Data;
 
         }
 
@@ -769,34 +655,29 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'validateRequest' is set
             if (validateRequest == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
                 throw new ApiException(400, "Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
-            }
 
             var localVarPath = $"/risk/v1/authentication-results";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
             // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json;charset=utf-8"
             };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "application/hal+json;charset=utf-8"
             };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
 
             if (validateRequest != null && validateRequest.GetType() != typeof(byte[]))
             {
@@ -807,36 +688,24 @@ namespace CyberSource.Api
                 localVarPostBody = validateRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
-
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
+                if (exception != null) throw exception;
             }
 
             return new ApiResponse<RiskV1AuthenticationResultsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (RiskV1AuthenticationResultsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationResultsPost201Response))); // Return statement
         }
+
     }
 }
