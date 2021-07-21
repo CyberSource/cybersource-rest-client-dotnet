@@ -15,6 +15,8 @@ using System.Linq;
 using RestSharp;
 using CyberSource.Client;
 using CyberSource.Model;
+using NLog;
+using AuthenticationSdk.util;
 
 namespace CyberSource.Api
 {
@@ -84,22 +86,28 @@ namespace CyberSource.Api
     /// </summary>
     public partial class ReportDownloadsApi : IReportDownloadsApi
     {
-        private CyberSource.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private static Logger logger;
+        private ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportDownloadsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ReportDownloadsApi(String basePath)
+        public ReportDownloadsApi(string basePath)
         {
-            this.Configuration = new Configuration(new ApiClient(basePath));
+            Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
             {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
+                Configuration.ApiClient.Configuration = Configuration;
+            }
+
+            if (logger == null)
+            {
+                logger = LogManager.GetCurrentClassLogger();
             }
         }
 
@@ -112,22 +120,27 @@ namespace CyberSource.Api
         public ReportDownloadsApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
+                Configuration = Configuration.Default;
             else
-                this.Configuration = configuration;
+                Configuration = configuration;
 
-            ExceptionFactory = CyberSource.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Configuration.DefaultExceptionFactory;
 
-            this.Configuration.ApiClient.Configuration = this.Configuration;
+            Configuration.ApiClient.Configuration = Configuration;
+
+            if (logger == null)
+            {
+                logger = LogManager.GetCurrentClassLogger();
+            }
         }
 
         /// <summary>
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public String GetBasePath()
+        public string GetBasePath()
         {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return Configuration.ApiClient.RestClient.BaseUrl.ToString();
         }
 
         /// <summary>
@@ -135,7 +148,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <value>The base path</value>
         [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(String basePath)
+        public void SetBasePath(string basePath)
         {
             // do nothing
         }
@@ -144,17 +157,18 @@ namespace CyberSource.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration {get; set;}
+        public Configuration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public CyberSource.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
+                    logger.Error("InvalidOperationException : Multicast delegate for ExceptionFactory is unsupported.");
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
@@ -167,9 +181,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<String, String> DefaultHeader()
+        public Dictionary<string, string> DefaultHeader()
         {
-            return this.Configuration.DefaultHeader;
+            return Configuration.DefaultHeader;
         }
 
         /// <summary>
@@ -181,7 +195,7 @@ namespace CyberSource.Api
         [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
         public void AddDefaultHeader(string key, string value)
         {
-            this.Configuration.AddDefaultHeader(key, value);
+            Configuration.AddDefaultHeader(key, value);
         }
 
         /// <summary>
@@ -194,7 +208,8 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void DownloadReport (DateTime? reportDate, string reportName, string organizationId = null)
         {
-             DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
+            logger.Debug("CALLING API \"DownloadReport\" STARTED");
+            DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
         }
 
         /// <summary>
@@ -209,37 +224,57 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'reportDate' is set
             if (reportDate == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'reportDate' when calling ReportDownloadsApi->DownloadReport");
                 throw new ApiException(400, "Missing required parameter 'reportDate' when calling ReportDownloadsApi->DownloadReport");
+            }
             // verify the required parameter 'reportName' is set
             if (reportName == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
+            }
 
             var localVarPath = $"/reporting/v3/report-downloads";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/xml",
                 "text/csv"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate)); // query parameter
-            if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
+            if (organizationId != null)
+            {
+                localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            }
+            if (reportDate != null)
+            {
+                localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate)); // query parameter
+            }
+            if (reportName != null)
+            {
+                localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -252,10 +287,14 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DownloadReport", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
         }
@@ -270,7 +309,8 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DownloadReportAsync (DateTime? reportDate, string reportName, string organizationId = null)
         {
-             await DownloadReportAsyncWithHttpInfo(reportDate, reportName, organizationId);
+            logger.Debug("CALLING API \"DownloadReportAsync\" STARTED");
+            await DownloadReportAsyncWithHttpInfo(reportDate, reportName, organizationId);
 
         }
 
@@ -286,56 +326,79 @@ namespace CyberSource.Api
         {
             // verify the required parameter 'reportDate' is set
             if (reportDate == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'reportDate' when calling ReportDownloadsApi->DownloadReport");
                 throw new ApiException(400, "Missing required parameter 'reportDate' when calling ReportDownloadsApi->DownloadReport");
+            }
             // verify the required parameter 'reportName' is set
             if (reportName == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
+            }
 
             var localVarPath = $"/reporting/v3/report-downloads";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
 
             // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
+            string[] localVarHttpContentTypes = new string[] {
                 "application/json;charset=utf-8"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
+            string[] localVarHttpHeaderAccepts = new string[] {
                 "application/xml",
                 "text/csv"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
+            {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
 
-            if (organizationId != null) localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
-            if (reportDate != null) localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate)); // query parameter
-            if (reportName != null) localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
+            if (organizationId != null)
+            {
+                localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
+            }
+            if (reportDate != null)
+            {
+                localVarQueryParams.Add("reportDate", Configuration.ApiClient.ParameterToString(reportDate)); // query parameter
+            }
+            if (reportName != null)
+            {
+                localVarQueryParams.Add("reportName", Configuration.ApiClient.ParameterToString(reportName)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DownloadReport", localVarResponse);
-                if (exception != null) throw exception;
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
         }
-
     }
 }

@@ -55,6 +55,10 @@ OpenAPI spec version: 0.0.1
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+	<Reference Include="NLog">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\NLog.4.5.10\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp">
       <HintPath>packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
     </Reference>
