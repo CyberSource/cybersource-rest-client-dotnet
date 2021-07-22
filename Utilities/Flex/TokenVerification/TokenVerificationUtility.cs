@@ -60,12 +60,12 @@ namespace CyberSource.Utilities.Flex.TokenVerification
                 }
                 catch (CryptographicException e)
                 {
-                    logger.Error($"FlexInternalException : Error validating signature\n{e}");
+                    logger.Error($"FlexInternalException : Error validating signature\n{e.Message}");
                     throw new FlexInternalException("Error validating signature", e);
                 }
                 catch (System.Exception e)
                 {
-                    logger.Error($"FlexInternalException : Error validating signature\n{e}");
+                    logger.Error($"FlexInternalException : Error validating signature\n{e.Message}");
                     throw new FlexInternalException("Error validating signature", e);
                 }
                 finally

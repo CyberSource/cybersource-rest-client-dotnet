@@ -505,7 +505,7 @@ namespace {{packageName}}.Client
                     }
                     catch (Exception err)
                     {
-                        logger.Error($"ApiException : Error writing to path {DownloadResponseFileName}\n{err}");
+                        logger.Error($"ApiException : Error writing to path {DownloadResponseFileName}");
                         throw new ApiException(-1, $"Error writing to path : {DownloadResponseFileName}");
                     }
                 }
