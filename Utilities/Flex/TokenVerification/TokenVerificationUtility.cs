@@ -1,5 +1,6 @@
 ﻿using CyberSource.Utilities.Flex.Exception;
 using CyberSource.Utilities.Flex.Model;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,18 +11,27 @@ namespace CyberSource.Utilities.Flex.TokenVerification
 {
     public class TokenVerificationUtility
     {
+        private static Logger logger;
+
+        public TokenVerificationUtility()
+        {
+            if (logger == null)
+            {
+                logger = LogManager.GetCurrentClassLogger();
+            }
+        }
+
         public bool Verify(FlexPublicKey flexKey, IDictionary<string, string> postParameters)
         {
             var publicKeyStr = flexKey.der.publicKey;
             RSAParameters publicKey = DecodePublicKey(Convert.FromBase64String(publicKeyStr)).ExportParameters(false);
 
-            string signedFields = (string)postParameters["signedFields"];
+            string signedFields = postParameters["signedFields"];
             StringBuilder sb = new StringBuilder();
 
             foreach (string k in signedFields.Split(','))
             {
-                sb.Append(',');
-                sb.Append(postParameters[k]);
+                sb.Append($",{postParameters[k]}");
             }
 
             if (sb.Length > 0)
@@ -30,7 +40,7 @@ namespace CyberSource.Utilities.Flex.TokenVerification
             }
 
             string signedValues = sb.ToString();
-            string signature = (string)postParameters["signature"];
+            string signature = postParameters["signature"];
             return ValidateTokenSignature(publicKey, signedValues, signature);
         }
 
@@ -50,10 +60,12 @@ namespace CyberSource.Utilities.Flex.TokenVerification
                 }
                 catch (CryptographicException e)
                 {
+                    logger.Error($"FlexInternalException : Error validating signature\n{e.Message}");
                     throw new FlexInternalException("Error validating signature", e);
                 }
                 catch (System.Exception e)
                 {
+                    logger.Error($"FlexInternalException : Error validating signature\n{e.Message}");
                     throw new FlexInternalException("Error validating signature", e);
                 }
                 finally

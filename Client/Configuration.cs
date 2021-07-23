@@ -39,12 +39,12 @@ namespace CyberSource.Client
         /// <param name="userAgent">HTTP user agent</param>
         /// <param name="merchConfigDictObj">Dictiory Object for Merchant Config</param>
         public Configuration(ApiClient apiClient = null,
-                             Dictionary<String, String> defaultHeader = null,
+                             Dictionary<string, string> defaultHeader = null,
                              string username = null,
                              string password = null,
                              string accessToken = null,
-                             Dictionary<String, String> apiKey = null,
-                             Dictionary<String, String> apiKeyPrefix = null,
+                             Dictionary<string, string> apiKey = null,
+                             Dictionary<string, string> apiKeyPrefix = null,
                              string tempFolderPath = null,
                              string dateTimeFormat = null,
                              int timeout = 100000,
@@ -52,7 +52,7 @@ namespace CyberSource.Client
                              IReadOnlyDictionary<string, string> merchConfigDictObj = null
                             )
         {
-            setApiClientUsingDefault(apiClient);
+            SetApiClientUsingDefault(apiClient);
 
             Username = username;
             Password = password;
@@ -72,18 +72,19 @@ namespace CyberSource.Client
 				{
 					if (bool.Parse(merchConfigDictObj["useProxy"])) 
 					{
-						int proxyPortTest;
 
-						if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyAddress"]) && int.TryParse(merchConfigDictObj["proxyPort"], out proxyPortTest)) {
-							WebProxy proxy = new WebProxy(merchConfigDictObj["proxyAddress"], proxyPortTest);
-							
-							if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyUsername"]) && !string.IsNullOrWhiteSpace(merchConfigDictObj["proxyPassword"])) {
-								proxy.Credentials = new NetworkCredential(merchConfigDictObj["proxyUsername"], merchConfigDictObj["proxyPassword"]);
-							}
-							
-							AddWebProxy(proxy);
-						}
-					}
+                        if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyAddress"]) && int.TryParse(merchConfigDictObj["proxyPort"], out int proxyPortTest))
+                        {
+                            WebProxy proxy = new WebProxy(merchConfigDictObj["proxyAddress"], proxyPortTest);
+
+                            if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyUsername"]) && !string.IsNullOrWhiteSpace(merchConfigDictObj["proxyPassword"]))
+                            {
+                                proxy.Credentials = new NetworkCredential(merchConfigDictObj["proxyUsername"], merchConfigDictObj["proxyPassword"]);
+                            }
+
+                            AddWebProxy(proxy);
+                        }
+                    }
                 }
             }
 
@@ -115,7 +116,7 @@ namespace CyberSource.Client
         /// <param name="apiClient">Api client.</param>
         public Configuration(ApiClient apiClient)
         {
-            setApiClientUsingDefault(apiClient);
+            SetApiClientUsingDefault(apiClient);
         }
 
         /// <summary>
@@ -167,7 +168,7 @@ namespace CyberSource.Client
         /// </summary>
         /// <param name="apiClient">An instance of ApiClient.</param>
         /// <returns></returns>
-        public void setApiClientUsingDefault (ApiClient apiClient = null)
+        public void SetApiClientUsingDefault (ApiClient apiClient = null)
         {
             if (apiClient == null)
             {
@@ -185,20 +186,10 @@ namespace CyberSource.Client
             }
         }
 
-        private Dictionary<String, String> _defaultHeaderMap = new Dictionary<String, String>();
-
         /// <summary>
         /// Gets or sets the default header.
         /// </summary>
-        public Dictionary<String, String> DefaultHeader
-        {
-            get { return _defaultHeaderMap; }
-
-            set
-            {
-                _defaultHeaderMap = value;
-            }
-        }
+        public Dictionary<string, string> DefaultHeader { get; set; } = new Dictionary<string, string>();
 
         /// <summary>
         /// Add default header.
@@ -208,7 +199,7 @@ namespace CyberSource.Client
         /// <returns></returns>
         public void AddDefaultHeader(string key, string value)
         {
-            _defaultHeaderMap[key] = value;
+            DefaultHeader[key] = value;
         }
 
         /// <summary>
@@ -251,49 +242,49 @@ namespace CyberSource.Client
         /// Gets or sets the HTTP user agent.
         /// </summary>
         /// <value>Http user agent.</value>
-        public String UserAgent { get; set; }
+        public string UserAgent { get; set; }
 
         /// <summary>
         /// Gets or sets the username (HTTP basic authentication).
         /// </summary>
         /// <value>The username.</value>
-        public String Username { get; set; }
+        public string Username { get; set; }
 
         /// <summary>
         /// Gets or sets the password (HTTP basic authentication).
         /// </summary>
         /// <value>The password.</value>
-        public String Password { get; set; }
+        public string Password { get; set; }
 
         /// <summary>
         /// Gets or sets the access token for OAuth2 authentication.
         /// </summary>
         /// <value>The access token.</value>
-        public String AccessToken { get; set; }
+        public string AccessToken { get; set; }
 
         /// <summary>
         /// Gets or sets the API key based on the authentication name.
         /// </summary>
         /// <value>The API key.</value>
-        public Dictionary<String, String> ApiKey = new Dictionary<String, String>();
+        public Dictionary<string, string> ApiKey = new Dictionary<string, string>();
 
         /// <summary>
         /// Gets or sets the Client ID for SDK auditing and/or reporting.
         /// </summary>
         /// <value>The Client ID.</value>
-        public String ClientId { get; set; }
+        public string ClientId { get; set; }
 
         /// <summary>
         /// Gets or sets the Solution ID for SDK auditing and/or reporting.
         /// </summary>
         /// <value>The Solution ID.</value>
-        public String SolutionId { get; set; }
+        public string SolutionId { get; set; }
 
         /// <summary>
         /// Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
         /// </summary>
         /// <value>The prefix of the API key.</value>
-        public Dictionary<String, String> ApiKeyPrefix = new Dictionary<String, String>();
+        public Dictionary<string, string> ApiKeyPrefix = new Dictionary<string, string>();
 
         /// <summary>
         /// Gets or sets the proxy object to use for the requests.
@@ -308,10 +299,8 @@ namespace CyberSource.Client
         /// <returns>API key with prefix.</returns>
         public string GetApiKeyWithPrefix (string apiKeyIdentifier)
         {
-            var apiKeyValue = "";
-            ApiKey.TryGetValue (apiKeyIdentifier, out apiKeyValue);
-            var apiKeyPrefix = "";
-            if (ApiKeyPrefix.TryGetValue (apiKeyIdentifier, out apiKeyPrefix))
+            ApiKey.TryGetValue(apiKeyIdentifier, out string apiKeyValue);
+            if (ApiKeyPrefix.TryGetValue (apiKeyIdentifier, out string apiKeyPrefix))
                 return apiKeyPrefix + " " + apiKeyValue;
             else
                 return apiKeyValue;
@@ -323,12 +312,12 @@ namespace CyberSource.Client
         /// Gets or sets the temporary folder path to store the files downloaded from the server.
         /// </summary>
         /// <value>Folder path.</value>
-        public String TempFolderPath
+        public string TempFolderPath
         {
             get
             {
                 // default to Path.GetTempPath() if _tempFolderPath is not set
-                if (String.IsNullOrEmpty(_tempFolderPath))
+                if (string.IsNullOrEmpty(_tempFolderPath))
                 {
                     _tempFolderPath = Path.GetTempPath();
                 }
@@ -337,7 +326,7 @@ namespace CyberSource.Client
 
             set
             {
-                if (String.IsNullOrEmpty(value))
+                if (string.IsNullOrEmpty(value))
                 {
                     _tempFolderPath = value;
                     return;
@@ -367,7 +356,7 @@ namespace CyberSource.Client
         /// No validation is done to ensure that the string you're providing is valid
         /// </summary>
         /// <value>The DateTimeFormat string</value>
-        public String DateTimeFormat
+        public string DateTimeFormat
         {
             get
             {
@@ -391,9 +380,9 @@ namespace CyberSource.Client
         /// <summary>
         /// Returns a string with essential information for debugging.
         /// </summary>
-        public static String ToDebugReport()
+        public static string ToDebugReport()
         {
-            String report = "C# SDK (CyberSource) Debug Report:\n";
+            string report = "C# SDK (CyberSource) Debug Report:\n";
             report += "    OS: " + Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + Assembly
                      .GetExecutingAssembly()
@@ -408,7 +397,7 @@ namespace CyberSource.Client
 
     public static class AssemblyHelper
     {
-        public static T GetAssemblyAttribute<T>(this System.Reflection.Assembly ass) where T : Attribute
+        public static T GetAssemblyAttribute<T>(this Assembly ass) where T : Attribute
         {
             object[] attributes = ass.GetCustomAttributes(typeof(T), false);
             if (attributes == null || attributes.Length == 0)
