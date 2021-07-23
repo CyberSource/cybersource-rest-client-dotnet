@@ -40,7 +40,7 @@ OpenAPI spec version: 0.0.1
   <ItemGroup>
     <Reference Include="AuthenticationSdk, Version=0.0.0.10, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\CyberSource.Authentication.0.0.0.10\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.11\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
