@@ -18,18 +18,18 @@ namespace CyberSource.Utilities.Flex.Model.Utilities
         // bearer and token part
         string splitContents[] = jwt.Split(".");
         if(splitContents.length > 1)    
-        {
-            // decode the base 64 encoded string
-            String encodedString  = splitContents[1];
-            byte[] data = Convert.FromBase64String(encodedString);
-            string decodedString = Encoding.UTF8.GetString(encodedString);
-            Newtonsoft.Json.JsonSerializer s = new JsonSerializer();
-            var transientTokenModel= s.Deserialize<TransientTokenModel>(new JsonTextReader(new StringReader(decodedString)));
-            // return JTI string
-            return transientTokenModel;
-        }
+            {
+                // decode the base 64 encoded string
+                String encodedString  = splitContents[1];
+                byte[] data = Convert.FromBase64String(encodedString);
+                string decodedString = Encoding.UTF8.GetString(encodedString);
+                Newtonsoft.Json.JsonSerializer s = new JsonSerializer();
+                var transientTokenModel= s.Deserialize<TransientTokenModel>(new JsonTextReader(new StringReader(decodedString)));
+                // return JTI string
+                return transientTokenModel;
+            }
       
-        return null;
+            return null;
+        }
     }
-}
 }
