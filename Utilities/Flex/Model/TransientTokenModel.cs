@@ -1,4 +1,4 @@
-namespace CyberSource.Utilities.Flex.Model.TransientTokenGenerator
+namespace CyberSource.Utilities.Flex.Model.TransientTokenModel
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@ namespace CyberSource.Utilities.Flex.Model.TransientTokenGenerator
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class TransientTokenGenerator
+    public partial class TransientTokenModel
     {
         [JsonProperty("flx")]
         public Flx Flx { get; set; }

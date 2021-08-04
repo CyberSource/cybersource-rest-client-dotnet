@@ -4,8 +4,8 @@ namespace CyberSource.Utilities.Flex.Model.Utilities
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
     using Newtonsoft.Json.JsonSerializer;
-    using CyberSource.Utilities.Flex.Model.TransientTokenGenerator.TransientTokenGenerator;
-    public class TransientTokenGenerator {
+    using CyberSource.Utilities.Flex.Model.TransientTokenModel;
+    public class TransientTokenGeneratorUtility {
    
     /**
      * This is the method to extract transient token from given jwt token 
@@ -24,7 +24,7 @@ namespace CyberSource.Utilities.Flex.Model.Utilities
             byte[] data = Convert.FromBase64String(encodedString);
             string decodedString = Encoding.UTF8.GetString(encodedString);
             Newtonsoft.Json.JsonSerializer s = new JsonSerializer();
-            var transientTokenModel= s.Deserialize<TransientTokenGenerator>(new JsonTextReader(new StringReader(decodedString)));
+            var transientTokenModel= s.Deserialize<TransientTokenModel>(new JsonTextReader(new StringReader(decodedString)));
             // return JTI string
             return transientTokenModel;
         }
