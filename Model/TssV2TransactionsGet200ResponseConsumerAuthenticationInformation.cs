@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="Cavv">Cardholder authentication verification value (CAVV)..</param>
         /// <param name="Xid">Transaction identifier.  For details, see &#x60;xid&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="TransactionId">Payer auth Transaction identifier..</param>
-        public TssV2TransactionsGet200ResponseConsumerAuthenticationInformation(string EciRaw = default(string), string Cavv = default(string), string Xid = default(string), string TransactionId = default(string))
+        /// <param name="StrongAuthentication">StrongAuthentication.</param>
+        public TssV2TransactionsGet200ResponseConsumerAuthenticationInformation(string EciRaw = default(string), string Cavv = default(string), string Xid = default(string), string TransactionId = default(string), TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication))
         {
             this.EciRaw = EciRaw;
             this.Cavv = Cavv;
             this.Xid = Xid;
             this.TransactionId = TransactionId;
+            this.StrongAuthentication = StrongAuthentication;
         }
         
         /// <summary>
@@ -74,6 +76,12 @@ namespace CyberSource.Model
         public string TransactionId { get; set; }
 
         /// <summary>
+        /// Gets or Sets StrongAuthentication
+        /// </summary>
+        [DataMember(Name="strongAuthentication", EmitDefaultValue=false)]
+        public TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication StrongAuthentication { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +93,7 @@ namespace CyberSource.Model
             sb.Append("  Cavv: ").Append(Cavv).Append("\n");
             sb.Append("  Xid: ").Append(Xid).Append("\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            sb.Append("  StrongAuthentication: ").Append(StrongAuthentication).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +149,11 @@ namespace CyberSource.Model
                     this.TransactionId == other.TransactionId ||
                     this.TransactionId != null &&
                     this.TransactionId.Equals(other.TransactionId)
+                ) && 
+                (
+                    this.StrongAuthentication == other.StrongAuthentication ||
+                    this.StrongAuthentication != null &&
+                    this.StrongAuthentication.Equals(other.StrongAuthentication)
                 );
         }
 
@@ -162,6 +176,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Xid.GetHashCode();
                 if (this.TransactionId != null)
                     hash = hash * 59 + this.TransactionId.GetHashCode();
+                if (this.StrongAuthentication != null)
+                    hash = hash * 59 + this.StrongAuthentication.GetHashCode();
                 return hash;
             }
         }
