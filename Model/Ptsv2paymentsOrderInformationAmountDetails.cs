@@ -49,8 +49,8 @@ namespace CyberSource.Model
         /// <param name="ExchangeRate">Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places.  For details, see &#x60;exchange_rate&#x60; request-level field description in the [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf) .</param>
         /// <param name="ExchangeRateTimeStamp">Time stamp for the exchange rate. This value is returned by the DCC service.  Format: &#x60;YYYYMMDD~HH:MM&#x60;  where ~ denotes a space. .</param>
         /// <param name="Surcharge">Surcharge.</param>
-        /// <param name="SettlementAmount">This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. .</param>
-        /// <param name="SettlementCurrency">This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. .</param>
+        /// <param name="SettlementAmount">This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. This field is returned for OCT transactions. .</param>
+        /// <param name="SettlementCurrency">This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. This field is returned for OCT transactions. .</param>
         /// <param name="AmexAdditionalAmounts">AmexAdditionalAmounts.</param>
         /// <param name="TaxDetails">TaxDetails.</param>
         /// <param name="ServiceFeeAmount">Service fee. Required for service fee transactions. .</param>
@@ -199,16 +199,16 @@ namespace CyberSource.Model
         public Ptsv2paymentsOrderInformationAmountDetailsSurcharge Surcharge { get; set; }
 
         /// <summary>
-        /// This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. 
+        /// This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. This field is returned for OCT transactions. 
         /// </summary>
-        /// <value>This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. </value>
+        /// <value>This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. This field is returned for OCT transactions. </value>
         [DataMember(Name="settlementAmount", EmitDefaultValue=false)]
         public string SettlementAmount { get; set; }
 
         /// <summary>
-        /// This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. 
+        /// This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. This field is returned for OCT transactions. 
         /// </summary>
-        /// <value>This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. </value>
+        /// <value>This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. This field is returned for OCT transactions. </value>
         [DataMember(Name="settlementCurrency", EmitDefaultValue=false)]
         public string SettlementCurrency { get; set; }
 

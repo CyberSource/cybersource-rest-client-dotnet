@@ -38,7 +38,7 @@ OpenAPI spec version: 0.0.1
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AuthenticationSdk, Version=0.0.0.10, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AuthenticationSdk, Version=0.0.0.11, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\CyberSource.Authentication.0.0.0.11\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
