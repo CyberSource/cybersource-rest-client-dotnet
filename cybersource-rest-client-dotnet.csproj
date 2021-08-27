@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 CyberSource Merged Spec
 
@@ -9,7 +9,6 @@ OpenAPI spec version: 0.0.1
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8BD3AB89-DD5D-4CB0-B0D8-18942FCA2C70}</ProjectGuid>
@@ -42,6 +41,9 @@ OpenAPI spec version: 0.0.1
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\CyberSource.Authentication.0.0.0.11\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -55,12 +57,9 @@ OpenAPI spec version: 0.0.1
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-	<Reference Include="NLog">
+    <Reference Include="NLog">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\NLog.4.5.10\lib\net45\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
