@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'RoutingNumber'
         }
+        /// <summary>
+        /// Test the property 'Iban'
+        /// </summary>
+        [Test]
+        public void IbanTest()
+        {
+            // TODO unit test for the property 'Iban'
+        }
 
     }
 
