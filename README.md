@@ -10,23 +10,26 @@ The CyberSource .NET client provides convenient access to the [CyberSource REST 
 
 * Nuget Package Manager
 
-```
+```bash
 PM>  Install-Package CyberSource.Rest.Client
 ```
 
 ## Registration & Configuration
-Use of this SDK and the CyberSource APIs requires having an account on our system. You can find details of getting a test account and creating your keys [here](https://developer.cybersource.com/api/developer-guides/dita-gettingstarted/registration.html) 
 
-Remember this SDK is for use in server-side .NET applications that access the CyberSource REST API and credentials should always be securely stored and accessed appropriately. 
+Use of this SDK and the CyberSource APIs requires having an account on our system. You can find details of getting a test account and creating your keys [here](https://developer.cybersource.com/api/developer-guides/dita-gettingstarted/registration.html)
 
+Remember this SDK is for use in server-side .NET applications that access the CyberSource REST API and credentials should always be securely stored and accessed appropriately.
 
 ## SDK Usage Examples and Sample Code
+
 To get started using this SDK, it's highly recommended to download our sample code repository:
+
 * [Cybersource C# Sample Code Repository (on GitHub)](https://github.com/CyberSource/cybersource-rest-samples-csharp)
 
 In that respository, we have comprehensive sample code for all common uses of our API:
 
 Additionally, you can find details and examples of how our API is structured in our API Reference Guide:
+
 * [Developer Center API Reference](https://developer.cybersource.com/api/reference/api-reference.html)
 
 The API Reference Guide provides examples of what information is needed for a particular request and how that information would be formatted. Using those examples, you can easily determine what methods would be necessary to include that information in a request using this SDK.
@@ -60,21 +63,29 @@ In order to use OAuth, set the run environment to OAuth enabled URLs. OAuth only
     _configurationDictionary.Add("runEnvironment", "api-matest.cybersource.com")
     // For PRODUCTION use
     // _configurationDictionary.Add("runEnvironment", "api-ma.cybersource.com")
-    ```
+```
 
 ### Switching between the sandbox environment and the production environment
-Cybersource maintains a complete sandbox environment for testing and development purposes. This sandbox environment is an exact duplicate of our production environment with the transaction authorization and settlement process simulated. By default, this SDK is configured to communicate with the sandbox environment. To switch to the production environment, set the `runEnvironment` property in the SDK Configuration.  See our sample at https://github.com/CyberSource/cybersource-rest-samples-csharp/blob/master/src/Configuration.cs.  
+
+Cybersource maintains a complete sandbox environment for testing and development purposes. This sandbox environment is an exact duplicate of our production environment with the transaction authorization and settlement process simulated. By default, this SDK is configured to communicate with the sandbox environment. To switch to the production environment, set the `runEnvironment` property in the SDK Configuration.  See our sample at [the Configuration.cs class in the Sample Codes repository](https://github.com/CyberSource/cybersource-rest-samples-csharp/blob/master/src/Configuration.cs).
 
 ```csharp
-	// For TESTING use
-	_configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
-	// For PRODUCTION use
-	// _configurationDictionary.Add("runEnvironment", "api.cybersource.com");
+    // For TESTING use
+    _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
+    // For PRODUCTION use
+    // _configurationDictionary.Add("runEnvironment", "api.cybersource.com");
 ```
 
 API credentials are different for each environment, so be sure to switch to the appropriate credentials when switching environments.
 
+### Logging
 
+[![Generic badge](https://img.shields.io/badge/LOGGING-NEW-GREEN.svg)](https://shields.io/)
+
+Since v0.0.1.14, a new logging framework has been introduced in the SDK. This new logging framework makes use of NLog, and standardizes the logging so that it can be integrated with the logging in the client application.
+
+More information about this new logging framework can be found in this file : [Logging.md](Logging.md)
 
 ## License
+
 This repository is distributed under a proprietary license.
