@@ -122,12 +122,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // DiscretionaryData (string) maxLength
-            if(this.DiscretionaryData != null && this.DiscretionaryData.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscretionaryData, length must be less than or equal to 255.", new [] { "DiscretionaryData" });
-            }
-
             yield break;
         }
     }

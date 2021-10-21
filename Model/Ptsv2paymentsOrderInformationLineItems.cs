@@ -630,148 +630,16 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ProductCode (string) maxLength
-            if(this.ProductCode != null && this.ProductCode.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductCode, length must be less than or equal to 255.", new [] { "ProductCode" });
-            }
-
-            // ProductName (string) maxLength
-            if(this.ProductName != null && this.ProductName.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than or equal to 255.", new [] { "ProductName" });
-            }
-
-            // ProductSku (string) maxLength
-            if(this.ProductSku != null && this.ProductSku.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductSku, length must be less than or equal to 255.", new [] { "ProductSku" });
-            }
-
             // Quantity (int?) maximum
-            if(this.Quantity >= (int?)999999999)
+            if(this.Quantity > (int?)999999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999999.", new [] { "Quantity" });
             }
 
             // Quantity (int?) minimum
-            if(this.Quantity <= (int?)1)
+            if(this.Quantity < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
-            }
-
-            // UnitPrice (string) maxLength
-            if(this.UnitPrice != null && this.UnitPrice.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than or equal to 15.", new [] { "UnitPrice" });
-            }
-
-            // UnitOfMeasure (string) maxLength
-            if(this.UnitOfMeasure != null && this.UnitOfMeasure.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitOfMeasure, length must be less than or equal to 12.", new [] { "UnitOfMeasure" });
-            }
-
-            // TotalAmount (string) maxLength
-            if(this.TotalAmount != null && this.TotalAmount.Length >= 13)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalAmount, length must be less than or equal to 13.", new [] { "TotalAmount" });
-            }
-
-            // TaxAmount (string) maxLength
-            if(this.TaxAmount != null && this.TaxAmount.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than or equal to 15.", new [] { "TaxAmount" });
-            }
-
-            // TaxRate (string) maxLength
-            if(this.TaxRate != null && this.TaxRate.Length >= 7)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxRate, length must be less than or equal to 7.", new [] { "TaxRate" });
-            }
-
-            // TaxAppliedAfterDiscount (string) maxLength
-            if(this.TaxAppliedAfterDiscount != null && this.TaxAppliedAfterDiscount.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAppliedAfterDiscount, length must be less than or equal to 1.", new [] { "TaxAppliedAfterDiscount" });
-            }
-
-            // TaxStatusIndicator (string) maxLength
-            if(this.TaxStatusIndicator != null && this.TaxStatusIndicator.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxStatusIndicator, length must be less than or equal to 1.", new [] { "TaxStatusIndicator" });
-            }
-
-            // TaxTypeCode (string) maxLength
-            if(this.TaxTypeCode != null && this.TaxTypeCode.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxTypeCode, length must be less than or equal to 4.", new [] { "TaxTypeCode" });
-            }
-
-            // TypeOfSupply (string) maxLength
-            if(this.TypeOfSupply != null && this.TypeOfSupply.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TypeOfSupply, length must be less than or equal to 2.", new [] { "TypeOfSupply" });
-            }
-
-            // CommodityCode (string) maxLength
-            if(this.CommodityCode != null && this.CommodityCode.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommodityCode, length must be less than or equal to 15.", new [] { "CommodityCode" });
-            }
-
-            // DiscountAmount (string) maxLength
-            if(this.DiscountAmount != null && this.DiscountAmount.Length >= 13)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountAmount, length must be less than or equal to 13.", new [] { "DiscountAmount" });
-            }
-
-            // DiscountRate (string) maxLength
-            if(this.DiscountRate != null && this.DiscountRate.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountRate, length must be less than or equal to 6.", new [] { "DiscountRate" });
-            }
-
-            // InvoiceNumber (string) maxLength
-            if(this.InvoiceNumber != null && this.InvoiceNumber.Length >= 23)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvoiceNumber, length must be less than or equal to 23.", new [] { "InvoiceNumber" });
-            }
-
-            // Weight (string) maxLength
-            if(this.Weight != null && this.Weight.Length >= 9)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Weight, length must be less than or equal to 9.", new [] { "Weight" });
-            }
-
-            // WeightIdentifier (string) maxLength
-            if(this.WeightIdentifier != null && this.WeightIdentifier.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WeightIdentifier, length must be less than or equal to 1.", new [] { "WeightIdentifier" });
-            }
-
-            // WeightUnit (string) maxLength
-            if(this.WeightUnit != null && this.WeightUnit.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WeightUnit, length must be less than or equal to 2.", new [] { "WeightUnit" });
-            }
-
-            // ReferenceDataCode (string) maxLength
-            if(this.ReferenceDataCode != null && this.ReferenceDataCode.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataCode, length must be less than or equal to 2.", new [] { "ReferenceDataCode" });
-            }
-
-            // ReferenceDataNumber (string) maxLength
-            if(this.ReferenceDataNumber != null && this.ReferenceDataNumber.Length >= 30)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataNumber, length must be less than or equal to 30.", new [] { "ReferenceDataNumber" });
-            }
-
-            // ShippingDestinationTypes (string) maxLength
-            if(this.ShippingDestinationTypes != null && this.ShippingDestinationTypes.Length >= 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShippingDestinationTypes, length must be less than or equal to 50.", new [] { "ShippingDestinationTypes" });
             }
 
             yield break;

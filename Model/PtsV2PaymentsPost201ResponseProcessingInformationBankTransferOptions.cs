@@ -139,18 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // SettlementMethod (string) maxLength
-            if(this.SettlementMethod != null && this.SettlementMethod.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementMethod, length must be less than or equal to 1.", new [] { "SettlementMethod" });
-            }
-
-            // FraudScreeningLevel (string) maxLength
-            if(this.FraudScreeningLevel != null && this.FraudScreeningLevel.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FraudScreeningLevel, length must be less than or equal to 1.", new [] { "FraudScreeningLevel" });
-            }
-
             yield break;
         }
     }

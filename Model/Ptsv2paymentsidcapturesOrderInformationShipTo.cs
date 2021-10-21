@@ -156,24 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AdministrativeArea (string) maxLength
-            if(this.AdministrativeArea != null && this.AdministrativeArea.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than or equal to 2.", new [] { "AdministrativeArea" });
-            }
-
-            // Country (string) maxLength
-            if(this.Country != null && this.Country.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 2.", new [] { "Country" });
-            }
-
-            // PostalCode (string) maxLength
-            if(this.PostalCode != null && this.PostalCode.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than or equal to 10.", new [] { "PostalCode" });
-            }
-
             yield break;
         }
     }

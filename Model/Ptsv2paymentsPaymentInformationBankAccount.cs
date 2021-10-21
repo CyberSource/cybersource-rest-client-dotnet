@@ -190,36 +190,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Type (string) maxLength
-            if(this.Type != null && this.Type.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than or equal to 1.", new [] { "Type" });
-            }
-
-            // Number (string) maxLength
-            if(this.Number != null && this.Number.Length >= 17)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than or equal to 17.", new [] { "Number" });
-            }
-
-            // EncoderId (string) maxLength
-            if(this.EncoderId != null && this.EncoderId.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EncoderId, length must be less than or equal to 3.", new [] { "EncoderId" });
-            }
-
-            // CheckNumber (string) maxLength
-            if(this.CheckNumber != null && this.CheckNumber.Length >= 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CheckNumber, length must be less than or equal to 8.", new [] { "CheckNumber" });
-            }
-
-            // CheckImageReferenceNumber (string) maxLength
-            if(this.CheckImageReferenceNumber != null && this.CheckImageReferenceNumber.Length >= 32)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CheckImageReferenceNumber, length must be less than or equal to 32.", new [] { "CheckImageReferenceNumber" });
-            }
-
             yield break;
         }
     }

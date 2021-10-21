@@ -139,12 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ShippingAddressUsageDate (string) maxLength
-            if(this.ShippingAddressUsageDate != null && this.ShippingAddressUsageDate.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShippingAddressUsageDate, length must be less than or equal to 10.", new [] { "ShippingAddressUsageDate" });
-            }
-
             yield break;
         }
     }

@@ -224,36 +224,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Amount (string) maxLength
-            if(this.Amount != null && this.Amount.Length >= 13)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, length must be less than or equal to 13.", new [] { "Amount" });
-            }
-
-            // Rate (string) maxLength
-            if(this.Rate != null && this.Rate.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rate, length must be less than or equal to 6.", new [] { "Rate" });
-            }
-
-            // Code (string) maxLength
-            if(this.Code != null && this.Code.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than or equal to 4.", new [] { "Code" });
-            }
-
-            // TaxId (string) maxLength
-            if(this.TaxId != null && this.TaxId.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxId, length must be less than or equal to 15.", new [] { "TaxId" });
-            }
-
-            // ExemptionCode (string) maxLength
-            if(this.ExemptionCode != null && this.ExemptionCode.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExemptionCode, length must be less than or equal to 1.", new [] { "ExemptionCode" });
-            }
-
             yield break;
         }
     }

@@ -156,13 +156,13 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // IpCountryConfidence (int?) maximum
-            if(this.IpCountryConfidence >= (int?)100)
+            if(this.IpCountryConfidence > (int?)100)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IpCountryConfidence, must be a value less than or equal to 100.", new [] { "IpCountryConfidence" });
             }
 
             // IpCountryConfidence (int?) minimum
-            if(this.IpCountryConfidence <= (int?)-1)
+            if(this.IpCountryConfidence < (int?)-1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IpCountryConfidence, must be a value greater than or equal to -1.", new [] { "IpCountryConfidence" });
             }

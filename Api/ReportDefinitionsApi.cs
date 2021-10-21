@@ -36,7 +36,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="subscriptionType">The subscription type for which report definition is required. By default the type will be CUSTOM. Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
         /// <param name="reportMimeType">The format for which the report definition is required. By default the value will be CSV. Valid Values: - application/xml - text/csv  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ReportingV3ReportDefinitionsNameGet200Response</returns>
         ReportingV3ReportDefinitionsNameGet200Response GetResourceInfoByReportDefinition (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null);
 
@@ -50,7 +50,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="subscriptionType">The subscription type for which report definition is required. By default the type will be CUSTOM. Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
         /// <param name="reportMimeType">The format for which the report definition is required. By default the value will be CSV. Valid Values: - application/xml - text/csv  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportDefinitionsNameGet200Response</returns>
         ApiResponse<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionWithHttpInfo (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null);
         /// <summary>
@@ -61,7 +61,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ReportingV3ReportDefinitionsGet200Response</returns>
         ReportingV3ReportDefinitionsGet200Response GetResourceV2Info (string subscriptionType = null, string organizationId = null);
 
@@ -73,7 +73,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportDefinitionsGet200Response</returns>
         ApiResponse<ReportingV3ReportDefinitionsGet200Response> GetResourceV2InfoWithHttpInfo (string subscriptionType = null, string organizationId = null);
         #endregion Synchronous Operations
@@ -88,7 +88,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="subscriptionType">The subscription type for which report definition is required. By default the type will be CUSTOM. Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
         /// <param name="reportMimeType">The format for which the report definition is required. By default the value will be CSV. Valid Values: - application/xml - text/csv  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportDefinitionsNameGet200Response</returns>
         System.Threading.Tasks.Task<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionAsync (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null);
 
@@ -102,7 +102,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="subscriptionType">The subscription type for which report definition is required. By default the type will be CUSTOM. Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
         /// <param name="reportMimeType">The format for which the report definition is required. By default the value will be CSV. Valid Values: - application/xml - text/csv  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsNameGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>> GetResourceInfoByReportDefinitionAsyncWithHttpInfo (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null);
         /// <summary>
@@ -113,7 +113,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportDefinitionsGet200Response</returns>
         System.Threading.Tasks.Task<ReportingV3ReportDefinitionsGet200Response> GetResourceV2InfoAsync (string subscriptionType = null, string organizationId = null);
 
@@ -125,7 +125,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsGet200Response>> GetResourceV2InfoAsyncWithHttpInfo (string subscriptionType = null, string organizationId = null);
         #endregion Asynchronous Operations
@@ -255,7 +255,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="subscriptionType">The subscription type for which report definition is required. By default the type will be CUSTOM. Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
         /// <param name="reportMimeType">The format for which the report definition is required. By default the value will be CSV. Valid Values: - application/xml - text/csv  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ReportingV3ReportDefinitionsNameGet200Response</returns>
         public ReportingV3ReportDefinitionsNameGet200Response GetResourceInfoByReportDefinition (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null)
         {
@@ -272,7 +272,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="subscriptionType">The subscription type for which report definition is required. By default the type will be CUSTOM. Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
         /// <param name="reportMimeType">The format for which the report definition is required. By default the value will be CSV. Valid Values: - application/xml - text/csv  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportDefinitionsNameGet200Response</returns>
         public ApiResponse< ReportingV3ReportDefinitionsNameGet200Response > GetResourceInfoByReportDefinitionWithHttpInfo (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null)
         {
@@ -358,7 +358,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="subscriptionType">The subscription type for which report definition is required. By default the type will be CUSTOM. Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
         /// <param name="reportMimeType">The format for which the report definition is required. By default the value will be CSV. Valid Values: - application/xml - text/csv  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportDefinitionsNameGet200Response</returns>
         public async System.Threading.Tasks.Task<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionAsync (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null)
         {
@@ -376,7 +376,7 @@ namespace CyberSource.Api
         /// <param name="reportDefinitionName">Name of the Report definition to retrieve</param>
         /// <param name="subscriptionType">The subscription type for which report definition is required. By default the type will be CUSTOM. Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
         /// <param name="reportMimeType">The format for which the report definition is required. By default the value will be CSV. Valid Values: - application/xml - text/csv  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsNameGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>> GetResourceInfoByReportDefinitionAsyncWithHttpInfo (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null)
         {
@@ -459,7 +459,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ReportingV3ReportDefinitionsGet200Response</returns>
         public ReportingV3ReportDefinitionsGet200Response GetResourceV2Info (string subscriptionType = null, string organizationId = null)
         {
@@ -474,7 +474,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportDefinitionsGet200Response</returns>
         public ApiResponse< ReportingV3ReportDefinitionsGet200Response > GetResourceV2InfoWithHttpInfo (string subscriptionType = null, string organizationId = null)
         {
@@ -542,7 +542,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportDefinitionsGet200Response</returns>
         public async System.Threading.Tasks.Task<ReportingV3ReportDefinitionsGet200Response> GetResourceV2InfoAsync (string subscriptionType = null, string organizationId = null)
         {
@@ -558,7 +558,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionType">Valid Values: - CLASSIC - CUSTOM - STANDARD  (optional)</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsGet200Response>> GetResourceV2InfoAsyncWithHttpInfo (string subscriptionType = null, string organizationId = null)
         {

@@ -173,34 +173,16 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ProductSku (string) maxLength
-            if(this.ProductSku != null && this.ProductSku.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductSku, length must be less than or equal to 255.", new [] { "ProductSku" });
-            }
-
-            // ProductName (string) maxLength
-            if(this.ProductName != null && this.ProductName.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than or equal to 255.", new [] { "ProductName" });
-            }
-
             // Quantity (int?) maximum
-            if(this.Quantity >= (int?)999999999)
+            if(this.Quantity > (int?)999999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999999.", new [] { "Quantity" });
             }
 
             // Quantity (int?) minimum
-            if(this.Quantity <= (int?)1)
+            if(this.Quantity < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
-            }
-
-            // UnitPrice (string) maxLength
-            if(this.UnitPrice != null && this.UnitPrice.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than or equal to 15.", new [] { "UnitPrice" });
             }
 
             yield break;

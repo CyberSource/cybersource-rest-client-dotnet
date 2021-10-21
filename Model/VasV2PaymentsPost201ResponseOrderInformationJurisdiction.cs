@@ -258,60 +258,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Type (string) maxLength
-            if(this.Type != null && this.Type.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than or equal to 15.", new [] { "Type" });
-            }
-
-            // TaxName (string) maxLength
-            if(this.TaxName != null && this.TaxName.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxName, length must be less than or equal to 15.", new [] { "TaxName" });
-            }
-
-            // TaxAmount (string) maxLength
-            if(this.TaxAmount != null && this.TaxAmount.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than or equal to 15.", new [] { "TaxAmount" });
-            }
-
-            // Taxable (string) maxLength
-            if(this.Taxable != null && this.Taxable.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Taxable, length must be less than or equal to 15.", new [] { "Taxable" });
-            }
-
-            // Name (string) maxLength
-            if(this.Name != null && this.Name.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than or equal to 15.", new [] { "Name" });
-            }
-
-            // Code (string) maxLength
-            if(this.Code != null && this.Code.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than or equal to 15.", new [] { "Code" });
-            }
-
-            // Rate (string) maxLength
-            if(this.Rate != null && this.Rate.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rate, length must be less than or equal to 15.", new [] { "Rate" });
-            }
-
-            // Region (string) maxLength
-            if(this.Region != null && this.Region.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Region, length must be less than or equal to 15.", new [] { "Region" });
-            }
-
-            // Country (string) maxLength
-            if(this.Country != null && this.Country.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 15.", new [] { "Country" });
-            }
-
             yield break;
         }
     }

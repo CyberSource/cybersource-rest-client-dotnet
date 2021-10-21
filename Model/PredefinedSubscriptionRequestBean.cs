@@ -295,35 +295,11 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ReportDefinitionName (string) maxLength
-            if(this.ReportDefinitionName != null && this.ReportDefinitionName.Length >= 80)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportDefinitionName, length must be less than or equal to 80.", new [] { "ReportDefinitionName" });
-            }
-
-            // ReportDefinitionName (string) minLength
-            if(this.ReportDefinitionName != null && this.ReportDefinitionName.Length <= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportDefinitionName, length must be greater than or equal to 1.", new [] { "ReportDefinitionName" });
-            }
-
             // ReportDefinitionName (string) pattern
             Regex regexReportDefinitionName = new Regex(@"[a-zA-Z]+", RegexOptions.CultureInvariant);
             if (false == regexReportDefinitionName.Match(this.ReportDefinitionName).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportDefinitionName, must match a pattern of " + regexReportDefinitionName, new [] { "ReportDefinitionName" });
-            }
-
-            // ReportName (string) maxLength
-            if(this.ReportName != null && this.ReportName.Length >= 128)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportName, length must be less than or equal to 128.", new [] { "ReportName" });
-            }
-
-            // ReportName (string) minLength
-            if(this.ReportName != null && this.ReportName.Length <= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportName, length must be greater than or equal to 1.", new [] { "ReportName" });
             }
 
             // ReportName (string) pattern
@@ -341,13 +317,13 @@ namespace CyberSource.Model
             }
 
             // StartDay (int?) maximum
-            if(this.StartDay >= (int?)31)
+            if(this.StartDay > (int?)31)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value less than or equal to 31.", new [] { "StartDay" });
             }
 
             // StartDay (int?) minimum
-            if(this.StartDay <= (int?)1)
+            if(this.StartDay < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value greater than or equal to 1.", new [] { "StartDay" });
             }

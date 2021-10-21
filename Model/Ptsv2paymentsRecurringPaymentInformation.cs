@@ -190,18 +190,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // EndDate (string) maxLength
-            if(this.EndDate != null && this.EndDate.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EndDate, length must be less than or equal to 10.", new [] { "EndDate" });
-            }
-
-            // OriginalPurchaseDate (string) maxLength
-            if(this.OriginalPurchaseDate != null && this.OriginalPurchaseDate.Length >= 17)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginalPurchaseDate, length must be less than or equal to 17.", new [] { "OriginalPurchaseDate" });
-            }
-
             yield break;
         }
     }

@@ -122,12 +122,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // InvoiceDate (string) maxLength
-            if(this.InvoiceDate != null && this.InvoiceDate.Length >= 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvoiceDate, length must be less than or equal to 8.", new [] { "InvoiceDate" });
-            }
-
             yield break;
         }
     }

@@ -122,12 +122,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ResultCode (string) maxLength
-            if(this.ResultCode != null && this.ResultCode.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResultCode, length must be less than or equal to 1.", new [] { "ResultCode" });
-            }
-
             yield break;
         }
     }

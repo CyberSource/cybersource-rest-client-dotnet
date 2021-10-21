@@ -122,12 +122,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AlternateName (string) maxLength
-            if(this.AlternateName != null && this.AlternateName.Length >= 13)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AlternateName, length must be less than or equal to 13.", new [] { "AlternateName" });
-            }
-
             yield break;
         }
     }

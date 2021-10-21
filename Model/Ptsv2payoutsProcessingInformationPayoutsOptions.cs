@@ -173,30 +173,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AcquirerMerchantId (string) maxLength
-            if(this.AcquirerMerchantId != null && this.AcquirerMerchantId.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcquirerMerchantId, length must be less than or equal to 15.", new [] { "AcquirerMerchantId" });
-            }
-
-            // AcquirerBin (string) maxLength
-            if(this.AcquirerBin != null && this.AcquirerBin.Length >= 11)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcquirerBin, length must be less than or equal to 11.", new [] { "AcquirerBin" });
-            }
-
-            // RetrievalReferenceNumber (string) maxLength
-            if(this.RetrievalReferenceNumber != null && this.RetrievalReferenceNumber.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RetrievalReferenceNumber, length must be less than or equal to 12.", new [] { "RetrievalReferenceNumber" });
-            }
-
-            // AccountFundingReferenceId (string) maxLength
-            if(this.AccountFundingReferenceId != null && this.AccountFundingReferenceId.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountFundingReferenceId, length must be less than or equal to 15.", new [] { "AccountFundingReferenceId" });
-            }
-
             yield break;
         }
     }

@@ -198,18 +198,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Tags (string) maxLength
-            if(this.Tags != null && this.Tags.Length >= 1998)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Tags, length must be less than or equal to 1998.", new [] { "Tags" });
-            }
-
-            // CardSequenceNumber (string) maxLength
-            if(this.CardSequenceNumber != null && this.CardSequenceNumber.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardSequenceNumber, length must be less than or equal to 3.", new [] { "CardSequenceNumber" });
-            }
-
             yield break;
         }
     }

@@ -224,36 +224,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // EncryptionKey (string) maxLength
-            if(this.EncryptionKey != null && this.EncryptionKey.Length >= 16)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EncryptionKey, length must be less than or equal to 16.", new [] { "EncryptionKey" });
-            }
-
-            // EncryptionType (string) maxLength
-            if(this.EncryptionType != null && this.EncryptionType.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EncryptionType, length must be less than or equal to 20.", new [] { "EncryptionType" });
-            }
-
-            // Label (string) maxLength
-            if(this.Label != null && this.Label.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, length must be less than or equal to 20.", new [] { "Label" });
-            }
-
-            // Prompt (string) maxLength
-            if(this.Prompt != null && this.Prompt.Length >= 80)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Prompt, length must be less than or equal to 80.", new [] { "Prompt" });
-            }
-
-            // StatusMessage (string) maxLength
-            if(this.StatusMessage != null && this.StatusMessage.Length >= 80)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StatusMessage, length must be less than or equal to 80.", new [] { "StatusMessage" });
-            }
-
             yield break;
         }
     }

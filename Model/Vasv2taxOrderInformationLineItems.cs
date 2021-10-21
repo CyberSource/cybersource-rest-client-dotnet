@@ -341,82 +341,16 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ProductSKU (string) maxLength
-            if(this.ProductSKU != null && this.ProductSKU.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductSKU, length must be less than or equal to 255.", new [] { "ProductSKU" });
-            }
-
-            // ProductCode (string) maxLength
-            if(this.ProductCode != null && this.ProductCode.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductCode, length must be less than or equal to 255.", new [] { "ProductCode" });
-            }
-
             // Quantity (int?) maximum
-            if(this.Quantity >= (int?)999999999)
+            if(this.Quantity > (int?)999999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999999.", new [] { "Quantity" });
             }
 
             // Quantity (int?) minimum
-            if(this.Quantity <= (int?)1)
+            if(this.Quantity < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
-            }
-
-            // ProductName (string) maxLength
-            if(this.ProductName != null && this.ProductName.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than or equal to 255.", new [] { "ProductName" });
-            }
-
-            // UnitPrice (string) maxLength
-            if(this.UnitPrice != null && this.UnitPrice.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than or equal to 15.", new [] { "UnitPrice" });
-            }
-
-            // TaxAmount (string) maxLength
-            if(this.TaxAmount != null && this.TaxAmount.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than or equal to 15.", new [] { "TaxAmount" });
-            }
-
-            // ShipFromCountry (string) maxLength
-            if(this.ShipFromCountry != null && this.ShipFromCountry.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShipFromCountry, length must be less than or equal to 2.", new [] { "ShipFromCountry" });
-            }
-
-            // ShipFromAdministrativeArea (string) maxLength
-            if(this.ShipFromAdministrativeArea != null && this.ShipFromAdministrativeArea.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShipFromAdministrativeArea, length must be less than or equal to 2.", new [] { "ShipFromAdministrativeArea" });
-            }
-
-            // ShipFromLocality (string) maxLength
-            if(this.ShipFromLocality != null && this.ShipFromLocality.Length >= 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShipFromLocality, length must be less than or equal to 50.", new [] { "ShipFromLocality" });
-            }
-
-            // ShipFromPostalCode (string) maxLength
-            if(this.ShipFromPostalCode != null && this.ShipFromPostalCode.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShipFromPostalCode, length must be less than or equal to 10.", new [] { "ShipFromPostalCode" });
-            }
-
-            // BuyerVatRegistrationNumber (string) maxLength
-            if(this.BuyerVatRegistrationNumber != null && this.BuyerVatRegistrationNumber.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BuyerVatRegistrationNumber, length must be less than or equal to 25.", new [] { "BuyerVatRegistrationNumber" });
-            }
-
-            // SellerVatRegistrationNumber (string) maxLength
-            if(this.SellerVatRegistrationNumber != null && this.SellerVatRegistrationNumber.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SellerVatRegistrationNumber, length must be less than or equal to 25.", new [] { "SellerVatRegistrationNumber" });
             }
 
             yield break;

@@ -156,24 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TrueIpaddress (string) maxLength
-            if(this.TrueIpaddress != null && this.TrueIpaddress.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TrueIpaddress, length must be less than or equal to 255.", new [] { "TrueIpaddress" });
-            }
-
-            // Hash (string) maxLength
-            if(this.Hash != null && this.Hash.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hash, length must be less than or equal to 255.", new [] { "Hash" });
-            }
-
-            // SmartId (string) maxLength
-            if(this.SmartId != null && this.SmartId.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SmartId, length must be less than or equal to 255.", new [] { "SmartId" });
-            }
-
             yield break;
         }
     }

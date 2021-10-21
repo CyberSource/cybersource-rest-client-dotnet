@@ -547,148 +547,16 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AdditionalCosts (string) maxLength
-            if(this.AdditionalCosts != null && this.AdditionalCosts.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdditionalCosts, length must be less than or equal to 12.", new [] { "AdditionalCosts" });
-            }
-
-            // AdditionalCostsPercentage (string) maxLength
-            if(this.AdditionalCostsPercentage != null && this.AdditionalCostsPercentage.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdditionalCostsPercentage, length must be less than or equal to 4.", new [] { "AdditionalCostsPercentage" });
-            }
-
-            // Amount (string) maxLength
-            if(this.Amount != null && this.Amount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, length must be less than or equal to 12.", new [] { "Amount" });
-            }
-
-            // AmountFunded (string) maxLength
-            if(this.AmountFunded != null && this.AmountFunded.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmountFunded, length must be less than or equal to 12.", new [] { "AmountFunded" });
-            }
-
-            // AmountRequestedPercentage (string) maxLength
-            if(this.AmountRequestedPercentage != null && this.AmountRequestedPercentage.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmountRequestedPercentage, length must be less than or equal to 4.", new [] { "AmountRequestedPercentage" });
-            }
-
-            // AnnualFinancingCost (string) maxLength
-            if(this.AnnualFinancingCost != null && this.AnnualFinancingCost.Length >= 7)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AnnualFinancingCost, length must be less than or equal to 7.", new [] { "AnnualFinancingCost" });
-            }
-
-            // AnnualInterestRate (string) maxLength
-            if(this.AnnualInterestRate != null && this.AnnualInterestRate.Length >= 7)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AnnualInterestRate, length must be less than or equal to 7.", new [] { "AnnualInterestRate" });
-            }
-
-            // Expenses (string) maxLength
-            if(this.Expenses != null && this.Expenses.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Expenses, length must be less than or equal to 12.", new [] { "Expenses" });
-            }
-
-            // ExpensesPercentage (string) maxLength
-            if(this.ExpensesPercentage != null && this.ExpensesPercentage.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpensesPercentage, length must be less than or equal to 4.", new [] { "ExpensesPercentage" });
-            }
-
-            // Fees (string) maxLength
-            if(this.Fees != null && this.Fees.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Fees, length must be less than or equal to 12.", new [] { "Fees" });
-            }
-
-            // FeesPercentage (string) maxLength
-            if(this.FeesPercentage != null && this.FeesPercentage.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FeesPercentage, length must be less than or equal to 4.", new [] { "FeesPercentage" });
-            }
-
-            // Frequency (string) maxLength
-            if(this.Frequency != null && this.Frequency.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Frequency, length must be less than or equal to 1.", new [] { "Frequency" });
-            }
-
-            // Insurance (string) maxLength
-            if(this.Insurance != null && this.Insurance.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Insurance, length must be less than or equal to 12.", new [] { "Insurance" });
-            }
-
-            // InsurancePercentage (string) maxLength
-            if(this.InsurancePercentage != null && this.InsurancePercentage.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InsurancePercentage, length must be less than or equal to 4.", new [] { "InsurancePercentage" });
-            }
-
-            // InvoiceData (string) maxLength
-            if(this.InvoiceData != null && this.InvoiceData.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvoiceData, length must be less than or equal to 20.", new [] { "InvoiceData" });
-            }
-
-            // MonthlyInterestRate (string) maxLength
-            if(this.MonthlyInterestRate != null && this.MonthlyInterestRate.Length >= 7)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MonthlyInterestRate, length must be less than or equal to 7.", new [] { "MonthlyInterestRate" });
-            }
-
-            // PlanType (string) maxLength
-            if(this.PlanType != null && this.PlanType.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlanType, length must be less than or equal to 1.", new [] { "PlanType" });
-            }
-
             // Sequence (int?) maximum
-            if(this.Sequence >= (int?)99)
+            if(this.Sequence > (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sequence, must be a value less than or equal to 99.", new [] { "Sequence" });
             }
 
-            // Taxes (string) maxLength
-            if(this.Taxes != null && this.Taxes.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Taxes, length must be less than or equal to 12.", new [] { "Taxes" });
-            }
-
-            // TaxesPercentage (string) maxLength
-            if(this.TaxesPercentage != null && this.TaxesPercentage.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxesPercentage, length must be less than or equal to 4.", new [] { "TaxesPercentage" });
-            }
-
-            // TotalAmount (string) maxLength
-            if(this.TotalAmount != null && this.TotalAmount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalAmount, length must be less than or equal to 12.", new [] { "TotalAmount" });
-            }
-
             // TotalCount (int?) maximum
-            if(this.TotalCount >= (int?)99)
+            if(this.TotalCount > (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCount, must be a value less than or equal to 99.", new [] { "TotalCount" });
-            }
-
-            // FirstInstallmentAmount (string) maxLength
-            if(this.FirstInstallmentAmount != null && this.FirstInstallmentAmount.Length >= 13)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstInstallmentAmount, length must be less than or equal to 13.", new [] { "FirstInstallmentAmount" });
-            }
-
-            // FirstInstallmentDate (string) maxLength
-            if(this.FirstInstallmentDate != null && this.FirstInstallmentDate.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstInstallmentDate, length must be less than or equal to 6.", new [] { "FirstInstallmentDate" });
             }
 
             yield break;

@@ -138,12 +138,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CorrectedRoutingNumber (string) maxLength
-            if(this.CorrectedRoutingNumber != null && this.CorrectedRoutingNumber.Length >= 9)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CorrectedRoutingNumber, length must be less than or equal to 9.", new [] { "CorrectedRoutingNumber" });
-            }
-
             yield break;
         }
     }

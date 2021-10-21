@@ -122,12 +122,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TransactionLocalDateTime (string) maxLength
-            if(this.TransactionLocalDateTime != null && this.TransactionLocalDateTime.Length >= 14)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionLocalDateTime, length must be less than or equal to 14.", new [] { "TransactionLocalDateTime" });
-            }
-
             yield break;
         }
     }

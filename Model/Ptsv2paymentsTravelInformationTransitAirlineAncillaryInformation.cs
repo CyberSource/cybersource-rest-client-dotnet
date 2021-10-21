@@ -189,30 +189,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TicketNumber (string) maxLength
-            if(this.TicketNumber != null && this.TicketNumber.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TicketNumber, length must be less than or equal to 15.", new [] { "TicketNumber" });
-            }
-
-            // PassengerName (string) maxLength
-            if(this.PassengerName != null && this.PassengerName.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PassengerName, length must be less than or equal to 20.", new [] { "PassengerName" });
-            }
-
-            // ConnectedTicketNumber (string) maxLength
-            if(this.ConnectedTicketNumber != null && this.ConnectedTicketNumber.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ConnectedTicketNumber, length must be less than or equal to 15.", new [] { "ConnectedTicketNumber" });
-            }
-
-            // CreditReasonIndicator (string) maxLength
-            if(this.CreditReasonIndicator != null && this.CreditReasonIndicator.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreditReasonIndicator, length must be less than or equal to 15.", new [] { "CreditReasonIndicator" });
-            }
-
             yield break;
         }
     }

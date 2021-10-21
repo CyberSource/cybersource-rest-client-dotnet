@@ -224,48 +224,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Code (string) maxLength
-            if(this.Code != null && this.Code.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than or equal to 4.", new [] { "Code" });
-            }
-
-            // Name (string) maxLength
-            if(this.Name != null && this.Name.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than or equal to 20.", new [] { "Name" });
-            }
-
-            // Address (string) maxLength
-            if(this.Address != null && this.Address.Length >= 16)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address, length must be less than or equal to 16.", new [] { "Address" });
-            }
-
-            // Locality (string) maxLength
-            if(this.Locality != null && this.Locality.Length >= 18)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than or equal to 18.", new [] { "Locality" });
-            }
-
-            // AdministrativeArea (string) maxLength
-            if(this.AdministrativeArea != null && this.AdministrativeArea.Length >= 18)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than or equal to 18.", new [] { "AdministrativeArea" });
-            }
-
-            // PostalCode (string) maxLength
-            if(this.PostalCode != null && this.PostalCode.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than or equal to 15.", new [] { "PostalCode" });
-            }
-
-            // Country (string) maxLength
-            if(this.Country != null && this.Country.Length >= 18)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 18.", new [] { "Country" });
-            }
-
             yield break;
         }
     }

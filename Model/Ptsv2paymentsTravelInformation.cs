@@ -186,12 +186,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Duration (string) maxLength
-            if(this.Duration != null && this.Duration.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Duration, length must be less than or equal to 2.", new [] { "Duration" });
-            }
-
             yield break;
         }
     }

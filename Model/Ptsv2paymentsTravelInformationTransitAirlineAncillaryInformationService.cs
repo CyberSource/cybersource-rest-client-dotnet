@@ -139,18 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CategoryCode (string) maxLength
-            if(this.CategoryCode != null && this.CategoryCode.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CategoryCode, length must be less than or equal to 4.", new [] { "CategoryCode" });
-            }
-
-            // SubCategoryCode (string) maxLength
-            if(this.SubCategoryCode != null && this.SubCategoryCode.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubCategoryCode, length must be less than or equal to 4.", new [] { "SubCategoryCode" });
-            }
-
             yield break;
         }
     }

@@ -341,12 +341,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // SearchId (string) maxLength
-            if(this.SearchId != null && this.SearchId.Length >= 60)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SearchId, length must be less than or equal to 60.", new [] { "SearchId" });
-            }
-
             yield break;
         }
     }

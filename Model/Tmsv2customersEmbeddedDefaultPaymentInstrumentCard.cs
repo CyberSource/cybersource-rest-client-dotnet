@@ -240,36 +240,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ExpirationMonth (string) maxLength
-            if(this.ExpirationMonth != null && this.ExpirationMonth.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationMonth, length must be less than or equal to 2.", new [] { "ExpirationMonth" });
-            }
-
-            // ExpirationYear (string) maxLength
-            if(this.ExpirationYear != null && this.ExpirationYear.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationYear, length must be less than or equal to 4.", new [] { "ExpirationYear" });
-            }
-
-            // IssueNumber (string) maxLength
-            if(this.IssueNumber != null && this.IssueNumber.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IssueNumber, length must be less than or equal to 2.", new [] { "IssueNumber" });
-            }
-
-            // StartMonth (string) maxLength
-            if(this.StartMonth != null && this.StartMonth.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartMonth, length must be less than or equal to 2.", new [] { "StartMonth" });
-            }
-
-            // StartYear (string) maxLength
-            if(this.StartYear != null && this.StartYear.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartYear, length must be less than or equal to 4.", new [] { "StartYear" });
-            }
-
             yield break;
         }
     }

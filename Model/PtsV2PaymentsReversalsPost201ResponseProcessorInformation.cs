@@ -207,42 +207,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TransactionId (string) maxLength
-            if(this.TransactionId != null && this.TransactionId.Length >= 18)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionId, length must be less than or equal to 18.", new [] { "TransactionId" });
-            }
-
-            // ResponseCode (string) maxLength
-            if(this.ResponseCode != null && this.ResponseCode.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCode, length must be less than or equal to 10.", new [] { "ResponseCode" });
-            }
-
-            // ResponseCategoryCode (string) maxLength
-            if(this.ResponseCategoryCode != null && this.ResponseCategoryCode.Length >= 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCategoryCode, length must be less than or equal to 36.", new [] { "ResponseCategoryCode" });
-            }
-
-            // ForwardedAcquirerCode (string) maxLength
-            if(this.ForwardedAcquirerCode != null && this.ForwardedAcquirerCode.Length >= 32)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForwardedAcquirerCode, length must be less than or equal to 32.", new [] { "ForwardedAcquirerCode" });
-            }
-
-            // MasterCardServiceCode (string) maxLength
-            if(this.MasterCardServiceCode != null && this.MasterCardServiceCode.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MasterCardServiceCode, length must be less than or equal to 2.", new [] { "MasterCardServiceCode" });
-            }
-
-            // MasterCardServiceReplyCode (string) maxLength
-            if(this.MasterCardServiceReplyCode != null && this.MasterCardServiceReplyCode.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MasterCardServiceReplyCode, length must be less than or equal to 1.", new [] { "MasterCardServiceReplyCode" });
-            }
-
             yield break;
         }
     }

@@ -122,12 +122,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ServiceFeeAmount (string) maxLength
-            if(this.ServiceFeeAmount != null && this.ServiceFeeAmount.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServiceFeeAmount, length must be less than or equal to 15.", new [] { "ServiceFeeAmount" });
-            }
-
             yield break;
         }
     }

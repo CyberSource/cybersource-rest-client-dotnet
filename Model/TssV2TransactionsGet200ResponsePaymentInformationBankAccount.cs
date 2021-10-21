@@ -224,24 +224,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CheckNumber (string) maxLength
-            if(this.CheckNumber != null && this.CheckNumber.Length >= 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CheckNumber, length must be less than or equal to 8.", new [] { "CheckNumber" });
-            }
-
-            // Type (string) maxLength
-            if(this.Type != null && this.Type.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than or equal to 1.", new [] { "Type" });
-            }
-
-            // EncoderId (string) maxLength
-            if(this.EncoderId != null && this.EncoderId.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EncoderId, length must be less than or equal to 3.", new [] { "EncoderId" });
-            }
-
             yield break;
         }
     }

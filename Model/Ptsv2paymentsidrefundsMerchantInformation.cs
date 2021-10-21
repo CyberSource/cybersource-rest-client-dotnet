@@ -190,27 +190,9 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CategoryCode (int?) maximum
-            if(this.CategoryCode >= (int?)9999)
+            if(this.CategoryCode > (int?)9999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CategoryCode, must be a value less than or equal to 9999.", new [] { "CategoryCode" });
-            }
-
-            // VatRegistrationNumber (string) maxLength
-            if(this.VatRegistrationNumber != null && this.VatRegistrationNumber.Length >= 21)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VatRegistrationNumber, length must be less than or equal to 21.", new [] { "VatRegistrationNumber" });
-            }
-
-            // CardAcceptorReferenceNumber (string) maxLength
-            if(this.CardAcceptorReferenceNumber != null && this.CardAcceptorReferenceNumber.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardAcceptorReferenceNumber, length must be less than or equal to 25.", new [] { "CardAcceptorReferenceNumber" });
-            }
-
-            // TaxId (string) maxLength
-            if(this.TaxId != null && this.TaxId.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxId, length must be less than or equal to 15.", new [] { "TaxId" });
             }
 
             yield break;

@@ -496,66 +496,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AcsTransactionId (string) maxLength
-            if(this.AcsTransactionId != null && this.AcsTransactionId.Length >= 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcsTransactionId, length must be less than or equal to 36.", new [] { "AcsTransactionId" });
-            }
-
-            // Cavv (string) maxLength
-            if(this.Cavv != null && this.Cavv.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Cavv, length must be less than or equal to 255.", new [] { "Cavv" });
-            }
-
-            // CavvAlgorithm (string) maxLength
-            if(this.CavvAlgorithm != null && this.CavvAlgorithm.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CavvAlgorithm, length must be less than or equal to 1.", new [] { "CavvAlgorithm" });
-            }
-
-            // DirectoryServerErrorDescription (string) maxLength
-            if(this.DirectoryServerErrorDescription != null && this.DirectoryServerErrorDescription.Length >= 4096)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DirectoryServerErrorDescription, length must be less than or equal to 4096.", new [] { "DirectoryServerErrorDescription" });
-            }
-
-            // InteractionCounter (string) maxLength
-            if(this.InteractionCounter != null && this.InteractionCounter.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InteractionCounter, length must be less than or equal to 2.", new [] { "InteractionCounter" });
-            }
-
-            // SdkTransactionId (string) maxLength
-            if(this.SdkTransactionId != null && this.SdkTransactionId.Length >= 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkTransactionId, length must be less than or equal to 36.", new [] { "SdkTransactionId" });
-            }
-
-            // ThreeDSServerTransactionId (string) maxLength
-            if(this.ThreeDSServerTransactionId != null && this.ThreeDSServerTransactionId.Length >= 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThreeDSServerTransactionId, length must be less than or equal to 36.", new [] { "ThreeDSServerTransactionId" });
-            }
-
-            // WhiteListStatus (string) maxLength
-            if(this.WhiteListStatus != null && this.WhiteListStatus.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WhiteListStatus, length must be less than or equal to 1.", new [] { "WhiteListStatus" });
-            }
-
-            // WhiteListStatusSource (string) maxLength
-            if(this.WhiteListStatusSource != null && this.WhiteListStatusSource.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WhiteListStatusSource, length must be less than or equal to 2.", new [] { "WhiteListStatusSource" });
-            }
-
-            // DirectoryServerTransactionId (string) maxLength
-            if(this.DirectoryServerTransactionId != null && this.DirectoryServerTransactionId.Length >= 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DirectoryServerTransactionId, length must be less than or equal to 36.", new [] { "DirectoryServerTransactionId" });
-            }
-
             yield break;
         }
     }

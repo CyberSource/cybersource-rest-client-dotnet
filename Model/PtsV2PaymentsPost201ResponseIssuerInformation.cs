@@ -173,30 +173,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Country (string) maxLength
-            if(this.Country != null && this.Country.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 3.", new [] { "Country" });
-            }
-
-            // DiscretionaryData (string) maxLength
-            if(this.DiscretionaryData != null && this.DiscretionaryData.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscretionaryData, length must be less than or equal to 255.", new [] { "DiscretionaryData" });
-            }
-
-            // CountrySpecificDiscretionaryData (string) maxLength
-            if(this.CountrySpecificDiscretionaryData != null && this.CountrySpecificDiscretionaryData.Length >= 140)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CountrySpecificDiscretionaryData, length must be less than or equal to 140.", new [] { "CountrySpecificDiscretionaryData" });
-            }
-
-            // ResponseCode (string) maxLength
-            if(this.ResponseCode != null && this.ResponseCode.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCode, length must be less than or equal to 6.", new [] { "ResponseCode" });
-            }
-
             yield break;
         }
     }

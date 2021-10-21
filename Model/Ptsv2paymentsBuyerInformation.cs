@@ -223,36 +223,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // MerchantCustomerId (string) maxLength
-            if(this.MerchantCustomerId != null && this.MerchantCustomerId.Length >= 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantCustomerId, length must be less than or equal to 100.", new [] { "MerchantCustomerId" });
-            }
-
-            // DateOfBirth (string) maxLength
-            if(this.DateOfBirth != null && this.DateOfBirth.Length >= 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOfBirth, length must be less than or equal to 8.", new [] { "DateOfBirth" });
-            }
-
-            // VatRegistrationNumber (string) maxLength
-            if(this.VatRegistrationNumber != null && this.VatRegistrationNumber.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VatRegistrationNumber, length must be less than or equal to 20.", new [] { "VatRegistrationNumber" });
-            }
-
-            // CompanyTaxId (string) maxLength
-            if(this.CompanyTaxId != null && this.CompanyTaxId.Length >= 9)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompanyTaxId, length must be less than or equal to 9.", new [] { "CompanyTaxId" });
-            }
-
-            // HashedPassword (string) maxLength
-            if(this.HashedPassword != null && this.HashedPassword.Length >= 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HashedPassword, length must be less than or equal to 100.", new [] { "HashedPassword" });
-            }
-
             yield break;
         }
     }

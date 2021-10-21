@@ -291,66 +291,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Address2 (string) maxLength
-            if(this.Address2 != null && this.Address2.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address2, length must be less than or equal to 255.", new [] { "Address2" });
-            }
-
-            // Address3 (string) maxLength
-            if(this.Address3 != null && this.Address3.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address3, length must be less than or equal to 255.", new [] { "Address3" });
-            }
-
-            // Address4 (string) maxLength
-            if(this.Address4 != null && this.Address4.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address4, length must be less than or equal to 255.", new [] { "Address4" });
-            }
-
-            // Locality (string) maxLength
-            if(this.Locality != null && this.Locality.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than or equal to 255.", new [] { "Locality" });
-            }
-
-            // County (string) maxLength
-            if(this.County != null && this.County.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for County, length must be less than or equal to 255.", new [] { "County" });
-            }
-
-            // Country (string) maxLength
-            if(this.Country != null && this.Country.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 255.", new [] { "Country" });
-            }
-
-            // Csz (string) maxLength
-            if(this.Csz != null && this.Csz.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Csz, length must be less than or equal to 255.", new [] { "Csz" });
-            }
-
-            // IsoCountry (string) maxLength
-            if(this.IsoCountry != null && this.IsoCountry.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IsoCountry, length must be less than or equal to 255.", new [] { "IsoCountry" });
-            }
-
-            // AdministrativeArea (string) maxLength
-            if(this.AdministrativeArea != null && this.AdministrativeArea.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than or equal to 255.", new [] { "AdministrativeArea" });
-            }
-
-            // PostalCode (string) maxLength
-            if(this.PostalCode != null && this.PostalCode.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than or equal to 255.", new [] { "PostalCode" });
-            }
-
             yield break;
         }
     }

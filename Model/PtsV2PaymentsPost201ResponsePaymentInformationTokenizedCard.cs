@@ -224,42 +224,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Prefix (string) maxLength
-            if(this.Prefix != null && this.Prefix.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Prefix, length must be less than or equal to 6.", new [] { "Prefix" });
-            }
-
-            // Suffix (string) maxLength
-            if(this.Suffix != null && this.Suffix.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Suffix, length must be less than or equal to 4.", new [] { "Suffix" });
-            }
-
-            // AssuranceLevel (string) maxLength
-            if(this.AssuranceLevel != null && this.AssuranceLevel.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssuranceLevel, length must be less than or equal to 2.", new [] { "AssuranceLevel" });
-            }
-
-            // ExpirationMonth (string) maxLength
-            if(this.ExpirationMonth != null && this.ExpirationMonth.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationMonth, length must be less than or equal to 2.", new [] { "ExpirationMonth" });
-            }
-
-            // ExpirationYear (string) maxLength
-            if(this.ExpirationYear != null && this.ExpirationYear.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationYear, length must be less than or equal to 4.", new [] { "ExpirationYear" });
-            }
-
-            // RequestorId (string) maxLength
-            if(this.RequestorId != null && this.RequestorId.Length >= 11)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RequestorId, length must be less than or equal to 11.", new [] { "RequestorId" });
-            }
-
             yield break;
         }
     }

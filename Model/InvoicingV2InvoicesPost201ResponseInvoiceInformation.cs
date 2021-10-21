@@ -208,12 +208,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Description (string) maxLength
-            if(this.Description != null && this.Description.Length >= 2000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than or equal to 2000.", new [] { "Description" });
-            }
-
             yield break;
         }
     }

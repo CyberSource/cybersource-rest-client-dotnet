@@ -173,30 +173,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AcquirerBin (string) maxLength
-            if(this.AcquirerBin != null && this.AcquirerBin.Length >= 11)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcquirerBin, length must be less than or equal to 11.", new [] { "AcquirerBin" });
-            }
-
-            // Country (string) maxLength
-            if(this.Country != null && this.Country.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 2.", new [] { "Country" });
-            }
-
-            // Password (string) maxLength
-            if(this.Password != null && this.Password.Length >= 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Password, length must be less than or equal to 8.", new [] { "Password" });
-            }
-
-            // MerchantId (string) maxLength
-            if(this.MerchantId != null && this.MerchantId.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantId, length must be less than or equal to 15.", new [] { "MerchantId" });
-            }
-
             yield break;
         }
     }

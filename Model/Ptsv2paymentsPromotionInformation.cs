@@ -139,18 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AdditionalCode (string) maxLength
-            if(this.AdditionalCode != null && this.AdditionalCode.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdditionalCode, length must be less than or equal to 12.", new [] { "AdditionalCode" });
-            }
-
-            // Code (string) maxLength
-            if(this.Code != null && this.Code.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than or equal to 12.", new [] { "Code" });
-            }
-
             yield break;
         }
     }

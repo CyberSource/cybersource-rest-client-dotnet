@@ -122,12 +122,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AuthenticationIndicator (string) maxLength
-            if(this.AuthenticationIndicator != null && this.AuthenticationIndicator.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthenticationIndicator, length must be less than or equal to 2.", new [] { "AuthenticationIndicator" });
-            }
-
             yield break;
         }
     }

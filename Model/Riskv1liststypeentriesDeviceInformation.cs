@@ -139,18 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // IpAddress (string) maxLength
-            if(this.IpAddress != null && this.IpAddress.Length >= 45)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IpAddress, length must be less than or equal to 45.", new [] { "IpAddress" });
-            }
-
-            // NetworkIpAddress (string) maxLength
-            if(this.NetworkIpAddress != null && this.NetworkIpAddress.Length >= 11)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetworkIpAddress, length must be less than or equal to 11.", new [] { "NetworkIpAddress" });
-            }
-
             yield break;
         }
     }

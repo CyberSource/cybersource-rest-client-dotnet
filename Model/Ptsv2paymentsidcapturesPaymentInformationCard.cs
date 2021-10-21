@@ -139,18 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // SourceAccountType (string) maxLength
-            if(this.SourceAccountType != null && this.SourceAccountType.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceAccountType, length must be less than or equal to 20.", new [] { "SourceAccountType" });
-            }
-
-            // SourceAccountTypeDetails (string) maxLength
-            if(this.SourceAccountTypeDetails != null && this.SourceAccountTypeDetails.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceAccountTypeDetails, length must be less than or equal to 4.", new [] { "SourceAccountTypeDetails" });
-            }
-
             yield break;
         }
     }

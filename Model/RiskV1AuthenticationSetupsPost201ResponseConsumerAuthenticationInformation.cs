@@ -156,18 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ReferenceId (string) maxLength
-            if(this.ReferenceId != null && this.ReferenceId.Length >= 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceId, length must be less than or equal to 50.", new [] { "ReferenceId" });
-            }
-
-            // DeviceDataCollectionUrl (string) maxLength
-            if(this.DeviceDataCollectionUrl != null && this.DeviceDataCollectionUrl.Length >= 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DeviceDataCollectionUrl, length must be less than or equal to 100.", new [] { "DeviceDataCollectionUrl" });
-            }
-
             yield break;
         }
     }

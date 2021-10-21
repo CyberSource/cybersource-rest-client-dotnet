@@ -222,12 +222,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Iban (string) maxLength
-            if(this.Iban != null && this.Iban.Length >= 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Iban, length must be less than or equal to 50.", new [] { "Iban" });
-            }
-
             yield break;
         }
     }

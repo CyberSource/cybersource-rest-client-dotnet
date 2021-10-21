@@ -156,18 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PaymentSolution (string) maxLength
-            if(this.PaymentSolution != null && this.PaymentSolution.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentSolution, length must be less than or equal to 12.", new [] { "PaymentSolution" });
-            }
-
-            // CommerceIndicator (string) maxLength
-            if(this.CommerceIndicator != null && this.CommerceIndicator.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommerceIndicator, length must be less than or equal to 20.", new [] { "CommerceIndicator" });
-            }
-
             yield break;
         }
     }

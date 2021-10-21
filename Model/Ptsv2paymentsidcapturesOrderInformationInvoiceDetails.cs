@@ -223,36 +223,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PurchaseOrderNumber (string) maxLength
-            if(this.PurchaseOrderNumber != null && this.PurchaseOrderNumber.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseOrderNumber, length must be less than or equal to 25.", new [] { "PurchaseOrderNumber" });
-            }
-
-            // PurchaseOrderDate (string) maxLength
-            if(this.PurchaseOrderDate != null && this.PurchaseOrderDate.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseOrderDate, length must be less than or equal to 10.", new [] { "PurchaseOrderDate" });
-            }
-
-            // PurchaseContactName (string) maxLength
-            if(this.PurchaseContactName != null && this.PurchaseContactName.Length >= 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseContactName, length must be less than or equal to 36.", new [] { "PurchaseContactName" });
-            }
-
-            // VatInvoiceReferenceNumber (string) maxLength
-            if(this.VatInvoiceReferenceNumber != null && this.VatInvoiceReferenceNumber.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VatInvoiceReferenceNumber, length must be less than or equal to 15.", new [] { "VatInvoiceReferenceNumber" });
-            }
-
-            // CommodityCode (string) maxLength
-            if(this.CommodityCode != null && this.CommodityCode.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommodityCode, length must be less than or equal to 4.", new [] { "CommodityCode" });
-            }
-
             yield break;
         }
     }

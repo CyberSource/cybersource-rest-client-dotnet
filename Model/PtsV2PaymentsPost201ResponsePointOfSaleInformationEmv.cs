@@ -156,24 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Tags (string) maxLength
-            if(this.Tags != null && this.Tags.Length >= 1998)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Tags, length must be less than or equal to 1998.", new [] { "Tags" });
-            }
-
-            // ChipValidationType (string) maxLength
-            if(this.ChipValidationType != null && this.ChipValidationType.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ChipValidationType, length must be less than or equal to 2.", new [] { "ChipValidationType" });
-            }
-
-            // ChipValidationResult (string) maxLength
-            if(this.ChipValidationResult != null && this.ChipValidationResult.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ChipValidationResult, length must be less than or equal to 1.", new [] { "ChipValidationResult" });
-            }
-
             yield break;
         }
     }

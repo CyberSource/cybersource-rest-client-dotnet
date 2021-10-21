@@ -207,42 +207,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PointsBeforeRedemption (string) maxLength
-            if(this.PointsBeforeRedemption != null && this.PointsBeforeRedemption.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PointsBeforeRedemption, length must be less than or equal to 10.", new [] { "PointsBeforeRedemption" });
-            }
-
-            // PointsValueBeforeRedemption (string) maxLength
-            if(this.PointsValueBeforeRedemption != null && this.PointsValueBeforeRedemption.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PointsValueBeforeRedemption, length must be less than or equal to 12.", new [] { "PointsValueBeforeRedemption" });
-            }
-
-            // PointsRedeemed (string) maxLength
-            if(this.PointsRedeemed != null && this.PointsRedeemed.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PointsRedeemed, length must be less than or equal to 10.", new [] { "PointsRedeemed" });
-            }
-
-            // PointsValueRedeemed (string) maxLength
-            if(this.PointsValueRedeemed != null && this.PointsValueRedeemed.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PointsValueRedeemed, length must be less than or equal to 12.", new [] { "PointsValueRedeemed" });
-            }
-
-            // PointsAfterRedemption (string) maxLength
-            if(this.PointsAfterRedemption != null && this.PointsAfterRedemption.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PointsAfterRedemption, length must be less than or equal to 10.", new [] { "PointsAfterRedemption" });
-            }
-
-            // PointsValueAfterRedemption (string) maxLength
-            if(this.PointsValueAfterRedemption != null && this.PointsValueAfterRedemption.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PointsValueAfterRedemption, length must be less than or equal to 12.", new [] { "PointsValueAfterRedemption" });
-            }
-
             yield break;
         }
     }

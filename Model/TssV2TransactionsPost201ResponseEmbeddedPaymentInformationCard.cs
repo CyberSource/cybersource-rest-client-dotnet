@@ -156,12 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Prefix (string) maxLength
-            if(this.Prefix != null && this.Prefix.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Prefix, length must be less than or equal to 6.", new [] { "Prefix" });
-            }
-
             yield break;
         }
     }

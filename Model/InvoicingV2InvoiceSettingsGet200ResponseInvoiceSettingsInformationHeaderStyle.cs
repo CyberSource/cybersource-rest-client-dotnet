@@ -139,23 +139,11 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // FontColor (string) maxLength
-            if(this.FontColor != null && this.FontColor.Length >= 7)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FontColor, length must be less than or equal to 7.", new [] { "FontColor" });
-            }
-
             // FontColor (string) pattern
             Regex regexFontColor = new Regex(@"^#(?:[0-9a-fA-F]{3}){1,2}$", RegexOptions.CultureInvariant);
             if (false == regexFontColor.Match(this.FontColor).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FontColor, must match a pattern of " + regexFontColor, new [] { "FontColor" });
-            }
-
-            // BackgroundColor (string) maxLength
-            if(this.BackgroundColor != null && this.BackgroundColor.Length >= 7)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BackgroundColor, length must be less than or equal to 7.", new [] { "BackgroundColor" });
             }
 
             // BackgroundColor (string) pattern
