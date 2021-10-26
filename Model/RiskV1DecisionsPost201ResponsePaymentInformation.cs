@@ -190,36 +190,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // BinCountry (string) maxLength
-            if(this.BinCountry != null && this.BinCountry.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BinCountry, length must be less than or equal to 255.", new [] { "BinCountry" });
-            }
-
-            // AccountType (string) maxLength
-            if(this.AccountType != null && this.AccountType.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountType, length must be less than or equal to 255.", new [] { "AccountType" });
-            }
-
-            // Issuer (string) maxLength
-            if(this.Issuer != null && this.Issuer.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Issuer, length must be less than or equal to 255.", new [] { "Issuer" });
-            }
-
-            // Scheme (string) maxLength
-            if(this.Scheme != null && this.Scheme.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scheme, length must be less than or equal to 255.", new [] { "Scheme" });
-            }
-
-            // Bin (string) maxLength
-            if(this.Bin != null && this.Bin.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bin, length must be less than or equal to 255.", new [] { "Bin" });
-            }
-
             yield break;
         }
     }

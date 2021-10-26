@@ -156,24 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ReversedAmount (string) maxLength
-            if(this.ReversedAmount != null && this.ReversedAmount.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReversedAmount, length must be less than or equal to 15.", new [] { "ReversedAmount" });
-            }
-
-            // OriginalTransactionAmount (string) maxLength
-            if(this.OriginalTransactionAmount != null && this.OriginalTransactionAmount.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginalTransactionAmount, length must be less than or equal to 15.", new [] { "OriginalTransactionAmount" });
-            }
-
-            // Currency (string) maxLength
-            if(this.Currency != null && this.Currency.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than or equal to 3.", new [] { "Currency" });
-            }
-
             yield break;
         }
     }

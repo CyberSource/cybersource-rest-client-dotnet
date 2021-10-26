@@ -186,12 +186,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Method (string) maxLength
-            if(this.Method != null && this.Method.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Method, length must be less than or equal to 10.", new [] { "Method" });
-            }
-
             yield break;
         }
     }

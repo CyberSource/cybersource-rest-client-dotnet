@@ -121,12 +121,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PaymentAccountReference (string) maxLength
-            if(this.PaymentAccountReference != null && this.PaymentAccountReference.Length >= 32)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentAccountReference, length must be less than or equal to 32.", new [] { "PaymentAccountReference" });
-            }
-
             yield break;
         }
     }

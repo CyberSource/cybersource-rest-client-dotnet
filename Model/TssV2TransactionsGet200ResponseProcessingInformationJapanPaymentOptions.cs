@@ -173,30 +173,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PaymentMethod (string) maxLength
-            if(this.PaymentMethod != null && this.PaymentMethod.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentMethod, length must be less than or equal to 2.", new [] { "PaymentMethod" });
-            }
-
-            // TerminalId (string) maxLength
-            if(this.TerminalId != null && this.TerminalId.Length >= 13)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalId, length must be less than or equal to 13.", new [] { "TerminalId" });
-            }
-
-            // BusinessName (string) maxLength
-            if(this.BusinessName != null && this.BusinessName.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BusinessName, length must be less than or equal to 25.", new [] { "BusinessName" });
-            }
-
-            // BusinessNameKatakana (string) maxLength
-            if(this.BusinessNameKatakana != null && this.BusinessNameKatakana.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BusinessNameKatakana, length must be less than or equal to 25.", new [] { "BusinessNameKatakana" });
-            }
-
             yield break;
         }
     }

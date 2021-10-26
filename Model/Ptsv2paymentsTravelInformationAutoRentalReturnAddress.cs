@@ -190,36 +190,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // City (string) maxLength
-            if(this.City != null && this.City.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for City, length must be less than or equal to 25.", new [] { "City" });
-            }
-
-            // State (string) maxLength
-            if(this.State != null && this.State.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be less than or equal to 3.", new [] { "State" });
-            }
-
-            // Country (string) maxLength
-            if(this.Country != null && this.Country.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 3.", new [] { "Country" });
-            }
-
-            // LocationId (string) maxLength
-            if(this.LocationId != null && this.LocationId.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LocationId, length must be less than or equal to 10.", new [] { "LocationId" });
-            }
-
-            // Location (string) maxLength
-            if(this.Location != null && this.Location.Length >= 38)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Location, length must be less than or equal to 38.", new [] { "Location" });
-            }
-
             yield break;
         }
     }

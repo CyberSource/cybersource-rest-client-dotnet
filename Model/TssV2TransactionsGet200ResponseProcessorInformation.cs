@@ -321,36 +321,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TransactionId (string) maxLength
-            if(this.TransactionId != null && this.TransactionId.Length >= 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionId, length must be less than or equal to 50.", new [] { "TransactionId" });
-            }
-
-            // ApprovalCode (string) maxLength
-            if(this.ApprovalCode != null && this.ApprovalCode.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApprovalCode, length must be less than or equal to 6.", new [] { "ApprovalCode" });
-            }
-
-            // ResponseCode (string) maxLength
-            if(this.ResponseCode != null && this.ResponseCode.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCode, length must be less than or equal to 10.", new [] { "ResponseCode" });
-            }
-
-            // SystemTraceAuditNumber (string) maxLength
-            if(this.SystemTraceAuditNumber != null && this.SystemTraceAuditNumber.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SystemTraceAuditNumber, length must be less than or equal to 6.", new [] { "SystemTraceAuditNumber" });
-            }
-
-            // ResponseCodeSource (string) maxLength
-            if(this.ResponseCodeSource != null && this.ResponseCodeSource.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCodeSource, length must be less than or equal to 1.", new [] { "ResponseCodeSource" });
-            }
-
             yield break;
         }
     }

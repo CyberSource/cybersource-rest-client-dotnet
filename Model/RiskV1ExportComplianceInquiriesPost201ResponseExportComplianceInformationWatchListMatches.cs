@@ -173,12 +173,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // SanctionList (string) maxLength
-            if(this.SanctionList != null && this.SanctionList.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SanctionList, length must be less than or equal to 255.", new [] { "SanctionList" });
-            }
-
             yield break;
         }
     }

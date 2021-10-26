@@ -204,24 +204,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ExemptAmount (string) maxLength
-            if(this.ExemptAmount != null && this.ExemptAmount.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExemptAmount, length must be less than or equal to 15.", new [] { "ExemptAmount" });
-            }
-
-            // TaxableAmount (string) maxLength
-            if(this.TaxableAmount != null && this.TaxableAmount.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxableAmount, length must be less than or equal to 15.", new [] { "TaxableAmount" });
-            }
-
-            // TaxAmount (string) maxLength
-            if(this.TaxAmount != null && this.TaxAmount.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than or equal to 15.", new [] { "TaxAmount" });
-            }
-
             yield break;
         }
     }

@@ -138,12 +138,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ApprovalCode (string) maxLength
-            if(this.ApprovalCode != null && this.ApprovalCode.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApprovalCode, length must be less than or equal to 6.", new [] { "ApprovalCode" });
-            }
-
             yield break;
         }
     }

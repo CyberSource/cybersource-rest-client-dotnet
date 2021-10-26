@@ -206,36 +206,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ApprovalCode (string) maxLength
-            if(this.ApprovalCode != null && this.ApprovalCode.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApprovalCode, length must be less than or equal to 6.", new [] { "ApprovalCode" });
-            }
-
-            // TransactionId (string) maxLength
-            if(this.TransactionId != null && this.TransactionId.Length >= 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionId, length must be less than or equal to 50.", new [] { "TransactionId" });
-            }
-
-            // ResponseCode (string) maxLength
-            if(this.ResponseCode != null && this.ResponseCode.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseCode, length must be less than or equal to 10.", new [] { "ResponseCode" });
-            }
-
-            // SystemTraceAuditNumber (string) maxLength
-            if(this.SystemTraceAuditNumber != null && this.SystemTraceAuditNumber.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SystemTraceAuditNumber, length must be less than or equal to 6.", new [] { "SystemTraceAuditNumber" });
-            }
-
-            // ResponseDetails (string) maxLength
-            if(this.ResponseDetails != null && this.ResponseDetails.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseDetails, length must be less than or equal to 255.", new [] { "ResponseDetails" });
-            }
-
             yield break;
         }
     }

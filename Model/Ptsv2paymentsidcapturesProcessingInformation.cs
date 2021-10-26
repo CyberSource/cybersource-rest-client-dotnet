@@ -305,48 +305,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PaymentSolution (string) maxLength
-            if(this.PaymentSolution != null && this.PaymentSolution.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentSolution, length must be less than or equal to 12.", new [] { "PaymentSolution" });
-            }
-
-            // ReconciliationId (string) maxLength
-            if(this.ReconciliationId != null && this.ReconciliationId.Length >= 60)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationId, length must be less than or equal to 60.", new [] { "ReconciliationId" });
-            }
-
-            // LinkId (string) maxLength
-            if(this.LinkId != null && this.LinkId.Length >= 26)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LinkId, length must be less than or equal to 26.", new [] { "LinkId" });
-            }
-
-            // ReportGroup (string) maxLength
-            if(this.ReportGroup != null && this.ReportGroup.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportGroup, length must be less than or equal to 25.", new [] { "ReportGroup" });
-            }
-
-            // VisaCheckoutId (string) maxLength
-            if(this.VisaCheckoutId != null && this.VisaCheckoutId.Length >= 48)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VisaCheckoutId, length must be less than or equal to 48.", new [] { "VisaCheckoutId" });
-            }
-
-            // PurchaseLevel (string) maxLength
-            if(this.PurchaseLevel != null && this.PurchaseLevel.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseLevel, length must be less than or equal to 1.", new [] { "PurchaseLevel" });
-            }
-
-            // IndustryDataType (string) maxLength
-            if(this.IndustryDataType != null && this.IndustryDataType.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IndustryDataType, length must be less than or equal to 20.", new [] { "IndustryDataType" });
-            }
-
             yield break;
         }
     }

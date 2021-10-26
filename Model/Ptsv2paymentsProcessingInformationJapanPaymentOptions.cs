@@ -241,48 +241,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PaymentMethod (string) maxLength
-            if(this.PaymentMethod != null && this.PaymentMethod.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentMethod, length must be less than or equal to 2.", new [] { "PaymentMethod" });
-            }
-
-            // TerminalId (string) maxLength
-            if(this.TerminalId != null && this.TerminalId.Length >= 13)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalId, length must be less than or equal to 13.", new [] { "TerminalId" });
-            }
-
-            // FirstBillingMonth (string) maxLength
-            if(this.FirstBillingMonth != null && this.FirstBillingMonth.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstBillingMonth, length must be less than or equal to 2.", new [] { "FirstBillingMonth" });
-            }
-
-            // BusinessName (string) maxLength
-            if(this.BusinessName != null && this.BusinessName.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BusinessName, length must be less than or equal to 25.", new [] { "BusinessName" });
-            }
-
-            // BusinessNameKatakana (string) maxLength
-            if(this.BusinessNameKatakana != null && this.BusinessNameKatakana.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BusinessNameKatakana, length must be less than or equal to 25.", new [] { "BusinessNameKatakana" });
-            }
-
-            // Jis2TrackData (string) maxLength
-            if(this.Jis2TrackData != null && this.Jis2TrackData.Length >= 69)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Jis2TrackData, length must be less than or equal to 69.", new [] { "Jis2TrackData" });
-            }
-
-            // BusinessNameAlphaNumeric (string) maxLength
-            if(this.BusinessNameAlphaNumeric != null && this.BusinessNameAlphaNumeric.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BusinessNameAlphaNumeric, length must be less than or equal to 25.", new [] { "BusinessNameAlphaNumeric" });
-            }
-
             yield break;
         }
     }

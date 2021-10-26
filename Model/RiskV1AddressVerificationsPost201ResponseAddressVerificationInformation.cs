@@ -239,36 +239,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AddressType (string) maxLength
-            if(this.AddressType != null && this.AddressType.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AddressType, length must be less than or equal to 255.", new [] { "AddressType" });
-            }
-
-            // ApplicableRegion (string) maxLength
-            if(this.ApplicableRegion != null && this.ApplicableRegion.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApplicableRegion, length must be less than or equal to 255.", new [] { "ApplicableRegion" });
-            }
-
-            // ErrorCode (string) maxLength
-            if(this.ErrorCode != null && this.ErrorCode.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ErrorCode, length must be less than or equal to 255.", new [] { "ErrorCode" });
-            }
-
-            // StatusCode (string) maxLength
-            if(this.StatusCode != null && this.StatusCode.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StatusCode, length must be less than or equal to 255.", new [] { "StatusCode" });
-            }
-
-            // CareOf (string) maxLength
-            if(this.CareOf != null && this.CareOf.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CareOf, length must be less than or equal to 255.", new [] { "CareOf" });
-            }
-
             yield break;
         }
     }

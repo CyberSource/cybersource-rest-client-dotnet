@@ -207,24 +207,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // LastChangeDate (string) maxLength
-            if(this.LastChangeDate != null && this.LastChangeDate.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastChangeDate, length must be less than or equal to 10.", new [] { "LastChangeDate" });
-            }
-
-            // CreateDate (string) maxLength
-            if(this.CreateDate != null && this.CreateDate.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreateDate, length must be less than or equal to 10.", new [] { "CreateDate" });
-            }
-
-            // PasswordChangeDate (string) maxLength
-            if(this.PasswordChangeDate != null && this.PasswordChangeDate.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PasswordChangeDate, length must be less than or equal to 10.", new [] { "PasswordChangeDate" });
-            }
-
             yield break;
         }
     }

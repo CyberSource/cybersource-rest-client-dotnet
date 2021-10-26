@@ -138,12 +138,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // MerchantName (string) maxLength
-            if(this.MerchantName != null && this.MerchantName.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantName, length must be less than or equal to 25.", new [] { "MerchantName" });
-            }
-
             yield break;
         }
     }

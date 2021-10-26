@@ -155,18 +155,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ModelUsed (string) maxLength
-            if(this.ModelUsed != null && this.ModelUsed.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModelUsed, length must be less than or equal to 255.", new [] { "ModelUsed" });
-            }
-
-            // Result (string) maxLength
-            if(this.Result != null && this.Result.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Result, length must be less than or equal to 255.", new [] { "Result" });
-            }
-
             yield break;
         }
     }

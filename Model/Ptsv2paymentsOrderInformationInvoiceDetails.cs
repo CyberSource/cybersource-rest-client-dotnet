@@ -359,58 +359,10 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PurchaseOrderNumber (string) maxLength
-            if(this.PurchaseOrderNumber != null && this.PurchaseOrderNumber.Length >= 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseOrderNumber, length must be less than or equal to 25.", new [] { "PurchaseOrderNumber" });
-            }
-
-            // PurchaseOrderDate (string) maxLength
-            if(this.PurchaseOrderDate != null && this.PurchaseOrderDate.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseOrderDate, length must be less than or equal to 10.", new [] { "PurchaseOrderDate" });
-            }
-
-            // PurchaseContactName (string) maxLength
-            if(this.PurchaseContactName != null && this.PurchaseContactName.Length >= 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PurchaseContactName, length must be less than or equal to 36.", new [] { "PurchaseContactName" });
-            }
-
-            // VatInvoiceReferenceNumber (string) maxLength
-            if(this.VatInvoiceReferenceNumber != null && this.VatInvoiceReferenceNumber.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VatInvoiceReferenceNumber, length must be less than or equal to 15.", new [] { "VatInvoiceReferenceNumber" });
-            }
-
-            // CommodityCode (string) maxLength
-            if(this.CommodityCode != null && this.CommodityCode.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommodityCode, length must be less than or equal to 4.", new [] { "CommodityCode" });
-            }
-
-            // ReferenceDataCode (string) maxLength
-            if(this.ReferenceDataCode != null && this.ReferenceDataCode.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataCode, length must be less than or equal to 3.", new [] { "ReferenceDataCode" });
-            }
-
-            // ReferenceDataNumber (string) maxLength
-            if(this.ReferenceDataNumber != null && this.ReferenceDataNumber.Length >= 30)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceDataNumber, length must be less than or equal to 30.", new [] { "ReferenceDataNumber" });
-            }
-
             // SalesSlipNumber (int?) maximum
-            if(this.SalesSlipNumber >= (int?)99999)
+            if(this.SalesSlipNumber > (int?)99999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SalesSlipNumber, must be a value less than or equal to 99999.", new [] { "SalesSlipNumber" });
-            }
-
-            // InvoiceDate (string) maxLength
-            if(this.InvoiceDate != null && this.InvoiceDate.Length >= 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvoiceDate, length must be less than or equal to 8.", new [] { "InvoiceDate" });
             }
 
             yield break;

@@ -170,12 +170,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // EventType (string) maxLength
-            if(this.EventType != null && this.EventType.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventType, length must be less than or equal to 255.", new [] { "EventType" });
-            }
-
             yield break;
         }
     }

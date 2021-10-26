@@ -267,12 +267,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // LocalTime (string) maxLength
-            if(this.LocalTime != null && this.LocalTime.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LocalTime, length must be less than or equal to 255.", new [] { "LocalTime" });
-            }
-
             yield break;
         }
     }

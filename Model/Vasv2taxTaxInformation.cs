@@ -224,18 +224,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ReportingDate (string) maxLength
-            if(this.ReportingDate != null && this.ReportingDate.Length >= 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportingDate, length must be less than or equal to 8.", new [] { "ReportingDate" });
-            }
-
-            // DateOverrideReason (string) maxLength
-            if(this.DateOverrideReason != null && this.DateOverrideReason.Length >= 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateOverrideReason, length must be less than or equal to 50.", new [] { "DateOverrideReason" });
-            }
-
             yield break;
         }
     }

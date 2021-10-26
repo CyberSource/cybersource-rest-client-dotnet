@@ -140,7 +140,7 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // SalesSlipNumber (int?) maximum
-            if(this.SalesSlipNumber >= (int?)99999)
+            if(this.SalesSlipNumber > (int?)99999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SalesSlipNumber, must be a value less than or equal to 99999.", new [] { "SalesSlipNumber" });
             }

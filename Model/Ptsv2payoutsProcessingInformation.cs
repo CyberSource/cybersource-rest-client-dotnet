@@ -189,30 +189,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // BusinessApplicationId (string) maxLength
-            if(this.BusinessApplicationId != null && this.BusinessApplicationId.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BusinessApplicationId, length must be less than or equal to 2.", new [] { "BusinessApplicationId" });
-            }
-
-            // NetworkRoutingOrder (string) maxLength
-            if(this.NetworkRoutingOrder != null && this.NetworkRoutingOrder.Length >= 30)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetworkRoutingOrder, length must be less than or equal to 30.", new [] { "NetworkRoutingOrder" });
-            }
-
-            // CommerceIndicator (string) maxLength
-            if(this.CommerceIndicator != null && this.CommerceIndicator.Length >= 13)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommerceIndicator, length must be less than or equal to 13.", new [] { "CommerceIndicator" });
-            }
-
-            // ReconciliationId (string) maxLength
-            if(this.ReconciliationId != null && this.ReconciliationId.Length >= 60)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationId, length must be less than or equal to 60.", new [] { "ReconciliationId" });
-            }
-
             yield break;
         }
     }

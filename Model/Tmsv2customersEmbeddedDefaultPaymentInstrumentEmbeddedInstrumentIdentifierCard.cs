@@ -173,36 +173,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Number (string) maxLength
-            if(this.Number != null && this.Number.Length >= 19)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than or equal to 19.", new [] { "Number" });
-            }
-
-            // Number (string) minLength
-            if(this.Number != null && this.Number.Length <= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be greater than or equal to 12.", new [] { "Number" });
-            }
-
-            // ExpirationMonth (string) maxLength
-            if(this.ExpirationMonth != null && this.ExpirationMonth.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationMonth, length must be less than or equal to 2.", new [] { "ExpirationMonth" });
-            }
-
-            // ExpirationYear (string) maxLength
-            if(this.ExpirationYear != null && this.ExpirationYear.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationYear, length must be less than or equal to 4.", new [] { "ExpirationYear" });
-            }
-
-            // SecurityCode (string) maxLength
-            if(this.SecurityCode != null && this.SecurityCode.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecurityCode, length must be less than or equal to 4.", new [] { "SecurityCode" });
-            }
-
             yield break;
         }
     }

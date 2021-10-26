@@ -172,26 +172,14 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TerminalId (string) maxLength
-            if(this.TerminalId != null && this.TerminalId.Length >= 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalId, length must be less than or equal to 8.", new [] { "TerminalId" });
-            }
-
-            // EntryMode (string) maxLength
-            if(this.EntryMode != null && this.EntryMode.Length >= 11)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntryMode, length must be less than or equal to 11.", new [] { "EntryMode" });
-            }
-
             // TerminalCapability (int?) maximum
-            if(this.TerminalCapability >= (int?)5)
+            if(this.TerminalCapability > (int?)5)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCapability, must be a value less than or equal to 5.", new [] { "TerminalCapability" });
             }
 
             // TerminalCapability (int?) minimum
-            if(this.TerminalCapability <= (int?)1)
+            if(this.TerminalCapability < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCapability, must be a value greater than or equal to 1.", new [] { "TerminalCapability" });
             }

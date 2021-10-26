@@ -156,18 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Number (string) maxLength
-            if(this.Number != null && this.Number.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than or equal to 20.", new [] { "Number" });
-            }
-
-            // Bin (string) maxLength
-            if(this.Bin != null && this.Bin.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bin, length must be less than or equal to 6.", new [] { "Bin" });
-            }
-
             yield break;
         }
     }

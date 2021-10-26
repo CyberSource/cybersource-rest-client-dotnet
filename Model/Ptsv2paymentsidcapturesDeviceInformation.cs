@@ -156,24 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // HostName (string) maxLength
-            if(this.HostName != null && this.HostName.Length >= 60)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HostName, length must be less than or equal to 60.", new [] { "HostName" });
-            }
-
-            // IpAddress (string) maxLength
-            if(this.IpAddress != null && this.IpAddress.Length >= 45)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IpAddress, length must be less than or equal to 45.", new [] { "IpAddress" });
-            }
-
-            // UserAgent (string) maxLength
-            if(this.UserAgent != null && this.UserAgent.Length >= 40)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserAgent, length must be less than or equal to 40.", new [] { "UserAgent" });
-            }
-
             yield break;
         }
     }

@@ -156,18 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Code (string) maxLength
-            if(this.Code != null && this.Code.Length >= 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than or equal to 50.", new [] { "Code" });
-            }
-
-            // SubmitLocalDateTime (string) maxLength
-            if(this.SubmitLocalDateTime != null && this.SubmitLocalDateTime.Length >= 14)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubmitLocalDateTime, length must be less than or equal to 14.", new [] { "SubmitLocalDateTime" });
-            }
-
             yield break;
         }
     }

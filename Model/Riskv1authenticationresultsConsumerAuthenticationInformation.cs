@@ -224,36 +224,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AuthenticationTransactionId (string) maxLength
-            if(this.AuthenticationTransactionId != null && this.AuthenticationTransactionId.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthenticationTransactionId, length must be less than or equal to 20.", new [] { "AuthenticationTransactionId" });
-            }
-
-            // AuthenticationType (string) maxLength
-            if(this.AuthenticationType != null && this.AuthenticationType.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthenticationType, length must be less than or equal to 2.", new [] { "AuthenticationType" });
-            }
-
-            // EffectiveAuthenticationType (string) maxLength
-            if(this.EffectiveAuthenticationType != null && this.EffectiveAuthenticationType.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveAuthenticationType, length must be less than or equal to 2.", new [] { "EffectiveAuthenticationType" });
-            }
-
-            // SignedParesStatusReason (string) maxLength
-            if(this.SignedParesStatusReason != null && this.SignedParesStatusReason.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SignedParesStatusReason, length must be less than or equal to 2.", new [] { "SignedParesStatusReason" });
-            }
-
-            // WhiteListStatus (string) maxLength
-            if(this.WhiteListStatus != null && this.WhiteListStatus.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WhiteListStatus, length must be less than or equal to 1.", new [] { "WhiteListStatus" });
-            }
-
             yield break;
         }
     }

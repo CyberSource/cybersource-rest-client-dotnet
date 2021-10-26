@@ -156,18 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Xid (string) maxLength
-            if(this.Xid != null && this.Xid.Length >= 40)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Xid, length must be less than or equal to 40.", new [] { "Xid" });
-            }
-
-            // EciRaw (string) maxLength
-            if(this.EciRaw != null && this.EciRaw.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EciRaw, length must be less than or equal to 2.", new [] { "EciRaw" });
-            }
-
             yield break;
         }
     }

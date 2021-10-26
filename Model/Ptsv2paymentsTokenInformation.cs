@@ -188,12 +188,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Jti (string) maxLength
-            if(this.Jti != null && this.Jti.Length >= 64)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Jti, length must be less than or equal to 64.", new [] { "Jti" });
-            }
-
             yield break;
         }
     }

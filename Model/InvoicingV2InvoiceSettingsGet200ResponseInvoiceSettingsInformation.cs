@@ -240,42 +240,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // MerchantLogo (string) maxLength
-            if(this.MerchantLogo != null && this.MerchantLogo.Length >= 10000000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantLogo, length must be less than or equal to 10000000.", new [] { "MerchantLogo" });
-            }
-
-            // MerchantDisplayName (string) maxLength
-            if(this.MerchantDisplayName != null && this.MerchantDisplayName.Length >= 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantDisplayName, length must be less than or equal to 100.", new [] { "MerchantDisplayName" });
-            }
-
-            // CustomEmailMessage (string) maxLength
-            if(this.CustomEmailMessage != null && this.CustomEmailMessage.Length >= 2000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomEmailMessage, length must be less than or equal to 2000.", new [] { "CustomEmailMessage" });
-            }
-
-            // DeliveryLanguage (string) maxLength
-            if(this.DeliveryLanguage != null && this.DeliveryLanguage.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DeliveryLanguage, length must be less than or equal to 6.", new [] { "DeliveryLanguage" });
-            }
-
-            // DefaultCurrencyCode (string) maxLength
-            if(this.DefaultCurrencyCode != null && this.DefaultCurrencyCode.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DefaultCurrencyCode, length must be less than or equal to 3.", new [] { "DefaultCurrencyCode" });
-            }
-
-            // PayerAuthentication3DSVersion (string) maxLength
-            if(this.PayerAuthentication3DSVersion != null && this.PayerAuthentication3DSVersion.Length >= 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PayerAuthentication3DSVersion, length must be less than or equal to 8.", new [] { "PayerAuthentication3DSVersion" });
-            }
-
             yield break;
         }
     }

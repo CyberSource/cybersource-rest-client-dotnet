@@ -275,60 +275,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Number (string) maxLength
-            if(this.Number != null && this.Number.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Number, length must be less than or equal to 20.", new [] { "Number" });
-            }
-
-            // ExpirationMonth (string) maxLength
-            if(this.ExpirationMonth != null && this.ExpirationMonth.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationMonth, length must be less than or equal to 2.", new [] { "ExpirationMonth" });
-            }
-
-            // ExpirationYear (string) maxLength
-            if(this.ExpirationYear != null && this.ExpirationYear.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpirationYear, length must be less than or equal to 4.", new [] { "ExpirationYear" });
-            }
-
-            // Cryptogram (string) maxLength
-            if(this.Cryptogram != null && this.Cryptogram.Length >= 40)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Cryptogram, length must be less than or equal to 40.", new [] { "Cryptogram" });
-            }
-
-            // RequestorId (string) maxLength
-            if(this.RequestorId != null && this.RequestorId.Length >= 11)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RequestorId, length must be less than or equal to 11.", new [] { "RequestorId" });
-            }
-
-            // TransactionType (string) maxLength
-            if(this.TransactionType != null && this.TransactionType.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionType, length must be less than or equal to 1.", new [] { "TransactionType" });
-            }
-
-            // AssuranceLevel (string) maxLength
-            if(this.AssuranceLevel != null && this.AssuranceLevel.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssuranceLevel, length must be less than or equal to 2.", new [] { "AssuranceLevel" });
-            }
-
-            // StorageMethod (string) maxLength
-            if(this.StorageMethod != null && this.StorageMethod.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StorageMethod, length must be less than or equal to 3.", new [] { "StorageMethod" });
-            }
-
-            // SecurityCode (string) maxLength
-            if(this.SecurityCode != null && this.SecurityCode.Length >= 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecurityCode, length must be less than or equal to 4.", new [] { "SecurityCode" });
-            }
-
             yield break;
         }
     }

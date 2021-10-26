@@ -34,7 +34,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns></returns>
         void CreateStandardOrClassicSubscription (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null);
 
@@ -46,7 +46,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateStandardOrClassicSubscriptionWithHttpInfo (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null);
         /// <summary>
@@ -57,7 +57,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns></returns>
         void CreateSubscription (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null);
 
@@ -69,7 +69,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateSubscriptionWithHttpInfo (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null);
         /// <summary>
@@ -80,7 +80,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns></returns>
         void DeleteSubscription (string reportName, string organizationId = null);
 
@@ -92,7 +92,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSubscriptionWithHttpInfo (string reportName, string organizationId = null);
         /// <summary>
@@ -102,7 +102,7 @@ namespace CyberSource.Api
         /// View a summary of all report subscriptions. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ReportingV3ReportSubscriptionsGet200Response</returns>
         ReportingV3ReportSubscriptionsGet200Response GetAllSubscriptions (string organizationId = null);
 
@@ -113,7 +113,7 @@ namespace CyberSource.Api
         /// View a summary of all report subscriptions. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200Response</returns>
         ApiResponse<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsWithHttpInfo (string organizationId = null);
         /// <summary>
@@ -124,7 +124,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
         ReportingV3ReportSubscriptionsGet200ResponseSubscriptions GetSubscription (string reportName, string organizationId = null);
 
@@ -136,7 +136,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
         ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionWithHttpInfo (string reportName, string organizationId = null);
         #endregion Synchronous Operations
@@ -149,7 +149,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task CreateStandardOrClassicSubscriptionAsync (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null);
 
@@ -161,7 +161,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CreateStandardOrClassicSubscriptionAsyncWithHttpInfo (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null);
         /// <summary>
@@ -172,7 +172,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task CreateSubscriptionAsync (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null);
 
@@ -184,7 +184,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CreateSubscriptionAsyncWithHttpInfo (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null);
         /// <summary>
@@ -195,7 +195,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteSubscriptionAsync (string reportName, string organizationId = null);
 
@@ -207,7 +207,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo (string reportName, string organizationId = null);
         /// <summary>
@@ -217,7 +217,7 @@ namespace CyberSource.Api
         /// View a summary of all report subscriptions. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200Response</returns>
         System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync (string organizationId = null);
 
@@ -228,7 +228,7 @@ namespace CyberSource.Api
         /// View a summary of all report subscriptions. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200Response>> GetAllSubscriptionsAsyncWithHttpInfo (string organizationId = null);
         /// <summary>
@@ -239,7 +239,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
         System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync (string reportName, string organizationId = null);
 
@@ -251,7 +251,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200ResponseSubscriptions)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>> GetSubscriptionAsyncWithHttpInfo (string reportName, string organizationId = null);
         #endregion Asynchronous Operations
@@ -379,7 +379,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns></returns>
         public void CreateStandardOrClassicSubscription (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
         {
@@ -392,7 +392,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> CreateStandardOrClassicSubscriptionWithHttpInfo (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
         {
@@ -478,7 +478,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task CreateStandardOrClassicSubscriptionAsync (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
         {
@@ -492,7 +492,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="predefinedSubscriptionRequestBean">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateStandardOrClassicSubscriptionAsyncWithHttpInfo (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
         {
@@ -577,7 +577,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns></returns>
         public void CreateSubscription (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null)
         {
@@ -590,7 +590,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> CreateSubscriptionWithHttpInfo (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null)
         {
@@ -676,7 +676,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task CreateSubscriptionAsync (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null)
         {
@@ -690,7 +690,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createReportSubscriptionRequest">Report subscription request payload</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSubscriptionAsyncWithHttpInfo (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null)
         {
@@ -775,7 +775,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns></returns>
         public void DeleteSubscription (string reportName, string organizationId = null)
         {
@@ -788,7 +788,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteSubscriptionWithHttpInfo (string reportName, string organizationId = null)
         {
@@ -862,7 +862,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteSubscriptionAsync (string reportName, string organizationId = null)
         {
@@ -876,7 +876,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Delete</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo (string reportName, string organizationId = null)
         {
@@ -948,7 +948,7 @@ namespace CyberSource.Api
         /// Get All Subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ReportingV3ReportSubscriptionsGet200Response</returns>
         public ReportingV3ReportSubscriptionsGet200Response GetAllSubscriptions (string organizationId = null)
         {
@@ -962,7 +962,7 @@ namespace CyberSource.Api
         /// Get All Subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200Response</returns>
         public ApiResponse< ReportingV3ReportSubscriptionsGet200Response > GetAllSubscriptionsWithHttpInfo (string organizationId = null)
         {
@@ -1024,7 +1024,7 @@ namespace CyberSource.Api
         /// Get All Subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200Response</returns>
         public async System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync (string organizationId = null)
         {
@@ -1039,7 +1039,7 @@ namespace CyberSource.Api
         /// Get All Subscriptions View a summary of all report subscriptions. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200Response>> GetAllSubscriptionsAsyncWithHttpInfo (string organizationId = null)
         {
@@ -1101,7 +1101,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
         public ReportingV3ReportSubscriptionsGet200ResponseSubscriptions GetSubscription (string reportName, string organizationId = null)
         {
@@ -1116,7 +1116,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>ApiResponse of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
         public ApiResponse< ReportingV3ReportSubscriptionsGet200ResponseSubscriptions > GetSubscriptionWithHttpInfo (string reportName, string organizationId = null)
         {
@@ -1190,7 +1190,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
         public async System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync (string reportName, string organizationId = null)
         {
@@ -1206,7 +1206,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
-        /// <param name="organizationId">Valid Cybersource Organization Id (optional)</param>
+        /// <param name="organizationId">Valid Organization Id (optional)</param>
         /// <returns>Task of ApiResponse (ReportingV3ReportSubscriptionsGet200ResponseSubscriptions)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions>> GetSubscriptionAsyncWithHttpInfo (string reportName, string organizationId = null)
         {

@@ -819,262 +819,28 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CheckInDate (string) maxLength
-            if(this.CheckInDate != null && this.CheckInDate.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CheckInDate, length must be less than or equal to 6.", new [] { "CheckInDate" });
-            }
-
-            // CheckOutDate (string) maxLength
-            if(this.CheckOutDate != null && this.CheckOutDate.Length >= 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CheckOutDate, length must be less than or equal to 6.", new [] { "CheckOutDate" });
-            }
-
-            // SmokingPreference (string) maxLength
-            if(this.SmokingPreference != null && this.SmokingPreference.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SmokingPreference, length must be less than or equal to 1.", new [] { "SmokingPreference" });
-            }
-
             // NumberOfRooms (int?) maximum
-            if(this.NumberOfRooms >= (int?)99)
+            if(this.NumberOfRooms > (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfRooms, must be a value less than or equal to 99.", new [] { "NumberOfRooms" });
             }
 
             // NumberOfRooms (int?) minimum
-            if(this.NumberOfRooms <= (int?)1)
+            if(this.NumberOfRooms < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfRooms, must be a value greater than or equal to 1.", new [] { "NumberOfRooms" });
             }
 
             // NumberOfGuests (int?) maximum
-            if(this.NumberOfGuests >= (int?)99)
+            if(this.NumberOfGuests > (int?)99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfGuests, must be a value less than or equal to 99.", new [] { "NumberOfGuests" });
             }
 
             // NumberOfGuests (int?) minimum
-            if(this.NumberOfGuests <= (int?)1)
+            if(this.NumberOfGuests < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfGuests, must be a value greater than or equal to 1.", new [] { "NumberOfGuests" });
-            }
-
-            // RoomBedType (string) maxLength
-            if(this.RoomBedType != null && this.RoomBedType.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoomBedType, length must be less than or equal to 12.", new [] { "RoomBedType" });
-            }
-
-            // RoomTaxType (string) maxLength
-            if(this.RoomTaxType != null && this.RoomTaxType.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoomTaxType, length must be less than or equal to 10.", new [] { "RoomTaxType" });
-            }
-
-            // RoomRateType (string) maxLength
-            if(this.RoomRateType != null && this.RoomRateType.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoomRateType, length must be less than or equal to 12.", new [] { "RoomRateType" });
-            }
-
-            // GuestName (string) maxLength
-            if(this.GuestName != null && this.GuestName.Length >= 40)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GuestName, length must be less than or equal to 40.", new [] { "GuestName" });
-            }
-
-            // CustomerServicePhoneNumber (string) maxLength
-            if(this.CustomerServicePhoneNumber != null && this.CustomerServicePhoneNumber.Length >= 17)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomerServicePhoneNumber, length must be less than or equal to 17.", new [] { "CustomerServicePhoneNumber" });
-            }
-
-            // CorporateClientCode (string) maxLength
-            if(this.CorporateClientCode != null && this.CorporateClientCode.Length >= 17)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CorporateClientCode, length must be less than or equal to 17.", new [] { "CorporateClientCode" });
-            }
-
-            // AdditionalDiscountAmount (string) maxLength
-            if(this.AdditionalDiscountAmount != null && this.AdditionalDiscountAmount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdditionalDiscountAmount, length must be less than or equal to 12.", new [] { "AdditionalDiscountAmount" });
-            }
-
-            // RoomLocation (string) maxLength
-            if(this.RoomLocation != null && this.RoomLocation.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoomLocation, length must be less than or equal to 10.", new [] { "RoomLocation" });
-            }
-
-            // SpecialProgramCode (string) maxLength
-            if(this.SpecialProgramCode != null && this.SpecialProgramCode.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SpecialProgramCode, length must be less than or equal to 1.", new [] { "SpecialProgramCode" });
-            }
-
-            // TotalTaxAmount (string) maxLength
-            if(this.TotalTaxAmount != null && this.TotalTaxAmount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalTaxAmount, length must be less than or equal to 12.", new [] { "TotalTaxAmount" });
-            }
-
-            // PrepaidCost (string) maxLength
-            if(this.PrepaidCost != null && this.PrepaidCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PrepaidCost, length must be less than or equal to 12.", new [] { "PrepaidCost" });
-            }
-
-            // FoodAndBeverageCost (string) maxLength
-            if(this.FoodAndBeverageCost != null && this.FoodAndBeverageCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FoodAndBeverageCost, length must be less than or equal to 12.", new [] { "FoodAndBeverageCost" });
-            }
-
-            // RoomTaxAmount (string) maxLength
-            if(this.RoomTaxAmount != null && this.RoomTaxAmount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoomTaxAmount, length must be less than or equal to 12.", new [] { "RoomTaxAmount" });
-            }
-
-            // AdjustmentAmount (string) maxLength
-            if(this.AdjustmentAmount != null && this.AdjustmentAmount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdjustmentAmount, length must be less than or equal to 12.", new [] { "AdjustmentAmount" });
-            }
-
-            // PhoneCost (string) maxLength
-            if(this.PhoneCost != null && this.PhoneCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneCost, length must be less than or equal to 12.", new [] { "PhoneCost" });
-            }
-
-            // RestaurantCost (string) maxLength
-            if(this.RestaurantCost != null && this.RestaurantCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RestaurantCost, length must be less than or equal to 12.", new [] { "RestaurantCost" });
-            }
-
-            // RoomServiceCost (string) maxLength
-            if(this.RoomServiceCost != null && this.RoomServiceCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoomServiceCost, length must be less than or equal to 12.", new [] { "RoomServiceCost" });
-            }
-
-            // MiniBarCost (string) maxLength
-            if(this.MiniBarCost != null && this.MiniBarCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MiniBarCost, length must be less than or equal to 12.", new [] { "MiniBarCost" });
-            }
-
-            // LaundryCost (string) maxLength
-            if(this.LaundryCost != null && this.LaundryCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LaundryCost, length must be less than or equal to 12.", new [] { "LaundryCost" });
-            }
-
-            // MiscellaneousCost (string) maxLength
-            if(this.MiscellaneousCost != null && this.MiscellaneousCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MiscellaneousCost, length must be less than or equal to 12.", new [] { "MiscellaneousCost" });
-            }
-
-            // GiftShopCost (string) maxLength
-            if(this.GiftShopCost != null && this.GiftShopCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GiftShopCost, length must be less than or equal to 12.", new [] { "GiftShopCost" });
-            }
-
-            // MovieCost (string) maxLength
-            if(this.MovieCost != null && this.MovieCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MovieCost, length must be less than or equal to 12.", new [] { "MovieCost" });
-            }
-
-            // HealthClubCost (string) maxLength
-            if(this.HealthClubCost != null && this.HealthClubCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HealthClubCost, length must be less than or equal to 12.", new [] { "HealthClubCost" });
-            }
-
-            // ValetParkingCost (string) maxLength
-            if(this.ValetParkingCost != null && this.ValetParkingCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ValetParkingCost, length must be less than or equal to 12.", new [] { "ValetParkingCost" });
-            }
-
-            // CashDisbursementCost (string) maxLength
-            if(this.CashDisbursementCost != null && this.CashDisbursementCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CashDisbursementCost, length must be less than or equal to 12.", new [] { "CashDisbursementCost" });
-            }
-
-            // NonRoomCost (string) maxLength
-            if(this.NonRoomCost != null && this.NonRoomCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NonRoomCost, length must be less than or equal to 12.", new [] { "NonRoomCost" });
-            }
-
-            // BusinessCenterCost (string) maxLength
-            if(this.BusinessCenterCost != null && this.BusinessCenterCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BusinessCenterCost, length must be less than or equal to 12.", new [] { "BusinessCenterCost" });
-            }
-
-            // LoungeBarCost (string) maxLength
-            if(this.LoungeBarCost != null && this.LoungeBarCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoungeBarCost, length must be less than or equal to 12.", new [] { "LoungeBarCost" });
-            }
-
-            // TransportationCost (string) maxLength
-            if(this.TransportationCost != null && this.TransportationCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransportationCost, length must be less than or equal to 12.", new [] { "TransportationCost" });
-            }
-
-            // GratuityAmount (string) maxLength
-            if(this.GratuityAmount != null && this.GratuityAmount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GratuityAmount, length must be less than or equal to 12.", new [] { "GratuityAmount" });
-            }
-
-            // ConferenceRoomCost (string) maxLength
-            if(this.ConferenceRoomCost != null && this.ConferenceRoomCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ConferenceRoomCost, length must be less than or equal to 12.", new [] { "ConferenceRoomCost" });
-            }
-
-            // AudioVisualCost (string) maxLength
-            if(this.AudioVisualCost != null && this.AudioVisualCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AudioVisualCost, length must be less than or equal to 12.", new [] { "AudioVisualCost" });
-            }
-
-            // BanquestCost (string) maxLength
-            if(this.BanquestCost != null && this.BanquestCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BanquestCost, length must be less than or equal to 12.", new [] { "BanquestCost" });
-            }
-
-            // NonRoomTaxAmount (string) maxLength
-            if(this.NonRoomTaxAmount != null && this.NonRoomTaxAmount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NonRoomTaxAmount, length must be less than or equal to 12.", new [] { "NonRoomTaxAmount" });
-            }
-
-            // EarlyCheckOutCost (string) maxLength
-            if(this.EarlyCheckOutCost != null && this.EarlyCheckOutCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EarlyCheckOutCost, length must be less than or equal to 12.", new [] { "EarlyCheckOutCost" });
-            }
-
-            // InternetAccessCost (string) maxLength
-            if(this.InternetAccessCost != null && this.InternetAccessCost.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InternetAccessCost, length must be less than or equal to 12.", new [] { "InternetAccessCost" });
             }
 
             yield break;

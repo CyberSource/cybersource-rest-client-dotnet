@@ -173,18 +173,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CompanyTaxID (string) maxLength
-            if(this.CompanyTaxID != null && this.CompanyTaxID.Length >= 9)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompanyTaxID, length must be less than or equal to 9.", new [] { "CompanyTaxID" });
-            }
-
-            // Currency (string) maxLength
-            if(this.Currency != null && this.Currency.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than or equal to 3.", new [] { "Currency" });
-            }
-
             yield break;
         }
     }

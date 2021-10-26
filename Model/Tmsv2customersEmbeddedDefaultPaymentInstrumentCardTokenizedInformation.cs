@@ -139,18 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // RequestorID (string) maxLength
-            if(this.RequestorID != null && this.RequestorID.Length >= 11)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RequestorID, length must be less than or equal to 11.", new [] { "RequestorID" });
-            }
-
-            // TransactionType (string) maxLength
-            if(this.TransactionType != null && this.TransactionType.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionType, length must be less than or equal to 1.", new [] { "TransactionType" });
-            }
-
             yield break;
         }
     }

@@ -173,30 +173,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ShipFromLocality (string) maxLength
-            if(this.ShipFromLocality != null && this.ShipFromLocality.Length >= 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShipFromLocality, length must be less than or equal to 50.", new [] { "ShipFromLocality" });
-            }
-
-            // ShipFromCountry (string) maxLength
-            if(this.ShipFromCountry != null && this.ShipFromCountry.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShipFromCountry, length must be less than or equal to 2.", new [] { "ShipFromCountry" });
-            }
-
-            // ShipFromPostalCode (string) maxLength
-            if(this.ShipFromPostalCode != null && this.ShipFromPostalCode.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShipFromPostalCode, length must be less than or equal to 10.", new [] { "ShipFromPostalCode" });
-            }
-
-            // ShipFromAdministrativeArea (string) maxLength
-            if(this.ShipFromAdministrativeArea != null && this.ShipFromAdministrativeArea.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShipFromAdministrativeArea, length must be less than or equal to 2.", new [] { "ShipFromAdministrativeArea" });
-            }
-
             yield break;
         }
     }

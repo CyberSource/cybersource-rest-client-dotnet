@@ -224,12 +224,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // RequestId (string) maxLength
-            if(this.RequestId != null && this.RequestId.Length >= 26)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RequestId, length must be less than or equal to 26.", new [] { "RequestId" });
-            }
-
             yield break;
         }
     }

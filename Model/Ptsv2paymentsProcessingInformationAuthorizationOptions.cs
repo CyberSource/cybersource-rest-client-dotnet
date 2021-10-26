@@ -409,30 +409,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AuthType (string) maxLength
-            if(this.AuthType != null && this.AuthType.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthType, length must be less than or equal to 15.", new [] { "AuthType" });
-            }
-
-            // VerbalAuthCode (string) maxLength
-            if(this.VerbalAuthCode != null && this.VerbalAuthCode.Length >= 7)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VerbalAuthCode, length must be less than or equal to 7.", new [] { "VerbalAuthCode" });
-            }
-
-            // VerbalAuthTransactionId (string) maxLength
-            if(this.VerbalAuthTransactionId != null && this.VerbalAuthTransactionId.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VerbalAuthTransactionId, length must be less than or equal to 15.", new [] { "VerbalAuthTransactionId" });
-            }
-
-            // AuthIndicator (string) maxLength
-            if(this.AuthIndicator != null && this.AuthIndicator.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthIndicator, length must be less than or equal to 1.", new [] { "AuthIndicator" });
-            }
-
             yield break;
         }
     }

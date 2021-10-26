@@ -207,42 +207,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TotalAmount (string) maxLength
-            if(this.TotalAmount != null && this.TotalAmount.Length >= 19)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalAmount, length must be less than or equal to 19.", new [] { "TotalAmount" });
-            }
-
-            // Currency (string) maxLength
-            if(this.Currency != null && this.Currency.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than or equal to 3.", new [] { "Currency" });
-            }
-
-            // TaxAmount (string) maxLength
-            if(this.TaxAmount != null && this.TaxAmount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than or equal to 12.", new [] { "TaxAmount" });
-            }
-
-            // AuthorizedAmount (string) maxLength
-            if(this.AuthorizedAmount != null && this.AuthorizedAmount.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorizedAmount, length must be less than or equal to 15.", new [] { "AuthorizedAmount" });
-            }
-
-            // SettlementAmount (string) maxLength
-            if(this.SettlementAmount != null && this.SettlementAmount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementAmount, length must be less than or equal to 12.", new [] { "SettlementAmount" });
-            }
-
-            // SettlementCurrency (string) maxLength
-            if(this.SettlementCurrency != null && this.SettlementCurrency.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementCurrency, length must be less than or equal to 3.", new [] { "SettlementCurrency" });
-            }
-
             yield break;
         }
     }

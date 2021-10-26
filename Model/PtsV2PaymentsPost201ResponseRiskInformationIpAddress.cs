@@ -224,48 +224,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AnonymizerStatus (string) maxLength
-            if(this.AnonymizerStatus != null && this.AnonymizerStatus.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AnonymizerStatus, length must be less than or equal to 255.", new [] { "AnonymizerStatus" });
-            }
-
-            // Locality (string) maxLength
-            if(this.Locality != null && this.Locality.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, length must be less than or equal to 255.", new [] { "Locality" });
-            }
-
-            // Country (string) maxLength
-            if(this.Country != null && this.Country.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than or equal to 255.", new [] { "Country" });
-            }
-
-            // AdministrativeArea (string) maxLength
-            if(this.AdministrativeArea != null && this.AdministrativeArea.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, length must be less than or equal to 255.", new [] { "AdministrativeArea" });
-            }
-
-            // RoutingMethod (string) maxLength
-            if(this.RoutingMethod != null && this.RoutingMethod.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoutingMethod, length must be less than or equal to 255.", new [] { "RoutingMethod" });
-            }
-
-            // Carrier (string) maxLength
-            if(this.Carrier != null && this.Carrier.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Carrier, length must be less than or equal to 255.", new [] { "Carrier" });
-            }
-
-            // Organization (string) maxLength
-            if(this.Organization != null && this.Organization.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Organization, length must be less than or equal to 255.", new [] { "Organization" });
-            }
-
             yield break;
         }
     }

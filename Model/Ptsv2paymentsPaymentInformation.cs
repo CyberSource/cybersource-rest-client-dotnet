@@ -282,12 +282,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // InitiationChannel (string) maxLength
-            if(this.InitiationChannel != null && this.InitiationChannel.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InitiationChannel, length must be less than or equal to 2.", new [] { "InitiationChannel" });
-            }
-
             yield break;
         }
     }

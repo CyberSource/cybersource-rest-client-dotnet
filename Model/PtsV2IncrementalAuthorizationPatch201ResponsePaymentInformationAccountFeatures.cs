@@ -122,12 +122,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Category (string) maxLength
-            if(this.Category != null && this.Category.Length >= 7)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Category, length must be less than or equal to 7.", new [] { "Category" });
-            }
-
             yield break;
         }
     }

@@ -139,18 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AmountType (string) maxLength
-            if(this.AmountType != null && this.AmountType.Length >= 35)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmountType, length must be less than or equal to 35.", new [] { "AmountType" });
-            }
-
-            // Amount (string) maxLength
-            if(this.Amount != null && this.Amount.Length >= 13)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, length must be less than or equal to 13.", new [] { "Amount" });
-            }
-
             yield break;
         }
     }

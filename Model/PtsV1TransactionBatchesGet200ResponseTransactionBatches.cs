@@ -224,18 +224,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (string) maxLength
-            if(this.Id != null && this.Id.Length >= 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than or equal to 8.", new [] { "Id" });
-            }
-
-            // Id (string) minLength
-            if(this.Id != null && this.Id.Length <= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than or equal to 1.", new [] { "Id" });
-            }
-
             // Id (string) pattern
             Regex regexId = new Regex(@"^[a-zA-Z0-9_+-]*$", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)

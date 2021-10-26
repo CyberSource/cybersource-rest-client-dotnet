@@ -156,24 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // BalanceAmount (string) maxLength
-            if(this.BalanceAmount != null && this.BalanceAmount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BalanceAmount, length must be less than or equal to 12.", new [] { "BalanceAmount" });
-            }
-
-            // PreviousBalanceAmount (string) maxLength
-            if(this.PreviousBalanceAmount != null && this.PreviousBalanceAmount.Length >= 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreviousBalanceAmount, length must be less than or equal to 12.", new [] { "PreviousBalanceAmount" });
-            }
-
-            // Currency (string) maxLength
-            if(this.Currency != null && this.Currency.Length >= 5)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than or equal to 5.", new [] { "Currency" });
-            }
-
             yield break;
         }
     }

@@ -238,18 +238,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PreOrderDate (string) maxLength
-            if(this.PreOrderDate != null && this.PreOrderDate.Length >= 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreOrderDate, length must be less than or equal to 10.", new [] { "PreOrderDate" });
-            }
-
-            // TotalOffersCount (string) maxLength
-            if(this.TotalOffersCount != null && this.TotalOffersCount.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalOffersCount, length must be less than or equal to 2.", new [] { "TotalOffersCount" });
-            }
-
             yield break;
         }
     }

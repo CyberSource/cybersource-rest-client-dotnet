@@ -190,36 +190,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // LowValueExemptionIndicator (string) maxLength
-            if(this.LowValueExemptionIndicator != null && this.LowValueExemptionIndicator.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LowValueExemptionIndicator, length must be less than or equal to 1.", new [] { "LowValueExemptionIndicator" });
-            }
-
-            // RiskAnalysisExemptionIndicator (string) maxLength
-            if(this.RiskAnalysisExemptionIndicator != null && this.RiskAnalysisExemptionIndicator.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RiskAnalysisExemptionIndicator, length must be less than or equal to 1.", new [] { "RiskAnalysisExemptionIndicator" });
-            }
-
-            // TrustedMerchantExemptionIndicator (string) maxLength
-            if(this.TrustedMerchantExemptionIndicator != null && this.TrustedMerchantExemptionIndicator.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TrustedMerchantExemptionIndicator, length must be less than or equal to 1.", new [] { "TrustedMerchantExemptionIndicator" });
-            }
-
-            // SecureCorporatePaymentIndicator (string) maxLength
-            if(this.SecureCorporatePaymentIndicator != null && this.SecureCorporatePaymentIndicator.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecureCorporatePaymentIndicator, length must be less than or equal to 1.", new [] { "SecureCorporatePaymentIndicator" });
-            }
-
-            // DelegatedAuthenticationExemptionIndicator (string) maxLength
-            if(this.DelegatedAuthenticationExemptionIndicator != null && this.DelegatedAuthenticationExemptionIndicator.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DelegatedAuthenticationExemptionIndicator, length must be less than or equal to 1.", new [] { "DelegatedAuthenticationExemptionIndicator" });
-            }
-
             yield break;
         }
     }

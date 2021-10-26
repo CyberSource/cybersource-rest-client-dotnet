@@ -287,52 +287,16 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TotalAmount (string) maxLength
-            if(this.TotalAmount != null && this.TotalAmount.Length >= 13)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalAmount, length must be less than or equal to 13.", new [] { "TotalAmount" });
-            }
-
-            // UnitPrice (string) maxLength
-            if(this.UnitPrice != null && this.UnitPrice.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, length must be less than or equal to 15.", new [] { "UnitPrice" });
-            }
-
             // Quantity (int?) maximum
-            if(this.Quantity >= (int?)999999999)
+            if(this.Quantity > (int?)999999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999999.", new [] { "Quantity" });
             }
 
             // Quantity (int?) minimum
-            if(this.Quantity <= (int?)1)
+            if(this.Quantity < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
-            }
-
-            // ProductSKU (string) maxLength
-            if(this.ProductSKU != null && this.ProductSKU.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductSKU, length must be less than or equal to 255.", new [] { "ProductSKU" });
-            }
-
-            // ProductName (string) maxLength
-            if(this.ProductName != null && this.ProductName.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductName, length must be less than or equal to 255.", new [] { "ProductName" });
-            }
-
-            // ShippingDestinationTypes (string) maxLength
-            if(this.ShippingDestinationTypes != null && this.ShippingDestinationTypes.Length >= 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShippingDestinationTypes, length must be less than or equal to 50.", new [] { "ShippingDestinationTypes" });
-            }
-
-            // TaxAmount (string) maxLength
-            if(this.TaxAmount != null && this.TaxAmount.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxAmount, length must be less than or equal to 15.", new [] { "TaxAmount" });
             }
 
             yield break;

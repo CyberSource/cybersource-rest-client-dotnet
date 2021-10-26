@@ -156,24 +156,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Reason (string) maxLength
-            if(this.Reason != null && this.Reason.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Reason, length must be less than or equal to 1.", new [] { "Reason" });
-            }
-
-            // PreviousTransactionId (string) maxLength
-            if(this.PreviousTransactionId != null && this.PreviousTransactionId.Length >= 15)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreviousTransactionId, length must be less than or equal to 15.", new [] { "PreviousTransactionId" });
-            }
-
-            // OriginalAuthorizedAmount (string) maxLength
-            if(this.OriginalAuthorizedAmount != null && this.OriginalAuthorizedAmount.Length >= 61)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginalAuthorizedAmount, length must be less than or equal to 61.", new [] { "OriginalAuthorizedAmount" });
-            }
-
             yield break;
         }
     }

@@ -155,18 +155,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AggregatorId (string) maxLength
-            if(this.AggregatorId != null && this.AggregatorId.Length >= 20)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AggregatorId, length must be less than or equal to 20.", new [] { "AggregatorId" });
-            }
-
-            // Name (string) maxLength
-            if(this.Name != null && this.Name.Length >= 37)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than or equal to 37.", new [] { "Name" });
-            }
-
             yield break;
         }
     }

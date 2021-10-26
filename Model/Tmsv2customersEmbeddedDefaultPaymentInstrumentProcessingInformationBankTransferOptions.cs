@@ -122,12 +122,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // SECCode (string) maxLength
-            if(this.SECCode != null && this.SECCode.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SECCode, length must be less than or equal to 3.", new [] { "SECCode" });
-            }
-
             yield break;
         }
     }

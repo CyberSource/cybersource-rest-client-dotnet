@@ -139,18 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // WithApartment (string) maxLength
-            if(this.WithApartment != null && this.WithApartment.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WithApartment, length must be less than or equal to 255.", new [] { "WithApartment" });
-            }
-
-            // WithoutApartment (string) maxLength
-            if(this.WithoutApartment != null && this.WithoutApartment.Length >= 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WithoutApartment, length must be less than or equal to 255.", new [] { "WithoutApartment" });
-            }
-
             yield break;
         }
     }

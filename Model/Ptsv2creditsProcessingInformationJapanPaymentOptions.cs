@@ -139,12 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PaymentMethod (string) maxLength
-            if(this.PaymentMethod != null && this.PaymentMethod.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentMethod, length must be less than or equal to 2.", new [] { "PaymentMethod" });
-            }
-
             yield break;
         }
     }

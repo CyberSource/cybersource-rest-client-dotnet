@@ -173,24 +173,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Origination (string) maxLength
-            if(this.Origination != null && this.Origination.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Origination, length must be less than or equal to 3.", new [] { "Origination" });
-            }
-
-            // Destination (string) maxLength
-            if(this.Destination != null && this.Destination.Length >= 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Destination, length must be less than or equal to 3.", new [] { "Destination" });
-            }
-
-            // CarrierCode (string) maxLength
-            if(this.CarrierCode != null && this.CarrierCode.Length >= 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CarrierCode, length must be less than or equal to 2.", new [] { "CarrierCode" });
-            }
-
             yield break;
         }
     }

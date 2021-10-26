@@ -122,12 +122,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PlanType (string) maxLength
-            if(this.PlanType != null && this.PlanType.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlanType, length must be less than or equal to 1.", new [] { "PlanType" });
-            }
-
             yield break;
         }
     }

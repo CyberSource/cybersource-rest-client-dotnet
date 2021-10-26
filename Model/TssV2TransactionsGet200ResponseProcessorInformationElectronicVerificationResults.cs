@@ -275,66 +275,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Email (string) maxLength
-            if(this.Email != null && this.Email.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than or equal to 1.", new [] { "Email" });
-            }
-
-            // EmailRaw (string) maxLength
-            if(this.EmailRaw != null && this.EmailRaw.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EmailRaw, length must be less than or equal to 1.", new [] { "EmailRaw" });
-            }
-
-            // Name (string) maxLength
-            if(this.Name != null && this.Name.Length >= 30)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than or equal to 30.", new [] { "Name" });
-            }
-
-            // NameRaw (string) maxLength
-            if(this.NameRaw != null && this.NameRaw.Length >= 30)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NameRaw, length must be less than or equal to 30.", new [] { "NameRaw" });
-            }
-
-            // PhoneNumber (string) maxLength
-            if(this.PhoneNumber != null && this.PhoneNumber.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, length must be less than or equal to 1.", new [] { "PhoneNumber" });
-            }
-
-            // PhoneNumberRaw (string) maxLength
-            if(this.PhoneNumberRaw != null && this.PhoneNumberRaw.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumberRaw, length must be less than or equal to 1.", new [] { "PhoneNumberRaw" });
-            }
-
-            // Street (string) maxLength
-            if(this.Street != null && this.Street.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Street, length must be less than or equal to 1.", new [] { "Street" });
-            }
-
-            // StreetRaw (string) maxLength
-            if(this.StreetRaw != null && this.StreetRaw.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StreetRaw, length must be less than or equal to 1.", new [] { "StreetRaw" });
-            }
-
-            // PostalCode (string) maxLength
-            if(this.PostalCode != null && this.PostalCode.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, length must be less than or equal to 1.", new [] { "PostalCode" });
-            }
-
-            // PostalCodeRaw (string) maxLength
-            if(this.PostalCodeRaw != null && this.PostalCodeRaw.Length >= 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCodeRaw, length must be less than or equal to 1.", new [] { "PostalCodeRaw" });
-            }
-
             yield break;
         }
     }
