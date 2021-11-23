@@ -168,6 +168,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'FirstInstallmentAmount'
         }
+        /// <summary>
+        /// Test the property 'ValidationIndicator'
+        /// </summary>
+        [Test]
+        public void ValidationIndicatorTest()
+        {
+            // TODO unit test for the property 'ValidationIndicator'
+        }
+        /// <summary>
+        /// Test the property 'Identifier'
+        /// </summary>
+        [Test]
+        public void IdentifierTest()
+        {
+            // TODO unit test for the property 'Identifier'
+        }
 
     }
 

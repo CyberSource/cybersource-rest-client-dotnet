@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'IssuedBy'
         }
+        /// <summary>
+        /// Test the property 'VerificationResults'
+        /// </summary>
+        [Test]
+        public void VerificationResultsTest()
+        {
+            // TODO unit test for the property 'VerificationResults'
+        }
 
     }
 

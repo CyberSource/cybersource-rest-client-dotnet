@@ -280,6 +280,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'MerchantNumber'
         }
+        /// <summary>
+        /// Test the property 'RetrievalReferenceNumber'
+        /// </summary>
+        [Test]
+        public void RetrievalReferenceNumberTest()
+        {
+            // TODO unit test for the property 'RetrievalReferenceNumber'
+        }
 
     }
 

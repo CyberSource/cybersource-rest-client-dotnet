@@ -105,6 +105,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'DelegatedAuthenticationExemptionIndicator'
         }
         /// <summary>
+        /// Test the property 'OutageExemptionIndicator'
+        /// </summary>
+        [Test]
+        public void OutageExemptionIndicatorTest()
+        {
+            // TODO unit test for the property 'OutageExemptionIndicator'
+        }
+        /// <summary>
         /// Test the property 'AuthenticationIndicator'
         /// </summary>
         [Test]

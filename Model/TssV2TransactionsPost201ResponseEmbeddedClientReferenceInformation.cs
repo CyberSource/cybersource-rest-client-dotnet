@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="Code">Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. .</param>
         /// <param name="ApplicationName">The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. .</param>
         /// <param name="ApplicationUser">The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. .</param>
-        public TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation(string Code = default(string), string ApplicationName = default(string), string ApplicationUser = default(string))
+        /// <param name="Partner">Partner.</param>
+        public TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation(string Code = default(string), string ApplicationName = default(string), string ApplicationUser = default(string), TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformationPartner Partner = default(TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformationPartner))
         {
             this.Code = Code;
             this.ApplicationName = ApplicationName;
             this.ApplicationUser = ApplicationUser;
+            this.Partner = Partner;
         }
         
         /// <summary>
@@ -65,6 +67,12 @@ namespace CyberSource.Model
         public string ApplicationUser { get; set; }
 
         /// <summary>
+        /// Gets or Sets Partner
+        /// </summary>
+        [DataMember(Name="partner", EmitDefaultValue=false)]
+        public TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformationPartner Partner { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +83,7 @@ namespace CyberSource.Model
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  ApplicationName: ").Append(ApplicationName).Append("\n");
             sb.Append("  ApplicationUser: ").Append(ApplicationUser).Append("\n");
+            sb.Append("  Partner: ").Append(Partner).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +134,11 @@ namespace CyberSource.Model
                     this.ApplicationUser == other.ApplicationUser ||
                     this.ApplicationUser != null &&
                     this.ApplicationUser.Equals(other.ApplicationUser)
+                ) && 
+                (
+                    this.Partner == other.Partner ||
+                    this.Partner != null &&
+                    this.Partner.Equals(other.Partner)
                 );
         }
 
@@ -145,6 +159,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ApplicationName.GetHashCode();
                 if (this.ApplicationUser != null)
                     hash = hash * 59 + this.ApplicationUser.GetHashCode();
+                if (this.Partner != null)
+                    hash = hash * 59 + this.Partner.GetHashCode();
                 return hash;
             }
         }
