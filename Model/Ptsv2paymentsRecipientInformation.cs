@@ -35,11 +35,13 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="AccountId">Identifier for the recipient’s account. Use the first six digits and last four digits of the recipient’s account number. This field is a _pass-through_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For details, see the &#x60;recipient_account_id&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="LastName">Recipient’s last name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For details, see the &#x60;recipient_lastname&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="MiddleName">Recipient’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For details, see the &#x60;recipient_middlename&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="PostalCode">Partial postal code for the recipient’s address. For example, if the postal code is **NN5 7SG**, the value for this field should be the first part of the postal code: **NN5**. This field is a _pass-through_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For details, see the &#x60;recipient_postal_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
-        public Ptsv2paymentsRecipientInformation(string AccountId = default(string), string LastName = default(string), string PostalCode = default(string))
+        public Ptsv2paymentsRecipientInformation(string AccountId = default(string), string LastName = default(string), string MiddleName = default(string), string PostalCode = default(string))
         {
             this.AccountId = AccountId;
             this.LastName = LastName;
+            this.MiddleName = MiddleName;
             this.PostalCode = PostalCode;
         }
         
@@ -58,6 +60,13 @@ namespace CyberSource.Model
         public string LastName { get; set; }
 
         /// <summary>
+        /// Recipient’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For details, see the &#x60;recipient_middlename&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+        /// </summary>
+        /// <value>Recipient’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For details, see the &#x60;recipient_middlename&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
+        [DataMember(Name="middleName", EmitDefaultValue=false)]
+        public string MiddleName { get; set; }
+
+        /// <summary>
         /// Partial postal code for the recipient’s address. For example, if the postal code is **NN5 7SG**, the value for this field should be the first part of the postal code: **NN5**. This field is a _pass-through_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For details, see the &#x60;recipient_postal_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
         /// </summary>
         /// <value>Partial postal code for the recipient’s address. For example, if the postal code is **NN5 7SG**, the value for this field should be the first part of the postal code: **NN5**. This field is a _pass-through_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For details, see the &#x60;recipient_postal_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
@@ -74,6 +83,7 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsRecipientInformation {\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -122,6 +132,11 @@ namespace CyberSource.Model
                     this.LastName.Equals(other.LastName)
                 ) && 
                 (
+                    this.MiddleName == other.MiddleName ||
+                    this.MiddleName != null &&
+                    this.MiddleName.Equals(other.MiddleName)
+                ) && 
+                (
                     this.PostalCode == other.PostalCode ||
                     this.PostalCode != null &&
                     this.PostalCode.Equals(other.PostalCode)
@@ -143,6 +158,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AccountId.GetHashCode();
                 if (this.LastName != null)
                     hash = hash * 59 + this.LastName.GetHashCode();
+                if (this.MiddleName != null)
+                    hash = hash * 59 + this.MiddleName.GetHashCode();
                 if (this.PostalCode != null)
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 return hash;

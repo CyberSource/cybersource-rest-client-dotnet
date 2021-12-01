@@ -49,9 +49,10 @@ namespace CyberSource.Model
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
         /// <param name="InstallmentInformation">InstallmentInformation.</param>
         /// <param name="TokenInformation">TokenInformation.</param>
+        /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
-        public PtsV2PaymentsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2PaymentsPost201ResponseProcessingInformation), PtsV2PaymentsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsPost201ResponseProcessorInformation), PtsV2PaymentsPost201ResponseIssuerInformation IssuerInformation = default(PtsV2PaymentsPost201ResponseIssuerInformation), PtsV2PaymentsPost201ResponsePaymentAccountInformation PaymentAccountInformation = default(PtsV2PaymentsPost201ResponsePaymentAccountInformation), PtsV2PaymentsPost201ResponsePaymentInformation PaymentInformation = default(PtsV2PaymentsPost201ResponsePaymentInformation), PtsV2PaymentsPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsPost201ResponseOrderInformation), PtsV2PaymentsPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsPost201ResponsePointOfSaleInformation), PtsV2PaymentsPost201ResponseInstallmentInformation InstallmentInformation = default(PtsV2PaymentsPost201ResponseInstallmentInformation), PtsV2PaymentsPost201ResponseTokenInformation TokenInformation = default(PtsV2PaymentsPost201ResponseTokenInformation), PtsV2PaymentsPost201ResponseRiskInformation RiskInformation = default(PtsV2PaymentsPost201ResponseRiskInformation), PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation))
+        public PtsV2PaymentsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2PaymentsPost201ResponseProcessingInformation), PtsV2PaymentsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsPost201ResponseProcessorInformation), PtsV2PaymentsPost201ResponseIssuerInformation IssuerInformation = default(PtsV2PaymentsPost201ResponseIssuerInformation), PtsV2PaymentsPost201ResponsePaymentAccountInformation PaymentAccountInformation = default(PtsV2PaymentsPost201ResponsePaymentAccountInformation), PtsV2PaymentsPost201ResponsePaymentInformation PaymentInformation = default(PtsV2PaymentsPost201ResponsePaymentInformation), PtsV2PaymentsPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsPost201ResponseOrderInformation), PtsV2PaymentsPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsPost201ResponsePointOfSaleInformation), PtsV2PaymentsPost201ResponseInstallmentInformation InstallmentInformation = default(PtsV2PaymentsPost201ResponseInstallmentInformation), PtsV2PaymentsPost201ResponseTokenInformation TokenInformation = default(PtsV2PaymentsPost201ResponseTokenInformation), PtsV2PaymentsPost201ResponseBuyerInformation BuyerInformation = default(PtsV2PaymentsPost201ResponseBuyerInformation), PtsV2PaymentsPost201ResponseRiskInformation RiskInformation = default(PtsV2PaymentsPost201ResponseRiskInformation), PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -69,6 +70,7 @@ namespace CyberSource.Model
             this.PointOfSaleInformation = PointOfSaleInformation;
             this.InstallmentInformation = InstallmentInformation;
             this.TokenInformation = TokenInformation;
+            this.BuyerInformation = BuyerInformation;
             this.RiskInformation = RiskInformation;
             this.ConsumerAuthenticationInformation = ConsumerAuthenticationInformation;
         }
@@ -174,6 +176,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseTokenInformation TokenInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets BuyerInformation
+        /// </summary>
+        [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseBuyerInformation BuyerInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets RiskInformation
         /// </summary>
         [DataMember(Name="riskInformation", EmitDefaultValue=false)]
@@ -209,6 +217,7 @@ namespace CyberSource.Model
             sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
             sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
+            sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
             sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
             sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
             sb.Append("}\n");
@@ -328,6 +337,11 @@ namespace CyberSource.Model
                     this.TokenInformation.Equals(other.TokenInformation)
                 ) && 
                 (
+                    this.BuyerInformation == other.BuyerInformation ||
+                    this.BuyerInformation != null &&
+                    this.BuyerInformation.Equals(other.BuyerInformation)
+                ) && 
+                (
                     this.RiskInformation == other.RiskInformation ||
                     this.RiskInformation != null &&
                     this.RiskInformation.Equals(other.RiskInformation)
@@ -382,6 +396,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InstallmentInformation.GetHashCode();
                 if (this.TokenInformation != null)
                     hash = hash * 59 + this.TokenInformation.GetHashCode();
+                if (this.BuyerInformation != null)
+                    hash = hash * 59 + this.BuyerInformation.GetHashCode();
                 if (this.RiskInformation != null)
                     hash = hash * 59 + this.RiskInformation.GetHashCode();
                 if (this.ConsumerAuthenticationInformation != null)

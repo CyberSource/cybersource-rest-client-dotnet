@@ -37,6 +37,7 @@ namespace CyberSource.Model
         /// <param name="Account">Account.</param>
         /// <param name="FirstName">First name of sender (Optional). * CTV (14) * Paymentech (30) .</param>
         /// <param name="MiddleInitial">Recipient middle initial (Optional). .</param>
+        /// <param name="MiddleName">Sender’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
         /// <param name="LastName">Recipient last name (Optional). * CTV (14) * Paymentech (30) .</param>
         /// <param name="Name">Name of sender.  **Funds Disbursement**  This value is the name of the originator sending the funds disbursement. * CTV, Paymentech (30) .</param>
         /// <param name="Address1">Street address of sender.  **Funds Disbursement**  This value is the address of the originator sending the funds disbursement. .</param>
@@ -47,12 +48,13 @@ namespace CyberSource.Model
         /// <param name="PhoneNumber">Sender’s phone number. Required only for FDCCompass..</param>
         /// <param name="DateOfBirth">Sender’s date of birth in YYYYMMDD format. Required only for FDCCompass..</param>
         /// <param name="VatRegistrationNumber">Customer&#39;s government-assigned tax identification number. .</param>
-        public Ptsv2payoutsSenderInformation(string ReferenceNumber = default(string), Ptsv2payoutsSenderInformationAccount Account = default(Ptsv2payoutsSenderInformationAccount), string FirstName = default(string), string MiddleInitial = default(string), string LastName = default(string), string Name = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string), string PostalCode = default(string), string PhoneNumber = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string))
+        public Ptsv2payoutsSenderInformation(string ReferenceNumber = default(string), Ptsv2payoutsSenderInformationAccount Account = default(Ptsv2payoutsSenderInformationAccount), string FirstName = default(string), string MiddleInitial = default(string), string MiddleName = default(string), string LastName = default(string), string Name = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string), string PostalCode = default(string), string PhoneNumber = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string))
         {
             this.ReferenceNumber = ReferenceNumber;
             this.Account = Account;
             this.FirstName = FirstName;
             this.MiddleInitial = MiddleInitial;
+            this.MiddleName = MiddleName;
             this.LastName = LastName;
             this.Name = Name;
             this.Address1 = Address1;
@@ -91,6 +93,13 @@ namespace CyberSource.Model
         /// <value>Recipient middle initial (Optional). </value>
         [DataMember(Name="middleInitial", EmitDefaultValue=false)]
         public string MiddleInitial { get; set; }
+
+        /// <summary>
+        /// Sender’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. 
+        /// </summary>
+        /// <value>Sender’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. </value>
+        [DataMember(Name="middleName", EmitDefaultValue=false)]
+        public string MiddleName { get; set; }
 
         /// <summary>
         /// Recipient last name (Optional). * CTV (14) * Paymentech (30) 
@@ -174,6 +183,7 @@ namespace CyberSource.Model
             sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  MiddleInitial: ").Append(MiddleInitial).Append("\n");
+            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Address1: ").Append(Address1).Append("\n");
@@ -239,6 +249,11 @@ namespace CyberSource.Model
                     this.MiddleInitial == other.MiddleInitial ||
                     this.MiddleInitial != null &&
                     this.MiddleInitial.Equals(other.MiddleInitial)
+                ) && 
+                (
+                    this.MiddleName == other.MiddleName ||
+                    this.MiddleName != null &&
+                    this.MiddleName.Equals(other.MiddleName)
                 ) && 
                 (
                     this.LastName == other.LastName ||
@@ -311,6 +326,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FirstName.GetHashCode();
                 if (this.MiddleInitial != null)
                     hash = hash * 59 + this.MiddleInitial.GetHashCode();
+                if (this.MiddleName != null)
+                    hash = hash * 59 + this.MiddleName.GetHashCode();
                 if (this.LastName != null)
                     hash = hash * 59 + this.LastName.GetHashCode();
                 if (this.Name != null)

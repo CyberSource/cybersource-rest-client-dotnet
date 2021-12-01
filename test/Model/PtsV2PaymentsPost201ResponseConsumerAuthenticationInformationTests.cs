@@ -225,6 +225,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Ivr'
         }
         /// <summary>
+        /// Test the property 'StrongAuthentication'
+        /// </summary>
+        [Test]
+        public void StrongAuthenticationTest()
+        {
+            // TODO unit test for the property 'StrongAuthentication'
+        }
+        /// <summary>
         /// Test the property 'NetworkScore'
         /// </summary>
         [Test]

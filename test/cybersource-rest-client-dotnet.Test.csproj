@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 CyberSource Merged Spec
 
@@ -53,20 +53,22 @@ OpenAPI spec version: 0.0.1
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+        <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs" Exclude="obj\**" />
+    <Compile Include="**\*.cs"
+             Exclude="obj\**"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+      <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\cybersource-rest-client-dotnet.csproj">
-      <Project>{8BD3AB89-DD5D-4CB0-B0D8-18942FCA2C70}</Project>
-      <Name>cybersource-rest-client-dotnet</Name>
-    </ProjectReference>
+      <ProjectReference Include="..\cybersource-rest-client-dotnet.csproj">
+          <Project>{EEEF4B0A-4CDE-4CD9-8792-7D77CD862BBC}</Project>
+          <Name>cybersource-rest-client-dotnet</Name>
+      </ProjectReference>
   </ItemGroup>
 </Project>
+

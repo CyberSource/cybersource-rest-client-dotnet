@@ -38,14 +38,16 @@ namespace CyberSource.Model
         /// <param name="TrustedMerchantExemptionIndicator">Possible values: - &#x60;0&#x60;  (Trusted merchant exemption does not apply to the transaction) - &#x60;1&#x60; (Transaction exempt from SCA as it originated at a merchant trusted by the cardholder) .</param>
         /// <param name="SecureCorporatePaymentIndicator">This field will contain the secure corporate payment exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (SCA exemption does not apply to the transaction) - &#x60;1&#x60; (Transaction exempt from SCA as the merchant/acquirer has determined it as a secure corporate payment) .</param>
         /// <param name="DelegatedAuthenticationExemptionIndicator">This field will contain the delegated authentication exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (delegated Authentication exemption does not apply to the transaction) - &#x60;1&#x60; (Transaction exempt from SCA as authentication has been delegated to other provider (PSP,Acquirer)) .</param>
+        /// <param name="OutageExemptionIndicator">This field will contain the outage exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (Outage Authentication exemption does not apply to the transaction) - &#x60;1&#x60; (Outage exempt from SCA as authentication could not be done due to outage) .</param>
         /// <param name="AuthenticationIndicator">Indicates the type of Authentication request  01 - Payment transaction  02 - Recurring transaction  03 - Installment transaction  04 - Add card  05 - Maintain card  06 - Cardholder verification as part of EMV token ID and V .</param>
-        public Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication(string LowValueExemptionIndicator = default(string), string RiskAnalysisExemptionIndicator = default(string), string TrustedMerchantExemptionIndicator = default(string), string SecureCorporatePaymentIndicator = default(string), string DelegatedAuthenticationExemptionIndicator = default(string), string AuthenticationIndicator = default(string))
+        public Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication(string LowValueExemptionIndicator = default(string), string RiskAnalysisExemptionIndicator = default(string), string TrustedMerchantExemptionIndicator = default(string), string SecureCorporatePaymentIndicator = default(string), string DelegatedAuthenticationExemptionIndicator = default(string), string OutageExemptionIndicator = default(string), string AuthenticationIndicator = default(string))
         {
             this.LowValueExemptionIndicator = LowValueExemptionIndicator;
             this.RiskAnalysisExemptionIndicator = RiskAnalysisExemptionIndicator;
             this.TrustedMerchantExemptionIndicator = TrustedMerchantExemptionIndicator;
             this.SecureCorporatePaymentIndicator = SecureCorporatePaymentIndicator;
             this.DelegatedAuthenticationExemptionIndicator = DelegatedAuthenticationExemptionIndicator;
+            this.OutageExemptionIndicator = OutageExemptionIndicator;
             this.AuthenticationIndicator = AuthenticationIndicator;
         }
         
@@ -85,6 +87,13 @@ namespace CyberSource.Model
         public string DelegatedAuthenticationExemptionIndicator { get; set; }
 
         /// <summary>
+        /// This field will contain the outage exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (Outage Authentication exemption does not apply to the transaction) - &#x60;1&#x60; (Outage exempt from SCA as authentication could not be done due to outage) 
+        /// </summary>
+        /// <value>This field will contain the outage exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (Outage Authentication exemption does not apply to the transaction) - &#x60;1&#x60; (Outage exempt from SCA as authentication could not be done due to outage) </value>
+        [DataMember(Name="outageExemptionIndicator", EmitDefaultValue=false)]
+        public string OutageExemptionIndicator { get; set; }
+
+        /// <summary>
         /// Indicates the type of Authentication request  01 - Payment transaction  02 - Recurring transaction  03 - Installment transaction  04 - Add card  05 - Maintain card  06 - Cardholder verification as part of EMV token ID and V 
         /// </summary>
         /// <value>Indicates the type of Authentication request  01 - Payment transaction  02 - Recurring transaction  03 - Installment transaction  04 - Add card  05 - Maintain card  06 - Cardholder verification as part of EMV token ID and V </value>
@@ -104,6 +113,7 @@ namespace CyberSource.Model
             sb.Append("  TrustedMerchantExemptionIndicator: ").Append(TrustedMerchantExemptionIndicator).Append("\n");
             sb.Append("  SecureCorporatePaymentIndicator: ").Append(SecureCorporatePaymentIndicator).Append("\n");
             sb.Append("  DelegatedAuthenticationExemptionIndicator: ").Append(DelegatedAuthenticationExemptionIndicator).Append("\n");
+            sb.Append("  OutageExemptionIndicator: ").Append(OutageExemptionIndicator).Append("\n");
             sb.Append("  AuthenticationIndicator: ").Append(AuthenticationIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -167,6 +177,11 @@ namespace CyberSource.Model
                     this.DelegatedAuthenticationExemptionIndicator.Equals(other.DelegatedAuthenticationExemptionIndicator)
                 ) && 
                 (
+                    this.OutageExemptionIndicator == other.OutageExemptionIndicator ||
+                    this.OutageExemptionIndicator != null &&
+                    this.OutageExemptionIndicator.Equals(other.OutageExemptionIndicator)
+                ) && 
+                (
                     this.AuthenticationIndicator == other.AuthenticationIndicator ||
                     this.AuthenticationIndicator != null &&
                     this.AuthenticationIndicator.Equals(other.AuthenticationIndicator)
@@ -194,6 +209,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SecureCorporatePaymentIndicator.GetHashCode();
                 if (this.DelegatedAuthenticationExemptionIndicator != null)
                     hash = hash * 59 + this.DelegatedAuthenticationExemptionIndicator.GetHashCode();
+                if (this.OutageExemptionIndicator != null)
+                    hash = hash * 59 + this.OutageExemptionIndicator.GetHashCode();
                 if (this.AuthenticationIndicator != null)
                     hash = hash * 59 + this.AuthenticationIndicator.GetHashCode();
                 return hash;

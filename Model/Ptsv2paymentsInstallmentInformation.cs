@@ -46,7 +46,9 @@ namespace CyberSource.Model
         /// <param name="GracePeriodDuration">Grace period requested by the customer before the first installment payment is due.  When you include this field in a request, you must also include the grace period duration type field.  The value for this field corresponds to the following data in the TC 33 capture file3: Record: CP01 TCR5, Position: 100-101, Field: Mastercard Grace Period Details.  This field is supported only for Mastercard installment payments in Brazil and Greece. .</param>
         /// <param name="GracePeriodDurationType">Unit for the requested grace period duration.  Possible values: - &#x60;D&#x60;: Days - &#x60;W&#x60;: Weeks - &#x60;M&#x60;: Months  The value for this field corresponds to the following data in the TC 33 capture file3: Record: CP01 TCR5, Position: 99, Field: Mastercard Grace Period Details  This field is supported only for Mastercard installment payments in Brazil and Greece on CyberSource through VisaNet. .</param>
         /// <param name="FirstInstallmentAmount">Amount of the first installment payment. The issuer provides this value when the first installment payment is successful. This field is supported for Mastercard installment payments on CyberSource through VisaNet in all countries except Brazil,Croatia, Georgia, and Greece. The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR5 - Position: 23-34 - Field: Amount of Each Installment .</param>
-        public Ptsv2paymentsInstallmentInformation(string Amount = default(string), string Frequency = default(string), string PlanType = default(string), int? Sequence = default(int?), string TotalAmount = default(string), int? TotalCount = default(int?), string FirstInstallmentDate = default(string), string InvoiceData = default(string), string PaymentType = default(string), string EligibilityInquiry = default(string), string GracePeriodDuration = default(string), string GracePeriodDurationType = default(string), string FirstInstallmentAmount = default(string))
+        /// <param name="ValidationIndicator">Standing Instruction/Installment validation indicator. - &#39;1&#39;: Prevalidated - &#39;2&#39;: Not Validated .</param>
+        /// <param name="Identifier">Standing Instruction/Installment identifier. .</param>
+        public Ptsv2paymentsInstallmentInformation(string Amount = default(string), string Frequency = default(string), string PlanType = default(string), int? Sequence = default(int?), string TotalAmount = default(string), int? TotalCount = default(int?), string FirstInstallmentDate = default(string), string InvoiceData = default(string), string PaymentType = default(string), string EligibilityInquiry = default(string), string GracePeriodDuration = default(string), string GracePeriodDurationType = default(string), string FirstInstallmentAmount = default(string), string ValidationIndicator = default(string), string Identifier = default(string))
         {
             this.Amount = Amount;
             this.Frequency = Frequency;
@@ -61,6 +63,8 @@ namespace CyberSource.Model
             this.GracePeriodDuration = GracePeriodDuration;
             this.GracePeriodDurationType = GracePeriodDurationType;
             this.FirstInstallmentAmount = FirstInstallmentAmount;
+            this.ValidationIndicator = ValidationIndicator;
+            this.Identifier = Identifier;
         }
         
         /// <summary>
@@ -155,6 +159,20 @@ namespace CyberSource.Model
         public string FirstInstallmentAmount { get; set; }
 
         /// <summary>
+        /// Standing Instruction/Installment validation indicator. - &#39;1&#39;: Prevalidated - &#39;2&#39;: Not Validated 
+        /// </summary>
+        /// <value>Standing Instruction/Installment validation indicator. - &#39;1&#39;: Prevalidated - &#39;2&#39;: Not Validated </value>
+        [DataMember(Name="validationIndicator", EmitDefaultValue=false)]
+        public string ValidationIndicator { get; set; }
+
+        /// <summary>
+        /// Standing Instruction/Installment identifier. 
+        /// </summary>
+        /// <value>Standing Instruction/Installment identifier. </value>
+        [DataMember(Name="identifier", EmitDefaultValue=false)]
+        public string Identifier { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -175,6 +193,8 @@ namespace CyberSource.Model
             sb.Append("  GracePeriodDuration: ").Append(GracePeriodDuration).Append("\n");
             sb.Append("  GracePeriodDurationType: ").Append(GracePeriodDurationType).Append("\n");
             sb.Append("  FirstInstallmentAmount: ").Append(FirstInstallmentAmount).Append("\n");
+            sb.Append("  ValidationIndicator: ").Append(ValidationIndicator).Append("\n");
+            sb.Append("  Identifier: ").Append(Identifier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -275,6 +295,16 @@ namespace CyberSource.Model
                     this.FirstInstallmentAmount == other.FirstInstallmentAmount ||
                     this.FirstInstallmentAmount != null &&
                     this.FirstInstallmentAmount.Equals(other.FirstInstallmentAmount)
+                ) && 
+                (
+                    this.ValidationIndicator == other.ValidationIndicator ||
+                    this.ValidationIndicator != null &&
+                    this.ValidationIndicator.Equals(other.ValidationIndicator)
+                ) && 
+                (
+                    this.Identifier == other.Identifier ||
+                    this.Identifier != null &&
+                    this.Identifier.Equals(other.Identifier)
                 );
         }
 
@@ -315,6 +345,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.GracePeriodDurationType.GetHashCode();
                 if (this.FirstInstallmentAmount != null)
                     hash = hash * 59 + this.FirstInstallmentAmount.GetHashCode();
+                if (this.ValidationIndicator != null)
+                    hash = hash * 59 + this.ValidationIndicator.GetHashCode();
+                if (this.Identifier != null)
+                    hash = hash * 59 + this.Identifier.GetHashCode();
                 return hash;
             }
         }

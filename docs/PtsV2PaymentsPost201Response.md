@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **PointOfSaleInformation** | [**PtsV2PaymentsPost201ResponsePointOfSaleInformation**](PtsV2PaymentsPost201ResponsePointOfSaleInformation.md) |  | [optional] 
 **InstallmentInformation** | [**PtsV2PaymentsPost201ResponseInstallmentInformation**](PtsV2PaymentsPost201ResponseInstallmentInformation.md) |  | [optional] 
 **TokenInformation** | [**PtsV2PaymentsPost201ResponseTokenInformation**](PtsV2PaymentsPost201ResponseTokenInformation.md) |  | [optional] 
+**BuyerInformation** | [**PtsV2PaymentsPost201ResponseBuyerInformation**](PtsV2PaymentsPost201ResponseBuyerInformation.md) |  | [optional] 
 **RiskInformation** | [**PtsV2PaymentsPost201ResponseRiskInformation**](PtsV2PaymentsPost201ResponseRiskInformation.md) |  | [optional] 
 **ConsumerAuthenticationInformation** | [**PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation**](PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation.md) |  | [optional] 
 

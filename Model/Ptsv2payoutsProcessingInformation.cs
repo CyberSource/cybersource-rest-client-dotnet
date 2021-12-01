@@ -38,13 +38,17 @@ namespace CyberSource.Model
         /// <param name="CommerceIndicator">Type of transaction.  Value for an OCT transaction: - &#x60;internet&#x60;  For details, see the &#x60;e_commerce_indicator&#x60; field description in [Payouts Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/payouts_SCMP/html/) .</param>
         /// <param name="ReconciliationId">Please check with Cybersource customer support to see if your merchant account is configured correctly so you can include this field in your request. * For Payouts: max length for FDCCompass is String (22). .</param>
         /// <param name="PayoutsOptions">PayoutsOptions.</param>
-        public Ptsv2payoutsProcessingInformation(string BusinessApplicationId = default(string), string NetworkRoutingOrder = default(string), string CommerceIndicator = default(string), string ReconciliationId = default(string), Ptsv2payoutsProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv2payoutsProcessingInformationPayoutsOptions))
+        /// <param name="TransactionReason">Transaction reason code. .</param>
+        /// <param name="PurposeOfPayment">This will send purpose of funds code for original credit transactions (OCTs). .</param>
+        public Ptsv2payoutsProcessingInformation(string BusinessApplicationId = default(string), string NetworkRoutingOrder = default(string), string CommerceIndicator = default(string), string ReconciliationId = default(string), Ptsv2payoutsProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv2payoutsProcessingInformationPayoutsOptions), string TransactionReason = default(string), string PurposeOfPayment = default(string))
         {
             this.BusinessApplicationId = BusinessApplicationId;
             this.NetworkRoutingOrder = NetworkRoutingOrder;
             this.CommerceIndicator = CommerceIndicator;
             this.ReconciliationId = ReconciliationId;
             this.PayoutsOptions = PayoutsOptions;
+            this.TransactionReason = TransactionReason;
+            this.PurposeOfPayment = PurposeOfPayment;
         }
         
         /// <summary>
@@ -82,6 +86,20 @@ namespace CyberSource.Model
         public Ptsv2payoutsProcessingInformationPayoutsOptions PayoutsOptions { get; set; }
 
         /// <summary>
+        /// Transaction reason code. 
+        /// </summary>
+        /// <value>Transaction reason code. </value>
+        [DataMember(Name="transactionReason", EmitDefaultValue=false)]
+        public string TransactionReason { get; set; }
+
+        /// <summary>
+        /// This will send purpose of funds code for original credit transactions (OCTs). 
+        /// </summary>
+        /// <value>This will send purpose of funds code for original credit transactions (OCTs). </value>
+        [DataMember(Name="purposeOfPayment", EmitDefaultValue=false)]
+        public string PurposeOfPayment { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,6 +112,8 @@ namespace CyberSource.Model
             sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
             sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
             sb.Append("  PayoutsOptions: ").Append(PayoutsOptions).Append("\n");
+            sb.Append("  TransactionReason: ").Append(TransactionReason).Append("\n");
+            sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -154,6 +174,16 @@ namespace CyberSource.Model
                     this.PayoutsOptions == other.PayoutsOptions ||
                     this.PayoutsOptions != null &&
                     this.PayoutsOptions.Equals(other.PayoutsOptions)
+                ) && 
+                (
+                    this.TransactionReason == other.TransactionReason ||
+                    this.TransactionReason != null &&
+                    this.TransactionReason.Equals(other.TransactionReason)
+                ) && 
+                (
+                    this.PurposeOfPayment == other.PurposeOfPayment ||
+                    this.PurposeOfPayment != null &&
+                    this.PurposeOfPayment.Equals(other.PurposeOfPayment)
                 );
         }
 
@@ -178,6 +208,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReconciliationId.GetHashCode();
                 if (this.PayoutsOptions != null)
                     hash = hash * 59 + this.PayoutsOptions.GetHashCode();
+                if (this.TransactionReason != null)
+                    hash = hash * 59 + this.TransactionReason.GetHashCode();
+                if (this.PurposeOfPayment != null)
+                    hash = hash * 59 + this.PurposeOfPayment.GetHashCode();
                 return hash;
             }
         }
