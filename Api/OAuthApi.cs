@@ -185,7 +185,8 @@ namespace CyberSource.Api
         /// <param name="createAccessTokenRequest"></param>
         /// <returns>ApiResponse of AccessTokenResponse</returns>
         public ApiResponse<AccessTokenResponse> PostAccessTokenRequestWithHttpInfo(CreateAccessTokenRequest createAccessTokenRequest)
-        {            
+        {
+            LogUtility logUtility = new LogUtility();
             // verify the required parameter 'createAccessTokenRequest' is set
             if (createAccessTokenRequest == null)
             {
@@ -226,9 +227,9 @@ namespace CyberSource.Api
                 localVarPostBody = createAccessTokenRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -276,6 +277,7 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (AccessTokenResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AccessTokenResponse>> PostAccessTokenRequestAsyncWithHttpInfo(CreateAccessTokenRequest createAccessTokenRequest)
         {
+            LogUtility logUtility = new LogUtility();
             // verify the required parameter 'createAccessTokenRequest' is set
             if (createAccessTokenRequest == null)
             {
@@ -316,9 +318,9 @@ namespace CyberSource.Api
                 localVarPostBody = createAccessTokenRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

@@ -212,7 +212,7 @@ this.{{name}} = {{name}};
             {{#hasValidation}}            
             {{#maximum}}
             // {{{name}}} ({{{datatype}}}) maximum
-            if(this.{{{name}}} > ({{{datatype}}}){{maximum}})
+            if(this.{{{name}}} >= ({{{datatype}}}){{maximum}})
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for {{{name}}}, must be a value less than or equal to {{maximum}}.", new [] { "{{{name}}}" });
             }
@@ -220,7 +220,7 @@ this.{{name}} = {{name}};
             {{/maximum}}
             {{#minimum}}
             // {{{name}}} ({{{datatype}}}) minimum
-            if(this.{{{name}}} < ({{{datatype}}}){{minimum}})
+            if(this.{{{name}}} <= ({{{datatype}}}){{minimum}})
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for {{{name}}}, must be a value greater than or equal to {{minimum}}.", new [] { "{{{name}}}" });
             }

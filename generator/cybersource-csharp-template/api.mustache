@@ -217,6 +217,8 @@ namespace {{packageName}}.{{apiPackage}}
         {{/allParams}}/// <returns>ApiResponse of {{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}Object(void){{/returnType}}</returns>
         public ApiResponse<{{#returnType}} {{{returnType}}} {{/returnType}}{{^returnType}}Object{{/returnType}}> {{operationId}}WithHttpInfo ({{#allParams}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
         {
+            LogUtility logUtility = new LogUtility();
+
             {{#allParams}}
             {{#required}}
             // verify the required parameter '{{paramName}}' is set
@@ -263,7 +265,7 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/pathParams}}
             {{#pathParams}}
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             {{/pathParams}}
             {{#queryParams}}
             if ({{paramName}} != null)
@@ -272,7 +274,7 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/queryParams}}
             {{#queryParams}}
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             {{/queryParams}}
             {{#headerParams}}
             if ({{paramName}} != null)
@@ -296,9 +298,9 @@ namespace {{packageName}}.{{apiPackage}}
                 localVarPostBody = {{paramName}}; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -390,6 +392,8 @@ namespace {{packageName}}.{{apiPackage}}
         {{/allParams}}/// <returns>Task of ApiResponse{{#returnType}} ({{returnType}}){{/returnType}}</returns>
         public async System.Threading.Tasks.Task<ApiResponse<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}Object{{/returnType}}>> {{operationId}}AsyncWithHttpInfo ({{#allParams}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
         {
+            LogUtility logUtility = new LogUtility();
+
             {{#allParams}}
             {{#required}}
             // verify the required parameter '{{paramName}}' is set
@@ -436,7 +440,7 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/pathParams}}
             {{#pathParams}}
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             {{/pathParams}}
             {{#queryParams}}
             if ({{paramName}} != null)
@@ -445,7 +449,7 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/queryParams}}
             {{#queryParams}}
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             {{/queryParams}}
             {{#headerParams}}
             if ({{paramName}} != null)
@@ -469,9 +473,9 @@ namespace {{packageName}}.{{apiPackage}}
                 localVarPostBody = {{paramName}}; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

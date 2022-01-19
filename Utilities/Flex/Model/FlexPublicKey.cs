@@ -37,7 +37,7 @@
 
         public override string ToString()
         {
-            return System.String.Format("FlexPublicKey[keyId={0}]", keyId);
+            return string.Format("FlexPublicKey[keyId={0}]", keyId);
         }
     }
 }
