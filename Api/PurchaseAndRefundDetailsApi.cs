@@ -254,6 +254,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of ReportingV3PurchaseRefundDetailsGet200Response</returns>
         public ApiResponse< ReportingV3PurchaseRefundDetailsGet200Response > GetPurchaseAndRefundDetailsWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
@@ -325,14 +327,14 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -394,6 +396,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (ReportingV3PurchaseRefundDetailsGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response>> GetPurchaseAndRefundDetailsAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
@@ -465,14 +469,14 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request

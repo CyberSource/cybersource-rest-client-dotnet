@@ -212,6 +212,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of FlexV1TokensPost200Response</returns>
         public ApiResponse< FlexV1TokensPost200Response > TokenizeWithHttpInfo (TokenizeRequest tokenizeRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'tokenizeRequest' is set
             if (tokenizeRequest == null)
             {
@@ -252,9 +254,9 @@ namespace CyberSource.Api
                 localVarPostBody = tokenizeRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -307,6 +309,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (FlexV1TokensPost200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<FlexV1TokensPost200Response>> TokenizeAsyncWithHttpInfo (TokenizeRequest tokenizeRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'tokenizeRequest' is set
             if (tokenizeRequest == null)
             {
@@ -347,9 +351,9 @@ namespace CyberSource.Api
                 localVarPostBody = tokenizeRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

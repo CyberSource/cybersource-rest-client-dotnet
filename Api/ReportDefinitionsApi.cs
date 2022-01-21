@@ -276,6 +276,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of ReportingV3ReportDefinitionsNameGet200Response</returns>
         public ApiResponse< ReportingV3ReportDefinitionsNameGet200Response > GetResourceInfoByReportDefinitionWithHttpInfo (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'reportDefinitionName' is set
             if (reportDefinitionName == null)
             {
@@ -311,7 +313,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportDefinitionName", Configuration.ApiClient.ParameterToString(reportDefinitionName)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (subscriptionType != null)
             {
                 localVarQueryParams.Add("subscriptionType", Configuration.ApiClient.ParameterToString(subscriptionType)); // query parameter
@@ -324,9 +326,9 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -380,6 +382,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsNameGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>> GetResourceInfoByReportDefinitionAsyncWithHttpInfo (string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'reportDefinitionName' is set
             if (reportDefinitionName == null)
             {
@@ -415,7 +419,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportDefinitionName", Configuration.ApiClient.ParameterToString(reportDefinitionName)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (subscriptionType != null)
             {
                 localVarQueryParams.Add("subscriptionType", Configuration.ApiClient.ParameterToString(subscriptionType)); // query parameter
@@ -428,9 +432,9 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -478,6 +482,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of ReportingV3ReportDefinitionsGet200Response</returns>
         public ApiResponse< ReportingV3ReportDefinitionsGet200Response > GetResourceV2InfoWithHttpInfo (string subscriptionType = null, string organizationId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
 
             var localVarPath = $"/reporting/v3/report-definitions";
             var localVarPathParams = new Dictionary<string, string>();
@@ -511,8 +517,8 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -562,6 +568,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (ReportingV3ReportDefinitionsGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ReportDefinitionsGet200Response>> GetResourceV2InfoAsyncWithHttpInfo (string subscriptionType = null, string organizationId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
 
             var localVarPath = $"/reporting/v3/report-definitions";
             var localVarPathParams = new Dictionary<string, string>();
@@ -595,8 +603,8 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request

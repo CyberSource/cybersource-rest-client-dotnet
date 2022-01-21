@@ -209,6 +209,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> GetDTDV2WithHttpInfo (string reportDefinitionNameVersion)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'reportDefinitionNameVersion' is set
             if (reportDefinitionNameVersion == null)
             {
@@ -244,7 +246,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportDefinitionNameVersion", Configuration.ApiClient.ParameterToString(reportDefinitionNameVersion)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -290,6 +292,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> GetDTDV2AsyncWithHttpInfo (string reportDefinitionNameVersion)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'reportDefinitionNameVersion' is set
             if (reportDefinitionNameVersion == null)
             {
@@ -325,7 +329,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportDefinitionNameVersion", Configuration.ApiClient.ParameterToString(reportDefinitionNameVersion)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request

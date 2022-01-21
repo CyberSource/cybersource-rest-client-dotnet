@@ -41,10 +41,10 @@ namespace CyberSource.Model
         /// <param name="Timezone">Timezone of the report.</param>
         /// <param name="ReportStartTime">Start time of the report.</param>
         /// <param name="ReportEndTime">End time of the report.</param>
-        /// <param name="ReportFilters">List of filters to apply.</param>
+        /// <param name="ReportFilters">ReportFilters.</param>
         /// <param name="ReportPreferences">ReportPreferences.</param>
         /// <param name="GroupName">Specifies the group name.</param>
-        public CreateAdhocReportRequest(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), string ReportMimeType = default(string), string ReportName = default(string), string Timezone = default(string), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupName = default(string))
+        public CreateAdhocReportRequest(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), string ReportMimeType = default(string), string ReportName = default(string), string Timezone = default(string), DateTime? ReportStartTime = default(DateTime?), DateTime? ReportEndTime = default(DateTime?), Reportingv3reportsReportFilters ReportFilters = default(Reportingv3reportsReportFilters), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupName = default(string))
         {
             this.OrganizationId = OrganizationId;
             this.ReportDefinitionName = ReportDefinitionName;
@@ -115,11 +115,10 @@ namespace CyberSource.Model
         public DateTime? ReportEndTime { get; set; }
 
         /// <summary>
-        /// List of filters to apply
+        /// Gets or Sets ReportFilters
         /// </summary>
-        /// <value>List of filters to apply</value>
         [DataMember(Name="reportFilters", EmitDefaultValue=false)]
-        public Dictionary<string, List<string>> ReportFilters { get; set; }
+        public Reportingv3reportsReportFilters ReportFilters { get; set; }
 
         /// <summary>
         /// Gets or Sets ReportPreferences
@@ -232,7 +231,7 @@ namespace CyberSource.Model
                 (
                     this.ReportFilters == other.ReportFilters ||
                     this.ReportFilters != null &&
-                    this.ReportFilters.SequenceEqual(other.ReportFilters)
+                    this.ReportFilters.Equals(other.ReportFilters)
                 ) && 
                 (
                     this.ReportPreferences == other.ReportPreferences ||

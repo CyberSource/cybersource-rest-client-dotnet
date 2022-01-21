@@ -218,6 +218,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV2PaymentsCapturesPost201Response</returns>
         public ApiResponse< PtsV2PaymentsCapturesPost201Response > CapturePaymentWithHttpInfo (CapturePaymentRequest capturePaymentRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'capturePaymentRequest' is set
             if (capturePaymentRequest == null)
             {
@@ -259,7 +261,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (capturePaymentRequest != null && capturePaymentRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(capturePaymentRequest); // http body (model) parameter
@@ -269,9 +271,9 @@ namespace CyberSource.Api
                 localVarPostBody = capturePaymentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -326,6 +328,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV2PaymentsCapturesPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsCapturesPost201Response>> CapturePaymentAsyncWithHttpInfo (CapturePaymentRequest capturePaymentRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'capturePaymentRequest' is set
             if (capturePaymentRequest == null)
             {
@@ -367,7 +371,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (capturePaymentRequest != null && capturePaymentRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(capturePaymentRequest); // http body (model) parameter
@@ -377,9 +381,9 @@ namespace CyberSource.Api
                 localVarPostBody = capturePaymentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

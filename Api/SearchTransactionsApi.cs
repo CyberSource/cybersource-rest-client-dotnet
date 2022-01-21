@@ -254,6 +254,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of TssV2TransactionsPost201Response</returns>
         public ApiResponse< TssV2TransactionsPost201Response > CreateSearchWithHttpInfo (CreateSearchRequest createSearchRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createSearchRequest' is set
             if (createSearchRequest == null)
             {
@@ -294,9 +296,9 @@ namespace CyberSource.Api
                 localVarPostBody = createSearchRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -349,6 +351,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> CreateSearchAsyncWithHttpInfo (CreateSearchRequest createSearchRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createSearchRequest' is set
             if (createSearchRequest == null)
             {
@@ -389,9 +393,9 @@ namespace CyberSource.Api
                 localVarPostBody = createSearchRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -442,6 +446,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of TssV2TransactionsPost201Response</returns>
         public ApiResponse< TssV2TransactionsPost201Response > GetSearchWithHttpInfo (string searchId)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'searchId' is set
             if (searchId == null)
             {
@@ -477,7 +483,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("searchId", Configuration.ApiClient.ParameterToString(searchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -525,6 +531,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (TssV2TransactionsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsPost201Response>> GetSearchAsyncWithHttpInfo (string searchId)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'searchId' is set
             if (searchId == null)
             {
@@ -560,7 +568,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("searchId", Configuration.ApiClient.ParameterToString(searchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request

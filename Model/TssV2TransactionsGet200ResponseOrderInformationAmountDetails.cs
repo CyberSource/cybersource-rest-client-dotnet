@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// <param name="AuthorizedAmount">Amount that was authorized.  Returned by authorization service.  #### PIN debit Amount of the purchase.  Returned by PIN debit purchase.  #### FDMS South If you accept IDR or CLP currencies, see the entry for FDMS South in Merchant Descriptors Using the SCMP API. .</param>
         /// <param name="SettlementAmount">This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. This field is returned for OCT transactions. .</param>
         /// <param name="SettlementCurrency">This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. This field is returned for OCT transactions. .</param>
-        public TssV2TransactionsGet200ResponseOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string TaxAmount = default(string), string AuthorizedAmount = default(string), string SettlementAmount = default(string), string SettlementCurrency = default(string))
+        /// <param name="Surcharge">Surcharge.</param>
+        public TssV2TransactionsGet200ResponseOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string TaxAmount = default(string), string AuthorizedAmount = default(string), string SettlementAmount = default(string), string SettlementCurrency = default(string), Ptsv2paymentsOrderInformationAmountDetailsSurcharge Surcharge = default(Ptsv2paymentsOrderInformationAmountDetailsSurcharge))
         {
             this.TotalAmount = TotalAmount;
             this.Currency = Currency;
@@ -47,6 +48,7 @@ namespace CyberSource.Model
             this.AuthorizedAmount = AuthorizedAmount;
             this.SettlementAmount = SettlementAmount;
             this.SettlementCurrency = SettlementCurrency;
+            this.Surcharge = Surcharge;
         }
         
         /// <summary>
@@ -92,6 +94,12 @@ namespace CyberSource.Model
         public string SettlementCurrency { get; set; }
 
         /// <summary>
+        /// Gets or Sets Surcharge
+        /// </summary>
+        [DataMember(Name="surcharge", EmitDefaultValue=false)]
+        public Ptsv2paymentsOrderInformationAmountDetailsSurcharge Surcharge { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +113,7 @@ namespace CyberSource.Model
             sb.Append("  AuthorizedAmount: ").Append(AuthorizedAmount).Append("\n");
             sb.Append("  SettlementAmount: ").Append(SettlementAmount).Append("\n");
             sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
+            sb.Append("  Surcharge: ").Append(Surcharge).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +179,11 @@ namespace CyberSource.Model
                     this.SettlementCurrency == other.SettlementCurrency ||
                     this.SettlementCurrency != null &&
                     this.SettlementCurrency.Equals(other.SettlementCurrency)
+                ) && 
+                (
+                    this.Surcharge == other.Surcharge ||
+                    this.Surcharge != null &&
+                    this.Surcharge.Equals(other.Surcharge)
                 );
         }
 
@@ -196,6 +210,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SettlementAmount.GetHashCode();
                 if (this.SettlementCurrency != null)
                     hash = hash * 59 + this.SettlementCurrency.GetHashCode();
+                if (this.Surcharge != null)
+                    hash = hash * 59 + this.Surcharge.GetHashCode();
                 return hash;
             }
         }

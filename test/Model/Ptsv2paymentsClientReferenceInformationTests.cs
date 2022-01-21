@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Code'
         }
         /// <summary>
+        /// Test the property 'ReconciliationId'
+        /// </summary>
+        [Test]
+        public void ReconciliationIdTest()
+        {
+            // TODO unit test for the property 'ReconciliationId'
+        }
+        /// <summary>
         /// Test the property 'PausedRequestId'
         /// </summary>
         [Test]

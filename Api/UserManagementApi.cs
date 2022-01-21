@@ -230,6 +230,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of UmsV1UsersGet200Response</returns>
         public ApiResponse< UmsV1UsersGet200Response > GetUsersWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
 
             var localVarPath = $"/ums/v1/users";
             var localVarPathParams = new Dictionary<string, string>();
@@ -271,10 +273,10 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("roleId", Configuration.ApiClient.ParameterToString(roleId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -328,6 +330,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (UmsV1UsersGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<UmsV1UsersGet200Response>> GetUsersAsyncWithHttpInfo (string organizationId = null, string userName = null, string permissionId = null, string roleId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
 
             var localVarPath = $"/ums/v1/users";
             var localVarPathParams = new Dictionary<string, string>();
@@ -369,10 +373,10 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("roleId", Configuration.ApiClient.ParameterToString(roleId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request

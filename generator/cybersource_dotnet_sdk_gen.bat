@@ -57,12 +57,12 @@ powershell Rename-Item ..\CyberSource.sln cybersource-rest-client-dotnet.sln
 
 xcopy ..\src\cybersource ..\ /s /e /y /exclude:excludelist.txt
 git checkout ..\README.md
-git checkout ..\test\packages.config
 git checkout ..\Api\OAuthApi.cs
 git checkout ..\Model\AccessTokenResponse.cs
 git checkout ..\Model\CreateAccessTokenRequest.cs
 md ..\test
 xcopy ..\src\cybersource.test ..\test /s /e /y
+git checkout ..\test\packages.config
 
 rd /s /q ..\src
 

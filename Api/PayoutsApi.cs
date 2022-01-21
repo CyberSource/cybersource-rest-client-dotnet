@@ -212,6 +212,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV2PayoutsPost201Response</returns>
         public ApiResponse< PtsV2PayoutsPost201Response > OctCreatePaymentWithHttpInfo (OctCreatePaymentRequest octCreatePaymentRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'octCreatePaymentRequest' is set
             if (octCreatePaymentRequest == null)
             {
@@ -252,9 +254,9 @@ namespace CyberSource.Api
                 localVarPostBody = octCreatePaymentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -307,6 +309,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV2PayoutsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PtsV2PayoutsPost201Response>> OctCreatePaymentAsyncWithHttpInfo (OctCreatePaymentRequest octCreatePaymentRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'octCreatePaymentRequest' is set
             if (octCreatePaymentRequest == null)
             {
@@ -347,9 +351,9 @@ namespace CyberSource.Api
                 localVarPostBody = octCreatePaymentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

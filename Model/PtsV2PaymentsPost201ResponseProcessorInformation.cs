@@ -61,7 +61,9 @@ namespace CyberSource.Model
         /// <param name="Routing">Routing.</param>
         /// <param name="MerchantNumber">Identifier that was assigned to you by your acquirer. This value must be printed on the receipt.  #### Returned by Authorizations and Credits.  This reply field is only supported by merchants who have installed client software on their POS terminals and use these processors: - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - OmniPay Direct - SIX .</param>
         /// <param name="RetrievalReferenceNumber">#### Ingenico ePayments Unique number that CyberSource generates to identify the transaction. You can use this value to identify transactions in the Ingenico ePayments Collections Report, which provides settlement information. Contact customer support for information about the report.  ### CyberSource through VisaNet Retrieval request number. .</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string))
+        /// <param name="PaymentUrl">Direct the customer to this URL to complete the payment..</param>
+        /// <param name="CompleteUrl">The redirect URL for forwarding the consumer to complete page.  This redirect needed by PSP to track browser information of consumer. PSP then redirect consumer to merchant success URL. .</param>
+        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string))
         {
             this.AuthIndicator = AuthIndicator;
             this.ApprovalCode = ApprovalCode;
@@ -91,6 +93,8 @@ namespace CyberSource.Model
             this.Routing = Routing;
             this.MerchantNumber = MerchantNumber;
             this.RetrievalReferenceNumber = RetrievalReferenceNumber;
+            this.PaymentUrl = PaymentUrl;
+            this.CompleteUrl = CompleteUrl;
         }
         
         /// <summary>
@@ -282,6 +286,20 @@ namespace CyberSource.Model
         public string RetrievalReferenceNumber { get; set; }
 
         /// <summary>
+        /// Direct the customer to this URL to complete the payment.
+        /// </summary>
+        /// <value>Direct the customer to this URL to complete the payment.</value>
+        [DataMember(Name="paymentUrl", EmitDefaultValue=false)]
+        public string PaymentUrl { get; set; }
+
+        /// <summary>
+        /// The redirect URL for forwarding the consumer to complete page.  This redirect needed by PSP to track browser information of consumer. PSP then redirect consumer to merchant success URL. 
+        /// </summary>
+        /// <value>The redirect URL for forwarding the consumer to complete page.  This redirect needed by PSP to track browser information of consumer. PSP then redirect consumer to merchant success URL. </value>
+        [DataMember(Name="completeUrl", EmitDefaultValue=false)]
+        public string CompleteUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -317,6 +335,8 @@ namespace CyberSource.Model
             sb.Append("  Routing: ").Append(Routing).Append("\n");
             sb.Append("  MerchantNumber: ").Append(MerchantNumber).Append("\n");
             sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
+            sb.Append("  PaymentUrl: ").Append(PaymentUrl).Append("\n");
+            sb.Append("  CompleteUrl: ").Append(CompleteUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -492,6 +512,16 @@ namespace CyberSource.Model
                     this.RetrievalReferenceNumber == other.RetrievalReferenceNumber ||
                     this.RetrievalReferenceNumber != null &&
                     this.RetrievalReferenceNumber.Equals(other.RetrievalReferenceNumber)
+                ) && 
+                (
+                    this.PaymentUrl == other.PaymentUrl ||
+                    this.PaymentUrl != null &&
+                    this.PaymentUrl.Equals(other.PaymentUrl)
+                ) && 
+                (
+                    this.CompleteUrl == other.CompleteUrl ||
+                    this.CompleteUrl != null &&
+                    this.CompleteUrl.Equals(other.CompleteUrl)
                 );
         }
 
@@ -562,6 +592,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantNumber.GetHashCode();
                 if (this.RetrievalReferenceNumber != null)
                     hash = hash * 59 + this.RetrievalReferenceNumber.GetHashCode();
+                if (this.PaymentUrl != null)
+                    hash = hash * 59 + this.PaymentUrl.GetHashCode();
+                if (this.CompleteUrl != null)
+                    hash = hash * 59 + this.CompleteUrl.GetHashCode();
                 return hash;
             }
         }

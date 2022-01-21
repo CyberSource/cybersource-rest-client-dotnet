@@ -43,8 +43,11 @@ namespace CyberSource.Model
         /// <param name="CardAcceptorReferenceNumber">Reference number that facilitates card acceptor/corporation communication and record keeping.  For processor-specific information, see the &#x60;card_acceptor_ref_number&#x60; field description in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="TransactionLocalDateTime">Date and time at your physical location.  Format: &#x60;YYYYMMDDhhmmss&#x60;, where:  - &#x60;YYYY&#x60; &#x3D; year  - &#x60;MM&#x60; &#x3D; month  - &#x60;DD&#x60; &#x3D; day  - &#x60;hh&#x60; &#x3D; hour  - &#x60;mm&#x60; &#x3D; minutes  - &#x60;ss&#x60; &#x3D; seconds  #### Used by **Authorization** Required for these processors: - American Express Direct                                                                                                                                                                                                                                                                                                                         - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - SIX  Optional for all other processors. .</param>
         /// <param name="ServiceFeeDescriptor">ServiceFeeDescriptor.</param>
+        /// <param name="CancelUrl">customer would be redirected to this url based on the decision of the transaction.</param>
+        /// <param name="SuccessUrl">customer would be redirected to this url based on the decision of the transaction.</param>
+        /// <param name="FailureUrl">customer would be redirected to this url based on the decision of the transaction.</param>
         /// <param name="MerchantName">Use this field only if you are requesting payment with Payer Authentication serice together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. .</param>
-        public Ptsv2paymentsMerchantInformation(Ptsv2paymentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2paymentsMerchantInformationMerchantDescriptor), string DomainName = default(string), string SalesOrganizationId = default(string), int? CategoryCode = default(int?), int? CategoryCodeDomestic = default(int?), string TaxId = default(string), string VatRegistrationNumber = default(string), string CardAcceptorReferenceNumber = default(string), string TransactionLocalDateTime = default(string), Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor = default(Ptsv2paymentsMerchantInformationServiceFeeDescriptor), string MerchantName = default(string))
+        public Ptsv2paymentsMerchantInformation(Ptsv2paymentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2paymentsMerchantInformationMerchantDescriptor), string DomainName = default(string), string SalesOrganizationId = default(string), int? CategoryCode = default(int?), int? CategoryCodeDomestic = default(int?), string TaxId = default(string), string VatRegistrationNumber = default(string), string CardAcceptorReferenceNumber = default(string), string TransactionLocalDateTime = default(string), Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor = default(Ptsv2paymentsMerchantInformationServiceFeeDescriptor), string CancelUrl = default(string), string SuccessUrl = default(string), string FailureUrl = default(string), string MerchantName = default(string))
         {
             this.MerchantDescriptor = MerchantDescriptor;
             this.DomainName = DomainName;
@@ -56,6 +59,9 @@ namespace CyberSource.Model
             this.CardAcceptorReferenceNumber = CardAcceptorReferenceNumber;
             this.TransactionLocalDateTime = TransactionLocalDateTime;
             this.ServiceFeeDescriptor = ServiceFeeDescriptor;
+            this.CancelUrl = CancelUrl;
+            this.SuccessUrl = SuccessUrl;
+            this.FailureUrl = FailureUrl;
             this.MerchantName = MerchantName;
         }
         
@@ -128,6 +134,27 @@ namespace CyberSource.Model
         public Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor { get; set; }
 
         /// <summary>
+        /// customer would be redirected to this url based on the decision of the transaction
+        /// </summary>
+        /// <value>customer would be redirected to this url based on the decision of the transaction</value>
+        [DataMember(Name="cancelUrl", EmitDefaultValue=false)]
+        public string CancelUrl { get; set; }
+
+        /// <summary>
+        /// customer would be redirected to this url based on the decision of the transaction
+        /// </summary>
+        /// <value>customer would be redirected to this url based on the decision of the transaction</value>
+        [DataMember(Name="successUrl", EmitDefaultValue=false)]
+        public string SuccessUrl { get; set; }
+
+        /// <summary>
+        /// customer would be redirected to this url based on the decision of the transaction
+        /// </summary>
+        /// <value>customer would be redirected to this url based on the decision of the transaction</value>
+        [DataMember(Name="failureUrl", EmitDefaultValue=false)]
+        public string FailureUrl { get; set; }
+
+        /// <summary>
         /// Use this field only if you are requesting payment with Payer Authentication serice together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. 
         /// </summary>
         /// <value>Use this field only if you are requesting payment with Payer Authentication serice together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. </value>
@@ -152,6 +179,9 @@ namespace CyberSource.Model
             sb.Append("  CardAcceptorReferenceNumber: ").Append(CardAcceptorReferenceNumber).Append("\n");
             sb.Append("  TransactionLocalDateTime: ").Append(TransactionLocalDateTime).Append("\n");
             sb.Append("  ServiceFeeDescriptor: ").Append(ServiceFeeDescriptor).Append("\n");
+            sb.Append("  CancelUrl: ").Append(CancelUrl).Append("\n");
+            sb.Append("  SuccessUrl: ").Append(SuccessUrl).Append("\n");
+            sb.Append("  FailureUrl: ").Append(FailureUrl).Append("\n");
             sb.Append("  MerchantName: ").Append(MerchantName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -240,6 +270,21 @@ namespace CyberSource.Model
                     this.ServiceFeeDescriptor.Equals(other.ServiceFeeDescriptor)
                 ) && 
                 (
+                    this.CancelUrl == other.CancelUrl ||
+                    this.CancelUrl != null &&
+                    this.CancelUrl.Equals(other.CancelUrl)
+                ) && 
+                (
+                    this.SuccessUrl == other.SuccessUrl ||
+                    this.SuccessUrl != null &&
+                    this.SuccessUrl.Equals(other.SuccessUrl)
+                ) && 
+                (
+                    this.FailureUrl == other.FailureUrl ||
+                    this.FailureUrl != null &&
+                    this.FailureUrl.Equals(other.FailureUrl)
+                ) && 
+                (
                     this.MerchantName == other.MerchantName ||
                     this.MerchantName != null &&
                     this.MerchantName.Equals(other.MerchantName)
@@ -277,6 +322,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionLocalDateTime.GetHashCode();
                 if (this.ServiceFeeDescriptor != null)
                     hash = hash * 59 + this.ServiceFeeDescriptor.GetHashCode();
+                if (this.CancelUrl != null)
+                    hash = hash * 59 + this.CancelUrl.GetHashCode();
+                if (this.SuccessUrl != null)
+                    hash = hash * 59 + this.SuccessUrl.GetHashCode();
+                if (this.FailureUrl != null)
+                    hash = hash * 59 + this.FailureUrl.GetHashCode();
                 if (this.MerchantName != null)
                     hash = hash * 59 + this.MerchantName.GetHashCode();
                 return hash;
@@ -291,13 +342,13 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CategoryCode (int?) maximum
-            if(this.CategoryCode > (int?)9999)
+            if(this.CategoryCode >= (int?)9999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CategoryCode, must be a value less than or equal to 9999.", new [] { "CategoryCode" });
             }
 
             // CategoryCodeDomestic (int?) maximum
-            if(this.CategoryCodeDomestic > (int?)9999)
+            if(this.CategoryCodeDomestic >= (int?)9999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CategoryCodeDomestic, must be a value less than or equal to 9999.", new [] { "CategoryCodeDomestic" });
             }

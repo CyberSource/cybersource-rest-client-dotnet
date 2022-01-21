@@ -224,6 +224,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of ReportingV3ChargebackSummariesGet200Response</returns>
         public ApiResponse< ReportingV3ChargebackSummariesGet200Response > GetChargebackSummariesWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
@@ -274,9 +276,9 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -328,6 +330,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (ReportingV3ChargebackSummariesGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ReportingV3ChargebackSummariesGet200Response>> GetChargebackSummariesAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
@@ -378,9 +382,9 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request

@@ -434,6 +434,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of InvoicingV2InvoicesPost201Response</returns>
         public ApiResponse< InvoicingV2InvoicesPost201Response > CreateInvoiceWithHttpInfo (CreateInvoiceRequest createInvoiceRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createInvoiceRequest' is set
             if (createInvoiceRequest == null)
             {
@@ -474,9 +476,9 @@ namespace CyberSource.Api
                 localVarPostBody = createInvoiceRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -529,6 +531,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (InvoicingV2InvoicesPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPost201Response>> CreateInvoiceAsyncWithHttpInfo (CreateInvoiceRequest createInvoiceRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createInvoiceRequest' is set
             if (createInvoiceRequest == null)
             {
@@ -569,9 +573,9 @@ namespace CyberSource.Api
                 localVarPostBody = createInvoiceRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -626,6 +630,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of InvoicingV2InvoicesAllGet200Response</returns>
         public ApiResponse< InvoicingV2InvoicesAllGet200Response > GetAllInvoicesWithHttpInfo (int? offset, int? limit, string status = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'offset' is set
             if (offset == null)
             {
@@ -675,9 +681,9 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -729,6 +735,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (InvoicingV2InvoicesAllGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesAllGet200Response>> GetAllInvoicesAsyncWithHttpInfo (int? offset, int? limit, string status = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'offset' is set
             if (offset == null)
             {
@@ -778,9 +786,9 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -826,6 +834,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of InvoicingV2InvoicesGet200Response</returns>
         public ApiResponse< InvoicingV2InvoicesGet200Response > GetInvoiceWithHttpInfo (string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -861,7 +871,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -909,6 +919,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (InvoicingV2InvoicesGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesGet200Response>> GetInvoiceAsyncWithHttpInfo (string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -944,7 +956,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -990,6 +1002,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of InvoicingV2InvoicesPost201Response</returns>
         public ApiResponse< InvoicingV2InvoicesPost201Response > PerformCancelActionWithHttpInfo (string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -1025,7 +1039,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -1073,6 +1087,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (InvoicingV2InvoicesPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPost201Response>> PerformCancelActionAsyncWithHttpInfo (string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -1108,7 +1124,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -1154,6 +1170,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of InvoicingV2InvoicesPost201Response</returns>
         public ApiResponse< InvoicingV2InvoicesPost201Response > PerformSendActionWithHttpInfo (string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -1189,7 +1207,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -1237,6 +1255,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (InvoicingV2InvoicesPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPost201Response>> PerformSendActionAsyncWithHttpInfo (string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -1272,7 +1292,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -1320,6 +1340,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of InvoicingV2InvoicesPost201Response</returns>
         public ApiResponse< InvoicingV2InvoicesPost201Response > UpdateInvoiceWithHttpInfo (string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -1361,7 +1383,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updateInvoiceRequest != null && updateInvoiceRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(updateInvoiceRequest); // http body (model) parameter
@@ -1371,9 +1393,9 @@ namespace CyberSource.Api
                 localVarPostBody = updateInvoiceRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -1428,6 +1450,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (InvoicingV2InvoicesPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPost201Response>> UpdateInvoiceAsyncWithHttpInfo (string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -1469,7 +1493,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updateInvoiceRequest != null && updateInvoiceRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(updateInvoiceRequest); // http body (model) parameter
@@ -1479,9 +1503,9 @@ namespace CyberSource.Api
                 localVarPostBody = updateInvoiceRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

@@ -434,6 +434,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteCustomerPaymentInstrumentWithHttpInfo (string customerTokenId, string paymentInstrumentTokenId, string profileId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
             {
@@ -479,8 +481,8 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("paymentInstrumentTokenId", Configuration.ApiClient.ParameterToString(paymentInstrumentTokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -534,6 +536,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomerPaymentInstrumentAsyncWithHttpInfo (string customerTokenId, string paymentInstrumentTokenId, string profileId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
             {
@@ -579,8 +583,8 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("paymentInstrumentTokenId", Configuration.ApiClient.ParameterToString(paymentInstrumentTokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -634,6 +638,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrument</returns>
         public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrument > GetCustomerPaymentInstrumentWithHttpInfo (string customerTokenId, string paymentInstrumentTokenId, string profileId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
             {
@@ -679,8 +685,8 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("paymentInstrumentTokenId", Configuration.ApiClient.ParameterToString(paymentInstrumentTokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -736,6 +742,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrument)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrument>> GetCustomerPaymentInstrumentAsyncWithHttpInfo (string customerTokenId, string paymentInstrumentTokenId, string profileId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
             {
@@ -781,8 +789,8 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("paymentInstrumentTokenId", Configuration.ApiClient.ParameterToString(paymentInstrumentTokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -838,6 +846,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PaymentInstrumentList</returns>
         public ApiResponse< PaymentInstrumentList > GetCustomerPaymentInstrumentsListWithHttpInfo (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
             {
@@ -873,7 +883,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerTokenId", Configuration.ApiClient.ParameterToString(customerTokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
@@ -882,8 +892,8 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -941,6 +951,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PaymentInstrumentList)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList>> GetCustomerPaymentInstrumentsListAsyncWithHttpInfo (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
             {
@@ -976,7 +988,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerTokenId", Configuration.ApiClient.ParameterToString(customerTokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
@@ -985,8 +997,8 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -1044,6 +1056,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrument</returns>
         public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrument > PatchCustomersPaymentInstrumentWithHttpInfo (string customerTokenId, string paymentInstrumentTokenId, PatchCustomerPaymentInstrumentRequest patchCustomerPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
             {
@@ -1095,8 +1109,8 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("paymentInstrumentTokenId", Configuration.ApiClient.ParameterToString(paymentInstrumentTokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -1114,9 +1128,9 @@ namespace CyberSource.Api
                 localVarPostBody = patchCustomerPaymentInstrumentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -1177,6 +1191,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrument)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrument>> PatchCustomersPaymentInstrumentAsyncWithHttpInfo (string customerTokenId, string paymentInstrumentTokenId, PatchCustomerPaymentInstrumentRequest patchCustomerPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
             {
@@ -1228,8 +1244,8 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("paymentInstrumentTokenId", Configuration.ApiClient.ParameterToString(paymentInstrumentTokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -1247,9 +1263,9 @@ namespace CyberSource.Api
                 localVarPostBody = patchCustomerPaymentInstrumentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -1304,6 +1320,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrument</returns>
         public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrument > PostCustomerPaymentInstrumentWithHttpInfo (string customerTokenId, PostCustomerPaymentInstrumentRequest postCustomerPaymentInstrumentRequest, string profileId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
             {
@@ -1345,7 +1363,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerTokenId", Configuration.ApiClient.ParameterToString(customerTokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -1359,9 +1377,9 @@ namespace CyberSource.Api
                 localVarPostBody = postCustomerPaymentInstrumentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -1418,6 +1436,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrument)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrument>> PostCustomerPaymentInstrumentAsyncWithHttpInfo (string customerTokenId, PostCustomerPaymentInstrumentRequest postCustomerPaymentInstrumentRequest, string profileId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'customerTokenId' is set
             if (customerTokenId == null)
             {
@@ -1459,7 +1479,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerTokenId", Configuration.ApiClient.ParameterToString(customerTokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -1473,9 +1493,9 @@ namespace CyberSource.Api
                 localVarPostBody = postCustomerPaymentInstrumentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

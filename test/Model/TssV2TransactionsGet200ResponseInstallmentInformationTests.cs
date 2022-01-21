@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'NumberOfInstallments'
         }
+        /// <summary>
+        /// Test the property 'Identifier'
+        /// </summary>
+        [Test]
+        public void IdentifierTest()
+        {
+            // TODO unit test for the property 'Identifier'
+        }
 
     }
 

@@ -337,6 +337,8 @@ namespace CyberSource.Client
             IList<Parameter> httpResponseHeaders = null;
             string httpResponseData = string.Empty;
 
+            LogUtility logUtility = new LogUtility();
+
             var response = new RestResponse();
 
             if (!string.IsNullOrEmpty(AcceptHeader))
@@ -388,9 +390,9 @@ namespace CyberSource.Client
                     }
                 }
 
-                if (LogUtility.IsMaskingEnabled(logger))
+                if (logUtility.IsMaskingEnabled(logger))
                 {
-                    logger.Debug($"HTTP Request Headers :\n{LogUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
+                    logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
                 }
                 else
                 {
@@ -422,9 +424,9 @@ namespace CyberSource.Client
                     headerPrintOutput.Append($"{stringBuilder.ToString().Remove(stringBuilder.Length - 2)}\n");
                 }
 
-                if (LogUtility.IsMaskingEnabled(logger))
+                if (logUtility.IsMaskingEnabled(logger))
                 {
-                    logger.Debug($"HTTP Request Headers :\n{LogUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
+                    logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
                 }
                 else
                 {
@@ -495,9 +497,9 @@ namespace CyberSource.Client
                 responseHeadersBuilder.Append($"{header}\n");
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Response Headers :\n{LogUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
+                logger.Debug($"HTTP Response Headers :\n{logUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
             }
             else
             {
@@ -506,9 +508,9 @@ namespace CyberSource.Client
 
             if (!string.IsNullOrEmpty(httpResponseData))
             {
-                if (LogUtility.IsMaskingEnabled(logger))
+                if (logUtility.IsMaskingEnabled(logger))
                 {
-                    logger.Debug($"HTTP Response Body :\n{LogUtility.MaskSensitiveData(httpResponseData)}");
+                    logger.Debug($"HTTP Response Body :\n{logUtility.MaskSensitiveData(httpResponseData)}");
                 }
                 else
                 {
@@ -538,6 +540,8 @@ namespace CyberSource.Client
             Dictionary<string, FileParameter> fileParams, Dictionary<string, string> pathParams,
             string contentType)
         {
+            LogUtility logUtility = new LogUtility();
+
             var request = PrepareRequest(
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType);
@@ -552,9 +556,9 @@ namespace CyberSource.Client
                 }
             }
 
-                if (LogUtility.IsMaskingEnabled(logger))
+                if (logUtility.IsMaskingEnabled(logger))
                 {
-                    logger.Debug($"HTTP Request Headers :\n{LogUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
+                    logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
                 }
                 else
                 {
@@ -578,9 +582,9 @@ namespace CyberSource.Client
                 responseHeadersBuilder.Append($"{header}\n");
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Response Headers :\n{LogUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
+                logger.Debug($"HTTP Response Headers :\n{logUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
             }
             else
             {
@@ -589,9 +593,9 @@ namespace CyberSource.Client
 
             if (!string.IsNullOrEmpty(httpResponseData))
             {
-                if (LogUtility.IsMaskingEnabled(logger))
+                if (logUtility.IsMaskingEnabled(logger))
                 {
-                    logger.Debug($"HTTP Response Body :\n{LogUtility.MaskSensitiveData(httpResponseData)}");
+                    logger.Debug($"HTTP Response Body :\n{logUtility.MaskSensitiveData(httpResponseData)}");
                 }
                 else
                 {

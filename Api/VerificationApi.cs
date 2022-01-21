@@ -254,6 +254,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of RiskV1ExportComplianceInquiriesPost201Response</returns>
         public ApiResponse< RiskV1ExportComplianceInquiriesPost201Response > ValidateExportComplianceWithHttpInfo (ValidateExportComplianceRequest validateExportComplianceRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'validateExportComplianceRequest' is set
             if (validateExportComplianceRequest == null)
             {
@@ -294,9 +296,9 @@ namespace CyberSource.Api
                 localVarPostBody = validateExportComplianceRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -349,6 +351,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (RiskV1ExportComplianceInquiriesPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<RiskV1ExportComplianceInquiriesPost201Response>> ValidateExportComplianceAsyncWithHttpInfo (ValidateExportComplianceRequest validateExportComplianceRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'validateExportComplianceRequest' is set
             if (validateExportComplianceRequest == null)
             {
@@ -389,9 +393,9 @@ namespace CyberSource.Api
                 localVarPostBody = validateExportComplianceRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -442,6 +446,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of RiskV1AddressVerificationsPost201Response</returns>
         public ApiResponse< RiskV1AddressVerificationsPost201Response > VerifyCustomerAddressWithHttpInfo (VerifyCustomerAddressRequest verifyCustomerAddressRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'verifyCustomerAddressRequest' is set
             if (verifyCustomerAddressRequest == null)
             {
@@ -482,9 +488,9 @@ namespace CyberSource.Api
                 localVarPostBody = verifyCustomerAddressRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -537,6 +543,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (RiskV1AddressVerificationsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<RiskV1AddressVerificationsPost201Response>> VerifyCustomerAddressAsyncWithHttpInfo (VerifyCustomerAddressRequest verifyCustomerAddressRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'verifyCustomerAddressRequest' is set
             if (verifyCustomerAddressRequest == null)
             {
@@ -577,9 +585,9 @@ namespace CyberSource.Api
                 localVarPostBody = verifyCustomerAddressRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

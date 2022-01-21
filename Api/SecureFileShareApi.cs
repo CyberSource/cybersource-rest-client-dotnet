@@ -270,6 +270,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> GetFileWithHttpInfo (string fileId, string organizationId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'fileId' is set
             if (fileId == null)
             {
@@ -307,12 +309,12 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("fileId", Configuration.ApiClient.ParameterToString(fileId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -360,6 +362,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> GetFileAsyncWithHttpInfo (string fileId, string organizationId = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'fileId' is set
             if (fileId == null)
             {
@@ -397,12 +401,12 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("fileId", Configuration.ApiClient.ParameterToString(fileId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -454,6 +458,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of V1FileDetailsGet200Response</returns>
         public ApiResponse< V1FileDetailsGet200Response > GetFileDetailWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'startDate' is set
             if (startDate == null)
             {
@@ -507,10 +513,10 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -564,6 +570,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (V1FileDetailsGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<V1FileDetailsGet200Response>> GetFileDetailAsyncWithHttpInfo (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'startDate' is set
             if (startDate == null)
             {
@@ -617,10 +625,10 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request

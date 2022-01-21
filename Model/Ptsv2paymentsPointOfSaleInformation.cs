@@ -547,31 +547,31 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CatLevel (int?) maximum
-            if(this.CatLevel > (int?)9)
+            if(this.CatLevel >= (int?)9)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CatLevel, must be a value less than or equal to 9.", new [] { "CatLevel" });
             }
 
             // CatLevel (int?) minimum
-            if(this.CatLevel < (int?)1)
+            if(this.CatLevel <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CatLevel, must be a value greater than or equal to 1.", new [] { "CatLevel" });
             }
 
             // TerminalCapability (int?) maximum
-            if(this.TerminalCapability > (int?)5)
+            if(this.TerminalCapability >= (int?)5)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCapability, must be a value less than or equal to 5.", new [] { "TerminalCapability" });
             }
 
             // TerminalCapability (int?) minimum
-            if(this.TerminalCapability < (int?)1)
+            if(this.TerminalCapability <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCapability, must be a value greater than or equal to 1.", new [] { "TerminalCapability" });
             }
 
             // PinBlockEncodingFormat (int?) maximum
-            if(this.PinBlockEncodingFormat > (int?)9)
+            if(this.PinBlockEncodingFormat >= (int?)9)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PinBlockEncodingFormat, must be a value less than or equal to 9.", new [] { "PinBlockEncodingFormat" });
             }
