@@ -218,6 +218,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of FlexV1KeysPost200Response</returns>
         public ApiResponse< FlexV1KeysPost200Response > GeneratePublicKeyWithHttpInfo (string format, GeneratePublicKeyRequest generatePublicKeyRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'format' is set
             if (format == null)
             {
@@ -259,7 +261,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("format", Configuration.ApiClient.ParameterToString(format)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (generatePublicKeyRequest != null && generatePublicKeyRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(generatePublicKeyRequest); // http body (model) parameter
@@ -269,9 +271,9 @@ namespace CyberSource.Api
                 localVarPostBody = generatePublicKeyRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -326,6 +328,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (FlexV1KeysPost200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<FlexV1KeysPost200Response>> GeneratePublicKeyAsyncWithHttpInfo (string format, GeneratePublicKeyRequest generatePublicKeyRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'format' is set
             if (format == null)
             {
@@ -367,7 +371,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("format", Configuration.ApiClient.ParameterToString(format)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (generatePublicKeyRequest != null && generatePublicKeyRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(generatePublicKeyRequest); // http body (model) parameter
@@ -377,9 +381,9 @@ namespace CyberSource.Api
                 localVarPostBody = generatePublicKeyRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

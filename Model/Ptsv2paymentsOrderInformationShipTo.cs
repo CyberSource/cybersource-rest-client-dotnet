@@ -33,7 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsOrderInformationShipTo" /> class.
         /// </summary>
+        /// <param name="Title">The title of the person receiving the product..</param>
         /// <param name="FirstName">First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
+        /// <param name="MiddleName">Middle name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
         /// <param name="LastName">Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
         /// <param name="Address1">First line of the shipping address.  Required field for authorization if any shipping address information is included in the request; otherwise, optional.  #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder’s location when shipTo objects are not present. .</param>
         /// <param name="Address2">Second line of the shipping address.  Optional field.  #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder’s location when shipTo objects are not present. .</param>
@@ -48,9 +50,11 @@ namespace CyberSource.Model
         /// <param name="DestinationTypes">Shipping destination of item. Example: Commercial, Residential, Store .</param>
         /// <param name="DestinationCode">Indicates destination chosen for the transaction. Possible values: - 01- Ship to cardholder billing address - 02- Ship to another verified address on file with merchant - 03- Ship to address that is different than billing address - 04- Ship to store (store address should be populated on request) - 05- Digital goods - 06- Travel and event tickets, not shipped - 07- Other .</param>
         /// <param name="Method">Shipping method for the product. Possible values: - lowcost: Lowest-cost service - sameday: Courier or same-day service - oneday: Next-day or overnight service - twoday: Two-day service - threeday: Three-day service - pickup: Store pick-up - other: Other shipping method - none: No shipping method because product is a service or subscription Required for American Express SafeKey (U.S.). .</param>
-        public Ptsv2paymentsOrderInformationShipTo(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string PhoneNumber = default(string), string Company = default(string), string DestinationTypes = default(string), int? DestinationCode = default(int?), string Method = default(string))
+        public Ptsv2paymentsOrderInformationShipTo(string Title = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string PhoneNumber = default(string), string Company = default(string), string DestinationTypes = default(string), int? DestinationCode = default(int?), string Method = default(string))
         {
+            this.Title = Title;
             this.FirstName = FirstName;
+            this.MiddleName = MiddleName;
             this.LastName = LastName;
             this.Address1 = Address1;
             this.Address2 = Address2;
@@ -68,11 +72,25 @@ namespace CyberSource.Model
         }
         
         /// <summary>
+        /// The title of the person receiving the product.
+        /// </summary>
+        /// <value>The title of the person receiving the product.</value>
+        [DataMember(Name="title", EmitDefaultValue=false)]
+        public string Title { get; set; }
+
+        /// <summary>
         /// First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. 
         /// </summary>
         /// <value>First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. </value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
+
+        /// <summary>
+        /// Middle name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. 
+        /// </summary>
+        /// <value>Middle name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. </value>
+        [DataMember(Name="middleName", EmitDefaultValue=false)]
+        public string MiddleName { get; set; }
 
         /// <summary>
         /// Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. 
@@ -180,7 +198,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsOrderInformationShipTo {\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Address1: ").Append(Address1).Append("\n");
             sb.Append("  Address2: ").Append(Address2).Append("\n");
@@ -232,9 +252,19 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.Title == other.Title ||
+                    this.Title != null &&
+                    this.Title.Equals(other.Title)
+                ) && 
+                (
                     this.FirstName == other.FirstName ||
                     this.FirstName != null &&
                     this.FirstName.Equals(other.FirstName)
+                ) && 
+                (
+                    this.MiddleName == other.MiddleName ||
+                    this.MiddleName != null &&
+                    this.MiddleName.Equals(other.MiddleName)
                 ) && 
                 (
                     this.LastName == other.LastName ||
@@ -319,8 +349,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Title != null)
+                    hash = hash * 59 + this.Title.GetHashCode();
                 if (this.FirstName != null)
                     hash = hash * 59 + this.FirstName.GetHashCode();
+                if (this.MiddleName != null)
+                    hash = hash * 59 + this.MiddleName.GetHashCode();
                 if (this.LastName != null)
                     hash = hash * 59 + this.LastName.GetHashCode();
                 if (this.Address1 != null)

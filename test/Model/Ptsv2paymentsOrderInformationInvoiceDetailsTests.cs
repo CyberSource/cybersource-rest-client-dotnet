@@ -184,6 +184,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'InvoiceDate'
         }
+        /// <summary>
+        /// Test the property 'CostCenter'
+        /// </summary>
+        [Test]
+        public void CostCenterTest()
+        {
+            // TODO unit test for the property 'CostCenter'
+        }
 
     }
 

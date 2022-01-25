@@ -310,6 +310,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> GetTransactionBatchDetailsWithHttpInfo (string id, DateTime? uploadDate = null, string status = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -347,7 +349,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (uploadDate != null)
             {
                 localVarQueryParams.Add("uploadDate", Configuration.ApiClient.ParameterToString(uploadDate)); // query parameter
@@ -356,8 +358,8 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -407,6 +409,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> GetTransactionBatchDetailsAsyncWithHttpInfo (string id, DateTime? uploadDate = null, string status = null)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -444,7 +448,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (uploadDate != null)
             {
                 localVarQueryParams.Add("uploadDate", Configuration.ApiClient.ParameterToString(uploadDate)); // query parameter
@@ -453,8 +457,8 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -500,6 +504,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV1TransactionBatchesIdGet200Response</returns>
         public ApiResponse< PtsV1TransactionBatchesIdGet200Response > GetTransactionBatchIdWithHttpInfo (string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -535,7 +541,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -583,6 +589,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV1TransactionBatchesIdGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PtsV1TransactionBatchesIdGet200Response>> GetTransactionBatchIdAsyncWithHttpInfo (string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -618,7 +626,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -666,6 +674,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV1TransactionBatchesGet200Response</returns>
         public ApiResponse< PtsV1TransactionBatchesGet200Response > GetTransactionBatchesWithHttpInfo (DateTime? startTime, DateTime? endTime)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
@@ -711,8 +721,8 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request
@@ -762,6 +772,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV1TransactionBatchesGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PtsV1TransactionBatchesGet200Response>> GetTransactionBatchesAsyncWithHttpInfo (DateTime? startTime, DateTime? endTime)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
@@ -807,8 +819,8 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
 
 
             // make the HTTP request

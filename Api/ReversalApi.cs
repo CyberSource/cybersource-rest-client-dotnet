@@ -260,6 +260,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV2PaymentsReversalsPost201Response</returns>
         public ApiResponse< PtsV2PaymentsReversalsPost201Response > AuthReversalWithHttpInfo (string id, AuthReversalRequest authReversalRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -301,7 +303,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (authReversalRequest != null && authReversalRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(authReversalRequest); // http body (model) parameter
@@ -311,9 +313,9 @@ namespace CyberSource.Api
                 localVarPostBody = authReversalRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -368,6 +370,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV2PaymentsReversalsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> AuthReversalAsyncWithHttpInfo (string id, AuthReversalRequest authReversalRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -409,7 +413,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (authReversalRequest != null && authReversalRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(authReversalRequest); // http body (model) parameter
@@ -419,9 +423,9 @@ namespace CyberSource.Api
                 localVarPostBody = authReversalRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -472,6 +476,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV2PaymentsReversalsPost201Response</returns>
         public ApiResponse< PtsV2PaymentsReversalsPost201Response > MitReversalWithHttpInfo (MitReversalRequest mitReversalRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'mitReversalRequest' is set
             if (mitReversalRequest == null)
             {
@@ -512,9 +518,9 @@ namespace CyberSource.Api
                 localVarPostBody = mitReversalRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -567,6 +573,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV2PaymentsReversalsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsReversalsPost201Response>> MitReversalAsyncWithHttpInfo (MitReversalRequest mitReversalRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'mitReversalRequest' is set
             if (mitReversalRequest == null)
             {
@@ -607,9 +615,9 @@ namespace CyberSource.Api
                 localVarPostBody = mitReversalRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

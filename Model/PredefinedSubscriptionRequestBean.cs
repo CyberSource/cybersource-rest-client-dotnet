@@ -317,13 +317,13 @@ namespace CyberSource.Model
             }
 
             // StartDay (int?) maximum
-            if(this.StartDay > (int?)31)
+            if(this.StartDay >= (int?)31)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value less than or equal to 31.", new [] { "StartDay" });
             }
 
             // StartDay (int?) minimum
-            if(this.StartDay < (int?)1)
+            if(this.StartDay <= (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value greater than or equal to 1.", new [] { "StartDay" });
             }

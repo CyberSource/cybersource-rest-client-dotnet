@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Iban'
         }
+        /// <summary>
+        /// Test the property 'SwiftCode'
+        /// </summary>
+        [Test]
+        public void SwiftCodeTest()
+        {
+            // TODO unit test for the property 'SwiftCode'
+        }
 
     }
 

@@ -248,6 +248,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of InvoicingV2InvoiceSettingsGet200Response</returns>
         public ApiResponse< InvoicingV2InvoiceSettingsGet200Response > GetInvoiceSettingsWithHttpInfo ()
         {
+            LogUtility logUtility = new LogUtility();
+
 
             var localVarPath = $"/invoicing/v2/invoiceSettings";
             var localVarPathParams = new Dictionary<string, string>();
@@ -318,6 +320,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (InvoicingV2InvoiceSettingsGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoiceSettingsGet200Response>> GetInvoiceSettingsAsyncWithHttpInfo ()
         {
+            LogUtility logUtility = new LogUtility();
+
 
             var localVarPath = $"/invoicing/v2/invoiceSettings";
             var localVarPathParams = new Dictionary<string, string>();
@@ -388,6 +392,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of InvoicingV2InvoiceSettingsGet200Response</returns>
         public ApiResponse< InvoicingV2InvoiceSettingsGet200Response > UpdateInvoiceSettingsWithHttpInfo (InvoiceSettingsRequest invoiceSettingsRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'invoiceSettingsRequest' is set
             if (invoiceSettingsRequest == null)
             {
@@ -428,9 +434,9 @@ namespace CyberSource.Api
                 localVarPostBody = invoiceSettingsRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -483,6 +489,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (InvoicingV2InvoiceSettingsGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoiceSettingsGet200Response>> UpdateInvoiceSettingsAsyncWithHttpInfo (InvoiceSettingsRequest invoiceSettingsRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'invoiceSettingsRequest' is set
             if (invoiceSettingsRequest == null)
             {
@@ -523,9 +531,9 @@ namespace CyberSource.Api
                 localVarPostBody = invoiceSettingsRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

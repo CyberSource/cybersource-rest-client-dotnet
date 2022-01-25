@@ -296,6 +296,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of KmsV2KeysAsymPost201Response</returns>
         public ApiResponse< KmsV2KeysAsymPost201Response > CreateP12KeysWithHttpInfo (CreateP12KeysRequest createP12KeysRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createP12KeysRequest' is set
             if (createP12KeysRequest == null)
             {
@@ -336,9 +338,9 @@ namespace CyberSource.Api
                 localVarPostBody = createP12KeysRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -391,6 +393,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (KmsV2KeysAsymPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymPost201Response>> CreateP12KeysAsyncWithHttpInfo (CreateP12KeysRequest createP12KeysRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createP12KeysRequest' is set
             if (createP12KeysRequest == null)
             {
@@ -431,9 +435,9 @@ namespace CyberSource.Api
                 localVarPostBody = createP12KeysRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -484,6 +488,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of KmsV2KeysAsymDeletesPost200Response</returns>
         public ApiResponse< KmsV2KeysAsymDeletesPost200Response > DeleteBulkP12KeysWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'deleteBulkP12KeysRequest' is set
             if (deleteBulkP12KeysRequest == null)
             {
@@ -524,9 +530,9 @@ namespace CyberSource.Api
                 localVarPostBody = deleteBulkP12KeysRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -579,6 +585,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (KmsV2KeysAsymDeletesPost200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymDeletesPost200Response>> DeleteBulkP12KeysAsyncWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'deleteBulkP12KeysRequest' is set
             if (deleteBulkP12KeysRequest == null)
             {
@@ -619,9 +627,9 @@ namespace CyberSource.Api
                 localVarPostBody = deleteBulkP12KeysRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -672,6 +680,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of KmsV2KeysAsymGet200Response</returns>
         public ApiResponse< KmsV2KeysAsymGet200Response > GetP12KeyDetailsWithHttpInfo (string keyId)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'keyId' is set
             if (keyId == null)
             {
@@ -707,7 +717,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -755,6 +765,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (KmsV2KeysAsymGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymGet200Response>> GetP12KeyDetailsAsyncWithHttpInfo (string keyId)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'keyId' is set
             if (keyId == null)
             {
@@ -790,7 +802,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request

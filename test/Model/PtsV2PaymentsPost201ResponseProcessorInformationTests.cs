@@ -288,6 +288,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'RetrievalReferenceNumber'
         }
+        /// <summary>
+        /// Test the property 'PaymentUrl'
+        /// </summary>
+        [Test]
+        public void PaymentUrlTest()
+        {
+            // TODO unit test for the property 'PaymentUrl'
+        }
+        /// <summary>
+        /// Test the property 'CompleteUrl'
+        /// </summary>
+        [Test]
+        public void CompleteUrlTest()
+        {
+            // TODO unit test for the property 'CompleteUrl'
+        }
 
     }
 

@@ -51,10 +51,12 @@ namespace CyberSource.Model
         /// <param name="HealthCareInformation">HealthCareInformation.</param>
         /// <param name="PromotionInformation">PromotionInformation.</param>
         /// <param name="TokenInformation">TokenInformation.</param>
+        /// <param name="InvoiceDetails">InvoiceDetails.</param>
+        /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="AcquirerInformation">AcquirerInformation.</param>
         /// <param name="RecurringPaymentInformation">RecurringPaymentInformation.</param>
-        public CreatePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsProcessingInformation ProcessingInformation = default(Ptsv2paymentsProcessingInformation), Ptsv2paymentsIssuerInformation IssuerInformation = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsPaymentInformation PaymentInformation = default(Ptsv2paymentsPaymentInformation), Ptsv2paymentsOrderInformation OrderInformation = default(Ptsv2paymentsOrderInformation), Ptsv2paymentsBuyerInformation BuyerInformation = default(Ptsv2paymentsBuyerInformation), Ptsv2paymentsRecipientInformation RecipientInformation = default(Ptsv2paymentsRecipientInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsMerchantInformation MerchantInformation = default(Ptsv2paymentsMerchantInformation), Ptsv2paymentsAggregatorInformation AggregatorInformation = default(Ptsv2paymentsAggregatorInformation), Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2paymentsConsumerAuthenticationInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsInstallmentInformation InstallmentInformation = default(Ptsv2paymentsInstallmentInformation), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation), Ptsv2paymentsTokenInformation TokenInformation = default(Ptsv2paymentsTokenInformation), Ptsv2paymentsRiskInformation RiskInformation = default(Ptsv2paymentsRiskInformation), Ptsv2paymentsAcquirerInformation AcquirerInformation = default(Ptsv2paymentsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation))
+        public CreatePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsProcessingInformation ProcessingInformation = default(Ptsv2paymentsProcessingInformation), Ptsv2paymentsIssuerInformation IssuerInformation = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsPaymentInformation PaymentInformation = default(Ptsv2paymentsPaymentInformation), Ptsv2paymentsOrderInformation OrderInformation = default(Ptsv2paymentsOrderInformation), Ptsv2paymentsBuyerInformation BuyerInformation = default(Ptsv2paymentsBuyerInformation), Ptsv2paymentsRecipientInformation RecipientInformation = default(Ptsv2paymentsRecipientInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsMerchantInformation MerchantInformation = default(Ptsv2paymentsMerchantInformation), Ptsv2paymentsAggregatorInformation AggregatorInformation = default(Ptsv2paymentsAggregatorInformation), Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2paymentsConsumerAuthenticationInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsInstallmentInformation InstallmentInformation = default(Ptsv2paymentsInstallmentInformation), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation), Ptsv2paymentsTokenInformation TokenInformation = default(Ptsv2paymentsTokenInformation), Ptsv2paymentsInvoiceDetails InvoiceDetails = default(Ptsv2paymentsInvoiceDetails), Ptsv2paymentsProcessorInformation ProcessorInformation = default(Ptsv2paymentsProcessorInformation), Ptsv2paymentsRiskInformation RiskInformation = default(Ptsv2paymentsRiskInformation), Ptsv2paymentsAcquirerInformation AcquirerInformation = default(Ptsv2paymentsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -74,6 +76,8 @@ namespace CyberSource.Model
             this.HealthCareInformation = HealthCareInformation;
             this.PromotionInformation = PromotionInformation;
             this.TokenInformation = TokenInformation;
+            this.InvoiceDetails = InvoiceDetails;
+            this.ProcessorInformation = ProcessorInformation;
             this.RiskInformation = RiskInformation;
             this.AcquirerInformation = AcquirerInformation;
             this.RecurringPaymentInformation = RecurringPaymentInformation;
@@ -189,6 +193,18 @@ namespace CyberSource.Model
         public Ptsv2paymentsTokenInformation TokenInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets InvoiceDetails
+        /// </summary>
+        [DataMember(Name="invoiceDetails", EmitDefaultValue=false)]
+        public Ptsv2paymentsInvoiceDetails InvoiceDetails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProcessorInformation
+        /// </summary>
+        [DataMember(Name="processorInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessorInformation ProcessorInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets RiskInformation
         /// </summary>
         [DataMember(Name="riskInformation", EmitDefaultValue=false)]
@@ -232,6 +248,8 @@ namespace CyberSource.Model
             sb.Append("  HealthCareInformation: ").Append(HealthCareInformation).Append("\n");
             sb.Append("  PromotionInformation: ").Append(PromotionInformation).Append("\n");
             sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
+            sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
+            sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
             sb.Append("  AcquirerInformation: ").Append(AcquirerInformation).Append("\n");
             sb.Append("  RecurringPaymentInformation: ").Append(RecurringPaymentInformation).Append("\n");
@@ -362,6 +380,16 @@ namespace CyberSource.Model
                     this.TokenInformation.Equals(other.TokenInformation)
                 ) && 
                 (
+                    this.InvoiceDetails == other.InvoiceDetails ||
+                    this.InvoiceDetails != null &&
+                    this.InvoiceDetails.Equals(other.InvoiceDetails)
+                ) && 
+                (
+                    this.ProcessorInformation == other.ProcessorInformation ||
+                    this.ProcessorInformation != null &&
+                    this.ProcessorInformation.Equals(other.ProcessorInformation)
+                ) && 
+                (
                     this.RiskInformation == other.RiskInformation ||
                     this.RiskInformation != null &&
                     this.RiskInformation.Equals(other.RiskInformation)
@@ -425,6 +453,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PromotionInformation.GetHashCode();
                 if (this.TokenInformation != null)
                     hash = hash * 59 + this.TokenInformation.GetHashCode();
+                if (this.InvoiceDetails != null)
+                    hash = hash * 59 + this.InvoiceDetails.GetHashCode();
+                if (this.ProcessorInformation != null)
+                    hash = hash * 59 + this.ProcessorInformation.GetHashCode();
                 if (this.RiskInformation != null)
                     hash = hash * 59 + this.RiskInformation.GetHashCode();
                 if (this.AcquirerInformation != null)

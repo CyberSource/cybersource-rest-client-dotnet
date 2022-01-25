@@ -258,6 +258,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of VasV2PaymentsPost201Response</returns>
         public ApiResponse< VasV2PaymentsPost201Response > CalculateTaxWithHttpInfo (TaxRequest taxRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'taxRequest' is set
             if (taxRequest == null)
             {
@@ -298,9 +300,9 @@ namespace CyberSource.Api
                 localVarPostBody = taxRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -353,6 +355,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (VasV2PaymentsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<VasV2PaymentsPost201Response>> CalculateTaxAsyncWithHttpInfo (TaxRequest taxRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'taxRequest' is set
             if (taxRequest == null)
             {
@@ -393,9 +397,9 @@ namespace CyberSource.Api
                 localVarPostBody = taxRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -448,6 +452,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of VasV2TaxVoid200Response</returns>
         public ApiResponse< VasV2TaxVoid200Response > VoidTaxWithHttpInfo (VoidTaxRequest voidTaxRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'voidTaxRequest' is set
             if (voidTaxRequest == null)
             {
@@ -489,7 +495,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidTaxRequest != null && voidTaxRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(voidTaxRequest); // http body (model) parameter
@@ -499,9 +505,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidTaxRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -556,6 +562,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (VasV2TaxVoid200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<VasV2TaxVoid200Response>> VoidTaxAsyncWithHttpInfo (VoidTaxRequest voidTaxRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'voidTaxRequest' is set
             if (voidTaxRequest == null)
             {
@@ -597,7 +605,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidTaxRequest != null && voidTaxRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(voidTaxRequest); // http body (model) parameter
@@ -607,9 +615,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidTaxRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

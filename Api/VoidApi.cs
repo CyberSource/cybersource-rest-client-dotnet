@@ -396,6 +396,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
         public ApiResponse< PtsV2PaymentsVoidsPost201Response > MitVoidWithHttpInfo (MitVoidRequest mitVoidRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'mitVoidRequest' is set
             if (mitVoidRequest == null)
             {
@@ -436,9 +438,9 @@ namespace CyberSource.Api
                 localVarPostBody = mitVoidRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -491,6 +493,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> MitVoidAsyncWithHttpInfo (MitVoidRequest mitVoidRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'mitVoidRequest' is set
             if (mitVoidRequest == null)
             {
@@ -531,9 +535,9 @@ namespace CyberSource.Api
                 localVarPostBody = mitVoidRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -586,6 +590,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
         public ApiResponse< PtsV2PaymentsVoidsPost201Response > VoidCaptureWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'voidCaptureRequest' is set
             if (voidCaptureRequest == null)
             {
@@ -627,7 +633,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidCaptureRequest != null && voidCaptureRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(voidCaptureRequest); // http body (model) parameter
@@ -637,9 +643,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidCaptureRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -694,6 +700,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCaptureAsyncWithHttpInfo (VoidCaptureRequest voidCaptureRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'voidCaptureRequest' is set
             if (voidCaptureRequest == null)
             {
@@ -735,7 +743,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidCaptureRequest != null && voidCaptureRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(voidCaptureRequest); // http body (model) parameter
@@ -745,9 +753,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidCaptureRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -800,6 +808,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
         public ApiResponse< PtsV2PaymentsVoidsPost201Response > VoidCreditWithHttpInfo (VoidCreditRequest voidCreditRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'voidCreditRequest' is set
             if (voidCreditRequest == null)
             {
@@ -841,7 +851,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidCreditRequest != null && voidCreditRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(voidCreditRequest); // http body (model) parameter
@@ -851,9 +861,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidCreditRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -908,6 +918,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidCreditAsyncWithHttpInfo (VoidCreditRequest voidCreditRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'voidCreditRequest' is set
             if (voidCreditRequest == null)
             {
@@ -949,7 +961,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidCreditRequest != null && voidCreditRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(voidCreditRequest); // http body (model) parameter
@@ -959,9 +971,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidCreditRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -1014,6 +1026,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
         public ApiResponse< PtsV2PaymentsVoidsPost201Response > VoidPaymentWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'voidPaymentRequest' is set
             if (voidPaymentRequest == null)
             {
@@ -1055,7 +1069,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidPaymentRequest != null && voidPaymentRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(voidPaymentRequest); // http body (model) parameter
@@ -1065,9 +1079,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidPaymentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -1122,6 +1136,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidPaymentAsyncWithHttpInfo (VoidPaymentRequest voidPaymentRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'voidPaymentRequest' is set
             if (voidPaymentRequest == null)
             {
@@ -1163,7 +1179,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidPaymentRequest != null && voidPaymentRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(voidPaymentRequest); // http body (model) parameter
@@ -1173,9 +1189,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidPaymentRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -1228,6 +1244,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV2PaymentsVoidsPost201Response</returns>
         public ApiResponse< PtsV2PaymentsVoidsPost201Response > VoidRefundWithHttpInfo (VoidRefundRequest voidRefundRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'voidRefundRequest' is set
             if (voidRefundRequest == null)
             {
@@ -1269,7 +1287,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidRefundRequest != null && voidRefundRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(voidRefundRequest); // http body (model) parameter
@@ -1279,9 +1297,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidRefundRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -1336,6 +1354,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV2PaymentsVoidsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsVoidsPost201Response>> VoidRefundAsyncWithHttpInfo (VoidRefundRequest voidRefundRequest, string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'voidRefundRequest' is set
             if (voidRefundRequest == null)
             {
@@ -1377,7 +1397,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidRefundRequest != null && voidRefundRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(voidRefundRequest); // http body (model) parameter
@@ -1387,9 +1407,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidRefundRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {

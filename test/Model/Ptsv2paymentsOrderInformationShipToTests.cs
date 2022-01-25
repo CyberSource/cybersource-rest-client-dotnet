@@ -65,12 +65,28 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'Title'
+        /// </summary>
+        [Test]
+        public void TitleTest()
+        {
+            // TODO unit test for the property 'Title'
+        }
+        /// <summary>
         /// Test the property 'FirstName'
         /// </summary>
         [Test]
         public void FirstNameTest()
         {
             // TODO unit test for the property 'FirstName'
+        }
+        /// <summary>
+        /// Test the property 'MiddleName'
+        /// </summary>
+        [Test]
+        public void MiddleNameTest()
+        {
+            // TODO unit test for the property 'MiddleName'
         }
         /// <summary>
         /// Test the property 'LastName'

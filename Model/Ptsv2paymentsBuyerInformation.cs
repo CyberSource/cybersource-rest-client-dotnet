@@ -39,8 +39,10 @@ namespace CyberSource.Model
         /// <param name="CompanyTaxId">Company’s tax identifier. This is only used for eCheck service.  ** TeleCheck ** Contact your TeleCheck representative to find out whether this field is required or optional.  ** All Other Processors ** Not used. .</param>
         /// <param name="PersonalIdentification">PersonalIdentification.</param>
         /// <param name="HashedPassword">The merchant&#39;s password that CyberSource hashes and stores as a hashed password.  For details about this field, see the &#x60;customer_password&#x60; field description in _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        /// <param name="Gender">Customer&#39;s gender. Possible values are F (female), M (male),O (other)..</param>
+        /// <param name="Language">language setting of the user.</param>
         /// <param name="MobilePhone">Cardholder’s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
-        public Ptsv2paymentsBuyerInformation(string MerchantCustomerId = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), string CompanyTaxId = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), string HashedPassword = default(string), int? MobilePhone = default(int?))
+        public Ptsv2paymentsBuyerInformation(string MerchantCustomerId = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), string CompanyTaxId = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), string HashedPassword = default(string), string Gender = default(string), string Language = default(string), int? MobilePhone = default(int?))
         {
             this.MerchantCustomerId = MerchantCustomerId;
             this.DateOfBirth = DateOfBirth;
@@ -48,6 +50,8 @@ namespace CyberSource.Model
             this.CompanyTaxId = CompanyTaxId;
             this.PersonalIdentification = PersonalIdentification;
             this.HashedPassword = HashedPassword;
+            this.Gender = Gender;
+            this.Language = Language;
             this.MobilePhone = MobilePhone;
         }
         
@@ -93,6 +97,20 @@ namespace CyberSource.Model
         public string HashedPassword { get; set; }
 
         /// <summary>
+        /// Customer&#39;s gender. Possible values are F (female), M (male),O (other).
+        /// </summary>
+        /// <value>Customer&#39;s gender. Possible values are F (female), M (male),O (other).</value>
+        [DataMember(Name="gender", EmitDefaultValue=false)]
+        public string Gender { get; set; }
+
+        /// <summary>
+        /// language setting of the user
+        /// </summary>
+        /// <value>language setting of the user</value>
+        [DataMember(Name="language", EmitDefaultValue=false)]
+        public string Language { get; set; }
+
+        /// <summary>
         /// Cardholder’s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. 
         /// </summary>
         /// <value>Cardholder’s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. </value>
@@ -113,6 +131,8 @@ namespace CyberSource.Model
             sb.Append("  CompanyTaxId: ").Append(CompanyTaxId).Append("\n");
             sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
             sb.Append("  HashedPassword: ").Append(HashedPassword).Append("\n");
+            sb.Append("  Gender: ").Append(Gender).Append("\n");
+            sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("  MobilePhone: ").Append(MobilePhone).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -181,6 +201,16 @@ namespace CyberSource.Model
                     this.HashedPassword.Equals(other.HashedPassword)
                 ) && 
                 (
+                    this.Gender == other.Gender ||
+                    this.Gender != null &&
+                    this.Gender.Equals(other.Gender)
+                ) && 
+                (
+                    this.Language == other.Language ||
+                    this.Language != null &&
+                    this.Language.Equals(other.Language)
+                ) && 
+                (
                     this.MobilePhone == other.MobilePhone ||
                     this.MobilePhone != null &&
                     this.MobilePhone.Equals(other.MobilePhone)
@@ -210,6 +240,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PersonalIdentification.GetHashCode();
                 if (this.HashedPassword != null)
                     hash = hash * 59 + this.HashedPassword.GetHashCode();
+                if (this.Gender != null)
+                    hash = hash * 59 + this.Gender.GetHashCode();
+                if (this.Language != null)
+                    hash = hash * 59 + this.Language.GetHashCode();
                 if (this.MobilePhone != null)
                     hash = hash * 59 + this.MobilePhone.GetHashCode();
                 return hash;

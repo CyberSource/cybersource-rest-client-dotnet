@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseInstallmentInformation" /> class.
         /// </summary>
         /// <param name="NumberOfInstallments">Number of Installments..</param>
-        public TssV2TransactionsGet200ResponseInstallmentInformation(string NumberOfInstallments = default(string))
+        /// <param name="Identifier">Standing Instruction/Installment identifier. .</param>
+        public TssV2TransactionsGet200ResponseInstallmentInformation(string NumberOfInstallments = default(string), string Identifier = default(string))
         {
             this.NumberOfInstallments = NumberOfInstallments;
+            this.Identifier = Identifier;
         }
         
         /// <summary>
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         public string NumberOfInstallments { get; set; }
 
         /// <summary>
+        /// Standing Instruction/Installment identifier. 
+        /// </summary>
+        /// <value>Standing Instruction/Installment identifier. </value>
+        [DataMember(Name="identifier", EmitDefaultValue=false)]
+        public string Identifier { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseInstallmentInformation {\n");
             sb.Append("  NumberOfInstallments: ").Append(NumberOfInstallments).Append("\n");
+            sb.Append("  Identifier: ").Append(Identifier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.NumberOfInstallments == other.NumberOfInstallments ||
                     this.NumberOfInstallments != null &&
                     this.NumberOfInstallments.Equals(other.NumberOfInstallments)
+                ) && 
+                (
+                    this.Identifier == other.Identifier ||
+                    this.Identifier != null &&
+                    this.Identifier.Equals(other.Identifier)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.NumberOfInstallments != null)
                     hash = hash * 59 + this.NumberOfInstallments.GetHashCode();
+                if (this.Identifier != null)
+                    hash = hash * 59 + this.Identifier.GetHashCode();
                 return hash;
             }
         }

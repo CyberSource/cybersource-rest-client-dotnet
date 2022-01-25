@@ -212,6 +212,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of TssV2TransactionsGet200Response</returns>
         public ApiResponse< TssV2TransactionsGet200Response > GetTransactionWithHttpInfo (string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -247,7 +249,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request
@@ -295,6 +297,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (TssV2TransactionsGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<TssV2TransactionsGet200Response>> GetTransactionAsyncWithHttpInfo (string id)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -330,7 +334,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
 
 
             // make the HTTP request

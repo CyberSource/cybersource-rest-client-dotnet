@@ -209,6 +209,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'TokenInformation'
         }
         /// <summary>
+        /// Test the property 'InvoiceDetails'
+        /// </summary>
+        [Test]
+        public void InvoiceDetailsTest()
+        {
+            // TODO unit test for the property 'InvoiceDetails'
+        }
+        /// <summary>
+        /// Test the property 'ProcessorInformation'
+        /// </summary>
+        [Test]
+        public void ProcessorInformationTest()
+        {
+            // TODO unit test for the property 'ProcessorInformation'
+        }
+        /// <summary>
         /// Test the property 'RiskInformation'
         /// </summary>
         [Test]

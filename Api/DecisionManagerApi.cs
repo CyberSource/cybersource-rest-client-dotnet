@@ -306,6 +306,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of RiskV1UpdatePost201Response</returns>
         public ApiResponse< RiskV1UpdatePost201Response > AddNegativeWithHttpInfo (string type, AddNegativeListRequest addNegativeListRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'type' is set
             if (type == null)
             {
@@ -347,7 +349,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (addNegativeListRequest != null && addNegativeListRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(addNegativeListRequest); // http body (model) parameter
@@ -357,9 +359,9 @@ namespace CyberSource.Api
                 localVarPostBody = addNegativeListRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -414,6 +416,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (RiskV1UpdatePost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<RiskV1UpdatePost201Response>> AddNegativeAsyncWithHttpInfo (string type, AddNegativeListRequest addNegativeListRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'type' is set
             if (type == null)
             {
@@ -455,7 +459,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (addNegativeListRequest != null && addNegativeListRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(addNegativeListRequest); // http body (model) parameter
@@ -465,9 +469,9 @@ namespace CyberSource.Api
                 localVarPostBody = addNegativeListRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -518,6 +522,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of RiskV1DecisionsPost201Response</returns>
         public ApiResponse< RiskV1DecisionsPost201Response > CreateBundledDecisionManagerCaseWithHttpInfo (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createBundledDecisionManagerCaseRequest' is set
             if (createBundledDecisionManagerCaseRequest == null)
             {
@@ -558,9 +564,9 @@ namespace CyberSource.Api
                 localVarPostBody = createBundledDecisionManagerCaseRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -613,6 +619,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (RiskV1DecisionsPost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<RiskV1DecisionsPost201Response>> CreateBundledDecisionManagerCaseAsyncWithHttpInfo (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createBundledDecisionManagerCaseRequest' is set
             if (createBundledDecisionManagerCaseRequest == null)
             {
@@ -653,9 +661,9 @@ namespace CyberSource.Api
                 localVarPostBody = createBundledDecisionManagerCaseRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -708,6 +716,8 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of RiskV1UpdatePost201Response</returns>
         public ApiResponse< RiskV1UpdatePost201Response > FraudUpdateWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -749,7 +759,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (fraudMarkingActionRequest != null && fraudMarkingActionRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(fraudMarkingActionRequest); // http body (model) parameter
@@ -759,9 +769,9 @@ namespace CyberSource.Api
                 localVarPostBody = fraudMarkingActionRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
@@ -816,6 +826,8 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (RiskV1UpdatePost201Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<RiskV1UpdatePost201Response>> FraudUpdateAsyncWithHttpInfo (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
+            LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'id' is set
             if (id == null)
             {
@@ -857,7 +869,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{LogUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (fraudMarkingActionRequest != null && fraudMarkingActionRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(fraudMarkingActionRequest); // http body (model) parameter
@@ -867,9 +879,9 @@ namespace CyberSource.Api
                 localVarPostBody = fraudMarkingActionRequest; // byte array
             }
 
-            if (LogUtility.IsMaskingEnabled(logger))
+            if (logUtility.IsMaskingEnabled(logger))
             {
-                logger.Debug($"HTTP Request Body :\n{LogUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             }
             else
             {
