@@ -97,14 +97,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'MerchantId'
         }
         /// <summary>
-        /// Test the property 'Status'
-        /// </summary>
-        [Test]
-        public void StatusTest()
-        {
-            // TODO unit test for the property 'Status'
-        }
-        /// <summary>
         /// Test the property 'SubmitTimeUTC'
         /// </summary>
         [Test]
@@ -255,6 +247,14 @@ namespace CyberSource.Test
         public void SenderInformationTest()
         {
             // TODO unit test for the property 'SenderInformation'
+        }
+        /// <summary>
+        /// Test the property 'TokenInformation'
+        /// </summary>
+        [Test]
+        public void TokenInformationTest()
+        {
+            // TODO unit test for the property 'TokenInformation'
         }
         /// <summary>
         /// Test the property 'Links'

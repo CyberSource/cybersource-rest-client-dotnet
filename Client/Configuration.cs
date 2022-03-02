@@ -172,16 +172,10 @@ namespace CyberSource.Client
         {
             if (apiClient == null)
             {
-                if (Default != null && Default.ApiClient == null)
-                    Default.ApiClient = new ApiClient();
-
-                ApiClient = Default != null ? Default.ApiClient : new ApiClient();
+                ApiClient = new ApiClient();
             }
             else
             {
-                if (Default != null && Default.ApiClient == null)
-                    Default.ApiClient = apiClient;
-
                 ApiClient = apiClient;
             }
         }

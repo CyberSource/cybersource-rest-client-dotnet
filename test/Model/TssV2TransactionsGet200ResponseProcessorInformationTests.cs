@@ -176,6 +176,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ResponseCodeSource'
         }
+        /// <summary>
+        /// Test the property 'PaymentAccountReferenceNumber'
+        /// </summary>
+        [Test]
+        public void PaymentAccountReferenceNumberTest()
+        {
+            // TODO unit test for the property 'PaymentAccountReferenceNumber'
+        }
 
     }
 

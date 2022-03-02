@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="Country">Merchant&#39;s country.  #### PIN debit Country code for your business location. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) This value might be displayed on the cardholder’s statement.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters. **Note** If your business is located in the U.S. or Canada and you include this field in a request, you must also include &#x60;merchantInformation.merchantDescriptor.administrativeArea&#x60;.  Optional field for PIN debit credit or PIN debit purchase. .</param>
         /// <param name="PostalCode">Merchant&#39;s postal code.  #### PIN debit Postal code for your business location. This value might be displayed on the cardholder’s statement.  If your business is domiciled in the U.S., you can use a 5-digit or 9-digit postal code. A 9-digit postal code must follow this format: [5 digits][dash][4 digits] Example: &#x60;12345-6789&#x60;  If your business is domiciled in Canada, you can use a 6-digit or 9-digit postal code. A 6-digit postal code must follow this format: [alpha][numeric][alpha][space] [numeric][alpha][numeric] Example: &#x60;A1B 2C3&#x60;  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  **Note** This field is supported only for businesses located in the U.S. or Canada. **Important** Mastercard requires a postal code for any country that uses postal codes. You can provide the postal code in your account or you can include this field in your request.  Optional field for PIN debit credit or PIN debit purchase. .</param>
         /// <param name="AdministrativeArea">The state where the merchant is located.  #### PIN debit State code or region code for your business. Use the Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf) This value might be displayed on the cardholder’s statement.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  **Note** This field is supported only for businesses located in the U.S. or Canada.  Optional field for PIN debit credit or PIN debit purchase. .</param>
-        /// <param name="Phone">Merchnat phone as contact information for CNP transactions .</param>
+        /// <param name="Phone">Merchant phone as contact information for CNP transactions .</param>
         /// <param name="Url">Address of company&#39;s website provided by merchant .</param>
         public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Phone = default(string), string Url = default(string))
         {
@@ -114,9 +114,9 @@ namespace CyberSource.Model
         public string AdministrativeArea { get; set; }
 
         /// <summary>
-        /// Merchnat phone as contact information for CNP transactions 
+        /// Merchant phone as contact information for CNP transactions 
         /// </summary>
-        /// <value>Merchnat phone as contact information for CNP transactions </value>
+        /// <value>Merchant phone as contact information for CNP transactions </value>
         [DataMember(Name="phone", EmitDefaultValue=false)]
         public string Phone { get; set; }
 

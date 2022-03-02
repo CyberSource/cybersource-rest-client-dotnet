@@ -39,7 +39,10 @@ namespace CyberSource.Model
         /// <param name="Invoice">Invoice.</param>
         /// <param name="Bank">Bank.</param>
         /// <param name="AccountFeatures">AccountFeatures.</param>
-        public TssV2TransactionsGet200ResponsePaymentInformation(TssV2TransactionsGet200ResponsePaymentInformationPaymentType PaymentType = default(TssV2TransactionsGet200ResponsePaymentInformationPaymentType), Riskv1authenticationsetupsPaymentInformationCustomer Customer = default(Riskv1authenticationsetupsPaymentInformationCustomer), TssV2TransactionsGet200ResponsePaymentInformationCard Card = default(TssV2TransactionsGet200ResponsePaymentInformationCard), TssV2TransactionsGet200ResponsePaymentInformationInvoice Invoice = default(TssV2TransactionsGet200ResponsePaymentInformationInvoice), TssV2TransactionsGet200ResponsePaymentInformationBank Bank = default(TssV2TransactionsGet200ResponsePaymentInformationBank), TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures AccountFeatures = default(TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures))
+        /// <param name="PaymentInstrument">PaymentInstrument.</param>
+        /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
+        /// <param name="ShippingAddress">ShippingAddress.</param>
+        public TssV2TransactionsGet200ResponsePaymentInformation(TssV2TransactionsGet200ResponsePaymentInformationPaymentType PaymentType = default(TssV2TransactionsGet200ResponsePaymentInformationPaymentType), TssV2TransactionsGet200ResponsePaymentInformationCustomer Customer = default(TssV2TransactionsGet200ResponsePaymentInformationCustomer), TssV2TransactionsGet200ResponsePaymentInformationCard Card = default(TssV2TransactionsGet200ResponsePaymentInformationCard), TssV2TransactionsGet200ResponsePaymentInformationInvoice Invoice = default(TssV2TransactionsGet200ResponsePaymentInformationInvoice), TssV2TransactionsGet200ResponsePaymentInformationBank Bank = default(TssV2TransactionsGet200ResponsePaymentInformationBank), TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures AccountFeatures = default(TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures), PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument PaymentInstrument = default(PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument), TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier), PtsV2PaymentsPost201ResponseTokenInformationShippingAddress ShippingAddress = default(PtsV2PaymentsPost201ResponseTokenInformationShippingAddress))
         {
             this.PaymentType = PaymentType;
             this.Customer = Customer;
@@ -47,6 +50,9 @@ namespace CyberSource.Model
             this.Invoice = Invoice;
             this.Bank = Bank;
             this.AccountFeatures = AccountFeatures;
+            this.PaymentInstrument = PaymentInstrument;
+            this.InstrumentIdentifier = InstrumentIdentifier;
+            this.ShippingAddress = ShippingAddress;
         }
         
         /// <summary>
@@ -59,7 +65,7 @@ namespace CyberSource.Model
         /// Gets or Sets Customer
         /// </summary>
         [DataMember(Name="customer", EmitDefaultValue=false)]
-        public Riskv1authenticationsetupsPaymentInformationCustomer Customer { get; set; }
+        public TssV2TransactionsGet200ResponsePaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
         /// Gets or Sets Card
@@ -86,6 +92,24 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures AccountFeatures { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentInstrument
+        /// </summary>
+        [DataMember(Name="paymentInstrument", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument PaymentInstrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InstrumentIdentifier
+        /// </summary>
+        [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
+        public TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShippingAddress
+        /// </summary>
+        [DataMember(Name="shippingAddress", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseTokenInformationShippingAddress ShippingAddress { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -99,6 +123,9 @@ namespace CyberSource.Model
             sb.Append("  Invoice: ").Append(Invoice).Append("\n");
             sb.Append("  Bank: ").Append(Bank).Append("\n");
             sb.Append("  AccountFeatures: ").Append(AccountFeatures).Append("\n");
+            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -164,6 +191,21 @@ namespace CyberSource.Model
                     this.AccountFeatures == other.AccountFeatures ||
                     this.AccountFeatures != null &&
                     this.AccountFeatures.Equals(other.AccountFeatures)
+                ) && 
+                (
+                    this.PaymentInstrument == other.PaymentInstrument ||
+                    this.PaymentInstrument != null &&
+                    this.PaymentInstrument.Equals(other.PaymentInstrument)
+                ) && 
+                (
+                    this.InstrumentIdentifier == other.InstrumentIdentifier ||
+                    this.InstrumentIdentifier != null &&
+                    this.InstrumentIdentifier.Equals(other.InstrumentIdentifier)
+                ) && 
+                (
+                    this.ShippingAddress == other.ShippingAddress ||
+                    this.ShippingAddress != null &&
+                    this.ShippingAddress.Equals(other.ShippingAddress)
                 );
         }
 
@@ -190,6 +232,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Bank.GetHashCode();
                 if (this.AccountFeatures != null)
                     hash = hash * 59 + this.AccountFeatures.GetHashCode();
+                if (this.PaymentInstrument != null)
+                    hash = hash * 59 + this.PaymentInstrument.GetHashCode();
+                if (this.InstrumentIdentifier != null)
+                    hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
+                if (this.ShippingAddress != null)
+                    hash = hash * 59 + this.ShippingAddress.GetHashCode();
                 return hash;
             }
         }
