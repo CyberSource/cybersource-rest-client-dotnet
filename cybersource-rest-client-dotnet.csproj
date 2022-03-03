@@ -11,7 +11,7 @@ OpenAPI spec version: 0.0.1
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8C08B6DC-4DA0-4434-A6C5-709932DDDDE5}</ProjectGuid>
+    <ProjectGuid>{395F83B7-004B-4968-B87C-DA8395B2A0B1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CyberSource</RootNamespace>
@@ -39,7 +39,7 @@ OpenAPI spec version: 0.0.1
   <ItemGroup>
     <Reference Include="AuthenticationSdk">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\CyberSource.Authentication.0.0.0.12\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.13\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

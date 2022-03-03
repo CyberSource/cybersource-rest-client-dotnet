@@ -37,13 +37,15 @@ namespace CyberSource.Model
         /// <param name="ApplicationVersion">Version of the CyberSource application or integration used for a transaction. .</param>
         /// <param name="ApplicationName">The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. .</param>
         /// <param name="ApplicationUser">The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. .</param>
+        /// <param name="Partner">Partner.</param>
         /// <param name="Comments">Brief description of the order or any comment you wish to add to the order. .</param>
-        public TssV2TransactionsGet200ResponseClientReferenceInformation(string Code = default(string), string ApplicationVersion = default(string), string ApplicationName = default(string), string ApplicationUser = default(string), string Comments = default(string))
+        public TssV2TransactionsGet200ResponseClientReferenceInformation(string Code = default(string), string ApplicationVersion = default(string), string ApplicationName = default(string), string ApplicationUser = default(string), TssV2TransactionsGet200ResponseClientReferenceInformationPartner Partner = default(TssV2TransactionsGet200ResponseClientReferenceInformationPartner), string Comments = default(string))
         {
             this.Code = Code;
             this.ApplicationVersion = ApplicationVersion;
             this.ApplicationName = ApplicationName;
             this.ApplicationUser = ApplicationUser;
+            this.Partner = Partner;
             this.Comments = Comments;
         }
         
@@ -76,6 +78,12 @@ namespace CyberSource.Model
         public string ApplicationUser { get; set; }
 
         /// <summary>
+        /// Gets or Sets Partner
+        /// </summary>
+        [DataMember(Name="partner", EmitDefaultValue=false)]
+        public TssV2TransactionsGet200ResponseClientReferenceInformationPartner Partner { get; set; }
+
+        /// <summary>
         /// Brief description of the order or any comment you wish to add to the order. 
         /// </summary>
         /// <value>Brief description of the order or any comment you wish to add to the order. </value>
@@ -94,6 +102,7 @@ namespace CyberSource.Model
             sb.Append("  ApplicationVersion: ").Append(ApplicationVersion).Append("\n");
             sb.Append("  ApplicationName: ").Append(ApplicationName).Append("\n");
             sb.Append("  ApplicationUser: ").Append(ApplicationUser).Append("\n");
+            sb.Append("  Partner: ").Append(Partner).Append("\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -152,6 +161,11 @@ namespace CyberSource.Model
                     this.ApplicationUser.Equals(other.ApplicationUser)
                 ) && 
                 (
+                    this.Partner == other.Partner ||
+                    this.Partner != null &&
+                    this.Partner.Equals(other.Partner)
+                ) && 
+                (
                     this.Comments == other.Comments ||
                     this.Comments != null &&
                     this.Comments.Equals(other.Comments)
@@ -177,6 +191,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ApplicationName.GetHashCode();
                 if (this.ApplicationUser != null)
                     hash = hash * 59 + this.ApplicationUser.GetHashCode();
+                if (this.Partner != null)
+                    hash = hash * 59 + this.Partner.GetHashCode();
                 if (this.Comments != null)
                     hash = hash * 59 + this.Comments.GetHashCode();
                 return hash;
