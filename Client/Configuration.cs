@@ -69,9 +69,9 @@ namespace CyberSource.Client
             if (merchConfigDictObj != null)
             {
                 if (merchConfigDictObj.ContainsKey("useProxy"))
-				{
-					if (bool.Parse(merchConfigDictObj["useProxy"])) 
-					{
+                {
+                    if (bool.Parse(merchConfigDictObj["useProxy"]))
+                    {
 
                         if (!string.IsNullOrWhiteSpace(merchConfigDictObj["proxyAddress"]) && int.TryParse(merchConfigDictObj["proxyPort"], out int proxyPortTest))
                         {

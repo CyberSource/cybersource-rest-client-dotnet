@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'ApprovalCode'
+        /// </summary>
+        [Test]
+        public void ApprovalCodeTest()
+        {
+            // TODO unit test for the property 'ApprovalCode'
+        }
+        /// <summary>
         /// Test the property 'TransactionId'
         /// </summary>
         [Test]
