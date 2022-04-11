@@ -183,3 +183,10 @@ $RECYCLE.BIN/
 
 # Visual Studio 2014 CTP
 **/*.sln.ide
+.swagger-codegen-ignore
+.swagger-codegen-ignore
+.swagger-codegen/VERSION
+.travis.yml
+.vs/slnx.sqlite
+.vs/tasks.vs.json
+.vs/VSWorkspaceState.json
