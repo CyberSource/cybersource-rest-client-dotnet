@@ -25,17 +25,17 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// CreateSharedSecretKeysRequest1
+    /// CreateSharedSecretKeysVerifiRequest
     /// </summary>
     [DataContract]
-    public partial class CreateSharedSecretKeysRequest1 :  IEquatable<CreateSharedSecretKeysRequest1>, IValidatableObject
+    public partial class CreateSharedSecretKeysVerifiRequest :  IEquatable<CreateSharedSecretKeysVerifiRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateSharedSecretKeysRequest1" /> class.
+        /// Initializes a new instance of the <see cref="CreateSharedSecretKeysVerifiRequest" /> class.
         /// </summary>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="KeyInformation">KeyInformation.</param>
-        public CreateSharedSecretKeysRequest1(Kmsv2keyssymClientReferenceInformation ClientReferenceInformation = default(Kmsv2keyssymClientReferenceInformation), List<Kmsv2keyssymverifiKeyInformation> KeyInformation = default(List<Kmsv2keyssymverifiKeyInformation>))
+        public CreateSharedSecretKeysVerifiRequest(Kmsv2keyssymClientReferenceInformation ClientReferenceInformation = default(Kmsv2keyssymClientReferenceInformation), List<Kmsv2keyssymverifiKeyInformation> KeyInformation = default(List<Kmsv2keyssymverifiKeyInformation>))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.KeyInformation = KeyInformation;
@@ -60,7 +60,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CreateSharedSecretKeysRequest1 {\n");
+            sb.Append("class CreateSharedSecretKeysVerifiRequest {\n");
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  KeyInformation: ").Append(KeyInformation).Append("\n");
             sb.Append("}\n");
@@ -84,15 +84,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CreateSharedSecretKeysRequest1);
+            return this.Equals(obj as CreateSharedSecretKeysVerifiRequest);
         }
 
         /// <summary>
-        /// Returns true if CreateSharedSecretKeysRequest1 instances are equal
+        /// Returns true if CreateSharedSecretKeysVerifiRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of CreateSharedSecretKeysRequest1 to be compared</param>
+        /// <param name="other">Instance of CreateSharedSecretKeysVerifiRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateSharedSecretKeysRequest1 other)
+        public bool Equals(CreateSharedSecretKeysVerifiRequest other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

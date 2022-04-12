@@ -73,7 +73,7 @@ No authorization required
 
 <a name="createv2sharedsecretkeysverifi"></a>
 # **CreateV2SharedSecretKeysVerifi**
-> KmsV2KeysSymPost201Response CreateV2SharedSecretKeysVerifi (string vIcDomain, CreateSharedSecretKeysRequest1 createSharedSecretKeysRequest)
+> KmsV2KeysSymPost201Response CreateV2SharedSecretKeysVerifi (string vIcDomain, CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest)
 
 Create Shared-Secret Keys as per verifi spec
 
@@ -95,12 +95,12 @@ namespace Example
         {
             var apiInstance = new SymmetricKeyManagementApi();
             var vIcDomain = vIcDomain_example;  // string | domain
-            var createSharedSecretKeysRequest = new CreateSharedSecretKeysRequest1(); // CreateSharedSecretKeysRequest1 | 
+            var createSharedSecretKeysVerifiRequest = new CreateSharedSecretKeysVerifiRequest(); // CreateSharedSecretKeysVerifiRequest | 
 
             try
             {
                 // Create Shared-Secret Keys as per verifi spec
-                KmsV2KeysSymPost201Response result = apiInstance.CreateV2SharedSecretKeysVerifi(vIcDomain, createSharedSecretKeysRequest);
+                KmsV2KeysSymPost201Response result = apiInstance.CreateV2SharedSecretKeysVerifi(vIcDomain, createSharedSecretKeysVerifiRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -117,7 +117,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vIcDomain** | **string**| domain | 
- **createSharedSecretKeysRequest** | [**CreateSharedSecretKeysRequest1**](CreateSharedSecretKeysRequest1.md)|  | 
+ **createSharedSecretKeysVerifiRequest** | [**CreateSharedSecretKeysVerifiRequest**](CreateSharedSecretKeysVerifiRequest.md)|  | 
 
 ### Return type
 

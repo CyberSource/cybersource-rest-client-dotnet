@@ -1,4 +1,4 @@
-# CyberSource.Model.CreateSharedSecretKeysRequest1
+# CyberSource.Model.CreateSharedSecretKeysVerifiRequest
 ## Properties
 
 Name | Type | Description | Notes
