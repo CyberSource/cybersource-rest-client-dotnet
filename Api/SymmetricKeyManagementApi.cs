@@ -48,6 +48,29 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of KmsV2KeysSymPost201Response</returns>
         ApiResponse<KmsV2KeysSymPost201Response> CreateV2SharedSecretKeysWithHttpInfo (CreateSharedSecretKeysRequest createSharedSecretKeysRequest);
         /// <summary>
+        /// Create Shared-Secret Keys as per verifi spec
+        /// </summary>
+        /// <remarks>
+        /// Create one or more Shared-Secret Keys as per Verifi spec with 32 chars, store digest algo during key generation. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vIcDomain">domain</param>
+        /// <param name="createSharedSecretKeysVerifiRequest"></param>
+        /// <returns>KmsV2KeysSymPost201Response</returns>
+        KmsV2KeysSymPost201Response CreateV2SharedSecretKeysVerifi (string vIcDomain, CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest);
+
+        /// <summary>
+        /// Create Shared-Secret Keys as per verifi spec
+        /// </summary>
+        /// <remarks>
+        /// Create one or more Shared-Secret Keys as per Verifi spec with 32 chars, store digest algo during key generation. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vIcDomain">domain</param>
+        /// <param name="createSharedSecretKeysVerifiRequest"></param>
+        /// <returns>ApiResponse of KmsV2KeysSymPost201Response</returns>
+        ApiResponse<KmsV2KeysSymPost201Response> CreateV2SharedSecretKeysVerifiWithHttpInfo (string vIcDomain, CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest);
+        /// <summary>
         /// Delete one or more Symmetric keys
         /// </summary>
         /// <remarks>
@@ -112,6 +135,29 @@ namespace CyberSource.Api
         /// <param name="createSharedSecretKeysRequest"></param>
         /// <returns>Task of ApiResponse (KmsV2KeysSymPost201Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<KmsV2KeysSymPost201Response>> CreateV2SharedSecretKeysAsyncWithHttpInfo (CreateSharedSecretKeysRequest createSharedSecretKeysRequest);
+        /// <summary>
+        /// Create Shared-Secret Keys as per verifi spec
+        /// </summary>
+        /// <remarks>
+        /// Create one or more Shared-Secret Keys as per Verifi spec with 32 chars, store digest algo during key generation. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vIcDomain">domain</param>
+        /// <param name="createSharedSecretKeysVerifiRequest"></param>
+        /// <returns>Task of KmsV2KeysSymPost201Response</returns>
+        System.Threading.Tasks.Task<KmsV2KeysSymPost201Response> CreateV2SharedSecretKeysVerifiAsync (string vIcDomain, CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest);
+
+        /// <summary>
+        /// Create Shared-Secret Keys as per verifi spec
+        /// </summary>
+        /// <remarks>
+        /// Create one or more Shared-Secret Keys as per Verifi spec with 32 chars, store digest algo during key generation. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vIcDomain">domain</param>
+        /// <param name="createSharedSecretKeysVerifiRequest"></param>
+        /// <returns>Task of ApiResponse (KmsV2KeysSymPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KmsV2KeysSymPost201Response>> CreateV2SharedSecretKeysVerifiAsyncWithHttpInfo (string vIcDomain, CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest);
         /// <summary>
         /// Delete one or more Symmetric keys
         /// </summary>
@@ -455,6 +501,222 @@ namespace CyberSource.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CreateV2SharedSecretKeys", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<KmsV2KeysSymPost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (KmsV2KeysSymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymPost201Response))); // Return statement
+        }
+        /// <summary>
+        /// Create Shared-Secret Keys as per verifi spec Create one or more Shared-Secret Keys as per Verifi spec with 32 chars, store digest algo during key generation. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vIcDomain">domain</param>
+        /// <param name="createSharedSecretKeysVerifiRequest"></param>
+        /// <returns>KmsV2KeysSymPost201Response</returns>
+        public KmsV2KeysSymPost201Response CreateV2SharedSecretKeysVerifi (string vIcDomain, CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest)
+        {
+            logger.Debug("CALLING API \"CreateV2SharedSecretKeysVerifi\" STARTED");
+            ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = CreateV2SharedSecretKeysVerifiWithHttpInfo(vIcDomain, createSharedSecretKeysVerifiRequest);
+            logger.Debug("CALLING API \"CreateV2SharedSecretKeysVerifi\" ENDED");
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Shared-Secret Keys as per verifi spec Create one or more Shared-Secret Keys as per Verifi spec with 32 chars, store digest algo during key generation. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vIcDomain">domain</param>
+        /// <param name="createSharedSecretKeysVerifiRequest"></param>
+        /// <returns>ApiResponse of KmsV2KeysSymPost201Response</returns>
+        public ApiResponse< KmsV2KeysSymPost201Response > CreateV2SharedSecretKeysVerifiWithHttpInfo (string vIcDomain, CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'vIcDomain' is set
+            if (vIcDomain == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'vIcDomain' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeysVerifi");
+                throw new ApiException(400, "Missing required parameter 'vIcDomain' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeysVerifi");
+            }
+            // verify the required parameter 'createSharedSecretKeysVerifiRequest' is set
+            if (createSharedSecretKeysVerifiRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'createSharedSecretKeysVerifiRequest' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeysVerifi");
+                throw new ApiException(400, "Missing required parameter 'createSharedSecretKeysVerifiRequest' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeysVerifi");
+            }
+
+            var localVarPath = $"/kms/v2/keys-sym/verifi";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (vIcDomain != null)
+            {
+                localVarHeaderParams.Add("v-ic-domain", Configuration.ApiClient.ParameterToString(vIcDomain)); // header parameter
+            }
+            if (createSharedSecretKeysVerifiRequest != null && createSharedSecretKeysVerifiRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(createSharedSecretKeysVerifiRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createSharedSecretKeysVerifiRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateV2SharedSecretKeysVerifi", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<KmsV2KeysSymPost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (KmsV2KeysSymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymPost201Response))); // Return statement
+        }
+
+        /// <summary>
+        /// Create Shared-Secret Keys as per verifi spec Create one or more Shared-Secret Keys as per Verifi spec with 32 chars, store digest algo during key generation. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vIcDomain">domain</param>
+        /// <param name="createSharedSecretKeysVerifiRequest"></param>
+        /// <returns>Task of KmsV2KeysSymPost201Response</returns>
+        public async System.Threading.Tasks.Task<KmsV2KeysSymPost201Response> CreateV2SharedSecretKeysVerifiAsync (string vIcDomain, CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest)
+        {
+            logger.Debug("CALLING API \"CreateV2SharedSecretKeysVerifiAsync\" STARTED");
+            ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = await CreateV2SharedSecretKeysVerifiAsyncWithHttpInfo(vIcDomain, createSharedSecretKeysVerifiRequest);
+            logger.Debug("CALLING API \"CreateV2SharedSecretKeysVerifiAsync\" STARTED");
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create Shared-Secret Keys as per verifi spec Create one or more Shared-Secret Keys as per Verifi spec with 32 chars, store digest algo during key generation. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vIcDomain">domain</param>
+        /// <param name="createSharedSecretKeysVerifiRequest"></param>
+        /// <returns>Task of ApiResponse (KmsV2KeysSymPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<KmsV2KeysSymPost201Response>> CreateV2SharedSecretKeysVerifiAsyncWithHttpInfo (string vIcDomain, CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'vIcDomain' is set
+            if (vIcDomain == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'vIcDomain' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeysVerifi");
+                throw new ApiException(400, "Missing required parameter 'vIcDomain' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeysVerifi");
+            }
+            // verify the required parameter 'createSharedSecretKeysVerifiRequest' is set
+            if (createSharedSecretKeysVerifiRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'createSharedSecretKeysVerifiRequest' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeysVerifi");
+                throw new ApiException(400, "Missing required parameter 'createSharedSecretKeysVerifiRequest' when calling SymmetricKeyManagementApi->CreateV2SharedSecretKeysVerifi");
+            }
+
+            var localVarPath = $"/kms/v2/keys-sym/verifi";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (vIcDomain != null)
+            {
+                localVarHeaderParams.Add("v-ic-domain", Configuration.ApiClient.ParameterToString(vIcDomain)); // header parameter
+            }
+            if (createSharedSecretKeysVerifiRequest != null && createSharedSecretKeysVerifiRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(createSharedSecretKeysVerifiRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createSharedSecretKeysVerifiRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateV2SharedSecretKeysVerifi", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

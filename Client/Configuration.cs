@@ -170,6 +170,21 @@ namespace CyberSource.Client
         /// <returns></returns>
         public void SetApiClientUsingDefault (ApiClient apiClient = null)
         {
+            // if (apiClient == null)
+            // {
+                // if (Default != null && Default.ApiClient == null)
+                    // Default.ApiClient = new ApiClient();
+
+                // ApiClient = Default != null ? Default.ApiClient : new ApiClient();
+            // }
+            // else
+            // {
+                // if (Default != null && Default.ApiClient == null)
+                    // Default.ApiClient = apiClient;
+
+                // ApiClient = apiClient;
+            // }
+            
             if (apiClient == null)
             {
                 ApiClient = new ApiClient();

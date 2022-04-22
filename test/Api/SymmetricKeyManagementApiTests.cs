@@ -77,6 +77,19 @@ namespace CyberSource.Test
         }
         
         /// <summary>
+        /// Test CreateV2SharedSecretKeysVerifi
+        /// </summary>
+        [Test]
+        public void CreateV2SharedSecretKeysVerifiTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string vIcDomain = null;
+            //CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest = null;
+            //var response = instance.CreateV2SharedSecretKeysVerifi(vIcDomain, createSharedSecretKeysVerifiRequest);
+            //Assert.IsInstanceOf<KmsV2KeysSymPost201Response> (response, "response is KmsV2KeysSymPost201Response");
+        }
+        
+        /// <summary>
         /// Test DeleteBulkSymmetricKeys
         /// </summary>
         [Test]
