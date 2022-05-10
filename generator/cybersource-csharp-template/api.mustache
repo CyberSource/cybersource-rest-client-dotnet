@@ -379,7 +379,7 @@ namespace {{packageName}}.{{apiPackage}}
         {
             logger.Debug("CALLING API \"{{operationId}}Async\" STARTED");
             {{#returnType}}ApiResponse<{{{returnType}}}> localVarResponse = await {{operationId}}AsyncWithHttpInfo({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});
-            logger.Debug("CALLING API \"{{operationId}}Async\" STARTED");
+            logger.Debug("CALLING API \"{{operationId}}Async\" ENDED");
             return localVarResponse.Data;{{/returnType}}{{^returnType}}await {{operationId}}AsyncWithHttpInfo({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});{{/returnType}}
 
         }
