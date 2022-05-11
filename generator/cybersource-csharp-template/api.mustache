@@ -307,6 +307,16 @@ namespace {{packageName}}.{{apiPackage}}
                 logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
             {{/bodyParam}}
+            {{^bodyParam}}
+            if (Method.{{httpMethod}} == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+            {{/bodyParam}}
 
             {{#authMethods}}
             // authentication ({{name}}) required
@@ -480,6 +490,16 @@ namespace {{packageName}}.{{apiPackage}}
             else
             {
                 logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+            {{/bodyParam}}
+            {{^bodyParam}}
+            if (Method.{{httpMethod}} == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
             }
             {{/bodyParam}}
 
