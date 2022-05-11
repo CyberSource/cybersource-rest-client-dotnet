@@ -290,6 +290,14 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -327,7 +335,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetNetFundingDetailsAsync\" STARTED");
             ApiResponse<ReportingV3NetFundingsGet200Response> localVarResponse = await GetNetFundingDetailsAsyncWithHttpInfo(startTime, endTime, organizationId, groupName);
-            logger.Debug("CALLING API \"GetNetFundingDetailsAsync\" STARTED");
+            logger.Debug("CALLING API \"GetNetFundingDetailsAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -403,6 +411,14 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request

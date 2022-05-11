@@ -192,6 +192,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CostCenter'
         }
+        /// <summary>
+        /// Test the property 'IssuerMessage'
+        /// </summary>
+        [Test]
+        public void IssuerMessageTest()
+        {
+            // TODO unit test for the property 'IssuerMessage'
+        }
 
     }
 

@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsProcessorInformation" /> class.
         /// </summary>
         /// <param name="PreApprovalToken">Token received in original session service..</param>
-        public Ptsv2paymentsProcessorInformation(string PreApprovalToken = default(string))
+        /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
+        public Ptsv2paymentsProcessorInformation(string PreApprovalToken = default(string), Ptsv2paymentsProcessorInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessorInformationAuthorizationOptions))
         {
             this.PreApprovalToken = PreApprovalToken;
+            this.AuthorizationOptions = AuthorizationOptions;
         }
         
         /// <summary>
@@ -47,6 +49,12 @@ namespace CyberSource.Model
         public string PreApprovalToken { get; set; }
 
         /// <summary>
+        /// Gets or Sets AuthorizationOptions
+        /// </summary>
+        [DataMember(Name="authorizationOptions", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessorInformationAuthorizationOptions AuthorizationOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +63,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsProcessorInformation {\n");
             sb.Append("  PreApprovalToken: ").Append(PreApprovalToken).Append("\n");
+            sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +104,11 @@ namespace CyberSource.Model
                     this.PreApprovalToken == other.PreApprovalToken ||
                     this.PreApprovalToken != null &&
                     this.PreApprovalToken.Equals(other.PreApprovalToken)
+                ) && 
+                (
+                    this.AuthorizationOptions == other.AuthorizationOptions ||
+                    this.AuthorizationOptions != null &&
+                    this.AuthorizationOptions.Equals(other.AuthorizationOptions)
                 );
         }
 
@@ -111,6 +125,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.PreApprovalToken != null)
                     hash = hash * 59 + this.PreApprovalToken.GetHashCode();
+                if (this.AuthorizationOptions != null)
+                    hash = hash * 59 + this.AuthorizationOptions.GetHashCode();
                 return hash;
             }
         }

@@ -360,7 +360,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"RefundCaptureAsync\" STARTED");
             ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = await RefundCaptureAsyncWithHttpInfo(refundCaptureRequest, id);
-            logger.Debug("CALLING API \"RefundCaptureAsync\" STARTED");
+            logger.Debug("CALLING API \"RefundCaptureAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -578,7 +578,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"RefundPaymentAsync\" STARTED");
             ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = await RefundPaymentAsyncWithHttpInfo(refundPaymentRequest, id);
-            logger.Debug("CALLING API \"RefundPaymentAsync\" STARTED");
+            logger.Debug("CALLING API \"RefundPaymentAsync\" ENDED");
             return localVarResponse.Data;
 
         }

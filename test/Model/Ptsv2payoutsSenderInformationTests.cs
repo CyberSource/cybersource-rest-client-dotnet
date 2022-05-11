@@ -184,6 +184,30 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'VatRegistrationNumber'
         }
+        /// <summary>
+        /// Test the property 'PersonalIdType'
+        /// </summary>
+        [Test]
+        public void PersonalIdTypeTest()
+        {
+            // TODO unit test for the property 'PersonalIdType'
+        }
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'IdentificationNumber'
+        /// </summary>
+        [Test]
+        public void IdentificationNumberTest()
+        {
+            // TODO unit test for the property 'IdentificationNumber'
+        }
 
     }
 

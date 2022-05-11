@@ -487,6 +487,14 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
+            if (Method.DELETE == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -588,6 +596,14 @@ namespace CyberSource.Api
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (Method.DELETE == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
             }
 
 
@@ -691,6 +707,14 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -727,7 +751,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetCustomerShippingAddressAsync\" STARTED");
             ApiResponse<Tmsv2customersEmbeddedDefaultShippingAddress> localVarResponse = await GetCustomerShippingAddressAsyncWithHttpInfo(customerTokenId, shippingAddressTokenId, profileId);
-            logger.Debug("CALLING API \"GetCustomerShippingAddressAsync\" STARTED");
+            logger.Debug("CALLING API \"GetCustomerShippingAddressAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -794,6 +818,14 @@ namespace CyberSource.Api
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
             }
 
 
@@ -898,6 +930,14 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -935,7 +975,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetCustomerShippingAddressesListAsync\" STARTED");
             ApiResponse<ShippingAddressListForCustomer> localVarResponse = await GetCustomerShippingAddressesListAsyncWithHttpInfo(customerTokenId, profileId, offset, limit);
-            logger.Debug("CALLING API \"GetCustomerShippingAddressesListAsync\" STARTED");
+            logger.Debug("CALLING API \"GetCustomerShippingAddressesListAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -1002,6 +1042,14 @@ namespace CyberSource.Api
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
             }
 
 
@@ -1174,7 +1222,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"PatchCustomersShippingAddressAsync\" STARTED");
             ApiResponse<Tmsv2customersEmbeddedDefaultShippingAddress> localVarResponse = await PatchCustomersShippingAddressAsyncWithHttpInfo(customerTokenId, shippingAddressTokenId, patchCustomerShippingAddressRequest, profileId, ifMatch);
-            logger.Debug("CALLING API \"PatchCustomersShippingAddressAsync\" STARTED");
+            logger.Debug("CALLING API \"PatchCustomersShippingAddressAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -1421,7 +1469,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"PostCustomerShippingAddressAsync\" STARTED");
             ApiResponse<Tmsv2customersEmbeddedDefaultShippingAddress> localVarResponse = await PostCustomerShippingAddressAsyncWithHttpInfo(customerTokenId, postCustomerShippingAddressRequest, profileId);
-            logger.Debug("CALLING API \"PostCustomerShippingAddressAsync\" STARTED");
+            logger.Debug("CALLING API \"PostCustomerShippingAddressAsync\" ENDED");
             return localVarResponse.Data;
 
         }

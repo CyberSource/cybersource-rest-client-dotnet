@@ -250,6 +250,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -284,7 +292,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetTransactionAsync\" STARTED");
             ApiResponse<TssV2TransactionsGet200Response> localVarResponse = await GetTransactionAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"GetTransactionAsync\" STARTED");
+            logger.Debug("CALLING API \"GetTransactionAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -335,6 +343,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request

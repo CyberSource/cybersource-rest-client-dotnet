@@ -380,7 +380,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"CreateP12KeysAsync\" STARTED");
             ApiResponse<KmsV2KeysAsymPost201Response> localVarResponse = await CreateP12KeysAsyncWithHttpInfo(createP12KeysRequest);
-            logger.Debug("CALLING API \"CreateP12KeysAsync\" STARTED");
+            logger.Debug("CALLING API \"CreateP12KeysAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -572,7 +572,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"DeleteBulkP12KeysAsync\" STARTED");
             ApiResponse<KmsV2KeysAsymDeletesPost200Response> localVarResponse = await DeleteBulkP12KeysAsyncWithHttpInfo(deleteBulkP12KeysRequest);
-            logger.Debug("CALLING API \"DeleteBulkP12KeysAsync\" STARTED");
+            logger.Debug("CALLING API \"DeleteBulkP12KeysAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -718,6 +718,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -752,7 +760,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetP12KeyDetailsAsync\" STARTED");
             ApiResponse<KmsV2KeysAsymGet200Response> localVarResponse = await GetP12KeyDetailsAsyncWithHttpInfo(keyId);
-            logger.Debug("CALLING API \"GetP12KeyDetailsAsync\" STARTED");
+            logger.Debug("CALLING API \"GetP12KeyDetailsAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -803,6 +811,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request

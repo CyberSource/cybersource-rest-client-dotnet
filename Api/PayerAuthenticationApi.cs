@@ -380,7 +380,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"CheckPayerAuthEnrollmentAsync\" STARTED");
             ApiResponse<RiskV1AuthenticationsPost201Response> localVarResponse = await CheckPayerAuthEnrollmentAsyncWithHttpInfo(checkPayerAuthEnrollmentRequest);
-            logger.Debug("CALLING API \"CheckPayerAuthEnrollmentAsync\" STARTED");
+            logger.Debug("CALLING API \"CheckPayerAuthEnrollmentAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -572,7 +572,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"PayerAuthSetupAsync\" STARTED");
             ApiResponse<RiskV1AuthenticationSetupsPost201Response> localVarResponse = await PayerAuthSetupAsyncWithHttpInfo(payerAuthSetupRequest);
-            logger.Debug("CALLING API \"PayerAuthSetupAsync\" STARTED");
+            logger.Debug("CALLING API \"PayerAuthSetupAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -764,7 +764,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"ValidateAuthenticationResultsAsync\" STARTED");
             ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = await ValidateAuthenticationResultsAsyncWithHttpInfo(validateRequest);
-            logger.Debug("CALLING API \"ValidateAuthenticationResultsAsync\" STARTED");
+            logger.Debug("CALLING API \"ValidateAuthenticationResultsAsync\" ENDED");
             return localVarResponse.Data;
 
         }

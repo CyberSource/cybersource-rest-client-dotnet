@@ -314,7 +314,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GeneratePublicKeyAsync\" STARTED");
             ApiResponse<FlexV1KeysPost200Response> localVarResponse = await GeneratePublicKeyAsyncWithHttpInfo(format, generatePublicKeyRequest);
-            logger.Debug("CALLING API \"GeneratePublicKeyAsync\" STARTED");
+            logger.Debug("CALLING API \"GeneratePublicKeyAsync\" ENDED");
             return localVarResponse.Data;
 
         }

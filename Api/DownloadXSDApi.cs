@@ -247,6 +247,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("reportDefinitionNameVersion", Configuration.ApiClient.ParameterToString(reportDefinitionNameVersion)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -330,6 +338,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("reportDefinitionNameVersion", Configuration.ApiClient.ParameterToString(reportDefinitionNameVersion)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request

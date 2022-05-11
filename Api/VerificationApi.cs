@@ -338,7 +338,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"ValidateExportComplianceAsync\" STARTED");
             ApiResponse<RiskV1ExportComplianceInquiriesPost201Response> localVarResponse = await ValidateExportComplianceAsyncWithHttpInfo(validateExportComplianceRequest);
-            logger.Debug("CALLING API \"ValidateExportComplianceAsync\" STARTED");
+            logger.Debug("CALLING API \"ValidateExportComplianceAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -530,7 +530,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"VerifyCustomerAddressAsync\" STARTED");
             ApiResponse<RiskV1AddressVerificationsPost201Response> localVarResponse = await VerifyCustomerAddressAsyncWithHttpInfo(verifyCustomerAddressRequest);
-            logger.Debug("CALLING API \"VerifyCustomerAddressAsync\" STARTED");
+            logger.Debug("CALLING API \"VerifyCustomerAddressAsync\" ENDED");
             return localVarResponse.Data;
 
         }

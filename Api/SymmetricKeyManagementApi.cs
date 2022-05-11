@@ -426,7 +426,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"CreateV2SharedSecretKeysAsync\" STARTED");
             ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = await CreateV2SharedSecretKeysAsyncWithHttpInfo(createSharedSecretKeysRequest);
-            logger.Debug("CALLING API \"CreateV2SharedSecretKeysAsync\" STARTED");
+            logger.Debug("CALLING API \"CreateV2SharedSecretKeysAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -631,7 +631,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"CreateV2SharedSecretKeysVerifiAsync\" STARTED");
             ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = await CreateV2SharedSecretKeysVerifiAsyncWithHttpInfo(vIcDomain, createSharedSecretKeysVerifiRequest);
-            logger.Debug("CALLING API \"CreateV2SharedSecretKeysVerifiAsync\" STARTED");
+            logger.Debug("CALLING API \"CreateV2SharedSecretKeysVerifiAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -834,7 +834,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"DeleteBulkSymmetricKeysAsync\" STARTED");
             ApiResponse<KmsV2KeysSymDeletesPost200Response> localVarResponse = await DeleteBulkSymmetricKeysAsyncWithHttpInfo(deleteBulkSymmetricKeysRequest);
-            logger.Debug("CALLING API \"DeleteBulkSymmetricKeysAsync\" STARTED");
+            logger.Debug("CALLING API \"DeleteBulkSymmetricKeysAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -980,6 +980,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -1014,7 +1022,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetKeyDetailsAsync\" STARTED");
             ApiResponse<KmsV2KeysSymGet200Response> localVarResponse = await GetKeyDetailsAsyncWithHttpInfo(keyId);
-            logger.Debug("CALLING API \"GetKeyDetailsAsync\" STARTED");
+            logger.Debug("CALLING API \"GetKeyDetailsAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -1065,6 +1073,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request

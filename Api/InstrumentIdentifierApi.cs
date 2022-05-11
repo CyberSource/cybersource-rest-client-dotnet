@@ -508,6 +508,14 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
+            if (Method.DELETE == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -596,6 +604,14 @@ namespace CyberSource.Api
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (Method.DELETE == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
             }
 
 
@@ -686,6 +702,14 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -721,7 +745,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" STARTED");
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId);
-            logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" STARTED");
+            logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -776,6 +800,14 @@ namespace CyberSource.Api
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
             }
 
 
@@ -880,6 +912,14 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -917,7 +957,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" STARTED");
             ApiResponse<PaymentInstrumentList> localVarResponse = await GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId, offset, limit);
-            logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" STARTED");
+            logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -984,6 +1024,14 @@ namespace CyberSource.Api
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
             }
 
 
@@ -1142,7 +1190,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" STARTED");
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PatchInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, patchInstrumentIdentifierRequest, profileId, ifMatch);
-            logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" STARTED");
+            logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -1363,7 +1411,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" STARTED");
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PostInstrumentIdentifierAsyncWithHttpInfo(postInstrumentIdentifierRequest, profileId);
-            logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" STARTED");
+            logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" ENDED");
             return localVarResponse.Data;
 
         }

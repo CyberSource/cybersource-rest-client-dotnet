@@ -342,7 +342,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"CalculateTaxAsync\" STARTED");
             ApiResponse<VasV2PaymentsPost201Response> localVarResponse = await CalculateTaxAsyncWithHttpInfo(taxRequest);
-            logger.Debug("CALLING API \"CalculateTaxAsync\" STARTED");
+            logger.Debug("CALLING API \"CalculateTaxAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -548,7 +548,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"VoidTaxAsync\" STARTED");
             ApiResponse<VasV2TaxVoid200Response> localVarResponse = await VoidTaxAsyncWithHttpInfo(voidTaxRequest, id);
-            logger.Debug("CALLING API \"VoidTaxAsync\" STARTED");
+            logger.Debug("CALLING API \"VoidTaxAsync\" ENDED");
             return localVarResponse.Data;
 
         }

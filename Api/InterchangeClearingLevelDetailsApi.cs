@@ -279,6 +279,14 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -315,7 +323,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetInterchangeClearingLevelDetailsAsync\" STARTED");
             ApiResponse<ReportingV3InterchangeClearingLevelDetailsGet200Response> localVarResponse = await GetInterchangeClearingLevelDetailsAsyncWithHttpInfo(startTime, endTime, organizationId);
-            logger.Debug("CALLING API \"GetInterchangeClearingLevelDetailsAsync\" STARTED");
+            logger.Debug("CALLING API \"GetInterchangeClearingLevelDetailsAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -385,6 +393,14 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request

@@ -272,6 +272,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TerminalMake'
         }
+        /// <summary>
+        /// Test the property 'ServiceCode'
+        /// </summary>
+        [Test]
+        public void ServiceCodeTest()
+        {
+            // TODO unit test for the property 'ServiceCode'
+        }
 
     }
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **AuthorizedAmount** | **string** | Amount that was authorized.  Returned by authorization service.  #### PIN debit Amount of the purchase.  Returned by PIN debit purchase.  #### FDMS South If you accept IDR or CLP currencies, see the entry for FDMS South in Merchant Descriptors Using the SCMP API.  | [optional] 
 **SettlementAmount** | **string** | This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. This field is returned for OCT transactions.  | [optional] 
 **SettlementCurrency** | **string** | This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. This field is returned for OCT transactions.  | [optional] 
-**Surcharge** | [**Ptsv2paymentsOrderInformationAmountDetailsSurcharge**](Ptsv2paymentsOrderInformationAmountDetailsSurcharge.md) |  | [optional] 
+**Surcharge** | [**Ptsv2payoutsOrderInformationAmountDetailsSurcharge**](Ptsv2payoutsOrderInformationAmountDetailsSurcharge.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

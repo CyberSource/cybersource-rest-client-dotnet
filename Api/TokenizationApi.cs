@@ -296,7 +296,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"TokenizeAsync\" STARTED");
             ApiResponse<FlexV1TokensPost200Response> localVarResponse = await TokenizeAsyncWithHttpInfo(tokenizeRequest);
-            logger.Debug("CALLING API \"TokenizeAsync\" STARTED");
+            logger.Debug("CALLING API \"TokenizeAsync\" ENDED");
             return localVarResponse.Data;
 
         }

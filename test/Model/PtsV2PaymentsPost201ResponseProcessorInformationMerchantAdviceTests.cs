@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CodeRaw'
         }
+        /// <summary>
+        /// Test the property 'NameMatch'
+        /// </summary>
+        [Test]
+        public void NameMatchTest()
+        {
+            // TODO unit test for the property 'NameMatch'
+        }
 
     }
 

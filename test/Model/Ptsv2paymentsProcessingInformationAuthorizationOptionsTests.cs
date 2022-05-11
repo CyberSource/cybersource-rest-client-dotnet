@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AuthType'
         }
         /// <summary>
+        /// Test the property 'PanReturnIndicator'
+        /// </summary>
+        [Test]
+        public void PanReturnIndicatorTest()
+        {
+            // TODO unit test for the property 'PanReturnIndicator'
+        }
+        /// <summary>
         /// Test the property 'VerbalAuthCode'
         /// </summary>
         [Test]

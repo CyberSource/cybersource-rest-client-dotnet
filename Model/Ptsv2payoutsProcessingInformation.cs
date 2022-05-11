@@ -40,7 +40,8 @@ namespace CyberSource.Model
         /// <param name="PayoutsOptions">PayoutsOptions.</param>
         /// <param name="TransactionReason">Transaction reason code. .</param>
         /// <param name="PurposeOfPayment">This will send purpose of funds code for original credit transactions (OCTs). .</param>
-        public Ptsv2payoutsProcessingInformation(string BusinessApplicationId = default(string), string NetworkRoutingOrder = default(string), string CommerceIndicator = default(string), string ReconciliationId = default(string), Ptsv2payoutsProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv2payoutsProcessingInformationPayoutsOptions), string TransactionReason = default(string), string PurposeOfPayment = default(string))
+        /// <param name="FundingOptions">FundingOptions.</param>
+        public Ptsv2payoutsProcessingInformation(string BusinessApplicationId = default(string), string NetworkRoutingOrder = default(string), string CommerceIndicator = default(string), string ReconciliationId = default(string), Ptsv2payoutsProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv2payoutsProcessingInformationPayoutsOptions), string TransactionReason = default(string), string PurposeOfPayment = default(string), Ptsv2payoutsProcessingInformationFundingOptions FundingOptions = default(Ptsv2payoutsProcessingInformationFundingOptions))
         {
             this.BusinessApplicationId = BusinessApplicationId;
             this.NetworkRoutingOrder = NetworkRoutingOrder;
@@ -49,6 +50,7 @@ namespace CyberSource.Model
             this.PayoutsOptions = PayoutsOptions;
             this.TransactionReason = TransactionReason;
             this.PurposeOfPayment = PurposeOfPayment;
+            this.FundingOptions = FundingOptions;
         }
         
         /// <summary>
@@ -100,6 +102,12 @@ namespace CyberSource.Model
         public string PurposeOfPayment { get; set; }
 
         /// <summary>
+        /// Gets or Sets FundingOptions
+        /// </summary>
+        [DataMember(Name="fundingOptions", EmitDefaultValue=false)]
+        public Ptsv2payoutsProcessingInformationFundingOptions FundingOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,6 +122,7 @@ namespace CyberSource.Model
             sb.Append("  PayoutsOptions: ").Append(PayoutsOptions).Append("\n");
             sb.Append("  TransactionReason: ").Append(TransactionReason).Append("\n");
             sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
+            sb.Append("  FundingOptions: ").Append(FundingOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -184,6 +193,11 @@ namespace CyberSource.Model
                     this.PurposeOfPayment == other.PurposeOfPayment ||
                     this.PurposeOfPayment != null &&
                     this.PurposeOfPayment.Equals(other.PurposeOfPayment)
+                ) && 
+                (
+                    this.FundingOptions == other.FundingOptions ||
+                    this.FundingOptions != null &&
+                    this.FundingOptions.Equals(other.FundingOptions)
                 );
         }
 
@@ -212,6 +226,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionReason.GetHashCode();
                 if (this.PurposeOfPayment != null)
                     hash = hash * 59 + this.PurposeOfPayment.GetHashCode();
+                if (this.FundingOptions != null)
+                    hash = hash * 59 + this.FundingOptions.GetHashCode();
                 return hash;
             }
         }
