@@ -402,7 +402,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"AddNegativeAsync\" STARTED");
             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await AddNegativeAsyncWithHttpInfo(type, addNegativeListRequest);
-            logger.Debug("CALLING API \"AddNegativeAsync\" STARTED");
+            logger.Debug("CALLING API \"AddNegativeAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -606,7 +606,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"CreateBundledDecisionManagerCaseAsync\" STARTED");
             ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = await CreateBundledDecisionManagerCaseAsyncWithHttpInfo(createBundledDecisionManagerCaseRequest);
-            logger.Debug("CALLING API \"CreateBundledDecisionManagerCaseAsync\" STARTED");
+            logger.Debug("CALLING API \"CreateBundledDecisionManagerCaseAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -812,7 +812,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"FraudUpdateAsync\" STARTED");
             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await FraudUpdateAsyncWithHttpInfo(id, fraudMarkingActionRequest);
-            logger.Debug("CALLING API \"FraudUpdateAsync\" STARTED");
+            logger.Debug("CALLING API \"FraudUpdateAsync\" ENDED");
             return localVarResponse.Data;
 
         }

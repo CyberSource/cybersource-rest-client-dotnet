@@ -356,7 +356,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"AuthReversalAsync\" STARTED");
             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = await AuthReversalAsyncWithHttpInfo(id, authReversalRequest);
-            logger.Debug("CALLING API \"AuthReversalAsync\" STARTED");
+            logger.Debug("CALLING API \"AuthReversalAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -560,7 +560,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"MitReversalAsync\" STARTED");
             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = await MitReversalAsyncWithHttpInfo(mitReversalRequest);
-            logger.Debug("CALLING API \"MitReversalAsync\" STARTED");
+            logger.Debug("CALLING API \"MitReversalAsync\" ENDED");
             return localVarResponse.Data;
 
         }

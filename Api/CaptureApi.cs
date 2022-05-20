@@ -314,7 +314,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"CapturePaymentAsync\" STARTED");
             ApiResponse<PtsV2PaymentsCapturesPost201Response> localVarResponse = await CapturePaymentAsyncWithHttpInfo(capturePaymentRequest, id);
-            logger.Debug("CALLING API \"CapturePaymentAsync\" STARTED");
+            logger.Debug("CALLING API \"CapturePaymentAsync\" ENDED");
             return localVarResponse.Data;
 
         }

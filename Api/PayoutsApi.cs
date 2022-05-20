@@ -296,7 +296,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"OctCreatePaymentAsync\" STARTED");
             ApiResponse<PtsV2PayoutsPost201Response> localVarResponse = await OctCreatePaymentAsyncWithHttpInfo(octCreatePaymentRequest);
-            logger.Debug("CALLING API \"OctCreatePaymentAsync\" STARTED");
+            logger.Debug("CALLING API \"OctCreatePaymentAsync\" ENDED");
             return localVarResponse.Data;
 
         }

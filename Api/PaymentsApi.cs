@@ -342,7 +342,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"CreatePaymentAsync\" STARTED");
             ApiResponse<PtsV2PaymentsPost201Response> localVarResponse = await CreatePaymentAsyncWithHttpInfo(createPaymentRequest);
-            logger.Debug("CALLING API \"CreatePaymentAsync\" STARTED");
+            logger.Debug("CALLING API \"CreatePaymentAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -548,7 +548,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"IncrementAuthAsync\" STARTED");
             ApiResponse<PtsV2IncrementalAuthorizationPatch201Response> localVarResponse = await IncrementAuthAsyncWithHttpInfo(id, incrementAuthRequest);
-            logger.Debug("CALLING API \"IncrementAuthAsync\" STARTED");
+            logger.Debug("CALLING API \"IncrementAuthAsync\" ENDED");
             return localVarResponse.Data;
 
         }

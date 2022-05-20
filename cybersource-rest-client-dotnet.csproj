@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 CyberSource Merged Spec
 
@@ -9,10 +9,9 @@ OpenAPI spec version: 0.0.1
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BE688374-90A6-4DA2-8C3F-9A685CDC9F89}</ProjectGuid>
+    <ProjectGuid>{89687612-3FB4-4D99-ADD4-8E1FCE56F3A4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CyberSource</RootNamespace>
@@ -38,6 +37,9 @@ OpenAPI spec version: 0.0.1
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AuthenticationSdk, Version=0.0.0.14, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CyberSource.Authentication.0.0.0.14\lib\AuthenticationSdk.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -48,9 +50,6 @@ OpenAPI spec version: 0.0.1
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
-    <Reference Include="AuthenticationSdk">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.13\lib\AuthenticationSdk.dll</HintPath>
-    </Reference>
     <Reference Include="NLog">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\NLog.4.5.10\lib\net45\NLog.dll</HintPath>

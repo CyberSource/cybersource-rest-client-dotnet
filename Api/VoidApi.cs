@@ -480,7 +480,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"MitVoidAsync\" STARTED");
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await MitVoidAsyncWithHttpInfo(mitVoidRequest);
-            logger.Debug("CALLING API \"MitVoidAsync\" STARTED");
+            logger.Debug("CALLING API \"MitVoidAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -686,7 +686,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"VoidCaptureAsync\" STARTED");
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidCaptureAsyncWithHttpInfo(voidCaptureRequest, id);
-            logger.Debug("CALLING API \"VoidCaptureAsync\" STARTED");
+            logger.Debug("CALLING API \"VoidCaptureAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -904,7 +904,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"VoidCreditAsync\" STARTED");
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidCreditAsyncWithHttpInfo(voidCreditRequest, id);
-            logger.Debug("CALLING API \"VoidCreditAsync\" STARTED");
+            logger.Debug("CALLING API \"VoidCreditAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -1122,7 +1122,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"VoidPaymentAsync\" STARTED");
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidPaymentAsyncWithHttpInfo(voidPaymentRequest, id);
-            logger.Debug("CALLING API \"VoidPaymentAsync\" STARTED");
+            logger.Debug("CALLING API \"VoidPaymentAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -1340,7 +1340,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"VoidRefundAsync\" STARTED");
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidRefundAsyncWithHttpInfo(voidRefundRequest, id);
-            logger.Debug("CALLING API \"VoidRefundAsync\" STARTED");
+            logger.Debug("CALLING API \"VoidRefundAsync\" ENDED");
             return localVarResponse.Data;
 
         }

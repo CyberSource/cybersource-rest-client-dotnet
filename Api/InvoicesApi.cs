@@ -518,7 +518,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"CreateInvoiceAsync\" STARTED");
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await CreateInvoiceAsyncWithHttpInfo(createInvoiceRequest);
-            logger.Debug("CALLING API \"CreateInvoiceAsync\" STARTED");
+            logger.Debug("CALLING API \"CreateInvoiceAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -684,6 +684,14 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -720,7 +728,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetAllInvoicesAsync\" STARTED");
             ApiResponse<InvoicingV2InvoicesAllGet200Response> localVarResponse = await GetAllInvoicesAsyncWithHttpInfo(offset, limit, status);
-            logger.Debug("CALLING API \"GetAllInvoicesAsync\" STARTED");
+            logger.Debug("CALLING API \"GetAllInvoicesAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -789,6 +797,14 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -872,6 +888,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -906,7 +930,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetInvoiceAsync\" STARTED");
             ApiResponse<InvoicingV2InvoicesGet200Response> localVarResponse = await GetInvoiceAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"GetInvoiceAsync\" STARTED");
+            logger.Debug("CALLING API \"GetInvoiceAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -957,6 +981,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -1040,6 +1072,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.POST == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -1074,7 +1114,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"PerformCancelActionAsync\" STARTED");
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await PerformCancelActionAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"PerformCancelActionAsync\" STARTED");
+            logger.Debug("CALLING API \"PerformCancelActionAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -1125,6 +1165,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.POST == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -1208,6 +1256,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.POST == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -1242,7 +1298,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"PerformSendActionAsync\" STARTED");
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await PerformSendActionAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"PerformSendActionAsync\" STARTED");
+            logger.Debug("CALLING API \"PerformSendActionAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -1293,6 +1349,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.POST == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -1436,7 +1500,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"UpdateInvoiceAsync\" STARTED");
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await UpdateInvoiceAsyncWithHttpInfo(id, updateInvoiceRequest);
-            logger.Debug("CALLING API \"UpdateInvoiceAsync\" STARTED");
+            logger.Debug("CALLING API \"UpdateInvoiceAsync\" ENDED");
             return localVarResponse.Data;
 
         }

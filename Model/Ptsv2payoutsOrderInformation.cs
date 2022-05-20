@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="BillTo">BillTo.</param>
-        public Ptsv2payoutsOrderInformation(Ptsv2payoutsOrderInformationAmountDetails AmountDetails = default(Ptsv2payoutsOrderInformationAmountDetails), Ptsv2payoutsOrderInformationBillTo BillTo = default(Ptsv2payoutsOrderInformationBillTo))
+        /// <param name="IsCryptocurrencyPurchase">#### Visa Platform Connect : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. Additional values to add : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. valid values are - Y/y, true - N/n, false .</param>
+        public Ptsv2payoutsOrderInformation(Ptsv2payoutsOrderInformationAmountDetails AmountDetails = default(Ptsv2payoutsOrderInformationAmountDetails), Ptsv2payoutsOrderInformationBillTo BillTo = default(Ptsv2payoutsOrderInformationBillTo), string IsCryptocurrencyPurchase = default(string))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
+            this.IsCryptocurrencyPurchase = IsCryptocurrencyPurchase;
         }
         
         /// <summary>
@@ -54,6 +56,13 @@ namespace CyberSource.Model
         public Ptsv2payoutsOrderInformationBillTo BillTo { get; set; }
 
         /// <summary>
+        /// #### Visa Platform Connect : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. Additional values to add : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. valid values are - Y/y, true - N/n, false 
+        /// </summary>
+        /// <value>#### Visa Platform Connect : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. Additional values to add : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. valid values are - Y/y, true - N/n, false </value>
+        [DataMember(Name="isCryptocurrencyPurchase", EmitDefaultValue=false)]
+        public string IsCryptocurrencyPurchase { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +72,7 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2payoutsOrderInformation {\n");
             sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
             sb.Append("  BillTo: ").Append(BillTo).Append("\n");
+            sb.Append("  IsCryptocurrencyPurchase: ").Append(IsCryptocurrencyPurchase).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +118,11 @@ namespace CyberSource.Model
                     this.BillTo == other.BillTo ||
                     this.BillTo != null &&
                     this.BillTo.Equals(other.BillTo)
+                ) && 
+                (
+                    this.IsCryptocurrencyPurchase == other.IsCryptocurrencyPurchase ||
+                    this.IsCryptocurrencyPurchase != null &&
+                    this.IsCryptocurrencyPurchase.Equals(other.IsCryptocurrencyPurchase)
                 );
         }
 
@@ -126,6 +141,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AmountDetails.GetHashCode();
                 if (this.BillTo != null)
                     hash = hash * 59 + this.BillTo.GetHashCode();
+                if (this.IsCryptocurrencyPurchase != null)
+                    hash = hash * 59 + this.IsCryptocurrencyPurchase.GetHashCode();
                 return hash;
             }
         }

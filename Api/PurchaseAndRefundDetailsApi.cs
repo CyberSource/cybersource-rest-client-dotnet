@@ -335,6 +335,14 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -376,7 +384,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetPurchaseAndRefundDetailsAsync\" STARTED");
             ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response> localVarResponse = await GetPurchaseAndRefundDetailsAsyncWithHttpInfo(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
-            logger.Debug("CALLING API \"GetPurchaseAndRefundDetailsAsync\" STARTED");
+            logger.Debug("CALLING API \"GetPurchaseAndRefundDetailsAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -477,6 +485,14 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request

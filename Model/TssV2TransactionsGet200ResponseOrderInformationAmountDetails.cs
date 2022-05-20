@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="SettlementAmount">This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder’s account. This field is returned for OCT transactions. .</param>
         /// <param name="SettlementCurrency">This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. This field is returned for OCT transactions. .</param>
         /// <param name="Surcharge">Surcharge.</param>
-        public TssV2TransactionsGet200ResponseOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string TaxAmount = default(string), string AuthorizedAmount = default(string), string SettlementAmount = default(string), string SettlementCurrency = default(string), Ptsv2paymentsOrderInformationAmountDetailsSurcharge Surcharge = default(Ptsv2paymentsOrderInformationAmountDetailsSurcharge))
+        public TssV2TransactionsGet200ResponseOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string TaxAmount = default(string), string AuthorizedAmount = default(string), string SettlementAmount = default(string), string SettlementCurrency = default(string), Ptsv2payoutsOrderInformationAmountDetailsSurcharge Surcharge = default(Ptsv2payoutsOrderInformationAmountDetailsSurcharge))
         {
             this.TotalAmount = TotalAmount;
             this.Currency = Currency;
@@ -97,7 +97,7 @@ namespace CyberSource.Model
         /// Gets or Sets Surcharge
         /// </summary>
         [DataMember(Name="surcharge", EmitDefaultValue=false)]
-        public Ptsv2paymentsOrderInformationAmountDetailsSurcharge Surcharge { get; set; }
+        public Ptsv2payoutsOrderInformationAmountDetailsSurcharge Surcharge { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

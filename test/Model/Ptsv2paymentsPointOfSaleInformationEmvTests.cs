@@ -104,6 +104,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'FallbackCondition'
         }
+        /// <summary>
+        /// Test the property 'IsRepeat'
+        /// </summary>
+        [Test]
+        public void IsRepeatTest()
+        {
+            // TODO unit test for the property 'IsRepeat'
+        }
 
     }
 

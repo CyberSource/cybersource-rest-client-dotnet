@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'BillTo'
         }
+        /// <summary>
+        /// Test the property 'IsCryptocurrencyPurchase'
+        /// </summary>
+        [Test]
+        public void IsCryptocurrencyPurchaseTest()
+        {
+            // TODO unit test for the property 'IsCryptocurrencyPurchase'
+        }
 
     }
 

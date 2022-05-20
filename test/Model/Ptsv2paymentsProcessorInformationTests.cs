@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PreApprovalToken'
         }
+        /// <summary>
+        /// Test the property 'AuthorizationOptions'
+        /// </summary>
+        [Test]
+        public void AuthorizationOptionsTest()
+        {
+            // TODO unit test for the property 'AuthorizationOptions'
+        }
 
     }
 

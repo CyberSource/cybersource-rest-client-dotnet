@@ -275,6 +275,14 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -308,7 +316,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetInvoiceSettingsAsync\" STARTED");
             ApiResponse<InvoicingV2InvoiceSettingsGet200Response> localVarResponse = await GetInvoiceSettingsAsyncWithHttpInfo();
-            logger.Debug("CALLING API \"GetInvoiceSettingsAsync\" STARTED");
+            logger.Debug("CALLING API \"GetInvoiceSettingsAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -347,6 +355,14 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -476,7 +492,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"UpdateInvoiceSettingsAsync\" STARTED");
             ApiResponse<InvoicingV2InvoiceSettingsGet200Response> localVarResponse = await UpdateInvoiceSettingsAsyncWithHttpInfo(invoiceSettingsRequest);
-            logger.Debug("CALLING API \"UpdateInvoiceSettingsAsync\" STARTED");
+            logger.Debug("CALLING API \"UpdateInvoiceSettingsAsync\" ENDED");
             return localVarResponse.Data;
 
         }

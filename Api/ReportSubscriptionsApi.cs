@@ -843,6 +843,14 @@ namespace CyberSource.Api
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.DELETE == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -933,6 +941,14 @@ namespace CyberSource.Api
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.DELETE == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -1010,6 +1026,14 @@ namespace CyberSource.Api
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -1044,7 +1068,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" STARTED");
             ApiResponse<ReportingV3ReportSubscriptionsGet200Response> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo(organizationId);
-            logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" STARTED");
+            logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -1089,6 +1113,14 @@ namespace CyberSource.Api
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -1179,6 +1211,14 @@ namespace CyberSource.Api
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -1214,7 +1254,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetSubscriptionAsync\" STARTED");
             ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> localVarResponse = await GetSubscriptionAsyncWithHttpInfo(reportName, organizationId);
-            logger.Debug("CALLING API \"GetSubscriptionAsync\" STARTED");
+            logger.Debug("CALLING API \"GetSubscriptionAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -1271,6 +1311,14 @@ namespace CyberSource.Api
                 localVarQueryParams.Add("organizationId", Configuration.ApiClient.ParameterToString(organizationId)); // query parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request

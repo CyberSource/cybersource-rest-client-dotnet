@@ -34,6 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsProcessingInformationAuthorizationOptions" /> class.
         /// </summary>
         /// <param name="AuthType">Authorization type. Possible values:   - &#x60;AUTOCAPTURE&#x60;: automatic capture.  - &#x60;STANDARDCAPTURE&#x60;: standard capture.  - &#x60;VERBAL&#x60;: forced capture. Include it in the payment request for a forced capture. Include it in the capture request for a verbal payment.  #### Asia, Middle East, and Africa Gateway; Cielo; Comercio Latino; and CyberSource Latin American Processing Set this field to &#x60;AUTOCAPTURE&#x60; and include it in a bundled request to indicate that you are requesting an automatic capture. If your account is configured to enable automatic captures, set this field to &#x60;STANDARDCAPTURE&#x60; and include it in a standard authorization or bundled request to indicate that you are overriding an automatic capture. For more information, see the &#x60;auth_type&#x60; field description in [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### Forced Capture Set this field to &#x60;VERBAL&#x60; and include it in the authorization request to indicate that you are performing a forced capture; therefore, you receive the authorization code outside the CyberSource system.  #### Verbal Authorization Set this field to &#x60;VERBAL&#x60; and include it in the capture request to indicate that the request is for a verbal authorization. For more information, see \&quot;Verbal Authorizations\&quot; in [Credit Card Services Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html). .</param>
+        /// <param name="PanReturnIndicator">#### Visa Platform Connect The field contains the PAN translation indicator for American Express Contactless Transaction. Valid value is   1- Expresspay Translation, PAN request 2- Expresspay Translation, PAN and Expiry date request .</param>
         /// <param name="VerbalAuthCode">Authorization code.  #### Forced Capture Use this field to send the authorization code you received from a payment that you authorized outside the CyberSource system.  #### PIN debit Authorization code that is returned by the processor.  Returned by PIN debit purchase.  #### Verbal Authorization Use this field in CAPTURE API to send the verbally received authorization code.  For processor-specific information, see the &#x60;auth_code&#x60; field description in [Credit Card Services Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html). .</param>
         /// <param name="VerbalAuthTransactionId">Transaction ID (TID).  #### FDMS South This field is required for verbal authorizations and forced captures with the American Express card type to comply with the CAPN requirements: - Forced capture: Obtain the value for this field from the authorization response. - Verbal authorization: You cannot obtain a value for this field so CyberSource uses the default value of &#x60;000000000000000&#x60; (15 zeros). .</param>
         /// <param name="AuthIndicator">Flag that specifies the purpose of the authorization.  Possible values:  - **0**: Preauthorization  - **1**: Final authorization  To set the default for this field, contact CyberSource Customer Support.  #### Barclays and Elavon The default for Barclays and Elavon is 1 (final authorization). To change the default for this field, contact CyberSource Customer Support.  #### CyberSource through VisaNet When the value for this field is 0, it corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCR0  - Position: 164  - Field: Additional Authorization Indicators When the value for this field is 1, it does not correspond to any data in the TC 33 capture file. .</param>
@@ -50,9 +51,10 @@ namespace CyberSource.Model
         /// <param name="AggregatedAuthIndicator">Indicates if transaction is an aggregated auth  Possible values: - **true** - **false** .</param>
         /// <param name="DebtRecoveryIndicator">Indicates if transaction is a debt recovery request  Possible values: - **true** - **false** .</param>
         /// <param name="DeferredAuthIndicator">Flag that indicates whether the authorization request was delayed because connectivity was interrupted.  Possible values:   - &#x60;true&#x60; (Deferred authorization)   - &#x60;false&#x60; (default: Not a deferred authorization) .</param>
-        public Ptsv2paymentsProcessingInformationAuthorizationOptions(string AuthType = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), bool? IgnoreCvResult = false, Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator Initiator = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string), bool? RedemptionInquiry = default(bool?), string TransportationMode = default(string), string AggregatedAuthIndicator = default(string), string DebtRecoveryIndicator = default(string), bool? DeferredAuthIndicator = default(bool?))
+        public Ptsv2paymentsProcessingInformationAuthorizationOptions(string AuthType = default(string), string PanReturnIndicator = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), bool? IgnoreCvResult = false, Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator Initiator = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string), bool? RedemptionInquiry = default(bool?), string TransportationMode = default(string), string AggregatedAuthIndicator = default(string), string DebtRecoveryIndicator = default(string), bool? DeferredAuthIndicator = default(bool?))
         {
             this.AuthType = AuthType;
+            this.PanReturnIndicator = PanReturnIndicator;
             this.VerbalAuthCode = VerbalAuthCode;
             this.VerbalAuthTransactionId = VerbalAuthTransactionId;
             this.AuthIndicator = AuthIndicator;
@@ -93,6 +95,13 @@ namespace CyberSource.Model
         /// <value>Authorization type. Possible values:   - &#x60;AUTOCAPTURE&#x60;: automatic capture.  - &#x60;STANDARDCAPTURE&#x60;: standard capture.  - &#x60;VERBAL&#x60;: forced capture. Include it in the payment request for a forced capture. Include it in the capture request for a verbal payment.  #### Asia, Middle East, and Africa Gateway; Cielo; Comercio Latino; and CyberSource Latin American Processing Set this field to &#x60;AUTOCAPTURE&#x60; and include it in a bundled request to indicate that you are requesting an automatic capture. If your account is configured to enable automatic captures, set this field to &#x60;STANDARDCAPTURE&#x60; and include it in a standard authorization or bundled request to indicate that you are overriding an automatic capture. For more information, see the &#x60;auth_type&#x60; field description in [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### Forced Capture Set this field to &#x60;VERBAL&#x60; and include it in the authorization request to indicate that you are performing a forced capture; therefore, you receive the authorization code outside the CyberSource system.  #### Verbal Authorization Set this field to &#x60;VERBAL&#x60; and include it in the capture request to indicate that the request is for a verbal authorization. For more information, see \&quot;Verbal Authorizations\&quot; in [Credit Card Services Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html). </value>
         [DataMember(Name="authType", EmitDefaultValue=false)]
         public string AuthType { get; set; }
+
+        /// <summary>
+        /// #### Visa Platform Connect The field contains the PAN translation indicator for American Express Contactless Transaction. Valid value is   1- Expresspay Translation, PAN request 2- Expresspay Translation, PAN and Expiry date request 
+        /// </summary>
+        /// <value>#### Visa Platform Connect The field contains the PAN translation indicator for American Express Contactless Transaction. Valid value is   1- Expresspay Translation, PAN request 2- Expresspay Translation, PAN and Expiry date request </value>
+        [DataMember(Name="panReturnIndicator", EmitDefaultValue=false)]
+        public string PanReturnIndicator { get; set; }
 
         /// <summary>
         /// Authorization code.  #### Forced Capture Use this field to send the authorization code you received from a payment that you authorized outside the CyberSource system.  #### PIN debit Authorization code that is returned by the processor.  Returned by PIN debit purchase.  #### Verbal Authorization Use this field in CAPTURE API to send the verbally received authorization code.  For processor-specific information, see the &#x60;auth_code&#x60; field description in [Credit Card Services Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html). 
@@ -214,6 +223,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsProcessingInformationAuthorizationOptions {\n");
             sb.Append("  AuthType: ").Append(AuthType).Append("\n");
+            sb.Append("  PanReturnIndicator: ").Append(PanReturnIndicator).Append("\n");
             sb.Append("  VerbalAuthCode: ").Append(VerbalAuthCode).Append("\n");
             sb.Append("  VerbalAuthTransactionId: ").Append(VerbalAuthTransactionId).Append("\n");
             sb.Append("  AuthIndicator: ").Append(AuthIndicator).Append("\n");
@@ -270,6 +280,11 @@ namespace CyberSource.Model
                     this.AuthType == other.AuthType ||
                     this.AuthType != null &&
                     this.AuthType.Equals(other.AuthType)
+                ) && 
+                (
+                    this.PanReturnIndicator == other.PanReturnIndicator ||
+                    this.PanReturnIndicator != null &&
+                    this.PanReturnIndicator.Equals(other.PanReturnIndicator)
                 ) && 
                 (
                     this.VerbalAuthCode == other.VerbalAuthCode ||
@@ -366,6 +381,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.AuthType != null)
                     hash = hash * 59 + this.AuthType.GetHashCode();
+                if (this.PanReturnIndicator != null)
+                    hash = hash * 59 + this.PanReturnIndicator.GetHashCode();
                 if (this.VerbalAuthCode != null)
                     hash = hash * 59 + this.VerbalAuthCode.GetHashCode();
                 if (this.VerbalAuthTransactionId != null)

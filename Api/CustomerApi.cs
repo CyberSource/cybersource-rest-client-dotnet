@@ -404,6 +404,14 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
+            if (Method.DELETE == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -492,6 +500,14 @@ namespace CyberSource.Api
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (Method.DELETE == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
             }
 
 
@@ -582,6 +598,14 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -617,7 +641,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetCustomerAsync\" STARTED");
             ApiResponse<TmsV2CustomersResponse> localVarResponse = await GetCustomerAsyncWithHttpInfo(customerTokenId, profileId);
-            logger.Debug("CALLING API \"GetCustomerAsync\" STARTED");
+            logger.Debug("CALLING API \"GetCustomerAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -672,6 +696,14 @@ namespace CyberSource.Api
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
             }
 
 
@@ -830,7 +862,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"PatchCustomerAsync\" STARTED");
             ApiResponse<TmsV2CustomersResponse> localVarResponse = await PatchCustomerAsyncWithHttpInfo(customerTokenId, patchCustomerRequest, profileId, ifMatch);
-            logger.Debug("CALLING API \"PatchCustomerAsync\" STARTED");
+            logger.Debug("CALLING API \"PatchCustomerAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -1051,7 +1083,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"PostCustomerAsync\" STARTED");
             ApiResponse<TmsV2CustomersResponse> localVarResponse = await PostCustomerAsyncWithHttpInfo(postCustomerRequest, profileId);
-            logger.Debug("CALLING API \"PostCustomerAsync\" STARTED");
+            logger.Debug("CALLING API \"PostCustomerAsync\" ENDED");
             return localVarResponse.Data;
 
         }

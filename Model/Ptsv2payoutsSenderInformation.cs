@@ -48,7 +48,10 @@ namespace CyberSource.Model
         /// <param name="PhoneNumber">Sender’s phone number. Required only for FDCCompass..</param>
         /// <param name="DateOfBirth">Sender’s date of birth in YYYYMMDD format. Required only for FDCCompass..</param>
         /// <param name="VatRegistrationNumber">Customer&#39;s government-assigned tax identification number. .</param>
-        public Ptsv2payoutsSenderInformation(string ReferenceNumber = default(string), Ptsv2payoutsSenderInformationAccount Account = default(Ptsv2payoutsSenderInformationAccount), string FirstName = default(string), string MiddleInitial = default(string), string MiddleName = default(string), string LastName = default(string), string Name = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string), string PostalCode = default(string), string PhoneNumber = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string))
+        /// <param name="PersonalIdType">#### Visa Platform Connect This tag will contain the type of sender identification. The valid values are: • BTHD (Date of birth) • CUID (Customer identification (unspecified)) • NTID (National identification) • PASN (Passport number) • DRLN (Driver license) • TXIN (Tax identification) • CPNY (Company registration number) • PRXY (Proxy identification) • SSNB (Social security number) • ARNB (Alien registration number) • LAWE (Law enforcement identification) • MILI (Military identification) • TRVL (Travel identification (non-passport)) • EMAL (Email) • PHON (Phone number) .</param>
+        /// <param name="Type">#### Visa Platform Connect This tag will denote whether the tax ID is a business or individual tax ID when personal ID Type contains the value of TXIN (Tax identification).  The valid values are: • B (Business) • I (Individual) .</param>
+        /// <param name="IdentificationNumber">#### Visa Platform Connect This tag will contain an acquirer-populated value associated with the API : senderInformation.personalIdType which will identify the personal ID type of the sender. .</param>
+        public Ptsv2payoutsSenderInformation(string ReferenceNumber = default(string), Ptsv2payoutsSenderInformationAccount Account = default(Ptsv2payoutsSenderInformationAccount), string FirstName = default(string), string MiddleInitial = default(string), string MiddleName = default(string), string LastName = default(string), string Name = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string), string PostalCode = default(string), string PhoneNumber = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), string PersonalIdType = default(string), string Type = default(string), string IdentificationNumber = default(string))
         {
             this.ReferenceNumber = ReferenceNumber;
             this.Account = Account;
@@ -65,6 +68,9 @@ namespace CyberSource.Model
             this.PhoneNumber = PhoneNumber;
             this.DateOfBirth = DateOfBirth;
             this.VatRegistrationNumber = VatRegistrationNumber;
+            this.PersonalIdType = PersonalIdType;
+            this.Type = Type;
+            this.IdentificationNumber = IdentificationNumber;
         }
         
         /// <summary>
@@ -172,6 +178,27 @@ namespace CyberSource.Model
         public string VatRegistrationNumber { get; set; }
 
         /// <summary>
+        /// #### Visa Platform Connect This tag will contain the type of sender identification. The valid values are: • BTHD (Date of birth) • CUID (Customer identification (unspecified)) • NTID (National identification) • PASN (Passport number) • DRLN (Driver license) • TXIN (Tax identification) • CPNY (Company registration number) • PRXY (Proxy identification) • SSNB (Social security number) • ARNB (Alien registration number) • LAWE (Law enforcement identification) • MILI (Military identification) • TRVL (Travel identification (non-passport)) • EMAL (Email) • PHON (Phone number) 
+        /// </summary>
+        /// <value>#### Visa Platform Connect This tag will contain the type of sender identification. The valid values are: • BTHD (Date of birth) • CUID (Customer identification (unspecified)) • NTID (National identification) • PASN (Passport number) • DRLN (Driver license) • TXIN (Tax identification) • CPNY (Company registration number) • PRXY (Proxy identification) • SSNB (Social security number) • ARNB (Alien registration number) • LAWE (Law enforcement identification) • MILI (Military identification) • TRVL (Travel identification (non-passport)) • EMAL (Email) • PHON (Phone number) </value>
+        [DataMember(Name="personalIdType", EmitDefaultValue=false)]
+        public string PersonalIdType { get; set; }
+
+        /// <summary>
+        /// #### Visa Platform Connect This tag will denote whether the tax ID is a business or individual tax ID when personal ID Type contains the value of TXIN (Tax identification).  The valid values are: • B (Business) • I (Individual) 
+        /// </summary>
+        /// <value>#### Visa Platform Connect This tag will denote whether the tax ID is a business or individual tax ID when personal ID Type contains the value of TXIN (Tax identification).  The valid values are: • B (Business) • I (Individual) </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// #### Visa Platform Connect This tag will contain an acquirer-populated value associated with the API : senderInformation.personalIdType which will identify the personal ID type of the sender. 
+        /// </summary>
+        /// <value>#### Visa Platform Connect This tag will contain an acquirer-populated value associated with the API : senderInformation.personalIdType which will identify the personal ID type of the sender. </value>
+        [DataMember(Name="identificationNumber", EmitDefaultValue=false)]
+        public string IdentificationNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -194,6 +221,9 @@ namespace CyberSource.Model
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
             sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
+            sb.Append("  PersonalIdType: ").Append(PersonalIdType).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  IdentificationNumber: ").Append(IdentificationNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -304,6 +334,21 @@ namespace CyberSource.Model
                     this.VatRegistrationNumber == other.VatRegistrationNumber ||
                     this.VatRegistrationNumber != null &&
                     this.VatRegistrationNumber.Equals(other.VatRegistrationNumber)
+                ) && 
+                (
+                    this.PersonalIdType == other.PersonalIdType ||
+                    this.PersonalIdType != null &&
+                    this.PersonalIdType.Equals(other.PersonalIdType)
+                ) && 
+                (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.IdentificationNumber == other.IdentificationNumber ||
+                    this.IdentificationNumber != null &&
+                    this.IdentificationNumber.Equals(other.IdentificationNumber)
                 );
         }
 
@@ -348,6 +393,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DateOfBirth.GetHashCode();
                 if (this.VatRegistrationNumber != null)
                     hash = hash * 59 + this.VatRegistrationNumber.GetHashCode();
+                if (this.PersonalIdType != null)
+                    hash = hash * 59 + this.PersonalIdType.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.IdentificationNumber != null)
+                    hash = hash * 59 + this.IdentificationNumber.GetHashCode();
                 return hash;
             }
         }

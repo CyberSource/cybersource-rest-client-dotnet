@@ -59,7 +59,8 @@ namespace CyberSource.Model
         /// <param name="IsDedicatedHardwareTerminal">Type of mPOS device. Possible values: - 0: Dongle - 1: Phone or tablet  This optional field is supported only for Mastercard transactions on CyberSource through VisaNet.  The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 141 - Field: Mastercard mPOS Transaction  The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant’s acquirer, who uses this information to facilitate end-of-day clearing processing with payment networks. .</param>
         /// <param name="TerminalModel">This is the model name of the reader which is used to accept the payment. Possible values:  - E3555  - P400  - A920 .</param>
         /// <param name="TerminalMake">This is the manufacturer name of the reader which is used to accept the payment. Possible values:  - PAX  - Verifone  - Ingenico .</param>
-        public Ptsv2paymentsPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string LaneNumber = default(string), int? CatLevel = default(int?), string EntryMode = default(string), int? TerminalCapability = default(int?), string OperatingEnvironment = default(string), Ptsv2paymentsPointOfSaleInformationEmv Emv = default(Ptsv2paymentsPointOfSaleInformationEmv), string AmexCapnData = default(string), string TrackData = default(string), string StoreAndForwardIndicator = default(string), List<string> CardholderVerificationMethod = default(List<string>), List<string> TerminalInputCapability = default(List<string>), string TerminalCardCaptureCapability = default(string), string TerminalOutputCapability = default(string), int? TerminalPinCapability = default(int?), string DeviceId = default(string), int? PinBlockEncodingFormat = default(int?), string EncryptedPin = default(string), string EncryptedKeySerialNumber = default(string), string PartnerSdkVersion = default(string), string EmvApplicationIdentifierAndDedicatedFileName = default(string), string TerminalCompliance = default(string), string IsDedicatedHardwareTerminal = default(string), string TerminalModel = default(string), string TerminalMake = default(string))
+        /// <param name="ServiceCode">#### Visa Platform Connect Mastercard service code that is included in the track data. You can extract the service code from the track data and provide it in this API field. This field is supported only for Mastercard on Visa Platform Connect. .</param>
+        public Ptsv2paymentsPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string LaneNumber = default(string), int? CatLevel = default(int?), string EntryMode = default(string), int? TerminalCapability = default(int?), string OperatingEnvironment = default(string), Ptsv2paymentsPointOfSaleInformationEmv Emv = default(Ptsv2paymentsPointOfSaleInformationEmv), string AmexCapnData = default(string), string TrackData = default(string), string StoreAndForwardIndicator = default(string), List<string> CardholderVerificationMethod = default(List<string>), List<string> TerminalInputCapability = default(List<string>), string TerminalCardCaptureCapability = default(string), string TerminalOutputCapability = default(string), int? TerminalPinCapability = default(int?), string DeviceId = default(string), int? PinBlockEncodingFormat = default(int?), string EncryptedPin = default(string), string EncryptedKeySerialNumber = default(string), string PartnerSdkVersion = default(string), string EmvApplicationIdentifierAndDedicatedFileName = default(string), string TerminalCompliance = default(string), string IsDedicatedHardwareTerminal = default(string), string TerminalModel = default(string), string TerminalMake = default(string), string ServiceCode = default(string))
         {
             this.TerminalId = TerminalId;
             this.TerminalSerialNumber = TerminalSerialNumber;
@@ -87,6 +88,7 @@ namespace CyberSource.Model
             this.IsDedicatedHardwareTerminal = IsDedicatedHardwareTerminal;
             this.TerminalModel = TerminalModel;
             this.TerminalMake = TerminalMake;
+            this.ServiceCode = ServiceCode;
         }
         
         /// <summary>
@@ -271,6 +273,13 @@ namespace CyberSource.Model
         public string TerminalMake { get; set; }
 
         /// <summary>
+        /// #### Visa Platform Connect Mastercard service code that is included in the track data. You can extract the service code from the track data and provide it in this API field. This field is supported only for Mastercard on Visa Platform Connect. 
+        /// </summary>
+        /// <value>#### Visa Platform Connect Mastercard service code that is included in the track data. You can extract the service code from the track data and provide it in this API field. This field is supported only for Mastercard on Visa Platform Connect. </value>
+        [DataMember(Name="serviceCode", EmitDefaultValue=false)]
+        public string ServiceCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -304,6 +313,7 @@ namespace CyberSource.Model
             sb.Append("  IsDedicatedHardwareTerminal: ").Append(IsDedicatedHardwareTerminal).Append("\n");
             sb.Append("  TerminalModel: ").Append(TerminalModel).Append("\n");
             sb.Append("  TerminalMake: ").Append(TerminalMake).Append("\n");
+            sb.Append("  ServiceCode: ").Append(ServiceCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -469,6 +479,11 @@ namespace CyberSource.Model
                     this.TerminalMake == other.TerminalMake ||
                     this.TerminalMake != null &&
                     this.TerminalMake.Equals(other.TerminalMake)
+                ) && 
+                (
+                    this.ServiceCode == other.ServiceCode ||
+                    this.ServiceCode != null &&
+                    this.ServiceCode.Equals(other.ServiceCode)
                 );
         }
 
@@ -535,6 +550,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TerminalModel.GetHashCode();
                 if (this.TerminalMake != null)
                     hash = hash * 59 + this.TerminalMake.GetHashCode();
+                if (this.ServiceCode != null)
+                    hash = hash * 59 + this.ServiceCode.GetHashCode();
                 return hash;
             }
         }

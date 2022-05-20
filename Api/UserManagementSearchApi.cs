@@ -296,7 +296,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"SearchUsersAsync\" STARTED");
             ApiResponse<UmsV1UsersGet200Response> localVarResponse = await SearchUsersAsyncWithHttpInfo(searchRequest);
-            logger.Debug("CALLING API \"SearchUsersAsync\" STARTED");
+            logger.Debug("CALLING API \"SearchUsersAsync\" ENDED");
             return localVarResponse.Data;
 
         }

@@ -338,7 +338,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"CreateSearchAsync\" STARTED");
             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = await CreateSearchAsyncWithHttpInfo(createSearchRequest);
-            logger.Debug("CALLING API \"CreateSearchAsync\" STARTED");
+            logger.Debug("CALLING API \"CreateSearchAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -484,6 +484,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("searchId", Configuration.ApiClient.ParameterToString(searchId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request
@@ -518,7 +526,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"GetSearchAsync\" STARTED");
             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = await GetSearchAsyncWithHttpInfo(searchId);
-            logger.Debug("CALLING API \"GetSearchAsync\" STARTED");
+            logger.Debug("CALLING API \"GetSearchAsync\" ENDED");
             return localVarResponse.Data;
 
         }
@@ -569,6 +577,14 @@ namespace CyberSource.Api
                 localVarPathParams.Add("searchId", Configuration.ApiClient.ParameterToString(searchId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.GET == Method.POST)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
 
 
             // make the HTTP request

@@ -40,11 +40,12 @@ namespace CyberSource.Model
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
         /// <param name="ShippingDetails">ShippingDetails.</param>
         /// <param name="ReturnsAccepted">This is only needed when you are requesting both payment and DM service at same time.  Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. .</param>
+        /// <param name="IsCryptocurrencyPurchase">#### Visa Platform Connect : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. Additional values to add : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. valid values are - Y/y, true - N/n, false .</param>
         /// <param name="PreOrder">Indicates whether cardholder is placing an order with a future availability or release date. This field can contain one of these values: - MERCHANDISE_AVAILABLE: Merchandise available - FUTURE_AVAILABILITY: Future availability .</param>
         /// <param name="PreOrderDate">Expected date that a pre-ordered purchase will be available. Format: YYYYMMDD .</param>
         /// <param name="Reordered">Indicates whether the cardholder is reordering previously purchased merchandise. This field can contain one of these values: - false: First time ordered - true: Reordered .</param>
         /// <param name="TotalOffersCount">Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 .</param>
-        public Ptsv2paymentsOrderInformation(Ptsv2paymentsOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsOrderInformationAmountDetails), Ptsv2paymentsOrderInformationBillTo BillTo = default(Ptsv2paymentsOrderInformationBillTo), Ptsv2paymentsOrderInformationShipTo ShipTo = default(Ptsv2paymentsOrderInformationShipTo), List<Ptsv2paymentsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsOrderInformationLineItems>), Ptsv2paymentsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsOrderInformationInvoiceDetails), Ptsv2paymentsOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsOrderInformationShippingDetails), bool? ReturnsAccepted = default(bool?), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), string TotalOffersCount = default(string))
+        public Ptsv2paymentsOrderInformation(Ptsv2paymentsOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsOrderInformationAmountDetails), Ptsv2paymentsOrderInformationBillTo BillTo = default(Ptsv2paymentsOrderInformationBillTo), Ptsv2paymentsOrderInformationShipTo ShipTo = default(Ptsv2paymentsOrderInformationShipTo), List<Ptsv2paymentsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsOrderInformationLineItems>), Ptsv2paymentsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsOrderInformationInvoiceDetails), Ptsv2paymentsOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsOrderInformationShippingDetails), bool? ReturnsAccepted = default(bool?), string IsCryptocurrencyPurchase = default(string), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), string TotalOffersCount = default(string))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
@@ -53,6 +54,7 @@ namespace CyberSource.Model
             this.InvoiceDetails = InvoiceDetails;
             this.ShippingDetails = ShippingDetails;
             this.ReturnsAccepted = ReturnsAccepted;
+            this.IsCryptocurrencyPurchase = IsCryptocurrencyPurchase;
             this.PreOrder = PreOrder;
             this.PreOrderDate = PreOrderDate;
             this.Reordered = Reordered;
@@ -103,6 +105,13 @@ namespace CyberSource.Model
         public bool? ReturnsAccepted { get; set; }
 
         /// <summary>
+        /// #### Visa Platform Connect : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. Additional values to add : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. valid values are - Y/y, true - N/n, false 
+        /// </summary>
+        /// <value>#### Visa Platform Connect : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. Additional values to add : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. valid values are - Y/y, true - N/n, false </value>
+        [DataMember(Name="isCryptocurrencyPurchase", EmitDefaultValue=false)]
+        public string IsCryptocurrencyPurchase { get; set; }
+
+        /// <summary>
         /// Indicates whether cardholder is placing an order with a future availability or release date. This field can contain one of these values: - MERCHANDISE_AVAILABLE: Merchandise available - FUTURE_AVAILABILITY: Future availability 
         /// </summary>
         /// <value>Indicates whether cardholder is placing an order with a future availability or release date. This field can contain one of these values: - MERCHANDISE_AVAILABLE: Merchandise available - FUTURE_AVAILABILITY: Future availability </value>
@@ -145,6 +154,7 @@ namespace CyberSource.Model
             sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
             sb.Append("  ShippingDetails: ").Append(ShippingDetails).Append("\n");
             sb.Append("  ReturnsAccepted: ").Append(ReturnsAccepted).Append("\n");
+            sb.Append("  IsCryptocurrencyPurchase: ").Append(IsCryptocurrencyPurchase).Append("\n");
             sb.Append("  PreOrder: ").Append(PreOrder).Append("\n");
             sb.Append("  PreOrderDate: ").Append(PreOrderDate).Append("\n");
             sb.Append("  Reordered: ").Append(Reordered).Append("\n");
@@ -221,6 +231,11 @@ namespace CyberSource.Model
                     this.ReturnsAccepted.Equals(other.ReturnsAccepted)
                 ) && 
                 (
+                    this.IsCryptocurrencyPurchase == other.IsCryptocurrencyPurchase ||
+                    this.IsCryptocurrencyPurchase != null &&
+                    this.IsCryptocurrencyPurchase.Equals(other.IsCryptocurrencyPurchase)
+                ) && 
+                (
                     this.PreOrder == other.PreOrder ||
                     this.PreOrder != null &&
                     this.PreOrder.Equals(other.PreOrder)
@@ -267,6 +282,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ShippingDetails.GetHashCode();
                 if (this.ReturnsAccepted != null)
                     hash = hash * 59 + this.ReturnsAccepted.GetHashCode();
+                if (this.IsCryptocurrencyPurchase != null)
+                    hash = hash * 59 + this.IsCryptocurrencyPurchase.GetHashCode();
                 if (this.PreOrder != null)
                     hash = hash * 59 + this.PreOrder.GetHashCode();
                 if (this.PreOrderDate != null)

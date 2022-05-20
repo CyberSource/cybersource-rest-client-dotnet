@@ -296,7 +296,7 @@ namespace CyberSource.Api
         {
             logger.Debug("CALLING API \"CreateCreditAsync\" STARTED");
             ApiResponse<PtsV2CreditsPost201Response> localVarResponse = await CreateCreditAsyncWithHttpInfo(createCreditRequest);
-            logger.Debug("CALLING API \"CreateCreditAsync\" STARTED");
+            logger.Debug("CALLING API \"CreateCreditAsync\" ENDED");
             return localVarResponse.Data;
 
         }

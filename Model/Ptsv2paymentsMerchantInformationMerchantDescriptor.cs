@@ -43,7 +43,8 @@ namespace CyberSource.Model
         /// <param name="AdministrativeArea">The state where the merchant is located.  #### PIN debit State code or region code for your business. Use the Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf) This value might be displayed on the cardholder’s statement.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  **Note** This field is supported only for businesses located in the U.S. or Canada.  Optional field for PIN debit credit or PIN debit purchase. .</param>
         /// <param name="Phone">Merchant phone as contact information for CNP transactions .</param>
         /// <param name="Url">Address of company&#39;s website provided by merchant .</param>
-        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Phone = default(string), string Url = default(string))
+        /// <param name="CountryOfOrigin">#### Visa Platform Connect This field will indicate merchant country of origin .</param>
+        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Phone = default(string), string Url = default(string), string CountryOfOrigin = default(string))
         {
             this.Name = Name;
             this.AlternateName = AlternateName;
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             this.AdministrativeArea = AdministrativeArea;
             this.Phone = Phone;
             this.Url = Url;
+            this.CountryOfOrigin = CountryOfOrigin;
         }
         
         /// <summary>
@@ -128,6 +130,13 @@ namespace CyberSource.Model
         public string Url { get; set; }
 
         /// <summary>
+        /// #### Visa Platform Connect This field will indicate merchant country of origin 
+        /// </summary>
+        /// <value>#### Visa Platform Connect This field will indicate merchant country of origin </value>
+        [DataMember(Name="countryOfOrigin", EmitDefaultValue=false)]
+        public string CountryOfOrigin { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +154,7 @@ namespace CyberSource.Model
             sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  CountryOfOrigin: ").Append(CountryOfOrigin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -230,6 +240,11 @@ namespace CyberSource.Model
                     this.Url == other.Url ||
                     this.Url != null &&
                     this.Url.Equals(other.Url)
+                ) && 
+                (
+                    this.CountryOfOrigin == other.CountryOfOrigin ||
+                    this.CountryOfOrigin != null &&
+                    this.CountryOfOrigin.Equals(other.CountryOfOrigin)
                 );
         }
 
@@ -264,6 +279,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Phone.GetHashCode();
                 if (this.Url != null)
                     hash = hash * 59 + this.Url.GetHashCode();
+                if (this.CountryOfOrigin != null)
+                    hash = hash * 59 + this.CountryOfOrigin.GetHashCode();
                 return hash;
             }
         }

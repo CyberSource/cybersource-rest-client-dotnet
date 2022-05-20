@@ -104,6 +104,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Prefix'
         }
+        /// <summary>
+        /// Test the property 'HashedNumber'
+        /// </summary>
+        [Test]
+        public void HashedNumberTest()
+        {
+            // TODO unit test for the property 'HashedNumber'
+        }
 
     }
 
