@@ -25,26 +25,25 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// TssV2TransactionsPost201ResponseEmbeddedDeviceInformation
+    /// PtsV2PaymentsPost201ResponsePaymentInsightsInformation
     /// </summary>
     [DataContract]
-    public partial class TssV2TransactionsPost201ResponseEmbeddedDeviceInformation :  IEquatable<TssV2TransactionsPost201ResponseEmbeddedDeviceInformation>, IValidatableObject
+    public partial class PtsV2PaymentsPost201ResponsePaymentInsightsInformation :  IEquatable<PtsV2PaymentsPost201ResponsePaymentInsightsInformation>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedDeviceInformation" /> class.
+        /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponsePaymentInsightsInformation" /> class.
         /// </summary>
-        /// <param name="IpAddress">IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. .</param>
-        public TssV2TransactionsPost201ResponseEmbeddedDeviceInformation(string IpAddress = default(string))
+        /// <param name="ResponseInsights">ResponseInsights.</param>
+        public PtsV2PaymentsPost201ResponsePaymentInsightsInformation(PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights ResponseInsights = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights))
         {
-            this.IpAddress = IpAddress;
+            this.ResponseInsights = ResponseInsights;
         }
         
         /// <summary>
-        /// IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. 
+        /// Gets or Sets ResponseInsights
         /// </summary>
-        /// <value>IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. </value>
-        [DataMember(Name="ipAddress", EmitDefaultValue=false)]
-        public string IpAddress { get; set; }
+        [DataMember(Name="responseInsights", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights ResponseInsights { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +52,8 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TssV2TransactionsPost201ResponseEmbeddedDeviceInformation {\n");
-            sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
+            sb.Append("class PtsV2PaymentsPost201ResponsePaymentInsightsInformation {\n");
+            sb.Append("  ResponseInsights: ").Append(ResponseInsights).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -76,15 +75,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TssV2TransactionsPost201ResponseEmbeddedDeviceInformation);
+            return this.Equals(obj as PtsV2PaymentsPost201ResponsePaymentInsightsInformation);
         }
 
         /// <summary>
-        /// Returns true if TssV2TransactionsPost201ResponseEmbeddedDeviceInformation instances are equal
+        /// Returns true if PtsV2PaymentsPost201ResponsePaymentInsightsInformation instances are equal
         /// </summary>
-        /// <param name="other">Instance of TssV2TransactionsPost201ResponseEmbeddedDeviceInformation to be compared</param>
+        /// <param name="other">Instance of PtsV2PaymentsPost201ResponsePaymentInsightsInformation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TssV2TransactionsPost201ResponseEmbeddedDeviceInformation other)
+        public bool Equals(PtsV2PaymentsPost201ResponsePaymentInsightsInformation other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -92,9 +91,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.IpAddress == other.IpAddress ||
-                    this.IpAddress != null &&
-                    this.IpAddress.Equals(other.IpAddress)
+                    this.ResponseInsights == other.ResponseInsights ||
+                    this.ResponseInsights != null &&
+                    this.ResponseInsights.Equals(other.ResponseInsights)
                 );
         }
 
@@ -109,8 +108,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.IpAddress != null)
-                    hash = hash * 59 + this.IpAddress.GetHashCode();
+                if (this.ResponseInsights != null)
+                    hash = hash * 59 + this.ResponseInsights.GetHashCode();
                 return hash;
             }
         }

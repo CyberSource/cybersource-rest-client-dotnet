@@ -35,9 +35,9 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Type">This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** .</param>
         /// <param name="CredentialStoredOnFile">Indicates to the issuing bank two things: - The merchant has received consent from the cardholder to store their card details on file - The merchant wants the issuing bank to check out the card details before the merchant initiates their first transaction for this cardholder. The purpose of the merchant-initiated transaction is to ensure that the cardholder’s credentials are valid (that the card is not stolen or has restrictions) and that the card details are good to be stored on the merchant’s file for future transactions.  Valid values: - &#x60;true&#x60; means merchant will use this transaction to store payment credentials for follow-up merchant-initiated transactions. - &#x60;false&#x60; means merchant will not use this transaction to store payment credentials for follow-up merchant-initiated transactions.  For details, see &#x60;subsequent_auth_first&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  **NOTE:** The value for this field does not correspond to any data in the TC 33 capture file5.  This field is supported only for Visa transactions on CyberSource through VisaNet. .</param>
-        /// <param name="StoredCredentialUsed">Indicates to an issuing bank whether a merchant-initiated transaction came from a card that was already stored on file.  Possible values: - **Y** means the merchant-initiated transaction came from a card that was already stored on file. - **N**  means the merchant-initiated transaction came from a card that was not stored on file. .</param>
+        /// <param name="StoredCredentialUsed">Indicates to an issuing bank whether a merchant-initiated transaction came from a card that was already stored on file.  Possible values: - **true** means the merchant-initiated transaction came from a card that was already stored on file. - **false**  means the merchant-initiated transaction came from a card that was not stored on file. .</param>
         /// <param name="MerchantInitiatedTransaction">MerchantInitiatedTransaction.</param>
-        public Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator(string Type = default(string), bool? CredentialStoredOnFile = default(bool?), string StoredCredentialUsed = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction MerchantInitiatedTransaction = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction))
+        public Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator(string Type = default(string), bool? CredentialStoredOnFile = default(bool?), bool? StoredCredentialUsed = default(bool?), Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction MerchantInitiatedTransaction = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction))
         {
             this.Type = Type;
             this.CredentialStoredOnFile = CredentialStoredOnFile;
@@ -60,11 +60,11 @@ namespace CyberSource.Model
         public bool? CredentialStoredOnFile { get; set; }
 
         /// <summary>
-        /// Indicates to an issuing bank whether a merchant-initiated transaction came from a card that was already stored on file.  Possible values: - **Y** means the merchant-initiated transaction came from a card that was already stored on file. - **N**  means the merchant-initiated transaction came from a card that was not stored on file. 
+        /// Indicates to an issuing bank whether a merchant-initiated transaction came from a card that was already stored on file.  Possible values: - **true** means the merchant-initiated transaction came from a card that was already stored on file. - **false**  means the merchant-initiated transaction came from a card that was not stored on file. 
         /// </summary>
-        /// <value>Indicates to an issuing bank whether a merchant-initiated transaction came from a card that was already stored on file.  Possible values: - **Y** means the merchant-initiated transaction came from a card that was already stored on file. - **N**  means the merchant-initiated transaction came from a card that was not stored on file. </value>
+        /// <value>Indicates to an issuing bank whether a merchant-initiated transaction came from a card that was already stored on file.  Possible values: - **true** means the merchant-initiated transaction came from a card that was already stored on file. - **false**  means the merchant-initiated transaction came from a card that was not stored on file. </value>
         [DataMember(Name="storedCredentialUsed", EmitDefaultValue=false)]
-        public string StoredCredentialUsed { get; set; }
+        public bool? StoredCredentialUsed { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInitiatedTransaction

@@ -240,6 +240,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'EventRequestedTime'
         }
+        /// <summary>
+        /// Test the property 'PreDisputeFlag'
+        /// </summary>
+        [Test]
+        public void PreDisputeFlagTest()
+        {
+            // TODO unit test for the property 'PreDisputeFlag'
+        }
 
     }
 

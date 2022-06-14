@@ -97,6 +97,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ExpirationYear'
         }
         /// <summary>
+        /// Test the property 'Cryptogram'
+        /// </summary>
+        [Test]
+        public void CryptogramTest()
+        {
+            // TODO unit test for the property 'Cryptogram'
+        }
+        /// <summary>
+        /// Test the property 'SecurityCode'
+        /// </summary>
+        [Test]
+        public void SecurityCodeTest()
+        {
+            // TODO unit test for the property 'SecurityCode'
+        }
+        /// <summary>
         /// Test the property 'Number'
         /// </summary>
         [Test]

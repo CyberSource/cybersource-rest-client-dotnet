@@ -280,6 +280,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PayByPointsIndicator'
         }
+        /// <summary>
+        /// Test the property 'IsReturnAuthRecordEnabled'
+        /// </summary>
+        [Test]
+        public void IsReturnAuthRecordEnabledTest()
+        {
+            // TODO unit test for the property 'IsReturnAuthRecordEnabled'
+        }
 
     }
 

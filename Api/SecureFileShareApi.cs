@@ -289,7 +289,7 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
+                "*/*;charset=utf-8"
             };
             string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -389,7 +389,7 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
+                "*/*;charset=utf-8"
             };
             string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -499,7 +499,7 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
+                "*/*;charset=utf-8"
             };
             string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -619,7 +619,7 @@ namespace CyberSource.Api
 
             // to determine the Content-Type header
             string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
+                "*/*;charset=utf-8"
             };
             string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -686,3 +686,4 @@ namespace CyberSource.Api
         }
     }
 }
+

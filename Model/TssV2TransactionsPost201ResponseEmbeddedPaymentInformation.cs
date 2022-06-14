@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="PaymentType">PaymentType.</param>
         /// <param name="Customer">Customer.</param>
         /// <param name="Card">Card.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformation(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType PaymentType = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType), Riskv1authenticationsetupsPaymentInformationCustomer Customer = default(Riskv1authenticationsetupsPaymentInformationCustomer), TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard Card = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard))
+        /// <param name="Bank">Bank.</param>
+        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformation(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType PaymentType = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType), TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCustomer Customer = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCustomer), TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard Card = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard), TssV2TransactionsPost201ResponseEmbeddedPaymentInformationBank Bank = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformationBank))
         {
             this.PaymentType = PaymentType;
             this.Customer = Customer;
             this.Card = Card;
+            this.Bank = Bank;
         }
         
         /// <summary>
@@ -53,13 +55,19 @@ namespace CyberSource.Model
         /// Gets or Sets Customer
         /// </summary>
         [DataMember(Name="customer", EmitDefaultValue=false)]
-        public Riskv1authenticationsetupsPaymentInformationCustomer Customer { get; set; }
+        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
         /// Gets or Sets Card
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
         public TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard Card { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Bank
+        /// </summary>
+        [DataMember(Name="bank", EmitDefaultValue=false)]
+        public TssV2TransactionsPost201ResponseEmbeddedPaymentInformationBank Bank { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,6 +80,7 @@ namespace CyberSource.Model
             sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("  Customer: ").Append(Customer).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
+            sb.Append("  Bank: ").Append(Bank).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +131,11 @@ namespace CyberSource.Model
                     this.Card == other.Card ||
                     this.Card != null &&
                     this.Card.Equals(other.Card)
+                ) && 
+                (
+                    this.Bank == other.Bank ||
+                    this.Bank != null &&
+                    this.Bank.Equals(other.Bank)
                 );
         }
 
@@ -142,6 +156,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Customer.GetHashCode();
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
+                if (this.Bank != null)
+                    hash = hash * 59 + this.Bank.GetHashCode();
                 return hash;
             }
         }

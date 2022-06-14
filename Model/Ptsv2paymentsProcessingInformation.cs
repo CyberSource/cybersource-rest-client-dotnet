@@ -60,7 +60,8 @@ namespace CyberSource.Model
         /// <param name="ExtendedCreditTotalCount">A private national-use field submitted by acquirers and issuers in South Africa for South Africa-domestic (intra-country) authorizations and financial requests. Values for this field are 00 through 99. .</param>
         /// <param name="NetworkRoutingOrder">On PIN Debit Gateways: This U.S.-only field is optionally used by  participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for any of the networks specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on the issuer’s preference. If an issuer preference exists for more than one of the specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on the acquirer’s routing priorities.  #### PIN debit Priority order of the networks through which he transaction will be routed. Set this value to a series of one-character network codes in your preferred order. This is a list of the network codes:  | Network | Code | | - -- | - -- | | Accel | E | | AFFN | U | | Alaska Option | 3 | | CU24 | C | | Interlink | G | | Maestro | 8 | | NETS | P | | NYCE | F | | Pulse | H | | Shazam | 7 | | Star | M | | Visa | V |  For example, if the Star network is your first preference and Pulse is your second preference, set this field to a value of &#x60;MH&#x60;.  When you do not include this value in your PIN debit request, the list of network codes from your account is used. **Note** This field is supported only for businesses located in the U.S.  Optional field for PIN debit credit or PIN debit purchase. .</param>
         /// <param name="PayByPointsIndicator">Flag that indicates if the transaction is pay by points transaction true: Transaction uses loyalty points false: Transaction does not use loyalty points Default: false .</param>
-        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), List<string> ActionTokenTypes = default(List<string>), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?))
+        /// <param name="IsReturnAuthRecordEnabled">Flag that indicates the functionality we are having for merchants for which auth is done through Cybersource but settlement is done by themselves. true: functionality is supported. Processor should send raw processor auth response to Merchant. false: functionality is not supported. Default: false .</param>
+        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), List<string> ActionTokenTypes = default(List<string>), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), bool? IsReturnAuthRecordEnabled = default(bool?))
         {
             this.ActionList = ActionList;
             this.ActionTokenTypes = ActionTokenTypes;
@@ -97,6 +98,7 @@ namespace CyberSource.Model
             this.ExtendedCreditTotalCount = ExtendedCreditTotalCount;
             this.NetworkRoutingOrder = NetworkRoutingOrder;
             this.PayByPointsIndicator = PayByPointsIndicator;
+            this.IsReturnAuthRecordEnabled = IsReturnAuthRecordEnabled;
         }
         
         /// <summary>
@@ -281,6 +283,13 @@ namespace CyberSource.Model
         public bool? PayByPointsIndicator { get; set; }
 
         /// <summary>
+        /// Flag that indicates the functionality we are having for merchants for which auth is done through Cybersource but settlement is done by themselves. true: functionality is supported. Processor should send raw processor auth response to Merchant. false: functionality is not supported. Default: false 
+        /// </summary>
+        /// <value>Flag that indicates the functionality we are having for merchants for which auth is done through Cybersource but settlement is done by themselves. true: functionality is supported. Processor should send raw processor auth response to Merchant. false: functionality is not supported. Default: false </value>
+        [DataMember(Name="isReturnAuthRecordEnabled", EmitDefaultValue=false)]
+        public bool? IsReturnAuthRecordEnabled { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -315,6 +324,7 @@ namespace CyberSource.Model
             sb.Append("  ExtendedCreditTotalCount: ").Append(ExtendedCreditTotalCount).Append("\n");
             sb.Append("  NetworkRoutingOrder: ").Append(NetworkRoutingOrder).Append("\n");
             sb.Append("  PayByPointsIndicator: ").Append(PayByPointsIndicator).Append("\n");
+            sb.Append("  IsReturnAuthRecordEnabled: ").Append(IsReturnAuthRecordEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -485,6 +495,11 @@ namespace CyberSource.Model
                     this.PayByPointsIndicator == other.PayByPointsIndicator ||
                     this.PayByPointsIndicator != null &&
                     this.PayByPointsIndicator.Equals(other.PayByPointsIndicator)
+                ) && 
+                (
+                    this.IsReturnAuthRecordEnabled == other.IsReturnAuthRecordEnabled ||
+                    this.IsReturnAuthRecordEnabled != null &&
+                    this.IsReturnAuthRecordEnabled.Equals(other.IsReturnAuthRecordEnabled)
                 );
         }
 
@@ -553,6 +568,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.NetworkRoutingOrder.GetHashCode();
                 if (this.PayByPointsIndicator != null)
                     hash = hash * 59 + this.PayByPointsIndicator.GetHashCode();
+                if (this.IsReturnAuthRecordEnabled != null)
+                    hash = hash * 59 + this.IsReturnAuthRecordEnabled.GetHashCode();
                 return hash;
             }
         }
