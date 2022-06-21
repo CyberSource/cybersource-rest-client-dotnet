@@ -55,7 +55,8 @@ namespace CyberSource.Model
         /// <param name="RepresentmentCPTime">Representment CP Date.</param>
         /// <param name="Applications">ICS Request Applications.</param>
         /// <param name="EventRequestedTime">Event Request Date.</param>
-        public ReportingV3ChargebackDetailsGet200ResponseChargebackDetails(string ProcessorMerchantId = default(string), string MerchantName = default(string), string TransactionReferenceNumber = default(string), string MerchantReferenceNumber = default(string), string NatureOfDispute = default(string), string AlertType = default(string), string Amount = default(string), string Sign = default(string), string Action = default(string), string CardType = default(string), DateTime? OriginalSettlementTime = default(DateTime?), string TrackingNumber = default(string), string CurrencyCode = default(string), string RequestId = default(string), DateTime? ResponseDueTime = default(DateTime?), DateTime? Time = default(DateTime?), string ActionDescription = default(string), string CustomerId = default(string), string ReasonCode = default(string), DateTime? RepresentmentCPTime = default(DateTime?), string Applications = default(string), DateTime? EventRequestedTime = default(DateTime?))
+        /// <param name="PreDisputeFlag">Pre Dispute Flag.</param>
+        public ReportingV3ChargebackDetailsGet200ResponseChargebackDetails(string ProcessorMerchantId = default(string), string MerchantName = default(string), string TransactionReferenceNumber = default(string), string MerchantReferenceNumber = default(string), string NatureOfDispute = default(string), string AlertType = default(string), string Amount = default(string), string Sign = default(string), string Action = default(string), string CardType = default(string), DateTime? OriginalSettlementTime = default(DateTime?), string TrackingNumber = default(string), string CurrencyCode = default(string), string RequestId = default(string), DateTime? ResponseDueTime = default(DateTime?), DateTime? Time = default(DateTime?), string ActionDescription = default(string), string CustomerId = default(string), string ReasonCode = default(string), DateTime? RepresentmentCPTime = default(DateTime?), string Applications = default(string), DateTime? EventRequestedTime = default(DateTime?), string PreDisputeFlag = default(string))
         {
             this.ProcessorMerchantId = ProcessorMerchantId;
             this.MerchantName = MerchantName;
@@ -79,6 +80,7 @@ namespace CyberSource.Model
             this.RepresentmentCPTime = RepresentmentCPTime;
             this.Applications = Applications;
             this.EventRequestedTime = EventRequestedTime;
+            this.PreDisputeFlag = PreDisputeFlag;
         }
         
         /// <summary>
@@ -236,6 +238,13 @@ namespace CyberSource.Model
         public DateTime? EventRequestedTime { get; set; }
 
         /// <summary>
+        /// Pre Dispute Flag
+        /// </summary>
+        /// <value>Pre Dispute Flag</value>
+        [DataMember(Name="preDisputeFlag", EmitDefaultValue=false)]
+        public string PreDisputeFlag { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -265,6 +274,7 @@ namespace CyberSource.Model
             sb.Append("  RepresentmentCPTime: ").Append(RepresentmentCPTime).Append("\n");
             sb.Append("  Applications: ").Append(Applications).Append("\n");
             sb.Append("  EventRequestedTime: ").Append(EventRequestedTime).Append("\n");
+            sb.Append("  PreDisputeFlag: ").Append(PreDisputeFlag).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -410,6 +420,11 @@ namespace CyberSource.Model
                     this.EventRequestedTime == other.EventRequestedTime ||
                     this.EventRequestedTime != null &&
                     this.EventRequestedTime.Equals(other.EventRequestedTime)
+                ) && 
+                (
+                    this.PreDisputeFlag == other.PreDisputeFlag ||
+                    this.PreDisputeFlag != null &&
+                    this.PreDisputeFlag.Equals(other.PreDisputeFlag)
                 );
         }
 
@@ -468,6 +483,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Applications.GetHashCode();
                 if (this.EventRequestedTime != null)
                     hash = hash * 59 + this.EventRequestedTime.GetHashCode();
+                if (this.PreDisputeFlag != null)
+                    hash = hash * 59 + this.PreDisputeFlag.GetHashCode();
                 return hash;
             }
         }

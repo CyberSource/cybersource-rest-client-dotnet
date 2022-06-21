@@ -176,6 +176,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ProductName'
         }
+        /// <summary>
+        /// Test the property 'TypeSelectionIndicator'
+        /// </summary>
+        [Test]
+        public void TypeSelectionIndicatorTest()
+        {
+            // TODO unit test for the property 'TypeSelectionIndicator'
+        }
 
     }
 

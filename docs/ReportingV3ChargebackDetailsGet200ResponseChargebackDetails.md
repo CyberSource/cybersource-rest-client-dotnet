@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **RepresentmentCPTime** | **DateTime?** | Representment CP Date | [optional] 
 **Applications** | **string** | ICS Request Applications | [optional] 
 **EventRequestedTime** | **DateTime?** | Event Request Date | [optional] 
+**PreDisputeFlag** | **string** | Pre Dispute Flag | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

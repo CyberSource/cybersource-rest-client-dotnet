@@ -34,13 +34,14 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Riskv1decisionsConsumerAuthenticationInformation" /> class.
         /// </summary>
         /// <param name="StrongAuthentication">StrongAuthentication.</param>
-        /// <param name="AuthenticationType">Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. .</param>
+        /// <param name="AuthenticationType">Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled  20 - OTP hosted at merchant end. (Rupay S2S flow) **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. .</param>
         /// <param name="AcsWindowSize">An override field that a merchant can pass in to set the challenge window size to display to the end cardholder.  The ACS (Active Control Server) will reply with content that is formatted appropriately to this window size to allow for the best user experience.  The sizes are width x height in pixels of the window displayed in the cardholder browser window.  01 - 250x400  02 - 390x400  03 - 500x600  04 - 600x400  05 - Full page .</param>
         /// <param name="AlternateAuthenticationData">Data that documents and supports a specific authentication process. .</param>
         /// <param name="AlternateAuthenticationDate">Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM .</param>
         /// <param name="AlternateAuthenticationMethod">Mechanism used by the cardholder to authenticate to the 3D Secure requestor. Possible values: - &#x60;01&#x60;: No authentication occurred - &#x60;02&#x60;: Login using merchant system credentials - &#x60;03&#x60;: Login using Federated ID - &#x60;04&#x60;: Login using issuer credentials - &#x60;05&#x60;: Login using third-party authenticator - &#x60;06&#x60;: Login using FIDO Authenticator .</param>
         /// <param name="AuthenticationDate">The date/time of the authentication at the 3DS servers. RISK update authorization service in auth request payload with value returned in &#x60;consumerAuthenticationInformation.alternateAuthenticationData&#x60; if merchant calls via CYBS or field can be provided by merchant in authorization request if calling an external 3DS provider.  This field is supported for Cartes Bancaires Fast&#39;R transactions on Credit Mutuel-CIC. Format: YYYYMMDDHHMMSS .</param>
-        /// <param name="AuthenticationTransactionId">Payer authentication transaction identifier passed to link the check enrollment and validate authentication messages. **Note**: Required for Standard integration for enroll service. Required for Hybrid integration for validate service. .</param>
+        /// <param name="AuthenticationTransactionId">Payer authentication transaction identifier passed to link the check enrollment and validate authentication messages.For Rupay,this is passed only in Re-Send OTP usecase. **Note**: Required for Standard integration, Rupay Seamless server to server integration for enroll service. Required for Hybrid integration for validate service. .</param>
+        /// <param name="TransactionFlowIndicator">This  field is only applicable to Rupay and is optional. Merchant will have to pass a valid value from 01 through 07 which indicates the transaction flow. Below are the possible values. 01:NW – Transaction performed at domestic merchant. 02:TW - Transaction performed at domestic merchant along with Token provisioning. 03:IT – Transaction performed at International merchant. 04:AT- Authentication Transaction Only. 05:AW- Authentication transaction for provisioning. 06:DI- Domestic InApp Transaction. 07:II- International InApp transaction. .</param>
         /// <param name="ChallengeCancelCode">An indicator as to why the transaction was canceled. Possible Values:  - &#x60;01&#x60;: Cardholder selected Cancel. - &#x60;02&#x60;: Reserved for future EMVCo use (values invalid until defined by EMVCo). - &#x60;03&#x60;: Transaction Timed Out—Decoupled Authentication - &#x60;04&#x60;: Transaction timed out at ACS—other timeouts - &#x60;05&#x60;: Transaction Timed out at ACS - First CReq not received by ACS - &#x60;06&#x60;: Transaction Error - &#x60;07&#x60;: Unknown - &#x60;08&#x60;: Transaction Timed Out at SDK .</param>
         /// <param name="ChallengeCode">Possible values: - &#x60;01&#x60;: No preference - &#x60;02&#x60;: No challenge request - &#x60;03&#x60;: Challenge requested (3D Secure requestor preference) - &#x60;04&#x60;: Challenge requested (mandate) - &#x60;05&#x60;: No challenge requested (transactional risk analysis is already performed) - &#x60;06&#x60;: No challenge requested (Data share only) - &#x60;07&#x60;: No challenge requested (strong consumer authentication is already performed) - &#x60;08&#x60;: No challenge requested (utilize whitelist exemption if no challenge required) - &#x60;09&#x60;: Challenge requested (whitelist prompt requested if challenge required) **Note** This field will default to &#x60;01&#x60; on merchant configuration and can be overridden by the merchant. EMV 3D Secure version 2.1.0 supports values &#x60;01-04&#x60;. Version 2.2.0 supports values &#x60;01-09&#x60;.  For details, see &#x60;pa_challenge_code&#x60; field description in [CyberSource Payer Authentication Using the SCMP API.] (https://apps.cybersource.com/library/documentation/dev_guides/Payer_Authentication_SCMP_API/html) .</param>
         /// <param name="ChallengeStatus">The &#x60;consumerAuthenticationInformation.challengeCode&#x60; indicates the authentication type/level, or challenge, that was presented to the cardholder at checkout by the merchant when calling the Carte Bancaire 3DS servers via CYBS RISK services. It conveys to the issuer the alternative authentication methods that the consumer used. .</param>
@@ -73,7 +74,7 @@ namespace CyberSource.Model
         /// <param name="SecureCorporatePaymentIndicator">Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies. Possible Values : 0/1 .</param>
         /// <param name="TransactionMode">Transaction mode identifier. Identifies the channel from which the transaction originates. Possible values:  - &#x60;M&#x60;: MOTO (Mail Order Telephone Order) - &#x60;R&#x60;: Retail - &#x60;S&#x60;: eCommerce - &#x60;P&#x60;: Mobile Device - &#x60;T&#x60;: Tablet .</param>
         /// <param name="WhiteListStatus">Enables the communication of trusted beneficiary/whitelist status between the ACS, the DS and the 3DS Requestor.  Possible Values:  Y - 3DS Requestor is whitelisted by cardholder  N - 3DS Requestor is not whitelisted by cardholder .</param>
-        public Riskv1decisionsConsumerAuthenticationInformation(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication), string AuthenticationType = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string ReturnUrl = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string))
+        public Riskv1decisionsConsumerAuthenticationInformation(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication), string AuthenticationType = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), int? TransactionFlowIndicator = default(int?), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string ReturnUrl = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string))
         {
             this.StrongAuthentication = StrongAuthentication;
             this.AuthenticationType = AuthenticationType;
@@ -83,6 +84,7 @@ namespace CyberSource.Model
             this.AlternateAuthenticationMethod = AlternateAuthenticationMethod;
             this.AuthenticationDate = AuthenticationDate;
             this.AuthenticationTransactionId = AuthenticationTransactionId;
+            this.TransactionFlowIndicator = TransactionFlowIndicator;
             this.ChallengeCancelCode = ChallengeCancelCode;
             this.ChallengeCode = ChallengeCode;
             this.ChallengeStatus = ChallengeStatus;
@@ -124,9 +126,9 @@ namespace CyberSource.Model
         public Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication { get; set; }
 
         /// <summary>
-        /// Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. 
+        /// Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled  20 - OTP hosted at merchant end. (Rupay S2S flow) **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. 
         /// </summary>
-        /// <value>Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. </value>
+        /// <value>Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled  20 - OTP hosted at merchant end. (Rupay S2S flow) **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. </value>
         [DataMember(Name="authenticationType", EmitDefaultValue=false)]
         public string AuthenticationType { get; set; }
 
@@ -166,11 +168,18 @@ namespace CyberSource.Model
         public string AuthenticationDate { get; set; }
 
         /// <summary>
-        /// Payer authentication transaction identifier passed to link the check enrollment and validate authentication messages. **Note**: Required for Standard integration for enroll service. Required for Hybrid integration for validate service. 
+        /// Payer authentication transaction identifier passed to link the check enrollment and validate authentication messages.For Rupay,this is passed only in Re-Send OTP usecase. **Note**: Required for Standard integration, Rupay Seamless server to server integration for enroll service. Required for Hybrid integration for validate service. 
         /// </summary>
-        /// <value>Payer authentication transaction identifier passed to link the check enrollment and validate authentication messages. **Note**: Required for Standard integration for enroll service. Required for Hybrid integration for validate service. </value>
+        /// <value>Payer authentication transaction identifier passed to link the check enrollment and validate authentication messages.For Rupay,this is passed only in Re-Send OTP usecase. **Note**: Required for Standard integration, Rupay Seamless server to server integration for enroll service. Required for Hybrid integration for validate service. </value>
         [DataMember(Name="authenticationTransactionId", EmitDefaultValue=false)]
         public string AuthenticationTransactionId { get; set; }
+
+        /// <summary>
+        /// This  field is only applicable to Rupay and is optional. Merchant will have to pass a valid value from 01 through 07 which indicates the transaction flow. Below are the possible values. 01:NW – Transaction performed at domestic merchant. 02:TW - Transaction performed at domestic merchant along with Token provisioning. 03:IT – Transaction performed at International merchant. 04:AT- Authentication Transaction Only. 05:AW- Authentication transaction for provisioning. 06:DI- Domestic InApp Transaction. 07:II- International InApp transaction. 
+        /// </summary>
+        /// <value>This  field is only applicable to Rupay and is optional. Merchant will have to pass a valid value from 01 through 07 which indicates the transaction flow. Below are the possible values. 01:NW – Transaction performed at domestic merchant. 02:TW - Transaction performed at domestic merchant along with Token provisioning. 03:IT – Transaction performed at International merchant. 04:AT- Authentication Transaction Only. 05:AW- Authentication transaction for provisioning. 06:DI- Domestic InApp Transaction. 07:II- International InApp transaction. </value>
+        [DataMember(Name="transactionFlowIndicator", EmitDefaultValue=false)]
+        public int? TransactionFlowIndicator { get; set; }
 
         /// <summary>
         /// An indicator as to why the transaction was canceled. Possible Values:  - &#x60;01&#x60;: Cardholder selected Cancel. - &#x60;02&#x60;: Reserved for future EMVCo use (values invalid until defined by EMVCo). - &#x60;03&#x60;: Transaction Timed Out—Decoupled Authentication - &#x60;04&#x60;: Transaction timed out at ACS—other timeouts - &#x60;05&#x60;: Transaction Timed out at ACS - First CReq not received by ACS - &#x60;06&#x60;: Transaction Error - &#x60;07&#x60;: Unknown - &#x60;08&#x60;: Transaction Timed Out at SDK 
@@ -412,6 +421,7 @@ namespace CyberSource.Model
             sb.Append("  AlternateAuthenticationMethod: ").Append(AlternateAuthenticationMethod).Append("\n");
             sb.Append("  AuthenticationDate: ").Append(AuthenticationDate).Append("\n");
             sb.Append("  AuthenticationTransactionId: ").Append(AuthenticationTransactionId).Append("\n");
+            sb.Append("  TransactionFlowIndicator: ").Append(TransactionFlowIndicator).Append("\n");
             sb.Append("  ChallengeCancelCode: ").Append(ChallengeCancelCode).Append("\n");
             sb.Append("  ChallengeCode: ").Append(ChallengeCode).Append("\n");
             sb.Append("  ChallengeStatus: ").Append(ChallengeStatus).Append("\n");
@@ -519,6 +529,11 @@ namespace CyberSource.Model
                     this.AuthenticationTransactionId == other.AuthenticationTransactionId ||
                     this.AuthenticationTransactionId != null &&
                     this.AuthenticationTransactionId.Equals(other.AuthenticationTransactionId)
+                ) && 
+                (
+                    this.TransactionFlowIndicator == other.TransactionFlowIndicator ||
+                    this.TransactionFlowIndicator != null &&
+                    this.TransactionFlowIndicator.Equals(other.TransactionFlowIndicator)
                 ) && 
                 (
                     this.ChallengeCancelCode == other.ChallengeCancelCode ||
@@ -709,6 +724,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AuthenticationDate.GetHashCode();
                 if (this.AuthenticationTransactionId != null)
                     hash = hash * 59 + this.AuthenticationTransactionId.GetHashCode();
+                if (this.TransactionFlowIndicator != null)
+                    hash = hash * 59 + this.TransactionFlowIndicator.GetHashCode();
                 if (this.ChallengeCancelCode != null)
                     hash = hash * 59 + this.ChallengeCancelCode.GetHashCode();
                 if (this.ChallengeCode != null)

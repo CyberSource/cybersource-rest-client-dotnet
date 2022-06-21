@@ -38,6 +38,8 @@ powershell Rename-Item ..\src\Cybersource.Test\Model\Tmsv2customersEmbeddedDefau
 
 powershell Rename-Item ..\src\Cybersource.Test\Model\Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformationTests.cs Tmsv2customersEmbeddedDefaultProcessingInformationTests.cs
 
+powershell -Command " Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs ((get-content ..\src\CyberSource\Api\SecureFileShareApi.cs -raw) -replace '\*_\/_\*;charset=utf-8', '*/*;charset=utf-8') "
+
 REM For changing nuspec filename in csproj file
 powershell -Command "(Get-Content ..\src\CyberSource\CyberSource.csproj) | ForEach-Object { $_ -replace '<None Include=\"CyberSource.nuspec\" />', '<None Include=\"cybersource-rest-client-dotnet.nuspec\" />' } | Set-Content ..\src\CyberSource\CyberSource.csproj"
 

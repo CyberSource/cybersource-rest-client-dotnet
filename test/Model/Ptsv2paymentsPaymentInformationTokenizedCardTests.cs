@@ -144,6 +144,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'SecurityCode'
         }
+        /// <summary>
+        /// Test the property 'SecurityCodeIndicator'
+        /// </summary>
+        [Test]
+        public void SecurityCodeIndicatorTest()
+        {
+            // TODO unit test for the property 'SecurityCodeIndicator'
+        }
 
     }
 

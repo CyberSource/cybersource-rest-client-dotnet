@@ -113,12 +113,36 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AuthorizationPayload'
         }
         /// <summary>
+        /// Test the property 'AuthenticationType'
+        /// </summary>
+        [Test]
+        public void AuthenticationTypeTest()
+        {
+            // TODO unit test for the property 'AuthenticationType'
+        }
+        /// <summary>
         /// Test the property 'AuthenticationTransactionId'
         /// </summary>
         [Test]
         public void AuthenticationTransactionIdTest()
         {
             // TODO unit test for the property 'AuthenticationTransactionId'
+        }
+        /// <summary>
+        /// Test the property 'AuthenticationTransactionContextId'
+        /// </summary>
+        [Test]
+        public void AuthenticationTransactionContextIdTest()
+        {
+            // TODO unit test for the property 'AuthenticationTransactionContextId'
+        }
+        /// <summary>
+        /// Test the property 'ValidityPeriod'
+        /// </summary>
+        [Test]
+        public void ValidityPeriodTest()
+        {
+            // TODO unit test for the property 'ValidityPeriod'
         }
         /// <summary>
         /// Test the property 'CardholderMessage'
