@@ -122,6 +122,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SearchTransactionsApi"/> class.
@@ -233,6 +234,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Create a Search Request Create a search request. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -241,8 +261,10 @@ namespace CyberSource.Api
         public TssV2TransactionsPost201Response CreateSearch (CreateSearchRequest createSearchRequest)
         {
             logger.Debug("CALLING API \"CreateSearch\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = CreateSearchWithHttpInfo(createSearchRequest);
             logger.Debug("CALLING API \"CreateSearch\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -315,7 +337,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateSearch", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateSearch", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -337,8 +359,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<TssV2TransactionsPost201Response> CreateSearchAsync (CreateSearchRequest createSearchRequest)
         {
             logger.Debug("CALLING API \"CreateSearchAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = await CreateSearchAsyncWithHttpInfo(createSearchRequest);
             logger.Debug("CALLING API \"CreateSearchAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -412,7 +436,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateSearch", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateSearch", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -433,8 +457,10 @@ namespace CyberSource.Api
         public TssV2TransactionsPost201Response GetSearch (string searchId)
         {
             logger.Debug("CALLING API \"GetSearch\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = GetSearchWithHttpInfo(searchId);
             logger.Debug("CALLING API \"GetSearch\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -503,7 +529,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetSearch", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetSearch", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -525,8 +551,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<TssV2TransactionsPost201Response> GetSearchAsync (string searchId)
         {
             logger.Debug("CALLING API \"GetSearchAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = await GetSearchAsyncWithHttpInfo(searchId);
             logger.Debug("CALLING API \"GetSearchAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -596,7 +624,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetSearch", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetSearch", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

@@ -126,6 +126,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReversalApi"/> class.
@@ -237,6 +238,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Process an Authorization Reversal Include the payment ID in the POST request to reverse the payment amount.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -246,8 +266,10 @@ namespace CyberSource.Api
         public PtsV2PaymentsReversalsPost201Response AuthReversal (string id, AuthReversalRequest authReversalRequest)
         {
             logger.Debug("CALLING API \"AuthReversal\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = AuthReversalWithHttpInfo(id, authReversalRequest);
             logger.Debug("CALLING API \"AuthReversal\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -332,7 +354,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AuthReversal", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("AuthReversal", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -355,8 +377,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<PtsV2PaymentsReversalsPost201Response> AuthReversalAsync (string id, AuthReversalRequest authReversalRequest)
         {
             logger.Debug("CALLING API \"AuthReversalAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = await AuthReversalAsyncWithHttpInfo(id, authReversalRequest);
             logger.Debug("CALLING API \"AuthReversalAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -442,7 +466,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AuthReversal", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("AuthReversal", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -463,8 +487,10 @@ namespace CyberSource.Api
         public PtsV2PaymentsReversalsPost201Response MitReversal (MitReversalRequest mitReversalRequest)
         {
             logger.Debug("CALLING API \"MitReversal\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = MitReversalWithHttpInfo(mitReversalRequest);
             logger.Debug("CALLING API \"MitReversal\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -537,7 +563,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MitReversal", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("MitReversal", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -559,8 +585,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<PtsV2PaymentsReversalsPost201Response> MitReversalAsync (MitReversalRequest mitReversalRequest)
         {
             logger.Debug("CALLING API \"MitReversalAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = await MitReversalAsyncWithHttpInfo(mitReversalRequest);
             logger.Debug("CALLING API \"MitReversalAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -634,7 +662,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MitReversal", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("MitReversal", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

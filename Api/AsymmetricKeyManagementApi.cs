@@ -164,6 +164,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AsymmetricKeyManagementApi"/> class.
@@ -275,6 +276,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Create one or more PKCS#12 keys &#39;Create one or more PKCS#12 keys&#39; 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -283,8 +303,10 @@ namespace CyberSource.Api
         public KmsV2KeysAsymPost201Response CreateP12Keys (CreateP12KeysRequest createP12KeysRequest)
         {
             logger.Debug("CALLING API \"CreateP12Keys\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysAsymPost201Response> localVarResponse = CreateP12KeysWithHttpInfo(createP12KeysRequest);
             logger.Debug("CALLING API \"CreateP12Keys\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -357,7 +379,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateP12Keys", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateP12Keys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -379,8 +401,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<KmsV2KeysAsymPost201Response> CreateP12KeysAsync (CreateP12KeysRequest createP12KeysRequest)
         {
             logger.Debug("CALLING API \"CreateP12KeysAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysAsymPost201Response> localVarResponse = await CreateP12KeysAsyncWithHttpInfo(createP12KeysRequest);
             logger.Debug("CALLING API \"CreateP12KeysAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -454,7 +478,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateP12Keys", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateP12Keys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -475,8 +499,10 @@ namespace CyberSource.Api
         public KmsV2KeysAsymDeletesPost200Response DeleteBulkP12Keys (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
         {
             logger.Debug("CALLING API \"DeleteBulkP12Keys\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysAsymDeletesPost200Response> localVarResponse = DeleteBulkP12KeysWithHttpInfo(deleteBulkP12KeysRequest);
             logger.Debug("CALLING API \"DeleteBulkP12Keys\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -549,7 +575,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteBulkP12Keys", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeleteBulkP12Keys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -571,8 +597,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<KmsV2KeysAsymDeletesPost200Response> DeleteBulkP12KeysAsync (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
         {
             logger.Debug("CALLING API \"DeleteBulkP12KeysAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysAsymDeletesPost200Response> localVarResponse = await DeleteBulkP12KeysAsyncWithHttpInfo(deleteBulkP12KeysRequest);
             logger.Debug("CALLING API \"DeleteBulkP12KeysAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -646,7 +674,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteBulkP12Keys", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeleteBulkP12Keys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -667,8 +695,10 @@ namespace CyberSource.Api
         public KmsV2KeysAsymGet200Response GetP12KeyDetails (string keyId)
         {
             logger.Debug("CALLING API \"GetP12KeyDetails\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysAsymGet200Response> localVarResponse = GetP12KeyDetailsWithHttpInfo(keyId);
             logger.Debug("CALLING API \"GetP12KeyDetails\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -737,7 +767,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetP12KeyDetails", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetP12KeyDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -759,8 +789,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<KmsV2KeysAsymGet200Response> GetP12KeyDetailsAsync (string keyId)
         {
             logger.Debug("CALLING API \"GetP12KeyDetailsAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysAsymGet200Response> localVarResponse = await GetP12KeyDetailsAsyncWithHttpInfo(keyId);
             logger.Debug("CALLING API \"GetP12KeyDetailsAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -830,7 +862,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetP12KeyDetails", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetP12KeyDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

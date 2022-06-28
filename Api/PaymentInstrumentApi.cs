@@ -230,6 +230,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentInstrumentApi"/> class.
@@ -341,6 +342,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Delete a Payment Instrument 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -350,6 +370,7 @@ namespace CyberSource.Api
         public void DeletePaymentInstrument (string paymentInstrumentTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"DeletePaymentInstrument\" STARTED");
+            this.SetStatusCode(null);
             DeletePaymentInstrumentWithHttpInfo(paymentInstrumentTokenId, profileId);
         }
 
@@ -423,7 +444,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeletePaymentInstrument", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeletePaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -431,6 +452,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -446,6 +468,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task DeletePaymentInstrumentAsync (string paymentInstrumentTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"DeletePaymentInstrumentAsync\" STARTED");
+            this.SetStatusCode(null);
             await DeletePaymentInstrumentAsyncWithHttpInfo(paymentInstrumentTokenId, profileId);
 
         }
@@ -520,7 +543,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeletePaymentInstrument", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeletePaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -528,6 +551,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -542,8 +566,10 @@ namespace CyberSource.Api
         public Tmsv2customersEmbeddedDefaultPaymentInstrument GetPaymentInstrument (string paymentInstrumentTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetPaymentInstrument\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrument> localVarResponse = GetPaymentInstrumentWithHttpInfo(paymentInstrumentTokenId, profileId);
             logger.Debug("CALLING API \"GetPaymentInstrument\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -617,7 +643,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetPaymentInstrument", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -640,8 +666,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrument> GetPaymentInstrumentAsync (string paymentInstrumentTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetPaymentInstrumentAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrument> localVarResponse = await GetPaymentInstrumentAsyncWithHttpInfo(paymentInstrumentTokenId, profileId);
             logger.Debug("CALLING API \"GetPaymentInstrumentAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -716,7 +744,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetPaymentInstrument", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -740,8 +768,10 @@ namespace CyberSource.Api
         public Tmsv2customersEmbeddedDefaultPaymentInstrument PatchPaymentInstrument (string paymentInstrumentTokenId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchPaymentInstrument\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrument> localVarResponse = PatchPaymentInstrumentWithHttpInfo(paymentInstrumentTokenId, patchPaymentInstrumentRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchPaymentInstrument\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -836,7 +866,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PatchPaymentInstrument", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PatchPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -861,8 +891,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrument> PatchPaymentInstrumentAsync (string paymentInstrumentTokenId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchPaymentInstrumentAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrument> localVarResponse = await PatchPaymentInstrumentAsyncWithHttpInfo(paymentInstrumentTokenId, patchPaymentInstrumentRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchPaymentInstrumentAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -958,7 +990,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PatchPaymentInstrument", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PatchPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -980,8 +1012,10 @@ namespace CyberSource.Api
         public Tmsv2customersEmbeddedDefaultPaymentInstrument PostPaymentInstrument (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostPaymentInstrument\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrument> localVarResponse = PostPaymentInstrumentWithHttpInfo(postPaymentInstrumentRequest, profileId);
             logger.Debug("CALLING API \"PostPaymentInstrument\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -1059,7 +1093,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostPaymentInstrument", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PostPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1082,8 +1116,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrument> PostPaymentInstrumentAsync (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostPaymentInstrumentAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrument> localVarResponse = await PostPaymentInstrumentAsyncWithHttpInfo(postPaymentInstrumentRequest, profileId);
             logger.Debug("CALLING API \"PostPaymentInstrumentAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1162,7 +1198,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostPaymentInstrument", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PostPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

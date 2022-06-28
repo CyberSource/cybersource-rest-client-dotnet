@@ -164,6 +164,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PayerAuthenticationApi"/> class.
@@ -275,6 +276,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Check Payer Auth Enrollment This call verifies that the card is enrolled in a card authentication program.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -283,8 +303,10 @@ namespace CyberSource.Api
         public RiskV1AuthenticationsPost201Response CheckPayerAuthEnrollment (CheckPayerAuthEnrollmentRequest checkPayerAuthEnrollmentRequest)
         {
             logger.Debug("CALLING API \"CheckPayerAuthEnrollment\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationsPost201Response> localVarResponse = CheckPayerAuthEnrollmentWithHttpInfo(checkPayerAuthEnrollmentRequest);
             logger.Debug("CALLING API \"CheckPayerAuthEnrollment\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -357,7 +379,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -379,8 +401,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<RiskV1AuthenticationsPost201Response> CheckPayerAuthEnrollmentAsync (CheckPayerAuthEnrollmentRequest checkPayerAuthEnrollmentRequest)
         {
             logger.Debug("CALLING API \"CheckPayerAuthEnrollmentAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationsPost201Response> localVarResponse = await CheckPayerAuthEnrollmentAsyncWithHttpInfo(checkPayerAuthEnrollmentRequest);
             logger.Debug("CALLING API \"CheckPayerAuthEnrollmentAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -454,7 +478,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -475,8 +499,10 @@ namespace CyberSource.Api
         public RiskV1AuthenticationSetupsPost201Response PayerAuthSetup (PayerAuthSetupRequest payerAuthSetupRequest)
         {
             logger.Debug("CALLING API \"PayerAuthSetup\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationSetupsPost201Response> localVarResponse = PayerAuthSetupWithHttpInfo(payerAuthSetupRequest);
             logger.Debug("CALLING API \"PayerAuthSetup\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -549,7 +575,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PayerAuthSetup", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PayerAuthSetup", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -571,8 +597,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<RiskV1AuthenticationSetupsPost201Response> PayerAuthSetupAsync (PayerAuthSetupRequest payerAuthSetupRequest)
         {
             logger.Debug("CALLING API \"PayerAuthSetupAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationSetupsPost201Response> localVarResponse = await PayerAuthSetupAsyncWithHttpInfo(payerAuthSetupRequest);
             logger.Debug("CALLING API \"PayerAuthSetupAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -646,7 +674,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PayerAuthSetup", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PayerAuthSetup", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -667,8 +695,10 @@ namespace CyberSource.Api
         public RiskV1AuthenticationResultsPost201Response ValidateAuthenticationResults (ValidateRequest validateRequest)
         {
             logger.Debug("CALLING API \"ValidateAuthenticationResults\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = ValidateAuthenticationResultsWithHttpInfo(validateRequest);
             logger.Debug("CALLING API \"ValidateAuthenticationResults\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -741,7 +771,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -763,8 +793,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<RiskV1AuthenticationResultsPost201Response> ValidateAuthenticationResultsAsync (ValidateRequest validateRequest)
         {
             logger.Debug("CALLING API \"ValidateAuthenticationResultsAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = await ValidateAuthenticationResultsAsyncWithHttpInfo(validateRequest);
             logger.Debug("CALLING API \"ValidateAuthenticationResultsAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -838,7 +870,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

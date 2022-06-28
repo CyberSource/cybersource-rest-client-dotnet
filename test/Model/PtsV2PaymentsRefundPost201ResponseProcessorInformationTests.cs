@@ -112,6 +112,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AchVerification'
         }
+        /// <summary>
+        /// Test the property 'NetworkTransactionId'
+        /// </summary>
+        [Test]
+        public void NetworkTransactionIdTest()
+        {
+            // TODO unit test for the property 'NetworkTransactionId'
+        }
 
     }
 

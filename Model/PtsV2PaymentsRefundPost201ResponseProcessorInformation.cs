@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// <param name="MerchantNumber">Identifier that was assigned to you by your acquirer. This value must be printed on the receipt.  #### Returned by Authorizations and Credits.  This reply field is only supported by merchants who have installed client software on their POS terminals and use these processors: - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - OmniPay Direct - SIX .</param>
         /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;processorInformation.responseCategoryCode&#x60; field. String (3) .</param>
         /// <param name="AchVerification">AchVerification.</param>
-        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ForwardedAcquirerCode = default(string), string MerchantNumber = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification))
+        /// <param name="NetworkTransactionId">Same value as &#x60;processorInformation.transactionId&#x60;.</param>
+        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ForwardedAcquirerCode = default(string), string MerchantNumber = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), string NetworkTransactionId = default(string))
         {
             this.ApprovalCode = ApprovalCode;
             this.TransactionId = TransactionId;
@@ -47,6 +48,7 @@ namespace CyberSource.Model
             this.MerchantNumber = MerchantNumber;
             this.ResponseCode = ResponseCode;
             this.AchVerification = AchVerification;
+            this.NetworkTransactionId = NetworkTransactionId;
         }
         
         /// <summary>
@@ -91,6 +93,13 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification { get; set; }
 
         /// <summary>
+        /// Same value as &#x60;processorInformation.transactionId&#x60;
+        /// </summary>
+        /// <value>Same value as &#x60;processorInformation.transactionId&#x60;</value>
+        [DataMember(Name="networkTransactionId", EmitDefaultValue=false)]
+        public string NetworkTransactionId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +113,7 @@ namespace CyberSource.Model
             sb.Append("  MerchantNumber: ").Append(MerchantNumber).Append("\n");
             sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
             sb.Append("  AchVerification: ").Append(AchVerification).Append("\n");
+            sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,6 +179,11 @@ namespace CyberSource.Model
                     this.AchVerification == other.AchVerification ||
                     this.AchVerification != null &&
                     this.AchVerification.Equals(other.AchVerification)
+                ) && 
+                (
+                    this.NetworkTransactionId == other.NetworkTransactionId ||
+                    this.NetworkTransactionId != null &&
+                    this.NetworkTransactionId.Equals(other.NetworkTransactionId)
                 );
         }
 
@@ -195,6 +210,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ResponseCode.GetHashCode();
                 if (this.AchVerification != null)
                     hash = hash * 59 + this.AchVerification.GetHashCode();
+                if (this.NetworkTransactionId != null)
+                    hash = hash * 59 + this.NetworkTransactionId.GetHashCode();
                 return hash;
             }
         }

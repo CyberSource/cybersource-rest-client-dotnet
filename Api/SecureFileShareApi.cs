@@ -138,6 +138,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SecureFileShareApi"/> class.
@@ -249,6 +250,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Download a File with File Identifier Download a file for the given file identifier
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -258,6 +278,7 @@ namespace CyberSource.Api
         public void GetFile (string fileId, string organizationId = null)
         {
             logger.Debug("CALLING API \"GetFile\" STARTED");
+            this.SetStatusCode(null);
             GetFileWithHttpInfo(fileId, organizationId);
         }
 
@@ -334,7 +355,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetFile", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetFile", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -342,6 +363,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -357,6 +379,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task GetFileAsync (string fileId, string organizationId = null)
         {
             logger.Debug("CALLING API \"GetFileAsync\" STARTED");
+            this.SetStatusCode(null);
             await GetFileAsyncWithHttpInfo(fileId, organizationId);
 
         }
@@ -434,7 +457,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetFile", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetFile", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -442,6 +465,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -458,8 +482,10 @@ namespace CyberSource.Api
         public V1FileDetailsGet200Response GetFileDetail (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null)
         {
             logger.Debug("CALLING API \"GetFileDetail\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<V1FileDetailsGet200Response> localVarResponse = GetFileDetailWithHttpInfo(startDate, endDate, organizationId, name);
             logger.Debug("CALLING API \"GetFileDetail\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -552,7 +578,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetFileDetail", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetFileDetail", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -577,8 +603,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<V1FileDetailsGet200Response> GetFileDetailAsync (DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null)
         {
             logger.Debug("CALLING API \"GetFileDetailAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<V1FileDetailsGet200Response> localVarResponse = await GetFileDetailAsyncWithHttpInfo(startDate, endDate, organizationId, name);
             logger.Debug("CALLING API \"GetFileDetailAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -672,7 +700,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetFileDetail", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetFileDetail", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

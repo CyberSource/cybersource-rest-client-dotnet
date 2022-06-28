@@ -204,6 +204,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportsApi"/> class.
@@ -315,6 +316,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Create Adhoc Report Create a one-time report. You must specify the type of report in reportDefinitionName. For a list of values for reportDefinitionName, see the [Reporting Developer Guide](https://www.cybersource.com/developers/documentation/reporting_and_reconciliation) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -324,6 +344,7 @@ namespace CyberSource.Api
         public void CreateReport (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
             logger.Debug("CALLING API \"CreateReport\" STARTED");
+            this.SetStatusCode(null);
             CreateReportWithHttpInfo(createAdhocReportRequest, organizationId);
         }
 
@@ -402,7 +423,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateReport", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateReport", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -410,6 +431,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -425,6 +447,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task CreateReportAsync (CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
             logger.Debug("CALLING API \"CreateReportAsync\" STARTED");
+            this.SetStatusCode(null);
             await CreateReportAsyncWithHttpInfo(createAdhocReportRequest, organizationId);
 
         }
@@ -504,7 +527,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateReport", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateReport", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -512,6 +535,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -526,8 +550,10 @@ namespace CyberSource.Api
         public ReportingV3ReportsIdGet200Response GetReportByReportId (string reportId, string organizationId = null)
         {
             logger.Debug("CALLING API \"GetReportByReportId\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse = GetReportByReportIdWithHttpInfo(reportId, organizationId);
             logger.Debug("CALLING API \"GetReportByReportId\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -603,7 +629,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetReportByReportId", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetReportByReportId", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -626,8 +652,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ReportingV3ReportsIdGet200Response> GetReportByReportIdAsync (string reportId, string organizationId = null)
         {
             logger.Debug("CALLING API \"GetReportByReportIdAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse = await GetReportByReportIdAsyncWithHttpInfo(reportId, organizationId);
             logger.Debug("CALLING API \"GetReportByReportIdAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -704,7 +732,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetReportByReportId", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetReportByReportId", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -733,8 +761,10 @@ namespace CyberSource.Api
         public ReportingV3ReportsGet200Response SearchReports (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
             logger.Debug("CALLING API \"SearchReports\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportsGet200Response> localVarResponse = SearchReportsWithHttpInfo(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
             logger.Debug("CALLING API \"SearchReports\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -863,7 +893,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SearchReports", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("SearchReports", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -893,8 +923,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ReportingV3ReportsGet200Response> SearchReportsAsync (DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
             logger.Debug("CALLING API \"SearchReportsAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportsGet200Response> localVarResponse = await SearchReportsAsyncWithHttpInfo(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
             logger.Debug("CALLING API \"SearchReportsAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1024,7 +1056,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SearchReports", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("SearchReports", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

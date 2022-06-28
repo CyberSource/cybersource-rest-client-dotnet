@@ -88,6 +88,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ChargebackSummariesApi"/> class.
@@ -199,6 +200,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Get Chargeback Summaries Chargeback Summary Report Description
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -209,8 +229,10 @@ namespace CyberSource.Api
         public ReportingV3ChargebackSummariesGet200Response GetChargebackSummaries (DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
             logger.Debug("CALLING API \"GetChargebackSummaries\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3ChargebackSummariesGet200Response> localVarResponse = GetChargebackSummariesWithHttpInfo(startTime, endTime, organizationId);
             logger.Debug("CALLING API \"GetChargebackSummaries\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -298,7 +320,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetChargebackSummaries", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetChargebackSummaries", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -322,8 +344,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ReportingV3ChargebackSummariesGet200Response> GetChargebackSummariesAsync (DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
             logger.Debug("CALLING API \"GetChargebackSummariesAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3ChargebackSummariesGet200Response> localVarResponse = await GetChargebackSummariesAsyncWithHttpInfo(startTime, endTime, organizationId);
             logger.Debug("CALLING API \"GetChargebackSummariesAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -412,7 +436,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetChargebackSummaries", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetChargebackSummaries", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
