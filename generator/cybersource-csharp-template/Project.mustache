@@ -57,6 +57,9 @@
   </PropertyGroup>
   <ItemGroup>
     {{^netStandard}}
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\{{targetFrameworkNuget}}\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -68,14 +71,11 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="AuthenticationSdk">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.14\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.15\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\NLog.4.5.10\lib\{{targetFrameworkNuget}}\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>packages\Newtonsoft.Json.11.0.2\lib\{{targetFrameworkNuget}}\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
       <HintPath>packages\RestSharp.106.12.0\lib\{{targetFrameworkNuget}}2\RestSharp.dll</HintPath>
