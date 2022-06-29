@@ -334,6 +334,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InstrumentIdentifierApi"/> class.
@@ -445,6 +446,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Delete an Instrument Identifier 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -454,6 +474,7 @@ namespace CyberSource.Api
         public void DeleteInstrumentIdentifier (string instrumentIdentifierTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"DeleteInstrumentIdentifier\" STARTED");
+            this.SetStatusCode(null);
             DeleteInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, profileId);
         }
 
@@ -527,7 +548,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -535,6 +556,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -550,6 +572,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task DeleteInstrumentIdentifierAsync (string instrumentIdentifierTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"DeleteInstrumentIdentifierAsync\" STARTED");
+            this.SetStatusCode(null);
             await DeleteInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId);
 
         }
@@ -624,7 +647,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -632,6 +655,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -646,8 +670,10 @@ namespace CyberSource.Api
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifier\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = GetInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, profileId);
             logger.Debug("CALLING API \"GetInstrumentIdentifier\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -721,7 +747,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -744,8 +770,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> GetInstrumentIdentifierAsync (string instrumentIdentifierTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId);
             logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -820,7 +848,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -844,8 +872,10 @@ namespace CyberSource.Api
         public PaymentInstrumentList GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<PaymentInstrumentList> localVarResponse = GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo(instrumentIdentifierTokenId, profileId, offset, limit);
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -931,7 +961,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -956,8 +986,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<PaymentInstrumentList> localVarResponse = await GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId, offset, limit);
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1044,7 +1076,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1068,8 +1100,10 @@ namespace CyberSource.Api
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchInstrumentIdentifier\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = PatchInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, patchInstrumentIdentifierRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchInstrumentIdentifier\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -1164,7 +1198,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1189,8 +1223,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierAsync (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PatchInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, patchInstrumentIdentifierRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1286,7 +1322,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1308,8 +1344,10 @@ namespace CyberSource.Api
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostInstrumentIdentifier\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = PostInstrumentIdentifierWithHttpInfo(postInstrumentIdentifierRequest, profileId);
             logger.Debug("CALLING API \"PostInstrumentIdentifier\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -1387,7 +1425,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1410,8 +1448,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PostInstrumentIdentifierAsyncWithHttpInfo(postInstrumentIdentifierRequest, profileId);
             logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1490,7 +1530,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1513,6 +1553,7 @@ namespace CyberSource.Api
         public void PostInstrumentIdentifierEnrollment (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostInstrumentIdentifierEnrollment\" STARTED");
+            this.SetStatusCode(null);
             PostInstrumentIdentifierEnrollmentWithHttpInfo(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
         }
 
@@ -1602,7 +1643,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1610,6 +1651,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -1626,6 +1668,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task PostInstrumentIdentifierEnrollmentAsync (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostInstrumentIdentifierEnrollmentAsync\" STARTED");
+            this.SetStatusCode(null);
             await PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
 
         }
@@ -1716,7 +1759,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1724,6 +1767,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement

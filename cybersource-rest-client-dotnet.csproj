@@ -11,7 +11,7 @@ OpenAPI spec version: 0.0.1
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{89687612-3FB4-4D99-ADD4-8E1FCE56F3A4}</ProjectGuid>
+    <ProjectGuid>{70BCBF30-2DFB-4D84-AA33-922EA1BCFDB7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CyberSource</RootNamespace>
@@ -37,8 +37,8 @@ OpenAPI spec version: 0.0.1
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AuthenticationSdk, Version=0.0.0.15, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.15\lib\AuthenticationSdk.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,12 +50,12 @@ OpenAPI spec version: 0.0.1
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
+    <Reference Include="AuthenticationSdk">
+      <HintPath>packages\CyberSource.Authentication.0.0.0.15\lib\AuthenticationSdk.dll</HintPath>
+    </Reference>
     <Reference Include="NLog">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\NLog.4.5.10\lib\net45\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
       <HintPath>packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>

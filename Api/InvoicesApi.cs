@@ -302,6 +302,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InvoicesApi"/> class.
@@ -413,6 +414,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Create a New Invoice Create a new invoice.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -421,8 +441,10 @@ namespace CyberSource.Api
         public InvoicingV2InvoicesPost201Response CreateInvoice (CreateInvoiceRequest createInvoiceRequest)
         {
             logger.Debug("CALLING API \"CreateInvoice\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = CreateInvoiceWithHttpInfo(createInvoiceRequest);
             logger.Debug("CALLING API \"CreateInvoice\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -495,7 +517,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateInvoice", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateInvoice", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -517,8 +539,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> CreateInvoiceAsync (CreateInvoiceRequest createInvoiceRequest)
         {
             logger.Debug("CALLING API \"CreateInvoiceAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await CreateInvoiceAsyncWithHttpInfo(createInvoiceRequest);
             logger.Debug("CALLING API \"CreateInvoiceAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -592,7 +616,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateInvoice", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateInvoice", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -615,8 +639,10 @@ namespace CyberSource.Api
         public InvoicingV2InvoicesAllGet200Response GetAllInvoices (int? offset, int? limit, string status = null)
         {
             logger.Debug("CALLING API \"GetAllInvoices\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesAllGet200Response> localVarResponse = GetAllInvoicesWithHttpInfo(offset, limit, status);
             logger.Debug("CALLING API \"GetAllInvoices\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -703,7 +729,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetAllInvoices", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetAllInvoices", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -727,8 +753,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesAllGet200Response> GetAllInvoicesAsync (int? offset, int? limit, string status = null)
         {
             logger.Debug("CALLING API \"GetAllInvoicesAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesAllGet200Response> localVarResponse = await GetAllInvoicesAsyncWithHttpInfo(offset, limit, status);
             logger.Debug("CALLING API \"GetAllInvoicesAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -816,7 +844,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetAllInvoices", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetAllInvoices", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -837,8 +865,10 @@ namespace CyberSource.Api
         public InvoicingV2InvoicesGet200Response GetInvoice (string id)
         {
             logger.Debug("CALLING API \"GetInvoice\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesGet200Response> localVarResponse = GetInvoiceWithHttpInfo(id);
             logger.Debug("CALLING API \"GetInvoice\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -907,7 +937,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetInvoice", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetInvoice", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -929,8 +959,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesGet200Response> GetInvoiceAsync (string id)
         {
             logger.Debug("CALLING API \"GetInvoiceAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesGet200Response> localVarResponse = await GetInvoiceAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"GetInvoiceAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1000,7 +1032,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetInvoice", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetInvoice", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1021,8 +1053,10 @@ namespace CyberSource.Api
         public InvoicingV2InvoicesPost201Response PerformCancelAction (string id)
         {
             logger.Debug("CALLING API \"PerformCancelAction\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = PerformCancelActionWithHttpInfo(id);
             logger.Debug("CALLING API \"PerformCancelAction\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -1091,7 +1125,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PerformCancelAction", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PerformCancelAction", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1113,8 +1147,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> PerformCancelActionAsync (string id)
         {
             logger.Debug("CALLING API \"PerformCancelActionAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await PerformCancelActionAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"PerformCancelActionAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1184,7 +1220,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PerformCancelAction", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PerformCancelAction", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1205,8 +1241,10 @@ namespace CyberSource.Api
         public InvoicingV2InvoicesPost201Response PerformSendAction (string id)
         {
             logger.Debug("CALLING API \"PerformSendAction\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = PerformSendActionWithHttpInfo(id);
             logger.Debug("CALLING API \"PerformSendAction\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -1275,7 +1313,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PerformSendAction", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PerformSendAction", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1297,8 +1335,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> PerformSendActionAsync (string id)
         {
             logger.Debug("CALLING API \"PerformSendActionAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await PerformSendActionAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"PerformSendActionAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1368,7 +1408,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PerformSendAction", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PerformSendAction", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1390,8 +1430,10 @@ namespace CyberSource.Api
         public InvoicingV2InvoicesPost201Response UpdateInvoice (string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
             logger.Debug("CALLING API \"UpdateInvoice\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = UpdateInvoiceWithHttpInfo(id, updateInvoiceRequest);
             logger.Debug("CALLING API \"UpdateInvoice\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -1476,7 +1518,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateInvoice", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("UpdateInvoice", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1499,8 +1541,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> UpdateInvoiceAsync (string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
             logger.Debug("CALLING API \"UpdateInvoiceAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await UpdateInvoiceAsyncWithHttpInfo(id, updateInvoiceRequest);
             logger.Debug("CALLING API \"UpdateInvoiceAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1586,7 +1630,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateInvoice", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("UpdateInvoice", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

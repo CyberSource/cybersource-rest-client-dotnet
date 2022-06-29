@@ -126,6 +126,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsApi"/> class.
@@ -237,6 +238,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Process a Payment A payment authorizes the amount for the transaction. There are a number of supported payment feature, such as E-commerce and Card Present - Credit Card/Debit Card, Echeck, e-Wallets, Level II/III Data, etc..  A payment response includes the status of the request. It also includes processor-specific information when the request is successful and errors if unsuccessful. See the [Payments Developer Guides Page](https://developer.cybersource.com/api/developer-guides/dita-payments/GettingStarted.html).  Authorization can be requested with Capture, Decision Manager, Payer Authentication(3ds), and Token Creation. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -245,8 +265,10 @@ namespace CyberSource.Api
         public PtsV2PaymentsPost201Response CreatePayment (CreatePaymentRequest createPaymentRequest)
         {
             logger.Debug("CALLING API \"CreatePayment\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsPost201Response> localVarResponse = CreatePaymentWithHttpInfo(createPaymentRequest);
             logger.Debug("CALLING API \"CreatePayment\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -319,7 +341,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreatePayment", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreatePayment", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -341,8 +363,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<PtsV2PaymentsPost201Response> CreatePaymentAsync (CreatePaymentRequest createPaymentRequest)
         {
             logger.Debug("CALLING API \"CreatePaymentAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsPost201Response> localVarResponse = await CreatePaymentAsyncWithHttpInfo(createPaymentRequest);
             logger.Debug("CALLING API \"CreatePaymentAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -416,7 +440,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreatePayment", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreatePayment", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -438,8 +462,10 @@ namespace CyberSource.Api
         public PtsV2IncrementalAuthorizationPatch201Response IncrementAuth (string id, IncrementAuthRequest incrementAuthRequest)
         {
             logger.Debug("CALLING API \"IncrementAuth\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<PtsV2IncrementalAuthorizationPatch201Response> localVarResponse = IncrementAuthWithHttpInfo(id, incrementAuthRequest);
             logger.Debug("CALLING API \"IncrementAuth\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -524,7 +550,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("IncrementAuth", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("IncrementAuth", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -547,8 +573,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<PtsV2IncrementalAuthorizationPatch201Response> IncrementAuthAsync (string id, IncrementAuthRequest incrementAuthRequest)
         {
             logger.Debug("CALLING API \"IncrementAuthAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<PtsV2IncrementalAuthorizationPatch201Response> localVarResponse = await IncrementAuthAsyncWithHttpInfo(id, incrementAuthRequest);
             logger.Debug("CALLING API \"IncrementAuthAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -634,7 +662,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("IncrementAuth", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("IncrementAuth", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

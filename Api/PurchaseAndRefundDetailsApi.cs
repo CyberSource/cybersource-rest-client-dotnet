@@ -108,6 +108,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PurchaseAndRefundDetailsApi"/> class.
@@ -219,6 +220,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Get Purchase and Refund Details Download the Purchase and Refund Details report. This report report includes all purchases and refund transactions, as well as all activities related to transactions resulting in an adjustment to the net proceeds. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -234,8 +254,10 @@ namespace CyberSource.Api
         public ReportingV3PurchaseRefundDetailsGet200Response GetPurchaseAndRefundDetails (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
         {
             logger.Debug("CALLING API \"GetPurchaseAndRefundDetails\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response> localVarResponse = GetPurchaseAndRefundDetailsWithHttpInfo(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
             logger.Debug("CALLING API \"GetPurchaseAndRefundDetails\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -354,7 +376,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetPurchaseAndRefundDetails", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetPurchaseAndRefundDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -383,8 +405,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ReportingV3PurchaseRefundDetailsGet200Response> GetPurchaseAndRefundDetailsAsync (DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
         {
             logger.Debug("CALLING API \"GetPurchaseAndRefundDetailsAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response> localVarResponse = await GetPurchaseAndRefundDetailsAsyncWithHttpInfo(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
             logger.Debug("CALLING API \"GetPurchaseAndRefundDetailsAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -504,7 +528,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetPurchaseAndRefundDetails", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetPurchaseAndRefundDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

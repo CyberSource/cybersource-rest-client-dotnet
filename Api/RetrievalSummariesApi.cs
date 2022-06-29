@@ -88,6 +88,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RetrievalSummariesApi"/> class.
@@ -199,6 +200,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Get Retrieval Summaries Retrieval Summary Report Description
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -209,8 +229,10 @@ namespace CyberSource.Api
         public ReportingV3RetrievalSummariesGet200Response GetRetrievalSummary (DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
             logger.Debug("CALLING API \"GetRetrievalSummary\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3RetrievalSummariesGet200Response> localVarResponse = GetRetrievalSummaryWithHttpInfo(startTime, endTime, organizationId);
             logger.Debug("CALLING API \"GetRetrievalSummary\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -298,7 +320,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetRetrievalSummary", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetRetrievalSummary", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -322,8 +344,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ReportingV3RetrievalSummariesGet200Response> GetRetrievalSummaryAsync (DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
             logger.Debug("CALLING API \"GetRetrievalSummaryAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3RetrievalSummariesGet200Response> localVarResponse = await GetRetrievalSummaryAsyncWithHttpInfo(startTime, endTime, organizationId);
             logger.Debug("CALLING API \"GetRetrievalSummaryAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -412,7 +436,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetRetrievalSummary", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetRetrievalSummary", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

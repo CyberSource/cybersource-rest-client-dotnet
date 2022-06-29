@@ -264,6 +264,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportSubscriptionsApi"/> class.
@@ -375,6 +376,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Create a Standard or Classic Subscription Create or update an already existing classic or standard subscription. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -384,6 +404,7 @@ namespace CyberSource.Api
         public void CreateStandardOrClassicSubscription (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
         {
             logger.Debug("CALLING API \"CreateStandardOrClassicSubscription\" STARTED");
+            this.SetStatusCode(null);
             CreateStandardOrClassicSubscriptionWithHttpInfo(predefinedSubscriptionRequestBean, organizationId);
         }
 
@@ -462,7 +483,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateStandardOrClassicSubscription", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateStandardOrClassicSubscription", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -470,6 +491,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -485,6 +507,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task CreateStandardOrClassicSubscriptionAsync (PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
         {
             logger.Debug("CALLING API \"CreateStandardOrClassicSubscriptionAsync\" STARTED");
+            this.SetStatusCode(null);
             await CreateStandardOrClassicSubscriptionAsyncWithHttpInfo(predefinedSubscriptionRequestBean, organizationId);
 
         }
@@ -564,7 +587,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateStandardOrClassicSubscription", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateStandardOrClassicSubscription", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -572,6 +595,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -586,6 +610,7 @@ namespace CyberSource.Api
         public void CreateSubscription (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null)
         {
             logger.Debug("CALLING API \"CreateSubscription\" STARTED");
+            this.SetStatusCode(null);
             CreateSubscriptionWithHttpInfo(createReportSubscriptionRequest, organizationId);
         }
 
@@ -664,7 +689,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateSubscription", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateSubscription", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -672,6 +697,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -687,6 +713,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task CreateSubscriptionAsync (CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null)
         {
             logger.Debug("CALLING API \"CreateSubscriptionAsync\" STARTED");
+            this.SetStatusCode(null);
             await CreateSubscriptionAsyncWithHttpInfo(createReportSubscriptionRequest, organizationId);
 
         }
@@ -766,7 +793,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateSubscription", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateSubscription", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -774,6 +801,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -788,6 +816,7 @@ namespace CyberSource.Api
         public void DeleteSubscription (string reportName, string organizationId = null)
         {
             logger.Debug("CALLING API \"DeleteSubscription\" STARTED");
+            this.SetStatusCode(null);
             DeleteSubscriptionWithHttpInfo(reportName, organizationId);
         }
 
@@ -862,7 +891,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteSubscription", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeleteSubscription", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -870,6 +899,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -885,6 +915,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task DeleteSubscriptionAsync (string reportName, string organizationId = null)
         {
             logger.Debug("CALLING API \"DeleteSubscriptionAsync\" STARTED");
+            this.SetStatusCode(null);
             await DeleteSubscriptionAsyncWithHttpInfo(reportName, organizationId);
 
         }
@@ -960,7 +991,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteSubscription", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeleteSubscription", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -968,6 +999,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -981,8 +1013,10 @@ namespace CyberSource.Api
         public ReportingV3ReportSubscriptionsGet200Response GetAllSubscriptions (string organizationId = null)
         {
             logger.Debug("CALLING API \"GetAllSubscriptions\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportSubscriptionsGet200Response> localVarResponse = GetAllSubscriptionsWithHttpInfo(organizationId);
             logger.Debug("CALLING API \"GetAllSubscriptions\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -1045,7 +1079,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetAllSubscriptions", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetAllSubscriptions", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1067,8 +1101,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync (string organizationId = null)
         {
             logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportSubscriptionsGet200Response> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo(organizationId);
             logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1132,7 +1168,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetAllSubscriptions", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetAllSubscriptions", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1154,8 +1190,10 @@ namespace CyberSource.Api
         public ReportingV3ReportSubscriptionsGet200ResponseSubscriptions GetSubscription (string reportName, string organizationId = null)
         {
             logger.Debug("CALLING API \"GetSubscription\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> localVarResponse = GetSubscriptionWithHttpInfo(reportName, organizationId);
             logger.Debug("CALLING API \"GetSubscription\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -1230,7 +1268,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetSubscription", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetSubscription", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1253,8 +1291,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync (string reportName, string organizationId = null)
         {
             logger.Debug("CALLING API \"GetSubscriptionAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> localVarResponse = await GetSubscriptionAsyncWithHttpInfo(reportName, organizationId);
             logger.Debug("CALLING API \"GetSubscriptionAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1330,7 +1370,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetSubscription", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetSubscription", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

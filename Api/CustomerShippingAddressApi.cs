@@ -300,6 +300,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerShippingAddressApi"/> class.
@@ -411,6 +412,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Delete a Customer Shipping Address 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -421,6 +441,7 @@ namespace CyberSource.Api
         public void DeleteCustomerShippingAddress (string customerTokenId, string shippingAddressTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"DeleteCustomerShippingAddress\" STARTED");
+            this.SetStatusCode(null);
             DeleteCustomerShippingAddressWithHttpInfo(customerTokenId, shippingAddressTokenId, profileId);
         }
 
@@ -506,7 +527,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteCustomerShippingAddress", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeleteCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -514,6 +535,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -530,6 +552,7 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task DeleteCustomerShippingAddressAsync (string customerTokenId, string shippingAddressTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"DeleteCustomerShippingAddressAsync\" STARTED");
+            this.SetStatusCode(null);
             await DeleteCustomerShippingAddressAsyncWithHttpInfo(customerTokenId, shippingAddressTokenId, profileId);
 
         }
@@ -616,7 +639,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteCustomerShippingAddress", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeleteCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -624,6 +647,7 @@ namespace CyberSource.Api
                 }
             }
 
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -639,8 +663,10 @@ namespace CyberSource.Api
         public Tmsv2customersEmbeddedDefaultShippingAddress GetCustomerShippingAddress (string customerTokenId, string shippingAddressTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetCustomerShippingAddress\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultShippingAddress> localVarResponse = GetCustomerShippingAddressWithHttpInfo(customerTokenId, shippingAddressTokenId, profileId);
             logger.Debug("CALLING API \"GetCustomerShippingAddress\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -726,7 +752,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetCustomerShippingAddress", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -750,8 +776,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultShippingAddress> GetCustomerShippingAddressAsync (string customerTokenId, string shippingAddressTokenId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetCustomerShippingAddressAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultShippingAddress> localVarResponse = await GetCustomerShippingAddressAsyncWithHttpInfo(customerTokenId, shippingAddressTokenId, profileId);
             logger.Debug("CALLING API \"GetCustomerShippingAddressAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -838,7 +866,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetCustomerShippingAddress", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -862,8 +890,10 @@ namespace CyberSource.Api
         public ShippingAddressListForCustomer GetCustomerShippingAddressesList (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
             logger.Debug("CALLING API \"GetCustomerShippingAddressesList\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ShippingAddressListForCustomer> localVarResponse = GetCustomerShippingAddressesListWithHttpInfo(customerTokenId, profileId, offset, limit);
             logger.Debug("CALLING API \"GetCustomerShippingAddressesList\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -949,7 +979,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetCustomerShippingAddressesList", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetCustomerShippingAddressesList", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -974,8 +1004,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<ShippingAddressListForCustomer> GetCustomerShippingAddressesListAsync (string customerTokenId, string profileId = null, long? offset = null, long? limit = null)
         {
             logger.Debug("CALLING API \"GetCustomerShippingAddressesListAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<ShippingAddressListForCustomer> localVarResponse = await GetCustomerShippingAddressesListAsyncWithHttpInfo(customerTokenId, profileId, offset, limit);
             logger.Debug("CALLING API \"GetCustomerShippingAddressesListAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1062,7 +1094,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetCustomerShippingAddressesList", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetCustomerShippingAddressesList", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1087,8 +1119,10 @@ namespace CyberSource.Api
         public Tmsv2customersEmbeddedDefaultShippingAddress PatchCustomersShippingAddress (string customerTokenId, string shippingAddressTokenId, PatchCustomerShippingAddressRequest patchCustomerShippingAddressRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchCustomersShippingAddress\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultShippingAddress> localVarResponse = PatchCustomersShippingAddressWithHttpInfo(customerTokenId, shippingAddressTokenId, patchCustomerShippingAddressRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchCustomersShippingAddress\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -1195,7 +1229,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PatchCustomersShippingAddress", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PatchCustomersShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1221,8 +1255,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultShippingAddress> PatchCustomersShippingAddressAsync (string customerTokenId, string shippingAddressTokenId, PatchCustomerShippingAddressRequest patchCustomerShippingAddressRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchCustomersShippingAddressAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultShippingAddress> localVarResponse = await PatchCustomersShippingAddressAsyncWithHttpInfo(customerTokenId, shippingAddressTokenId, patchCustomerShippingAddressRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchCustomersShippingAddressAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1330,7 +1366,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PatchCustomersShippingAddress", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PatchCustomersShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1353,8 +1389,10 @@ namespace CyberSource.Api
         public Tmsv2customersEmbeddedDefaultShippingAddress PostCustomerShippingAddress (string customerTokenId, PostCustomerShippingAddressRequest postCustomerShippingAddressRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostCustomerShippingAddress\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultShippingAddress> localVarResponse = PostCustomerShippingAddressWithHttpInfo(customerTokenId, postCustomerShippingAddressRequest, profileId);
             logger.Debug("CALLING API \"PostCustomerShippingAddress\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -1444,7 +1482,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostCustomerShippingAddress", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PostCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1468,8 +1506,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultShippingAddress> PostCustomerShippingAddressAsync (string customerTokenId, PostCustomerShippingAddressRequest postCustomerShippingAddressRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostCustomerShippingAddressAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<Tmsv2customersEmbeddedDefaultShippingAddress> localVarResponse = await PostCustomerShippingAddressAsyncWithHttpInfo(customerTokenId, postCustomerShippingAddressRequest, profileId);
             logger.Debug("CALLING API \"PostCustomerShippingAddressAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1560,7 +1600,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostCustomerShippingAddress", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("PostCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

@@ -172,6 +172,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DecisionManagerApi"/> class.
@@ -283,6 +284,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// List Management This call adds/deletes/converts the request information in the negative list.  Provide the list to be updated as the path parameter. This value can be &#39;postiive&#39;, &#39;negative&#39; or &#39;review&#39;. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -292,8 +312,10 @@ namespace CyberSource.Api
         public RiskV1UpdatePost201Response AddNegative (string type, AddNegativeListRequest addNegativeListRequest)
         {
             logger.Debug("CALLING API \"AddNegative\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = AddNegativeWithHttpInfo(type, addNegativeListRequest);
             logger.Debug("CALLING API \"AddNegative\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -378,7 +400,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AddNegative", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("AddNegative", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -401,8 +423,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<RiskV1UpdatePost201Response> AddNegativeAsync (string type, AddNegativeListRequest addNegativeListRequest)
         {
             logger.Debug("CALLING API \"AddNegativeAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await AddNegativeAsyncWithHttpInfo(type, addNegativeListRequest);
             logger.Debug("CALLING API \"AddNegativeAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -488,7 +512,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AddNegative", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("AddNegative", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -509,8 +533,10 @@ namespace CyberSource.Api
         public RiskV1DecisionsPost201Response CreateBundledDecisionManagerCase (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
             logger.Debug("CALLING API \"CreateBundledDecisionManagerCase\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = CreateBundledDecisionManagerCaseWithHttpInfo(createBundledDecisionManagerCaseRequest);
             logger.Debug("CALLING API \"CreateBundledDecisionManagerCase\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -583,7 +609,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -605,8 +631,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<RiskV1DecisionsPost201Response> CreateBundledDecisionManagerCaseAsync (CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
             logger.Debug("CALLING API \"CreateBundledDecisionManagerCaseAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = await CreateBundledDecisionManagerCaseAsyncWithHttpInfo(createBundledDecisionManagerCaseRequest);
             logger.Debug("CALLING API \"CreateBundledDecisionManagerCaseAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -680,7 +708,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -702,8 +730,10 @@ namespace CyberSource.Api
         public RiskV1UpdatePost201Response FraudUpdate (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
             logger.Debug("CALLING API \"FraudUpdate\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = FraudUpdateWithHttpInfo(id, fraudMarkingActionRequest);
             logger.Debug("CALLING API \"FraudUpdate\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -788,7 +818,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("FraudUpdate", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -811,8 +841,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<RiskV1UpdatePost201Response> FraudUpdateAsync (string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
             logger.Debug("CALLING API \"FraudUpdateAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await FraudUpdateAsyncWithHttpInfo(id, fraudMarkingActionRequest);
             logger.Debug("CALLING API \"FraudUpdateAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -898,7 +930,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("FraudUpdate", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

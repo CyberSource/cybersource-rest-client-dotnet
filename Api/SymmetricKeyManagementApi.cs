@@ -210,6 +210,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SymmetricKeyManagementApi"/> class.
@@ -321,6 +322,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Create Shared-Secret Keys Create one or more Shared-Secret Keys 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -329,8 +349,10 @@ namespace CyberSource.Api
         public KmsV2KeysSymPost201Response CreateV2SharedSecretKeys (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
         {
             logger.Debug("CALLING API \"CreateV2SharedSecretKeys\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = CreateV2SharedSecretKeysWithHttpInfo(createSharedSecretKeysRequest);
             logger.Debug("CALLING API \"CreateV2SharedSecretKeys\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -403,7 +425,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateV2SharedSecretKeys", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateV2SharedSecretKeys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -425,8 +447,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<KmsV2KeysSymPost201Response> CreateV2SharedSecretKeysAsync (CreateSharedSecretKeysRequest createSharedSecretKeysRequest)
         {
             logger.Debug("CALLING API \"CreateV2SharedSecretKeysAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = await CreateV2SharedSecretKeysAsyncWithHttpInfo(createSharedSecretKeysRequest);
             logger.Debug("CALLING API \"CreateV2SharedSecretKeysAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -500,7 +524,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateV2SharedSecretKeys", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateV2SharedSecretKeys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -522,8 +546,10 @@ namespace CyberSource.Api
         public KmsV2KeysSymPost201Response CreateV2SharedSecretKeysVerifi (string vIcDomain, CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest)
         {
             logger.Debug("CALLING API \"CreateV2SharedSecretKeysVerifi\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = CreateV2SharedSecretKeysVerifiWithHttpInfo(vIcDomain, createSharedSecretKeysVerifiRequest);
             logger.Debug("CALLING API \"CreateV2SharedSecretKeysVerifi\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -607,7 +633,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateV2SharedSecretKeysVerifi", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateV2SharedSecretKeysVerifi", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -630,8 +656,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<KmsV2KeysSymPost201Response> CreateV2SharedSecretKeysVerifiAsync (string vIcDomain, CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest)
         {
             logger.Debug("CALLING API \"CreateV2SharedSecretKeysVerifiAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysSymPost201Response> localVarResponse = await CreateV2SharedSecretKeysVerifiAsyncWithHttpInfo(vIcDomain, createSharedSecretKeysVerifiRequest);
             logger.Debug("CALLING API \"CreateV2SharedSecretKeysVerifiAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -716,7 +744,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateV2SharedSecretKeysVerifi", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CreateV2SharedSecretKeysVerifi", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -737,8 +765,10 @@ namespace CyberSource.Api
         public KmsV2KeysSymDeletesPost200Response DeleteBulkSymmetricKeys (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
         {
             logger.Debug("CALLING API \"DeleteBulkSymmetricKeys\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysSymDeletesPost200Response> localVarResponse = DeleteBulkSymmetricKeysWithHttpInfo(deleteBulkSymmetricKeysRequest);
             logger.Debug("CALLING API \"DeleteBulkSymmetricKeys\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -811,7 +841,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteBulkSymmetricKeys", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeleteBulkSymmetricKeys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -833,8 +863,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<KmsV2KeysSymDeletesPost200Response> DeleteBulkSymmetricKeysAsync (DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest)
         {
             logger.Debug("CALLING API \"DeleteBulkSymmetricKeysAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysSymDeletesPost200Response> localVarResponse = await DeleteBulkSymmetricKeysAsyncWithHttpInfo(deleteBulkSymmetricKeysRequest);
             logger.Debug("CALLING API \"DeleteBulkSymmetricKeysAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -908,7 +940,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteBulkSymmetricKeys", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("DeleteBulkSymmetricKeys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -929,8 +961,10 @@ namespace CyberSource.Api
         public KmsV2KeysSymGet200Response GetKeyDetails (string keyId)
         {
             logger.Debug("CALLING API \"GetKeyDetails\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysSymGet200Response> localVarResponse = GetKeyDetailsWithHttpInfo(keyId);
             logger.Debug("CALLING API \"GetKeyDetails\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -999,7 +1033,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetKeyDetails", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetKeyDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1021,8 +1055,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<KmsV2KeysSymGet200Response> GetKeyDetailsAsync (string keyId)
         {
             logger.Debug("CALLING API \"GetKeyDetailsAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<KmsV2KeysSymGet200Response> localVarResponse = await GetKeyDetailsAsyncWithHttpInfo(keyId);
             logger.Debug("CALLING API \"GetKeyDetailsAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -1092,7 +1128,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetKeyDetails", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GetKeyDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

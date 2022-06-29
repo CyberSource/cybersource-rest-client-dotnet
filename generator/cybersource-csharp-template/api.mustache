@@ -84,6 +84,7 @@ namespace {{packageName}}.{{apiPackage}}
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="{{classname}}"/> class.
@@ -194,6 +195,25 @@ namespace {{packageName}}.{{apiPackage}}
             Configuration.AddDefaultHeader(key, value);
         }
 
+        /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
         {{#operation}}
         /// <summary>
         /// {{summary}} {{notes}}
@@ -204,8 +224,10 @@ namespace {{packageName}}.{{apiPackage}}
         public {{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}} {{operationId}} ({{#allParams}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
         {
             logger.Debug("CALLING API \"{{operationId}}\" STARTED");
+            this.SetStatusCode(null);
             {{#returnType}}ApiResponse<{{{returnType}}}> localVarResponse = {{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});
             logger.Debug("CALLING API \"{{operationId}}\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;{{/returnType}}{{^returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});{{/returnType}}
         }
 
@@ -358,7 +380,7 @@ namespace {{packageName}}.{{apiPackage}}
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("{{operationId}}", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("{{operationId}}", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -372,6 +394,7 @@ namespace {{packageName}}.{{apiPackage}}
                 ({{{returnType}}}) Configuration.ApiClient.Deserialize(localVarResponse, typeof({{#returnContainer}}{{{returnContainer}}}{{/returnContainer}}{{^returnContainer}}{{{returnType}}}{{/returnContainer}}))); // Return statement
             {{/returnType}}
             {{^returnType}}
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement
@@ -388,8 +411,10 @@ namespace {{packageName}}.{{apiPackage}}
         {{#returnType}}public async System.Threading.Tasks.Task<{{{returnType}}}>{{/returnType}}{{^returnType}}public async System.Threading.Tasks.Task{{/returnType}} {{operationId}}Async ({{#allParams}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
         {
             logger.Debug("CALLING API \"{{operationId}}Async\" STARTED");
+            this.SetStatusCode(null);
             {{#returnType}}ApiResponse<{{{returnType}}}> localVarResponse = await {{operationId}}AsyncWithHttpInfo({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});
             logger.Debug("CALLING API \"{{operationId}}Async\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;{{/returnType}}{{^returnType}}await {{operationId}}AsyncWithHttpInfo({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});{{/returnType}}
 
         }
@@ -543,7 +568,7 @@ namespace {{packageName}}.{{apiPackage}}
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("{{operationId}}", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("{{operationId}}", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -557,6 +582,7 @@ namespace {{packageName}}.{{apiPackage}}
                 ({{{returnType}}}) Configuration.ApiClient.Deserialize(localVarResponse, typeof({{#returnContainer}}{{{returnContainer}}}{{/returnContainer}}{{^returnContainer}}{{{returnType}}}{{/returnContainer}}))); // Return statement
             {{/returnType}}
             {{^returnType}}
+            this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}, x => x.Value.ToString()),
                 localVarResponse.Content); // Return statement

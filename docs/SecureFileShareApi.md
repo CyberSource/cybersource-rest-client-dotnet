@@ -65,7 +65,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*;charset=utf-8
+ - **Content-Type**: *_/_*;charset=utf-8
  - **Accept**: application/xml, text/csv, application/pdf
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -132,7 +132,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*;charset=utf-8
+ - **Content-Type**: *_/_*;charset=utf-8
  - **Accept**: application/hal+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

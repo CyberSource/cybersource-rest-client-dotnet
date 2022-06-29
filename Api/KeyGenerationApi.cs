@@ -84,6 +84,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="KeyGenerationApi"/> class.
@@ -195,6 +196,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Generate Key Generate a one-time use public key and key ID to encrypt the card number in the follow-on Tokenize Card request. The key used to encrypt the card number on the cardholder’s device or browser is valid for 15 minutes and must be used to verify the signature in the response message. CyberSource recommends creating a new key for each order. Generating a key is an authenticated request initiated from your servers, prior to requesting to tokenize the card data from your customer’s device or browser.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -204,8 +224,10 @@ namespace CyberSource.Api
         public FlexV1KeysPost200Response GeneratePublicKey (string format, GeneratePublicKeyRequest generatePublicKeyRequest)
         {
             logger.Debug("CALLING API \"GeneratePublicKey\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<FlexV1KeysPost200Response> localVarResponse = GeneratePublicKeyWithHttpInfo(format, generatePublicKeyRequest);
             logger.Debug("CALLING API \"GeneratePublicKey\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -290,7 +312,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GeneratePublicKey", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GeneratePublicKey", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -313,8 +335,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<FlexV1KeysPost200Response> GeneratePublicKeyAsync (string format, GeneratePublicKeyRequest generatePublicKeyRequest)
         {
             logger.Debug("CALLING API \"GeneratePublicKeyAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<FlexV1KeysPost200Response> localVarResponse = await GeneratePublicKeyAsyncWithHttpInfo(format, generatePublicKeyRequest);
             logger.Debug("CALLING API \"GeneratePublicKeyAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -400,7 +424,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GeneratePublicKey", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("GeneratePublicKey", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

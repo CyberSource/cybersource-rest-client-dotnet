@@ -122,6 +122,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VerificationApi"/> class.
@@ -233,6 +234,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Validate export compliance This call checks customer data against specified watch lists to ensure export compliance. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -241,8 +261,10 @@ namespace CyberSource.Api
         public RiskV1ExportComplianceInquiriesPost201Response ValidateExportCompliance (ValidateExportComplianceRequest validateExportComplianceRequest)
         {
             logger.Debug("CALLING API \"ValidateExportCompliance\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1ExportComplianceInquiriesPost201Response> localVarResponse = ValidateExportComplianceWithHttpInfo(validateExportComplianceRequest);
             logger.Debug("CALLING API \"ValidateExportCompliance\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -315,7 +337,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ValidateExportCompliance", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("ValidateExportCompliance", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -337,8 +359,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<RiskV1ExportComplianceInquiriesPost201Response> ValidateExportComplianceAsync (ValidateExportComplianceRequest validateExportComplianceRequest)
         {
             logger.Debug("CALLING API \"ValidateExportComplianceAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1ExportComplianceInquiriesPost201Response> localVarResponse = await ValidateExportComplianceAsyncWithHttpInfo(validateExportComplianceRequest);
             logger.Debug("CALLING API \"ValidateExportComplianceAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -412,7 +436,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ValidateExportCompliance", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("ValidateExportCompliance", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -433,8 +457,10 @@ namespace CyberSource.Api
         public RiskV1AddressVerificationsPost201Response VerifyCustomerAddress (VerifyCustomerAddressRequest verifyCustomerAddressRequest)
         {
             logger.Debug("CALLING API \"VerifyCustomerAddress\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1AddressVerificationsPost201Response> localVarResponse = VerifyCustomerAddressWithHttpInfo(verifyCustomerAddressRequest);
             logger.Debug("CALLING API \"VerifyCustomerAddress\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -507,7 +533,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("VerifyCustomerAddress", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("VerifyCustomerAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -529,8 +555,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<RiskV1AddressVerificationsPost201Response> VerifyCustomerAddressAsync (VerifyCustomerAddressRequest verifyCustomerAddressRequest)
         {
             logger.Debug("CALLING API \"VerifyCustomerAddressAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<RiskV1AddressVerificationsPost201Response> localVarResponse = await VerifyCustomerAddressAsyncWithHttpInfo(verifyCustomerAddressRequest);
             logger.Debug("CALLING API \"VerifyCustomerAddressAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -604,7 +632,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("VerifyCustomerAddress", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("VerifyCustomerAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

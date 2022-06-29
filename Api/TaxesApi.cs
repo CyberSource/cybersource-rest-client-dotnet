@@ -126,6 +126,7 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxesApi"/> class.
@@ -237,6 +238,25 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
         /// Calculate Taxes Get tax details for a transaction. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -245,8 +265,10 @@ namespace CyberSource.Api
         public VasV2PaymentsPost201Response CalculateTax (TaxRequest taxRequest)
         {
             logger.Debug("CALLING API \"CalculateTax\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<VasV2PaymentsPost201Response> localVarResponse = CalculateTaxWithHttpInfo(taxRequest);
             logger.Debug("CALLING API \"CalculateTax\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -319,7 +341,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CalculateTax", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CalculateTax", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -341,8 +363,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<VasV2PaymentsPost201Response> CalculateTaxAsync (TaxRequest taxRequest)
         {
             logger.Debug("CALLING API \"CalculateTaxAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<VasV2PaymentsPost201Response> localVarResponse = await CalculateTaxAsyncWithHttpInfo(taxRequest);
             logger.Debug("CALLING API \"CalculateTaxAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -416,7 +440,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CalculateTax", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("CalculateTax", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -438,8 +462,10 @@ namespace CyberSource.Api
         public VasV2TaxVoid200Response VoidTax (VoidTaxRequest voidTaxRequest, string id)
         {
             logger.Debug("CALLING API \"VoidTax\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<VasV2TaxVoid200Response> localVarResponse = VoidTaxWithHttpInfo(voidTaxRequest, id);
             logger.Debug("CALLING API \"VoidTax\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
@@ -524,7 +550,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("VoidTax", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("VoidTax", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -547,8 +573,10 @@ namespace CyberSource.Api
         public async System.Threading.Tasks.Task<VasV2TaxVoid200Response> VoidTaxAsync (VoidTaxRequest voidTaxRequest, string id)
         {
             logger.Debug("CALLING API \"VoidTaxAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<VasV2TaxVoid200Response> localVarResponse = await VoidTaxAsyncWithHttpInfo(voidTaxRequest, id);
             logger.Debug("CALLING API \"VoidTaxAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
         }
@@ -634,7 +662,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("VoidTax", localVarResponse);
+                ApiException exception = (ApiException) ExceptionFactory("VoidTax", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
