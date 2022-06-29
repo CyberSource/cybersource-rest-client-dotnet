@@ -423,7 +423,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateReport", localVarResponse);
+                Exception exception = ExceptionFactory("CreateReport", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -527,7 +527,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateReport", localVarResponse);
+                Exception exception = ExceptionFactory("CreateReport", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -629,7 +629,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetReportByReportId", localVarResponse);
+                Exception exception = ExceptionFactory("GetReportByReportId", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -732,7 +732,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetReportByReportId", localVarResponse);
+                Exception exception = ExceptionFactory("GetReportByReportId", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -893,7 +893,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("SearchReports", localVarResponse);
+                Exception exception = ExceptionFactory("SearchReports", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1056,7 +1056,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("SearchReports", localVarResponse);
+                Exception exception = ExceptionFactory("SearchReports", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

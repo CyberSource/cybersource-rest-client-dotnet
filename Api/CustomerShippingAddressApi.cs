@@ -527,7 +527,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("DeleteCustomerShippingAddress", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -639,7 +639,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("DeleteCustomerShippingAddress", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -752,7 +752,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetCustomerShippingAddress", localVarResponse);
+                Exception exception = ExceptionFactory("GetCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -866,7 +866,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetCustomerShippingAddress", localVarResponse);
+                Exception exception = ExceptionFactory("GetCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -979,7 +979,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetCustomerShippingAddressesList", localVarResponse);
+                Exception exception = ExceptionFactory("GetCustomerShippingAddressesList", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1094,7 +1094,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetCustomerShippingAddressesList", localVarResponse);
+                Exception exception = ExceptionFactory("GetCustomerShippingAddressesList", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1229,7 +1229,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PatchCustomersShippingAddress", localVarResponse);
+                Exception exception = ExceptionFactory("PatchCustomersShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1366,7 +1366,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PatchCustomersShippingAddress", localVarResponse);
+                Exception exception = ExceptionFactory("PatchCustomersShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1482,7 +1482,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PostCustomerShippingAddress", localVarResponse);
+                Exception exception = ExceptionFactory("PostCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1600,7 +1600,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PostCustomerShippingAddress", localVarResponse);
+                Exception exception = ExceptionFactory("PostCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

@@ -320,7 +320,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetRetrievalSummary", localVarResponse);
+                Exception exception = ExceptionFactory("GetRetrievalSummary", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -436,7 +436,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetRetrievalSummary", localVarResponse);
+                Exception exception = ExceptionFactory("GetRetrievalSummary", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

@@ -337,7 +337,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateSearch", localVarResponse);
+                Exception exception = ExceptionFactory("CreateSearch", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -436,7 +436,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateSearch", localVarResponse);
+                Exception exception = ExceptionFactory("CreateSearch", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -529,7 +529,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetSearch", localVarResponse);
+                Exception exception = ExceptionFactory("GetSearch", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -624,7 +624,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetSearch", localVarResponse);
+                Exception exception = ExceptionFactory("GetSearch", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

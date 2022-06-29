@@ -287,7 +287,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetXSDV2", localVarResponse);
+                Exception exception = ExceptionFactory("GetXSDV2", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -380,7 +380,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetXSDV2", localVarResponse);
+                Exception exception = ExceptionFactory("GetXSDV2", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

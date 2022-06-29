@@ -337,7 +337,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("ValidateExportCompliance", localVarResponse);
+                Exception exception = ExceptionFactory("ValidateExportCompliance", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -436,7 +436,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("ValidateExportCompliance", localVarResponse);
+                Exception exception = ExceptionFactory("ValidateExportCompliance", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -533,7 +533,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("VerifyCustomerAddress", localVarResponse);
+                Exception exception = ExceptionFactory("VerifyCustomerAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -632,7 +632,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("VerifyCustomerAddress", localVarResponse);
+                Exception exception = ExceptionFactory("VerifyCustomerAddress", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

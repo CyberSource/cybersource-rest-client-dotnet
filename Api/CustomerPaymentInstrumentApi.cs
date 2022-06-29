@@ -527,7 +527,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("DeleteCustomerPaymentInstrument", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -639,7 +639,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("DeleteCustomerPaymentInstrument", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -752,7 +752,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetCustomerPaymentInstrument", localVarResponse);
+                Exception exception = ExceptionFactory("GetCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -866,7 +866,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetCustomerPaymentInstrument", localVarResponse);
+                Exception exception = ExceptionFactory("GetCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -979,7 +979,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetCustomerPaymentInstrumentsList", localVarResponse);
+                Exception exception = ExceptionFactory("GetCustomerPaymentInstrumentsList", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1094,7 +1094,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetCustomerPaymentInstrumentsList", localVarResponse);
+                Exception exception = ExceptionFactory("GetCustomerPaymentInstrumentsList", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1229,7 +1229,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PatchCustomersPaymentInstrument", localVarResponse);
+                Exception exception = ExceptionFactory("PatchCustomersPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1366,7 +1366,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PatchCustomersPaymentInstrument", localVarResponse);
+                Exception exception = ExceptionFactory("PatchCustomersPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1482,7 +1482,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PostCustomerPaymentInstrument", localVarResponse);
+                Exception exception = ExceptionFactory("PostCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1600,7 +1600,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PostCustomerPaymentInstrument", localVarResponse);
+                Exception exception = ExceptionFactory("PostCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

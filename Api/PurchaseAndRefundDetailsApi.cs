@@ -376,7 +376,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetPurchaseAndRefundDetails", localVarResponse);
+                Exception exception = ExceptionFactory("GetPurchaseAndRefundDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -528,7 +528,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetPurchaseAndRefundDetails", localVarResponse);
+                Exception exception = ExceptionFactory("GetPurchaseAndRefundDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

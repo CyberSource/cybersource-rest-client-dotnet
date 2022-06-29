@@ -370,7 +370,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetResourceInfoByReportDefinition", localVarResponse);
+                Exception exception = ExceptionFactory("GetResourceInfoByReportDefinition", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -486,7 +486,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetResourceInfoByReportDefinition", localVarResponse);
+                Exception exception = ExceptionFactory("GetResourceInfoByReportDefinition", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -580,7 +580,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetResourceV2Info", localVarResponse);
+                Exception exception = ExceptionFactory("GetResourceV2Info", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -676,7 +676,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetResourceV2Info", localVarResponse);
+                Exception exception = ExceptionFactory("GetResourceV2Info", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

@@ -548,7 +548,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -647,7 +647,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -747,7 +747,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
+                Exception exception = ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -848,7 +848,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
+                Exception exception = ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -961,7 +961,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
+                Exception exception = ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1076,7 +1076,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
+                Exception exception = ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1198,7 +1198,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
+                Exception exception = ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1322,7 +1322,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
+                Exception exception = ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1425,7 +1425,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
+                Exception exception = ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1530,7 +1530,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
+                Exception exception = ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1643,7 +1643,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
+                Exception exception = ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1759,7 +1759,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
+                Exception exception = ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

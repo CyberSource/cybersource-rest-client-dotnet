@@ -312,7 +312,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GeneratePublicKey", localVarResponse);
+                Exception exception = ExceptionFactory("GeneratePublicKey", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -424,7 +424,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GeneratePublicKey", localVarResponse);
+                Exception exception = ExceptionFactory("GeneratePublicKey", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

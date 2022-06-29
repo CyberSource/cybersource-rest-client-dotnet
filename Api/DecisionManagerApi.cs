@@ -400,7 +400,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("AddNegative", localVarResponse);
+                Exception exception = ExceptionFactory("AddNegative", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -512,7 +512,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("AddNegative", localVarResponse);
+                Exception exception = ExceptionFactory("AddNegative", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -609,7 +609,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
+                Exception exception = ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -708,7 +708,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
+                Exception exception = ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -818,7 +818,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("FraudUpdate", localVarResponse);
+                Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -930,7 +930,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("FraudUpdate", localVarResponse);
+                Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

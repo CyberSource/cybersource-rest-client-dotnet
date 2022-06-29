@@ -425,7 +425,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateV2SharedSecretKeys", localVarResponse);
+                Exception exception = ExceptionFactory("CreateV2SharedSecretKeys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -524,7 +524,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateV2SharedSecretKeys", localVarResponse);
+                Exception exception = ExceptionFactory("CreateV2SharedSecretKeys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -633,7 +633,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateV2SharedSecretKeysVerifi", localVarResponse);
+                Exception exception = ExceptionFactory("CreateV2SharedSecretKeysVerifi", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -744,7 +744,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateV2SharedSecretKeysVerifi", localVarResponse);
+                Exception exception = ExceptionFactory("CreateV2SharedSecretKeysVerifi", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -841,7 +841,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("DeleteBulkSymmetricKeys", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteBulkSymmetricKeys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -940,7 +940,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("DeleteBulkSymmetricKeys", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteBulkSymmetricKeys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1033,7 +1033,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetKeyDetails", localVarResponse);
+                Exception exception = ExceptionFactory("GetKeyDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1128,7 +1128,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetKeyDetails", localVarResponse);
+                Exception exception = ExceptionFactory("GetKeyDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

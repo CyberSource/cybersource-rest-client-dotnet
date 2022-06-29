@@ -379,7 +379,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateP12Keys", localVarResponse);
+                Exception exception = ExceptionFactory("CreateP12Keys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -478,7 +478,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CreateP12Keys", localVarResponse);
+                Exception exception = ExceptionFactory("CreateP12Keys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -575,7 +575,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("DeleteBulkP12Keys", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteBulkP12Keys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -674,7 +674,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("DeleteBulkP12Keys", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteBulkP12Keys", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -767,7 +767,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetP12KeyDetails", localVarResponse);
+                Exception exception = ExceptionFactory("GetP12KeyDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -862,7 +862,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("GetP12KeyDetails", localVarResponse);
+                Exception exception = ExceptionFactory("GetP12KeyDetails", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

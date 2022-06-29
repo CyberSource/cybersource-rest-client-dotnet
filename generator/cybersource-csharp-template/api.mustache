@@ -380,7 +380,7 @@ namespace {{packageName}}.{{apiPackage}}
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("{{operationId}}", localVarResponse);
+                Exception exception = ExceptionFactory("{{operationId}}", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -568,7 +568,7 @@ namespace {{packageName}}.{{apiPackage}}
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("{{operationId}}", localVarResponse);
+                Exception exception = ExceptionFactory("{{operationId}}", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");

@@ -379,7 +379,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
+                Exception exception = ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -478,7 +478,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
+                Exception exception = ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -575,7 +575,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PayerAuthSetup", localVarResponse);
+                Exception exception = ExceptionFactory("PayerAuthSetup", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -674,7 +674,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("PayerAuthSetup", localVarResponse);
+                Exception exception = ExceptionFactory("PayerAuthSetup", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -771,7 +771,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
+                Exception exception = ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -870,7 +870,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                ApiException exception = (ApiException) ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
+                Exception exception = ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
