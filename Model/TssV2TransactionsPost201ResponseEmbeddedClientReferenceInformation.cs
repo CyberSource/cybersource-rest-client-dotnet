@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="ApplicationName">The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. .</param>
         /// <param name="ApplicationUser">The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. .</param>
         /// <param name="Partner">Partner.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation(string Code = default(string), string ApplicationName = default(string), string ApplicationUser = default(string), TssV2TransactionsGet200ResponseClientReferenceInformationPartner Partner = default(TssV2TransactionsGet200ResponseClientReferenceInformationPartner))
+        public TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation(string Code = default(string), string ApplicationName = default(string), string ApplicationUser = default(string), TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformationPartner Partner = default(TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformationPartner))
         {
             this.Code = Code;
             this.ApplicationName = ApplicationName;
@@ -70,7 +70,7 @@ namespace CyberSource.Model
         /// Gets or Sets Partner
         /// </summary>
         [DataMember(Name="partner", EmitDefaultValue=false)]
-        public TssV2TransactionsGet200ResponseClientReferenceInformationPartner Partner { get; set; }
+        public TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformationPartner Partner { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
