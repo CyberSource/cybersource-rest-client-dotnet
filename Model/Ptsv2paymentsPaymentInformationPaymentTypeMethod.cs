@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsPaymentInformationPaymentTypeMethod" /> class.
         /// </summary>
-        /// <param name="Name">A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal .</param>
+        /// <param name="Name">A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal  For Japan Payment Processing Valid Values: - 1 Banking Data - 2 Authorization Data .</param>
         public Ptsv2paymentsPaymentInformationPaymentTypeMethod(string Name = default(string))
         {
             this.Name = Name;
         }
         
         /// <summary>
-        /// A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal 
+        /// A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal  For Japan Payment Processing Valid Values: - 1 Banking Data - 2 Authorization Data 
         /// </summary>
-        /// <value>A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal </value>
+        /// <value>A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal  For Japan Payment Processing Valid Values: - 1 Banking Data - 2 Authorization Data </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 

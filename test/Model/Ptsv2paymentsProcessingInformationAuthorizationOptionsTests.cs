@@ -208,6 +208,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'DeferredAuthIndicator'
         }
+        /// <summary>
+        /// Test the property 'CashAdvanceIndicator'
+        /// </summary>
+        [Test]
+        public void CashAdvanceIndicatorTest()
+        {
+            // TODO unit test for the property 'CashAdvanceIndicator'
+        }
 
     }
 

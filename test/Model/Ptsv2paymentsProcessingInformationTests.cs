@@ -113,6 +113,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CommerceIndicator'
         }
         /// <summary>
+        /// Test the property 'CommerceIndicatorLabel'
+        /// </summary>
+        [Test]
+        public void CommerceIndicatorLabelTest()
+        {
+            // TODO unit test for the property 'CommerceIndicatorLabel'
+        }
+        /// <summary>
         /// Test the property 'PaymentSolution'
         /// </summary>
         [Test]
@@ -143,6 +151,14 @@ namespace CyberSource.Test
         public void PurchaseLevelTest()
         {
             // TODO unit test for the property 'PurchaseLevel'
+        }
+        /// <summary>
+        /// Test the property 'PaymentId'
+        /// </summary>
+        [Test]
+        public void PaymentIdTest()
+        {
+            // TODO unit test for the property 'PaymentId'
         }
         /// <summary>
         /// Test the property 'ReportGroup'

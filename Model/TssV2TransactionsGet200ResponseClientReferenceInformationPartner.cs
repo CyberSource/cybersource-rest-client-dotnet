@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseClientReferenceInformationPartner" /> class.
         /// </summary>
         /// <param name="SolutionId">Identifier for the partner that is integrated to CyberSource.  Send this value in all requests that are sent through the partner solution. CyberSource assigns the ID to the partner.  **Note** When you see a solutionId of 999 in reports, the solutionId that was submitted is incorrect. .</param>
-        public TssV2TransactionsGet200ResponseClientReferenceInformationPartner(string SolutionId = default(string))
+        /// <param name="ThirdPartyCertificationNumber">Value that identifies the application vendor and application version for a third party gateway. CyberSource provides you with this value during testing and validation. This field is supported only on CyberSource through VisaNet.  #### Used by **Authorization, Authorization Reversal, Capture, Credit, Incremental Authorization, and Void** Optional field.  #### PIN debit Required field for PIN debit credit, PIN debit purchase, or PIN debit reversal request. .</param>
+        public TssV2TransactionsGet200ResponseClientReferenceInformationPartner(string SolutionId = default(string), string ThirdPartyCertificationNumber = default(string))
         {
             this.SolutionId = SolutionId;
+            this.ThirdPartyCertificationNumber = ThirdPartyCertificationNumber;
         }
         
         /// <summary>
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         public string SolutionId { get; set; }
 
         /// <summary>
+        /// Value that identifies the application vendor and application version for a third party gateway. CyberSource provides you with this value during testing and validation. This field is supported only on CyberSource through VisaNet.  #### Used by **Authorization, Authorization Reversal, Capture, Credit, Incremental Authorization, and Void** Optional field.  #### PIN debit Required field for PIN debit credit, PIN debit purchase, or PIN debit reversal request. 
+        /// </summary>
+        /// <value>Value that identifies the application vendor and application version for a third party gateway. CyberSource provides you with this value during testing and validation. This field is supported only on CyberSource through VisaNet.  #### Used by **Authorization, Authorization Reversal, Capture, Credit, Incremental Authorization, and Void** Optional field.  #### PIN debit Required field for PIN debit credit, PIN debit purchase, or PIN debit reversal request. </value>
+        [DataMember(Name="thirdPartyCertificationNumber", EmitDefaultValue=false)]
+        public string ThirdPartyCertificationNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseClientReferenceInformationPartner {\n");
             sb.Append("  SolutionId: ").Append(SolutionId).Append("\n");
+            sb.Append("  ThirdPartyCertificationNumber: ").Append(ThirdPartyCertificationNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.SolutionId == other.SolutionId ||
                     this.SolutionId != null &&
                     this.SolutionId.Equals(other.SolutionId)
+                ) && 
+                (
+                    this.ThirdPartyCertificationNumber == other.ThirdPartyCertificationNumber ||
+                    this.ThirdPartyCertificationNumber != null &&
+                    this.ThirdPartyCertificationNumber.Equals(other.ThirdPartyCertificationNumber)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.SolutionId != null)
                     hash = hash * 59 + this.SolutionId.GetHashCode();
+                if (this.ThirdPartyCertificationNumber != null)
+                    hash = hash * 59 + this.ThirdPartyCertificationNumber.GetHashCode();
                 return hash;
             }
         }

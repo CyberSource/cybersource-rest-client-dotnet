@@ -27,10 +27,10 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create one or more PKCS#12 keys
+        /// Create one or more PKCS12 keys
         /// </summary>
         /// <remarks>
-        /// &#39;Create one or more PKCS#12 keys&#39; 
+        /// &#39;Create one or more PKCS12 keys&#39; 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
@@ -38,20 +38,20 @@ namespace CyberSource.Api
         KmsV2KeysAsymPost201Response CreateP12Keys (CreateP12KeysRequest createP12KeysRequest);
 
         /// <summary>
-        /// Create one or more PKCS#12 keys
+        /// Create one or more PKCS12 keys
         /// </summary>
         /// <remarks>
-        /// &#39;Create one or more PKCS#12 keys&#39; 
+        /// &#39;Create one or more PKCS12 keys&#39; 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
         /// <returns>ApiResponse of KmsV2KeysAsymPost201Response</returns>
         ApiResponse<KmsV2KeysAsymPost201Response> CreateP12KeysWithHttpInfo (CreateP12KeysRequest createP12KeysRequest);
         /// <summary>
-        /// Delete one or more PKCS#12 keys
+        /// Delete one or more PKCS12 keys
         /// </summary>
         /// <remarks>
-        /// &#39;Delete one or more PKCS#12 keys&#39; 
+        /// &#39;Delete one or more PKCS12 keys&#39; 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
@@ -59,17 +59,17 @@ namespace CyberSource.Api
         KmsV2KeysAsymDeletesPost200Response DeleteBulkP12Keys (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
 
         /// <summary>
-        /// Delete one or more PKCS#12 keys
+        /// Delete one or more PKCS12 keys
         /// </summary>
         /// <remarks>
-        /// &#39;Delete one or more PKCS#12 keys&#39; 
+        /// &#39;Delete one or more PKCS12 keys&#39; 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
         /// <returns>ApiResponse of KmsV2KeysAsymDeletesPost200Response</returns>
         ApiResponse<KmsV2KeysAsymDeletesPost200Response> DeleteBulkP12KeysWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
         /// <summary>
-        /// Retrieves PKCS#12 key details
+        /// Retrieves PKCS12 key details
         /// </summary>
         /// <remarks>
         /// Retrieves keys details by providing the key id.
@@ -80,7 +80,7 @@ namespace CyberSource.Api
         KmsV2KeysAsymGet200Response GetP12KeyDetails (string keyId);
 
         /// <summary>
-        /// Retrieves PKCS#12 key details
+        /// Retrieves PKCS12 key details
         /// </summary>
         /// <remarks>
         /// Retrieves keys details by providing the key id.
@@ -92,10 +92,10 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create one or more PKCS#12 keys
+        /// Create one or more PKCS12 keys
         /// </summary>
         /// <remarks>
-        /// &#39;Create one or more PKCS#12 keys&#39; 
+        /// &#39;Create one or more PKCS12 keys&#39; 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
@@ -103,20 +103,20 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<KmsV2KeysAsymPost201Response> CreateP12KeysAsync (CreateP12KeysRequest createP12KeysRequest);
 
         /// <summary>
-        /// Create one or more PKCS#12 keys
+        /// Create one or more PKCS12 keys
         /// </summary>
         /// <remarks>
-        /// &#39;Create one or more PKCS#12 keys&#39; 
+        /// &#39;Create one or more PKCS12 keys&#39; 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
         /// <returns>Task of ApiResponse (KmsV2KeysAsymPost201Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymPost201Response>> CreateP12KeysAsyncWithHttpInfo (CreateP12KeysRequest createP12KeysRequest);
         /// <summary>
-        /// Delete one or more PKCS#12 keys
+        /// Delete one or more PKCS12 keys
         /// </summary>
         /// <remarks>
-        /// &#39;Delete one or more PKCS#12 keys&#39; 
+        /// &#39;Delete one or more PKCS12 keys&#39; 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
@@ -124,17 +124,17 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<KmsV2KeysAsymDeletesPost200Response> DeleteBulkP12KeysAsync (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
 
         /// <summary>
-        /// Delete one or more PKCS#12 keys
+        /// Delete one or more PKCS12 keys
         /// </summary>
         /// <remarks>
-        /// &#39;Delete one or more PKCS#12 keys&#39; 
+        /// &#39;Delete one or more PKCS12 keys&#39; 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
         /// <returns>Task of ApiResponse (KmsV2KeysAsymDeletesPost200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymDeletesPost200Response>> DeleteBulkP12KeysAsyncWithHttpInfo (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest);
         /// <summary>
-        /// Retrieves PKCS#12 key details
+        /// Retrieves PKCS12 key details
         /// </summary>
         /// <remarks>
         /// Retrieves keys details by providing the key id.
@@ -145,7 +145,7 @@ namespace CyberSource.Api
         System.Threading.Tasks.Task<KmsV2KeysAsymGet200Response> GetP12KeyDetailsAsync (string keyId);
 
         /// <summary>
-        /// Retrieves PKCS#12 key details
+        /// Retrieves PKCS12 key details
         /// </summary>
         /// <remarks>
         /// Retrieves keys details by providing the key id.
@@ -295,7 +295,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create one or more PKCS#12 keys &#39;Create one or more PKCS#12 keys&#39; 
+        /// Create one or more PKCS12 keys &#39;Create one or more PKCS12 keys&#39; 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
@@ -311,7 +311,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create one or more PKCS#12 keys &#39;Create one or more PKCS#12 keys&#39; 
+        /// Create one or more PKCS12 keys &#39;Create one or more PKCS12 keys&#39; 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
@@ -393,7 +393,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create one or more PKCS#12 keys &#39;Create one or more PKCS#12 keys&#39; 
+        /// Create one or more PKCS12 keys &#39;Create one or more PKCS12 keys&#39; 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
@@ -410,7 +410,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create one or more PKCS#12 keys &#39;Create one or more PKCS#12 keys&#39; 
+        /// Create one or more PKCS12 keys &#39;Create one or more PKCS12 keys&#39; 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createP12KeysRequest"></param>
@@ -491,7 +491,7 @@ namespace CyberSource.Api
                 (KmsV2KeysAsymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymPost201Response))); // Return statement
         }
         /// <summary>
-        /// Delete one or more PKCS#12 keys &#39;Delete one or more PKCS#12 keys&#39; 
+        /// Delete one or more PKCS12 keys &#39;Delete one or more PKCS12 keys&#39; 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
@@ -507,7 +507,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete one or more PKCS#12 keys &#39;Delete one or more PKCS#12 keys&#39; 
+        /// Delete one or more PKCS12 keys &#39;Delete one or more PKCS12 keys&#39; 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
@@ -589,7 +589,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete one or more PKCS#12 keys &#39;Delete one or more PKCS#12 keys&#39; 
+        /// Delete one or more PKCS12 keys &#39;Delete one or more PKCS12 keys&#39; 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
@@ -606,7 +606,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete one or more PKCS#12 keys &#39;Delete one or more PKCS#12 keys&#39; 
+        /// Delete one or more PKCS12 keys &#39;Delete one or more PKCS12 keys&#39; 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteBulkP12KeysRequest"></param>
@@ -687,7 +687,7 @@ namespace CyberSource.Api
                 (KmsV2KeysAsymDeletesPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymDeletesPost200Response))); // Return statement
         }
         /// <summary>
-        /// Retrieves PKCS#12 key details Retrieves keys details by providing the key id.
+        /// Retrieves PKCS12 key details Retrieves keys details by providing the key id.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
@@ -703,7 +703,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieves PKCS#12 key details Retrieves keys details by providing the key id.
+        /// Retrieves PKCS12 key details Retrieves keys details by providing the key id.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
@@ -781,7 +781,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieves PKCS#12 key details Retrieves keys details by providing the key id.
+        /// Retrieves PKCS12 key details Retrieves keys details by providing the key id.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>
@@ -798,7 +798,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieves PKCS#12 key details Retrieves keys details by providing the key id.
+        /// Retrieves PKCS12 key details Retrieves keys details by providing the key id.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">Key ID. </param>

@@ -4,18 +4,18 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateP12Keys**](AsymmetricKeyManagementApi.md#createp12keys) | **POST** /kms/v2/keys-asym | Create one or more PKCS#12 keys
-[**DeleteBulkP12Keys**](AsymmetricKeyManagementApi.md#deletebulkp12keys) | **POST** /kms/v2/keys-asym/deletes | Delete one or more PKCS#12 keys
-[**GetP12KeyDetails**](AsymmetricKeyManagementApi.md#getp12keydetails) | **GET** /kms/v2/keys-asym/{keyId} | Retrieves PKCS#12 key details
+[**CreateP12Keys**](AsymmetricKeyManagementApi.md#createp12keys) | **POST** /kms/v2/keys-asym | Create one or more PKCS12 keys
+[**DeleteBulkP12Keys**](AsymmetricKeyManagementApi.md#deletebulkp12keys) | **POST** /kms/v2/keys-asym/deletes | Delete one or more PKCS12 keys
+[**GetP12KeyDetails**](AsymmetricKeyManagementApi.md#getp12keydetails) | **GET** /kms/v2/keys-asym/{keyId} | Retrieves PKCS12 key details
 
 
 <a name="createp12keys"></a>
 # **CreateP12Keys**
 > KmsV2KeysAsymPost201Response CreateP12Keys (CreateP12KeysRequest createP12KeysRequest)
 
-Create one or more PKCS#12 keys
+Create one or more PKCS12 keys
 
-'Create one or more PKCS#12 keys' 
+'Create one or more PKCS12 keys' 
 
 ### Example
 ```csharp
@@ -36,7 +36,7 @@ namespace Example
 
             try
             {
-                // Create one or more PKCS#12 keys
+                // Create one or more PKCS12 keys
                 KmsV2KeysAsymPost201Response result = apiInstance.CreateP12Keys(createP12KeysRequest);
                 Debug.WriteLine(result);
             }
@@ -74,9 +74,9 @@ No authorization required
 # **DeleteBulkP12Keys**
 > KmsV2KeysAsymDeletesPost200Response DeleteBulkP12Keys (DeleteBulkP12KeysRequest deleteBulkP12KeysRequest)
 
-Delete one or more PKCS#12 keys
+Delete one or more PKCS12 keys
 
-'Delete one or more PKCS#12 keys' 
+'Delete one or more PKCS12 keys' 
 
 ### Example
 ```csharp
@@ -97,7 +97,7 @@ namespace Example
 
             try
             {
-                // Delete one or more PKCS#12 keys
+                // Delete one or more PKCS12 keys
                 KmsV2KeysAsymDeletesPost200Response result = apiInstance.DeleteBulkP12Keys(deleteBulkP12KeysRequest);
                 Debug.WriteLine(result);
             }
@@ -135,7 +135,7 @@ No authorization required
 # **GetP12KeyDetails**
 > KmsV2KeysAsymGet200Response GetP12KeyDetails (string keyId)
 
-Retrieves PKCS#12 key details
+Retrieves PKCS12 key details
 
 Retrieves keys details by providing the key id.
 
@@ -158,7 +158,7 @@ namespace Example
 
             try
             {
-                // Retrieves PKCS#12 key details
+                // Retrieves PKCS12 key details
                 KmsV2KeysAsymGet200Response result = apiInstance.GetP12KeyDetails(keyId);
                 Debug.WriteLine(result);
             }

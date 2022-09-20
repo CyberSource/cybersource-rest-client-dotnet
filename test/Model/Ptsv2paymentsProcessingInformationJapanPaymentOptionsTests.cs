@@ -73,6 +73,54 @@ namespace CyberSource.Test
             // TODO unit test for the property 'PaymentMethod'
         }
         /// <summary>
+        /// Test the property 'Bonuses'
+        /// </summary>
+        [Test]
+        public void BonusesTest()
+        {
+            // TODO unit test for the property 'Bonuses'
+        }
+        /// <summary>
+        /// Test the property 'BonusMonth'
+        /// </summary>
+        [Test]
+        public void BonusMonthTest()
+        {
+            // TODO unit test for the property 'BonusMonth'
+        }
+        /// <summary>
+        /// Test the property 'SecondBonusMonth'
+        /// </summary>
+        [Test]
+        public void SecondBonusMonthTest()
+        {
+            // TODO unit test for the property 'SecondBonusMonth'
+        }
+        /// <summary>
+        /// Test the property 'BonusAmount'
+        /// </summary>
+        [Test]
+        public void BonusAmountTest()
+        {
+            // TODO unit test for the property 'BonusAmount'
+        }
+        /// <summary>
+        /// Test the property 'SecondBonusAmount'
+        /// </summary>
+        [Test]
+        public void SecondBonusAmountTest()
+        {
+            // TODO unit test for the property 'SecondBonusAmount'
+        }
+        /// <summary>
+        /// Test the property 'PreapprovalType'
+        /// </summary>
+        [Test]
+        public void PreapprovalTypeTest()
+        {
+            // TODO unit test for the property 'PreapprovalType'
+        }
+        /// <summary>
         /// Test the property 'Installments'
         /// </summary>
         [Test]

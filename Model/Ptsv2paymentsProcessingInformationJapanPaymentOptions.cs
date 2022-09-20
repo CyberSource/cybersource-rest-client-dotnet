@@ -34,6 +34,12 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsProcessingInformationJapanPaymentOptions" /> class.
         /// </summary>
         /// <param name="PaymentMethod">This value is a 2-digit code indicating the payment method. Use Payment Method Code value that applies to the tranasction. - 10 (One-time payment) - 21, 22, 23, 24  (Bonus(one-time)payment) - 61 (Installment payment) - 31, 32, 33, 34  (Integrated (Bonus + Installment)payment) - 80 (Revolving payment) .</param>
+        /// <param name="Bonuses">This value is a 2-digit code indicating the Number of Bonuses. Valid value from 1 to 6. .</param>
+        /// <param name="BonusMonth">This value is a 2-digit code indicating the first bonus month. Valid value from 1 to 12. .</param>
+        /// <param name="SecondBonusMonth">This value is a 2-digit code indicating the second bonus month. Valid value from 1 to 12. .</param>
+        /// <param name="BonusAmount">This value contains the bonus amount of the first month. Maximum value without decimal 99999999. .</param>
+        /// <param name="SecondBonusAmount">This value contains the bonus amount of the second month. Maximum value without decimal 99999999. .</param>
+        /// <param name="PreapprovalType">This will contain the details of the kind of transaction that has been processe. Used only for Japan. Possible Values: - 0 &#x3D; Normal (authorization with amount and clearing/settlement; data capture or paper draft) - 1 &#x3D; Negative card authorization (authorization-only with 0 or 1 amount) - 2 &#x3D; Reservation of authorization (authorization-only with amount) - 3 &#x3D; Cancel transaction - 4 &#x3D; Merchant-initiated reversal/refund transactions - 5 &#x3D; Cancel reservation of authorization - 6 &#x3D; Post authorization .</param>
         /// <param name="Installments">Number of Installments. .</param>
         /// <param name="TerminalId">Unique Japan Credit Card Association (JCCA) terminal identifier.  The difference between this field and the &#x60;pointOfSaleInformation.terminalID&#x60; field is that you can define &#x60;pointOfSaleInformation.terminalID&#x60;, but &#x60;processingInformation.japanPaymentOptions.terminalId&#x60; is defined by the JCCA and is used only in Japan.  This field is supported only on CyberSource through VisaNet and JCN Gateway.  Optional field. .</param>
         /// <param name="FirstBillingMonth">Billing month in MM format. .</param>
@@ -41,9 +47,15 @@ namespace CyberSource.Model
         /// <param name="BusinessNameKatakana">Business name in Katakana characters. This field is supported only on JCN Gateway and for the Sumitomo Mitsui Card Co. acquirer on CyberSource through VisaNet. .</param>
         /// <param name="Jis2TrackData">Japanese Industrial Standard Type 2 (JIS2) track data from the front of the card.  This field is supported only on CyberSource through VisaNet and JCN Gateway.  Optional field. .</param>
         /// <param name="BusinessNameAlphaNumeric">Business name in alphanumeric characters. This field is supported only on JCN Gateway and for the Sumitomo Mitsui Card Co. acquirer on CyberSource through VisaNet. .</param>
-        public Ptsv2paymentsProcessingInformationJapanPaymentOptions(string PaymentMethod = default(string), string Installments = default(string), string TerminalId = default(string), string FirstBillingMonth = default(string), string BusinessName = default(string), string BusinessNameKatakana = default(string), string Jis2TrackData = default(string), string BusinessNameAlphaNumeric = default(string))
+        public Ptsv2paymentsProcessingInformationJapanPaymentOptions(string PaymentMethod = default(string), string Bonuses = default(string), string BonusMonth = default(string), string SecondBonusMonth = default(string), string BonusAmount = default(string), string SecondBonusAmount = default(string), string PreapprovalType = default(string), string Installments = default(string), string TerminalId = default(string), string FirstBillingMonth = default(string), string BusinessName = default(string), string BusinessNameKatakana = default(string), string Jis2TrackData = default(string), string BusinessNameAlphaNumeric = default(string))
         {
             this.PaymentMethod = PaymentMethod;
+            this.Bonuses = Bonuses;
+            this.BonusMonth = BonusMonth;
+            this.SecondBonusMonth = SecondBonusMonth;
+            this.BonusAmount = BonusAmount;
+            this.SecondBonusAmount = SecondBonusAmount;
+            this.PreapprovalType = PreapprovalType;
             this.Installments = Installments;
             this.TerminalId = TerminalId;
             this.FirstBillingMonth = FirstBillingMonth;
@@ -59,6 +71,48 @@ namespace CyberSource.Model
         /// <value>This value is a 2-digit code indicating the payment method. Use Payment Method Code value that applies to the tranasction. - 10 (One-time payment) - 21, 22, 23, 24  (Bonus(one-time)payment) - 61 (Installment payment) - 31, 32, 33, 34  (Integrated (Bonus + Installment)payment) - 80 (Revolving payment) </value>
         [DataMember(Name="paymentMethod", EmitDefaultValue=false)]
         public string PaymentMethod { get; set; }
+
+        /// <summary>
+        /// This value is a 2-digit code indicating the Number of Bonuses. Valid value from 1 to 6. 
+        /// </summary>
+        /// <value>This value is a 2-digit code indicating the Number of Bonuses. Valid value from 1 to 6. </value>
+        [DataMember(Name="bonuses", EmitDefaultValue=false)]
+        public string Bonuses { get; set; }
+
+        /// <summary>
+        /// This value is a 2-digit code indicating the first bonus month. Valid value from 1 to 12. 
+        /// </summary>
+        /// <value>This value is a 2-digit code indicating the first bonus month. Valid value from 1 to 12. </value>
+        [DataMember(Name="bonusMonth", EmitDefaultValue=false)]
+        public string BonusMonth { get; set; }
+
+        /// <summary>
+        /// This value is a 2-digit code indicating the second bonus month. Valid value from 1 to 12. 
+        /// </summary>
+        /// <value>This value is a 2-digit code indicating the second bonus month. Valid value from 1 to 12. </value>
+        [DataMember(Name="secondBonusMonth", EmitDefaultValue=false)]
+        public string SecondBonusMonth { get; set; }
+
+        /// <summary>
+        /// This value contains the bonus amount of the first month. Maximum value without decimal 99999999. 
+        /// </summary>
+        /// <value>This value contains the bonus amount of the first month. Maximum value without decimal 99999999. </value>
+        [DataMember(Name="bonusAmount", EmitDefaultValue=false)]
+        public string BonusAmount { get; set; }
+
+        /// <summary>
+        /// This value contains the bonus amount of the second month. Maximum value without decimal 99999999. 
+        /// </summary>
+        /// <value>This value contains the bonus amount of the second month. Maximum value without decimal 99999999. </value>
+        [DataMember(Name="secondBonusAmount", EmitDefaultValue=false)]
+        public string SecondBonusAmount { get; set; }
+
+        /// <summary>
+        /// This will contain the details of the kind of transaction that has been processe. Used only for Japan. Possible Values: - 0 &#x3D; Normal (authorization with amount and clearing/settlement; data capture or paper draft) - 1 &#x3D; Negative card authorization (authorization-only with 0 or 1 amount) - 2 &#x3D; Reservation of authorization (authorization-only with amount) - 3 &#x3D; Cancel transaction - 4 &#x3D; Merchant-initiated reversal/refund transactions - 5 &#x3D; Cancel reservation of authorization - 6 &#x3D; Post authorization 
+        /// </summary>
+        /// <value>This will contain the details of the kind of transaction that has been processe. Used only for Japan. Possible Values: - 0 &#x3D; Normal (authorization with amount and clearing/settlement; data capture or paper draft) - 1 &#x3D; Negative card authorization (authorization-only with 0 or 1 amount) - 2 &#x3D; Reservation of authorization (authorization-only with amount) - 3 &#x3D; Cancel transaction - 4 &#x3D; Merchant-initiated reversal/refund transactions - 5 &#x3D; Cancel reservation of authorization - 6 &#x3D; Post authorization </value>
+        [DataMember(Name="preapprovalType", EmitDefaultValue=false)]
+        public string PreapprovalType { get; set; }
 
         /// <summary>
         /// Number of Installments. 
@@ -118,6 +172,12 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsProcessingInformationJapanPaymentOptions {\n");
             sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
+            sb.Append("  Bonuses: ").Append(Bonuses).Append("\n");
+            sb.Append("  BonusMonth: ").Append(BonusMonth).Append("\n");
+            sb.Append("  SecondBonusMonth: ").Append(SecondBonusMonth).Append("\n");
+            sb.Append("  BonusAmount: ").Append(BonusAmount).Append("\n");
+            sb.Append("  SecondBonusAmount: ").Append(SecondBonusAmount).Append("\n");
+            sb.Append("  PreapprovalType: ").Append(PreapprovalType).Append("\n");
             sb.Append("  Installments: ").Append(Installments).Append("\n");
             sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
             sb.Append("  FirstBillingMonth: ").Append(FirstBillingMonth).Append("\n");
@@ -165,6 +225,36 @@ namespace CyberSource.Model
                     this.PaymentMethod == other.PaymentMethod ||
                     this.PaymentMethod != null &&
                     this.PaymentMethod.Equals(other.PaymentMethod)
+                ) && 
+                (
+                    this.Bonuses == other.Bonuses ||
+                    this.Bonuses != null &&
+                    this.Bonuses.Equals(other.Bonuses)
+                ) && 
+                (
+                    this.BonusMonth == other.BonusMonth ||
+                    this.BonusMonth != null &&
+                    this.BonusMonth.Equals(other.BonusMonth)
+                ) && 
+                (
+                    this.SecondBonusMonth == other.SecondBonusMonth ||
+                    this.SecondBonusMonth != null &&
+                    this.SecondBonusMonth.Equals(other.SecondBonusMonth)
+                ) && 
+                (
+                    this.BonusAmount == other.BonusAmount ||
+                    this.BonusAmount != null &&
+                    this.BonusAmount.Equals(other.BonusAmount)
+                ) && 
+                (
+                    this.SecondBonusAmount == other.SecondBonusAmount ||
+                    this.SecondBonusAmount != null &&
+                    this.SecondBonusAmount.Equals(other.SecondBonusAmount)
+                ) && 
+                (
+                    this.PreapprovalType == other.PreapprovalType ||
+                    this.PreapprovalType != null &&
+                    this.PreapprovalType.Equals(other.PreapprovalType)
                 ) && 
                 (
                     this.Installments == other.Installments ||
@@ -216,6 +306,18 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.PaymentMethod != null)
                     hash = hash * 59 + this.PaymentMethod.GetHashCode();
+                if (this.Bonuses != null)
+                    hash = hash * 59 + this.Bonuses.GetHashCode();
+                if (this.BonusMonth != null)
+                    hash = hash * 59 + this.BonusMonth.GetHashCode();
+                if (this.SecondBonusMonth != null)
+                    hash = hash * 59 + this.SecondBonusMonth.GetHashCode();
+                if (this.BonusAmount != null)
+                    hash = hash * 59 + this.BonusAmount.GetHashCode();
+                if (this.SecondBonusAmount != null)
+                    hash = hash * 59 + this.SecondBonusAmount.GetHashCode();
+                if (this.PreapprovalType != null)
+                    hash = hash * 59 + this.PreapprovalType.GetHashCode();
                 if (this.Installments != null)
                     hash = hash * 59 + this.Installments.GetHashCode();
                 if (this.TerminalId != null)

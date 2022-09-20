@@ -51,7 +51,8 @@ namespace CyberSource.Model
         /// <param name="AggregatedAuthIndicator">Indicates if transaction is an aggregated auth  Possible values: - **true** - **false** .</param>
         /// <param name="DebtRecoveryIndicator">Indicates if transaction is a debt recovery request  Possible values: - **true** - **false** .</param>
         /// <param name="DeferredAuthIndicator">Flag that indicates whether the authorization request was delayed because connectivity was interrupted.  Possible values:   - &#x60;true&#x60; (Deferred authorization)   - &#x60;false&#x60; (default: Not a deferred authorization) .</param>
-        public Ptsv2paymentsProcessingInformationAuthorizationOptions(string AuthType = default(string), string PanReturnIndicator = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), bool? IgnoreCvResult = false, Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator Initiator = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string), bool? RedemptionInquiry = default(bool?), string TransportationMode = default(string), string AggregatedAuthIndicator = default(string), string DebtRecoveryIndicator = default(string), bool? DeferredAuthIndicator = default(bool?))
+        /// <param name="CashAdvanceIndicator">This API field enables the merchant to indicate that a given transaction is Cash Advance.  Cash advance or Cash disbursement functionality allows a merchant to dispense cash at a point of sale. It provides the ability of a POS system to act like an ATM. These terminals are typically seen in bank branches where customers can use their card and withdraw cash or at merchant locations where ATMs are sparse.  Possible values:   - &#x60;true&#x60; (Cash advance is supported)   - &#x60;false&#x60; (default: cash advance is not supported) .</param>
+        public Ptsv2paymentsProcessingInformationAuthorizationOptions(string AuthType = default(string), string PanReturnIndicator = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), bool? IgnoreCvResult = false, Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator Initiator = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string), bool? RedemptionInquiry = default(bool?), string TransportationMode = default(string), string AggregatedAuthIndicator = default(string), string DebtRecoveryIndicator = default(string), bool? DeferredAuthIndicator = default(bool?), bool? CashAdvanceIndicator = default(bool?))
         {
             this.AuthType = AuthType;
             this.PanReturnIndicator = PanReturnIndicator;
@@ -87,6 +88,7 @@ namespace CyberSource.Model
             this.AggregatedAuthIndicator = AggregatedAuthIndicator;
             this.DebtRecoveryIndicator = DebtRecoveryIndicator;
             this.DeferredAuthIndicator = DeferredAuthIndicator;
+            this.CashAdvanceIndicator = CashAdvanceIndicator;
         }
         
         /// <summary>
@@ -215,6 +217,13 @@ namespace CyberSource.Model
         public bool? DeferredAuthIndicator { get; set; }
 
         /// <summary>
+        /// This API field enables the merchant to indicate that a given transaction is Cash Advance.  Cash advance or Cash disbursement functionality allows a merchant to dispense cash at a point of sale. It provides the ability of a POS system to act like an ATM. These terminals are typically seen in bank branches where customers can use their card and withdraw cash or at merchant locations where ATMs are sparse.  Possible values:   - &#x60;true&#x60; (Cash advance is supported)   - &#x60;false&#x60; (default: cash advance is not supported) 
+        /// </summary>
+        /// <value>This API field enables the merchant to indicate that a given transaction is Cash Advance.  Cash advance or Cash disbursement functionality allows a merchant to dispense cash at a point of sale. It provides the ability of a POS system to act like an ATM. These terminals are typically seen in bank branches where customers can use their card and withdraw cash or at merchant locations where ATMs are sparse.  Possible values:   - &#x60;true&#x60; (Cash advance is supported)   - &#x60;false&#x60; (default: cash advance is not supported) </value>
+        [DataMember(Name="cashAdvanceIndicator", EmitDefaultValue=false)]
+        public bool? CashAdvanceIndicator { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -240,6 +249,7 @@ namespace CyberSource.Model
             sb.Append("  AggregatedAuthIndicator: ").Append(AggregatedAuthIndicator).Append("\n");
             sb.Append("  DebtRecoveryIndicator: ").Append(DebtRecoveryIndicator).Append("\n");
             sb.Append("  DeferredAuthIndicator: ").Append(DeferredAuthIndicator).Append("\n");
+            sb.Append("  CashAdvanceIndicator: ").Append(CashAdvanceIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -365,6 +375,11 @@ namespace CyberSource.Model
                     this.DeferredAuthIndicator == other.DeferredAuthIndicator ||
                     this.DeferredAuthIndicator != null &&
                     this.DeferredAuthIndicator.Equals(other.DeferredAuthIndicator)
+                ) && 
+                (
+                    this.CashAdvanceIndicator == other.CashAdvanceIndicator ||
+                    this.CashAdvanceIndicator != null &&
+                    this.CashAdvanceIndicator.Equals(other.CashAdvanceIndicator)
                 );
         }
 
@@ -415,6 +430,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DebtRecoveryIndicator.GetHashCode();
                 if (this.DeferredAuthIndicator != null)
                     hash = hash * 59 + this.DeferredAuthIndicator.GetHashCode();
+                if (this.CashAdvanceIndicator != null)
+                    hash = hash * 59 + this.CashAdvanceIndicator.GetHashCode();
                 return hash;
             }
         }
