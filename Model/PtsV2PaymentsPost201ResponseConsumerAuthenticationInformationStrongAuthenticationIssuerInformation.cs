@@ -35,10 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="RiskAnalysisExemptionResult">Possible values: Visa Platform Connect - &#x60;8401&#x60; Merchant not participating in Visa Trusted Listing Program. - &#x60;8402&#x60; Issuer not participating in Visa Trusted Listing Program. - &#x60;8403&#x60; Cardholder has not trusted the merchant (supplied by Visa Net). - &#x60;8404&#x60; Indeterminate or invalid issuer response. - &#x60;8473&#x60; Cardholder has not trusted the merchant (issuer-supplied). - &#x60;8474&#x60; Did not meet the exemption criteria (issuer-supplied).  Upto 20 Values may be received in a transaction. .</param>
         /// <param name="TrustedMerchantExemptionResult">Possible values: Visa Platform Connect - &#x60;2&#x60; Trusted merchant exemption validated/honored. - &#x60;3&#x60; Trusted merchant exemption failed validation/not honored. .</param>
-        public PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthenticationIssuerInformation(string RiskAnalysisExemptionResult = default(string), string TrustedMerchantExemptionResult = default(string))
+        /// <param name="LowValueExemptionResult">This will be the value returned by Visanet when low value exemption has been requested.  Valid values: Visa Platform Connect - &#x60;2&#x60; Low value exemption validated/honored - &#x60;3&#x60; Low value exemption failed validation/not honored .</param>
+        /// <param name="SecureCorporatePaymentResult">This will be the value returned by Visanet when secure corporate payment (scp) exemption has been requested.  Valid values: Visa Platform Connect - &#x60;2&#x60; Secure corporate payment exemption validated/honored - &#x60;3&#x60; Secure corporate payment exemption failed validation/not honored .</param>
+        /// <param name="TransactionRiskAnalysisExemptionResult">This will be the value returned by Visanet when transaction risk analysis (TRA) exemption has been requested.    Valid values: Visa Platform Connect   - &#x60;2&#x60; transaction risk analysis (TRA) exemption validated/honored   - &#x60;3&#x60; transaction risk analysis (TRA) exemption failed validation/not honored .</param>
+        public PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthenticationIssuerInformation(string RiskAnalysisExemptionResult = default(string), string TrustedMerchantExemptionResult = default(string), string LowValueExemptionResult = default(string), string SecureCorporatePaymentResult = default(string), string TransactionRiskAnalysisExemptionResult = default(string))
         {
             this.RiskAnalysisExemptionResult = RiskAnalysisExemptionResult;
             this.TrustedMerchantExemptionResult = TrustedMerchantExemptionResult;
+            this.LowValueExemptionResult = LowValueExemptionResult;
+            this.SecureCorporatePaymentResult = SecureCorporatePaymentResult;
+            this.TransactionRiskAnalysisExemptionResult = TransactionRiskAnalysisExemptionResult;
         }
         
         /// <summary>
@@ -56,6 +62,27 @@ namespace CyberSource.Model
         public string TrustedMerchantExemptionResult { get; set; }
 
         /// <summary>
+        /// This will be the value returned by Visanet when low value exemption has been requested.  Valid values: Visa Platform Connect - &#x60;2&#x60; Low value exemption validated/honored - &#x60;3&#x60; Low value exemption failed validation/not honored 
+        /// </summary>
+        /// <value>This will be the value returned by Visanet when low value exemption has been requested.  Valid values: Visa Platform Connect - &#x60;2&#x60; Low value exemption validated/honored - &#x60;3&#x60; Low value exemption failed validation/not honored </value>
+        [DataMember(Name="lowValueExemptionResult", EmitDefaultValue=false)]
+        public string LowValueExemptionResult { get; set; }
+
+        /// <summary>
+        /// This will be the value returned by Visanet when secure corporate payment (scp) exemption has been requested.  Valid values: Visa Platform Connect - &#x60;2&#x60; Secure corporate payment exemption validated/honored - &#x60;3&#x60; Secure corporate payment exemption failed validation/not honored 
+        /// </summary>
+        /// <value>This will be the value returned by Visanet when secure corporate payment (scp) exemption has been requested.  Valid values: Visa Platform Connect - &#x60;2&#x60; Secure corporate payment exemption validated/honored - &#x60;3&#x60; Secure corporate payment exemption failed validation/not honored </value>
+        [DataMember(Name="secureCorporatePaymentResult", EmitDefaultValue=false)]
+        public string SecureCorporatePaymentResult { get; set; }
+
+        /// <summary>
+        /// This will be the value returned by Visanet when transaction risk analysis (TRA) exemption has been requested.    Valid values: Visa Platform Connect   - &#x60;2&#x60; transaction risk analysis (TRA) exemption validated/honored   - &#x60;3&#x60; transaction risk analysis (TRA) exemption failed validation/not honored 
+        /// </summary>
+        /// <value>This will be the value returned by Visanet when transaction risk analysis (TRA) exemption has been requested.    Valid values: Visa Platform Connect   - &#x60;2&#x60; transaction risk analysis (TRA) exemption validated/honored   - &#x60;3&#x60; transaction risk analysis (TRA) exemption failed validation/not honored </value>
+        [DataMember(Name="transactionRiskAnalysisExemptionResult", EmitDefaultValue=false)]
+        public string TransactionRiskAnalysisExemptionResult { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +92,9 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthenticationIssuerInformation {\n");
             sb.Append("  RiskAnalysisExemptionResult: ").Append(RiskAnalysisExemptionResult).Append("\n");
             sb.Append("  TrustedMerchantExemptionResult: ").Append(TrustedMerchantExemptionResult).Append("\n");
+            sb.Append("  LowValueExemptionResult: ").Append(LowValueExemptionResult).Append("\n");
+            sb.Append("  SecureCorporatePaymentResult: ").Append(SecureCorporatePaymentResult).Append("\n");
+            sb.Append("  TransactionRiskAnalysisExemptionResult: ").Append(TransactionRiskAnalysisExemptionResult).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +140,21 @@ namespace CyberSource.Model
                     this.TrustedMerchantExemptionResult == other.TrustedMerchantExemptionResult ||
                     this.TrustedMerchantExemptionResult != null &&
                     this.TrustedMerchantExemptionResult.Equals(other.TrustedMerchantExemptionResult)
+                ) && 
+                (
+                    this.LowValueExemptionResult == other.LowValueExemptionResult ||
+                    this.LowValueExemptionResult != null &&
+                    this.LowValueExemptionResult.Equals(other.LowValueExemptionResult)
+                ) && 
+                (
+                    this.SecureCorporatePaymentResult == other.SecureCorporatePaymentResult ||
+                    this.SecureCorporatePaymentResult != null &&
+                    this.SecureCorporatePaymentResult.Equals(other.SecureCorporatePaymentResult)
+                ) && 
+                (
+                    this.TransactionRiskAnalysisExemptionResult == other.TransactionRiskAnalysisExemptionResult ||
+                    this.TransactionRiskAnalysisExemptionResult != null &&
+                    this.TransactionRiskAnalysisExemptionResult.Equals(other.TransactionRiskAnalysisExemptionResult)
                 );
         }
 
@@ -128,6 +173,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RiskAnalysisExemptionResult.GetHashCode();
                 if (this.TrustedMerchantExemptionResult != null)
                     hash = hash * 59 + this.TrustedMerchantExemptionResult.GetHashCode();
+                if (this.LowValueExemptionResult != null)
+                    hash = hash * 59 + this.LowValueExemptionResult.GetHashCode();
+                if (this.SecureCorporatePaymentResult != null)
+                    hash = hash * 59 + this.SecureCorporatePaymentResult.GetHashCode();
+                if (this.TransactionRiskAnalysisExemptionResult != null)
+                    hash = hash * 59 + this.TransactionRiskAnalysisExemptionResult.GetHashCode();
                 return hash;
             }
         }
