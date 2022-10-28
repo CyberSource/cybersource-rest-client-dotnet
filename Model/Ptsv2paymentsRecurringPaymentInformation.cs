@@ -38,13 +38,25 @@ namespace CyberSource.Model
         /// <param name="NumberOfPayments">Total number of payments for the duration of the recurring subscription. .</param>
         /// <param name="OriginalPurchaseDate">Date of original purchase. Required for recurring transactions. Format: &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; **Note**: If this field is empty, the current date is used. .</param>
         /// <param name="SequenceNumber">This field is mandatory for Cartes Bancaires recurring transactions on Credit Mutuel-CIC.       This field records recurring sequence, e.g. 1st for initial,  2 for subsequent, 3 etc .</param>
-        public Ptsv2paymentsRecurringPaymentInformation(string EndDate = default(string), int? Frequency = default(int?), int? NumberOfPayments = default(int?), string OriginalPurchaseDate = default(string), int? SequenceNumber = default(int?))
+        /// <param name="Type">This contains the type of recurring payment. Valid Values : 1 - Registration/First transaction 2 - Subsequent transaction 3 - Modification 4 - Cancellation .</param>
+        /// <param name="Occurrence">This value indicates how often a recurring payment occurs. Valid Values : • 01 (Daily) • 02 (Twice weekly) • 03 (Weekly) • 04 (Ten days) • 05 (Fortnightly) • 06 (Monthly) • 07 (Every two months) • 08 (Trimester) • 09 (Quarterly) • 10 (Twice yearly) • 11 (Annually) • 12 (Unscheduled) .</param>
+        /// <param name="ValidationIndicator">This tag will contain a value that indicates whether or not the recurring payment transaction has been validated. Valid values : 0- Not validated 1- Validated .</param>
+        /// <param name="AmountType">Indicates recurring amount type agreed by the cardholder Valid Values : 1- Fixed amount recurring payment 2- Recurring payment with maximum amount .</param>
+        /// <param name="MaximumAmount">This API field will contain the maximum amount agreed to by the cardholder. The currency of this amount will be specified in Field 49—Currency Code,Transaction. .</param>
+        /// <param name="ReferenceNumber">This will contain a unique reference number for the recurring payment transaction. .</param>
+        public Ptsv2paymentsRecurringPaymentInformation(string EndDate = default(string), int? Frequency = default(int?), int? NumberOfPayments = default(int?), string OriginalPurchaseDate = default(string), int? SequenceNumber = default(int?), string Type = default(string), string Occurrence = default(string), string ValidationIndicator = default(string), string AmountType = default(string), string MaximumAmount = default(string), string ReferenceNumber = default(string))
         {
             this.EndDate = EndDate;
             this.Frequency = Frequency;
             this.NumberOfPayments = NumberOfPayments;
             this.OriginalPurchaseDate = OriginalPurchaseDate;
             this.SequenceNumber = SequenceNumber;
+            this.Type = Type;
+            this.Occurrence = Occurrence;
+            this.ValidationIndicator = ValidationIndicator;
+            this.AmountType = AmountType;
+            this.MaximumAmount = MaximumAmount;
+            this.ReferenceNumber = ReferenceNumber;
         }
         
         /// <summary>
@@ -83,6 +95,48 @@ namespace CyberSource.Model
         public int? SequenceNumber { get; set; }
 
         /// <summary>
+        /// This contains the type of recurring payment. Valid Values : 1 - Registration/First transaction 2 - Subsequent transaction 3 - Modification 4 - Cancellation 
+        /// </summary>
+        /// <value>This contains the type of recurring payment. Valid Values : 1 - Registration/First transaction 2 - Subsequent transaction 3 - Modification 4 - Cancellation </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// This value indicates how often a recurring payment occurs. Valid Values : • 01 (Daily) • 02 (Twice weekly) • 03 (Weekly) • 04 (Ten days) • 05 (Fortnightly) • 06 (Monthly) • 07 (Every two months) • 08 (Trimester) • 09 (Quarterly) • 10 (Twice yearly) • 11 (Annually) • 12 (Unscheduled) 
+        /// </summary>
+        /// <value>This value indicates how often a recurring payment occurs. Valid Values : • 01 (Daily) • 02 (Twice weekly) • 03 (Weekly) • 04 (Ten days) • 05 (Fortnightly) • 06 (Monthly) • 07 (Every two months) • 08 (Trimester) • 09 (Quarterly) • 10 (Twice yearly) • 11 (Annually) • 12 (Unscheduled) </value>
+        [DataMember(Name="occurrence", EmitDefaultValue=false)]
+        public string Occurrence { get; set; }
+
+        /// <summary>
+        /// This tag will contain a value that indicates whether or not the recurring payment transaction has been validated. Valid values : 0- Not validated 1- Validated 
+        /// </summary>
+        /// <value>This tag will contain a value that indicates whether or not the recurring payment transaction has been validated. Valid values : 0- Not validated 1- Validated </value>
+        [DataMember(Name="validationIndicator", EmitDefaultValue=false)]
+        public string ValidationIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates recurring amount type agreed by the cardholder Valid Values : 1- Fixed amount recurring payment 2- Recurring payment with maximum amount 
+        /// </summary>
+        /// <value>Indicates recurring amount type agreed by the cardholder Valid Values : 1- Fixed amount recurring payment 2- Recurring payment with maximum amount </value>
+        [DataMember(Name="amountType", EmitDefaultValue=false)]
+        public string AmountType { get; set; }
+
+        /// <summary>
+        /// This API field will contain the maximum amount agreed to by the cardholder. The currency of this amount will be specified in Field 49—Currency Code,Transaction. 
+        /// </summary>
+        /// <value>This API field will contain the maximum amount agreed to by the cardholder. The currency of this amount will be specified in Field 49—Currency Code,Transaction. </value>
+        [DataMember(Name="maximumAmount", EmitDefaultValue=false)]
+        public string MaximumAmount { get; set; }
+
+        /// <summary>
+        /// This will contain a unique reference number for the recurring payment transaction. 
+        /// </summary>
+        /// <value>This will contain a unique reference number for the recurring payment transaction. </value>
+        [DataMember(Name="referenceNumber", EmitDefaultValue=false)]
+        public string ReferenceNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +149,12 @@ namespace CyberSource.Model
             sb.Append("  NumberOfPayments: ").Append(NumberOfPayments).Append("\n");
             sb.Append("  OriginalPurchaseDate: ").Append(OriginalPurchaseDate).Append("\n");
             sb.Append("  SequenceNumber: ").Append(SequenceNumber).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Occurrence: ").Append(Occurrence).Append("\n");
+            sb.Append("  ValidationIndicator: ").Append(ValidationIndicator).Append("\n");
+            sb.Append("  AmountType: ").Append(AmountType).Append("\n");
+            sb.Append("  MaximumAmount: ").Append(MaximumAmount).Append("\n");
+            sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +215,36 @@ namespace CyberSource.Model
                     this.SequenceNumber == other.SequenceNumber ||
                     this.SequenceNumber != null &&
                     this.SequenceNumber.Equals(other.SequenceNumber)
+                ) && 
+                (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.Occurrence == other.Occurrence ||
+                    this.Occurrence != null &&
+                    this.Occurrence.Equals(other.Occurrence)
+                ) && 
+                (
+                    this.ValidationIndicator == other.ValidationIndicator ||
+                    this.ValidationIndicator != null &&
+                    this.ValidationIndicator.Equals(other.ValidationIndicator)
+                ) && 
+                (
+                    this.AmountType == other.AmountType ||
+                    this.AmountType != null &&
+                    this.AmountType.Equals(other.AmountType)
+                ) && 
+                (
+                    this.MaximumAmount == other.MaximumAmount ||
+                    this.MaximumAmount != null &&
+                    this.MaximumAmount.Equals(other.MaximumAmount)
+                ) && 
+                (
+                    this.ReferenceNumber == other.ReferenceNumber ||
+                    this.ReferenceNumber != null &&
+                    this.ReferenceNumber.Equals(other.ReferenceNumber)
                 );
         }
 
@@ -179,6 +269,18 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.OriginalPurchaseDate.GetHashCode();
                 if (this.SequenceNumber != null)
                     hash = hash * 59 + this.SequenceNumber.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Occurrence != null)
+                    hash = hash * 59 + this.Occurrence.GetHashCode();
+                if (this.ValidationIndicator != null)
+                    hash = hash * 59 + this.ValidationIndicator.GetHashCode();
+                if (this.AmountType != null)
+                    hash = hash * 59 + this.AmountType.GetHashCode();
+                if (this.MaximumAmount != null)
+                    hash = hash * 59 + this.MaximumAmount.GetHashCode();
+                if (this.ReferenceNumber != null)
+                    hash = hash * 59 + this.ReferenceNumber.GetHashCode();
                 return hash;
             }
         }

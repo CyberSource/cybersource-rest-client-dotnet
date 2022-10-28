@@ -80,6 +80,30 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TrustedMerchantExemptionResult'
         }
+        /// <summary>
+        /// Test the property 'LowValueExemptionResult'
+        /// </summary>
+        [Test]
+        public void LowValueExemptionResultTest()
+        {
+            // TODO unit test for the property 'LowValueExemptionResult'
+        }
+        /// <summary>
+        /// Test the property 'SecureCorporatePaymentResult'
+        /// </summary>
+        [Test]
+        public void SecureCorporatePaymentResultTest()
+        {
+            // TODO unit test for the property 'SecureCorporatePaymentResult'
+        }
+        /// <summary>
+        /// Test the property 'TransactionRiskAnalysisExemptionResult'
+        /// </summary>
+        [Test]
+        public void TransactionRiskAnalysisExemptionResultTest()
+        {
+            // TODO unit test for the property 'TransactionRiskAnalysisExemptionResult'
+        }
 
     }
 

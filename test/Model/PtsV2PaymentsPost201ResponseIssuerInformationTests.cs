@@ -96,14 +96,6 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ResponseCode'
         }
-        /// <summary>
-        /// Test the property 'ResponseRaw'
-        /// </summary>
-        [Test]
-        public void ResponseRawTest()
-        {
-            // TODO unit test for the property 'ResponseRaw'
-        }
 
     }
 

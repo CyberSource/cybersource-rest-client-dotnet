@@ -104,6 +104,54 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'SequenceNumber'
         }
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'Occurrence'
+        /// </summary>
+        [Test]
+        public void OccurrenceTest()
+        {
+            // TODO unit test for the property 'Occurrence'
+        }
+        /// <summary>
+        /// Test the property 'ValidationIndicator'
+        /// </summary>
+        [Test]
+        public void ValidationIndicatorTest()
+        {
+            // TODO unit test for the property 'ValidationIndicator'
+        }
+        /// <summary>
+        /// Test the property 'AmountType'
+        /// </summary>
+        [Test]
+        public void AmountTypeTest()
+        {
+            // TODO unit test for the property 'AmountType'
+        }
+        /// <summary>
+        /// Test the property 'MaximumAmount'
+        /// </summary>
+        [Test]
+        public void MaximumAmountTest()
+        {
+            // TODO unit test for the property 'MaximumAmount'
+        }
+        /// <summary>
+        /// Test the property 'ReferenceNumber'
+        /// </summary>
+        [Test]
+        public void ReferenceNumberTest()
+        {
+            // TODO unit test for the property 'ReferenceNumber'
+        }
 
     }
 
