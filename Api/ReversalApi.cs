@@ -511,7 +511,7 @@ namespace CyberSource.Api
                 throw new ApiException(400, "Missing required parameter 'mitReversalRequest' when calling ReversalApi->MitReversal");
             }
 
-            var localVarPath = $"/pts/v2/reversals/";
+            var localVarPath = $"/pts/v2/reversals";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
@@ -610,7 +610,7 @@ namespace CyberSource.Api
                 throw new ApiException(400, "Missing required parameter 'mitReversalRequest' when calling ReversalApi->MitReversal");
             }
 
-            var localVarPath = $"/pts/v2/reversals/";
+            var localVarPath = $"/pts/v2/reversals";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);

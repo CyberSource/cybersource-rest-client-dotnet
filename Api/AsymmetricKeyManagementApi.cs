@@ -89,6 +89,29 @@ namespace CyberSource.Api
         /// <param name="keyId">Key ID. </param>
         /// <returns>ApiResponse of KmsV2KeysAsymGet200Response</returns>
         ApiResponse<KmsV2KeysAsymGet200Response> GetP12KeyDetailsWithHttpInfo (string keyId);
+        /// <summary>
+        /// Activate or De-activate Asymmetric Key
+        /// </summary>
+        /// <remarks>
+        /// Activate or De-activate Asymmetric Key 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="keyId">Key ID. </param>
+        /// <param name="updateAsymKeysRequest"></param>
+        /// <returns>Object</returns>
+        Object UpdateAsymKey (string keyId, UpdateAsymKeysRequest updateAsymKeysRequest);
+
+        /// <summary>
+        /// Activate or De-activate Asymmetric Key
+        /// </summary>
+        /// <remarks>
+        /// Activate or De-activate Asymmetric Key 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="keyId">Key ID. </param>
+        /// <param name="updateAsymKeysRequest"></param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> UpdateAsymKeyWithHttpInfo (string keyId, UpdateAsymKeysRequest updateAsymKeysRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -154,6 +177,29 @@ namespace CyberSource.Api
         /// <param name="keyId">Key ID. </param>
         /// <returns>Task of ApiResponse (KmsV2KeysAsymGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<KmsV2KeysAsymGet200Response>> GetP12KeyDetailsAsyncWithHttpInfo (string keyId);
+        /// <summary>
+        /// Activate or De-activate Asymmetric Key
+        /// </summary>
+        /// <remarks>
+        /// Activate or De-activate Asymmetric Key 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="keyId">Key ID. </param>
+        /// <param name="updateAsymKeysRequest"></param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> UpdateAsymKeyAsync (string keyId, UpdateAsymKeysRequest updateAsymKeysRequest);
+
+        /// <summary>
+        /// Activate or De-activate Asymmetric Key
+        /// </summary>
+        /// <remarks>
+        /// Activate or De-activate Asymmetric Key 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="keyId">Key ID. </param>
+        /// <param name="updateAsymKeysRequest"></param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAsymKeyAsyncWithHttpInfo (string keyId, UpdateAsymKeysRequest updateAsymKeysRequest);
         #endregion Asynchronous Operations
     }
 
@@ -873,6 +919,228 @@ namespace CyberSource.Api
             return new ApiResponse<KmsV2KeysAsymGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (KmsV2KeysAsymGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymGet200Response))); // Return statement
+        }
+        /// <summary>
+        /// Activate or De-activate Asymmetric Key Activate or De-activate Asymmetric Key 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="keyId">Key ID. </param>
+        /// <param name="updateAsymKeysRequest"></param>
+        /// <returns>Object</returns>
+        public Object UpdateAsymKey (string keyId, UpdateAsymKeysRequest updateAsymKeysRequest)
+        {
+            logger.Debug("CALLING API \"UpdateAsymKey\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<Object> localVarResponse = UpdateAsymKeyWithHttpInfo(keyId, updateAsymKeysRequest);
+            logger.Debug("CALLING API \"UpdateAsymKey\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Activate or De-activate Asymmetric Key Activate or De-activate Asymmetric Key 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="keyId">Key ID. </param>
+        /// <param name="updateAsymKeysRequest"></param>
+        /// <returns>ApiResponse of Object</returns>
+        public ApiResponse< Object > UpdateAsymKeyWithHttpInfo (string keyId, UpdateAsymKeysRequest updateAsymKeysRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'keyId' is set
+            if (keyId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'keyId' when calling AsymmetricKeyManagementApi->UpdateAsymKey");
+                throw new ApiException(400, "Missing required parameter 'keyId' when calling AsymmetricKeyManagementApi->UpdateAsymKey");
+            }
+            // verify the required parameter 'updateAsymKeysRequest' is set
+            if (updateAsymKeysRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'updateAsymKeysRequest' when calling AsymmetricKeyManagementApi->UpdateAsymKey");
+                throw new ApiException(400, "Missing required parameter 'updateAsymKeysRequest' when calling AsymmetricKeyManagementApi->UpdateAsymKey");
+            }
+
+            var localVarPath = $"/kms/v2/keys-asym/{keyId}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (keyId != null)
+            {
+                localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (updateAsymKeysRequest != null && updateAsymKeysRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(updateAsymKeysRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updateAsymKeysRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAsymKey", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object))); // Return statement
+        }
+
+        /// <summary>
+        /// Activate or De-activate Asymmetric Key Activate or De-activate Asymmetric Key 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="keyId">Key ID. </param>
+        /// <param name="updateAsymKeysRequest"></param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> UpdateAsymKeyAsync (string keyId, UpdateAsymKeysRequest updateAsymKeysRequest)
+        {
+            logger.Debug("CALLING API \"UpdateAsymKeyAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<Object> localVarResponse = await UpdateAsymKeyAsyncWithHttpInfo(keyId, updateAsymKeysRequest);
+            logger.Debug("CALLING API \"UpdateAsymKeyAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Activate or De-activate Asymmetric Key Activate or De-activate Asymmetric Key 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="keyId">Key ID. </param>
+        /// <param name="updateAsymKeysRequest"></param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAsymKeyAsyncWithHttpInfo (string keyId, UpdateAsymKeysRequest updateAsymKeysRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'keyId' is set
+            if (keyId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'keyId' when calling AsymmetricKeyManagementApi->UpdateAsymKey");
+                throw new ApiException(400, "Missing required parameter 'keyId' when calling AsymmetricKeyManagementApi->UpdateAsymKey");
+            }
+            // verify the required parameter 'updateAsymKeysRequest' is set
+            if (updateAsymKeysRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'updateAsymKeysRequest' when calling AsymmetricKeyManagementApi->UpdateAsymKey");
+                throw new ApiException(400, "Missing required parameter 'updateAsymKeysRequest' when calling AsymmetricKeyManagementApi->UpdateAsymKey");
+            }
+
+            var localVarPath = $"/kms/v2/keys-asym/{keyId}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (keyId != null)
+            {
+                localVarPathParams.Add("keyId", Configuration.ApiClient.ParameterToString(keyId)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (updateAsymKeysRequest != null && updateAsymKeysRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(updateAsymKeysRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updateAsymKeysRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAsymKey", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object))); // Return statement
         }
     }
 }

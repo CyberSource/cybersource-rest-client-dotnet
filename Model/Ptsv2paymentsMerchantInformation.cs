@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="CancelUrl">customer would be redirected to this url based on the decision of the transaction.</param>
         /// <param name="SuccessUrl">customer would be redirected to this url based on the decision of the transaction.</param>
         /// <param name="FailureUrl">customer would be redirected to this url based on the decision of the transaction.</param>
-        /// <param name="MerchantName">Use this field only if you are requesting payment with Payer Authentication serice together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. .</param>
+        /// <param name="MerchantName">Use this field only if you are requesting payment with Payer Authentication service together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. .</param>
         public Ptsv2paymentsMerchantInformation(Ptsv2paymentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2paymentsMerchantInformationMerchantDescriptor), string DomainName = default(string), string SalesOrganizationId = default(string), int? CategoryCode = default(int?), int? CategoryCodeDomestic = default(int?), string TaxId = default(string), string VatRegistrationNumber = default(string), string CardAcceptorReferenceNumber = default(string), string TransactionLocalDateTime = default(string), Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor = default(Ptsv2paymentsMerchantInformationServiceFeeDescriptor), string CancelUrl = default(string), string SuccessUrl = default(string), string FailureUrl = default(string), string MerchantName = default(string))
         {
             this.MerchantDescriptor = MerchantDescriptor;
@@ -155,9 +155,9 @@ namespace CyberSource.Model
         public string FailureUrl { get; set; }
 
         /// <summary>
-        /// Use this field only if you are requesting payment with Payer Authentication serice together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. 
+        /// Use this field only if you are requesting payment with Payer Authentication service together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. 
         /// </summary>
-        /// <value>Use this field only if you are requesting payment with Payer Authentication serice together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. </value>
+        /// <value>Use this field only if you are requesting payment with Payer Authentication service together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. </value>
         [DataMember(Name="merchantName", EmitDefaultValue=false)]
         public string MerchantName { get; set; }
 

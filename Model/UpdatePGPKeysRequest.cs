@@ -25,33 +25,56 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// InlineResponse4003Details
+    /// UpdatePGPKeysRequest
     /// </summary>
     [DataContract]
-    public partial class InlineResponse4003Details :  IEquatable<InlineResponse4003Details>, IValidatableObject
+    public partial class UpdatePGPKeysRequest :  IEquatable<UpdatePGPKeysRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse4003Details" /> class.
+        /// Initializes a new instance of the <see cref="UpdatePGPKeysRequest" /> class.
         /// </summary>
-        /// <param name="Location">Location.</param>
-        /// <param name="Message">Message.</param>
-        public InlineResponse4003Details(string Location = default(string), string Message = default(string))
+        [JsonConstructorAttribute]
+        protected UpdatePGPKeysRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpdatePGPKeysRequest" /> class.
+        /// </summary>
+        /// <param name="Status">Status can be active/inactive (required).</param>
+        /// <param name="OrganizationId">Organization Id (required).</param>
+        public UpdatePGPKeysRequest(string Status = default(string), string OrganizationId = default(string))
         {
-            this.Location = Location;
-            this.Message = Message;
+            // to ensure "Status" is required (not null)
+            if (Status == null)
+            {
+                throw new InvalidDataException("Status is a required property for UpdatePGPKeysRequest and cannot be null");
+            }
+            else
+            {
+                this.Status = Status;
+            }
+            // to ensure "OrganizationId" is required (not null)
+            if (OrganizationId == null)
+            {
+                throw new InvalidDataException("OrganizationId is a required property for UpdatePGPKeysRequest and cannot be null");
+            }
+            else
+            {
+                this.OrganizationId = OrganizationId;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets Location
+        /// Status can be active/inactive
         /// </summary>
-        [DataMember(Name="location", EmitDefaultValue=false)]
-        public string Location { get; set; }
+        /// <value>Status can be active/inactive</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Organization Id
         /// </summary>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
+        /// <value>Organization Id</value>
+        [DataMember(Name="organizationId", EmitDefaultValue=false)]
+        public string OrganizationId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +83,9 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse4003Details {\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("class UpdatePGPKeysRequest {\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,15 +107,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as InlineResponse4003Details);
+            return this.Equals(obj as UpdatePGPKeysRequest);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse4003Details instances are equal
+        /// Returns true if UpdatePGPKeysRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of InlineResponse4003Details to be compared</param>
+        /// <param name="other">Instance of UpdatePGPKeysRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse4003Details other)
+        public bool Equals(UpdatePGPKeysRequest other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -100,14 +123,14 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Location == other.Location ||
-                    this.Location != null &&
-                    this.Location.Equals(other.Location)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
+                    this.OrganizationId == other.OrganizationId ||
+                    this.OrganizationId != null &&
+                    this.OrganizationId.Equals(other.OrganizationId)
                 );
         }
 
@@ -122,10 +145,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Location != null)
-                    hash = hash * 59 + this.Location.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.OrganizationId != null)
+                    hash = hash * 59 + this.OrganizationId.GetHashCode();
                 return hash;
             }
         }
