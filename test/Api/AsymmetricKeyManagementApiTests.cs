@@ -100,6 +100,19 @@ namespace CyberSource.Test
             //Assert.IsInstanceOf<KmsV2KeysAsymGet200Response> (response, "response is KmsV2KeysAsymGet200Response");
         }
         
+        /// <summary>
+        /// Test UpdateAsymKey
+        /// </summary>
+        [Test]
+        public void UpdateAsymKeyTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string keyId = null;
+            //UpdateAsymKeysRequest updateAsymKeysRequest = null;
+            //var response = instance.UpdateAsymKey(keyId, updateAsymKeysRequest);
+            //Assert.IsInstanceOf<Object> (response, "response is Object");
+        }
+        
     }
 
 }

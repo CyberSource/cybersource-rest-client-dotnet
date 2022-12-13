@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateP12Keys**](AsymmetricKeyManagementApi.md#createp12keys) | **POST** /kms/v2/keys-asym | Create one or more PKCS12 keys
 [**DeleteBulkP12Keys**](AsymmetricKeyManagementApi.md#deletebulkp12keys) | **POST** /kms/v2/keys-asym/deletes | Delete one or more PKCS12 keys
 [**GetP12KeyDetails**](AsymmetricKeyManagementApi.md#getp12keydetails) | **GET** /kms/v2/keys-asym/{keyId} | Retrieves PKCS12 key details
+[**UpdateAsymKey**](AsymmetricKeyManagementApi.md#updateasymkey) | **PATCH** /kms/v2/keys-asym/{keyId} | Activate or De-activate Asymmetric Key
 
 
 <a name="createp12keys"></a>
@@ -180,6 +181,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**KmsV2KeysAsymGet200Response**](KmsV2KeysAsymGet200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/hal+json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateasymkey"></a>
+# **UpdateAsymKey**
+> Object UpdateAsymKey (string keyId, UpdateAsymKeysRequest updateAsymKeysRequest)
+
+Activate or De-activate Asymmetric Key
+
+Activate or De-activate Asymmetric Key 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class UpdateAsymKeyExample
+    {
+        public void main()
+        {
+            var apiInstance = new AsymmetricKeyManagementApi();
+            var keyId = keyId_example;  // string | Key ID. 
+            var updateAsymKeysRequest = new UpdateAsymKeysRequest(); // UpdateAsymKeysRequest | 
+
+            try
+            {
+                // Activate or De-activate Asymmetric Key
+                Object result = apiInstance.UpdateAsymKey(keyId, updateAsymKeysRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AsymmetricKeyManagementApi.UpdateAsymKey: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **keyId** | **string**| Key ID.  | 
+ **updateAsymKeysRequest** | [**UpdateAsymKeysRequest**](UpdateAsymKeysRequest.md)|  | 
+
+### Return type
+
+**Object**
 
 ### Authorization
 
