@@ -193,7 +193,14 @@ namespace CyberSource.Client
                         ParameterType.HttpHeader);
                 }
                 else
+                {
+                    if (request.Parameters.Any(x => x.Name == param.Key && x.Type == ParameterType.HttpHeader))
+                    {
+                        continue;
+                    }
                     request.AddHeader(param.Key, param.Value);
+                }
+                   
             }
 
             // add query parameter, if any
@@ -957,7 +964,15 @@ namespace CyberSource.Client
 
             //Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
-            RestClient = new RestClient("https://" + merchantConfig.HostName);
+            if (!string.IsNullOrWhiteSpace(merchantConfig.IntermediateHost))
+            {
+                //change with intermediate hostname if present
+                RestClient = new RestClient("https://" + merchantConfig.IntermediateHost);
+            }
+            else
+            {
+                RestClient = new RestClient("https://" + merchantConfig.HostName);
+            }
             
             if (Configuration.Proxy != null)
             {
