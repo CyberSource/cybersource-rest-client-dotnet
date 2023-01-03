@@ -207,13 +207,13 @@ namespace {{packageName}}.Client
                         ParameterType.HttpHeader);
                 }
                 else 
-				{
-					if (request.Parameters.Any(x => x.Name == param.Key && x.Type == ParameterType.HttpHeader))
+                {
+                    if (request.Parameters.Any(x => x.Name == param.Key && x.Type == ParameterType.HttpHeader))
                     {
                         continue;
                     }
                     request.AddHeader(param.Key, param.Value);
-				}
+                }
             }
 
             // add query parameter, if any
