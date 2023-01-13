@@ -968,7 +968,7 @@ namespace CyberSource.Client
             {
                 //change with intermediate hostname if present
                 //supporting both for http or https for intermediate url
-                if (merchantConfig.IntermediateHost.StartsWith("http"))
+                if (merchantConfig.IntermediateHost.StartsWith("http://") || merchantConfig.IntermediateHost.StartsWith("https://"))
                 {
                     RestClient = new RestClient(merchantConfig.IntermediateHost);
                 }
