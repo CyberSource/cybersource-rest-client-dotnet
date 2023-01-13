@@ -192,7 +192,7 @@ namespace CyberSource.Client
                     request.AddParameter("Authorization", string.Format("Bearer " + param.Value),
                         ParameterType.HttpHeader);
                 }
-                else
+                else 
                 {
                     if (request.Parameters.Any(x => x.Name == param.Key && x.Type == ParameterType.HttpHeader))
                     {
@@ -200,7 +200,6 @@ namespace CyberSource.Client
                     }
                     request.AddHeader(param.Key, param.Value);
                 }
-                   
             }
 
             // add query parameter, if any
