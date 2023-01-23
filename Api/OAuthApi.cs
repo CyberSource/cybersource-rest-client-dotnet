@@ -58,12 +58,13 @@ namespace CyberSource.Api
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private int? _statusCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public OAuthApi(String basePath)
+        public OAuthApi(string basePath)
         {
             Configuration = new Configuration(new ApiClient(basePath));
 
@@ -110,7 +111,7 @@ namespace CyberSource.Api
         /// <value>The base path</value>
         public string GetBasePath()
         {
-            return Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return Configuration.ApiClient.RestClient.Options.BaseUrl.ToString();
         }
 
         /// <summary>
@@ -132,7 +133,7 @@ namespace CyberSource.Api
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public CyberSource.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -168,25 +169,51 @@ namespace CyberSource.Api
             Configuration.AddDefaultHeader(key, value);
         }
 
-        
+        /// <summary>
+        /// Retrieves the status code being set for the most recently executed API request.
+        /// </summary>
+        /// <returns>Status Code of previous request</returns>
+        public int GetStatusCode()
+        {
+            return this._statusCode == null ? 0 : (int) this._statusCode;
+        }
+
+        /// <summary>
+        /// Sets the value of status code for the most recently executed API request, in order to be retrieved later.
+        /// </summary>
+        /// <param name="statusCode">Status Code to be set</param>
+        /// <returns></returns>
+        public void SetStatusCode(int? statusCode)
+        {
+            this._statusCode = statusCode;
+        }
+
+        /// <summary>
+        /// Process a POST request to generate an access token.
+        /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>        
         /// <param name="createAccessTokenRequest"></param>
         /// <returns>AccessTokenResponse</returns>
         public AccessTokenResponse PostAccessTokenRequest(CreateAccessTokenRequest createAccessTokenRequest)
         {
             logger.Debug("CALLING API \"PostAccessTokenRequest\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<AccessTokenResponse> localVarResponse = PostAccessTokenRequestWithHttpInfo(createAccessTokenRequest);
             logger.Debug("CALLING API \"PostAccessTokenRequest\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
-        
+        /// <summary>
+        /// Process a POST request to generate an access token.
+        /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>        
         /// <param name="createAccessTokenRequest"></param>
         /// <returns>ApiResponse of AccessTokenResponse</returns>
         public ApiResponse<AccessTokenResponse> PostAccessTokenRequestWithHttpInfo(CreateAccessTokenRequest createAccessTokenRequest)
         {
             LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createAccessTokenRequest' is set
             if (createAccessTokenRequest == null)
             {
@@ -217,7 +244,7 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
-            
+
             if (createAccessTokenRequest != null && createAccessTokenRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(createAccessTokenRequest); // http body (model) parameter
@@ -238,8 +265,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -258,26 +285,33 @@ namespace CyberSource.Api
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (AccessTokenResponse)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AccessTokenResponse))); // Return statement
         }
-        
+
+        /// <summary>
+        /// Process a POST request to generate an access token.
+        /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>        
         /// <param name="createAccessTokenRequest"></param>
         /// <returns>Task of AccessTokenResponse</returns>
         public async System.Threading.Tasks.Task<AccessTokenResponse> PostAccessTokenRequestAsync(CreateAccessTokenRequest createAccessTokenRequest)
         {
             logger.Debug("CALLING API \"PostAccessTokenRequestAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<AccessTokenResponse> localVarResponse = await PostAccessTokenRequestAsyncWithHttpInfo(createAccessTokenRequest);
-            logger.Debug("CALLING API \"PostAccessTokenRequestAsync\" STARTED");
+            logger.Debug("CALLING API \"PostAccessTokenRequestAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
-
         }
 
-        
+        /// <summary>
+        /// Process a POST request to generate an access token.
+        /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>     
         /// <param name="createAccessTokenRequest"></param>
         /// <returns>Task of ApiResponse (AccessTokenResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AccessTokenResponse>> PostAccessTokenRequestAsyncWithHttpInfo(CreateAccessTokenRequest createAccessTokenRequest)
         {
             LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createAccessTokenRequest' is set
             if (createAccessTokenRequest == null)
             {
@@ -329,8 +363,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
