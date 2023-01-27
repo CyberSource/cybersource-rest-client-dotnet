@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ActionList'
         }
         /// <summary>
+        /// Test the property 'EnableEscrowOption'
+        /// </summary>
+        [Test]
+        public void EnableEscrowOptionTest()
+        {
+            // TODO unit test for the property 'EnableEscrowOption'
+        }
+        /// <summary>
         /// Test the property 'ActionTokenTypes'
         /// </summary>
         [Test]

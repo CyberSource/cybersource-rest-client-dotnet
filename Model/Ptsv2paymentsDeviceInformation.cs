@@ -39,6 +39,7 @@ namespace CyberSource.Model
         /// <param name="FingerprintSessionId">Field that contains the session ID that you send to Decision Manager to obtain the device fingerprint information. The string can contain uppercase and lowercase letters, digits, hyphen (-), and underscore (_). However, do not use the same uppercase and lowercase letters to indicate different session IDs.  The session ID must be unique for each merchant ID. You can use any string that you are already generating, such as an order number or web session ID.  The session ID must be unique for each page load, regardless of an individual’s web session ID. If a user navigates to a profiled page and is assigned a web session, navigates away from the profiled page, then navigates back to the profiled page, the generated session ID should be different and unique. You may use a web session ID, but it is preferable to use an application GUID (Globally Unique Identifier). This measure ensures that a unique ID is generated every time the page is loaded, even if it is the same user reloading the page. .</param>
         /// <param name="UseRawFingerprintSessionId">Boolean that indicates whether request contains the device fingerprint information. Values: - &#x60;true&#x60;: Use raw fingerprintSessionId when looking up device details. - &#x60;false&#x60; (default): Use merchant id + fingerprintSessionId as the session id for Device detail collection. .</param>
         /// <param name="DeviceType">The device type at the client side..</param>
+        /// <param name="AppUrl">This field will contain the deep link that would help the Customer App to wake up. .</param>
         /// <param name="RawData">RawData.</param>
         /// <param name="HttpAcceptBrowserValue">Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. .</param>
         /// <param name="HttpAcceptContent">The exact content of the HTTP accept header. .</param>
@@ -51,7 +52,7 @@ namespace CyberSource.Model
         /// <param name="HttpBrowserScreenWidth">Total width of the cardholder&#39;s screen in pixels. Example: 1536. .</param>
         /// <param name="HttpBrowserTimeDifference">Time difference between UTC time and the cardholder browser local time, in minutes, Example:300 .</param>
         /// <param name="UserAgentBrowserValue">Value of the User-Agent header sent by the customer’s web browser. Note If the customer’s browser provides a value, you must include it in your request. .</param>
-        public Ptsv2paymentsDeviceInformation(string HostName = default(string), string IpAddress = default(string), string UserAgent = default(string), string FingerprintSessionId = default(string), bool? UseRawFingerprintSessionId = default(bool?), string DeviceType = default(string), List<Ptsv2paymentsDeviceInformationRawData> RawData = default(List<Ptsv2paymentsDeviceInformationRawData>), string HttpAcceptBrowserValue = default(string), string HttpAcceptContent = default(string), string HttpBrowserEmail = default(string), string HttpBrowserLanguage = default(string), bool? HttpBrowserJavaEnabled = default(bool?), bool? HttpBrowserJavaScriptEnabled = default(bool?), string HttpBrowserColorDepth = default(string), string HttpBrowserScreenHeight = default(string), string HttpBrowserScreenWidth = default(string), string HttpBrowserTimeDifference = default(string), string UserAgentBrowserValue = default(string))
+        public Ptsv2paymentsDeviceInformation(string HostName = default(string), string IpAddress = default(string), string UserAgent = default(string), string FingerprintSessionId = default(string), bool? UseRawFingerprintSessionId = default(bool?), string DeviceType = default(string), string AppUrl = default(string), List<Ptsv2paymentsDeviceInformationRawData> RawData = default(List<Ptsv2paymentsDeviceInformationRawData>), string HttpAcceptBrowserValue = default(string), string HttpAcceptContent = default(string), string HttpBrowserEmail = default(string), string HttpBrowserLanguage = default(string), bool? HttpBrowserJavaEnabled = default(bool?), bool? HttpBrowserJavaScriptEnabled = default(bool?), string HttpBrowserColorDepth = default(string), string HttpBrowserScreenHeight = default(string), string HttpBrowserScreenWidth = default(string), string HttpBrowserTimeDifference = default(string), string UserAgentBrowserValue = default(string))
         {
             this.HostName = HostName;
             this.IpAddress = IpAddress;
@@ -59,6 +60,7 @@ namespace CyberSource.Model
             this.FingerprintSessionId = FingerprintSessionId;
             this.UseRawFingerprintSessionId = UseRawFingerprintSessionId;
             this.DeviceType = DeviceType;
+            this.AppUrl = AppUrl;
             this.RawData = RawData;
             this.HttpAcceptBrowserValue = HttpAcceptBrowserValue;
             this.HttpAcceptContent = HttpAcceptContent;
@@ -114,6 +116,13 @@ namespace CyberSource.Model
         /// <value>The device type at the client side.</value>
         [DataMember(Name="deviceType", EmitDefaultValue=false)]
         public string DeviceType { get; set; }
+
+        /// <summary>
+        /// This field will contain the deep link that would help the Customer App to wake up. 
+        /// </summary>
+        /// <value>This field will contain the deep link that would help the Customer App to wake up. </value>
+        [DataMember(Name="appUrl", EmitDefaultValue=false)]
+        public string AppUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets RawData
@@ -212,6 +221,7 @@ namespace CyberSource.Model
             sb.Append("  FingerprintSessionId: ").Append(FingerprintSessionId).Append("\n");
             sb.Append("  UseRawFingerprintSessionId: ").Append(UseRawFingerprintSessionId).Append("\n");
             sb.Append("  DeviceType: ").Append(DeviceType).Append("\n");
+            sb.Append("  AppUrl: ").Append(AppUrl).Append("\n");
             sb.Append("  RawData: ").Append(RawData).Append("\n");
             sb.Append("  HttpAcceptBrowserValue: ").Append(HttpAcceptBrowserValue).Append("\n");
             sb.Append("  HttpAcceptContent: ").Append(HttpAcceptContent).Append("\n");
@@ -289,6 +299,11 @@ namespace CyberSource.Model
                     this.DeviceType == other.DeviceType ||
                     this.DeviceType != null &&
                     this.DeviceType.Equals(other.DeviceType)
+                ) && 
+                (
+                    this.AppUrl == other.AppUrl ||
+                    this.AppUrl != null &&
+                    this.AppUrl.Equals(other.AppUrl)
                 ) && 
                 (
                     this.RawData == other.RawData ||
@@ -375,6 +390,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.UseRawFingerprintSessionId.GetHashCode();
                 if (this.DeviceType != null)
                     hash = hash * 59 + this.DeviceType.GetHashCode();
+                if (this.AppUrl != null)
+                    hash = hash * 59 + this.AppUrl.GetHashCode();
                 if (this.RawData != null)
                     hash = hash * 59 + this.RawData.GetHashCode();
                 if (this.HttpAcceptBrowserValue != null)

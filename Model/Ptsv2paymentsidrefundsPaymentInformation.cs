@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="LegacyToken">LegacyToken.</param>
         /// <param name="PaymentType">PaymentType.</param>
         /// <param name="EWallet">EWallet.</param>
-        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsidrefundsPaymentInformationBank Bank = default(Ptsv2paymentsidrefundsPaymentInformationBank), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType), Ptsv2paymentsPaymentInformationEWallet EWallet = default(Ptsv2paymentsPaymentInformationEWallet))
+        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsidrefundsPaymentInformationBank Bank = default(Ptsv2paymentsidrefundsPaymentInformationBank), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsidrefundsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsidrefundsPaymentInformationPaymentType), Ptsv2paymentsidrefundsPaymentInformationEWallet EWallet = default(Ptsv2paymentsidrefundsPaymentInformationEWallet))
         {
             this.Card = Card;
             this.Bank = Bank;
@@ -117,13 +117,13 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentType
         /// </summary>
         [DataMember(Name="paymentType", EmitDefaultValue=false)]
-        public Ptsv2paymentsPaymentInformationPaymentType PaymentType { get; set; }
+        public Ptsv2paymentsidrefundsPaymentInformationPaymentType PaymentType { get; set; }
 
         /// <summary>
         /// Gets or Sets EWallet
         /// </summary>
         [DataMember(Name="eWallet", EmitDefaultValue=false)]
-        public Ptsv2paymentsPaymentInformationEWallet EWallet { get; set; }
+        public Ptsv2paymentsidrefundsPaymentInformationEWallet EWallet { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

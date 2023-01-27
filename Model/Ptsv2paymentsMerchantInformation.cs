@@ -46,8 +46,9 @@ namespace CyberSource.Model
         /// <param name="CancelUrl">customer would be redirected to this url based on the decision of the transaction.</param>
         /// <param name="SuccessUrl">customer would be redirected to this url based on the decision of the transaction.</param>
         /// <param name="FailureUrl">customer would be redirected to this url based on the decision of the transaction.</param>
+        /// <param name="ReturnUrl">URL for displaying payment results to the consumer (notifications) after the transaction is processed. Usually this URL belongs to merchant and its behavior is defined by merchant .</param>
         /// <param name="MerchantName">Use this field only if you are requesting payment with Payer Authentication service together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. .</param>
-        public Ptsv2paymentsMerchantInformation(Ptsv2paymentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2paymentsMerchantInformationMerchantDescriptor), string DomainName = default(string), string SalesOrganizationId = default(string), int? CategoryCode = default(int?), int? CategoryCodeDomestic = default(int?), string TaxId = default(string), string VatRegistrationNumber = default(string), string CardAcceptorReferenceNumber = default(string), string TransactionLocalDateTime = default(string), Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor = default(Ptsv2paymentsMerchantInformationServiceFeeDescriptor), string CancelUrl = default(string), string SuccessUrl = default(string), string FailureUrl = default(string), string MerchantName = default(string))
+        public Ptsv2paymentsMerchantInformation(Ptsv2paymentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2paymentsMerchantInformationMerchantDescriptor), string DomainName = default(string), string SalesOrganizationId = default(string), int? CategoryCode = default(int?), int? CategoryCodeDomestic = default(int?), string TaxId = default(string), string VatRegistrationNumber = default(string), string CardAcceptorReferenceNumber = default(string), string TransactionLocalDateTime = default(string), Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor = default(Ptsv2paymentsMerchantInformationServiceFeeDescriptor), string CancelUrl = default(string), string SuccessUrl = default(string), string FailureUrl = default(string), string ReturnUrl = default(string), string MerchantName = default(string))
         {
             this.MerchantDescriptor = MerchantDescriptor;
             this.DomainName = DomainName;
@@ -62,6 +63,7 @@ namespace CyberSource.Model
             this.CancelUrl = CancelUrl;
             this.SuccessUrl = SuccessUrl;
             this.FailureUrl = FailureUrl;
+            this.ReturnUrl = ReturnUrl;
             this.MerchantName = MerchantName;
         }
         
@@ -155,6 +157,13 @@ namespace CyberSource.Model
         public string FailureUrl { get; set; }
 
         /// <summary>
+        /// URL for displaying payment results to the consumer (notifications) after the transaction is processed. Usually this URL belongs to merchant and its behavior is defined by merchant 
+        /// </summary>
+        /// <value>URL for displaying payment results to the consumer (notifications) after the transaction is processed. Usually this URL belongs to merchant and its behavior is defined by merchant </value>
+        [DataMember(Name="returnUrl", EmitDefaultValue=false)]
+        public string ReturnUrl { get; set; }
+
+        /// <summary>
         /// Use this field only if you are requesting payment with Payer Authentication service together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. 
         /// </summary>
         /// <value>Use this field only if you are requesting payment with Payer Authentication service together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. </value>
@@ -182,6 +191,7 @@ namespace CyberSource.Model
             sb.Append("  CancelUrl: ").Append(CancelUrl).Append("\n");
             sb.Append("  SuccessUrl: ").Append(SuccessUrl).Append("\n");
             sb.Append("  FailureUrl: ").Append(FailureUrl).Append("\n");
+            sb.Append("  ReturnUrl: ").Append(ReturnUrl).Append("\n");
             sb.Append("  MerchantName: ").Append(MerchantName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -285,6 +295,11 @@ namespace CyberSource.Model
                     this.FailureUrl.Equals(other.FailureUrl)
                 ) && 
                 (
+                    this.ReturnUrl == other.ReturnUrl ||
+                    this.ReturnUrl != null &&
+                    this.ReturnUrl.Equals(other.ReturnUrl)
+                ) && 
+                (
                     this.MerchantName == other.MerchantName ||
                     this.MerchantName != null &&
                     this.MerchantName.Equals(other.MerchantName)
@@ -328,6 +343,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SuccessUrl.GetHashCode();
                 if (this.FailureUrl != null)
                     hash = hash * 59 + this.FailureUrl.GetHashCode();
+                if (this.ReturnUrl != null)
+                    hash = hash * 59 + this.ReturnUrl.GetHashCode();
                 if (this.MerchantName != null)
                     hash = hash * 59 + this.MerchantName.GetHashCode();
                 return hash;

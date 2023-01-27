@@ -113,6 +113,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'DeviceType'
         }
         /// <summary>
+        /// Test the property 'AppUrl'
+        /// </summary>
+        [Test]
+        public void AppUrlTest()
+        {
+            // TODO unit test for the property 'AppUrl'
+        }
+        /// <summary>
         /// Test the property 'RawData'
         /// </summary>
         [Test]

@@ -304,6 +304,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CompleteUrl'
         }
+        /// <summary>
+        /// Test the property 'Signature'
+        /// </summary>
+        [Test]
+        public void SignatureTest()
+        {
+            // TODO unit test for the property 'Signature'
+        }
+        /// <summary>
+        /// Test the property 'PublicKey'
+        /// </summary>
+        [Test]
+        public void PublicKeyTest()
+        {
+            // TODO unit test for the property 'PublicKey'
+        }
 
     }
 

@@ -46,6 +46,7 @@ namespace CyberSource.Model
         /// <param name="Locality">Payment card billing city.  #### Atos This field must not contain colons (:).  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  #### For Payouts: This field may be sent only for FDC Compass.  #### Chase Paymentech Solutions Optional field.  ####  Credit Mutuel-CIC Optional field.  #### OmniPay Direct Optional field.  #### SIX Optional field.  #### TSYS Acquiring Solutions Required when &#x60;processingInformation.billPaymentOptions.billPayment&#x3D;true&#x60; and &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;.  #### Worldpay VAP Optional field.  #### All other processors Not used. .</param>
         /// <param name="AdministrativeArea">State or province of the billing address. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf).  For Payouts: This field may be sent only for FDC Compass.  ##### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.  #### Chase Paymentech Solutions Optional field.  ####  Credit Mutuel-CIC Optional field.  #### OmniPay Direct Optional field.  #### SIX Optional field.  #### TSYS Acquiring Solutions Required when &#x60;processingInformation.billPaymentOptions.billPayment&#x3D;true&#x60; and &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;.  #### Worldpay VAP Optional field.  #### All other processors Not used. .</param>
         /// <param name="PostalCode">Postal code for the billing address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  **Example** &#x60;12345-6789&#x60;  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  **Example** &#x60;A1B 2C3&#x60;  **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.  #### For Payouts:  This field may be sent only for FDC Compass.  #### American Express Direct Before sending the postal code to the processor, CyberSource removes all nonalphanumeric characters and, if the remaining value is longer than nine characters, truncates the value starting from the right side.  #### Atos This field must not contain colons (:).  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  #### FDMS Nashville Required if &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60; and the address is in the U.S. or Canada. Optional if &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60; and the address is **not** in the U.S. or Canada. Not used if swiped.  #### RBS WorldPay Atlanta: For best card-present keyed rates, send the postal code if &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;.  #### TSYS Acquiring Solutions Required when &#x60;processingInformation.billPaymentOptions.billPayment&#x3D;true&#x60; and &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;.  #### All other processors: Optional field. .</param>
+        /// <param name="County">U.S. county if available..</param>
         /// <param name="Country">Payment card billing country. Use the two-character [ISO Standard Country Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf).  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.  #### Chase Paymentech Solutions Optional field.  ####  Credit Mutuel-CIC Optional field.  #### OmniPay Direct Optional field.  #### SIX Optional field.  #### TSYS Acquiring Solutions Required when &#x60;processingInformation.billPaymentOptions.billPayment&#x3D;true&#x60; and &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;.  #### Worldpay VAP Optional field.  #### All other processors Not used. .</param>
         /// <param name="District">Customer’s neighborhood, community, or region (a barrio in Brazil) within the city or municipality. This field is available only on **Cielo**. .</param>
         /// <param name="BuildingNumber">Building number in the street address.  For example, if the street address is: Rua da Quitanda 187 then the building number is 187.  This field is supported only for:  - Cielo transactions.  - Redecard customer validation with CyberSource Latin American Processing. .</param>
@@ -53,7 +54,8 @@ namespace CyberSource.Model
         /// <param name="EmailDomain">Email domain of the customer. The domain of the email address comprises all characters that follow the @ symbol, such as mail.example.com. For the Risk Update service, if the email address and the domain are sent in the request, the domain supersedes the email address. .</param>
         /// <param name="PhoneNumber">Customer’s phone number.  It is recommended that you include the country code when the order is from outside the U.S.  #### Chase Paymentech Solutions Optional field.  ####  Credit Mutuel-CIC Optional field.  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  #### For Payouts: This field may be sent only for FDC Compass.  #### OmniPay Direct Optional field.  #### SIX Optional field.  #### TSYS Acquiring Solutions Optional field.  #### Worldpay VAP Optional field.  #### All other processors Not used. .</param>
         /// <param name="PhoneType">Customer&#39;s phone number type.  #### For Payouts: This field may be sent only for FDC Compass.  Possible Values: * day * home * night * work .</param>
-        public Ptsv2paymentsOrderInformationBillTo(string FirstName = default(string), string LastName = default(string), string MiddleName = default(string), string NameSuffix = default(string), string Title = default(string), Ptsv2paymentsOrderInformationBillToCompany Company = default(Ptsv2paymentsOrderInformationBillToCompany), string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string Email = default(string), string EmailDomain = default(string), string PhoneNumber = default(string), string PhoneType = default(string))
+        /// <param name="VerificationStatus">Whether buyer has verified their identity. Used in case of PayPal transactions.  Possible Values: * VERIFIED * UNVERIFIED .</param>
+        public Ptsv2paymentsOrderInformationBillTo(string FirstName = default(string), string LastName = default(string), string MiddleName = default(string), string NameSuffix = default(string), string Title = default(string), Ptsv2paymentsOrderInformationBillToCompany Company = default(Ptsv2paymentsOrderInformationBillToCompany), string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string County = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string Email = default(string), string EmailDomain = default(string), string PhoneNumber = default(string), string PhoneType = default(string), string VerificationStatus = default(string))
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
@@ -68,6 +70,7 @@ namespace CyberSource.Model
             this.Locality = Locality;
             this.AdministrativeArea = AdministrativeArea;
             this.PostalCode = PostalCode;
+            this.County = County;
             this.Country = Country;
             this.District = District;
             this.BuildingNumber = BuildingNumber;
@@ -75,6 +78,7 @@ namespace CyberSource.Model
             this.EmailDomain = EmailDomain;
             this.PhoneNumber = PhoneNumber;
             this.PhoneType = PhoneType;
+            this.VerificationStatus = VerificationStatus;
         }
         
         /// <summary>
@@ -168,6 +172,13 @@ namespace CyberSource.Model
         public string PostalCode { get; set; }
 
         /// <summary>
+        /// U.S. county if available.
+        /// </summary>
+        /// <value>U.S. county if available.</value>
+        [DataMember(Name="county", EmitDefaultValue=false)]
+        public string County { get; set; }
+
+        /// <summary>
         /// Payment card billing country. Use the two-character [ISO Standard Country Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf).  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.  #### Chase Paymentech Solutions Optional field.  ####  Credit Mutuel-CIC Optional field.  #### OmniPay Direct Optional field.  #### SIX Optional field.  #### TSYS Acquiring Solutions Required when &#x60;processingInformation.billPaymentOptions.billPayment&#x3D;true&#x60; and &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;.  #### Worldpay VAP Optional field.  #### All other processors Not used. 
         /// </summary>
         /// <value>Payment card billing country. Use the two-character [ISO Standard Country Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf).  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.  #### Chase Paymentech Solutions Optional field.  ####  Credit Mutuel-CIC Optional field.  #### OmniPay Direct Optional field.  #### SIX Optional field.  #### TSYS Acquiring Solutions Required when &#x60;processingInformation.billPaymentOptions.billPayment&#x3D;true&#x60; and &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;.  #### Worldpay VAP Optional field.  #### All other processors Not used. </value>
@@ -217,6 +228,13 @@ namespace CyberSource.Model
         public string PhoneType { get; set; }
 
         /// <summary>
+        /// Whether buyer has verified their identity. Used in case of PayPal transactions.  Possible Values: * VERIFIED * UNVERIFIED 
+        /// </summary>
+        /// <value>Whether buyer has verified their identity. Used in case of PayPal transactions.  Possible Values: * VERIFIED * UNVERIFIED </value>
+        [DataMember(Name="verificationStatus", EmitDefaultValue=false)]
+        public string VerificationStatus { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -237,6 +255,7 @@ namespace CyberSource.Model
             sb.Append("  Locality: ").Append(Locality).Append("\n");
             sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            sb.Append("  County: ").Append(County).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  District: ").Append(District).Append("\n");
             sb.Append("  BuildingNumber: ").Append(BuildingNumber).Append("\n");
@@ -244,6 +263,7 @@ namespace CyberSource.Model
             sb.Append("  EmailDomain: ").Append(EmailDomain).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  PhoneType: ").Append(PhoneType).Append("\n");
+            sb.Append("  VerificationStatus: ").Append(VerificationStatus).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -346,6 +366,11 @@ namespace CyberSource.Model
                     this.PostalCode.Equals(other.PostalCode)
                 ) && 
                 (
+                    this.County == other.County ||
+                    this.County != null &&
+                    this.County.Equals(other.County)
+                ) && 
+                (
                     this.Country == other.Country ||
                     this.Country != null &&
                     this.Country.Equals(other.Country)
@@ -379,6 +404,11 @@ namespace CyberSource.Model
                     this.PhoneType == other.PhoneType ||
                     this.PhoneType != null &&
                     this.PhoneType.Equals(other.PhoneType)
+                ) && 
+                (
+                    this.VerificationStatus == other.VerificationStatus ||
+                    this.VerificationStatus != null &&
+                    this.VerificationStatus.Equals(other.VerificationStatus)
                 );
         }
 
@@ -419,6 +449,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AdministrativeArea.GetHashCode();
                 if (this.PostalCode != null)
                     hash = hash * 59 + this.PostalCode.GetHashCode();
+                if (this.County != null)
+                    hash = hash * 59 + this.County.GetHashCode();
                 if (this.Country != null)
                     hash = hash * 59 + this.Country.GetHashCode();
                 if (this.District != null)
@@ -433,6 +465,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 if (this.PhoneType != null)
                     hash = hash * 59 + this.PhoneType.GetHashCode();
+                if (this.VerificationStatus != null)
+                    hash = hash * 59 + this.VerificationStatus.GetHashCode();
                 return hash;
             }
         }

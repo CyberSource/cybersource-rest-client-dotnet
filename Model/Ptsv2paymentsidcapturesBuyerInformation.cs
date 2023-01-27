@@ -35,10 +35,18 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="MerchantCustomerId">Your identifier for the customer.  When a subscription or customer profile is being created, the maximum length for this field for most processors is 30. Otherwise, the maximum length is 100.  #### Comercio Latino For recurring payments in Mexico, the value is the customer’s contract number. Note Before you request the authorization, you must inform the issuer of the customer contract numbers that will be used for recurring transactions.  #### Worldpay VAP For a follow-on credit with Worldpay VAP, CyberSource checks the following locations, in the order given, for a customer account ID value and uses the first value it finds: 1. &#x60;customer_account_id&#x60; value in the follow-on credit request 2. Customer account ID value that was used for the capture that is being credited 3. Customer account ID value that was used for the original authorization If a customer account ID value cannot be found in any of these locations, then no value is used.  For processor-specific information, see the &#x60;customer_account_id&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         /// <param name="VatRegistrationNumber">Customer’s government-assigned tax identification number.  #### Tax Calculation Optional for international and value added taxes only. Not applicable to U.S. and Canadian taxes.  For processor-specific information, see the purchaser_vat_registration_number field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
-        public Ptsv2paymentsidcapturesBuyerInformation(string MerchantCustomerId = default(string), string VatRegistrationNumber = default(string))
+        /// <param name="DateOfBirth">Recipient’s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For more details, see &#x60;recipient_date_of_birth&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="Gender">Customer&#39;s gender. Possible values are F (female), M (male),O (other)..</param>
+        /// <param name="Language">language setting of the user.</param>
+        /// <param name="PersonalIdentification">PersonalIdentification.</param>
+        public Ptsv2paymentsidcapturesBuyerInformation(string MerchantCustomerId = default(string), string VatRegistrationNumber = default(string), string DateOfBirth = default(string), string Gender = default(string), string Language = default(string), List<Ptsv2paymentsidcapturesBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsidcapturesBuyerInformationPersonalIdentification>))
         {
             this.MerchantCustomerId = MerchantCustomerId;
             this.VatRegistrationNumber = VatRegistrationNumber;
+            this.DateOfBirth = DateOfBirth;
+            this.Gender = Gender;
+            this.Language = Language;
+            this.PersonalIdentification = PersonalIdentification;
         }
         
         /// <summary>
@@ -56,6 +64,33 @@ namespace CyberSource.Model
         public string VatRegistrationNumber { get; set; }
 
         /// <summary>
+        /// Recipient’s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For more details, see &#x60;recipient_date_of_birth&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+        /// </summary>
+        /// <value>Recipient’s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For more details, see &#x60;recipient_date_of_birth&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
+        [DataMember(Name="dateOfBirth", EmitDefaultValue=false)]
+        public string DateOfBirth { get; set; }
+
+        /// <summary>
+        /// Customer&#39;s gender. Possible values are F (female), M (male),O (other).
+        /// </summary>
+        /// <value>Customer&#39;s gender. Possible values are F (female), M (male),O (other).</value>
+        [DataMember(Name="gender", EmitDefaultValue=false)]
+        public string Gender { get; set; }
+
+        /// <summary>
+        /// language setting of the user
+        /// </summary>
+        /// <value>language setting of the user</value>
+        [DataMember(Name="language", EmitDefaultValue=false)]
+        public string Language { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PersonalIdentification
+        /// </summary>
+        [DataMember(Name="personalIdentification", EmitDefaultValue=false)]
+        public List<Ptsv2paymentsidcapturesBuyerInformationPersonalIdentification> PersonalIdentification { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +100,10 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsidcapturesBuyerInformation {\n");
             sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
             sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
+            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            sb.Append("  Gender: ").Append(Gender).Append("\n");
+            sb.Append("  Language: ").Append(Language).Append("\n");
+            sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +149,26 @@ namespace CyberSource.Model
                     this.VatRegistrationNumber == other.VatRegistrationNumber ||
                     this.VatRegistrationNumber != null &&
                     this.VatRegistrationNumber.Equals(other.VatRegistrationNumber)
+                ) && 
+                (
+                    this.DateOfBirth == other.DateOfBirth ||
+                    this.DateOfBirth != null &&
+                    this.DateOfBirth.Equals(other.DateOfBirth)
+                ) && 
+                (
+                    this.Gender == other.Gender ||
+                    this.Gender != null &&
+                    this.Gender.Equals(other.Gender)
+                ) && 
+                (
+                    this.Language == other.Language ||
+                    this.Language != null &&
+                    this.Language.Equals(other.Language)
+                ) && 
+                (
+                    this.PersonalIdentification == other.PersonalIdentification ||
+                    this.PersonalIdentification != null &&
+                    this.PersonalIdentification.SequenceEqual(other.PersonalIdentification)
                 );
         }
 
@@ -128,6 +187,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantCustomerId.GetHashCode();
                 if (this.VatRegistrationNumber != null)
                     hash = hash * 59 + this.VatRegistrationNumber.GetHashCode();
+                if (this.DateOfBirth != null)
+                    hash = hash * 59 + this.DateOfBirth.GetHashCode();
+                if (this.Gender != null)
+                    hash = hash * 59 + this.Gender.GetHashCode();
+                if (this.Language != null)
+                    hash = hash * 59 + this.Language.GetHashCode();
+                if (this.PersonalIdentification != null)
+                    hash = hash * 59 + this.PersonalIdentification.GetHashCode();
                 return hash;
             }
         }
