@@ -80,6 +80,38 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'VatRegistrationNumber'
         }
+        /// <summary>
+        /// Test the property 'DateOfBirth'
+        /// </summary>
+        [Test]
+        public void DateOfBirthTest()
+        {
+            // TODO unit test for the property 'DateOfBirth'
+        }
+        /// <summary>
+        /// Test the property 'Gender'
+        /// </summary>
+        [Test]
+        public void GenderTest()
+        {
+            // TODO unit test for the property 'Gender'
+        }
+        /// <summary>
+        /// Test the property 'Language'
+        /// </summary>
+        [Test]
+        public void LanguageTest()
+        {
+            // TODO unit test for the property 'Language'
+        }
+        /// <summary>
+        /// Test the property 'PersonalIdentification'
+        /// </summary>
+        [Test]
+        public void PersonalIdentificationTest()
+        {
+            // TODO unit test for the property 'PersonalIdentification'
+        }
 
     }
 

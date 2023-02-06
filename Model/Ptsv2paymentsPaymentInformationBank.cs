@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="RoutingNumber">Bank routing number. This is also called the _transit number_.  For details, see &#x60;ecp_rdfi&#x60; request field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) .</param>
         /// <param name="Iban">International Bank Account Number (IBAN) for the bank account. For some countries you can provide this number instead of the traditional bank account information. You can use this field only when scoring a direct debit transaction.  For all possible values, see the &#x60;bank_iban&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="SwiftCode">Bank’s SWIFT code. You can use this field only when scoring a direct debit transaction. Required only for crossborder transactions.  For all possible values, see the &#x60;bank_swiftcode&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
-        public Ptsv2paymentsPaymentInformationBank(Ptsv2paymentsPaymentInformationBankAccount Account = default(Ptsv2paymentsPaymentInformationBankAccount), string RoutingNumber = default(string), string Iban = default(string), string SwiftCode = default(string))
+        /// <param name="Code">Bank code of the consumer’s account .</param>
+        public Ptsv2paymentsPaymentInformationBank(Ptsv2paymentsPaymentInformationBankAccount Account = default(Ptsv2paymentsPaymentInformationBankAccount), string RoutingNumber = default(string), string Iban = default(string), string SwiftCode = default(string), string Code = default(string))
         {
             this.Account = Account;
             this.RoutingNumber = RoutingNumber;
             this.Iban = Iban;
             this.SwiftCode = SwiftCode;
+            this.Code = Code;
         }
         
         /// <summary>
@@ -73,6 +75,13 @@ namespace CyberSource.Model
         public string SwiftCode { get; set; }
 
         /// <summary>
+        /// Bank code of the consumer’s account 
+        /// </summary>
+        /// <value>Bank code of the consumer’s account </value>
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public string Code { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,6 +93,7 @@ namespace CyberSource.Model
             sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
             sb.Append("  Iban: ").Append(Iban).Append("\n");
             sb.Append("  SwiftCode: ").Append(SwiftCode).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +149,11 @@ namespace CyberSource.Model
                     this.SwiftCode == other.SwiftCode ||
                     this.SwiftCode != null &&
                     this.SwiftCode.Equals(other.SwiftCode)
+                ) && 
+                (
+                    this.Code == other.Code ||
+                    this.Code != null &&
+                    this.Code.Equals(other.Code)
                 );
         }
 
@@ -161,6 +176,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Iban.GetHashCode();
                 if (this.SwiftCode != null)
                     hash = hash * 59 + this.SwiftCode.GetHashCode();
+                if (this.Code != null)
+                    hash = hash * 59 + this.Code.GetHashCode();
                 return hash;
             }
         }

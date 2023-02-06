@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **InstrumentIdentifier** | [**Ptsv2paymentsPaymentInformationInstrumentIdentifier**](Ptsv2paymentsPaymentInformationInstrumentIdentifier.md) |  | [optional] 
 **ShippingAddress** | [**Ptsv2paymentsPaymentInformationShippingAddress**](Ptsv2paymentsPaymentInformationShippingAddress.md) |  | [optional] 
 **LegacyToken** | [**Ptsv2paymentsPaymentInformationLegacyToken**](Ptsv2paymentsPaymentInformationLegacyToken.md) |  | [optional] 
-**PaymentType** | [**Ptsv2paymentsPaymentInformationPaymentType**](Ptsv2paymentsPaymentInformationPaymentType.md) |  | [optional] 
-**EWallet** | [**Ptsv2paymentsPaymentInformationEWallet**](Ptsv2paymentsPaymentInformationEWallet.md) |  | [optional] 
+**PaymentType** | [**Ptsv2paymentsidrefundsPaymentInformationPaymentType**](Ptsv2paymentsidrefundsPaymentInformationPaymentType.md) |  | [optional] 
+**EWallet** | [**Ptsv2paymentsidrefundsPaymentInformationEWallet**](Ptsv2paymentsidrefundsPaymentInformationEWallet.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

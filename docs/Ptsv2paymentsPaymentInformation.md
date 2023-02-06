@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Intent** | **string** | Intent.  | [optional] 
+**CountryCode** | **string** | Country code.  | [optional] 
 **Card** | [**Ptsv2paymentsPaymentInformationCard**](Ptsv2paymentsPaymentInformationCard.md) |  | [optional] 
 **TokenizedCard** | [**Ptsv2paymentsPaymentInformationTokenizedCard**](Ptsv2paymentsPaymentInformationTokenizedCard.md) |  | [optional] 
 **FluidData** | [**Ptsv2paymentsPaymentInformationFluidData**](Ptsv2paymentsPaymentInformationFluidData.md) |  | [optional] 

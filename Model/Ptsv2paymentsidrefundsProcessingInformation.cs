@@ -33,6 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidrefundsProcessingInformation" /> class.
         /// </summary>
+        /// <param name="ActionList">Array of actions (one or more) to be included in the payment to invoke bundled services along with payment status.  Possible values are one or more of follows:   - &#x60;AP_REFUND&#x60;: Use this when Alternative Payment Refund service is requested. .</param>
         /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. .</param>
         /// <param name="ReconciliationId">Please check with Cybersource customer support to see if your merchant account is configured correctly so you can include this field in your request. * For Payouts: max length for FDCCompass is String (22). .</param>
         /// <param name="LinkId">Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:  - Partial authorizations - Split shipments  For details, see &#x60;link_to_request&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
@@ -41,8 +42,11 @@ namespace CyberSource.Model
         /// <param name="PurchaseLevel">Set this field to 3 to indicate that the request includes Level III data..</param>
         /// <param name="RecurringOptions">RecurringOptions.</param>
         /// <param name="IndustryDataType">Indicates that the transaction includes industry-specific data.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; - &#x60;transit&#x60;  #### Card Present, Airlines and Auto Rental You must set this field to &#x60;airline&#x60; in order for airline data to be sent to the processor. For example, if this field is not set to &#x60;airline&#x60; or is not included in the request, no airline data is sent to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor. When this field is not set to &#x60;restaurant&#x60; or is not included in the request, no restaurant data is sent to the processor.  You must set this field to &#x60;auto_rental&#x60; in order for auto rental data to be sent to the processor. For example, if this field is not set to &#x60;auto_rental&#x60; or is not included in the request, no auto rental data is sent to the processor.  Restaurant data is supported only on CyberSource through VisaNet. .</param>
-        public Ptsv2paymentsidrefundsProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), string IndustryDataType = default(string))
+        /// <param name="PaymentType">Identifier for the payment type.</param>
+        /// <param name="RefundOptions">RefundOptions.</param>
+        public Ptsv2paymentsidrefundsProcessingInformation(List<string> ActionList = default(List<string>), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), string IndustryDataType = default(string), string PaymentType = default(string), Ptsv2paymentsidrefundsProcessingInformationRefundOptions RefundOptions = default(Ptsv2paymentsidrefundsProcessingInformationRefundOptions))
         {
+            this.ActionList = ActionList;
             this.PaymentSolution = PaymentSolution;
             this.ReconciliationId = ReconciliationId;
             this.LinkId = LinkId;
@@ -51,8 +55,17 @@ namespace CyberSource.Model
             this.PurchaseLevel = PurchaseLevel;
             this.RecurringOptions = RecurringOptions;
             this.IndustryDataType = IndustryDataType;
+            this.PaymentType = PaymentType;
+            this.RefundOptions = RefundOptions;
         }
         
+        /// <summary>
+        /// Array of actions (one or more) to be included in the payment to invoke bundled services along with payment status.  Possible values are one or more of follows:   - &#x60;AP_REFUND&#x60;: Use this when Alternative Payment Refund service is requested. 
+        /// </summary>
+        /// <value>Array of actions (one or more) to be included in the payment to invoke bundled services along with payment status.  Possible values are one or more of follows:   - &#x60;AP_REFUND&#x60;: Use this when Alternative Payment Refund service is requested. </value>
+        [DataMember(Name="actionList", EmitDefaultValue=false)]
+        public List<string> ActionList { get; set; }
+
         /// <summary>
         /// Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. 
         /// </summary>
@@ -109,6 +122,19 @@ namespace CyberSource.Model
         public string IndustryDataType { get; set; }
 
         /// <summary>
+        /// Identifier for the payment type
+        /// </summary>
+        /// <value>Identifier for the payment type</value>
+        [DataMember(Name="paymentType", EmitDefaultValue=false)]
+        public string PaymentType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RefundOptions
+        /// </summary>
+        [DataMember(Name="refundOptions", EmitDefaultValue=false)]
+        public Ptsv2paymentsidrefundsProcessingInformationRefundOptions RefundOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -116,6 +142,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidrefundsProcessingInformation {\n");
+            sb.Append("  ActionList: ").Append(ActionList).Append("\n");
             sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
             sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
             sb.Append("  LinkId: ").Append(LinkId).Append("\n");
@@ -124,6 +151,8 @@ namespace CyberSource.Model
             sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
             sb.Append("  RecurringOptions: ").Append(RecurringOptions).Append("\n");
             sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
+            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            sb.Append("  RefundOptions: ").Append(RefundOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,6 +189,11 @@ namespace CyberSource.Model
                 return false;
 
             return 
+                (
+                    this.ActionList == other.ActionList ||
+                    this.ActionList != null &&
+                    this.ActionList.SequenceEqual(other.ActionList)
+                ) && 
                 (
                     this.PaymentSolution == other.PaymentSolution ||
                     this.PaymentSolution != null &&
@@ -199,6 +233,16 @@ namespace CyberSource.Model
                     this.IndustryDataType == other.IndustryDataType ||
                     this.IndustryDataType != null &&
                     this.IndustryDataType.Equals(other.IndustryDataType)
+                ) && 
+                (
+                    this.PaymentType == other.PaymentType ||
+                    this.PaymentType != null &&
+                    this.PaymentType.Equals(other.PaymentType)
+                ) && 
+                (
+                    this.RefundOptions == other.RefundOptions ||
+                    this.RefundOptions != null &&
+                    this.RefundOptions.Equals(other.RefundOptions)
                 );
         }
 
@@ -213,6 +257,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.ActionList != null)
+                    hash = hash * 59 + this.ActionList.GetHashCode();
                 if (this.PaymentSolution != null)
                     hash = hash * 59 + this.PaymentSolution.GetHashCode();
                 if (this.ReconciliationId != null)
@@ -229,6 +275,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RecurringOptions.GetHashCode();
                 if (this.IndustryDataType != null)
                     hash = hash * 59 + this.IndustryDataType.GetHashCode();
+                if (this.PaymentType != null)
+                    hash = hash * 59 + this.PaymentType.GetHashCode();
+                if (this.RefundOptions != null)
+                    hash = hash * 59 + this.RefundOptions.GetHashCode();
                 return hash;
             }
         }

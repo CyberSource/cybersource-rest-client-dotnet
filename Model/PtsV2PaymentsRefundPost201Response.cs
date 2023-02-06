@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        public PtsV2PaymentsRefundPost201Response(PtsV2PaymentsRefundPost201ResponseLinks Links = default(PtsV2PaymentsRefundPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsRefundPost201ResponseRefundAmountDetails RefundAmountDetails = default(PtsV2PaymentsRefundPost201ResponseRefundAmountDetails), PtsV2PaymentsRefundPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsRefundPost201ResponseProcessorInformation), PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsRefundPost201ResponseOrderInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation))
+        public PtsV2PaymentsRefundPost201Response(PtsV2PaymentsRefundPost201ResponseLinks Links = default(PtsV2PaymentsRefundPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsRefundPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsRefundPost201ResponseClientReferenceInformation), PtsV2PaymentsRefundPost201ResponseRefundAmountDetails RefundAmountDetails = default(PtsV2PaymentsRefundPost201ResponseRefundAmountDetails), PtsV2PaymentsRefundPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsRefundPost201ResponseProcessorInformation), PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsRefundPost201ResponseOrderInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -95,7 +95,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
+        public PtsV2PaymentsRefundPost201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets RefundAmountDetails

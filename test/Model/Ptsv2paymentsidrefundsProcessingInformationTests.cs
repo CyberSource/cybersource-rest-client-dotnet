@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'ActionList'
+        /// </summary>
+        [Test]
+        public void ActionListTest()
+        {
+            // TODO unit test for the property 'ActionList'
+        }
+        /// <summary>
         /// Test the property 'PaymentSolution'
         /// </summary>
         [Test]
@@ -127,6 +135,22 @@ namespace CyberSource.Test
         public void IndustryDataTypeTest()
         {
             // TODO unit test for the property 'IndustryDataType'
+        }
+        /// <summary>
+        /// Test the property 'PaymentType'
+        /// </summary>
+        [Test]
+        public void PaymentTypeTest()
+        {
+            // TODO unit test for the property 'PaymentType'
+        }
+        /// <summary>
+        /// Test the property 'RefundOptions'
+        /// </summary>
+        [Test]
+        public void RefundOptionsTest()
+        {
+            // TODO unit test for the property 'RefundOptions'
         }
 
     }

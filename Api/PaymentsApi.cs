@@ -70,6 +70,29 @@ namespace CyberSource.Api
         /// <param name="incrementAuthRequest"></param>
         /// <returns>ApiResponse of PtsV2IncrementalAuthorizationPatch201Response</returns>
         ApiResponse<PtsV2IncrementalAuthorizationPatch201Response> IncrementAuthWithHttpInfo (string id, IncrementAuthRequest incrementAuthRequest);
+        /// <summary>
+        /// Check a Payment Status
+        /// </summary>
+        /// <remarks>
+        /// Checks and updates the payment status 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The payment id whose status needs to be checked and updated.</param>
+        /// <param name="refreshPaymentStatusRequest"></param>
+        /// <returns>PtsV2PaymentsPost201Response1</returns>
+        PtsV2PaymentsPost201Response1 RefreshPaymentStatus (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
+
+        /// <summary>
+        /// Check a Payment Status
+        /// </summary>
+        /// <remarks>
+        /// Checks and updates the payment status 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The payment id whose status needs to be checked and updated.</param>
+        /// <param name="refreshPaymentStatusRequest"></param>
+        /// <returns>ApiResponse of PtsV2PaymentsPost201Response1</returns>
+        ApiResponse<PtsV2PaymentsPost201Response1> RefreshPaymentStatusWithHttpInfo (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -116,6 +139,29 @@ namespace CyberSource.Api
         /// <param name="incrementAuthRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2IncrementalAuthorizationPatch201Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<PtsV2IncrementalAuthorizationPatch201Response>> IncrementAuthAsyncWithHttpInfo (string id, IncrementAuthRequest incrementAuthRequest);
+        /// <summary>
+        /// Check a Payment Status
+        /// </summary>
+        /// <remarks>
+        /// Checks and updates the payment status 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The payment id whose status needs to be checked and updated.</param>
+        /// <param name="refreshPaymentStatusRequest"></param>
+        /// <returns>Task of PtsV2PaymentsPost201Response1</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsPost201Response1> RefreshPaymentStatusAsync (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
+
+        /// <summary>
+        /// Check a Payment Status
+        /// </summary>
+        /// <remarks>
+        /// Checks and updates the payment status 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The payment id whose status needs to be checked and updated.</param>
+        /// <param name="refreshPaymentStatusRequest"></param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response1)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response1>> RefreshPaymentStatusAsyncWithHttpInfo (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
         #endregion Asynchronous Operations
     }
 
@@ -673,6 +719,228 @@ namespace CyberSource.Api
             return new ApiResponse<PtsV2IncrementalAuthorizationPatch201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PtsV2IncrementalAuthorizationPatch201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2IncrementalAuthorizationPatch201Response))); // Return statement
+        }
+        /// <summary>
+        /// Check a Payment Status Checks and updates the payment status 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The payment id whose status needs to be checked and updated.</param>
+        /// <param name="refreshPaymentStatusRequest"></param>
+        /// <returns>PtsV2PaymentsPost201Response1</returns>
+        public PtsV2PaymentsPost201Response1 RefreshPaymentStatus (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
+        {
+            logger.Debug("CALLING API \"RefreshPaymentStatus\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<PtsV2PaymentsPost201Response1> localVarResponse = RefreshPaymentStatusWithHttpInfo(id, refreshPaymentStatusRequest);
+            logger.Debug("CALLING API \"RefreshPaymentStatus\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check a Payment Status Checks and updates the payment status 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The payment id whose status needs to be checked and updated.</param>
+        /// <param name="refreshPaymentStatusRequest"></param>
+        /// <returns>ApiResponse of PtsV2PaymentsPost201Response1</returns>
+        public ApiResponse< PtsV2PaymentsPost201Response1 > RefreshPaymentStatusWithHttpInfo (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->RefreshPaymentStatus");
+                throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->RefreshPaymentStatus");
+            }
+            // verify the required parameter 'refreshPaymentStatusRequest' is set
+            if (refreshPaymentStatusRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'refreshPaymentStatusRequest' when calling PaymentsApi->RefreshPaymentStatus");
+                throw new ApiException(400, "Missing required parameter 'refreshPaymentStatusRequest' when calling PaymentsApi->RefreshPaymentStatus");
+            }
+
+            var localVarPath = $"/pts/v2/refresh-payment-status/{id}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (refreshPaymentStatusRequest != null && refreshPaymentStatusRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(refreshPaymentStatusRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = refreshPaymentStatusRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefreshPaymentStatus", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<PtsV2PaymentsPost201Response1>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response1))); // Return statement
+        }
+
+        /// <summary>
+        /// Check a Payment Status Checks and updates the payment status 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The payment id whose status needs to be checked and updated.</param>
+        /// <param name="refreshPaymentStatusRequest"></param>
+        /// <returns>Task of PtsV2PaymentsPost201Response1</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsPost201Response1> RefreshPaymentStatusAsync (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
+        {
+            logger.Debug("CALLING API \"RefreshPaymentStatusAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<PtsV2PaymentsPost201Response1> localVarResponse = await RefreshPaymentStatusAsyncWithHttpInfo(id, refreshPaymentStatusRequest);
+            logger.Debug("CALLING API \"RefreshPaymentStatusAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Check a Payment Status Checks and updates the payment status 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The payment id whose status needs to be checked and updated.</param>
+        /// <param name="refreshPaymentStatusRequest"></param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response1)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response1>> RefreshPaymentStatusAsyncWithHttpInfo (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->RefreshPaymentStatus");
+                throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->RefreshPaymentStatus");
+            }
+            // verify the required parameter 'refreshPaymentStatusRequest' is set
+            if (refreshPaymentStatusRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'refreshPaymentStatusRequest' when calling PaymentsApi->RefreshPaymentStatus");
+                throw new ApiException(400, "Missing required parameter 'refreshPaymentStatusRequest' when calling PaymentsApi->RefreshPaymentStatus");
+            }
+
+            var localVarPath = $"/pts/v2/refresh-payment-status/{id}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (refreshPaymentStatusRequest != null && refreshPaymentStatusRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(refreshPaymentStatusRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = refreshPaymentStatusRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefreshPaymentStatus", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<PtsV2PaymentsPost201Response1>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response1))); // Return statement
         }
     }
 }

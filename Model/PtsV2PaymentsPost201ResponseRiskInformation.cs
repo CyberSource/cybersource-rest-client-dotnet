@@ -41,9 +41,9 @@ namespace CyberSource.Model
         /// <param name="LocalTime">The customer&#39;s local time (&#x60;hh:mm:ss&#x60;), which is calculated from the transaction request time and the customer&#39;s billing address.  For details, see the &#x60;score_time_local&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) .</param>
         /// <param name="Score">Score.</param>
         /// <param name="IpAddress">IpAddress.</param>
-        /// <param name="Providers">Providers.</param>
+        /// <param name="Providers">Name of the 3rd party provider, for example, Emailage. For all possible values, see the &#x60;decision_provider_#_name&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link)..</param>
         /// <param name="Travel">Travel.</param>
-        public PtsV2PaymentsPost201ResponseRiskInformation(PtsV2PaymentsPost201ResponseRiskInformationProfile Profile = default(PtsV2PaymentsPost201ResponseRiskInformationProfile), List<PtsV2PaymentsPost201ResponseRiskInformationRules> Rules = default(List<PtsV2PaymentsPost201ResponseRiskInformationRules>), PtsV2PaymentsPost201ResponseRiskInformationInfoCodes InfoCodes = default(PtsV2PaymentsPost201ResponseRiskInformationInfoCodes), PtsV2PaymentsPost201ResponseRiskInformationVelocity Velocity = default(PtsV2PaymentsPost201ResponseRiskInformationVelocity), int? CasePriority = default(int?), string LocalTime = default(string), PtsV2PaymentsPost201ResponseRiskInformationScore Score = default(PtsV2PaymentsPost201ResponseRiskInformationScore), PtsV2PaymentsPost201ResponseRiskInformationIpAddress IpAddress = default(PtsV2PaymentsPost201ResponseRiskInformationIpAddress), PtsV2PaymentsPost201ResponseRiskInformationProviders Providers = default(PtsV2PaymentsPost201ResponseRiskInformationProviders), PtsV2PaymentsPost201ResponseRiskInformationTravel Travel = default(PtsV2PaymentsPost201ResponseRiskInformationTravel))
+        public PtsV2PaymentsPost201ResponseRiskInformation(PtsV2PaymentsPost201ResponseRiskInformationProfile Profile = default(PtsV2PaymentsPost201ResponseRiskInformationProfile), List<PtsV2PaymentsPost201ResponseRiskInformationRules> Rules = default(List<PtsV2PaymentsPost201ResponseRiskInformationRules>), PtsV2PaymentsPost201ResponseRiskInformationInfoCodes InfoCodes = default(PtsV2PaymentsPost201ResponseRiskInformationInfoCodes), PtsV2PaymentsPost201ResponseRiskInformationVelocity Velocity = default(PtsV2PaymentsPost201ResponseRiskInformationVelocity), int? CasePriority = default(int?), string LocalTime = default(string), PtsV2PaymentsPost201ResponseRiskInformationScore Score = default(PtsV2PaymentsPost201ResponseRiskInformationScore), PtsV2PaymentsPost201ResponseRiskInformationIpAddress IpAddress = default(PtsV2PaymentsPost201ResponseRiskInformationIpAddress), Dictionary<string, Dictionary<string, string>> Providers = default(Dictionary<string, Dictionary<string, string>>), PtsV2PaymentsPost201ResponseRiskInformationTravel Travel = default(PtsV2PaymentsPost201ResponseRiskInformationTravel))
         {
             this.Profile = Profile;
             this.Rules = Rules;
@@ -108,10 +108,11 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseRiskInformationIpAddress IpAddress { get; set; }
 
         /// <summary>
-        /// Gets or Sets Providers
+        /// Name of the 3rd party provider, for example, Emailage. For all possible values, see the &#x60;decision_provider_#_name&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link).
         /// </summary>
+        /// <value>Name of the 3rd party provider, for example, Emailage. For all possible values, see the &#x60;decision_provider_#_name&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link).</value>
         [DataMember(Name="providers", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseRiskInformationProviders Providers { get; set; }
+        public Dictionary<string, Dictionary<string, string>> Providers { get; set; }
 
         /// <summary>
         /// Gets or Sets Travel
@@ -216,7 +217,7 @@ namespace CyberSource.Model
                 (
                     this.Providers == other.Providers ||
                     this.Providers != null &&
-                    this.Providers.Equals(other.Providers)
+                    this.Providers.SequenceEqual(other.Providers)
                 ) && 
                 (
                     this.Travel == other.Travel ||
