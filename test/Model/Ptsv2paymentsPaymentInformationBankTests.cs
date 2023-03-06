@@ -96,6 +96,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'SwiftCode'
         }
+        /// <summary>
+        /// Test the property 'Code'
+        /// </summary>
+        [Test]
+        public void CodeTest()
+        {
+            // TODO unit test for the property 'Code'
+        }
 
     }
 

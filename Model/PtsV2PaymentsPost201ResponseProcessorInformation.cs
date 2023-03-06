@@ -63,7 +63,9 @@ namespace CyberSource.Model
         /// <param name="RetrievalReferenceNumber">#### Ingenico ePayments Unique number that CyberSource generates to identify the transaction. You can use this value to identify transactions in the Ingenico ePayments Collections Report, which provides settlement information. Contact customer support for information about the report.  ### CyberSource through VisaNet Retrieval request number. .</param>
         /// <param name="PaymentUrl">Direct the customer to this URL to complete the payment..</param>
         /// <param name="CompleteUrl">The redirect URL for forwarding the consumer to complete page.  This redirect needed by PSP to track browser information of consumer. PSP then redirect consumer to merchant success URL. .</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string))
+        /// <param name="Signature">Signature.</param>
+        /// <param name="PublicKey">PublicKey.</param>
+        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string))
         {
             this.AuthIndicator = AuthIndicator;
             this.ApprovalCode = ApprovalCode;
@@ -95,6 +97,8 @@ namespace CyberSource.Model
             this.RetrievalReferenceNumber = RetrievalReferenceNumber;
             this.PaymentUrl = PaymentUrl;
             this.CompleteUrl = CompleteUrl;
+            this.Signature = Signature;
+            this.PublicKey = PublicKey;
         }
         
         /// <summary>
@@ -300,6 +304,18 @@ namespace CyberSource.Model
         public string CompleteUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets Signature
+        /// </summary>
+        [DataMember(Name="signature", EmitDefaultValue=false)]
+        public string Signature { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PublicKey
+        /// </summary>
+        [DataMember(Name="publicKey", EmitDefaultValue=false)]
+        public string PublicKey { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -337,6 +353,8 @@ namespace CyberSource.Model
             sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
             sb.Append("  PaymentUrl: ").Append(PaymentUrl).Append("\n");
             sb.Append("  CompleteUrl: ").Append(CompleteUrl).Append("\n");
+            sb.Append("  Signature: ").Append(Signature).Append("\n");
+            sb.Append("  PublicKey: ").Append(PublicKey).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -522,6 +540,16 @@ namespace CyberSource.Model
                     this.CompleteUrl == other.CompleteUrl ||
                     this.CompleteUrl != null &&
                     this.CompleteUrl.Equals(other.CompleteUrl)
+                ) && 
+                (
+                    this.Signature == other.Signature ||
+                    this.Signature != null &&
+                    this.Signature.Equals(other.Signature)
+                ) && 
+                (
+                    this.PublicKey == other.PublicKey ||
+                    this.PublicKey != null &&
+                    this.PublicKey.Equals(other.PublicKey)
                 );
         }
 
@@ -596,6 +624,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentUrl.GetHashCode();
                 if (this.CompleteUrl != null)
                     hash = hash * 59 + this.CompleteUrl.GetHashCode();
+                if (this.Signature != null)
+                    hash = hash * 59 + this.Signature.GetHashCode();
+                if (this.PublicKey != null)
+                    hash = hash * 59 + this.PublicKey.GetHashCode();
                 return hash;
             }
         }

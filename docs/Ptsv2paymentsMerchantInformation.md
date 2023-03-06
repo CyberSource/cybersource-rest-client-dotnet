@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **CancelUrl** | **string** | customer would be redirected to this url based on the decision of the transaction | [optional] 
 **SuccessUrl** | **string** | customer would be redirected to this url based on the decision of the transaction | [optional] 
 **FailureUrl** | **string** | customer would be redirected to this url based on the decision of the transaction | [optional] 
+**ReturnUrl** | **string** | URL for displaying payment results to the consumer (notifications) after the transaction is processed. Usually this URL belongs to merchant and its behavior is defined by merchant  | [optional] 
 **MerchantName** | **string** | Use this field only if you are requesting payment with Payer Authentication service together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

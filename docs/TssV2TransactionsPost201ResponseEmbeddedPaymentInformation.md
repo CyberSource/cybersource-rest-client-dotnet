@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PaymentType** | [**TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType**](TssV2TransactionsPost201ResponseEmbeddedPaymentInformationPaymentType.md) |  | [optional] 
-**Customer** | [**TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCustomer**](TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCustomer.md) |  | [optional] 
+**Customer** | [**Ptsv2refreshpaymentstatusidPaymentInformationCustomer**](Ptsv2refreshpaymentstatusidPaymentInformationCustomer.md) |  | [optional] 
 **Card** | [**TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard**](TssV2TransactionsPost201ResponseEmbeddedPaymentInformationCard.md) |  | [optional] 
 **Bank** | [**TssV2TransactionsPost201ResponseEmbeddedPaymentInformationBank**](TssV2TransactionsPost201ResponseEmbeddedPaymentInformationBank.md) |  | [optional] 
 

@@ -33,18 +33,27 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsPaymentInformationPaymentTypeMethod" /> class.
         /// </summary>
-        /// <param name="Name">A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal, 7Eleven, alfamart, etc  For Japan Payment Processing Valid Values: - 1 Banking Data - 2 Authorization Data .</param>
-        public Ptsv2paymentsPaymentInformationPaymentTypeMethod(string Name = default(string))
+        /// <param name="Name">A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal, 7Eleven, alfamart, etc  For Japan Payment Processing Valid Values: - 1 Banking Data - 2 Authorization Data  #### Via KCP - &#x60;KCP&#x60; : Local Card, Bank Transfer and Carrier Billing. - &#x60;PAYCO&#x60; - &#x60;KAKAOPAY&#x60; - &#x60;NAVERPAY&#x60; .</param>
+        /// <param name="Type">The payment channel that facilitates the transactions. This parameter can be used if the payment channels are listed on the merchant’s site, and the payment channel is known.  Possible Values:  #### Via PPRO - &#x60;alfaVa&#x60; - &#x60;kredivo&#x60; - &#x60;consumerBarCode&#x60; - &#x60;merchantQrCode&#x60; - &#x60;dokuWallet&#x60; .</param>
+        public Ptsv2paymentsPaymentInformationPaymentTypeMethod(string Name = default(string), string Type = default(string))
         {
             this.Name = Name;
+            this.Type = Type;
         }
         
         /// <summary>
-        /// A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal, 7Eleven, alfamart, etc  For Japan Payment Processing Valid Values: - 1 Banking Data - 2 Authorization Data 
+        /// A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal, 7Eleven, alfamart, etc  For Japan Payment Processing Valid Values: - 1 Banking Data - 2 Authorization Data  #### Via KCP - &#x60;KCP&#x60; : Local Card, Bank Transfer and Carrier Billing. - &#x60;PAYCO&#x60; - &#x60;KAKAOPAY&#x60; - &#x60;NAVERPAY&#x60; 
         /// </summary>
-        /// <value>A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal, 7Eleven, alfamart, etc  For Japan Payment Processing Valid Values: - 1 Banking Data - 2 Authorization Data </value>
+        /// <value>A Payment Type is enabled through a Method. Examples: Visa, Master Card, ApplePay, iDeal, 7Eleven, alfamart, etc  For Japan Payment Processing Valid Values: - 1 Banking Data - 2 Authorization Data  #### Via KCP - &#x60;KCP&#x60; : Local Card, Bank Transfer and Carrier Billing. - &#x60;PAYCO&#x60; - &#x60;KAKAOPAY&#x60; - &#x60;NAVERPAY&#x60; </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// The payment channel that facilitates the transactions. This parameter can be used if the payment channels are listed on the merchant’s site, and the payment channel is known.  Possible Values:  #### Via PPRO - &#x60;alfaVa&#x60; - &#x60;kredivo&#x60; - &#x60;consumerBarCode&#x60; - &#x60;merchantQrCode&#x60; - &#x60;dokuWallet&#x60; 
+        /// </summary>
+        /// <value>The payment channel that facilitates the transactions. This parameter can be used if the payment channels are listed on the merchant’s site, and the payment channel is known.  Possible Values:  #### Via PPRO - &#x60;alfaVa&#x60; - &#x60;kredivo&#x60; - &#x60;consumerBarCode&#x60; - &#x60;merchantQrCode&#x60; - &#x60;dokuWallet&#x60; </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsPaymentInformationPaymentTypeMethod {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.Name == other.Name ||
                     this.Name != null &&
                     this.Name.Equals(other.Name)
+                ) && 
+                (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
                 return hash;
             }
         }

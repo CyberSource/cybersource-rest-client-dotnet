@@ -43,7 +43,9 @@ namespace CyberSource.Model
         /// <param name="StartYear">Year of the start of the Maestro (UK Domestic) card validity period. Do not include the field, even with a blank value, if the card is not a Maestro (UK Domestic) card. &#x60;Format: YYYY&#x60;.  **Note** The start date is not required for Maestro (UK Domestic) transactions. .</param>
         /// <param name="SourceAccountType">Flag that specifies the type of account associated with the card. The cardholder provides this information during the payment process.  This field is required in the following cases:   - Debit transactions on Cielo and Comercio Latino.   - Transactions with Brazilian-issued cards on CyberSource through VisaNet.   - Applicable only for CyberSource through VisaNet (CtV).  **Note** Combo cards in Brazil contain credit and debit functionality in a single card. Visa systems use a credit bank identification number (BIN) for this type of card. Using the BIN to determine whether a card is debit or credit can cause transactions with these cards to be processed incorrectly. CyberSource strongly recommends that you include this field for combo card transactions.  Possible values include the following.   - &#x60;CHECKING&#x60;: Checking account  - &#x60;CREDIT&#x60;: Credit card account  - &#x60;SAVING&#x60;: Saving account  - &#x60;LINE_OF_CREDIT&#x60;: Line of credit or credit portion of combo card  - &#x60;PREPAID&#x60;: Prepaid card account or prepaid portion of combo card  - &#x60;UNIVERSAL&#x60;: Universal account .</param>
         /// <param name="SourceAccountTypeDetails">Type of account that is being used when the value for the override_payment_method field is line of credit (LI) or prepaid card (PP). Possible values for line of credit: - &#x60;AGRC&#x60;: Visa Agro Custeio - &#x60;AGRE&#x60;: Visa Agro Electron - &#x60;AGRI&#x60;: Visa Agro Investimento - &#x60;AGRO&#x60;: Visa Agro Possible values for prepaid card: - &#x60;VVA&#x60;: Visa Vale Alimentacao - &#x60;VVF&#x60;: Visa Vale Flex - &#x60;VVR&#x60;: Visa Vale Refeicao This field is supported only for combo card transactions in Brazil on CyberSource through VisaNet. .</param>
-        public Ptsv2paymentsidrefundsPaymentInformationCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), string AccountEncoderId = default(string), string IssueNumber = default(string), string StartMonth = default(string), string StartYear = default(string), string SourceAccountType = default(string), string SourceAccountTypeDetails = default(string))
+        /// <param name="SecurityCode">Card Verification Number.  #### FDMS Nashville Required for American Express or if swiped; otherwise, optional.  #### Ingenico ePayments Do not include this field when &#x60;commerceIndicator&#x3D;recurring&#x60;. **Note** Ingenico ePayments was previously called _Global Collect_.  #### TSYS Acquiring Solutions Optional if pointOfSaleInformation.entryMode&#x3D;keyed; otherwise, not used.  #### GPX Optional.  #### All other processors: Optional. .</param>
+        /// <param name="UseAs">Flag that specifies the type of account associated with the card. The cardholder provides this information during the payment process.  Possible values:   - C: Credit transaction  - D: Debit transaction  This field is supported only for all card Types on Visa Platform Connect.  This field is required for:  - Debit transactions on Cielo and Comercio Latino.  - Transactions with Brazilian-issued cards on CyberSource through VisaNet.  **Note** The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR0 - Position: 51 - Field: Combination Card Transaction Identifier .</param>
+        public Ptsv2paymentsidrefundsPaymentInformationCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), string AccountEncoderId = default(string), string IssueNumber = default(string), string StartMonth = default(string), string StartYear = default(string), string SourceAccountType = default(string), string SourceAccountTypeDetails = default(string), string SecurityCode = default(string), string UseAs = default(string))
         {
             this.Number = Number;
             this.ExpirationMonth = ExpirationMonth;
@@ -55,6 +57,8 @@ namespace CyberSource.Model
             this.StartYear = StartYear;
             this.SourceAccountType = SourceAccountType;
             this.SourceAccountTypeDetails = SourceAccountTypeDetails;
+            this.SecurityCode = SecurityCode;
+            this.UseAs = UseAs;
         }
         
         /// <summary>
@@ -128,6 +132,20 @@ namespace CyberSource.Model
         public string SourceAccountTypeDetails { get; set; }
 
         /// <summary>
+        /// Card Verification Number.  #### FDMS Nashville Required for American Express or if swiped; otherwise, optional.  #### Ingenico ePayments Do not include this field when &#x60;commerceIndicator&#x3D;recurring&#x60;. **Note** Ingenico ePayments was previously called _Global Collect_.  #### TSYS Acquiring Solutions Optional if pointOfSaleInformation.entryMode&#x3D;keyed; otherwise, not used.  #### GPX Optional.  #### All other processors: Optional. 
+        /// </summary>
+        /// <value>Card Verification Number.  #### FDMS Nashville Required for American Express or if swiped; otherwise, optional.  #### Ingenico ePayments Do not include this field when &#x60;commerceIndicator&#x3D;recurring&#x60;. **Note** Ingenico ePayments was previously called _Global Collect_.  #### TSYS Acquiring Solutions Optional if pointOfSaleInformation.entryMode&#x3D;keyed; otherwise, not used.  #### GPX Optional.  #### All other processors: Optional. </value>
+        [DataMember(Name="securityCode", EmitDefaultValue=false)]
+        public string SecurityCode { get; set; }
+
+        /// <summary>
+        /// Flag that specifies the type of account associated with the card. The cardholder provides this information during the payment process.  Possible values:   - C: Credit transaction  - D: Debit transaction  This field is supported only for all card Types on Visa Platform Connect.  This field is required for:  - Debit transactions on Cielo and Comercio Latino.  - Transactions with Brazilian-issued cards on CyberSource through VisaNet.  **Note** The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR0 - Position: 51 - Field: Combination Card Transaction Identifier 
+        /// </summary>
+        /// <value>Flag that specifies the type of account associated with the card. The cardholder provides this information during the payment process.  Possible values:   - C: Credit transaction  - D: Debit transaction  This field is supported only for all card Types on Visa Platform Connect.  This field is required for:  - Debit transactions on Cielo and Comercio Latino.  - Transactions with Brazilian-issued cards on CyberSource through VisaNet.  **Note** The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR0 - Position: 51 - Field: Combination Card Transaction Identifier </value>
+        [DataMember(Name="useAs", EmitDefaultValue=false)]
+        public string UseAs { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +163,8 @@ namespace CyberSource.Model
             sb.Append("  StartYear: ").Append(StartYear).Append("\n");
             sb.Append("  SourceAccountType: ").Append(SourceAccountType).Append("\n");
             sb.Append("  SourceAccountTypeDetails: ").Append(SourceAccountTypeDetails).Append("\n");
+            sb.Append("  SecurityCode: ").Append(SecurityCode).Append("\n");
+            sb.Append("  UseAs: ").Append(UseAs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -230,6 +250,16 @@ namespace CyberSource.Model
                     this.SourceAccountTypeDetails == other.SourceAccountTypeDetails ||
                     this.SourceAccountTypeDetails != null &&
                     this.SourceAccountTypeDetails.Equals(other.SourceAccountTypeDetails)
+                ) && 
+                (
+                    this.SecurityCode == other.SecurityCode ||
+                    this.SecurityCode != null &&
+                    this.SecurityCode.Equals(other.SecurityCode)
+                ) && 
+                (
+                    this.UseAs == other.UseAs ||
+                    this.UseAs != null &&
+                    this.UseAs.Equals(other.UseAs)
                 );
         }
 
@@ -264,6 +294,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SourceAccountType.GetHashCode();
                 if (this.SourceAccountTypeDetails != null)
                     hash = hash * 59 + this.SourceAccountTypeDetails.GetHashCode();
+                if (this.SecurityCode != null)
+                    hash = hash * 59 + this.SecurityCode.GetHashCode();
+                if (this.UseAs != null)
+                    hash = hash * 59 + this.UseAs.GetHashCode();
                 return hash;
             }
         }

@@ -169,6 +169,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'FailureUrl'
         }
         /// <summary>
+        /// Test the property 'ReturnUrl'
+        /// </summary>
+        [Test]
+        public void ReturnUrlTest()
+        {
+            // TODO unit test for the property 'ReturnUrl'
+        }
+        /// <summary>
         /// Test the property 'MerchantName'
         /// </summary>
         [Test]
