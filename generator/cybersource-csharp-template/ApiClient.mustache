@@ -341,15 +341,22 @@ namespace {{packageName}}.Client
                 {
                     requestT.AddHeader("Authorization", string.Format("Bearer " + param.Value));
                 }
-                else if (param.Key == "Date")
-                {
-                    requestT.AddHeader("Date", DateTime.Parse(param.Value));
-                }
-                else if (param.Key == "Host")
-                { }
                 else
                 {
-                    requestT.AddHeader(param.Key, param.Value);
+                    if (request.Parameters.Any(x => x.Name == param.Key && x.Type == ParameterType.HttpHeader))
+                    {
+                        continue;
+                    }
+                    if (param.Key == "Date")
+                    {
+                        requestT.AddHeader("Date", DateTime.Parse(param.Value));
+                    }
+                    else if (param.Key == "Host")
+                    { }
+                    else
+                    {
+                        requestT.AddHeader(param.Key, param.Value);
+                    }
                 }
             }
 
