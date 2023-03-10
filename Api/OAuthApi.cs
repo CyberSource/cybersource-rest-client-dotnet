@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -188,24 +188,32 @@ namespace CyberSource.Api
             this._statusCode = statusCode;
         }
 
+        /// <summary>
+        /// Process a POST request to generate an access token.
+        /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>        
         /// <param name="createAccessTokenRequest"></param>
         /// <returns>AccessTokenResponse</returns>
         public AccessTokenResponse PostAccessTokenRequest(CreateAccessTokenRequest createAccessTokenRequest)
         {
             logger.Debug("CALLING API \"PostAccessTokenRequest\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<AccessTokenResponse> localVarResponse = PostAccessTokenRequestWithHttpInfo(createAccessTokenRequest);
             logger.Debug("CALLING API \"PostAccessTokenRequest\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
-        
+        /// <summary>
+        /// Process a POST request to generate an access token.
+        /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>        
         /// <param name="createAccessTokenRequest"></param>
         /// <returns>ApiResponse of AccessTokenResponse</returns>
         public ApiResponse<AccessTokenResponse> PostAccessTokenRequestWithHttpInfo(CreateAccessTokenRequest createAccessTokenRequest)
         {
             LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createAccessTokenRequest' is set
             if (createAccessTokenRequest == null)
             {
@@ -236,7 +244,7 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
-            
+
             if (createAccessTokenRequest != null && createAccessTokenRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(createAccessTokenRequest); // http body (model) parameter
@@ -277,26 +285,33 @@ namespace CyberSource.Api
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (AccessTokenResponse)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AccessTokenResponse))); // Return statement
         }
-        
+
+        /// <summary>
+        /// Process a POST request to generate an access token.
+        /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>        
         /// <param name="createAccessTokenRequest"></param>
         /// <returns>Task of AccessTokenResponse</returns>
         public async System.Threading.Tasks.Task<AccessTokenResponse> PostAccessTokenRequestAsync(CreateAccessTokenRequest createAccessTokenRequest)
         {
             logger.Debug("CALLING API \"PostAccessTokenRequestAsync\" STARTED");
+            this.SetStatusCode(null);
             ApiResponse<AccessTokenResponse> localVarResponse = await PostAccessTokenRequestAsyncWithHttpInfo(createAccessTokenRequest);
             logger.Debug("CALLING API \"PostAccessTokenRequestAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
-
         }
 
-        
+        /// <summary>
+        /// Process a POST request to generate an access token.
+        /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>     
         /// <param name="createAccessTokenRequest"></param>
         /// <returns>Task of ApiResponse (AccessTokenResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AccessTokenResponse>> PostAccessTokenRequestAsyncWithHttpInfo(CreateAccessTokenRequest createAccessTokenRequest)
         {
             LogUtility logUtility = new LogUtility();
+
             // verify the required parameter 'createAccessTokenRequest' is set
             if (createAccessTokenRequest == null)
             {

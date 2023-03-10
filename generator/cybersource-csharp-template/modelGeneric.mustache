@@ -209,7 +209,7 @@ this.{{name}} = {{name}};
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             {{#vars}}
-            {{#hasValidation}}            
+            {{#hasValidation}}
             {{#maximum}}
             // {{{name}}} ({{{datatype}}}) maximum
             if(this.{{{name}}} >= ({{{datatype}}}){{maximum}})
