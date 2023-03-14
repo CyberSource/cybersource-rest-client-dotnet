@@ -301,7 +301,7 @@ namespace CyberSource.Client
                 }
                 else
                 {
-                    if (requestT.Parameters.Any(x => x.Name == param.Key && x.Type == ParameterType.HttpHeader))
+                    if (requestT.Parameters.Any(x => string.Equals(x.Name, param.Key, StringComparison.OrdinalIgnoreCase) && x.Type == ParameterType.HttpHeader))
                     {
                         continue;
                     }
