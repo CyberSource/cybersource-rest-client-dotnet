@@ -559,15 +559,19 @@ namespace CyberSource.Client
                     headerPrintOutput.Append($"{param.Name} : {param.Value}\n");
                 }
             }
+            // set timeout
+            request.Timeout = Configuration.Timeout;
+            // set user agent
+            RestClient.Options.UserAgent = Configuration.UserAgent;
 
-                if (logUtility.IsMaskingEnabled(logger))
-                {
-                    logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
-                }
-                else
-                {
-                    logger.Debug($"HTTP Request Headers :\n{headerPrintOutput.ToString()}");
-                }
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Headers :\n{headerPrintOutput.ToString()}");
+            }
 
             InterceptRequest(request);
             var response = await RestClient.ExecuteAsync(request);
