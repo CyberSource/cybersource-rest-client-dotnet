@@ -46,9 +46,9 @@ namespace CyberSource.Model
         public string Suffix { get; private set; }
 
         /// <summary>
-        ///  Two-digit month in which the customer’s latest payment card expires.  Format: &#x60;MM&#x60;.  Valid values: &#x60;01&#x60; through &#x60;12&#x60;. 
+        ///  Two-digit month in which the customer’s latest payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. 
         /// </summary>
-        /// <value> Two-digit month in which the customer’s latest payment card expires.  Format: &#x60;MM&#x60;.  Valid values: &#x60;01&#x60; through &#x60;12&#x60;. </value>
+        /// <value> Two-digit month in which the customer’s latest payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. </value>
         [DataMember(Name="expirationMonth", EmitDefaultValue=false)]
         public string ExpirationMonth { get; private set; }
 

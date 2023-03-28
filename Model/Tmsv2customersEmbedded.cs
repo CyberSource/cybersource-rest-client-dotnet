@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Additional resources for the Customer token. 
+    /// Additional resources for the Customer. 
     /// </summary>
     [DataContract]
     public partial class Tmsv2customersEmbedded :  IEquatable<Tmsv2customersEmbedded>, IValidatableObject

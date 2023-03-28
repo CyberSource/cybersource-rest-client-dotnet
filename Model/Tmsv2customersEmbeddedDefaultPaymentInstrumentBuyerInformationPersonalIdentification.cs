@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationPersonalIdentification" /> class.
         /// </summary>
         /// <param name="Id">The value of the identification type. .</param>
-        /// <param name="Type">The type of the identification.  Valid values:   - driver license .</param>
+        /// <param name="Type">The type of the identification.  Possible Values:   - driver license .</param>
         /// <param name="IssuedBy">IssuedBy.</param>
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationPersonalIdentification(string Id = default(string), string Type = default(string), Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationIssuedBy IssuedBy = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationIssuedBy))
         {
@@ -51,9 +51,9 @@ namespace CyberSource.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// The type of the identification.  Valid values:   - driver license 
+        /// The type of the identification.  Possible Values:   - driver license 
         /// </summary>
-        /// <value>The type of the identification.  Valid values:   - driver license </value>
+        /// <value>The type of the identification.  Possible Values:   - driver license </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

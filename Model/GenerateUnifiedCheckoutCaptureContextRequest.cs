@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="GenerateUnifiedCheckoutCaptureContextRequest" /> class.
         /// </summary>
         /// <param name="TargetOrigins">TargetOrigins.</param>
-        /// <param name="ClientVersion">verson number of Unified Checkout being used.</param>
+        /// <param name="ClientVersion">version number of Unified Checkout being used.</param>
         /// <param name="AllowedCardNetworks">AllowedCardNetworks.</param>
         /// <param name="AllowedPaymentTypes">AllowedPaymentTypes.</param>
         /// <param name="Country">Country the purchase is originating from (e.g. country of the merchant). Use the two- character ISO Standard.</param>
@@ -62,9 +62,9 @@ namespace CyberSource.Model
         public List<string> TargetOrigins { get; set; }
 
         /// <summary>
-        /// verson number of Unified Checkout being used
+        /// version number of Unified Checkout being used
         /// </summary>
-        /// <value>verson number of Unified Checkout being used</value>
+        /// <value>version number of Unified Checkout being used</value>
         [DataMember(Name="clientVersion", EmitDefaultValue=false)]
         public string ClientVersion { get; set; }
 

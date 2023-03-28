@@ -34,8 +34,8 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Tmsv2customersEmbeddedDefaultPaymentInstrument" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
-        /// <param name="Id">The id of the Payment Instrument Token..</param>
-        /// <param name="_Default">Flag that indicates whether customer payment instrument is the dafault. Valid values:  - &#x60;true&#x60;: Payment instrument is customer&#39;s default.  - &#x60;false&#x60;: Payment instrument is not customer&#39;s default. .</param>
+        /// <param name="Id">The Id of the Payment Instrument Token..</param>
+        /// <param name="_Default">Flag that indicates whether customer payment instrument is the dafault. Possible Values:  - &#x60;true&#x60;: Payment instrument is customer&#39;s default.  - &#x60;false&#x60;: Payment instrument is not customer&#39;s default. .</param>
         /// <param name="BankAccount">BankAccount.</param>
         /// <param name="Card">Card.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
@@ -68,32 +68,39 @@ namespace CyberSource.Model
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentLinks Links { get; set; }
 
         /// <summary>
-        /// The id of the Payment Instrument Token.
+        /// The Id of the Payment Instrument Token.
         /// </summary>
-        /// <value>The id of the Payment Instrument Token.</value>
+        /// <value>The Id of the Payment Instrument Token.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The type of token.  Valid values: - paymentInstrument 
+        /// The type.  Possible Values: - paymentInstrument 
         /// </summary>
-        /// <value>The type of token.  Valid values: - paymentInstrument </value>
+        /// <value>The type.  Possible Values: - paymentInstrument </value>
         [DataMember(Name="object", EmitDefaultValue=false)]
         public string _Object { get; private set; }
 
         /// <summary>
-        /// Flag that indicates whether customer payment instrument is the dafault. Valid values:  - &#x60;true&#x60;: Payment instrument is customer&#39;s default.  - &#x60;false&#x60;: Payment instrument is not customer&#39;s default. 
+        /// Flag that indicates whether customer payment instrument is the dafault. Possible Values:  - &#x60;true&#x60;: Payment instrument is customer&#39;s default.  - &#x60;false&#x60;: Payment instrument is not customer&#39;s default. 
         /// </summary>
-        /// <value>Flag that indicates whether customer payment instrument is the dafault. Valid values:  - &#x60;true&#x60;: Payment instrument is customer&#39;s default.  - &#x60;false&#x60;: Payment instrument is not customer&#39;s default. </value>
+        /// <value>Flag that indicates whether customer payment instrument is the dafault. Possible Values:  - &#x60;true&#x60;: Payment instrument is customer&#39;s default.  - &#x60;false&#x60;: Payment instrument is not customer&#39;s default. </value>
         [DataMember(Name="default", EmitDefaultValue=false)]
         public bool? _Default { get; set; }
 
         /// <summary>
-        /// Issuers state for the card number. Valid values: - ACTIVE - CLOSED : The account has been closed. 
+        /// Issuers state for the card number. Possible Values: - ACTIVE - CLOSED : The account has been closed. 
         /// </summary>
-        /// <value>Issuers state for the card number. Valid values: - ACTIVE - CLOSED : The account has been closed. </value>
+        /// <value>Issuers state for the card number. Possible Values: - ACTIVE - CLOSED : The account has been closed. </value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; private set; }
+
+        /// <summary>
+        /// The type of Payment Instrument. Possible Values: - cardHash 
+        /// </summary>
+        /// <value>The type of Payment Instrument. Possible Values: - cardHash </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; private set; }
 
         /// <summary>
         /// Gets or Sets BankAccount
@@ -162,6 +169,7 @@ namespace CyberSource.Model
             sb.Append("  _Object: ").Append(_Object).Append("\n");
             sb.Append("  _Default: ").Append(_Default).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
@@ -233,6 +241,11 @@ namespace CyberSource.Model
                     this.State.Equals(other.State)
                 ) && 
                 (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
                     this.BankAccount == other.BankAccount ||
                     this.BankAccount != null &&
                     this.BankAccount.Equals(other.BankAccount)
@@ -300,6 +313,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this._Default.GetHashCode();
                 if (this.State != null)
                     hash = hash * 59 + this.State.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
                 if (this.BankAccount != null)
                     hash = hash * 59 + this.BankAccount.GetHashCode();
                 if (this.Card != null)

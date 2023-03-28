@@ -38,52 +38,60 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Body" /> class.
         /// </summary>
-        /// <param name="Requestor">Identifies the service requesting parsing  (required).</param>
-        /// <param name="ParsedTagLimit">Number of tags to parse for each EMV tag string provided. .</param>
-        /// <param name="EmvDetailsList">An array of objects, each containing a requestId and the corresponding emvRequestCombinedTags  (required).</param>
-        public Body(string Requestor = default(string), int? ParsedTagLimit = default(int?), List<Tssv2transactionsemvTagDetailsEmvDetailsList> EmvDetailsList = default(List<Tssv2transactionsemvTagDetailsEmvDetailsList>))
+        /// <param name="Type">Valid Values:   * oneOff   * amexRegistration  (default to &quot;oneOff&quot;).</param>
+        /// <param name="Included">Included.</param>
+        /// <param name="MerchantReference">Reference used by merchant to identify batch..</param>
+        /// <param name="NotificationEmail">Email used to notify the batch status. (required).</param>
+        public Body(string Type = "oneOff", Accountupdaterv1batchesIncluded Included = default(Accountupdaterv1batchesIncluded), string MerchantReference = default(string), string NotificationEmail = default(string))
         {
-            // to ensure "Requestor" is required (not null)
-            if (Requestor == null)
+            // to ensure "NotificationEmail" is required (not null)
+            if (NotificationEmail == null)
             {
-                throw new InvalidDataException("Requestor is a required property for Body and cannot be null");
+                throw new InvalidDataException("NotificationEmail is a required property for Body and cannot be null");
             }
             else
             {
-                this.Requestor = Requestor;
+                this.NotificationEmail = NotificationEmail;
             }
-            // to ensure "EmvDetailsList" is required (not null)
-            if (EmvDetailsList == null)
+            // use default value if no "Type" provided
+            if (Type == null)
             {
-                throw new InvalidDataException("EmvDetailsList is a required property for Body and cannot be null");
+                this.Type = "oneOff";
             }
             else
             {
-                this.EmvDetailsList = EmvDetailsList;
+                this.Type = Type;
             }
-            this.ParsedTagLimit = ParsedTagLimit;
+            this.Included = Included;
+            this.MerchantReference = MerchantReference;
         }
         
         /// <summary>
-        /// Identifies the service requesting parsing 
+        /// Valid Values:   * oneOff   * amexRegistration 
         /// </summary>
-        /// <value>Identifies the service requesting parsing </value>
-        [DataMember(Name="requestor", EmitDefaultValue=false)]
-        public string Requestor { get; set; }
+        /// <value>Valid Values:   * oneOff   * amexRegistration </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
-        /// Number of tags to parse for each EMV tag string provided. 
+        /// Gets or Sets Included
         /// </summary>
-        /// <value>Number of tags to parse for each EMV tag string provided. </value>
-        [DataMember(Name="parsedTagLimit", EmitDefaultValue=false)]
-        public int? ParsedTagLimit { get; set; }
+        [DataMember(Name="included", EmitDefaultValue=false)]
+        public Accountupdaterv1batchesIncluded Included { get; set; }
 
         /// <summary>
-        /// An array of objects, each containing a requestId and the corresponding emvRequestCombinedTags 
+        /// Reference used by merchant to identify batch.
         /// </summary>
-        /// <value>An array of objects, each containing a requestId and the corresponding emvRequestCombinedTags </value>
-        [DataMember(Name="emvDetailsList", EmitDefaultValue=false)]
-        public List<Tssv2transactionsemvTagDetailsEmvDetailsList> EmvDetailsList { get; set; }
+        /// <value>Reference used by merchant to identify batch.</value>
+        [DataMember(Name="merchantReference", EmitDefaultValue=false)]
+        public string MerchantReference { get; set; }
+
+        /// <summary>
+        /// Email used to notify the batch status.
+        /// </summary>
+        /// <value>Email used to notify the batch status.</value>
+        [DataMember(Name="notificationEmail", EmitDefaultValue=false)]
+        public string NotificationEmail { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -93,9 +101,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Body {\n");
-            sb.Append("  Requestor: ").Append(Requestor).Append("\n");
-            sb.Append("  ParsedTagLimit: ").Append(ParsedTagLimit).Append("\n");
-            sb.Append("  EmvDetailsList: ").Append(EmvDetailsList).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Included: ").Append(Included).Append("\n");
+            sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
+            sb.Append("  NotificationEmail: ").Append(NotificationEmail).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -133,19 +142,24 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Requestor == other.Requestor ||
-                    this.Requestor != null &&
-                    this.Requestor.Equals(other.Requestor)
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
                 ) && 
                 (
-                    this.ParsedTagLimit == other.ParsedTagLimit ||
-                    this.ParsedTagLimit != null &&
-                    this.ParsedTagLimit.Equals(other.ParsedTagLimit)
+                    this.Included == other.Included ||
+                    this.Included != null &&
+                    this.Included.Equals(other.Included)
                 ) && 
                 (
-                    this.EmvDetailsList == other.EmvDetailsList ||
-                    this.EmvDetailsList != null &&
-                    this.EmvDetailsList.SequenceEqual(other.EmvDetailsList)
+                    this.MerchantReference == other.MerchantReference ||
+                    this.MerchantReference != null &&
+                    this.MerchantReference.Equals(other.MerchantReference)
+                ) && 
+                (
+                    this.NotificationEmail == other.NotificationEmail ||
+                    this.NotificationEmail != null &&
+                    this.NotificationEmail.Equals(other.NotificationEmail)
                 );
         }
 
@@ -160,12 +174,14 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Requestor != null)
-                    hash = hash * 59 + this.Requestor.GetHashCode();
-                if (this.ParsedTagLimit != null)
-                    hash = hash * 59 + this.ParsedTagLimit.GetHashCode();
-                if (this.EmvDetailsList != null)
-                    hash = hash * 59 + this.EmvDetailsList.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Included != null)
+                    hash = hash * 59 + this.Included.GetHashCode();
+                if (this.MerchantReference != null)
+                    hash = hash * 59 + this.MerchantReference.GetHashCode();
+                if (this.NotificationEmail != null)
+                    hash = hash * 59 + this.NotificationEmail.GetHashCode();
                 return hash;
             }
         }

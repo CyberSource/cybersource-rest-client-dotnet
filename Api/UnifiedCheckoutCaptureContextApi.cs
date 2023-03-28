@@ -30,46 +30,46 @@ namespace CyberSource.Api
         /// Generate Unified Checkout Capture Context
         /// </summary>
         /// <remarks>
-        /// Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the paramiters for how Unified Chkcout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initate Unified Checkout within a merchnat web page
+        /// Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the parameters for how Unified Checkout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initiate Unified Checkout within a merchant web page
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnifiedCheckoutCaptureContextRequest"></param>
-        /// <returns></returns>
-        void GenerateUnifiedCheckoutCaptureContext (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest);
+        /// <returns>string</returns>
+        string GenerateUnifiedCheckoutCaptureContext (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest);
 
         /// <summary>
         /// Generate Unified Checkout Capture Context
         /// </summary>
         /// <remarks>
-        /// Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the paramiters for how Unified Chkcout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initate Unified Checkout within a merchnat web page
+        /// Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the parameters for how Unified Checkout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initiate Unified Checkout within a merchant web page
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnifiedCheckoutCaptureContextRequest"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GenerateUnifiedCheckoutCaptureContextWithHttpInfo (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest);
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> GenerateUnifiedCheckoutCaptureContextWithHttpInfo (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
         /// Generate Unified Checkout Capture Context
         /// </summary>
         /// <remarks>
-        /// Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the paramiters for how Unified Chkcout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initate Unified Checkout within a merchnat web page
+        /// Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the parameters for how Unified Checkout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initiate Unified Checkout within a merchant web page
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnifiedCheckoutCaptureContextRequest"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GenerateUnifiedCheckoutCaptureContextAsync (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest);
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> GenerateUnifiedCheckoutCaptureContextAsync (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest);
 
         /// <summary>
         /// Generate Unified Checkout Capture Context
         /// </summary>
         /// <remarks>
-        /// Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the paramiters for how Unified Chkcout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initate Unified Checkout within a merchnat web page
+        /// Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the parameters for how Unified Checkout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initiate Unified Checkout within a merchant web page
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnifiedCheckoutCaptureContextRequest"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GenerateUnifiedCheckoutCaptureContextAsyncWithHttpInfo (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest);
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> GenerateUnifiedCheckoutCaptureContextAsyncWithHttpInfo (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest);
         #endregion Asynchronous Operations
     }
 
@@ -211,25 +211,28 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Generate Unified Checkout Capture Context Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the paramiters for how Unified Chkcout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initate Unified Checkout within a merchnat web page
+        /// Generate Unified Checkout Capture Context Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the parameters for how Unified Checkout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initiate Unified Checkout within a merchant web page
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnifiedCheckoutCaptureContextRequest"></param>
-        /// <returns></returns>
-        public void GenerateUnifiedCheckoutCaptureContext (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest)
+        /// <returns>string</returns>
+        public string GenerateUnifiedCheckoutCaptureContext (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest)
         {
             logger.Debug("CALLING API \"GenerateUnifiedCheckoutCaptureContext\" STARTED");
             this.SetStatusCode(null);
-            GenerateUnifiedCheckoutCaptureContextWithHttpInfo(generateUnifiedCheckoutCaptureContextRequest);
+            ApiResponse<string> localVarResponse = GenerateUnifiedCheckoutCaptureContextWithHttpInfo(generateUnifiedCheckoutCaptureContextRequest);
+            logger.Debug("CALLING API \"GenerateUnifiedCheckoutCaptureContext\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Generate Unified Checkout Capture Context Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the paramiters for how Unified Chkcout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initate Unified Checkout within a merchnat web page
+        /// Generate Unified Checkout Capture Context Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the parameters for how Unified Checkout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initiate Unified Checkout within a merchant web page
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnifiedCheckoutCaptureContextRequest"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GenerateUnifiedCheckoutCaptureContextWithHttpInfo (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest)
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse< string > GenerateUnifiedCheckoutCaptureContextWithHttpInfo (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -300,33 +303,35 @@ namespace CyberSource.Api
                 }
             }
 
-            this.SetStatusCode(localVarStatusCode);
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<string>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                localVarResponse.Content); // Return statement
+                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string))); // Return statement
         }
 
         /// <summary>
-        /// Generate Unified Checkout Capture Context Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the paramiters for how Unified Chkcout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initate Unified Checkout within a merchnat web page
+        /// Generate Unified Checkout Capture Context Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the parameters for how Unified Checkout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initiate Unified Checkout within a merchant web page
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnifiedCheckoutCaptureContextRequest"></param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GenerateUnifiedCheckoutCaptureContextAsync (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest)
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> GenerateUnifiedCheckoutCaptureContextAsync (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest)
         {
             logger.Debug("CALLING API \"GenerateUnifiedCheckoutCaptureContextAsync\" STARTED");
             this.SetStatusCode(null);
-            await GenerateUnifiedCheckoutCaptureContextAsyncWithHttpInfo(generateUnifiedCheckoutCaptureContextRequest);
+            ApiResponse<string> localVarResponse = await GenerateUnifiedCheckoutCaptureContextAsyncWithHttpInfo(generateUnifiedCheckoutCaptureContextRequest);
+            logger.Debug("CALLING API \"GenerateUnifiedCheckoutCaptureContextAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Generate Unified Checkout Capture Context Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the paramiters for how Unified Chkcout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initate Unified Checkout within a merchnat web page
+        /// Generate Unified Checkout Capture Context Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the parameters for how Unified Checkout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initiate Unified Checkout within a merchant web page
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnifiedCheckoutCaptureContextRequest"></param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GenerateUnifiedCheckoutCaptureContextAsyncWithHttpInfo (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest)
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> GenerateUnifiedCheckoutCaptureContextAsyncWithHttpInfo (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -397,10 +402,9 @@ namespace CyberSource.Api
                 }
             }
 
-            this.SetStatusCode(localVarStatusCode);
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<string>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                localVarResponse.Content); // Return statement
+                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string))); // Return statement
         }
     }
 }

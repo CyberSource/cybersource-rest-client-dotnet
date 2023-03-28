@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Successful searchKeysResponse
+    /// InlineResponse200
     /// </summary>
     [DataContract]
     public partial class InlineResponse200 :  IEquatable<InlineResponse200>, IValidatableObject
@@ -33,62 +33,43 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="TotalCount">Specifies the total number of items found based on the request.</param>
-        /// <param name="Offset">Specifies the record offset from the records are returned part of the response.</param>
-        /// <param name="Limit">Specifies the maximum number of records requested part of the response.</param>
-        /// <param name="Sort">Specifies a comma separated list of field names based on which the result is sorted..</param>
-        /// <param name="Keys">Keys.</param>
-        public InlineResponse200(string SubmitTimeUtc = default(string), int? TotalCount = default(int?), int? Offset = default(int?), int? Limit = default(int?), string Sort = default(string), List<InlineResponse200Keys> Keys = default(List<InlineResponse200Keys>))
+        /// <param name="Links">Links.</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
+        /// <param name="TotalCount">total number of plans created.</param>
+        /// <param name="Plans">Plans.</param>
+        public InlineResponse200(InlineResponse200Links Links = default(InlineResponse200Links), string SubmitTimeUtc = default(string), int? TotalCount = default(int?), List<InlineResponse200Plans> Plans = default(List<InlineResponse200Plans>))
         {
+            this.Links = Links;
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.TotalCount = TotalCount;
-            this.Offset = Offset;
-            this.Limit = Limit;
-            this.Sort = Sort;
-            this.Keys = Keys;
+            this.Plans = Plans;
         }
         
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        [DataMember(Name="_links", EmitDefaultValue=false)]
+        public InlineResponse200Links Links { get; set; }
+
+        /// <summary>
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
+        /// </summary>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// Specifies the total number of items found based on the request
+        /// total number of plans created
         /// </summary>
-        /// <value>Specifies the total number of items found based on the request</value>
+        /// <value>total number of plans created</value>
         [DataMember(Name="totalCount", EmitDefaultValue=false)]
         public int? TotalCount { get; set; }
 
         /// <summary>
-        /// Specifies the record offset from the records are returned part of the response
+        /// Gets or Sets Plans
         /// </summary>
-        /// <value>Specifies the record offset from the records are returned part of the response</value>
-        [DataMember(Name="offset", EmitDefaultValue=false)]
-        public int? Offset { get; set; }
-
-        /// <summary>
-        /// Specifies the maximum number of records requested part of the response
-        /// </summary>
-        /// <value>Specifies the maximum number of records requested part of the response</value>
-        [DataMember(Name="limit", EmitDefaultValue=false)]
-        public int? Limit { get; set; }
-
-        /// <summary>
-        /// Specifies a comma separated list of field names based on which the result is sorted.
-        /// </summary>
-        /// <value>Specifies a comma separated list of field names based on which the result is sorted.</value>
-        [DataMember(Name="sort", EmitDefaultValue=false)]
-        public string Sort { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Keys
-        /// </summary>
-        [DataMember(Name="keys", EmitDefaultValue=false)]
-        public List<InlineResponse200Keys> Keys { get; set; }
+        [DataMember(Name="plans", EmitDefaultValue=false)]
+        public List<InlineResponse200Plans> Plans { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,12 +79,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse200 {\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
-            sb.Append("  Offset: ").Append(Offset).Append("\n");
-            sb.Append("  Limit: ").Append(Limit).Append("\n");
-            sb.Append("  Sort: ").Append(Sort).Append("\n");
-            sb.Append("  Keys: ").Append(Keys).Append("\n");
+            sb.Append("  Plans: ").Append(Plans).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,6 +120,11 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.Equals(other.Links)
+                ) && 
+                (
                     this.SubmitTimeUtc == other.SubmitTimeUtc ||
                     this.SubmitTimeUtc != null &&
                     this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
@@ -151,24 +135,9 @@ namespace CyberSource.Model
                     this.TotalCount.Equals(other.TotalCount)
                 ) && 
                 (
-                    this.Offset == other.Offset ||
-                    this.Offset != null &&
-                    this.Offset.Equals(other.Offset)
-                ) && 
-                (
-                    this.Limit == other.Limit ||
-                    this.Limit != null &&
-                    this.Limit.Equals(other.Limit)
-                ) && 
-                (
-                    this.Sort == other.Sort ||
-                    this.Sort != null &&
-                    this.Sort.Equals(other.Sort)
-                ) && 
-                (
-                    this.Keys == other.Keys ||
-                    this.Keys != null &&
-                    this.Keys.SequenceEqual(other.Keys)
+                    this.Plans == other.Plans ||
+                    this.Plans != null &&
+                    this.Plans.SequenceEqual(other.Plans)
                 );
         }
 
@@ -183,18 +152,14 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
                 if (this.SubmitTimeUtc != null)
                     hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.TotalCount != null)
                     hash = hash * 59 + this.TotalCount.GetHashCode();
-                if (this.Offset != null)
-                    hash = hash * 59 + this.Offset.GetHashCode();
-                if (this.Limit != null)
-                    hash = hash * 59 + this.Limit.GetHashCode();
-                if (this.Sort != null)
-                    hash = hash * 59 + this.Sort.GetHashCode();
-                if (this.Keys != null)
-                    hash = hash * 59 + this.Keys.GetHashCode();
+                if (this.Plans != null)
+                    hash = hash * 59 + this.Plans.GetHashCode();
                 return hash;
             }
         }

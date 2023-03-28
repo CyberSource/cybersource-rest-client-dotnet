@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="searchkeys"></a>
 # **SearchKeys**
-> InlineResponse200 SearchKeys (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null)
+> InlineResponse20011 SearchKeys (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null)
 
 Search Keys
 
@@ -42,7 +42,7 @@ namespace Example
             try
             {
                 // Search Keys
-                InlineResponse200 result = apiInstance.SearchKeys(offset, limit, sort, organizationIds, keyIds, keyTypes, expirationStartDate, expirationEndDate);
+                InlineResponse20011 result = apiInstance.SearchKeys(offset, limit, sort, organizationIds, keyIds, keyTypes, expirationStartDate, expirationEndDate);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

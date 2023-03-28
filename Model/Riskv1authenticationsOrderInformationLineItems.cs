@@ -48,7 +48,17 @@ namespace CyberSource.Model
         /// <param name="Passenger">Passenger.</param>
         /// <param name="ShippingDestinationTypes">Destination to where the item will be shipped. Example: Commercial, Residential, Store .</param>
         /// <param name="TaxAmount">Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  Optional field.  #### Airlines processing Tax portion of the order amount. This value cannot exceed 99999999999999 (fourteen 9s). Format: English characters only. Optional request field for a line item.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes.  Note if you send this field in your tax request, the value in the field will override the tax engine .</param>
-        public Riskv1authenticationsOrderInformationLineItems(string TotalAmount = default(string), string UnitPrice = default(string), int? Quantity = default(int?), int? GiftCardCurrency = default(int?), string ProductSKU = default(string), string ProductDescription = default(string), string ProductName = default(string), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger), string ShippingDestinationTypes = default(string), string TaxAmount = default(string))
+        /// <param name="ShippingAddress1">Address where item will be shipped.</param>
+        /// <param name="ShippingAddress2">Address where item will be shipped.</param>
+        /// <param name="ShippingCity">City where item will be shipped.</param>
+        /// <param name="ShippingCountryCode">Country where item will be shipped.</param>
+        /// <param name="ShippingFirstName">Customer&#39;s first name.</param>
+        /// <param name="ShippingLastName">Customer&#39;s last name.</param>
+        /// <param name="ShippingMiddleName">Customer&#39;s middle name.</param>
+        /// <param name="ShippingPhone">Phone number where item will be shipped.</param>
+        /// <param name="ShippingPostalCode">Postal code where item will be shipped.</param>
+        /// <param name="ShippingState">State where item will be shipped.</param>
+        public Riskv1authenticationsOrderInformationLineItems(string TotalAmount = default(string), string UnitPrice = default(string), int? Quantity = default(int?), int? GiftCardCurrency = default(int?), string ProductSKU = default(string), string ProductDescription = default(string), string ProductName = default(string), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger), string ShippingDestinationTypes = default(string), string TaxAmount = default(string), string ShippingAddress1 = default(string), string ShippingAddress2 = default(string), string ShippingCity = default(string), string ShippingCountryCode = default(string), string ShippingFirstName = default(string), string ShippingLastName = default(string), string ShippingMiddleName = default(string), int? ShippingPhone = default(int?), int? ShippingPostalCode = default(int?), string ShippingState = default(string))
         {
             // to ensure "UnitPrice" is required (not null)
             if (UnitPrice == null)
@@ -68,6 +78,16 @@ namespace CyberSource.Model
             this.Passenger = Passenger;
             this.ShippingDestinationTypes = ShippingDestinationTypes;
             this.TaxAmount = TaxAmount;
+            this.ShippingAddress1 = ShippingAddress1;
+            this.ShippingAddress2 = ShippingAddress2;
+            this.ShippingCity = ShippingCity;
+            this.ShippingCountryCode = ShippingCountryCode;
+            this.ShippingFirstName = ShippingFirstName;
+            this.ShippingLastName = ShippingLastName;
+            this.ShippingMiddleName = ShippingMiddleName;
+            this.ShippingPhone = ShippingPhone;
+            this.ShippingPostalCode = ShippingPostalCode;
+            this.ShippingState = ShippingState;
         }
         
         /// <summary>
@@ -140,6 +160,76 @@ namespace CyberSource.Model
         public string TaxAmount { get; set; }
 
         /// <summary>
+        /// Address where item will be shipped
+        /// </summary>
+        /// <value>Address where item will be shipped</value>
+        [DataMember(Name="shippingAddress1", EmitDefaultValue=false)]
+        public string ShippingAddress1 { get; set; }
+
+        /// <summary>
+        /// Address where item will be shipped
+        /// </summary>
+        /// <value>Address where item will be shipped</value>
+        [DataMember(Name="shippingAddress2", EmitDefaultValue=false)]
+        public string ShippingAddress2 { get; set; }
+
+        /// <summary>
+        /// City where item will be shipped
+        /// </summary>
+        /// <value>City where item will be shipped</value>
+        [DataMember(Name="shippingCity", EmitDefaultValue=false)]
+        public string ShippingCity { get; set; }
+
+        /// <summary>
+        /// Country where item will be shipped
+        /// </summary>
+        /// <value>Country where item will be shipped</value>
+        [DataMember(Name="shippingCountryCode", EmitDefaultValue=false)]
+        public string ShippingCountryCode { get; set; }
+
+        /// <summary>
+        /// Customer&#39;s first name
+        /// </summary>
+        /// <value>Customer&#39;s first name</value>
+        [DataMember(Name="shippingFirstName", EmitDefaultValue=false)]
+        public string ShippingFirstName { get; set; }
+
+        /// <summary>
+        /// Customer&#39;s last name
+        /// </summary>
+        /// <value>Customer&#39;s last name</value>
+        [DataMember(Name="shippingLastName", EmitDefaultValue=false)]
+        public string ShippingLastName { get; set; }
+
+        /// <summary>
+        /// Customer&#39;s middle name
+        /// </summary>
+        /// <value>Customer&#39;s middle name</value>
+        [DataMember(Name="shippingMiddleName", EmitDefaultValue=false)]
+        public string ShippingMiddleName { get; set; }
+
+        /// <summary>
+        /// Phone number where item will be shipped
+        /// </summary>
+        /// <value>Phone number where item will be shipped</value>
+        [DataMember(Name="shippingPhone", EmitDefaultValue=false)]
+        public int? ShippingPhone { get; set; }
+
+        /// <summary>
+        /// Postal code where item will be shipped
+        /// </summary>
+        /// <value>Postal code where item will be shipped</value>
+        [DataMember(Name="shippingPostalCode", EmitDefaultValue=false)]
+        public int? ShippingPostalCode { get; set; }
+
+        /// <summary>
+        /// State where item will be shipped
+        /// </summary>
+        /// <value>State where item will be shipped</value>
+        [DataMember(Name="shippingState", EmitDefaultValue=false)]
+        public string ShippingState { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -157,6 +247,16 @@ namespace CyberSource.Model
             sb.Append("  Passenger: ").Append(Passenger).Append("\n");
             sb.Append("  ShippingDestinationTypes: ").Append(ShippingDestinationTypes).Append("\n");
             sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            sb.Append("  ShippingAddress1: ").Append(ShippingAddress1).Append("\n");
+            sb.Append("  ShippingAddress2: ").Append(ShippingAddress2).Append("\n");
+            sb.Append("  ShippingCity: ").Append(ShippingCity).Append("\n");
+            sb.Append("  ShippingCountryCode: ").Append(ShippingCountryCode).Append("\n");
+            sb.Append("  ShippingFirstName: ").Append(ShippingFirstName).Append("\n");
+            sb.Append("  ShippingLastName: ").Append(ShippingLastName).Append("\n");
+            sb.Append("  ShippingMiddleName: ").Append(ShippingMiddleName).Append("\n");
+            sb.Append("  ShippingPhone: ").Append(ShippingPhone).Append("\n");
+            sb.Append("  ShippingPostalCode: ").Append(ShippingPostalCode).Append("\n");
+            sb.Append("  ShippingState: ").Append(ShippingState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -242,6 +342,56 @@ namespace CyberSource.Model
                     this.TaxAmount == other.TaxAmount ||
                     this.TaxAmount != null &&
                     this.TaxAmount.Equals(other.TaxAmount)
+                ) && 
+                (
+                    this.ShippingAddress1 == other.ShippingAddress1 ||
+                    this.ShippingAddress1 != null &&
+                    this.ShippingAddress1.Equals(other.ShippingAddress1)
+                ) && 
+                (
+                    this.ShippingAddress2 == other.ShippingAddress2 ||
+                    this.ShippingAddress2 != null &&
+                    this.ShippingAddress2.Equals(other.ShippingAddress2)
+                ) && 
+                (
+                    this.ShippingCity == other.ShippingCity ||
+                    this.ShippingCity != null &&
+                    this.ShippingCity.Equals(other.ShippingCity)
+                ) && 
+                (
+                    this.ShippingCountryCode == other.ShippingCountryCode ||
+                    this.ShippingCountryCode != null &&
+                    this.ShippingCountryCode.Equals(other.ShippingCountryCode)
+                ) && 
+                (
+                    this.ShippingFirstName == other.ShippingFirstName ||
+                    this.ShippingFirstName != null &&
+                    this.ShippingFirstName.Equals(other.ShippingFirstName)
+                ) && 
+                (
+                    this.ShippingLastName == other.ShippingLastName ||
+                    this.ShippingLastName != null &&
+                    this.ShippingLastName.Equals(other.ShippingLastName)
+                ) && 
+                (
+                    this.ShippingMiddleName == other.ShippingMiddleName ||
+                    this.ShippingMiddleName != null &&
+                    this.ShippingMiddleName.Equals(other.ShippingMiddleName)
+                ) && 
+                (
+                    this.ShippingPhone == other.ShippingPhone ||
+                    this.ShippingPhone != null &&
+                    this.ShippingPhone.Equals(other.ShippingPhone)
+                ) && 
+                (
+                    this.ShippingPostalCode == other.ShippingPostalCode ||
+                    this.ShippingPostalCode != null &&
+                    this.ShippingPostalCode.Equals(other.ShippingPostalCode)
+                ) && 
+                (
+                    this.ShippingState == other.ShippingState ||
+                    this.ShippingState != null &&
+                    this.ShippingState.Equals(other.ShippingState)
                 );
         }
 
@@ -276,6 +426,26 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ShippingDestinationTypes.GetHashCode();
                 if (this.TaxAmount != null)
                     hash = hash * 59 + this.TaxAmount.GetHashCode();
+                if (this.ShippingAddress1 != null)
+                    hash = hash * 59 + this.ShippingAddress1.GetHashCode();
+                if (this.ShippingAddress2 != null)
+                    hash = hash * 59 + this.ShippingAddress2.GetHashCode();
+                if (this.ShippingCity != null)
+                    hash = hash * 59 + this.ShippingCity.GetHashCode();
+                if (this.ShippingCountryCode != null)
+                    hash = hash * 59 + this.ShippingCountryCode.GetHashCode();
+                if (this.ShippingFirstName != null)
+                    hash = hash * 59 + this.ShippingFirstName.GetHashCode();
+                if (this.ShippingLastName != null)
+                    hash = hash * 59 + this.ShippingLastName.GetHashCode();
+                if (this.ShippingMiddleName != null)
+                    hash = hash * 59 + this.ShippingMiddleName.GetHashCode();
+                if (this.ShippingPhone != null)
+                    hash = hash * 59 + this.ShippingPhone.GetHashCode();
+                if (this.ShippingPostalCode != null)
+                    hash = hash * 59 + this.ShippingPostalCode.GetHashCode();
+                if (this.ShippingState != null)
+                    hash = hash * 59 + this.ShippingState.GetHashCode();
                 return hash;
             }
         }

@@ -72,8 +72,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest = null;
-            //instance.GenerateUnifiedCheckoutCaptureContext(generateUnifiedCheckoutCaptureContextRequest);
-            
+            //var response = instance.GenerateUnifiedCheckoutCaptureContext(generateUnifiedCheckoutCaptureContextRequest);
+            //Assert.IsInstanceOf<string> (response, "response is string");
         }
         
     }

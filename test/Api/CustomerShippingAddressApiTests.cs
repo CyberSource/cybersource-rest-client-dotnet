@@ -71,10 +71,10 @@ namespace CyberSource.Test
         public void DeleteCustomerShippingAddressTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
-            //string shippingAddressTokenId = null;
+            //string customerId = null;
+            //string shippingAddressId = null;
             //string profileId = null;
-            //instance.DeleteCustomerShippingAddress(customerTokenId, shippingAddressTokenId, profileId);
+            //instance.DeleteCustomerShippingAddress(customerId, shippingAddressId, profileId);
             
         }
         
@@ -85,10 +85,10 @@ namespace CyberSource.Test
         public void GetCustomerShippingAddressTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
-            //string shippingAddressTokenId = null;
+            //string customerId = null;
+            //string shippingAddressId = null;
             //string profileId = null;
-            //var response = instance.GetCustomerShippingAddress(customerTokenId, shippingAddressTokenId, profileId);
+            //var response = instance.GetCustomerShippingAddress(customerId, shippingAddressId, profileId);
             //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultShippingAddress> (response, "response is Tmsv2customersEmbeddedDefaultShippingAddress");
         }
         
@@ -99,11 +99,11 @@ namespace CyberSource.Test
         public void GetCustomerShippingAddressesListTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
+            //string customerId = null;
             //string profileId = null;
             //long? offset = null;
             //long? limit = null;
-            //var response = instance.GetCustomerShippingAddressesList(customerTokenId, profileId, offset, limit);
+            //var response = instance.GetCustomerShippingAddressesList(customerId, profileId, offset, limit);
             //Assert.IsInstanceOf<ShippingAddressListForCustomer> (response, "response is ShippingAddressListForCustomer");
         }
         
@@ -114,12 +114,12 @@ namespace CyberSource.Test
         public void PatchCustomersShippingAddressTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
-            //string shippingAddressTokenId = null;
+            //string customerId = null;
+            //string shippingAddressId = null;
             //PatchCustomerShippingAddressRequest patchCustomerShippingAddressRequest = null;
             //string profileId = null;
             //string ifMatch = null;
-            //var response = instance.PatchCustomersShippingAddress(customerTokenId, shippingAddressTokenId, patchCustomerShippingAddressRequest, profileId, ifMatch);
+            //var response = instance.PatchCustomersShippingAddress(customerId, shippingAddressId, patchCustomerShippingAddressRequest, profileId, ifMatch);
             //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultShippingAddress> (response, "response is Tmsv2customersEmbeddedDefaultShippingAddress");
         }
         
@@ -130,10 +130,10 @@ namespace CyberSource.Test
         public void PostCustomerShippingAddressTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
+            //string customerId = null;
             //PostCustomerShippingAddressRequest postCustomerShippingAddressRequest = null;
             //string profileId = null;
-            //var response = instance.PostCustomerShippingAddress(customerTokenId, postCustomerShippingAddressRequest, profileId);
+            //var response = instance.PostCustomerShippingAddress(customerId, postCustomerShippingAddressRequest, profileId);
             //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultShippingAddress> (response, "response is Tmsv2customersEmbeddedDefaultShippingAddress");
         }
         

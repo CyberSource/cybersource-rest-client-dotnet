@@ -559,6 +559,7 @@ namespace CyberSource.Client
                     headerPrintOutput.Append($"{param.Name} : {param.Value}\n");
                 }
             }
+
             // set timeout
             request.Timeout = Configuration.Timeout;
             // set user agent

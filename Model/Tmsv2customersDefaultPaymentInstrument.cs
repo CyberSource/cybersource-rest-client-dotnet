@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2customersDefaultPaymentInstrument" /> class.
         /// </summary>
-        /// <param name="Id">The id of the Customers default Payment Instrument .</param>
+        /// <param name="Id">The Id of the Customers default Payment Instrument .</param>
         public Tmsv2customersDefaultPaymentInstrument(string Id = default(string))
         {
             this.Id = Id;
         }
         
         /// <summary>
-        /// The id of the Customers default Payment Instrument 
+        /// The Id of the Customers default Payment Instrument 
         /// </summary>
-        /// <value>The id of the Customers default Payment Instrument </value>
+        /// <value>The Id of the Customers default Payment Instrument </value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 

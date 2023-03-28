@@ -81,6 +81,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Address2'
         }
         /// <summary>
+        /// Test the property 'Address3'
+        /// </summary>
+        [Test]
+        public void Address3Test()
+        {
+            // TODO unit test for the property 'Address3'
+        }
+        /// <summary>
         /// Test the property 'AdministrativeArea'
         /// </summary>
         [Test]

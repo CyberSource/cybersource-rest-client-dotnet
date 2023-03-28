@@ -42,7 +42,8 @@ namespace CyberSource.Model
         /// <param name="SignedParesStatusReason">Provides additional information as to why the PAResStatus has a specific value. .</param>
         /// <param name="SignedPares">Payer authentication result (PARes) message returned by the card-issuing bank. If you need to show proof of enrollment checking, you may need to decrypt and parse the string for the information required by the payment card company. For more information, see \&quot;Storing Payer Authentication Data,\&quot; page 160. Important The value is in base64. You must remove all carriage returns and line feeds before adding the PARes to the request. .</param>
         /// <param name="WhiteListStatus">Enables the communication of trusted beneficiary/whitelist status between the ACS, the DS and the 3DS Requestor.  Possible Values:  Y - 3DS Requestor is whitelisted by cardholder  N - 3DS Requestor is not whitelisted by cardholder .</param>
-        public Riskv1authenticationresultsConsumerAuthenticationInformation(string AuthenticationTransactionId = default(string), string AuthenticationTransactionContext = default(string), string OtpToken = default(string), string AuthenticationType = default(string), string EffectiveAuthenticationType = default(string), string ResponseAccessToken = default(string), string SignedParesStatusReason = default(string), string SignedPares = default(string), string WhiteListStatus = default(string))
+        /// <param name="CredentialEncrypted">A flag to indicate if the passed credential has been encrypted by the Merchant..</param>
+        public Riskv1authenticationresultsConsumerAuthenticationInformation(string AuthenticationTransactionId = default(string), string AuthenticationTransactionContext = default(string), string OtpToken = default(string), string AuthenticationType = default(string), string EffectiveAuthenticationType = default(string), string ResponseAccessToken = default(string), string SignedParesStatusReason = default(string), string SignedPares = default(string), string WhiteListStatus = default(string), string CredentialEncrypted = default(string))
         {
             this.AuthenticationTransactionId = AuthenticationTransactionId;
             this.AuthenticationTransactionContext = AuthenticationTransactionContext;
@@ -53,6 +54,7 @@ namespace CyberSource.Model
             this.SignedParesStatusReason = SignedParesStatusReason;
             this.SignedPares = SignedPares;
             this.WhiteListStatus = WhiteListStatus;
+            this.CredentialEncrypted = CredentialEncrypted;
         }
         
         /// <summary>
@@ -119,6 +121,13 @@ namespace CyberSource.Model
         public string WhiteListStatus { get; set; }
 
         /// <summary>
+        /// A flag to indicate if the passed credential has been encrypted by the Merchant.
+        /// </summary>
+        /// <value>A flag to indicate if the passed credential has been encrypted by the Merchant.</value>
+        [DataMember(Name="credentialEncrypted", EmitDefaultValue=false)]
+        public string CredentialEncrypted { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +144,7 @@ namespace CyberSource.Model
             sb.Append("  SignedParesStatusReason: ").Append(SignedParesStatusReason).Append("\n");
             sb.Append("  SignedPares: ").Append(SignedPares).Append("\n");
             sb.Append("  WhiteListStatus: ").Append(WhiteListStatus).Append("\n");
+            sb.Append("  CredentialEncrypted: ").Append(CredentialEncrypted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +225,11 @@ namespace CyberSource.Model
                     this.WhiteListStatus == other.WhiteListStatus ||
                     this.WhiteListStatus != null &&
                     this.WhiteListStatus.Equals(other.WhiteListStatus)
+                ) && 
+                (
+                    this.CredentialEncrypted == other.CredentialEncrypted ||
+                    this.CredentialEncrypted != null &&
+                    this.CredentialEncrypted.Equals(other.CredentialEncrypted)
                 );
         }
 
@@ -247,6 +262,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SignedPares.GetHashCode();
                 if (this.WhiteListStatus != null)
                     hash = hash * 59 + this.WhiteListStatus.GetHashCode();
+                if (this.CredentialEncrypted != null)
+                    hash = hash * 59 + this.CredentialEncrypted.GetHashCode();
                 return hash;
             }
         }

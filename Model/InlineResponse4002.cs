@@ -35,16 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
         /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
-        /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD .</param>
+        /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_CARD_TYPE .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
-        /// <param name="StatusCode">HTTP status code of the submitted request.  Possible values:  - 500 .</param>
-        public InlineResponse4002(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), string StatusCode = default(string))
+        /// <param name="Details">Details.</param>
+        public InlineResponse4002(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
             this.Reason = Reason;
             this.Message = Message;
-            this.StatusCode = StatusCode;
+            this.Details = Details;
         }
         
         /// <summary>
@@ -62,9 +62,9 @@ namespace CyberSource.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// The reason of the status.  Possible values:  - MISSING_FIELD 
+        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_CARD_TYPE 
         /// </summary>
-        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD </value>
+        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_CARD_TYPE </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 
@@ -76,11 +76,10 @@ namespace CyberSource.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// HTTP status code of the submitted request.  Possible values:  - 500 
+        /// Gets or Sets Details
         /// </summary>
-        /// <value>HTTP status code of the submitted request.  Possible values:  - 500 </value>
-        [DataMember(Name="statusCode", EmitDefaultValue=false)]
-        public string StatusCode { get; set; }
+        [DataMember(Name="details", EmitDefaultValue=false)]
+        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -94,7 +93,7 @@ namespace CyberSource.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,9 +151,9 @@ namespace CyberSource.Model
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.StatusCode == other.StatusCode ||
-                    this.StatusCode != null &&
-                    this.StatusCode.Equals(other.StatusCode)
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -177,8 +176,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
-                if (this.StatusCode != null)
-                    hash = hash * 59 + this.StatusCode.GetHashCode();
+                if (this.Details != null)
+                    hash = hash * 59 + this.Details.GetHashCode();
                 return hash;
             }
         }

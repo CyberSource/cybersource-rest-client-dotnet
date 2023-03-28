@@ -136,6 +136,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'WhiteListStatus'
         }
+        /// <summary>
+        /// Test the property 'CredentialEncrypted'
+        /// </summary>
+        [Test]
+        public void CredentialEncryptedTest()
+        {
+            // TODO unit test for the property 'CredentialEncrypted'
+        }
 
     }
 

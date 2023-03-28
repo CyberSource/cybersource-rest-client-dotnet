@@ -74,7 +74,8 @@ namespace CyberSource.Model
         /// <param name="SecureCorporatePaymentIndicator">Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies. Possible Values : 0/1 .</param>
         /// <param name="TransactionMode">Transaction mode identifier. Identifies the channel from which the transaction originates. Possible values:  - &#x60;M&#x60;: MOTO (Mail Order Telephone Order) - &#x60;R&#x60;: Retail - &#x60;S&#x60;: eCommerce - &#x60;P&#x60;: Mobile Device - &#x60;T&#x60;: Tablet .</param>
         /// <param name="WhiteListStatus">Enables the communication of trusted beneficiary/whitelist status between the ACS, the DS and the 3DS Requestor.  Possible Values:  Y - 3DS Requestor is whitelisted by cardholder  N - 3DS Requestor is not whitelisted by cardholder .</param>
-        public Riskv1decisionsConsumerAuthenticationInformation(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication), string AuthenticationType = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), int? TransactionFlowIndicator = default(int?), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string ReturnUrl = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string))
+        /// <param name="ScoreRequest">Risk Assessment from Mastercard. This is to be sent by merchant if they would like to request a score.</param>
+        public Riskv1decisionsConsumerAuthenticationInformation(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication), string AuthenticationType = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), int? TransactionFlowIndicator = default(int?), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string ReturnUrl = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string), int? ScoreRequest = default(int?))
         {
             this.StrongAuthentication = StrongAuthentication;
             this.AuthenticationType = AuthenticationType;
@@ -117,6 +118,7 @@ namespace CyberSource.Model
             this.SecureCorporatePaymentIndicator = SecureCorporatePaymentIndicator;
             this.TransactionMode = TransactionMode;
             this.WhiteListStatus = WhiteListStatus;
+            this.ScoreRequest = ScoreRequest;
         }
         
         /// <summary>
@@ -406,6 +408,13 @@ namespace CyberSource.Model
         public string WhiteListStatus { get; set; }
 
         /// <summary>
+        /// Risk Assessment from Mastercard. This is to be sent by merchant if they would like to request a score
+        /// </summary>
+        /// <value>Risk Assessment from Mastercard. This is to be sent by merchant if they would like to request a score</value>
+        [DataMember(Name="scoreRequest", EmitDefaultValue=false)]
+        public int? ScoreRequest { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -454,6 +463,7 @@ namespace CyberSource.Model
             sb.Append("  SecureCorporatePaymentIndicator: ").Append(SecureCorporatePaymentIndicator).Append("\n");
             sb.Append("  TransactionMode: ").Append(TransactionMode).Append("\n");
             sb.Append("  WhiteListStatus: ").Append(WhiteListStatus).Append("\n");
+            sb.Append("  ScoreRequest: ").Append(ScoreRequest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -694,6 +704,11 @@ namespace CyberSource.Model
                     this.WhiteListStatus == other.WhiteListStatus ||
                     this.WhiteListStatus != null &&
                     this.WhiteListStatus.Equals(other.WhiteListStatus)
+                ) && 
+                (
+                    this.ScoreRequest == other.ScoreRequest ||
+                    this.ScoreRequest != null &&
+                    this.ScoreRequest.Equals(other.ScoreRequest)
                 );
         }
 
@@ -790,6 +805,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionMode.GetHashCode();
                 if (this.WhiteListStatus != null)
                     hash = hash * 59 + this.WhiteListStatus.GetHashCode();
+                if (this.ScoreRequest != null)
+                    hash = hash * 59 + this.ScoreRequest.GetHashCode();
                 return hash;
             }
         }

@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// This information is sent to the issuer as part of network token enrollment and is not stored under the Instrument Identifier token. 
+    /// This information is sent to the issuer as part of network token enrollment and is not stored under the Instrument Identifier. 
     /// </summary>
     [DataContract]
     public partial class Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBillTo :  IEquatable<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBillTo>, IValidatableObject

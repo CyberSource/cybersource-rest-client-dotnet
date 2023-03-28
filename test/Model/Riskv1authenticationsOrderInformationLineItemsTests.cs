@@ -144,6 +144,86 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TaxAmount'
         }
+        /// <summary>
+        /// Test the property 'ShippingAddress1'
+        /// </summary>
+        [Test]
+        public void ShippingAddress1Test()
+        {
+            // TODO unit test for the property 'ShippingAddress1'
+        }
+        /// <summary>
+        /// Test the property 'ShippingAddress2'
+        /// </summary>
+        [Test]
+        public void ShippingAddress2Test()
+        {
+            // TODO unit test for the property 'ShippingAddress2'
+        }
+        /// <summary>
+        /// Test the property 'ShippingCity'
+        /// </summary>
+        [Test]
+        public void ShippingCityTest()
+        {
+            // TODO unit test for the property 'ShippingCity'
+        }
+        /// <summary>
+        /// Test the property 'ShippingCountryCode'
+        /// </summary>
+        [Test]
+        public void ShippingCountryCodeTest()
+        {
+            // TODO unit test for the property 'ShippingCountryCode'
+        }
+        /// <summary>
+        /// Test the property 'ShippingFirstName'
+        /// </summary>
+        [Test]
+        public void ShippingFirstNameTest()
+        {
+            // TODO unit test for the property 'ShippingFirstName'
+        }
+        /// <summary>
+        /// Test the property 'ShippingLastName'
+        /// </summary>
+        [Test]
+        public void ShippingLastNameTest()
+        {
+            // TODO unit test for the property 'ShippingLastName'
+        }
+        /// <summary>
+        /// Test the property 'ShippingMiddleName'
+        /// </summary>
+        [Test]
+        public void ShippingMiddleNameTest()
+        {
+            // TODO unit test for the property 'ShippingMiddleName'
+        }
+        /// <summary>
+        /// Test the property 'ShippingPhone'
+        /// </summary>
+        [Test]
+        public void ShippingPhoneTest()
+        {
+            // TODO unit test for the property 'ShippingPhone'
+        }
+        /// <summary>
+        /// Test the property 'ShippingPostalCode'
+        /// </summary>
+        [Test]
+        public void ShippingPostalCodeTest()
+        {
+            // TODO unit test for the property 'ShippingPostalCode'
+        }
+        /// <summary>
+        /// Test the property 'ShippingState'
+        /// </summary>
+        [Test]
+        public void ShippingStateTest()
+        {
+            // TODO unit test for the property 'ShippingState'
+        }
 
     }
 

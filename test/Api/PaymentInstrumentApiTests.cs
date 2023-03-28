@@ -71,9 +71,9 @@ namespace CyberSource.Test
         public void DeletePaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string paymentInstrumentTokenId = null;
+            //string paymentInstrumentId = null;
             //string profileId = null;
-            //instance.DeletePaymentInstrument(paymentInstrumentTokenId, profileId);
+            //instance.DeletePaymentInstrument(paymentInstrumentId, profileId);
             
         }
         
@@ -84,9 +84,9 @@ namespace CyberSource.Test
         public void GetPaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string paymentInstrumentTokenId = null;
+            //string paymentInstrumentId = null;
             //string profileId = null;
-            //var response = instance.GetPaymentInstrument(paymentInstrumentTokenId, profileId);
+            //var response = instance.GetPaymentInstrument(paymentInstrumentId, profileId);
             //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrument> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrument");
         }
         
@@ -97,11 +97,11 @@ namespace CyberSource.Test
         public void PatchPaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string paymentInstrumentTokenId = null;
+            //string paymentInstrumentId = null;
             //PatchPaymentInstrumentRequest patchPaymentInstrumentRequest = null;
             //string profileId = null;
             //string ifMatch = null;
-            //var response = instance.PatchPaymentInstrument(paymentInstrumentTokenId, patchPaymentInstrumentRequest, profileId, ifMatch);
+            //var response = instance.PatchPaymentInstrument(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, ifMatch);
             //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrument> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrument");
         }
         

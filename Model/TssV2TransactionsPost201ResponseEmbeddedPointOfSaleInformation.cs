@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="TerminalSerialNumber">Terminal serial number assigned by the hardware manufacturer. This value is provided by the client software that is installed on the POS terminal.  This value is not forwarded to the processor. Instead, the value is forwarded to the reporting functionality.  #### Used by **Authorization and Credit** Optional. This field is supported only by client software that is installed on your POS terminals for the following processors: - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - OmniPay Direct - SIX .</param>
         /// <param name="DeviceId">Value created by the client software that uniquely identifies the POS device. CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only for authorizations and credits on these processors: - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - OmniPay Direct - SIX  Optional field. String (32) .</param>
         /// <param name="Partner">Partner.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string DeviceId = default(string), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner Partner = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner))
+        /// <param name="Emv">Emv.</param>
+        public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string DeviceId = default(string), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner Partner = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner), Ptsv2paymentsidreversalsPointOfSaleInformationEmv Emv = default(Ptsv2paymentsidreversalsPointOfSaleInformationEmv))
         {
             this.TerminalId = TerminalId;
             this.TerminalSerialNumber = TerminalSerialNumber;
             this.DeviceId = DeviceId;
             this.Partner = Partner;
+            this.Emv = Emv;
         }
         
         /// <summary>
@@ -73,6 +75,12 @@ namespace CyberSource.Model
         public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner Partner { get; set; }
 
         /// <summary>
+        /// Gets or Sets Emv
+        /// </summary>
+        [DataMember(Name="emv", EmitDefaultValue=false)]
+        public Ptsv2paymentsidreversalsPointOfSaleInformationEmv Emv { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,6 +92,7 @@ namespace CyberSource.Model
             sb.Append("  TerminalSerialNumber: ").Append(TerminalSerialNumber).Append("\n");
             sb.Append("  DeviceId: ").Append(DeviceId).Append("\n");
             sb.Append("  Partner: ").Append(Partner).Append("\n");
+            sb.Append("  Emv: ").Append(Emv).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +148,11 @@ namespace CyberSource.Model
                     this.Partner == other.Partner ||
                     this.Partner != null &&
                     this.Partner.Equals(other.Partner)
+                ) && 
+                (
+                    this.Emv == other.Emv ||
+                    this.Emv != null &&
+                    this.Emv.Equals(other.Emv)
                 );
         }
 
@@ -161,6 +175,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DeviceId.GetHashCode();
                 if (this.Partner != null)
                     hash = hash * 59 + this.Partner.GetHashCode();
+                if (this.Emv != null)
+                    hash = hash * 59 + this.Emv.GetHashCode();
                 return hash;
             }
         }

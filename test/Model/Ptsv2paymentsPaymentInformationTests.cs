@@ -65,22 +65,6 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Intent'
-        /// </summary>
-        [Test]
-        public void IntentTest()
-        {
-            // TODO unit test for the property 'Intent'
-        }
-        /// <summary>
-        /// Test the property 'CountryCode'
-        /// </summary>
-        [Test]
-        public void CountryCodeTest()
-        {
-            // TODO unit test for the property 'CountryCode'
-        }
-        /// <summary>
         /// Test the property 'Card'
         /// </summary>
         [Test]

@@ -30,111 +30,111 @@ namespace CyberSource.Api
         /// Delete an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Deleting an Instrument Identifier**&lt;br&gt;Your system can use this API to delete an existing Instrument Identifier.&lt;br&gt;An Instrument Identifier cannot be deleted if it is linked to any Payment Instruments.&lt;br&gt;You can [retrieve all Payment Instruments associated with an Instrument Identifier](#token-management_instrument-identifier_list-payment-instruments-for-an-instrument-identifier). 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns></returns>
-        void DeleteInstrumentIdentifier (string instrumentIdentifierTokenId, string profileId = null);
+        void DeleteInstrumentIdentifier (string instrumentIdentifierId, string profileId = null);
 
         /// <summary>
         /// Delete an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Deleting an Instrument Identifier**&lt;br&gt;Your system can use this API to delete an existing Instrument Identifier.&lt;br&gt;An Instrument Identifier cannot be deleted if it is linked to any Payment Instruments.&lt;br&gt;You can [retrieve all Payment Instruments associated with an Instrument Identifier](#token-management_instrument-identifier_list-payment-instruments-for-an-instrument-identifier). 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteInstrumentIdentifierWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null);
+        ApiResponse<Object> DeleteInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null);
         /// <summary>
         /// Retrieve an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Retrieving an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve an Instrument Identifier.&lt;br&gt;**Note: the actual card data will be masked.**&lt;br&gt;The Instrument Identifier will also be returned when retrieving a [Customer](#token-management_customer_retrieve-a-customer), [Customer Payment Instrument](#token-management_customer-payment-instrument_retrieve-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_retrieve-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierTokenId, string profileId = null);
+        Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null);
 
         /// <summary>
         /// Retrieve an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Retrieving an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve an Instrument Identifier.&lt;br&gt;**Note: the actual card data will be masked.**&lt;br&gt;The Instrument Identifier will also be returned when retrieving a [Customer](#token-management_customer_retrieve-a-customer), [Customer Payment Instrument](#token-management_customer-payment-instrument_retrieve-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_retrieve-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null);
+        ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null);
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Retrieving all Payment Instruments associated with an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve all Payment Instruments linked to an Instrument Identifier. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>PaymentInstrumentList</returns>
-        PaymentInstrumentList GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null);
+        PaymentInstrumentList GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null);
 
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Retrieving all Payment Instruments associated with an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve all Payment Instruments linked to an Instrument Identifier. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>ApiResponse of PaymentInstrumentList</returns>
-        ApiResponse<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null);
+        ApiResponse<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null);
         /// <summary>
         /// Update an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Updating an Instrument Identifier**&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments.&lt;br&gt;Your system can use this API to update these values. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
 
         /// <summary>
         /// Update an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Updating an Instrument Identifier**&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments.&lt;br&gt;Your system can use this API to update these values. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
         /// <summary>
         /// Create an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Creating an Instrument Identifier**&lt;br&gt;It is recommended you [create an Instrument Identifier via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body), this can be for a zero amount.&lt;br&gt;An Instrument Identifier will also be created if you [create a Customer via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body)&lt;br&gt;In Europe: You should perform Payer Authentication alongside the Authorization.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
 
@@ -142,149 +142,149 @@ namespace CyberSource.Api
         /// Create an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Creating an Instrument Identifier**&lt;br&gt;It is recommended you [create an Instrument Identifier via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body), this can be for a zero amount.&lt;br&gt;An Instrument Identifier will also be created if you [create a Customer via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body)&lt;br&gt;In Europe: You should perform Payer Authentication alongside the Authorization.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
         /// <summary>
-        /// Enroll an Instrument Identifier for Network Tokenization
+        /// Enroll an Instrument Identifier for Payment Network Token
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Enroll an Instrument Identifier for a Payment Network Token**&lt;br&gt;Your system can use this API to provision a Network token for an existing Instrument Identifier.&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Network token can be [provisioned when creating an Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier_samplerequests-dropdown_create-instrument-identifier-card-enroll-for-network-token_liveconsole-tab-request-body).This will occur automatically when creating a [Customer](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), [Payment Instrument](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-create-default-payment-instrument-shipping-address-for-existing-customer_liveconsole-tab-request-body) or [Instrument Identifier](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body) via the Payments API.&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns></returns>
-        void PostInstrumentIdentifierEnrollment (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
+        void PostInstrumentIdentifierEnrollment (string instrumentIdentifierId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
 
         /// <summary>
-        /// Enroll an Instrument Identifier for Network Tokenization
+        /// Enroll an Instrument Identifier for Payment Network Token
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Enroll an Instrument Identifier for a Payment Network Token**&lt;br&gt;Your system can use this API to provision a Network token for an existing Instrument Identifier.&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Network token can be [provisioned when creating an Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier_samplerequests-dropdown_create-instrument-identifier-card-enroll-for-network-token_liveconsole-tab-request-body).This will occur automatically when creating a [Customer](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), [Payment Instrument](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-create-default-payment-instrument-shipping-address-for-existing-customer_liveconsole-tab-request-body) or [Instrument Identifier](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body) via the Payments API.&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> PostInstrumentIdentifierEnrollmentWithHttpInfo (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
+        ApiResponse<Object> PostInstrumentIdentifierEnrollmentWithHttpInfo (string instrumentIdentifierId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
         /// Delete an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Deleting an Instrument Identifier**&lt;br&gt;Your system can use this API to delete an existing Instrument Identifier.&lt;br&gt;An Instrument Identifier cannot be deleted if it is linked to any Payment Instruments.&lt;br&gt;You can [retrieve all Payment Instruments associated with an Instrument Identifier](#token-management_instrument-identifier_list-payment-instruments-for-an-instrument-identifier). 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteInstrumentIdentifierAsync (string instrumentIdentifierTokenId, string profileId = null);
+        System.Threading.Tasks.Task DeleteInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null);
 
         /// <summary>
         /// Delete an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Deleting an Instrument Identifier**&lt;br&gt;Your system can use this API to delete an existing Instrument Identifier.&lt;br&gt;An Instrument Identifier cannot be deleted if it is linked to any Payment Instruments.&lt;br&gt;You can [retrieve all Payment Instruments associated with an Instrument Identifier](#token-management_instrument-identifier_list-payment-instruments-for-an-instrument-identifier). 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null);
         /// <summary>
         /// Retrieve an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Retrieving an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve an Instrument Identifier.&lt;br&gt;**Note: the actual card data will be masked.**&lt;br&gt;The Instrument Identifier will also be returned when retrieving a [Customer](#token-management_customer_retrieve-a-customer), [Customer Payment Instrument](#token-management_customer-payment-instrument_retrieve-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_retrieve-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> GetInstrumentIdentifierAsync (string instrumentIdentifierTokenId, string profileId = null);
+        System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> GetInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null);
 
         /// <summary>
         /// Retrieve an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Retrieving an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve an Instrument Identifier.&lt;br&gt;**Note: the actual card data will be masked.**&lt;br&gt;The Instrument Identifier will also be returned when retrieving a [Customer](#token-management_customer_retrieve-a-customer), [Customer Payment Instrument](#token-management_customer-payment-instrument_retrieve-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_retrieve-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null);
+        System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null);
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Retrieving all Payment Instruments associated with an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve all Payment Instruments linked to an Instrument Identifier. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of PaymentInstrumentList</returns>
-        System.Threading.Tasks.Task<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null);
+        System.Threading.Tasks.Task<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null);
 
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Retrieving all Payment Instruments associated with an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve all Payment Instruments linked to an Instrument Identifier. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (PaymentInstrumentList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null);
+        System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null);
         /// <summary>
         /// Update an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Updating an Instrument Identifier**&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments.&lt;br&gt;Your system can use this API to update these values. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierAsync (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierAsync (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
 
         /// <summary>
         /// Update an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Updating an Instrument Identifier**&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments.&lt;br&gt;Your system can use this API to update these values. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
         /// <summary>
         /// Create an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Creating an Instrument Identifier**&lt;br&gt;It is recommended you [create an Instrument Identifier via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body), this can be for a zero amount.&lt;br&gt;An Instrument Identifier will also be created if you [create a Customer via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body)&lt;br&gt;In Europe: You should perform Payer Authentication alongside the Authorization.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
 
@@ -292,38 +292,38 @@ namespace CyberSource.Api
         /// Create an Instrument Identifier
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Creating an Instrument Identifier**&lt;br&gt;It is recommended you [create an Instrument Identifier via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body), this can be for a zero amount.&lt;br&gt;An Instrument Identifier will also be created if you [create a Customer via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body)&lt;br&gt;In Europe: You should perform Payer Authentication alongside the Authorization.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
         System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
         /// <summary>
-        /// Enroll an Instrument Identifier for Network Tokenization
+        /// Enroll an Instrument Identifier for Payment Network Token
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Enroll an Instrument Identifier for a Payment Network Token**&lt;br&gt;Your system can use this API to provision a Network token for an existing Instrument Identifier.&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Network token can be [provisioned when creating an Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier_samplerequests-dropdown_create-instrument-identifier-card-enroll-for-network-token_liveconsole-tab-request-body).This will occur automatically when creating a [Customer](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), [Payment Instrument](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-create-default-payment-instrument-shipping-address-for-existing-customer_liveconsole-tab-request-body) or [Instrument Identifier](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body) via the Payments API.&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task PostInstrumentIdentifierEnrollmentAsync (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
+        System.Threading.Tasks.Task PostInstrumentIdentifierEnrollmentAsync (string instrumentIdentifierId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
 
         /// <summary>
-        /// Enroll an Instrument Identifier for Network Tokenization
+        /// Enroll an Instrument Identifier for Payment Network Token
         /// </summary>
         /// <remarks>
-        /// 
+        /// |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Enroll an Instrument Identifier for a Payment Network Token**&lt;br&gt;Your system can use this API to provision a Network token for an existing Instrument Identifier.&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Network token can be [provisioned when creating an Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier_samplerequests-dropdown_create-instrument-identifier-card-enroll-for-network-token_liveconsole-tab-request-body).This will occur automatically when creating a [Customer](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), [Payment Instrument](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-create-default-payment-instrument-shipping-address-for-existing-customer_liveconsole-tab-request-body) or [Instrument Identifier](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body) via the Payments API.&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo (string instrumentIdentifierId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null);
         #endregion Asynchronous Operations
     }
 
@@ -465,38 +465,38 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete an Instrument Identifier 
+        /// Delete an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Deleting an Instrument Identifier**&lt;br&gt;Your system can use this API to delete an existing Instrument Identifier.&lt;br&gt;An Instrument Identifier cannot be deleted if it is linked to any Payment Instruments.&lt;br&gt;You can [retrieve all Payment Instruments associated with an Instrument Identifier](#token-management_instrument-identifier_list-payment-instruments-for-an-instrument-identifier). 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns></returns>
-        public void DeleteInstrumentIdentifier (string instrumentIdentifierTokenId, string profileId = null)
+        public void DeleteInstrumentIdentifier (string instrumentIdentifierId, string profileId = null)
         {
             logger.Debug("CALLING API \"DeleteInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
-            DeleteInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, profileId);
+            DeleteInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, profileId);
         }
 
         /// <summary>
-        /// Delete an Instrument Identifier 
+        /// Delete an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Deleting an Instrument Identifier**&lt;br&gt;Your system can use this API to delete an existing Instrument Identifier.&lt;br&gt;An Instrument Identifier cannot be deleted if it is linked to any Payment Instruments.&lt;br&gt;You can [retrieve all Payment Instruments associated with an Instrument Identifier](#token-management_instrument-identifier_list-payment-instruments-for-an-instrument-identifier). 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteInstrumentIdentifierWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null)
+        public ApiResponse<Object> DeleteInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'instrumentIdentifierTokenId' is set
-            if (instrumentIdentifierTokenId == null)
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
-                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
             }
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierId}";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
@@ -520,9 +520,9 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (instrumentIdentifierTokenId != null)
+            if (instrumentIdentifierId != null)
             {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
@@ -563,39 +563,39 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Delete an Instrument Identifier 
+        /// Delete an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Deleting an Instrument Identifier**&lt;br&gt;Your system can use this API to delete an existing Instrument Identifier.&lt;br&gt;An Instrument Identifier cannot be deleted if it is linked to any Payment Instruments.&lt;br&gt;You can [retrieve all Payment Instruments associated with an Instrument Identifier](#token-management_instrument-identifier_list-payment-instruments-for-an-instrument-identifier). 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteInstrumentIdentifierAsync (string instrumentIdentifierTokenId, string profileId = null)
+        public async System.Threading.Tasks.Task DeleteInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null)
         {
             logger.Debug("CALLING API \"DeleteInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
-            await DeleteInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId);
+            await DeleteInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, profileId);
 
         }
 
         /// <summary>
-        /// Delete an Instrument Identifier 
+        /// Delete an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Deleting an Instrument Identifier**&lt;br&gt;Your system can use this API to delete an existing Instrument Identifier.&lt;br&gt;An Instrument Identifier cannot be deleted if it is linked to any Payment Instruments.&lt;br&gt;You can [retrieve all Payment Instruments associated with an Instrument Identifier](#token-management_instrument-identifier_list-payment-instruments-for-an-instrument-identifier). 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'instrumentIdentifierTokenId' is set
-            if (instrumentIdentifierTokenId == null)
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
-                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
             }
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierId}";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
@@ -619,9 +619,9 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (instrumentIdentifierTokenId != null)
+            if (instrumentIdentifierId != null)
             {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
@@ -661,41 +661,41 @@ namespace CyberSource.Api
                 localVarResponse.Content); // Return statement
         }
         /// <summary>
-        /// Retrieve an Instrument Identifier 
+        /// Retrieve an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Retrieving an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve an Instrument Identifier.&lt;br&gt;**Note: the actual card data will be masked.**&lt;br&gt;The Instrument Identifier will also be returned when retrieving a [Customer](#token-management_customer_retrieve-a-customer), [Customer Payment Instrument](#token-management_customer-payment-instrument_retrieve-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_retrieve-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierTokenId, string profileId = null)
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = GetInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, profileId);
+            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = GetInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, profileId);
             logger.Debug("CALLING API \"GetInstrumentIdentifier\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve an Instrument Identifier 
+        /// Retrieve an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Retrieving an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve an Instrument Identifier.&lt;br&gt;**Note: the actual card data will be masked.**&lt;br&gt;The Instrument Identifier will also be returned when retrieving a [Customer](#token-management_customer_retrieve-a-customer), [Customer Payment Instrument](#token-management_customer-payment-instrument_retrieve-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_retrieve-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier > GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null)
+        public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier > GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'instrumentIdentifierTokenId' is set
-            if (instrumentIdentifierTokenId == null)
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
-                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
             }
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierId}";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
@@ -719,9 +719,9 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (instrumentIdentifierTokenId != null)
+            if (instrumentIdentifierId != null)
             {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
@@ -761,17 +761,17 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve an Instrument Identifier 
+        /// Retrieve an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Retrieving an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve an Instrument Identifier.&lt;br&gt;**Note: the actual card data will be masked.**&lt;br&gt;The Instrument Identifier will also be returned when retrieving a [Customer](#token-management_customer_retrieve-a-customer), [Customer Payment Instrument](#token-management_customer-payment-instrument_retrieve-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_retrieve-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> GetInstrumentIdentifierAsync (string instrumentIdentifierTokenId, string profileId = null)
+        public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> GetInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId);
+            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, profileId);
             logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -779,24 +779,24 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve an Instrument Identifier 
+        /// Retrieve an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Retrieving an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve an Instrument Identifier.&lt;br&gt;**Note: the actual card data will be masked.**&lt;br&gt;The Instrument Identifier will also be returned when retrieving a [Customer](#token-management_customer_retrieve-a-customer), [Customer Payment Instrument](#token-management_customer-payment-instrument_retrieve-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_retrieve-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'instrumentIdentifierTokenId' is set
-            if (instrumentIdentifierTokenId == null)
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
-                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
             }
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierId}";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
@@ -820,9 +820,9 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (instrumentIdentifierTokenId != null)
+            if (instrumentIdentifierId != null)
             {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
@@ -861,45 +861,45 @@ namespace CyberSource.Api
                 (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
         }
         /// <summary>
-        /// List Payment Instruments for an Instrument Identifier 
+        /// List Payment Instruments for an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Retrieving all Payment Instruments associated with an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve all Payment Instruments linked to an Instrument Identifier. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>PaymentInstrumentList</returns>
-        public PaymentInstrumentList GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null)
+        public PaymentInstrumentList GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PaymentInstrumentList> localVarResponse = GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo(instrumentIdentifierTokenId, profileId, offset, limit);
+            ApiResponse<PaymentInstrumentList> localVarResponse = GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo(instrumentIdentifierId, profileId, offset, limit);
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List Payment Instruments for an Instrument Identifier 
+        /// List Payment Instruments for an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Retrieving all Payment Instruments associated with an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve all Payment Instruments linked to an Instrument Identifier. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>ApiResponse of PaymentInstrumentList</returns>
-        public ApiResponse< PaymentInstrumentList > GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null)
+        public ApiResponse< PaymentInstrumentList > GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'instrumentIdentifierTokenId' is set
-            if (instrumentIdentifierTokenId == null)
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
-                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
             }
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/paymentinstruments";
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierId}/paymentinstruments";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
@@ -923,9 +923,9 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (instrumentIdentifierTokenId != null)
+            if (instrumentIdentifierId != null)
             {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (offset != null)
@@ -975,19 +975,19 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// List Payment Instruments for an Instrument Identifier 
+        /// List Payment Instruments for an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Retrieving all Payment Instruments associated with an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve all Payment Instruments linked to an Instrument Identifier. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of PaymentInstrumentList</returns>
-        public async System.Threading.Tasks.Task<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null)
+        public async System.Threading.Tasks.Task<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PaymentInstrumentList> localVarResponse = await GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo(instrumentIdentifierTokenId, profileId, offset, limit);
+            ApiResponse<PaymentInstrumentList> localVarResponse = await GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo(instrumentIdentifierId, profileId, offset, limit);
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -995,26 +995,26 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// List Payment Instruments for an Instrument Identifier 
+        /// List Payment Instruments for an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Retrieving all Payment Instruments associated with an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve all Payment Instruments linked to an Instrument Identifier. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (PaymentInstrumentList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierTokenId, string profileId = null, long? offset = null, long? limit = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'instrumentIdentifierTokenId' is set
-            if (instrumentIdentifierTokenId == null)
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
-                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
             }
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/paymentinstruments";
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierId}/paymentinstruments";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
@@ -1038,9 +1038,9 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (instrumentIdentifierTokenId != null)
+            if (instrumentIdentifierId != null)
             {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (offset != null)
@@ -1089,42 +1089,42 @@ namespace CyberSource.Api
                 (PaymentInstrumentList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList))); // Return statement
         }
         /// <summary>
-        /// Update an Instrument Identifier 
+        /// Update an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Updating an Instrument Identifier**&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments.&lt;br&gt;Your system can use this API to update these values. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = PatchInstrumentIdentifierWithHttpInfo(instrumentIdentifierTokenId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = PatchInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchInstrumentIdentifier\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update an Instrument Identifier 
+        /// Update an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Updating an Instrument Identifier**&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments.&lt;br&gt;Your system can use this API to update these values. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier > PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier > PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'instrumentIdentifierTokenId' is set
-            if (instrumentIdentifierTokenId == null)
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
-                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
             }
             // verify the required parameter 'patchInstrumentIdentifierRequest' is set
             if (patchInstrumentIdentifierRequest == null)
@@ -1133,7 +1133,7 @@ namespace CyberSource.Api
                 throw new ApiException(400, "Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
             }
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierId}";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
@@ -1157,9 +1157,9 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (instrumentIdentifierTokenId != null)
+            if (instrumentIdentifierId != null)
             {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
@@ -1212,19 +1212,19 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update an Instrument Identifier 
+        /// Update an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Updating an Instrument Identifier**&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments.&lt;br&gt;Your system can use this API to update these values. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierAsync (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierAsync (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PatchInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierTokenId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PatchInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1232,23 +1232,23 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update an Instrument Identifier 
+        /// Update an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Updating an Instrument Identifier**&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments.&lt;br&gt;Your system can use this API to update these values. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
-        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction ID to update.</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierTokenId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'instrumentIdentifierTokenId' is set
-            if (instrumentIdentifierTokenId == null)
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
-                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
             }
             // verify the required parameter 'patchInstrumentIdentifierRequest' is set
             if (patchInstrumentIdentifierRequest == null)
@@ -1257,7 +1257,7 @@ namespace CyberSource.Api
                 throw new ApiException(400, "Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
             }
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}";
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierId}";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
@@ -1281,9 +1281,9 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (instrumentIdentifierTokenId != null)
+            if (instrumentIdentifierId != null)
             {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
@@ -1335,11 +1335,11 @@ namespace CyberSource.Api
                 (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
         }
         /// <summary>
-        /// Create an Instrument Identifier 
+        /// Create an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Creating an Instrument Identifier**&lt;br&gt;It is recommended you [create an Instrument Identifier via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body), this can be for a zero amount.&lt;br&gt;An Instrument Identifier will also be created if you [create a Customer via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body)&lt;br&gt;In Europe: You should perform Payer Authentication alongside the Authorization.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
@@ -1352,11 +1352,11 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create an Instrument Identifier 
+        /// Create an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Creating an Instrument Identifier**&lt;br&gt;It is recommended you [create an Instrument Identifier via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body), this can be for a zero amount.&lt;br&gt;An Instrument Identifier will also be created if you [create a Customer via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body)&lt;br&gt;In Europe: You should perform Payer Authentication alongside the Authorization.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier > PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
@@ -1439,11 +1439,11 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create an Instrument Identifier 
+        /// Create an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Creating an Instrument Identifier**&lt;br&gt;It is recommended you [create an Instrument Identifier via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body), this can be for a zero amount.&lt;br&gt;An Instrument Identifier will also be created if you [create a Customer via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body)&lt;br&gt;In Europe: You should perform Payer Authentication alongside the Authorization.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
         public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
@@ -1457,11 +1457,11 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create an Instrument Identifier 
+        /// Create an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Creating an Instrument Identifier**&lt;br&gt;It is recommended you [create an Instrument Identifier via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body), this can be for a zero amount.&lt;br&gt;An Instrument Identifier will also be created if you [create a Customer via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body)&lt;br&gt;In Europe: You should perform Payer Authentication alongside the Authorization.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
@@ -1543,37 +1543,37 @@ namespace CyberSource.Api
                 (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
         }
         /// <summary>
-        /// Enroll an Instrument Identifier for Network Tokenization 
+        /// Enroll an Instrument Identifier for Payment Network Token |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Enroll an Instrument Identifier for a Payment Network Token**&lt;br&gt;Your system can use this API to provision a Network token for an existing Instrument Identifier.&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Network token can be [provisioned when creating an Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier_samplerequests-dropdown_create-instrument-identifier-card-enroll-for-network-token_liveconsole-tab-request-body).This will occur automatically when creating a [Customer](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), [Payment Instrument](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-create-default-payment-instrument-shipping-address-for-existing-customer_liveconsole-tab-request-body) or [Instrument Identifier](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body) via the Payments API.&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns></returns>
-        public void PostInstrumentIdentifierEnrollment (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
+        public void PostInstrumentIdentifierEnrollment (string instrumentIdentifierId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostInstrumentIdentifierEnrollment\" STARTED");
             this.SetStatusCode(null);
-            PostInstrumentIdentifierEnrollmentWithHttpInfo(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
+            PostInstrumentIdentifierEnrollmentWithHttpInfo(instrumentIdentifierId, postInstrumentIdentifierEnrollmentRequest, profileId);
         }
 
         /// <summary>
-        /// Enroll an Instrument Identifier for Network Tokenization 
+        /// Enroll an Instrument Identifier for Payment Network Token |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Enroll an Instrument Identifier for a Payment Network Token**&lt;br&gt;Your system can use this API to provision a Network token for an existing Instrument Identifier.&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Network token can be [provisioned when creating an Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier_samplerequests-dropdown_create-instrument-identifier-card-enroll-for-network-token_liveconsole-tab-request-body).This will occur automatically when creating a [Customer](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), [Payment Instrument](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-create-default-payment-instrument-shipping-address-for-existing-customer_liveconsole-tab-request-body) or [Instrument Identifier](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body) via the Payments API.&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> PostInstrumentIdentifierEnrollmentWithHttpInfo (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
+        public ApiResponse<Object> PostInstrumentIdentifierEnrollmentWithHttpInfo (string instrumentIdentifierId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'instrumentIdentifierTokenId' is set
-            if (instrumentIdentifierTokenId == null)
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
-                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
             }
             // verify the required parameter 'postInstrumentIdentifierEnrollmentRequest' is set
             if (postInstrumentIdentifierEnrollmentRequest == null)
@@ -1582,7 +1582,7 @@ namespace CyberSource.Api
                 throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
             }
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/enrollment";
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierId}/enrollment";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
@@ -1606,9 +1606,9 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (instrumentIdentifierTokenId != null)
+            if (instrumentIdentifierId != null)
             {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)
@@ -1658,38 +1658,38 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Enroll an Instrument Identifier for Network Tokenization 
+        /// Enroll an Instrument Identifier for Payment Network Token |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Enroll an Instrument Identifier for a Payment Network Token**&lt;br&gt;Your system can use this API to provision a Network token for an existing Instrument Identifier.&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Network token can be [provisioned when creating an Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier_samplerequests-dropdown_create-instrument-identifier-card-enroll-for-network-token_liveconsole-tab-request-body).This will occur automatically when creating a [Customer](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), [Payment Instrument](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-create-default-payment-instrument-shipping-address-for-existing-customer_liveconsole-tab-request-body) or [Instrument Identifier](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body) via the Payments API.&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task PostInstrumentIdentifierEnrollmentAsync (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
+        public async System.Threading.Tasks.Task PostInstrumentIdentifierEnrollmentAsync (string instrumentIdentifierId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostInstrumentIdentifierEnrollmentAsync\" STARTED");
             this.SetStatusCode(null);
-            await PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
+            await PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo(instrumentIdentifierId, postInstrumentIdentifierEnrollmentRequest, profileId);
 
         }
 
         /// <summary>
-        /// Enroll an Instrument Identifier for Network Tokenization 
+        /// Enroll an Instrument Identifier for Payment Network Token |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Enroll an Instrument Identifier for a Payment Network Token**&lt;br&gt;Your system can use this API to provision a Network token for an existing Instrument Identifier.&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Network token can be [provisioned when creating an Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier_samplerequests-dropdown_create-instrument-identifier-card-enroll-for-network-token_liveconsole-tab-request-body).This will occur automatically when creating a [Customer](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), [Payment Instrument](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-create-default-payment-instrument-shipping-address-for-existing-customer_liveconsole-tab-request-body) or [Instrument Identifier](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body) via the Payments API.&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentIdentifierTokenId">The TokenId of a Instrument Identifier.</param>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="postInstrumentIdentifierEnrollmentRequest">Specify Enrollable Card details</param>
-        /// <param name="profileId">The id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo (string instrumentIdentifierTokenId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo (string instrumentIdentifierId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'instrumentIdentifierTokenId' is set
-            if (instrumentIdentifierTokenId == null)
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
-                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierTokenId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
             }
             // verify the required parameter 'postInstrumentIdentifierEnrollmentRequest' is set
             if (postInstrumentIdentifierEnrollmentRequest == null)
@@ -1698,7 +1698,7 @@ namespace CyberSource.Api
                 throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
             }
 
-            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierTokenId}/enrollment";
+            var localVarPath = $"/tms/v1/instrumentidentifiers/{instrumentIdentifierId}/enrollment";
             var localVarPathParams = new Dictionary<string, string>();
             var localVarQueryParams = new Dictionary<string, string>();
             var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
@@ -1722,9 +1722,9 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (instrumentIdentifierTokenId != null)
+            if (instrumentIdentifierId != null)
             {
-                localVarPathParams.Add("instrumentIdentifierTokenId", Configuration.ApiClient.ParameterToString(instrumentIdentifierTokenId)); // path parameter
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (profileId != null)

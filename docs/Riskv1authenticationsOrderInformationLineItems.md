@@ -13,6 +13,16 @@ Name | Type | Description | Notes
 **Passenger** | [**Ptsv2paymentsOrderInformationPassenger**](Ptsv2paymentsOrderInformationPassenger.md) |  | [optional] 
 **ShippingDestinationTypes** | **string** | Destination to where the item will be shipped. Example: Commercial, Residential, Store  | [optional] 
 **TaxAmount** | **string** | Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  Optional field.  #### Airlines processing Tax portion of the order amount. This value cannot exceed 99999999999999 (fourteen 9s). Format: English characters only. Optional request field for a line item.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes.  Note if you send this field in your tax request, the value in the field will override the tax engine  | [optional] 
+**ShippingAddress1** | **string** | Address where item will be shipped | [optional] 
+**ShippingAddress2** | **string** | Address where item will be shipped | [optional] 
+**ShippingCity** | **string** | City where item will be shipped | [optional] 
+**ShippingCountryCode** | **string** | Country where item will be shipped | [optional] 
+**ShippingFirstName** | **string** | Customer&#39;s first name | [optional] 
+**ShippingLastName** | **string** | Customer&#39;s last name | [optional] 
+**ShippingMiddleName** | **string** | Customer&#39;s middle name | [optional] 
+**ShippingPhone** | **int?** | Phone number where item will be shipped | [optional] 
+**ShippingPostalCode** | **int?** | Postal code where item will be shipped | [optional] 
+**ShippingState** | **string** | State where item will be shipped | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

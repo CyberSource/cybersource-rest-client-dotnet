@@ -65,28 +65,36 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Requestor'
+        /// Test the property 'Type'
         /// </summary>
         [Test]
-        public void RequestorTest()
+        public void TypeTest()
         {
-            // TODO unit test for the property 'Requestor'
+            // TODO unit test for the property 'Type'
         }
         /// <summary>
-        /// Test the property 'ParsedTagLimit'
+        /// Test the property 'Included'
         /// </summary>
         [Test]
-        public void ParsedTagLimitTest()
+        public void IncludedTest()
         {
-            // TODO unit test for the property 'ParsedTagLimit'
+            // TODO unit test for the property 'Included'
         }
         /// <summary>
-        /// Test the property 'EmvDetailsList'
+        /// Test the property 'MerchantReference'
         /// </summary>
         [Test]
-        public void EmvDetailsListTest()
+        public void MerchantReferenceTest()
         {
-            // TODO unit test for the property 'EmvDetailsList'
+            // TODO unit test for the property 'MerchantReference'
+        }
+        /// <summary>
+        /// Test the property 'NotificationEmail'
+        /// </summary>
+        [Test]
+        public void NotificationEmailTest()
+        {
+            // TODO unit test for the property 'NotificationEmail'
         }
 
     }

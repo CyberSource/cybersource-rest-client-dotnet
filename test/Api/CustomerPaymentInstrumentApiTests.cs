@@ -71,10 +71,10 @@ namespace CyberSource.Test
         public void DeleteCustomerPaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
-            //string paymentInstrumentTokenId = null;
+            //string customerId = null;
+            //string paymentInstrumentId = null;
             //string profileId = null;
-            //instance.DeleteCustomerPaymentInstrument(customerTokenId, paymentInstrumentTokenId, profileId);
+            //instance.DeleteCustomerPaymentInstrument(customerId, paymentInstrumentId, profileId);
             
         }
         
@@ -85,10 +85,10 @@ namespace CyberSource.Test
         public void GetCustomerPaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
-            //string paymentInstrumentTokenId = null;
+            //string customerId = null;
+            //string paymentInstrumentId = null;
             //string profileId = null;
-            //var response = instance.GetCustomerPaymentInstrument(customerTokenId, paymentInstrumentTokenId, profileId);
+            //var response = instance.GetCustomerPaymentInstrument(customerId, paymentInstrumentId, profileId);
             //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrument> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrument");
         }
         
@@ -99,11 +99,11 @@ namespace CyberSource.Test
         public void GetCustomerPaymentInstrumentsListTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
+            //string customerId = null;
             //string profileId = null;
             //long? offset = null;
             //long? limit = null;
-            //var response = instance.GetCustomerPaymentInstrumentsList(customerTokenId, profileId, offset, limit);
+            //var response = instance.GetCustomerPaymentInstrumentsList(customerId, profileId, offset, limit);
             //Assert.IsInstanceOf<PaymentInstrumentList> (response, "response is PaymentInstrumentList");
         }
         
@@ -114,12 +114,12 @@ namespace CyberSource.Test
         public void PatchCustomersPaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
-            //string paymentInstrumentTokenId = null;
+            //string customerId = null;
+            //string paymentInstrumentId = null;
             //PatchCustomerPaymentInstrumentRequest patchCustomerPaymentInstrumentRequest = null;
             //string profileId = null;
             //string ifMatch = null;
-            //var response = instance.PatchCustomersPaymentInstrument(customerTokenId, paymentInstrumentTokenId, patchCustomerPaymentInstrumentRequest, profileId, ifMatch);
+            //var response = instance.PatchCustomersPaymentInstrument(customerId, paymentInstrumentId, patchCustomerPaymentInstrumentRequest, profileId, ifMatch);
             //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrument> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrument");
         }
         
@@ -130,10 +130,10 @@ namespace CyberSource.Test
         public void PostCustomerPaymentInstrumentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
+            //string customerId = null;
             //PostCustomerPaymentInstrumentRequest postCustomerPaymentInstrumentRequest = null;
             //string profileId = null;
-            //var response = instance.PostCustomerPaymentInstrument(customerTokenId, postCustomerPaymentInstrumentRequest, profileId);
+            //var response = instance.PostCustomerPaymentInstrument(customerId, postCustomerPaymentInstrumentRequest, profileId);
             //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrument> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrument");
         }
         
