@@ -105,6 +105,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'State'
         }
         /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
         /// Test the property 'BankAccount'
         /// </summary>
         [Test]

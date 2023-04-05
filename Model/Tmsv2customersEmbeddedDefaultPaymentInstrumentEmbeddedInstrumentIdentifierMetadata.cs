@@ -39,9 +39,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The creator of the Instrument Identifier token.
+        /// The creator of the Instrument Identifier.
         /// </summary>
-        /// <value>The creator of the Instrument Identifier token.</value>
+        /// <value>The creator of the Instrument Identifier.</value>
         [DataMember(Name="creator", EmitDefaultValue=false)]
         public string Creator { get; private set; }
 

@@ -71,9 +71,9 @@ namespace CyberSource.Test
         public void DeleteInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string instrumentIdentifierTokenId = null;
+            //string instrumentIdentifierId = null;
             //string profileId = null;
-            //instance.DeleteInstrumentIdentifier(instrumentIdentifierTokenId, profileId);
+            //instance.DeleteInstrumentIdentifier(instrumentIdentifierId, profileId);
             
         }
         
@@ -84,9 +84,9 @@ namespace CyberSource.Test
         public void GetInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string instrumentIdentifierTokenId = null;
+            //string instrumentIdentifierId = null;
             //string profileId = null;
-            //var response = instance.GetInstrumentIdentifier(instrumentIdentifierTokenId, profileId);
+            //var response = instance.GetInstrumentIdentifier(instrumentIdentifierId, profileId);
             //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier");
         }
         
@@ -97,11 +97,11 @@ namespace CyberSource.Test
         public void GetInstrumentIdentifierPaymentInstrumentsListTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string instrumentIdentifierTokenId = null;
+            //string instrumentIdentifierId = null;
             //string profileId = null;
             //long? offset = null;
             //long? limit = null;
-            //var response = instance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierTokenId, profileId, offset, limit);
+            //var response = instance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierId, profileId, offset, limit);
             //Assert.IsInstanceOf<PaymentInstrumentList> (response, "response is PaymentInstrumentList");
         }
         
@@ -112,11 +112,11 @@ namespace CyberSource.Test
         public void PatchInstrumentIdentifierTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string instrumentIdentifierTokenId = null;
+            //string instrumentIdentifierId = null;
             //PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest = null;
             //string profileId = null;
             //string ifMatch = null;
-            //var response = instance.PatchInstrumentIdentifier(instrumentIdentifierTokenId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+            //var response = instance.PatchInstrumentIdentifier(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
             //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier");
         }
         
@@ -140,10 +140,10 @@ namespace CyberSource.Test
         public void PostInstrumentIdentifierEnrollmentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string instrumentIdentifierTokenId = null;
+            //string instrumentIdentifierId = null;
             //PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest = null;
             //string profileId = null;
-            //instance.PostInstrumentIdentifierEnrollment(instrumentIdentifierTokenId, postInstrumentIdentifierEnrollmentRequest, profileId);
+            //instance.PostInstrumentIdentifierEnrollment(instrumentIdentifierId, postInstrumentIdentifierEnrollmentRequest, profileId);
             
         }
         

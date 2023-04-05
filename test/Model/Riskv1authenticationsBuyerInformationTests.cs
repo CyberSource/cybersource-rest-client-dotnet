@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'MobilePhone'
         }
+        /// <summary>
+        /// Test the property 'WorkPhone'
+        /// </summary>
+        [Test]
+        public void WorkPhoneTest()
+        {
+            // TODO unit test for the property 'WorkPhone'
+        }
 
     }
 

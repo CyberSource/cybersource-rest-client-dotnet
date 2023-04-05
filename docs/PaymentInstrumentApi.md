@@ -4,17 +4,19 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeletePaymentInstrument**](PaymentInstrumentApi.md#deletepaymentinstrument) | **DELETE** /tms/v1/paymentinstruments/{paymentInstrumentTokenId} | Delete a Payment Instrument
-[**GetPaymentInstrument**](PaymentInstrumentApi.md#getpaymentinstrument) | **GET** /tms/v1/paymentinstruments/{paymentInstrumentTokenId} | Retrieve a Payment Instrument
-[**PatchPaymentInstrument**](PaymentInstrumentApi.md#patchpaymentinstrument) | **PATCH** /tms/v1/paymentinstruments/{paymentInstrumentTokenId} | Update a Payment Instrument
+[**DeletePaymentInstrument**](PaymentInstrumentApi.md#deletepaymentinstrument) | **DELETE** /tms/v1/paymentinstruments/{paymentInstrumentId} | Delete a Payment Instrument
+[**GetPaymentInstrument**](PaymentInstrumentApi.md#getpaymentinstrument) | **GET** /tms/v1/paymentinstruments/{paymentInstrumentId} | Retrieve a Payment Instrument
+[**PatchPaymentInstrument**](PaymentInstrumentApi.md#patchpaymentinstrument) | **PATCH** /tms/v1/paymentinstruments/{paymentInstrumentId} | Update a Payment Instrument
 [**PostPaymentInstrument**](PaymentInstrumentApi.md#postpaymentinstrument) | **POST** /tms/v1/paymentinstruments | Create a Payment Instrument
 
 
 <a name="deletepaymentinstrument"></a>
 # **DeletePaymentInstrument**
-> void DeletePaymentInstrument (string paymentInstrumentTokenId, string profileId = null)
+> void DeletePaymentInstrument (string paymentInstrumentId, string profileId = null)
 
 Delete a Payment Instrument
+
+|  |  |  | | - -- | - -- | - -- | |**Standalone Payment Instruments**<br>A Payment Instrument represents tokenized payment information such as expiration date, billing address & card type.<br>A Payment Instrument token does not store the card number. A Payment Instrument is associated with an [Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier) that represents either a payment card number, or in the case of an ACH bank account, the routing and account number.<br>**Standalone Payment Instruments do not belong to a [Customer](#token-management_customer_create-a-customer).**|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**Deleting a Payment Instrument**<br>Your system can use this API to delete an existing Payment Instrument.<br>Any Instrument Identifiers representing the card number will also be deleted if they are not associated with any other Payment Instruments. 
 
 ### Example
 ```csharp
@@ -31,13 +33,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new PaymentInstrumentApi();
-            var paymentInstrumentTokenId = paymentInstrumentTokenId_example;  // string | The TokenId of a payment instrument.
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration. (optional) 
+            var paymentInstrumentId = paymentInstrumentId_example;  // string | The Id of a payment instrument.
+            var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
 
             try
             {
                 // Delete a Payment Instrument
-                apiInstance.DeletePaymentInstrument(paymentInstrumentTokenId, profileId);
+                apiInstance.DeletePaymentInstrument(paymentInstrumentId, profileId);
             }
             catch (Exception e)
             {
@@ -52,8 +54,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **paymentInstrumentTokenId** | **string**| The TokenId of a payment instrument. | 
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | [optional] 
+ **paymentInstrumentId** | **string**| The Id of a payment instrument. | 
+ **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
 
 ### Return type
 
@@ -72,9 +74,11 @@ No authorization required
 
 <a name="getpaymentinstrument"></a>
 # **GetPaymentInstrument**
-> Tmsv2customersEmbeddedDefaultPaymentInstrument GetPaymentInstrument (string paymentInstrumentTokenId, string profileId = null)
+> Tmsv2customersEmbeddedDefaultPaymentInstrument GetPaymentInstrument (string paymentInstrumentId, string profileId = null)
 
 Retrieve a Payment Instrument
+
+|  |  |  | | - -- | - -- | - -- | |**Standalone Payment Instruments**<br>A Payment Instrument represents tokenized payment information such as expiration date, billing address & card type.<br>A Payment Instrument token does not store the card number. A Payment Instrument is associated with an [Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier) that represents either a payment card number, or in the case of an ACH bank account, the routing and account number.<br>**Standalone Payment Instruments do not belong to a [Customer](#token-management_customer_create-a-customer).**|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**Retrieving a Payment Instrument**<br>Your system can use this API to retrieve an existing Payment Instrument.<br>To perform a payment with a particular Payment Instrument simply specify the [Payment Instrument Id in the payments request](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-customer-payment-instrument-and-shipping-address-token-id_liveconsole-tab-request-body). 
 
 ### Example
 ```csharp
@@ -91,13 +95,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new PaymentInstrumentApi();
-            var paymentInstrumentTokenId = paymentInstrumentTokenId_example;  // string | The TokenId of a payment instrument.
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration. (optional) 
+            var paymentInstrumentId = paymentInstrumentId_example;  // string | The Id of a payment instrument.
+            var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
 
             try
             {
                 // Retrieve a Payment Instrument
-                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.GetPaymentInstrument(paymentInstrumentTokenId, profileId);
+                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.GetPaymentInstrument(paymentInstrumentId, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -113,8 +117,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **paymentInstrumentTokenId** | **string**| The TokenId of a payment instrument. | 
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | [optional] 
+ **paymentInstrumentId** | **string**| The Id of a payment instrument. | 
+ **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
 
 ### Return type
 
@@ -133,9 +137,11 @@ No authorization required
 
 <a name="patchpaymentinstrument"></a>
 # **PatchPaymentInstrument**
-> Tmsv2customersEmbeddedDefaultPaymentInstrument PatchPaymentInstrument (string paymentInstrumentTokenId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
+> Tmsv2customersEmbeddedDefaultPaymentInstrument PatchPaymentInstrument (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
 
 Update a Payment Instrument
+
+|  |  |  | | - -- | - -- | - -- | |**Standalone Payment Instruments**<br>A Payment Instrument represents tokenized payment information such as expiration date, billing address & card type.<br>A Payment Instrument token does not store the card number. A Payment Instrument is associated with an [Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier) that represents either a payment card number, or in the case of an ACH bank account, the routing and account number.<br>**Standalone Payment Instruments do not belong to a [Customer](#token-management_customer_create-a-customer).**|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**Updating a Payment Instrument**<br>Your system can use this API to update an existing Payment Instrument. 
 
 ### Example
 ```csharp
@@ -152,15 +158,15 @@ namespace Example
         public void main()
         {
             var apiInstance = new PaymentInstrumentApi();
-            var paymentInstrumentTokenId = paymentInstrumentTokenId_example;  // string | The TokenId of a payment instrument.
+            var paymentInstrumentId = paymentInstrumentId_example;  // string | The Id of a payment instrument.
             var patchPaymentInstrumentRequest = new PatchPaymentInstrumentRequest(); // PatchPaymentInstrumentRequest | 
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration. (optional) 
+            var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
             var ifMatch = ifMatch_example;  // string | Contains an ETag value from a GET request to make the request conditional. (optional) 
 
             try
             {
                 // Update a Payment Instrument
-                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.PatchPaymentInstrument(paymentInstrumentTokenId, patchPaymentInstrumentRequest, profileId, ifMatch);
+                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.PatchPaymentInstrument(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, ifMatch);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -176,9 +182,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **paymentInstrumentTokenId** | **string**| The TokenId of a payment instrument. | 
+ **paymentInstrumentId** | **string**| The Id of a payment instrument. | 
  **patchPaymentInstrumentRequest** | [**PatchPaymentInstrumentRequest**](PatchPaymentInstrumentRequest.md)|  | 
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | [optional] 
+ **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
  **ifMatch** | **string**| Contains an ETag value from a GET request to make the request conditional. | [optional] 
 
 ### Return type
@@ -202,7 +208,7 @@ No authorization required
 
 Create a Payment Instrument
 
-Include an existing TMS Instrument Identifier id in the request body. * An Instrument Identifier token can be created by calling: **POST *_/tms/v1/instrumentidentifiers*** 
+|  |  |  | | - -- | - -- | - -- | |**Standalone Payment Instruments**<br>A Payment Instrument represents tokenized payment information such as expiration date, billing address & card type.<br>A Payment Instrument token does not store the card number. A Payment Instrument is associated with an [Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier) that represents either a payment card number, or in the case of an ACH bank account, the routing and account number.<br>**Standalone Payment Instruments do not belong to a [Customer](#token-management_customer_create-a-customer).**<br><br>**Creating a Payment Instrument**<br>It is recommended you [create a Payment Instrument via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), this can be for a zero amount.<br>In Europe: You should perform Payer Authentication alongside the Authorization.|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**Payment Network Tokens**<br>Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.<br>A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.<br>A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).<br>For more information about Payment Network Tokens see the Developer Guide.<br><br>**Payments with Payment Instruments**<br>To perform a payment with a particular Payment Instrument specify the [Payment Instrument in the payment request](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-customer-payment-instrument-and-shipping-address-token-id_liveconsole-tab-request-body). 
 
 ### Example
 ```csharp
@@ -220,7 +226,7 @@ namespace Example
         {
             var apiInstance = new PaymentInstrumentApi();
             var postPaymentInstrumentRequest = new PostPaymentInstrumentRequest(); // PostPaymentInstrumentRequest | 
-            var profileId = profileId_example;  // string | The id of a profile containing user specific TMS configuration. (optional) 
+            var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
 
             try
             {
@@ -242,7 +248,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **postPaymentInstrumentRequest** | [**PostPaymentInstrumentRequest**](PostPaymentInstrumentRequest.md)|  | 
- **profileId** | **string**| The id of a profile containing user specific TMS configuration. | [optional] 
+ **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
 
 ### Return type
 

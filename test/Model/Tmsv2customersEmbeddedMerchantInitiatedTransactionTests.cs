@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PreviousTransactionId'
         }
+        /// <summary>
+        /// Test the property 'OriginalAuthorizedAmount'
+        /// </summary>
+        [Test]
+        public void OriginalAuthorizedAmountTest()
+        {
+            // TODO unit test for the property 'OriginalAuthorizedAmount'
+        }
 
     }
 

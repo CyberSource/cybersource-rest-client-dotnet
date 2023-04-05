@@ -39,9 +39,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The creator of the Shipping Address token.
+        /// The creator of the Shipping Address.
         /// </summary>
-        /// <value>The creator of the Shipping Address token.</value>
+        /// <value>The creator of the Shipping Address.</value>
         [DataMember(Name="creator", EmitDefaultValue=false)]
         public string Creator { get; private set; }
 

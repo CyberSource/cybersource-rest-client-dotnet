@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction" /> class.
         /// </summary>
         /// <param name="PreviousTransactionId">Network transaction identifier that was returned in the payment response field _processorInformation.transactionID_ in the reply message for either the original merchant-initiated payment in the series or the previous merchant-initiated payment in the series. .</param>
-        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction(string PreviousTransactionId = default(string))
+        /// <param name="OriginalAuthorizedAmount">Amount of the original authorization. .</param>
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction(string PreviousTransactionId = default(string), string OriginalAuthorizedAmount = default(string))
         {
             this.PreviousTransactionId = PreviousTransactionId;
+            this.OriginalAuthorizedAmount = OriginalAuthorizedAmount;
         }
         
         /// <summary>
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         public string PreviousTransactionId { get; set; }
 
         /// <summary>
+        /// Amount of the original authorization. 
+        /// </summary>
+        /// <value>Amount of the original authorization. </value>
+        [DataMember(Name="originalAuthorizedAmount", EmitDefaultValue=false)]
+        public string OriginalAuthorizedAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction {\n");
             sb.Append("  PreviousTransactionId: ").Append(PreviousTransactionId).Append("\n");
+            sb.Append("  OriginalAuthorizedAmount: ").Append(OriginalAuthorizedAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.PreviousTransactionId == other.PreviousTransactionId ||
                     this.PreviousTransactionId != null &&
                     this.PreviousTransactionId.Equals(other.PreviousTransactionId)
+                ) && 
+                (
+                    this.OriginalAuthorizedAmount == other.OriginalAuthorizedAmount ||
+                    this.OriginalAuthorizedAmount != null &&
+                    this.OriginalAuthorizedAmount.Equals(other.OriginalAuthorizedAmount)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.PreviousTransactionId != null)
                     hash = hash * 59 + this.PreviousTransactionId.GetHashCode();
+                if (this.OriginalAuthorizedAmount != null)
+                    hash = hash * 59 + this.OriginalAuthorizedAmount.GetHashCode();
                 return hash;
             }
         }

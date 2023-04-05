@@ -121,6 +121,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'UseAs'
         }
         /// <summary>
+        /// Test the property 'Hash'
+        /// </summary>
+        [Test]
+        public void HashTest()
+        {
+            // TODO unit test for the property 'Hash'
+        }
+        /// <summary>
         /// Test the property 'TokenizedInformation'
         /// </summary>
         [Test]

@@ -39,9 +39,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The creator of the Payment Instrument token. 
+        /// The creator of the Payment Instrument. 
         /// </summary>
-        /// <value>The creator of the Payment Instrument token. </value>
+        /// <value>The creator of the Payment Instrument. </value>
         [DataMember(Name="creator", EmitDefaultValue=false)]
         public string Creator { get; private set; }
 

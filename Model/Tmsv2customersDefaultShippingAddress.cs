@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2customersDefaultShippingAddress" /> class.
         /// </summary>
-        /// <param name="Id">The id of the Customers default Shipping Address .</param>
+        /// <param name="Id">The Id of the Customers default Shipping Address .</param>
         public Tmsv2customersDefaultShippingAddress(string Id = default(string))
         {
             this.Id = Id;
         }
         
         /// <summary>
-        /// The id of the Customers default Shipping Address 
+        /// The Id of the Customers default Shipping Address 
         /// </summary>
-        /// <value>The id of the Customers default Shipping Address </value>
+        /// <value>The Id of the Customers default Shipping Address </value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 

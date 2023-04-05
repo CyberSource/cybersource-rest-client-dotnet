@@ -34,13 +34,15 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InvoicingV2InvoicesAllGet200ResponseLinks" /> class.
         /// </summary>
         /// <param name="Self">Self.</param>
-        /// <param name="Next">Next.</param>
-        /// <param name="Previous">Previous.</param>
-        public InvoicingV2InvoicesAllGet200ResponseLinks(PtsV2PaymentsPost201ResponseLinksSelf Self = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Next = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Previous = default(PtsV2PaymentsPost201ResponseLinksSelf))
+        /// <param name="Update">Update.</param>
+        /// <param name="Deliver">Deliver.</param>
+        /// <param name="Cancel">Cancel.</param>
+        public InvoicingV2InvoicesAllGet200ResponseLinks(PtsV2PaymentsPost201ResponseLinksSelf Self = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Update = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Deliver = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Cancel = default(PtsV2PaymentsPost201ResponseLinksSelf))
         {
             this.Self = Self;
-            this.Next = Next;
-            this.Previous = Previous;
+            this.Update = Update;
+            this.Deliver = Deliver;
+            this.Cancel = Cancel;
         }
         
         /// <summary>
@@ -50,16 +52,22 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseLinksSelf Self { get; set; }
 
         /// <summary>
-        /// Gets or Sets Next
+        /// Gets or Sets Update
         /// </summary>
-        [DataMember(Name="next", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseLinksSelf Next { get; set; }
+        [DataMember(Name="update", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseLinksSelf Update { get; set; }
 
         /// <summary>
-        /// Gets or Sets Previous
+        /// Gets or Sets Deliver
         /// </summary>
-        [DataMember(Name="previous", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseLinksSelf Previous { get; set; }
+        [DataMember(Name="deliver", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseLinksSelf Deliver { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Cancel
+        /// </summary>
+        [DataMember(Name="cancel", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseLinksSelf Cancel { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,8 +78,9 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class InvoicingV2InvoicesAllGet200ResponseLinks {\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  Next: ").Append(Next).Append("\n");
-            sb.Append("  Previous: ").Append(Previous).Append("\n");
+            sb.Append("  Update: ").Append(Update).Append("\n");
+            sb.Append("  Deliver: ").Append(Deliver).Append("\n");
+            sb.Append("  Cancel: ").Append(Cancel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,14 +123,19 @@ namespace CyberSource.Model
                     this.Self.Equals(other.Self)
                 ) && 
                 (
-                    this.Next == other.Next ||
-                    this.Next != null &&
-                    this.Next.Equals(other.Next)
+                    this.Update == other.Update ||
+                    this.Update != null &&
+                    this.Update.Equals(other.Update)
                 ) && 
                 (
-                    this.Previous == other.Previous ||
-                    this.Previous != null &&
-                    this.Previous.Equals(other.Previous)
+                    this.Deliver == other.Deliver ||
+                    this.Deliver != null &&
+                    this.Deliver.Equals(other.Deliver)
+                ) && 
+                (
+                    this.Cancel == other.Cancel ||
+                    this.Cancel != null &&
+                    this.Cancel.Equals(other.Cancel)
                 );
         }
 
@@ -138,10 +152,12 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Self != null)
                     hash = hash * 59 + this.Self.GetHashCode();
-                if (this.Next != null)
-                    hash = hash * 59 + this.Next.GetHashCode();
-                if (this.Previous != null)
-                    hash = hash * 59 + this.Previous.GetHashCode();
+                if (this.Update != null)
+                    hash = hash * 59 + this.Update.GetHashCode();
+                if (this.Deliver != null)
+                    hash = hash * 59 + this.Deliver.GetHashCode();
+                if (this.Cancel != null)
+                    hash = hash * 59 + this.Cancel.GetHashCode();
                 return hash;
             }
         }

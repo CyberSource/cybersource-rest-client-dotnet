@@ -201,6 +201,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'TerminalPinCapability'
         }
         /// <summary>
+        /// Test the property 'PinEntrySolution'
+        /// </summary>
+        [Test]
+        public void PinEntrySolutionTest()
+        {
+            // TODO unit test for the property 'PinEntrySolution'
+        }
+        /// <summary>
         /// Test the property 'DeviceId'
         /// </summary>
         [Test]

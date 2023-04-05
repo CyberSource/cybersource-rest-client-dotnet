@@ -392,6 +392,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'WhiteListStatus'
         }
+        /// <summary>
+        /// Test the property 'ScoreRequest'
+        /// </summary>
+        [Test]
+        public void ScoreRequestTest()
+        {
+            // TODO unit test for the property 'ScoreRequest'
+        }
 
     }
 

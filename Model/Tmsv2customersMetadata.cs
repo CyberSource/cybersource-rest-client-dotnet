@@ -39,9 +39,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The creator of the Customer token. 
+        /// The creator of the Customer. 
         /// </summary>
-        /// <value>The creator of the Customer token. </value>
+        /// <value>The creator of the Customer. </value>
         [DataMember(Name="creator", EmitDefaultValue=false)]
         public string Creator { get; private set; }
 

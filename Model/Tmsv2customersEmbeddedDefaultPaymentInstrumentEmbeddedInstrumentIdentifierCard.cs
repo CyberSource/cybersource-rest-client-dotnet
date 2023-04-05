@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// The expirationMonth, expirationYear and securityCode is sent to the issuer as part of network token enrollment and is not stored under the Instrument Identifier token. 
+    /// The expirationMonth, expirationYear and securityCode is sent to the issuer as part of network token enrollment and is not stored under the Instrument Identifier. 
     /// </summary>
     [DataContract]
     public partial class Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard :  IEquatable<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard>, IValidatableObject
@@ -34,9 +34,9 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard" /> class.
         /// </summary>
         /// <param name="Number">The customer’s payment card number, also known as the Primary Account Number (PAN). You can also use this field for encoded account numbers. .</param>
-        /// <param name="ExpirationMonth">Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Valid values: &#x60;01&#x60; through &#x60;12&#x60;. .</param>
+        /// <param name="ExpirationMonth">Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. .</param>
         /// <param name="ExpirationYear">Four-digit year in which the credit card expires.  Format: &#x60;YYYY&#x60;. .</param>
-        /// <param name="SecurityCode">Card Verification Number. .</param>
+        /// <param name="SecurityCode">Card Verification Code.  This value is sent to the issuer to support the approval of a network token provision. It is not persisted against the Instrument Identifier. .</param>
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string SecurityCode = default(string))
         {
             this.Number = Number;
@@ -53,9 +53,9 @@ namespace CyberSource.Model
         public string Number { get; set; }
 
         /// <summary>
-        /// Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Valid values: &#x60;01&#x60; through &#x60;12&#x60;. 
+        /// Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. 
         /// </summary>
-        /// <value>Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Valid values: &#x60;01&#x60; through &#x60;12&#x60;. </value>
+        /// <value>Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. </value>
         [DataMember(Name="expirationMonth", EmitDefaultValue=false)]
         public string ExpirationMonth { get; set; }
 
@@ -67,9 +67,9 @@ namespace CyberSource.Model
         public string ExpirationYear { get; set; }
 
         /// <summary>
-        /// Card Verification Number. 
+        /// Card Verification Code.  This value is sent to the issuer to support the approval of a network token provision. It is not persisted against the Instrument Identifier. 
         /// </summary>
-        /// <value>Card Verification Number. </value>
+        /// <value>Card Verification Code.  This value is sent to the issuer to support the approval of a network token provision. It is not persisted against the Instrument Identifier. </value>
         [DataMember(Name="securityCode", EmitDefaultValue=false)]
         public string SecurityCode { get; set; }
 

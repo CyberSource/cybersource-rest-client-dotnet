@@ -41,8 +41,8 @@ namespace CyberSource.Api
         /// <param name="keyTypes">Key Type, Possible values -  certificate, password, pgp and scmp_api. When Key Type is provided atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationStartDate">Expiry Filter Start Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationEndDate">Expiry Filter End Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 SearchKeys (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null);
+        /// <returns>InlineResponse20011</returns>
+        InlineResponse20011 SearchKeys (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null);
 
         /// <summary>
         /// Search Keys
@@ -59,8 +59,8 @@ namespace CyberSource.Api
         /// <param name="keyTypes">Key Type, Possible values -  certificate, password, pgp and scmp_api. When Key Type is provided atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationStartDate">Expiry Filter Start Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationEndDate">Expiry Filter End Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> SearchKeysWithHttpInfo (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null);
+        /// <returns>ApiResponse of InlineResponse20011</returns>
+        ApiResponse<InlineResponse20011> SearchKeysWithHttpInfo (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -78,8 +78,8 @@ namespace CyberSource.Api
         /// <param name="keyTypes">Key Type, Possible values -  certificate, password, pgp and scmp_api. When Key Type is provided atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationStartDate">Expiry Filter Start Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationEndDate">Expiry Filter End Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> SearchKeysAsync (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null);
+        /// <returns>Task of InlineResponse20011</returns>
+        System.Threading.Tasks.Task<InlineResponse20011> SearchKeysAsync (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null);
 
         /// <summary>
         /// Search Keys
@@ -96,8 +96,8 @@ namespace CyberSource.Api
         /// <param name="keyTypes">Key Type, Possible values -  certificate, password, pgp and scmp_api. When Key Type is provided atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationStartDate">Expiry Filter Start Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationEndDate">Expiry Filter End Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> SearchKeysAsyncWithHttpInfo (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null);
+        /// <returns>Task of ApiResponse (InlineResponse20011)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20011>> SearchKeysAsyncWithHttpInfo (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null);
         #endregion Asynchronous Operations
     }
 
@@ -161,7 +161,7 @@ namespace CyberSource.Api
         /// <value>The base path</value>
         public string GetBasePath()
         {
-            return Configuration.ApiClient.RestClient.BaseUrl.ToString();
+            return Configuration.ApiClient.RestClient.Options.BaseUrl.ToString();
         }
 
         /// <summary>
@@ -250,12 +250,12 @@ namespace CyberSource.Api
         /// <param name="keyTypes">Key Type, Possible values -  certificate, password, pgp and scmp_api. When Key Type is provided atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationStartDate">Expiry Filter Start Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationEndDate">Expiry Filter End Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        public InlineResponse200 SearchKeys (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null)
+        /// <returns>InlineResponse20011</returns>
+        public InlineResponse20011 SearchKeys (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null)
         {
             logger.Debug("CALLING API \"SearchKeys\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse200> localVarResponse = SearchKeysWithHttpInfo(offset, limit, sort, organizationIds, keyIds, keyTypes, expirationStartDate, expirationEndDate);
+            ApiResponse<InlineResponse20011> localVarResponse = SearchKeysWithHttpInfo(offset, limit, sort, organizationIds, keyIds, keyTypes, expirationStartDate, expirationEndDate);
             logger.Debug("CALLING API \"SearchKeys\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -273,8 +273,8 @@ namespace CyberSource.Api
         /// <param name="keyTypes">Key Type, Possible values -  certificate, password, pgp and scmp_api. When Key Type is provided atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationStartDate">Expiry Filter Start Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationEndDate">Expiry Filter End Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > SearchKeysWithHttpInfo (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null)
+        /// <returns>ApiResponse of InlineResponse20011</returns>
+        public ApiResponse< InlineResponse20011 > SearchKeysWithHttpInfo (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -343,7 +343,7 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            if (Method.GET == Method.POST)
+            if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
             }
@@ -354,8 +354,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -370,9 +370,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20011>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+                (InlineResponse20011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20011))); // Return statement
         }
 
         /// <summary>
@@ -387,12 +387,12 @@ namespace CyberSource.Api
         /// <param name="keyTypes">Key Type, Possible values -  certificate, password, pgp and scmp_api. When Key Type is provided atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationStartDate">Expiry Filter Start Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationEndDate">Expiry Filter End Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> SearchKeysAsync (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null)
+        /// <returns>Task of InlineResponse20011</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20011> SearchKeysAsync (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null)
         {
             logger.Debug("CALLING API \"SearchKeysAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse200> localVarResponse = await SearchKeysAsyncWithHttpInfo(offset, limit, sort, organizationIds, keyIds, keyTypes, expirationStartDate, expirationEndDate);
+            ApiResponse<InlineResponse20011> localVarResponse = await SearchKeysAsyncWithHttpInfo(offset, limit, sort, organizationIds, keyIds, keyTypes, expirationStartDate, expirationEndDate);
             logger.Debug("CALLING API \"SearchKeysAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -411,8 +411,8 @@ namespace CyberSource.Api
         /// <param name="keyTypes">Key Type, Possible values -  certificate, password, pgp and scmp_api. When Key Type is provided atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationStartDate">Expiry Filter Start Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
         /// <param name="expirationEndDate">Expiry Filter End Date. When Expiration Date filter is provided, atleast one more filter needs to be provided (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> SearchKeysAsyncWithHttpInfo (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null)
+        /// <returns>Task of ApiResponse (InlineResponse20011)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20011>> SearchKeysAsyncWithHttpInfo (int? offset = null, int? limit = null, string sort = null, List<string> organizationIds = null, List<string> keyIds = null, List<string> keyTypes = null, DateTime? expirationStartDate = null, DateTime? expirationEndDate = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -481,7 +481,7 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            if (Method.GET == Method.POST)
+            if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
             }
@@ -492,8 +492,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
@@ -508,9 +508,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20011>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+                (InlineResponse20011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20011))); // Return statement
         }
     }
 }

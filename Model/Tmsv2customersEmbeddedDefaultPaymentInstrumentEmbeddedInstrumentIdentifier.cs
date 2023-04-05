@@ -34,8 +34,8 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
-        /// <param name="Id">The id of the Instrument Identifier Token. .</param>
-        /// <param name="Type">The type of Instrument Identifier. Valid values: - enrollable card .</param>
+        /// <param name="Id">The Id of the Instrument Identifier Token. .</param>
+        /// <param name="Type">The type of Instrument Identifier. Possible Values: - enrollable card .</param>
         /// <param name="Card">Card.</param>
         /// <param name="BankAccount">BankAccount.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
@@ -64,30 +64,30 @@ namespace CyberSource.Model
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierLinks Links { get; set; }
 
         /// <summary>
-        /// The id of the Instrument Identifier Token. 
+        /// The Id of the Instrument Identifier Token. 
         /// </summary>
-        /// <value>The id of the Instrument Identifier Token. </value>
+        /// <value>The Id of the Instrument Identifier Token. </value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The type of token.  Valid values: - instrumentIdentifier 
+        /// The type.  Possible Values: - instrumentIdentifier 
         /// </summary>
-        /// <value>The type of token.  Valid values: - instrumentIdentifier </value>
+        /// <value>The type.  Possible Values: - instrumentIdentifier </value>
         [DataMember(Name="object", EmitDefaultValue=false)]
         public string _Object { get; private set; }
 
         /// <summary>
-        /// Issuers state for the card number. Valid values: - ACTIVE - CLOSED : The account has been closed. 
+        /// Issuers state for the card number. Possible Values: - ACTIVE - CLOSED : The account has been closed. 
         /// </summary>
-        /// <value>Issuers state for the card number. Valid values: - ACTIVE - CLOSED : The account has been closed. </value>
+        /// <value>Issuers state for the card number. Possible Values: - ACTIVE - CLOSED : The account has been closed. </value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; private set; }
 
         /// <summary>
-        /// The type of Instrument Identifier. Valid values: - enrollable card 
+        /// The type of Instrument Identifier. Possible Values: - enrollable card 
         /// </summary>
-        /// <value>The type of Instrument Identifier. Valid values: - enrollable card </value>
+        /// <value>The type of Instrument Identifier. Possible Values: - enrollable card </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -71,9 +71,9 @@ namespace CyberSource.Test
         public void DeleteCustomerTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
+            //string customerId = null;
             //string profileId = null;
-            //instance.DeleteCustomer(customerTokenId, profileId);
+            //instance.DeleteCustomer(customerId, profileId);
             
         }
         
@@ -84,9 +84,9 @@ namespace CyberSource.Test
         public void GetCustomerTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
+            //string customerId = null;
             //string profileId = null;
-            //var response = instance.GetCustomer(customerTokenId, profileId);
+            //var response = instance.GetCustomer(customerId, profileId);
             //Assert.IsInstanceOf<TmsV2CustomersResponse> (response, "response is TmsV2CustomersResponse");
         }
         
@@ -97,11 +97,11 @@ namespace CyberSource.Test
         public void PatchCustomerTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerTokenId = null;
+            //string customerId = null;
             //PatchCustomerRequest patchCustomerRequest = null;
             //string profileId = null;
             //string ifMatch = null;
-            //var response = instance.PatchCustomer(customerTokenId, patchCustomerRequest, profileId, ifMatch);
+            //var response = instance.PatchCustomer(customerId, patchCustomerRequest, profileId, ifMatch);
             //Assert.IsInstanceOf<TmsV2CustomersResponse> (response, "response is TmsV2CustomersResponse");
         }
         

@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'Links'
+        /// </summary>
+        [Test]
+        public void LinksTest()
+        {
+            // TODO unit test for the property 'Links'
+        }
+        /// <summary>
         /// Test the property 'SubmitTimeUtc'
         /// </summary>
         [Test]
@@ -81,36 +89,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'TotalCount'
         }
         /// <summary>
-        /// Test the property 'Offset'
+        /// Test the property 'Plans'
         /// </summary>
         [Test]
-        public void OffsetTest()
+        public void PlansTest()
         {
-            // TODO unit test for the property 'Offset'
-        }
-        /// <summary>
-        /// Test the property 'Limit'
-        /// </summary>
-        [Test]
-        public void LimitTest()
-        {
-            // TODO unit test for the property 'Limit'
-        }
-        /// <summary>
-        /// Test the property 'Sort'
-        /// </summary>
-        [Test]
-        public void SortTest()
-        {
-            // TODO unit test for the property 'Sort'
-        }
-        /// <summary>
-        /// Test the property 'Keys'
-        /// </summary>
-        [Test]
-        public void KeysTest()
-        {
-            // TODO unit test for the property 'Keys'
+            // TODO unit test for the property 'Plans'
         }
 
     }

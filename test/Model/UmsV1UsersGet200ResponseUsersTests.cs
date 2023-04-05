@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ContactInformation'
         }
+        /// <summary>
+        /// Test the property 'CustomFields'
+        /// </summary>
+        [Test]
+        public void CustomFieldsTest()
+        {
+            // TODO unit test for the property 'CustomFields'
+        }
 
     }
 

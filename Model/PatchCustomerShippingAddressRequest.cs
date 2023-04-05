@@ -34,8 +34,8 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PatchCustomerShippingAddressRequest" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
-        /// <param name="Id">The id of the Shipping Address Token..</param>
-        /// <param name="_Default">Flag that indicates whether customer shipping address is the dafault. Valid values:  - &#x60;true&#x60;: Shipping Address is customer&#39;s default.  - &#x60;false&#x60;: Shipping Address is not customer&#39;s default. .</param>
+        /// <param name="Id">The Id of the Shipping Address Token..</param>
+        /// <param name="_Default">Flag that indicates whether customer shipping address is the dafault. Possible Values:  - &#x60;true&#x60;: Shipping Address is customer&#39;s default.  - &#x60;false&#x60;: Shipping Address is not customer&#39;s default. .</param>
         /// <param name="ShipTo">ShipTo.</param>
         /// <param name="Metadata">Metadata.</param>
         public PatchCustomerShippingAddressRequest(Tmsv2customersEmbeddedDefaultShippingAddressLinks Links = default(Tmsv2customersEmbeddedDefaultShippingAddressLinks), string Id = default(string), bool? _Default = default(bool?), Tmsv2customersEmbeddedDefaultShippingAddressShipTo ShipTo = default(Tmsv2customersEmbeddedDefaultShippingAddressShipTo), Tmsv2customersEmbeddedDefaultShippingAddressMetadata Metadata = default(Tmsv2customersEmbeddedDefaultShippingAddressMetadata))
@@ -54,16 +54,16 @@ namespace CyberSource.Model
         public Tmsv2customersEmbeddedDefaultShippingAddressLinks Links { get; set; }
 
         /// <summary>
-        /// The id of the Shipping Address Token.
+        /// The Id of the Shipping Address Token.
         /// </summary>
-        /// <value>The id of the Shipping Address Token.</value>
+        /// <value>The Id of the Shipping Address Token.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Flag that indicates whether customer shipping address is the dafault. Valid values:  - &#x60;true&#x60;: Shipping Address is customer&#39;s default.  - &#x60;false&#x60;: Shipping Address is not customer&#39;s default. 
+        /// Flag that indicates whether customer shipping address is the dafault. Possible Values:  - &#x60;true&#x60;: Shipping Address is customer&#39;s default.  - &#x60;false&#x60;: Shipping Address is not customer&#39;s default. 
         /// </summary>
-        /// <value>Flag that indicates whether customer shipping address is the dafault. Valid values:  - &#x60;true&#x60;: Shipping Address is customer&#39;s default.  - &#x60;false&#x60;: Shipping Address is not customer&#39;s default. </value>
+        /// <value>Flag that indicates whether customer shipping address is the dafault. Possible Values:  - &#x60;true&#x60;: Shipping Address is customer&#39;s default.  - &#x60;false&#x60;: Shipping Address is not customer&#39;s default. </value>
         [DataMember(Name="default", EmitDefaultValue=false)]
         public bool? _Default { get; set; }
 

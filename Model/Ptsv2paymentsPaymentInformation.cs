@@ -33,8 +33,6 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsPaymentInformation" /> class.
         /// </summary>
-        /// <param name="Intent">Intent. .</param>
-        /// <param name="CountryCode">Country code. .</param>
         /// <param name="Card">Card.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
         /// <param name="FluidData">FluidData.</param>
@@ -47,10 +45,8 @@ namespace CyberSource.Model
         /// <param name="PaymentType">PaymentType.</param>
         /// <param name="InitiationChannel">Mastercard-defined code that indicates how the account information was obtained.  - &#x60;00&#x60;: Card - &#x60;01&#x60;: Mobile Network Operator (MNO) controlled removable secure element (SIM or UICC) personalized for use with a mobile phone or smartphone - &#x60;02&#x60;: Key fob - &#x60;03&#x60;: Watch using a contactless chip or a fixed (non-removable) secure element not controlled by the MNO - &#x60;04&#x60;: Mobile tag - &#x60;05&#x60;: Wristband - &#x60;06&#x60;: Mobile phone case or sleeve - &#x60;07&#x60;: Mobile phone or smartphone with a fixed (non-removable) secure element controlled by the MNO,for example, code division multiple access (CDMA) - &#x60;08&#x60;: Removable secure element not controlled by the MNO, for example, memory card personalized forused with a mobile phone or smartphone - &#x60;09&#x60;: Mobile Phone or smartphone with a fixed (non-removable) secure element not controlled by the MNO - &#x60;10&#x60;: MNO controlled removable secure element (SIM or UICC) personalized for use with a tablet or e-book - &#x60;11&#x60;: Tablet or e-book with a fixed (non-removable) secure element controlled by the MNO - &#x60;12&#x60;: Removable secure element not controlled by the MNO, for example, memory card personalized foruse with a tablet or e-book - &#x60;13&#x60;: Tablet or e-book with fixed (non-removable) secure element not controlled by the MNO - &#x60;14&#x60;: Mobile phone or smartphone with a payment application running in a host processor - &#x60;15&#x60;: Tablet or e-book with a payment application running in a host processor - &#x60;16&#x60;: Mobile phone or smartphone with a payment application running in the Trusted ExecutionEnvironment (TEE) of a host processor - &#x60;17&#x60;: Tablet or e-book with a payment application running in the TEE of a host processor - &#x60;18&#x60;: Watch with a payment application running in the TEE of a host processor - &#x60;19&#x60;: Watch with a payment application running in a host processor  Values from 20–99 exclusively indicate the form factor only without also indicating the storage technology  - &#x60;20&#x60;: Card - &#x60;21&#x60;: Phone e.g. Mobile Phone - &#x60;22&#x60;: Tablet/e-reader - &#x60;23&#x60;: Watch/Wristband e.g. Watch or wristband, including a fitness band, smart strap, disposable band, watch add-on, and security/ID band - &#x60;24&#x60;: Sticker - &#x60;25&#x60;: PC - &#x60;26&#x60;: Device Peripheral e.g. mobile phone case or sleeve - &#x60;27&#x60;: Tag e.g. key fob or mobile tag - &#x60;28&#x60;: Jewelry e.g. ring, bracelet, necklace and cuff links - &#x60;29&#x60;: Fashion Accessory e.g. handbag, bag charm and glasses - &#x60;30&#x60;: Garment e.g. dress - &#x60;31&#x60;: Domestic Appliance e.g refrigerator, washing machine - &#x60;32&#x60;: Vehicle e.g. vehicle, including vehicle attached devices - &#x60;33&#x60;: Media/Gaming Device e.g. media or gaming device, including a set top box, media player and television  34–99 are reserved for future form factors. Any value in this range may occur within form factor and transaction data without prior notice.  This field is supported only for Mastercard on CyberSource through VisaNet. When initiation channel is not provided via this API field, the value is extracted from EMV tag 9F6E for Mastercard transactions. To enable this feature please call support.  #### Used by **Authorization** Optional field. .</param>
         /// <param name="EWallet">EWallet.</param>
-        public Ptsv2paymentsPaymentInformation(string Intent = default(string), string CountryCode = default(string), Ptsv2paymentsPaymentInformationCard Card = default(Ptsv2paymentsPaymentInformationCard), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType), string InitiationChannel = default(string), Ptsv2paymentsPaymentInformationEWallet EWallet = default(Ptsv2paymentsPaymentInformationEWallet))
+        public Ptsv2paymentsPaymentInformation(Ptsv2paymentsPaymentInformationCard Card = default(Ptsv2paymentsPaymentInformationCard), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType), string InitiationChannel = default(string), Ptsv2paymentsPaymentInformationEWallet EWallet = default(Ptsv2paymentsPaymentInformationEWallet))
         {
-            this.Intent = Intent;
-            this.CountryCode = CountryCode;
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
             this.FluidData = FluidData;
@@ -65,20 +61,6 @@ namespace CyberSource.Model
             this.EWallet = EWallet;
         }
         
-        /// <summary>
-        /// Intent. 
-        /// </summary>
-        /// <value>Intent. </value>
-        [DataMember(Name="intent", EmitDefaultValue=false)]
-        public string Intent { get; set; }
-
-        /// <summary>
-        /// Country code. 
-        /// </summary>
-        /// <value>Country code. </value>
-        [DataMember(Name="countryCode", EmitDefaultValue=false)]
-        public string CountryCode { get; set; }
-
         /// <summary>
         /// Gets or Sets Card
         /// </summary>
@@ -160,8 +142,6 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsPaymentInformation {\n");
-            sb.Append("  Intent: ").Append(Intent).Append("\n");
-            sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             sb.Append("  FluidData: ").Append(FluidData).Append("\n");
@@ -210,16 +190,6 @@ namespace CyberSource.Model
                 return false;
 
             return 
-                (
-                    this.Intent == other.Intent ||
-                    this.Intent != null &&
-                    this.Intent.Equals(other.Intent)
-                ) && 
-                (
-                    this.CountryCode == other.CountryCode ||
-                    this.CountryCode != null &&
-                    this.CountryCode.Equals(other.CountryCode)
-                ) && 
                 (
                     this.Card == other.Card ||
                     this.Card != null &&
@@ -293,10 +263,6 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Intent != null)
-                    hash = hash * 59 + this.Intent.GetHashCode();
-                if (this.CountryCode != null)
-                    hash = hash * 59 + this.CountryCode.GetHashCode();
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.TokenizedCard != null)

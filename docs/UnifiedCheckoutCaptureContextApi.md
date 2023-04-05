@@ -9,11 +9,11 @@ Method | HTTP request | Description
 
 <a name="generateunifiedcheckoutcapturecontext"></a>
 # **GenerateUnifiedCheckoutCaptureContext**
-> void GenerateUnifiedCheckoutCaptureContext (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest)
+> string GenerateUnifiedCheckoutCaptureContext (GenerateUnifiedCheckoutCaptureContextRequest generateUnifiedCheckoutCaptureContextRequest)
 
 Generate Unified Checkout Capture Context
 
-Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the paramiters for how Unified Chkcout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initate Unified Checkout within a merchnat web page
+Generate a one-time use capture context used for the invocation of Unified Checkout. The Request wil contain all of the parameters for how Unified Checkout will operate within a client webpage. The resulting payload will be a JWT signed object that can be used to initiate Unified Checkout within a merchant web page
 
 ### Example
 ```csharp
@@ -35,7 +35,8 @@ namespace Example
             try
             {
                 // Generate Unified Checkout Capture Context
-                apiInstance.GenerateUnifiedCheckoutCaptureContext(generateUnifiedCheckoutCaptureContextRequest);
+                string result = apiInstance.GenerateUnifiedCheckoutCaptureContext(generateUnifiedCheckoutCaptureContextRequest);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
@@ -54,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 

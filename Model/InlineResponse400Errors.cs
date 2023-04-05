@@ -40,16 +40,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The type of error.
+        /// The type of error.  Possible Values:   - invalidHeaders   - missingHeaders   - invalidFields   - missingFields   - unsupportedPaymentMethodModification   - invalidCombination 
         /// </summary>
-        /// <value>The type of error.</value>
+        /// <value>The type of error.  Possible Values:   - invalidHeaders   - missingHeaders   - invalidFields   - missingFields   - unsupportedPaymentMethodModification   - invalidCombination </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; private set; }
 
         /// <summary>
-        /// The detailed message related to the type stated above.
+        /// The detailed message related to the type.
         /// </summary>
-        /// <value>The detailed message related to the type stated above.</value>
+        /// <value>The detailed message related to the type.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; private set; }
 

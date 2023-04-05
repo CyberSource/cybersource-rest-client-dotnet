@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PatchCustomerRequest" /> class.
         /// </summary>
         /// <param name="Links">Links.</param>
-        /// <param name="Id">The id of the Customer Token..</param>
+        /// <param name="Id">The Id of the Customer Token..</param>
         /// <param name="ObjectInformation">ObjectInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
@@ -64,9 +64,9 @@ namespace CyberSource.Model
         public Tmsv2customersLinks Links { get; set; }
 
         /// <summary>
-        /// The id of the Customer Token.
+        /// The Id of the Customer Token.
         /// </summary>
-        /// <value>The id of the Customer Token.</value>
+        /// <value>The Id of the Customer Token.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 

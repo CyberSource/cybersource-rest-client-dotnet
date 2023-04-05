@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="AccountInformation">AccountInformation.</param>
         /// <param name="OrganizationInformation">OrganizationInformation.</param>
         /// <param name="ContactInformation">ContactInformation.</param>
-        public UmsV1UsersGet200ResponseUsers(UmsV1UsersGet200ResponseAccountInformation AccountInformation = default(UmsV1UsersGet200ResponseAccountInformation), UmsV1UsersGet200ResponseOrganizationInformation OrganizationInformation = default(UmsV1UsersGet200ResponseOrganizationInformation), UmsV1UsersGet200ResponseContactInformation ContactInformation = default(UmsV1UsersGet200ResponseContactInformation))
+        /// <param name="CustomFields">CustomFields.</param>
+        public UmsV1UsersGet200ResponseUsers(UmsV1UsersGet200ResponseAccountInformation AccountInformation = default(UmsV1UsersGet200ResponseAccountInformation), UmsV1UsersGet200ResponseOrganizationInformation OrganizationInformation = default(UmsV1UsersGet200ResponseOrganizationInformation), UmsV1UsersGet200ResponseContactInformation ContactInformation = default(UmsV1UsersGet200ResponseContactInformation), Dictionary<string, string> CustomFields = default(Dictionary<string, string>))
         {
             this.AccountInformation = AccountInformation;
             this.OrganizationInformation = OrganizationInformation;
             this.ContactInformation = ContactInformation;
+            this.CustomFields = CustomFields;
         }
         
         /// <summary>
@@ -62,6 +64,12 @@ namespace CyberSource.Model
         public UmsV1UsersGet200ResponseContactInformation ContactInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustomFields
+        /// </summary>
+        [DataMember(Name="customFields", EmitDefaultValue=false)]
+        public Dictionary<string, string> CustomFields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +80,7 @@ namespace CyberSource.Model
             sb.Append("  AccountInformation: ").Append(AccountInformation).Append("\n");
             sb.Append("  OrganizationInformation: ").Append(OrganizationInformation).Append("\n");
             sb.Append("  ContactInformation: ").Append(ContactInformation).Append("\n");
+            sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +131,11 @@ namespace CyberSource.Model
                     this.ContactInformation == other.ContactInformation ||
                     this.ContactInformation != null &&
                     this.ContactInformation.Equals(other.ContactInformation)
+                ) && 
+                (
+                    this.CustomFields == other.CustomFields ||
+                    this.CustomFields != null &&
+                    this.CustomFields.SequenceEqual(other.CustomFields)
                 );
         }
 
@@ -142,6 +156,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.OrganizationInformation.GetHashCode();
                 if (this.ContactInformation != null)
                     hash = hash * 59 + this.ContactInformation.GetHashCode();
+                if (this.CustomFields != null)
+                    hash = hash * 59 + this.CustomFields.GetHashCode();
                 return hash;
             }
         }

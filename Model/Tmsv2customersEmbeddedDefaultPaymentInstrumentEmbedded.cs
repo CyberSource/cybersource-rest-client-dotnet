@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Additional resources for the Payment Instrument token. 
+    /// Additional resources for the Payment Instrument. 
     /// </summary>
     [DataContract]
     public partial class Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded :  IEquatable<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded>, IValidatableObject
