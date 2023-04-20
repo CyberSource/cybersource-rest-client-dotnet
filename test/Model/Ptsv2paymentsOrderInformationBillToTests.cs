@@ -240,6 +240,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'VerificationStatus'
         }
+        /// <summary>
+        /// Test the property 'AlternatePhoneNumber'
+        /// </summary>
+        [Test]
+        public void AlternatePhoneNumberTest()
+        {
+            // TODO unit test for the property 'AlternatePhoneNumber'
+        }
+        /// <summary>
+        /// Test the property 'AlternateEmail'
+        /// </summary>
+        [Test]
+        public void AlternateEmailTest()
+        {
+            // TODO unit test for the property 'AlternateEmail'
+        }
 
     }
 

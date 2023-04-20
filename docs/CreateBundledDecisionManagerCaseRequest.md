@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **AcquirerInformation** | [**Ptsv2paymentsAcquirerInformation**](Ptsv2paymentsAcquirerInformation.md) |  | [optional] 
 **RecurringPaymentInformation** | [**Ptsv2paymentsRecurringPaymentInformation**](Ptsv2paymentsRecurringPaymentInformation.md) |  | [optional] 
 **ConsumerAuthenticationInformation** | [**Riskv1decisionsConsumerAuthenticationInformation**](Riskv1decisionsConsumerAuthenticationInformation.md) |  | [optional] 
+**WatchlistScreeningInformation** | [**Ptsv2paymentsWatchlistScreeningInformation**](Ptsv2paymentsWatchlistScreeningInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -216,6 +216,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CashAdvanceIndicator'
         }
+        /// <summary>
+        /// Test the property 'SplitPaymentTransaction'
+        /// </summary>
+        [Test]
+        public void SplitPaymentTransactionTest()
+        {
+            // TODO unit test for the property 'SplitPaymentTransaction'
+        }
 
     }
 

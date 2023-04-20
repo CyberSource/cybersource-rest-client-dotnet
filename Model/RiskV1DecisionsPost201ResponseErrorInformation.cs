@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RiskV1DecisionsPost201ResponseErrorInformation" /> class.
         /// </summary>
-        /// <param name="Reason">The reason of the status.  Possible values:  - &#x60;EXPIRED_CARD&#x60;  - &#x60;SCORE_EXCEEDS_THRESHOLD&#x60;  - &#x60;DECISION_PROFILE_REVIEW&#x60;  - &#x60;DECISION_PROFILE_REJECT&#x60;  - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60;  - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60;  - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60;  - &#x60;DECISION_PROFILE_CHALLENGE&#x60; .</param>
+        /// <param name="Reason">The reason of the status.  Possible values:  - &#x60;EXPIRED_CARD&#x60;  - &#x60;SCORE_EXCEEDS_THRESHOLD&#x60;  - &#x60;DECISION_PROFILE_REVIEW&#x60;  - &#x60;DECISION_PROFILE_REJECT&#x60;  - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60;  - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60;  - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60;  - &#x60;DECISION_PROFILE_CHALLENGE&#x60;  - &#x60;CUSTOMER_WATCHLIST_MATCH&#x60;  - &#x60;ADDRESS_COUNTRY_WATCHLIST_MATCH&#x60;  - &#x60;EMAIL_COUNTRY_WATCHLIST_MATCH&#x60;  - &#x60;IP_COUNTRY_WATCHLIST_MATCH&#x60; .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
         public RiskV1DecisionsPost201ResponseErrorInformation(string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
@@ -44,9 +44,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The reason of the status.  Possible values:  - &#x60;EXPIRED_CARD&#x60;  - &#x60;SCORE_EXCEEDS_THRESHOLD&#x60;  - &#x60;DECISION_PROFILE_REVIEW&#x60;  - &#x60;DECISION_PROFILE_REJECT&#x60;  - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60;  - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60;  - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60;  - &#x60;DECISION_PROFILE_CHALLENGE&#x60; 
+        /// The reason of the status.  Possible values:  - &#x60;EXPIRED_CARD&#x60;  - &#x60;SCORE_EXCEEDS_THRESHOLD&#x60;  - &#x60;DECISION_PROFILE_REVIEW&#x60;  - &#x60;DECISION_PROFILE_REJECT&#x60;  - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60;  - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60;  - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60;  - &#x60;DECISION_PROFILE_CHALLENGE&#x60;  - &#x60;CUSTOMER_WATCHLIST_MATCH&#x60;  - &#x60;ADDRESS_COUNTRY_WATCHLIST_MATCH&#x60;  - &#x60;EMAIL_COUNTRY_WATCHLIST_MATCH&#x60;  - &#x60;IP_COUNTRY_WATCHLIST_MATCH&#x60; 
         /// </summary>
-        /// <value>The reason of the status.  Possible values:  - &#x60;EXPIRED_CARD&#x60;  - &#x60;SCORE_EXCEEDS_THRESHOLD&#x60;  - &#x60;DECISION_PROFILE_REVIEW&#x60;  - &#x60;DECISION_PROFILE_REJECT&#x60;  - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60;  - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60;  - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60;  - &#x60;DECISION_PROFILE_CHALLENGE&#x60; </value>
+        /// <value>The reason of the status.  Possible values:  - &#x60;EXPIRED_CARD&#x60;  - &#x60;SCORE_EXCEEDS_THRESHOLD&#x60;  - &#x60;DECISION_PROFILE_REVIEW&#x60;  - &#x60;DECISION_PROFILE_REJECT&#x60;  - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60;  - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60;  - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60;  - &#x60;DECISION_PROFILE_CHALLENGE&#x60;  - &#x60;CUSTOMER_WATCHLIST_MATCH&#x60;  - &#x60;ADDRESS_COUNTRY_WATCHLIST_MATCH&#x60;  - &#x60;EMAIL_COUNTRY_WATCHLIST_MATCH&#x60;  - &#x60;IP_COUNTRY_WATCHLIST_MATCH&#x60; </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 

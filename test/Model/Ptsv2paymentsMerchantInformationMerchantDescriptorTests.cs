@@ -152,6 +152,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CountryOfOrigin'
         }
+        /// <summary>
+        /// Test the property 'CustomerServicePhoneNumber'
+        /// </summary>
+        [Test]
+        public void CustomerServicePhoneNumberTest()
+        {
+            // TODO unit test for the property 'CustomerServicePhoneNumber'
+        }
 
     }
 

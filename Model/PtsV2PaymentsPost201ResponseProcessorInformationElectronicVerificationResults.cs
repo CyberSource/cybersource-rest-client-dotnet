@@ -43,9 +43,15 @@ namespace CyberSource.Model
         /// <param name="PostalCodeRaw">Raw Electronic Verification response code from the processor for the customer’s postal code..</param>
         /// <param name="Street">Mapped Electronic Verification response code for the customer’s street address.  For details, see &#x60;auth_ev_street&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="StreetRaw">Raw Electronic Verification response code from the processor for the customer’s street address..</param>
-        /// <param name="Name">Mapped Electronic Verification response code for the customer’s name. .</param>
-        /// <param name="NameRaw">Raw Electronic Verification response code from the processor for the customer’s name. .</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults(string Code = default(string), string CodeRaw = default(string), string Email = default(string), string EmailRaw = default(string), string PhoneNumber = default(string), string PhoneNumberRaw = default(string), string PostalCode = default(string), string PostalCodeRaw = default(string), string Street = default(string), string StreetRaw = default(string), string Name = default(string), string NameRaw = default(string))
+        /// <param name="Name">#### Visa Platform Connect Mapped Electronic Verification response code for the customer’s name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match .</param>
+        /// <param name="NameRaw">#### Visa Platform Connect Raw Electronic Verification response code from the processor for the customer’s name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match .</param>
+        /// <param name="FirstNameRaw">#### Visa Platform Connect Raw electronic verification response code from the processor for the customer’s first name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match .</param>
+        /// <param name="FirstName">#### Visa Platform Connect Mapped electronic verification response code from the processor for the customer’s first name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match .</param>
+        /// <param name="MiddleNameRaw">#### Visa Platform Connect Raw electronic verification response code from the processor for the customer’s middle name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match .</param>
+        /// <param name="MiddleName">#### Visa Platform Connect Mapped electronic verification response code from the processor for the customer’s middle name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match .</param>
+        /// <param name="LastNameRaw">#### Visa Platform Connect Raw electronic verification response code from the processor for the customer’s last name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match .</param>
+        /// <param name="LastName">#### Visa Platform Connect Mapped electronic verification response code from the processor for the customer’s last name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match .</param>
+        public PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults(string Code = default(string), string CodeRaw = default(string), string Email = default(string), string EmailRaw = default(string), string PhoneNumber = default(string), string PhoneNumberRaw = default(string), string PostalCode = default(string), string PostalCodeRaw = default(string), string Street = default(string), string StreetRaw = default(string), string Name = default(string), string NameRaw = default(string), string FirstNameRaw = default(string), string FirstName = default(string), string MiddleNameRaw = default(string), string MiddleName = default(string), string LastNameRaw = default(string), string LastName = default(string))
         {
             this.Code = Code;
             this.CodeRaw = CodeRaw;
@@ -59,6 +65,12 @@ namespace CyberSource.Model
             this.StreetRaw = StreetRaw;
             this.Name = Name;
             this.NameRaw = NameRaw;
+            this.FirstNameRaw = FirstNameRaw;
+            this.FirstName = FirstName;
+            this.MiddleNameRaw = MiddleNameRaw;
+            this.MiddleName = MiddleName;
+            this.LastNameRaw = LastNameRaw;
+            this.LastName = LastName;
         }
         
         /// <summary>
@@ -132,18 +144,60 @@ namespace CyberSource.Model
         public string StreetRaw { get; set; }
 
         /// <summary>
-        /// Mapped Electronic Verification response code for the customer’s name. 
+        /// #### Visa Platform Connect Mapped Electronic Verification response code for the customer’s name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match 
         /// </summary>
-        /// <value>Mapped Electronic Verification response code for the customer’s name. </value>
+        /// <value>#### Visa Platform Connect Mapped Electronic Verification response code for the customer’s name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Raw Electronic Verification response code from the processor for the customer’s name. 
+        /// #### Visa Platform Connect Raw Electronic Verification response code from the processor for the customer’s name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match 
         /// </summary>
-        /// <value>Raw Electronic Verification response code from the processor for the customer’s name. </value>
+        /// <value>#### Visa Platform Connect Raw Electronic Verification response code from the processor for the customer’s name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match </value>
         [DataMember(Name="nameRaw", EmitDefaultValue=false)]
         public string NameRaw { get; set; }
+
+        /// <summary>
+        /// #### Visa Platform Connect Raw electronic verification response code from the processor for the customer’s first name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match 
+        /// </summary>
+        /// <value>#### Visa Platform Connect Raw electronic verification response code from the processor for the customer’s first name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match </value>
+        [DataMember(Name="firstNameRaw", EmitDefaultValue=false)]
+        public string FirstNameRaw { get; set; }
+
+        /// <summary>
+        /// #### Visa Platform Connect Mapped electronic verification response code from the processor for the customer’s first name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match 
+        /// </summary>
+        /// <value>#### Visa Platform Connect Mapped electronic verification response code from the processor for the customer’s first name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match </value>
+        [DataMember(Name="firstName", EmitDefaultValue=false)]
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// #### Visa Platform Connect Raw electronic verification response code from the processor for the customer’s middle name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match 
+        /// </summary>
+        /// <value>#### Visa Platform Connect Raw electronic verification response code from the processor for the customer’s middle name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match </value>
+        [DataMember(Name="middleNameRaw", EmitDefaultValue=false)]
+        public string MiddleNameRaw { get; set; }
+
+        /// <summary>
+        /// #### Visa Platform Connect Mapped electronic verification response code from the processor for the customer’s middle name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match 
+        /// </summary>
+        /// <value>#### Visa Platform Connect Mapped electronic verification response code from the processor for the customer’s middle name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match </value>
+        [DataMember(Name="middleName", EmitDefaultValue=false)]
+        public string MiddleName { get; set; }
+
+        /// <summary>
+        /// #### Visa Platform Connect Raw electronic verification response code from the processor for the customer’s last name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match 
+        /// </summary>
+        /// <value>#### Visa Platform Connect Raw electronic verification response code from the processor for the customer’s last name.  Valid values :  &#39;01&#39;     Match &#39;50&#39;     Partial Match &#39;99&#39;     No Match </value>
+        [DataMember(Name="lastNameRaw", EmitDefaultValue=false)]
+        public string LastNameRaw { get; set; }
+
+        /// <summary>
+        /// #### Visa Platform Connect Mapped electronic verification response code from the processor for the customer’s last name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match 
+        /// </summary>
+        /// <value>#### Visa Platform Connect Mapped electronic verification response code from the processor for the customer’s last name.  Valid values :  &#39;Y&#39;   Yes, the data Matches &#39;N&#39;   No Match &#39;O&#39;   Partial Match </value>
+        [DataMember(Name="lastName", EmitDefaultValue=false)]
+        public string LastName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -165,6 +219,12 @@ namespace CyberSource.Model
             sb.Append("  StreetRaw: ").Append(StreetRaw).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  NameRaw: ").Append(NameRaw).Append("\n");
+            sb.Append("  FirstNameRaw: ").Append(FirstNameRaw).Append("\n");
+            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  MiddleNameRaw: ").Append(MiddleNameRaw).Append("\n");
+            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
+            sb.Append("  LastNameRaw: ").Append(LastNameRaw).Append("\n");
+            sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -260,6 +320,36 @@ namespace CyberSource.Model
                     this.NameRaw == other.NameRaw ||
                     this.NameRaw != null &&
                     this.NameRaw.Equals(other.NameRaw)
+                ) && 
+                (
+                    this.FirstNameRaw == other.FirstNameRaw ||
+                    this.FirstNameRaw != null &&
+                    this.FirstNameRaw.Equals(other.FirstNameRaw)
+                ) && 
+                (
+                    this.FirstName == other.FirstName ||
+                    this.FirstName != null &&
+                    this.FirstName.Equals(other.FirstName)
+                ) && 
+                (
+                    this.MiddleNameRaw == other.MiddleNameRaw ||
+                    this.MiddleNameRaw != null &&
+                    this.MiddleNameRaw.Equals(other.MiddleNameRaw)
+                ) && 
+                (
+                    this.MiddleName == other.MiddleName ||
+                    this.MiddleName != null &&
+                    this.MiddleName.Equals(other.MiddleName)
+                ) && 
+                (
+                    this.LastNameRaw == other.LastNameRaw ||
+                    this.LastNameRaw != null &&
+                    this.LastNameRaw.Equals(other.LastNameRaw)
+                ) && 
+                (
+                    this.LastName == other.LastName ||
+                    this.LastName != null &&
+                    this.LastName.Equals(other.LastName)
                 );
         }
 
@@ -298,6 +388,18 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Name.GetHashCode();
                 if (this.NameRaw != null)
                     hash = hash * 59 + this.NameRaw.GetHashCode();
+                if (this.FirstNameRaw != null)
+                    hash = hash * 59 + this.FirstNameRaw.GetHashCode();
+                if (this.FirstName != null)
+                    hash = hash * 59 + this.FirstName.GetHashCode();
+                if (this.MiddleNameRaw != null)
+                    hash = hash * 59 + this.MiddleNameRaw.GetHashCode();
+                if (this.MiddleName != null)
+                    hash = hash * 59 + this.MiddleName.GetHashCode();
+                if (this.LastNameRaw != null)
+                    hash = hash * 59 + this.LastNameRaw.GetHashCode();
+                if (this.LastName != null)
+                    hash = hash * 59 + this.LastName.GetHashCode();
                 return hash;
             }
         }

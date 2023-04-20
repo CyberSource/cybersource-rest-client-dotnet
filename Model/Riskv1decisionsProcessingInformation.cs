@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Decides whether to call Payer Authentication along with DM or not
+    /// Decides whether to call Payer Authentication or Watchlist Screening service along with DM or not
     /// </summary>
     [DataContract]
     public partial class Riskv1decisionsProcessingInformation :  IEquatable<Riskv1decisionsProcessingInformation>, IValidatableObject
@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1decisionsProcessingInformation" /> class.
         /// </summary>
-        /// <param name="ActionList">Use CONSUMER_AUTHENTICATION to use Payer Authentication along with Decision Manager. For any other value, only Decision Manager will run. .</param>
+        /// <param name="ActionList">- Use &#x60;CONSUMER_AUTHENTICATION&#x60; to use Payer Authentication along with Decision Manager. For any other value, only Decision Manager will run. - Use &#x60;WATCHLIST_SCREENING&#x60;  when you want to call Watchlist Screening service. .</param>
         public Riskv1decisionsProcessingInformation(List<string> ActionList = default(List<string>))
         {
             this.ActionList = ActionList;
         }
         
         /// <summary>
-        /// Use CONSUMER_AUTHENTICATION to use Payer Authentication along with Decision Manager. For any other value, only Decision Manager will run. 
+        /// - Use &#x60;CONSUMER_AUTHENTICATION&#x60; to use Payer Authentication along with Decision Manager. For any other value, only Decision Manager will run. - Use &#x60;WATCHLIST_SCREENING&#x60;  when you want to call Watchlist Screening service. 
         /// </summary>
-        /// <value>Use CONSUMER_AUTHENTICATION to use Payer Authentication along with Decision Manager. For any other value, only Decision Manager will run. </value>
+        /// <value>- Use &#x60;CONSUMER_AUTHENTICATION&#x60; to use Payer Authentication along with Decision Manager. For any other value, only Decision Manager will run. - Use &#x60;WATCHLIST_SCREENING&#x60;  when you want to call Watchlist Screening service. </value>
         [DataMember(Name="actionList", EmitDefaultValue=false)]
         public List<string> ActionList { get; set; }
 

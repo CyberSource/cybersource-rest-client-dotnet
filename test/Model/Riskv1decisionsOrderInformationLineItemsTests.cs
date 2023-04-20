@@ -176,6 +176,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TaxAmount'
         }
+        /// <summary>
+        /// Test the property 'AllowedExportCountries'
+        /// </summary>
+        [Test]
+        public void AllowedExportCountriesTest()
+        {
+            // TODO unit test for the property 'AllowedExportCountries'
+        }
+        /// <summary>
+        /// Test the property 'RestrictedExportCountries'
+        /// </summary>
+        [Test]
+        public void RestrictedExportCountriesTest()
+        {
+            // TODO unit test for the property 'RestrictedExportCountries'
+        }
 
     }
 
