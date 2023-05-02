@@ -120,6 +120,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'RequestorId'
         }
+        /// <summary>
+        /// Test the property 'AssuranceMethod'
+        /// </summary>
+        [Test]
+        public void AssuranceMethodTest()
+        {
+            // TODO unit test for the property 'AssuranceMethod'
+        }
 
     }
 

@@ -177,6 +177,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ReturnUrl'
         }
         /// <summary>
+        /// Test the property 'PartnerIdCode'
+        /// </summary>
+        [Test]
+        public void PartnerIdCodeTest()
+        {
+            // TODO unit test for the property 'PartnerIdCode'
+        }
+        /// <summary>
+        /// Test the property 'ServiceLocation'
+        /// </summary>
+        [Test]
+        public void ServiceLocationTest()
+        {
+            // TODO unit test for the property 'ServiceLocation'
+        }
+        /// <summary>
         /// Test the property 'MerchantName'
         /// </summary>
         [Test]

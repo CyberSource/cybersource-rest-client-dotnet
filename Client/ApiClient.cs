@@ -460,6 +460,7 @@ namespace CyberSource.Client
                 string fileName = Path.Combine(clientCertDirectory, clientCertFile);
                 // Importing Certificates
                 var certificate = new X509Certificate2(fileName, clientCertPassword);
+                clientCertPassword=string.Empty;
                 RestClient.Options.ClientCertificates = new X509CertificateCollection { certificate };
             }
 

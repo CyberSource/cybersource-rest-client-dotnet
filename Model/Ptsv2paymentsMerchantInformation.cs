@@ -47,8 +47,10 @@ namespace CyberSource.Model
         /// <param name="SuccessUrl">customer would be redirected to this url based on the decision of the transaction.</param>
         /// <param name="FailureUrl">customer would be redirected to this url based on the decision of the transaction.</param>
         /// <param name="ReturnUrl">URL for displaying payment results to the consumer (notifications) after the transaction is processed. Usually this URL belongs to merchant and its behavior is defined by merchant .</param>
+        /// <param name="PartnerIdCode">#### Visa Platform Connect This field may be used for transactions on accounts issued under co-branding agreements when one of the co-branding partners. .</param>
+        /// <param name="ServiceLocation">ServiceLocation.</param>
         /// <param name="MerchantName">Use this field only if you are requesting payment with Payer Authentication service together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. .</param>
-        public Ptsv2paymentsMerchantInformation(Ptsv2paymentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2paymentsMerchantInformationMerchantDescriptor), string DomainName = default(string), string SalesOrganizationId = default(string), int? CategoryCode = default(int?), int? CategoryCodeDomestic = default(int?), string TaxId = default(string), string VatRegistrationNumber = default(string), string CardAcceptorReferenceNumber = default(string), string TransactionLocalDateTime = default(string), Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor = default(Ptsv2paymentsMerchantInformationServiceFeeDescriptor), string CancelUrl = default(string), string SuccessUrl = default(string), string FailureUrl = default(string), string ReturnUrl = default(string), string MerchantName = default(string))
+        public Ptsv2paymentsMerchantInformation(Ptsv2paymentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2paymentsMerchantInformationMerchantDescriptor), string DomainName = default(string), string SalesOrganizationId = default(string), int? CategoryCode = default(int?), int? CategoryCodeDomestic = default(int?), string TaxId = default(string), string VatRegistrationNumber = default(string), string CardAcceptorReferenceNumber = default(string), string TransactionLocalDateTime = default(string), Ptsv2paymentsMerchantInformationServiceFeeDescriptor ServiceFeeDescriptor = default(Ptsv2paymentsMerchantInformationServiceFeeDescriptor), string CancelUrl = default(string), string SuccessUrl = default(string), string FailureUrl = default(string), string ReturnUrl = default(string), string PartnerIdCode = default(string), Ptsv2paymentsMerchantInformationServiceLocation ServiceLocation = default(Ptsv2paymentsMerchantInformationServiceLocation), string MerchantName = default(string))
         {
             this.MerchantDescriptor = MerchantDescriptor;
             this.DomainName = DomainName;
@@ -64,6 +66,8 @@ namespace CyberSource.Model
             this.SuccessUrl = SuccessUrl;
             this.FailureUrl = FailureUrl;
             this.ReturnUrl = ReturnUrl;
+            this.PartnerIdCode = PartnerIdCode;
+            this.ServiceLocation = ServiceLocation;
             this.MerchantName = MerchantName;
         }
         
@@ -164,6 +168,19 @@ namespace CyberSource.Model
         public string ReturnUrl { get; set; }
 
         /// <summary>
+        /// #### Visa Platform Connect This field may be used for transactions on accounts issued under co-branding agreements when one of the co-branding partners. 
+        /// </summary>
+        /// <value>#### Visa Platform Connect This field may be used for transactions on accounts issued under co-branding agreements when one of the co-branding partners. </value>
+        [DataMember(Name="partnerIdCode", EmitDefaultValue=false)]
+        public string PartnerIdCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ServiceLocation
+        /// </summary>
+        [DataMember(Name="serviceLocation", EmitDefaultValue=false)]
+        public Ptsv2paymentsMerchantInformationServiceLocation ServiceLocation { get; set; }
+
+        /// <summary>
         /// Use this field only if you are requesting payment with Payer Authentication service together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. 
         /// </summary>
         /// <value>Use this field only if you are requesting payment with Payer Authentication service together.  Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. </value>
@@ -192,6 +209,8 @@ namespace CyberSource.Model
             sb.Append("  SuccessUrl: ").Append(SuccessUrl).Append("\n");
             sb.Append("  FailureUrl: ").Append(FailureUrl).Append("\n");
             sb.Append("  ReturnUrl: ").Append(ReturnUrl).Append("\n");
+            sb.Append("  PartnerIdCode: ").Append(PartnerIdCode).Append("\n");
+            sb.Append("  ServiceLocation: ").Append(ServiceLocation).Append("\n");
             sb.Append("  MerchantName: ").Append(MerchantName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -300,6 +319,16 @@ namespace CyberSource.Model
                     this.ReturnUrl.Equals(other.ReturnUrl)
                 ) && 
                 (
+                    this.PartnerIdCode == other.PartnerIdCode ||
+                    this.PartnerIdCode != null &&
+                    this.PartnerIdCode.Equals(other.PartnerIdCode)
+                ) && 
+                (
+                    this.ServiceLocation == other.ServiceLocation ||
+                    this.ServiceLocation != null &&
+                    this.ServiceLocation.Equals(other.ServiceLocation)
+                ) && 
+                (
                     this.MerchantName == other.MerchantName ||
                     this.MerchantName != null &&
                     this.MerchantName.Equals(other.MerchantName)
@@ -345,6 +374,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FailureUrl.GetHashCode();
                 if (this.ReturnUrl != null)
                     hash = hash * 59 + this.ReturnUrl.GetHashCode();
+                if (this.PartnerIdCode != null)
+                    hash = hash * 59 + this.PartnerIdCode.GetHashCode();
+                if (this.ServiceLocation != null)
+                    hash = hash * 59 + this.ServiceLocation.GetHashCode();
                 if (this.MerchantName != null)
                     hash = hash * 59 + this.MerchantName.GetHashCode();
                 return hash;

@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ExportComplianceInformation">ExportComplianceInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        public RiskV1ExportComplianceInquiriesPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), string Message = default(string), RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(RiskV1DecisionsPost201ResponseClientReferenceInformation), RiskV1ExportComplianceInquiriesPost201ResponseExportComplianceInformation ExportComplianceInformation = default(RiskV1ExportComplianceInquiriesPost201ResponseExportComplianceInformation), RiskV1ExportComplianceInquiriesPost201ResponseErrorInformation ErrorInformation = default(RiskV1ExportComplianceInquiriesPost201ResponseErrorInformation))
+        public RiskV1ExportComplianceInquiriesPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), string Message = default(string), RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(RiskV1DecisionsPost201ResponseClientReferenceInformation), PtsV2PaymentsPost201ResponseWatchlistScreeningInformation ExportComplianceInformation = default(PtsV2PaymentsPost201ResponseWatchlistScreeningInformation), RiskV1ExportComplianceInquiriesPost201ResponseErrorInformation ErrorInformation = default(RiskV1ExportComplianceInquiriesPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -106,7 +106,7 @@ namespace CyberSource.Model
         /// Gets or Sets ExportComplianceInformation
         /// </summary>
         [DataMember(Name="exportComplianceInformation", EmitDefaultValue=false)]
-        public RiskV1ExportComplianceInquiriesPost201ResponseExportComplianceInformation ExportComplianceInformation { get; set; }
+        public PtsV2PaymentsPost201ResponseWatchlistScreeningInformation ExportComplianceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ErrorInformation

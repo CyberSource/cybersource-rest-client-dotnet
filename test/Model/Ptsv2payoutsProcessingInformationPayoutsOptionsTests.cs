@@ -96,6 +96,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AccountFundingReferenceId'
         }
+        /// <summary>
+        /// Test the property 'DeferredDateTime'
+        /// </summary>
+        [Test]
+        public void DeferredDateTimeTest()
+        {
+            // TODO unit test for the property 'DeferredDateTime'
+        }
 
     }
 

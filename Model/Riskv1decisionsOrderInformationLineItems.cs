@@ -47,7 +47,9 @@ namespace CyberSource.Model
         /// <param name="Passenger">Passenger.</param>
         /// <param name="ShippingDestinationTypes">Destination to where the item will be shipped. Example: Commercial, Residential, Store .</param>
         /// <param name="TaxAmount">Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  Optional field.  #### Airlines processing Tax portion of the order amount. This value cannot exceed 99999999999999 (fourteen 9s). Format: English characters only. Optional request field for a line item.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes.  Note if you send this field in your tax request, the value in the field will override the tax engine .</param>
-        public Riskv1decisionsOrderInformationLineItems(string TotalAmount = default(string), string UnitPrice = default(string), int? Quantity = default(int?), int? GiftCardCurrency = default(int?), string ProductSKU = default(string), string ProductRisk = default(string), string ProductDescription = default(string), string ProductName = default(string), string ProductCode = default(string), bool? Gift = default(bool?), string DistributorProductSku = default(string), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger), string ShippingDestinationTypes = default(string), string TaxAmount = default(string))
+        /// <param name="AllowedExportCountries">AllowedExportCountries.</param>
+        /// <param name="RestrictedExportCountries">RestrictedExportCountries.</param>
+        public Riskv1decisionsOrderInformationLineItems(string TotalAmount = default(string), string UnitPrice = default(string), int? Quantity = default(int?), int? GiftCardCurrency = default(int?), string ProductSKU = default(string), string ProductRisk = default(string), string ProductDescription = default(string), string ProductName = default(string), string ProductCode = default(string), bool? Gift = default(bool?), string DistributorProductSku = default(string), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger), string ShippingDestinationTypes = default(string), string TaxAmount = default(string), List<string> AllowedExportCountries = default(List<string>), List<string> RestrictedExportCountries = default(List<string>))
         {
             this.TotalAmount = TotalAmount;
             this.UnitPrice = UnitPrice;
@@ -63,6 +65,8 @@ namespace CyberSource.Model
             this.Passenger = Passenger;
             this.ShippingDestinationTypes = ShippingDestinationTypes;
             this.TaxAmount = TaxAmount;
+            this.AllowedExportCountries = AllowedExportCountries;
+            this.RestrictedExportCountries = RestrictedExportCountries;
         }
         
         /// <summary>
@@ -163,6 +167,18 @@ namespace CyberSource.Model
         public string TaxAmount { get; set; }
 
         /// <summary>
+        /// Gets or Sets AllowedExportCountries
+        /// </summary>
+        [DataMember(Name="allowedExportCountries", EmitDefaultValue=false)]
+        public List<string> AllowedExportCountries { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RestrictedExportCountries
+        /// </summary>
+        [DataMember(Name="restrictedExportCountries", EmitDefaultValue=false)]
+        public List<string> RestrictedExportCountries { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -184,6 +200,8 @@ namespace CyberSource.Model
             sb.Append("  Passenger: ").Append(Passenger).Append("\n");
             sb.Append("  ShippingDestinationTypes: ").Append(ShippingDestinationTypes).Append("\n");
             sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            sb.Append("  AllowedExportCountries: ").Append(AllowedExportCountries).Append("\n");
+            sb.Append("  RestrictedExportCountries: ").Append(RestrictedExportCountries).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -289,6 +307,16 @@ namespace CyberSource.Model
                     this.TaxAmount == other.TaxAmount ||
                     this.TaxAmount != null &&
                     this.TaxAmount.Equals(other.TaxAmount)
+                ) && 
+                (
+                    this.AllowedExportCountries == other.AllowedExportCountries ||
+                    this.AllowedExportCountries != null &&
+                    this.AllowedExportCountries.SequenceEqual(other.AllowedExportCountries)
+                ) && 
+                (
+                    this.RestrictedExportCountries == other.RestrictedExportCountries ||
+                    this.RestrictedExportCountries != null &&
+                    this.RestrictedExportCountries.SequenceEqual(other.RestrictedExportCountries)
                 );
         }
 
@@ -331,6 +359,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ShippingDestinationTypes.GetHashCode();
                 if (this.TaxAmount != null)
                     hash = hash * 59 + this.TaxAmount.GetHashCode();
+                if (this.AllowedExportCountries != null)
+                    hash = hash * 59 + this.AllowedExportCountries.GetHashCode();
+                if (this.RestrictedExportCountries != null)
+                    hash = hash * 59 + this.RestrictedExportCountries.GetHashCode();
                 return hash;
             }
         }

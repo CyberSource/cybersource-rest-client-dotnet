@@ -44,7 +44,8 @@ namespace CyberSource.Model
         /// <param name="Phone">Merchant phone as contact information for CNP transactions .</param>
         /// <param name="Url">Address of company&#39;s website provided by merchant .</param>
         /// <param name="CountryOfOrigin">#### Visa Platform Connect This field will indicate merchant country of origin .</param>
-        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Phone = default(string), string Url = default(string), string CountryOfOrigin = default(string))
+        /// <param name="CustomerServicePhoneNumber">#### Visa Platform Connect Indicates customer service phone number of Merchant. .</param>
+        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Phone = default(string), string Url = default(string), string CountryOfOrigin = default(string), string CustomerServicePhoneNumber = default(string))
         {
             this.Name = Name;
             this.AlternateName = AlternateName;
@@ -57,6 +58,7 @@ namespace CyberSource.Model
             this.Phone = Phone;
             this.Url = Url;
             this.CountryOfOrigin = CountryOfOrigin;
+            this.CustomerServicePhoneNumber = CustomerServicePhoneNumber;
         }
         
         /// <summary>
@@ -137,6 +139,13 @@ namespace CyberSource.Model
         public string CountryOfOrigin { get; set; }
 
         /// <summary>
+        /// #### Visa Platform Connect Indicates customer service phone number of Merchant. 
+        /// </summary>
+        /// <value>#### Visa Platform Connect Indicates customer service phone number of Merchant. </value>
+        [DataMember(Name="customerServicePhoneNumber", EmitDefaultValue=false)]
+        public string CustomerServicePhoneNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -155,6 +164,7 @@ namespace CyberSource.Model
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  CountryOfOrigin: ").Append(CountryOfOrigin).Append("\n");
+            sb.Append("  CustomerServicePhoneNumber: ").Append(CustomerServicePhoneNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -245,6 +255,11 @@ namespace CyberSource.Model
                     this.CountryOfOrigin == other.CountryOfOrigin ||
                     this.CountryOfOrigin != null &&
                     this.CountryOfOrigin.Equals(other.CountryOfOrigin)
+                ) && 
+                (
+                    this.CustomerServicePhoneNumber == other.CustomerServicePhoneNumber ||
+                    this.CustomerServicePhoneNumber != null &&
+                    this.CustomerServicePhoneNumber.Equals(other.CustomerServicePhoneNumber)
                 );
         }
 
@@ -281,6 +296,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Url.GetHashCode();
                 if (this.CountryOfOrigin != null)
                     hash = hash * 59 + this.CountryOfOrigin.GetHashCode();
+                if (this.CustomerServicePhoneNumber != null)
+                    hash = hash * 59 + this.CustomerServicePhoneNumber.GetHashCode();
                 return hash;
             }
         }

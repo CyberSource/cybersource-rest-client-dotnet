@@ -40,11 +40,12 @@ namespace CyberSource.Model
         /// <param name="Cryptogram">This field contains token information..</param>
         /// <param name="RequestorId">Value that identifies your business and indicates that the cardholder’s account number is tokenized. This value is assigned by the token service provider and is unique within the token service provider’s database.  **Note** This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**.  #### PIN debit Optional field for PIN debit credit or PIN debit purchase transactions that use payment network tokens; otherwise, not used. .</param>
         /// <param name="TransactionType">Type of transaction that provided the token data. This value does not specify the token service provider; it specifies the entity that provided you with information about the token.  Possible value: - &#x60;2&#x60;: Near-field communication (NFC) transaction. The customer’s mobile device provided the token data for a contactless EMV transaction. For recurring transactions, use this value if the original transaction was a contactless EMV transaction.  #### Visa Platform Connect - &#x60;1&#x60;: For Rupay and In App tokenization. Example: InApp apple pay. - &#x60;3&#x60;: Card/Credential On File Tokenization.  **NOTE** No CyberSource through VisaNet acquirers support EMV at this time.  Required field for PIN debit credit or PIN debit purchase transactions that use payment network tokens; otherwise, not used. .</param>
-        /// <param name="AssuranceLevel">Confidence level of the tokenization. This value is assigned by the token service provider.  **Note** This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**.  Returned by PIN debit credit or PIN debit purchase. .</param>
+        /// <param name="AssuranceLevel">Confidence level of the tokenization. This value is assigned by the token service provider.  **Note** This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**.  Returned by PIN debit credit or PIN debit purchase.  **Note** Merchants supported for **CyberSource through VisaNet**_/_**Visa Platform Connect** are advised not to use this field. .</param>
         /// <param name="StorageMethod">Type of technology used in the device to store token data. Possible values:  - &#x60;001&#x60;: Secure Element (SE). Smart card or memory with restricted access and encryption to prevent data tampering. For storing payment    credentials, a SE is tested against a set of requirements defined by the payment networks.     **Note** This field is supported only for _FDC Compass_.  - 002: Host Card Emulation (HCE). Emulation of a smart card by using software to create a virtual and exact representation of the card. Sensitive data is stored in a database that is hosted in the cloud. For storing payment credentials, a database must meet very stringent security requirements that exceed PCI DSS.  **Note** This field is supported only for _FDC Compass_. .</param>
         /// <param name="SecurityCode">Card Verification Number (CVN).  #### Ingenico ePayments Do not include this field when **commerceIndicator&#x3D;recurring**. **Note** Ingenico ePayments was previously called _Global Collect_.  For details, see &#x60;customer_cc_cv_number&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="SecurityCodeIndicator">Indicates whether a CVN code was sent. Possible values:   - &#x60;0&#x60; (default): CVN service not requested. This default value is used when you do not include      &#x60;securityCode&#x60; field in the request.  - &#x60;1&#x60; (default): CVN service requested and supported. This default value is used when you include      &#x60;securityCode&#x60; field in the request.  - &#x60;2&#x60;: CVN on credit card is illegible.  - &#x60;9&#x60;: CVN was not imprinted on credit card.  #### FDMS Nashville Required for American Express cards; otherwise, optional.  #### TSYS Acquiring Solutions Optional if &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;; otherwise, not used.  #### All other processors Optional. .</param>
-        public Ptsv2paymentsPaymentInformationTokenizedCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), string Cryptogram = default(string), string RequestorId = default(string), string TransactionType = default(string), string AssuranceLevel = default(string), string StorageMethod = default(string), string SecurityCode = default(string), string SecurityCodeIndicator = default(string))
+        /// <param name="AssuranceMethod">Confidence level of the tokenization. This value is assigned by the token service provider.  **Note** This field is supported only for **Visa Platform Connect** .</param>
+        public Ptsv2paymentsPaymentInformationTokenizedCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), string Cryptogram = default(string), string RequestorId = default(string), string TransactionType = default(string), string AssuranceLevel = default(string), string StorageMethod = default(string), string SecurityCode = default(string), string SecurityCodeIndicator = default(string), string AssuranceMethod = default(string))
         {
             this.Number = Number;
             this.ExpirationMonth = ExpirationMonth;
@@ -57,6 +58,7 @@ namespace CyberSource.Model
             this.StorageMethod = StorageMethod;
             this.SecurityCode = SecurityCode;
             this.SecurityCodeIndicator = SecurityCodeIndicator;
+            this.AssuranceMethod = AssuranceMethod;
         }
         
         /// <summary>
@@ -109,9 +111,9 @@ namespace CyberSource.Model
         public string TransactionType { get; set; }
 
         /// <summary>
-        /// Confidence level of the tokenization. This value is assigned by the token service provider.  **Note** This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**.  Returned by PIN debit credit or PIN debit purchase. 
+        /// Confidence level of the tokenization. This value is assigned by the token service provider.  **Note** This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**.  Returned by PIN debit credit or PIN debit purchase.  **Note** Merchants supported for **CyberSource through VisaNet**_/_**Visa Platform Connect** are advised not to use this field. 
         /// </summary>
-        /// <value>Confidence level of the tokenization. This value is assigned by the token service provider.  **Note** This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**.  Returned by PIN debit credit or PIN debit purchase. </value>
+        /// <value>Confidence level of the tokenization. This value is assigned by the token service provider.  **Note** This field is supported only for **CyberSource through VisaNet** and **FDC Nashville Global**.  Returned by PIN debit credit or PIN debit purchase.  **Note** Merchants supported for **CyberSource through VisaNet**_/_**Visa Platform Connect** are advised not to use this field. </value>
         [DataMember(Name="assuranceLevel", EmitDefaultValue=false)]
         public string AssuranceLevel { get; set; }
 
@@ -137,6 +139,13 @@ namespace CyberSource.Model
         public string SecurityCodeIndicator { get; set; }
 
         /// <summary>
+        /// Confidence level of the tokenization. This value is assigned by the token service provider.  **Note** This field is supported only for **Visa Platform Connect** 
+        /// </summary>
+        /// <value>Confidence level of the tokenization. This value is assigned by the token service provider.  **Note** This field is supported only for **Visa Platform Connect** </value>
+        [DataMember(Name="assuranceMethod", EmitDefaultValue=false)]
+        public string AssuranceMethod { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -155,6 +164,7 @@ namespace CyberSource.Model
             sb.Append("  StorageMethod: ").Append(StorageMethod).Append("\n");
             sb.Append("  SecurityCode: ").Append(SecurityCode).Append("\n");
             sb.Append("  SecurityCodeIndicator: ").Append(SecurityCodeIndicator).Append("\n");
+            sb.Append("  AssuranceMethod: ").Append(AssuranceMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -245,6 +255,11 @@ namespace CyberSource.Model
                     this.SecurityCodeIndicator == other.SecurityCodeIndicator ||
                     this.SecurityCodeIndicator != null &&
                     this.SecurityCodeIndicator.Equals(other.SecurityCodeIndicator)
+                ) && 
+                (
+                    this.AssuranceMethod == other.AssuranceMethod ||
+                    this.AssuranceMethod != null &&
+                    this.AssuranceMethod.Equals(other.AssuranceMethod)
                 );
         }
 
@@ -281,6 +296,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SecurityCode.GetHashCode();
                 if (this.SecurityCodeIndicator != null)
                     hash = hash * 59 + this.SecurityCodeIndicator.GetHashCode();
+                if (this.AssuranceMethod != null)
+                    hash = hash * 59 + this.AssuranceMethod.GetHashCode();
                 return hash;
             }
         }

@@ -43,8 +43,9 @@ namespace CyberSource.Model
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
+        /// <param name="WatchlistScreeningInformation">WatchlistScreeningInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        public RiskV1DecisionsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), PtsV2PaymentsPost201ResponseRiskInformation RiskInformation = default(PtsV2PaymentsPost201ResponseRiskInformation), RiskV1DecisionsPost201ResponsePaymentInformation PaymentInformation = default(RiskV1DecisionsPost201ResponsePaymentInformation), RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(RiskV1DecisionsPost201ResponseClientReferenceInformation), RiskV1DecisionsPost201ResponseOrderInformation OrderInformation = default(RiskV1DecisionsPost201ResponseOrderInformation), RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation), RiskV1DecisionsPost201ResponseErrorInformation ErrorInformation = default(RiskV1DecisionsPost201ResponseErrorInformation))
+        public RiskV1DecisionsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string SubmitTimeLocal = default(string), string Status = default(string), PtsV2PaymentsPost201ResponseRiskInformation RiskInformation = default(PtsV2PaymentsPost201ResponseRiskInformation), RiskV1DecisionsPost201ResponsePaymentInformation PaymentInformation = default(RiskV1DecisionsPost201ResponsePaymentInformation), RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(RiskV1DecisionsPost201ResponseClientReferenceInformation), RiskV1DecisionsPost201ResponseOrderInformation OrderInformation = default(RiskV1DecisionsPost201ResponseOrderInformation), RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation), PtsV2PaymentsPost201ResponseWatchlistScreeningInformation WatchlistScreeningInformation = default(PtsV2PaymentsPost201ResponseWatchlistScreeningInformation), RiskV1DecisionsPost201ResponseErrorInformation ErrorInformation = default(RiskV1DecisionsPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -56,6 +57,7 @@ namespace CyberSource.Model
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
             this.ConsumerAuthenticationInformation = ConsumerAuthenticationInformation;
+            this.WatchlistScreeningInformation = WatchlistScreeningInformation;
             this.ErrorInformation = ErrorInformation;
         }
         
@@ -124,6 +126,12 @@ namespace CyberSource.Model
         public RiskV1DecisionsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets WatchlistScreeningInformation
+        /// </summary>
+        [DataMember(Name="watchlistScreeningInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseWatchlistScreeningInformation WatchlistScreeningInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets ErrorInformation
         /// </summary>
         [DataMember(Name="errorInformation", EmitDefaultValue=false)]
@@ -147,6 +155,7 @@ namespace CyberSource.Model
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
+            sb.Append("  WatchlistScreeningInformation: ").Append(WatchlistScreeningInformation).Append("\n");
             sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -235,6 +244,11 @@ namespace CyberSource.Model
                     this.ConsumerAuthenticationInformation.Equals(other.ConsumerAuthenticationInformation)
                 ) && 
                 (
+                    this.WatchlistScreeningInformation == other.WatchlistScreeningInformation ||
+                    this.WatchlistScreeningInformation != null &&
+                    this.WatchlistScreeningInformation.Equals(other.WatchlistScreeningInformation)
+                ) && 
+                (
                     this.ErrorInformation == other.ErrorInformation ||
                     this.ErrorInformation != null &&
                     this.ErrorInformation.Equals(other.ErrorInformation)
@@ -272,6 +286,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 if (this.ConsumerAuthenticationInformation != null)
                     hash = hash * 59 + this.ConsumerAuthenticationInformation.GetHashCode();
+                if (this.WatchlistScreeningInformation != null)
+                    hash = hash * 59 + this.WatchlistScreeningInformation.GetHashCode();
                 if (this.ErrorInformation != null)
                     hash = hash * 59 + this.ErrorInformation.GetHashCode();
                 return hash;

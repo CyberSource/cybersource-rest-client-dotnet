@@ -55,7 +55,9 @@ namespace CyberSource.Model
         /// <param name="PhoneNumber">Customer’s phone number.  It is recommended that you include the country code when the order is from outside the U.S.  #### Chase Paymentech Solutions Optional field.  ####  Credit Mutuel-CIC Optional field.  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  #### For Payouts: This field may be sent only for FDC Compass.  #### OmniPay Direct Optional field.  #### SIX Optional field.  #### TSYS Acquiring Solutions Optional field.  #### Worldpay VAP Optional field.  #### All other processors Not used. .</param>
         /// <param name="PhoneType">Customer&#39;s phone number type.  #### For Payouts: This field may be sent only for FDC Compass.  Possible Values: * day * home * night * work .</param>
         /// <param name="VerificationStatus">Whether buyer has verified their identity. Used in case of PayPal transactions.  Possible Values: * VERIFIED * UNVERIFIED .</param>
-        public Ptsv2paymentsOrderInformationBillTo(string FirstName = default(string), string LastName = default(string), string MiddleName = default(string), string NameSuffix = default(string), string Title = default(string), Ptsv2paymentsOrderInformationBillToCompany Company = default(Ptsv2paymentsOrderInformationBillToCompany), string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string County = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string Email = default(string), string EmailDomain = default(string), string PhoneNumber = default(string), string PhoneType = default(string), string VerificationStatus = default(string))
+        /// <param name="AlternatePhoneNumber">#### Visa Platform Connect contains customer’s alternate phone number. .</param>
+        /// <param name="AlternateEmail">#### Visa Platform Connect contains customer’s alternate email address. .</param>
+        public Ptsv2paymentsOrderInformationBillTo(string FirstName = default(string), string LastName = default(string), string MiddleName = default(string), string NameSuffix = default(string), string Title = default(string), Ptsv2paymentsOrderInformationBillToCompany Company = default(Ptsv2paymentsOrderInformationBillToCompany), string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string County = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string Email = default(string), string EmailDomain = default(string), string PhoneNumber = default(string), string PhoneType = default(string), string VerificationStatus = default(string), string AlternatePhoneNumber = default(string), string AlternateEmail = default(string))
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
@@ -79,6 +81,8 @@ namespace CyberSource.Model
             this.PhoneNumber = PhoneNumber;
             this.PhoneType = PhoneType;
             this.VerificationStatus = VerificationStatus;
+            this.AlternatePhoneNumber = AlternatePhoneNumber;
+            this.AlternateEmail = AlternateEmail;
         }
         
         /// <summary>
@@ -235,6 +239,20 @@ namespace CyberSource.Model
         public string VerificationStatus { get; set; }
 
         /// <summary>
+        /// #### Visa Platform Connect contains customer’s alternate phone number. 
+        /// </summary>
+        /// <value>#### Visa Platform Connect contains customer’s alternate phone number. </value>
+        [DataMember(Name="alternatePhoneNumber", EmitDefaultValue=false)]
+        public string AlternatePhoneNumber { get; set; }
+
+        /// <summary>
+        /// #### Visa Platform Connect contains customer’s alternate email address. 
+        /// </summary>
+        /// <value>#### Visa Platform Connect contains customer’s alternate email address. </value>
+        [DataMember(Name="alternateEmail", EmitDefaultValue=false)]
+        public string AlternateEmail { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -264,6 +282,8 @@ namespace CyberSource.Model
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  PhoneType: ").Append(PhoneType).Append("\n");
             sb.Append("  VerificationStatus: ").Append(VerificationStatus).Append("\n");
+            sb.Append("  AlternatePhoneNumber: ").Append(AlternatePhoneNumber).Append("\n");
+            sb.Append("  AlternateEmail: ").Append(AlternateEmail).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -409,6 +429,16 @@ namespace CyberSource.Model
                     this.VerificationStatus == other.VerificationStatus ||
                     this.VerificationStatus != null &&
                     this.VerificationStatus.Equals(other.VerificationStatus)
+                ) && 
+                (
+                    this.AlternatePhoneNumber == other.AlternatePhoneNumber ||
+                    this.AlternatePhoneNumber != null &&
+                    this.AlternatePhoneNumber.Equals(other.AlternatePhoneNumber)
+                ) && 
+                (
+                    this.AlternateEmail == other.AlternateEmail ||
+                    this.AlternateEmail != null &&
+                    this.AlternateEmail.Equals(other.AlternateEmail)
                 );
         }
 
@@ -467,6 +497,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PhoneType.GetHashCode();
                 if (this.VerificationStatus != null)
                     hash = hash * 59 + this.VerificationStatus.GetHashCode();
+                if (this.AlternatePhoneNumber != null)
+                    hash = hash * 59 + this.AlternatePhoneNumber.GetHashCode();
+                if (this.AlternateEmail != null)
+                    hash = hash * 59 + this.AlternateEmail.GetHashCode();
                 return hash;
             }
         }
