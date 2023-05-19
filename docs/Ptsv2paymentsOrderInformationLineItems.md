@@ -34,6 +34,8 @@ Name | Type | Description | Notes
 **ShippingDestinationTypes** | **string** | Destination to where the item will be shipped. Example: Commercial, Residential, Store  | [optional] 
 **Gift** | **bool?** | This field is only used in DM service.  Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different.  | [optional] 
 **Passenger** | [**Ptsv2paymentsOrderInformationPassenger**](Ptsv2paymentsOrderInformationPassenger.md) |  | [optional] 
+**AllowedExportCountries** | **List&lt;string&gt;** |  | [optional] 
+**RestrictedExportCountries** | **List&lt;string&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

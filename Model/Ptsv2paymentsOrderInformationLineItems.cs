@@ -64,7 +64,9 @@ namespace CyberSource.Model
         /// <param name="ShippingDestinationTypes">Destination to where the item will be shipped. Example: Commercial, Residential, Store .</param>
         /// <param name="Gift">This field is only used in DM service.  Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. .</param>
         /// <param name="Passenger">Passenger.</param>
-        public Ptsv2paymentsOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string UnitOfMeasure = default(string), string TotalAmount = default(string), string TaxAmount = default(string), string TaxRate = default(string), string TaxAppliedAfterDiscount = default(string), string TaxStatusIndicator = default(string), string TaxTypeCode = default(string), bool? AmountIncludesTax = default(bool?), string TypeOfSupply = default(string), string CommodityCode = default(string), string DiscountAmount = default(string), bool? DiscountApplied = default(bool?), string DiscountRate = default(string), string InvoiceNumber = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string FulfillmentType = default(string), string Weight = default(string), string WeightIdentifier = default(string), string WeightUnit = default(string), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), string ProductDescription = default(string), int? GiftCardCurrency = default(int?), string ShippingDestinationTypes = default(string), bool? Gift = default(bool?), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger))
+        /// <param name="AllowedExportCountries">AllowedExportCountries.</param>
+        /// <param name="RestrictedExportCountries">RestrictedExportCountries.</param>
+        public Ptsv2paymentsOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string UnitOfMeasure = default(string), string TotalAmount = default(string), string TaxAmount = default(string), string TaxRate = default(string), string TaxAppliedAfterDiscount = default(string), string TaxStatusIndicator = default(string), string TaxTypeCode = default(string), bool? AmountIncludesTax = default(bool?), string TypeOfSupply = default(string), string CommodityCode = default(string), string DiscountAmount = default(string), bool? DiscountApplied = default(bool?), string DiscountRate = default(string), string InvoiceNumber = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string FulfillmentType = default(string), string Weight = default(string), string WeightIdentifier = default(string), string WeightUnit = default(string), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), string ProductDescription = default(string), int? GiftCardCurrency = default(int?), string ShippingDestinationTypes = default(string), bool? Gift = default(bool?), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger), List<string> AllowedExportCountries = default(List<string>), List<string> RestrictedExportCountries = default(List<string>))
         {
             this.ProductCode = ProductCode;
             this.ProductName = ProductName;
@@ -97,6 +99,8 @@ namespace CyberSource.Model
             this.ShippingDestinationTypes = ShippingDestinationTypes;
             this.Gift = Gift;
             this.Passenger = Passenger;
+            this.AllowedExportCountries = AllowedExportCountries;
+            this.RestrictedExportCountries = RestrictedExportCountries;
         }
         
         /// <summary>
@@ -315,6 +319,18 @@ namespace CyberSource.Model
         public Ptsv2paymentsOrderInformationPassenger Passenger { get; set; }
 
         /// <summary>
+        /// Gets or Sets AllowedExportCountries
+        /// </summary>
+        [DataMember(Name="allowedExportCountries", EmitDefaultValue=false)]
+        public List<string> AllowedExportCountries { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RestrictedExportCountries
+        /// </summary>
+        [DataMember(Name="restrictedExportCountries", EmitDefaultValue=false)]
+        public List<string> RestrictedExportCountries { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -353,6 +369,8 @@ namespace CyberSource.Model
             sb.Append("  ShippingDestinationTypes: ").Append(ShippingDestinationTypes).Append("\n");
             sb.Append("  Gift: ").Append(Gift).Append("\n");
             sb.Append("  Passenger: ").Append(Passenger).Append("\n");
+            sb.Append("  AllowedExportCountries: ").Append(AllowedExportCountries).Append("\n");
+            sb.Append("  RestrictedExportCountries: ").Append(RestrictedExportCountries).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -543,6 +561,16 @@ namespace CyberSource.Model
                     this.Passenger == other.Passenger ||
                     this.Passenger != null &&
                     this.Passenger.Equals(other.Passenger)
+                ) && 
+                (
+                    this.AllowedExportCountries == other.AllowedExportCountries ||
+                    this.AllowedExportCountries != null &&
+                    this.AllowedExportCountries.SequenceEqual(other.AllowedExportCountries)
+                ) && 
+                (
+                    this.RestrictedExportCountries == other.RestrictedExportCountries ||
+                    this.RestrictedExportCountries != null &&
+                    this.RestrictedExportCountries.SequenceEqual(other.RestrictedExportCountries)
                 );
         }
 
@@ -619,6 +647,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Gift.GetHashCode();
                 if (this.Passenger != null)
                     hash = hash * 59 + this.Passenger.GetHashCode();
+                if (this.AllowedExportCountries != null)
+                    hash = hash * 59 + this.AllowedExportCountries.GetHashCode();
+                if (this.RestrictedExportCountries != null)
+                    hash = hash * 59 + this.RestrictedExportCountries.GetHashCode();
                 return hash;
             }
         }

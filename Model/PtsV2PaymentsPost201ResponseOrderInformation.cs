@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
         /// <param name="RewardPointsDetails">RewardPointsDetails.</param>
-        public PtsV2PaymentsPost201ResponseOrderInformation(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails), PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails), PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails RewardPointsDetails = default(PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails))
+        /// <param name="BillTo">BillTo.</param>
+        public PtsV2PaymentsPost201ResponseOrderInformation(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails), PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails), PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails RewardPointsDetails = default(PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails), PtsV2PaymentsPost201ResponseOrderInformationBillTo BillTo = default(PtsV2PaymentsPost201ResponseOrderInformationBillTo))
         {
             this.AmountDetails = AmountDetails;
             this.InvoiceDetails = InvoiceDetails;
             this.RewardPointsDetails = RewardPointsDetails;
+            this.BillTo = BillTo;
         }
         
         /// <summary>
@@ -62,6 +64,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails RewardPointsDetails { get; set; }
 
         /// <summary>
+        /// Gets or Sets BillTo
+        /// </summary>
+        [DataMember(Name="billTo", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseOrderInformationBillTo BillTo { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +80,7 @@ namespace CyberSource.Model
             sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
             sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
             sb.Append("  RewardPointsDetails: ").Append(RewardPointsDetails).Append("\n");
+            sb.Append("  BillTo: ").Append(BillTo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +131,11 @@ namespace CyberSource.Model
                     this.RewardPointsDetails == other.RewardPointsDetails ||
                     this.RewardPointsDetails != null &&
                     this.RewardPointsDetails.Equals(other.RewardPointsDetails)
+                ) && 
+                (
+                    this.BillTo == other.BillTo ||
+                    this.BillTo != null &&
+                    this.BillTo.Equals(other.BillTo)
                 );
         }
 
@@ -142,6 +156,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InvoiceDetails.GetHashCode();
                 if (this.RewardPointsDetails != null)
                     hash = hash * 59 + this.RewardPointsDetails.GetHashCode();
+                if (this.BillTo != null)
+                    hash = hash * 59 + this.BillTo.GetHashCode();
                 return hash;
             }
         }
