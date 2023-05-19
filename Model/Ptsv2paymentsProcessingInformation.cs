@@ -36,6 +36,7 @@ namespace CyberSource.Model
         /// <param name="ActionList">Array of actions (one or more) to be included in the payment to invoke bundled services along with payment.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s).   - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your payment request.   - &#x60;CONSUMER_AUTHENTICATION&#x60;: Use this when you want to check if a card is enrolled in Payer Authentioncation along with your payment request.   - &#x60;VALIDATE_CONSUMER_AUTHENTICATION&#x60;: Use this after you acquire a Payer Authentioncation result that needs to be included for your payment request.    - &#x60;AP_INITIATE&#x60;: Use this when Alternative Payment Initiate service is requested.   - &#x60;WATCHLIST_SCREENING&#x60; : Use this when you want to call Watchlist Screening service. .</param>
         /// <param name="EnableEscrowOption">Indicates whether to use the customer’s escrow agreement. Possible values: - &#x60;true&#x60;: yes, use the customer’s escrow agreement. - &#x60;false&#x60;: no, do not use the customer’s escrow agreement.  .</param>
         /// <param name="ActionTokenTypes">CyberSource tokens types you are performing a create on. If not supplied the default token type for the merchants token vault will be used.  Valid values: - customer - paymentInstrument - instrumentIdentifier - shippingAddress .</param>
+        /// <param name="BinSource">Bin Source File Identifier. Possible values: - itmx - rupay .</param>
         /// <param name="Capture">Indicates whether to also include a capture  in the submitted authorization request or not.  Possible values: - &#x60;true&#x60;: Include a capture with an authorization request. - &#x60;false&#x60;: (default) Do not include a capture with an authorization request.  #### Used by **Authorization and Capture** Optional field.  (default to false).</param>
         /// <param name="ProcessorId">Value that identifies the processor/acquirer to use for the transaction. This value is supported only for **CyberSource through VisaNet**.  Contact CyberSource Customer Support to get the value for this field. .</param>
         /// <param name="BusinessApplicationId">Payouts transaction type. Required for OCT transactions. This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. **Note** When the request includes this field, this value overrides the information in your CyberSource account.  For valid values, see the &#x60;invoiceHeader_businessApplicationID&#x60; field description in [Payouts Using the Simple Order API.](http://apps.cybersource.com/library/documentation/dev_guides/payouts_SO/Payouts_SO_API.pdf) .</param>
@@ -64,11 +65,12 @@ namespace CyberSource.Model
         /// <param name="NetworkRoutingOrder">On PIN Debit Gateways: This U.S.-only field is optionally used by  participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for any of the networks specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on the issuer’s preference. If an issuer preference exists for more than one of the specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on the acquirer’s routing priorities.  #### PIN debit Priority order of the networks through which he transaction will be routed. Set this value to a series of one-character network codes in your preferred order. This is a list of the network codes:  | Network | Code | | - -- | - -- | | Accel | E | | AFFN | U | | Alaska Option | 3 | | CU24 | C | | Interlink | G | | Maestro | 8 | | NETS | P | | NYCE | F | | Pulse | H | | Shazam | 7 | | Star | M | | Visa | V |  For example, if the Star network is your first preference and Pulse is your second preference, set this field to a value of &#x60;MH&#x60;.  When you do not include this value in your PIN debit request, the list of network codes from your account is used. **Note** This field is supported only for businesses located in the U.S.  Optional field for PIN debit credit or PIN debit purchase. .</param>
         /// <param name="PayByPointsIndicator">Flag that indicates if the transaction is pay by points transaction true: Transaction uses loyalty points false: Transaction does not use loyalty points Default: false .</param>
         /// <param name="IsReturnAuthRecordEnabled">Flag that indicates the functionality we are having for merchants for which auth is done through Cybersource but settlement is done by themselves. true: functionality is supported. Processor should send raw processor auth response to Merchant. false: functionality is not supported. Default: false .</param>
-        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), string PaymentId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), bool? IsReturnAuthRecordEnabled = default(bool?))
+        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), string PaymentId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), bool? IsReturnAuthRecordEnabled = default(bool?))
         {
             this.ActionList = ActionList;
             this.EnableEscrowOption = EnableEscrowOption;
             this.ActionTokenTypes = ActionTokenTypes;
+            this.BinSource = BinSource;
             // use default value if no "Capture" provided
             if (Capture == null)
             {
@@ -127,6 +129,13 @@ namespace CyberSource.Model
         /// <value>CyberSource tokens types you are performing a create on. If not supplied the default token type for the merchants token vault will be used.  Valid values: - customer - paymentInstrument - instrumentIdentifier - shippingAddress </value>
         [DataMember(Name="actionTokenTypes", EmitDefaultValue=false)]
         public List<string> ActionTokenTypes { get; set; }
+
+        /// <summary>
+        /// Bin Source File Identifier. Possible values: - itmx - rupay 
+        /// </summary>
+        /// <value>Bin Source File Identifier. Possible values: - itmx - rupay </value>
+        [DataMember(Name="binSource", EmitDefaultValue=false)]
+        public string BinSource { get; set; }
 
         /// <summary>
         /// Indicates whether to also include a capture  in the submitted authorization request or not.  Possible values: - &#x60;true&#x60;: Include a capture with an authorization request. - &#x60;false&#x60;: (default) Do not include a capture with an authorization request.  #### Used by **Authorization and Capture** Optional field. 
@@ -327,6 +336,7 @@ namespace CyberSource.Model
             sb.Append("  ActionList: ").Append(ActionList).Append("\n");
             sb.Append("  EnableEscrowOption: ").Append(EnableEscrowOption).Append("\n");
             sb.Append("  ActionTokenTypes: ").Append(ActionTokenTypes).Append("\n");
+            sb.Append("  BinSource: ").Append(BinSource).Append("\n");
             sb.Append("  Capture: ").Append(Capture).Append("\n");
             sb.Append("  ProcessorId: ").Append(ProcessorId).Append("\n");
             sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
@@ -405,6 +415,11 @@ namespace CyberSource.Model
                     this.ActionTokenTypes == other.ActionTokenTypes ||
                     this.ActionTokenTypes != null &&
                     this.ActionTokenTypes.SequenceEqual(other.ActionTokenTypes)
+                ) && 
+                (
+                    this.BinSource == other.BinSource ||
+                    this.BinSource != null &&
+                    this.BinSource.Equals(other.BinSource)
                 ) && 
                 (
                     this.Capture == other.Capture ||
@@ -565,6 +580,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EnableEscrowOption.GetHashCode();
                 if (this.ActionTokenTypes != null)
                     hash = hash * 59 + this.ActionTokenTypes.GetHashCode();
+                if (this.BinSource != null)
+                    hash = hash * 59 + this.BinSource.GetHashCode();
                 if (this.Capture != null)
                     hash = hash * 59 + this.Capture.GetHashCode();
                 if (this.ProcessorId != null)

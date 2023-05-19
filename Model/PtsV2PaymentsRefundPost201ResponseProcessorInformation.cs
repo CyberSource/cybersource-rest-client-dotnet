@@ -40,7 +40,8 @@ namespace CyberSource.Model
         /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;processorInformation.responseCategoryCode&#x60; field. String (3) .</param>
         /// <param name="AchVerification">AchVerification.</param>
         /// <param name="NetworkTransactionId">Same value as &#x60;processorInformation.transactionId&#x60;.</param>
-        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ForwardedAcquirerCode = default(string), string MerchantNumber = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), string NetworkTransactionId = default(string))
+        /// <param name="SettlementDate">Field contains a settlement date. The date is in mmdd format, where: mm &#x3D; month and dd &#x3D; day. .</param>
+        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ForwardedAcquirerCode = default(string), string MerchantNumber = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), string NetworkTransactionId = default(string), string SettlementDate = default(string))
         {
             this.ApprovalCode = ApprovalCode;
             this.TransactionId = TransactionId;
@@ -49,6 +50,7 @@ namespace CyberSource.Model
             this.ResponseCode = ResponseCode;
             this.AchVerification = AchVerification;
             this.NetworkTransactionId = NetworkTransactionId;
+            this.SettlementDate = SettlementDate;
         }
         
         /// <summary>
@@ -100,6 +102,13 @@ namespace CyberSource.Model
         public string NetworkTransactionId { get; set; }
 
         /// <summary>
+        /// Field contains a settlement date. The date is in mmdd format, where: mm &#x3D; month and dd &#x3D; day. 
+        /// </summary>
+        /// <value>Field contains a settlement date. The date is in mmdd format, where: mm &#x3D; month and dd &#x3D; day. </value>
+        [DataMember(Name="settlementDate", EmitDefaultValue=false)]
+        public string SettlementDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,6 +123,7 @@ namespace CyberSource.Model
             sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
             sb.Append("  AchVerification: ").Append(AchVerification).Append("\n");
             sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
+            sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -184,6 +194,11 @@ namespace CyberSource.Model
                     this.NetworkTransactionId == other.NetworkTransactionId ||
                     this.NetworkTransactionId != null &&
                     this.NetworkTransactionId.Equals(other.NetworkTransactionId)
+                ) && 
+                (
+                    this.SettlementDate == other.SettlementDate ||
+                    this.SettlementDate != null &&
+                    this.SettlementDate.Equals(other.SettlementDate)
                 );
         }
 
@@ -212,6 +227,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AchVerification.GetHashCode();
                 if (this.NetworkTransactionId != null)
                     hash = hash * 59 + this.NetworkTransactionId.GetHashCode();
+                if (this.SettlementDate != null)
+                    hash = hash * 59 + this.SettlementDate.GetHashCode();
                 return hash;
             }
         }
