@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="Name">Payer name for the invoice..</param>
         /// <param name="Email">Customer&#39;s email address, including the full domain name.  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.  For processor-specific information, see the &#x60;customer_email&#x60; request-level field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  #### Invoicing Email address for the customer for sending the invoice. If the invoice is in SENT status and email is updated, the old email customer payment link won&#39;t work and you must resend the invoice with the new payment link.  #### Chase Paymentech Solutions Optional field.  ####  Credit Mutuel-CIC Optional field.  #### OmniPay Direct Optional field.  #### SIX Optional field.  #### TSYS Acquiring Solutions Required when &#x60;processingInformation.billPaymentOptions.billPayment&#x3D;true&#x60; and &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;.  #### Worldpay VAP Optional field.  #### All other processors Not used. .</param>
         /// <param name="MerchantCustomerId">Your identifier for the customer.  When a subscription or customer profile is being created, the maximum length for this field for most processors is 30. Otherwise, the maximum length is 100.  #### Comercio Latino For recurring payments in Mexico, the value is the customer’s contract number. Note Before you request the authorization, you must inform the issuer of the customer contract numbers that will be used for recurring transactions.  #### Worldpay VAP For a follow-on credit with Worldpay VAP, CyberSource checks the following locations, in the order given, for a customer account ID value and uses the first value it finds: 1. &#x60;customer_account_id&#x60; value in the follow-on credit request 2. Customer account ID value that was used for the capture that is being credited 3. Customer account ID value that was used for the original authorization If a customer account ID value cannot be found in any of these locations, then no value is used.  For processor-specific information, see the &#x60;customer_account_id&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
-        public Invoicingv2invoicesCustomerInformation(string Name = default(string), string Email = default(string), string MerchantCustomerId = default(string))
+        /// <param name="Company">Company.</param>
+        public Invoicingv2invoicesCustomerInformation(string Name = default(string), string Email = default(string), string MerchantCustomerId = default(string), Invoicingv2invoicesCustomerInformationCompany Company = default(Invoicingv2invoicesCustomerInformationCompany))
         {
             this.Name = Name;
             this.Email = Email;
             this.MerchantCustomerId = MerchantCustomerId;
+            this.Company = Company;
         }
         
         /// <summary>
@@ -65,6 +67,12 @@ namespace CyberSource.Model
         public string MerchantCustomerId { get; set; }
 
         /// <summary>
+        /// Gets or Sets Company
+        /// </summary>
+        [DataMember(Name="company", EmitDefaultValue=false)]
+        public Invoicingv2invoicesCustomerInformationCompany Company { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +83,7 @@ namespace CyberSource.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
+            sb.Append("  Company: ").Append(Company).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +134,11 @@ namespace CyberSource.Model
                     this.MerchantCustomerId == other.MerchantCustomerId ||
                     this.MerchantCustomerId != null &&
                     this.MerchantCustomerId.Equals(other.MerchantCustomerId)
+                ) && 
+                (
+                    this.Company == other.Company ||
+                    this.Company != null &&
+                    this.Company.Equals(other.Company)
                 );
         }
 
@@ -145,6 +159,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Email.GetHashCode();
                 if (this.MerchantCustomerId != null)
                     hash = hash * 59 + this.MerchantCustomerId.GetHashCode();
+                if (this.Company != null)
+                    hash = hash * 59 + this.Company.GetHashCode();
                 return hash;
             }
         }

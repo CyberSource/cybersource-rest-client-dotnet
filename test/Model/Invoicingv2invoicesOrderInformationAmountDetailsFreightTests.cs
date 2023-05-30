@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Taxable'
         }
+        /// <summary>
+        /// Test the property 'TaxRate'
+        /// </summary>
+        [Test]
+        public void TaxRateTest()
+        {
+            // TODO unit test for the property 'TaxRate'
+        }
 
     }
 

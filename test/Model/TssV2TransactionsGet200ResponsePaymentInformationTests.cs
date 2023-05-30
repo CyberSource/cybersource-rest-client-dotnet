@@ -89,12 +89,44 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Card'
         }
         /// <summary>
+        /// Test the property 'Brands'
+        /// </summary>
+        [Test]
+        public void BrandsTest()
+        {
+            // TODO unit test for the property 'Brands'
+        }
+        /// <summary>
+        /// Test the property 'Features'
+        /// </summary>
+        [Test]
+        public void FeaturesTest()
+        {
+            // TODO unit test for the property 'Features'
+        }
+        /// <summary>
         /// Test the property 'Invoice'
         /// </summary>
         [Test]
         public void InvoiceTest()
         {
             // TODO unit test for the property 'Invoice'
+        }
+        /// <summary>
+        /// Test the property 'Network'
+        /// </summary>
+        [Test]
+        public void NetworkTest()
+        {
+            // TODO unit test for the property 'Network'
+        }
+        /// <summary>
+        /// Test the property 'IssuerInformation'
+        /// </summary>
+        [Test]
+        public void IssuerInformationTest()
+        {
+            // TODO unit test for the property 'IssuerInformation'
         }
         /// <summary>
         /// Test the property 'Bank'

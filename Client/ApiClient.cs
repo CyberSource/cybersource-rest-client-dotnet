@@ -24,6 +24,7 @@ using AuthenticationSdk.core;
 using AuthenticationSdk.util;
 using System.Security.Cryptography.X509Certificates;
 using NLog;
+using System.Security;
 
 namespace CyberSource.Client
 {
@@ -456,11 +457,16 @@ namespace CyberSource.Client
             {
                 string clientCertDirectory = Configuration.MerchantConfigDictionaryObj["clientCertDirectory"];
                 string clientCertFile = Configuration.MerchantConfigDictionaryObj["clientCertFile"];
-                string clientCertPassword = Configuration.MerchantConfigDictionaryObj["clientCertPassword"];
+                SecureString clientCertPassword = new SecureString();
+                foreach (char c in Configuration.MerchantConfigDictionaryObj["clientCertPassword"])
+                {
+                    clientCertPassword.AppendChar(c);
+                }
+                clientCertPassword.MakeReadOnly();
                 string fileName = Path.Combine(clientCertDirectory, clientCertFile);
                 // Importing Certificates
                 var certificate = new X509Certificate2(fileName, clientCertPassword);
-                clientCertPassword=string.Empty;
+                clientCertPassword.Dispose();
                 RestClient.Options.ClientCertificates = new X509CertificateCollection { certificate };
             }
 

@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'BinSource'
+        /// </summary>
+        [Test]
+        public void BinSourceTest()
+        {
+            // TODO unit test for the property 'BinSource'
+        }
+        /// <summary>
         /// Test the property 'IndustryDataType'
         /// </summary>
         [Test]

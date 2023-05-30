@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PayoutsPost201ResponseRecipientInformationCard" /> class.
         /// </summary>
         /// <param name="Balance">This field shows the available balance in the prepaid account. Acquirers always receive the available balance in the transaction currency. .</param>
-        /// <param name="Currency">This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer. .</param>
+        /// <param name="Currency">This field indicates the 3-letter [ISO Standard Currency Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf) for the card currency. .</param>
         public PtsV2PayoutsPost201ResponseRecipientInformationCard(string Balance = default(string), string Currency = default(string))
         {
             this.Balance = Balance;
@@ -49,9 +49,9 @@ namespace CyberSource.Model
         public string Balance { get; set; }
 
         /// <summary>
-        /// This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer. 
+        /// This field indicates the 3-letter [ISO Standard Currency Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf) for the card currency. 
         /// </summary>
-        /// <value>This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer. </value>
+        /// <value>This field indicates the 3-letter [ISO Standard Currency Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf) for the card currency. </value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
 

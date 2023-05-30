@@ -33,6 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseProcessingInformation" /> class.
         /// </summary>
+        /// <param name="BinSource">Bin Source File Identifier. Possible values: - itmx - rupay .</param>
         /// <param name="IndustryDataType">Indicates that the transaction includes industry-specific data.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; - &#x60;transit&#x60;  #### Card Present, Airlines and Auto Rental You must set this field to &#x60;airline&#x60; in order for airline data to be sent to the processor. For example, if this field is not set to &#x60;airline&#x60; or is not included in the request, no airline data is sent to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor. When this field is not set to &#x60;restaurant&#x60; or is not included in the request, no restaurant data is sent to the processor.  You must set this field to &#x60;auto_rental&#x60; in order for auto rental data to be sent to the processor. For example, if this field is not set to &#x60;auto_rental&#x60; or is not included in the request, no auto rental data is sent to the processor.  Restaurant data is supported only on CyberSource through VisaNet. .</param>
         /// <param name="PaymentSolution">Type of digital payment solution for the transaction. .</param>
         /// <param name="CommerceIndicator">Type of transaction. Some payment card companies use this information when determining discount rates.  #### Used by **Authorization** Required payer authentication transactions; otherwise, optional. **Credit** Required for standalone credits on Chase Paymentech solutions; otherwise, optional.  The list of valid values in this field depends on your processor. See Appendix I, \&quot;Commerce Indicators,\&quot; on page 441 of the Cybersource Credit Card Guide.  #### Ingenico ePayments When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value (listed in Appendix I, \&quot;Commerce Indicators,\&quot; on page 441.)  #### Payer Authentication Transactions For the possible values and requirements, see \&quot;Payer Authentication,\&quot; page 195.  #### Card Present You must set this field to &#x60;retail&#x60;. This field is required for a card-present transaction. Note that this should ONLY be used when the cardholder and card are present at the time of the transaction. For all keyed transactions originated from a POS terminal where the cardholder and card are not present, commerceIndicator should be submitted as “moto\&quot; .</param>
@@ -41,8 +42,9 @@ namespace CyberSource.Model
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         /// <param name="BankTransferOptions">BankTransferOptions.</param>
         /// <param name="JapanPaymentOptions">JapanPaymentOptions.</param>
-        public TssV2TransactionsGet200ResponseProcessingInformation(string IndustryDataType = default(string), string PaymentSolution = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string BusinessApplicationId = default(string), TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions AuthorizationOptions = default(TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions), TssV2TransactionsGet200ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(TssV2TransactionsGet200ResponseProcessingInformationBankTransferOptions), TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions))
+        public TssV2TransactionsGet200ResponseProcessingInformation(string BinSource = default(string), string IndustryDataType = default(string), string PaymentSolution = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string BusinessApplicationId = default(string), TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions AuthorizationOptions = default(TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions), TssV2TransactionsGet200ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(TssV2TransactionsGet200ResponseProcessingInformationBankTransferOptions), TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions))
         {
+            this.BinSource = BinSource;
             this.IndustryDataType = IndustryDataType;
             this.PaymentSolution = PaymentSolution;
             this.CommerceIndicator = CommerceIndicator;
@@ -53,6 +55,13 @@ namespace CyberSource.Model
             this.JapanPaymentOptions = JapanPaymentOptions;
         }
         
+        /// <summary>
+        /// Bin Source File Identifier. Possible values: - itmx - rupay 
+        /// </summary>
+        /// <value>Bin Source File Identifier. Possible values: - itmx - rupay </value>
+        [DataMember(Name="binSource", EmitDefaultValue=false)]
+        public string BinSource { get; set; }
+
         /// <summary>
         /// Indicates that the transaction includes industry-specific data.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; - &#x60;transit&#x60;  #### Card Present, Airlines and Auto Rental You must set this field to &#x60;airline&#x60; in order for airline data to be sent to the processor. For example, if this field is not set to &#x60;airline&#x60; or is not included in the request, no airline data is sent to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor. When this field is not set to &#x60;restaurant&#x60; or is not included in the request, no restaurant data is sent to the processor.  You must set this field to &#x60;auto_rental&#x60; in order for auto rental data to be sent to the processor. For example, if this field is not set to &#x60;auto_rental&#x60; or is not included in the request, no auto rental data is sent to the processor.  Restaurant data is supported only on CyberSource through VisaNet. 
         /// </summary>
@@ -114,6 +123,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessingInformation {\n");
+            sb.Append("  BinSource: ").Append(BinSource).Append("\n");
             sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
             sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
             sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
@@ -158,6 +168,11 @@ namespace CyberSource.Model
                 return false;
 
             return 
+                (
+                    this.BinSource == other.BinSource ||
+                    this.BinSource != null &&
+                    this.BinSource.Equals(other.BinSource)
+                ) && 
                 (
                     this.IndustryDataType == other.IndustryDataType ||
                     this.IndustryDataType != null &&
@@ -211,6 +226,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.BinSource != null)
+                    hash = hash * 59 + this.BinSource.GetHashCode();
                 if (this.IndustryDataType != null)
                     hash = hash * 59 + this.IndustryDataType.GetHashCode();
                 if (this.PaymentSolution != null)

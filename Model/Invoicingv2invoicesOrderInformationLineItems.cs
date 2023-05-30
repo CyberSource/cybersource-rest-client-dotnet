@@ -37,12 +37,22 @@ namespace CyberSource.Model
         /// <param name="ProductName">For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is &#x60;true&#x60; or &#x60;false&#x60;), this field is required when &#x60;orderInformation.lineItems[].productCode&#x60; is not &#x60;default&#x60; or one of the other values that are related to shipping and/or handling.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. .</param>
         /// <param name="Quantity">Number of units for this order. Must be a non-negative integer.  The default is &#x60;1&#x60;. For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when &#x60;orderInformation.lineItems[].productCode&#x60; is not &#x60;default&#x60; or one of the other values related to shipping and/or handling.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. .</param>
         /// <param name="UnitPrice">Per-item price of the product. This value for this field cannot be negative.  You must include either this field or the request-level field &#x60;orderInformation.amountDetails.totalAmount&#x60; in your request.  You can include a decimal point (.), but you cannot include any other special characters. The value is truncated to the correct number of decimal places.  #### DCC with a Third-Party Provider Set this field to the converted amount that was returned by the DCC provider. You must include either the 1st line item in the order and this field, or the request-level field &#x60;orderInformation.amountDetails.totalAmount&#x60; in your request.  #### FDMS South If you accept IDR or CLP currencies, see the entry for FDMS South in the [Merchant Descriptors Using the SCMP API Guide.] (https://apps.cybersource.com/library/documentation/dev_guides/Merchant_Descriptors_SCMP_API/html/)  #### Tax Calculation Required field for U.S., Canadian, international and value added taxes.  #### Zero Amount Authorizations If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen.  #### Maximum Field Lengths For GPN and JCN Gateway: Decimal (10) All other processors: Decimal (15) .</param>
-        public Invoicingv2invoicesOrderInformationLineItems(string ProductSku = default(string), string ProductName = default(string), int? Quantity = default(int?), string UnitPrice = default(string))
+        /// <param name="DiscountAmount">Discount applied to the item..</param>
+        /// <param name="DiscountRate">Rate the item is discounted. Maximum of 2 decimal places.  Example 5.25 (&#x3D;5.25%) .</param>
+        /// <param name="TaxAmount">Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  Optional field.  #### Airlines processing Tax portion of the order amount. This value cannot exceed 99999999999999 (fourteen 9s). Format: English characters only. Optional request field for a line item.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes.  Note if you send this field in your tax request, the value in the field will override the tax engine .</param>
+        /// <param name="TaxRate">Tax rate applied to the item.  For details, see &#x60;tax_rate&#x60; field description in the [Level II and Level III Processing Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/)  **Visa**: Valid range is 0.01 to 0.99 (1% to 99%, with only whole percentage values accepted; values with additional decimal places will be truncated).  **Mastercard**: Valid range is 0.00001 to 0.99999 (0.001% to 99.999%). .</param>
+        /// <param name="TotalAmount">Total amount for the item. Normally calculated as the unit price times quantity.  When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the purchase amount total for prepaid gift cards in major units.  Example: 123.45 USD &#x3D; 123 .</param>
+        public Invoicingv2invoicesOrderInformationLineItems(string ProductSku = default(string), string ProductName = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string DiscountAmount = default(string), string DiscountRate = default(string), string TaxAmount = default(string), string TaxRate = default(string), string TotalAmount = default(string))
         {
             this.ProductSku = ProductSku;
             this.ProductName = ProductName;
             this.Quantity = Quantity;
             this.UnitPrice = UnitPrice;
+            this.DiscountAmount = DiscountAmount;
+            this.DiscountRate = DiscountRate;
+            this.TaxAmount = TaxAmount;
+            this.TaxRate = TaxRate;
+            this.TotalAmount = TotalAmount;
         }
         
         /// <summary>
@@ -74,6 +84,41 @@ namespace CyberSource.Model
         public string UnitPrice { get; set; }
 
         /// <summary>
+        /// Discount applied to the item.
+        /// </summary>
+        /// <value>Discount applied to the item.</value>
+        [DataMember(Name="discountAmount", EmitDefaultValue=false)]
+        public string DiscountAmount { get; set; }
+
+        /// <summary>
+        /// Rate the item is discounted. Maximum of 2 decimal places.  Example 5.25 (&#x3D;5.25%) 
+        /// </summary>
+        /// <value>Rate the item is discounted. Maximum of 2 decimal places.  Example 5.25 (&#x3D;5.25%) </value>
+        [DataMember(Name="discountRate", EmitDefaultValue=false)]
+        public string DiscountRate { get; set; }
+
+        /// <summary>
+        /// Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  Optional field.  #### Airlines processing Tax portion of the order amount. This value cannot exceed 99999999999999 (fourteen 9s). Format: English characters only. Optional request field for a line item.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes.  Note if you send this field in your tax request, the value in the field will override the tax engine 
+        /// </summary>
+        /// <value>Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  Optional field.  #### Airlines processing Tax portion of the order amount. This value cannot exceed 99999999999999 (fourteen 9s). Format: English characters only. Optional request field for a line item.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes.  Note if you send this field in your tax request, the value in the field will override the tax engine </value>
+        [DataMember(Name="taxAmount", EmitDefaultValue=false)]
+        public string TaxAmount { get; set; }
+
+        /// <summary>
+        /// Tax rate applied to the item.  For details, see &#x60;tax_rate&#x60; field description in the [Level II and Level III Processing Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/)  **Visa**: Valid range is 0.01 to 0.99 (1% to 99%, with only whole percentage values accepted; values with additional decimal places will be truncated).  **Mastercard**: Valid range is 0.00001 to 0.99999 (0.001% to 99.999%). 
+        /// </summary>
+        /// <value>Tax rate applied to the item.  For details, see &#x60;tax_rate&#x60; field description in the [Level II and Level III Processing Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html/)  **Visa**: Valid range is 0.01 to 0.99 (1% to 99%, with only whole percentage values accepted; values with additional decimal places will be truncated).  **Mastercard**: Valid range is 0.00001 to 0.99999 (0.001% to 99.999%). </value>
+        [DataMember(Name="taxRate", EmitDefaultValue=false)]
+        public string TaxRate { get; set; }
+
+        /// <summary>
+        /// Total amount for the item. Normally calculated as the unit price times quantity.  When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the purchase amount total for prepaid gift cards in major units.  Example: 123.45 USD &#x3D; 123 
+        /// </summary>
+        /// <value>Total amount for the item. Normally calculated as the unit price times quantity.  When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the purchase amount total for prepaid gift cards in major units.  Example: 123.45 USD &#x3D; 123 </value>
+        [DataMember(Name="totalAmount", EmitDefaultValue=false)]
+        public string TotalAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +130,11 @@ namespace CyberSource.Model
             sb.Append("  ProductName: ").Append(ProductName).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
+            sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
+            sb.Append("  DiscountRate: ").Append(DiscountRate).Append("\n");
+            sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            sb.Append("  TaxRate: ").Append(TaxRate).Append("\n");
+            sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +190,31 @@ namespace CyberSource.Model
                     this.UnitPrice == other.UnitPrice ||
                     this.UnitPrice != null &&
                     this.UnitPrice.Equals(other.UnitPrice)
+                ) && 
+                (
+                    this.DiscountAmount == other.DiscountAmount ||
+                    this.DiscountAmount != null &&
+                    this.DiscountAmount.Equals(other.DiscountAmount)
+                ) && 
+                (
+                    this.DiscountRate == other.DiscountRate ||
+                    this.DiscountRate != null &&
+                    this.DiscountRate.Equals(other.DiscountRate)
+                ) && 
+                (
+                    this.TaxAmount == other.TaxAmount ||
+                    this.TaxAmount != null &&
+                    this.TaxAmount.Equals(other.TaxAmount)
+                ) && 
+                (
+                    this.TaxRate == other.TaxRate ||
+                    this.TaxRate != null &&
+                    this.TaxRate.Equals(other.TaxRate)
+                ) && 
+                (
+                    this.TotalAmount == other.TotalAmount ||
+                    this.TotalAmount != null &&
+                    this.TotalAmount.Equals(other.TotalAmount)
                 );
         }
 
@@ -162,6 +237,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Quantity.GetHashCode();
                 if (this.UnitPrice != null)
                     hash = hash * 59 + this.UnitPrice.GetHashCode();
+                if (this.DiscountAmount != null)
+                    hash = hash * 59 + this.DiscountAmount.GetHashCode();
+                if (this.DiscountRate != null)
+                    hash = hash * 59 + this.DiscountRate.GetHashCode();
+                if (this.TaxAmount != null)
+                    hash = hash * 59 + this.TaxAmount.GetHashCode();
+                if (this.TaxRate != null)
+                    hash = hash * 59 + this.TaxRate.GetHashCode();
+                if (this.TotalAmount != null)
+                    hash = hash * 59 + this.TotalAmount.GetHashCode();
                 return hash;
             }
         }

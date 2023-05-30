@@ -37,12 +37,16 @@ namespace CyberSource.Model
         /// <param name="PaymentInstrument">PaymentInstrument.</param>
         /// <param name="ShippingAddress">ShippingAddress.</param>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
-        public TssV2TransactionsGet200ResponseTokenInformation(PtsV2PaymentsPost201ResponseTokenInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseTokenInformationCustomer), PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument PaymentInstrument = default(PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument), PtsV2PaymentsPost201ResponseTokenInformationShippingAddress ShippingAddress = default(PtsV2PaymentsPost201ResponseTokenInformationShippingAddress), TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier))
+        /// <param name="Jti">TMS Transient Token, 64 hexadecimal id value representing captured payment credentials (including Sensitive Authentication Data, e.g. CVV). .</param>
+        /// <param name="TransientTokenJwt">Flex API Transient Token encoded as JWT (JSON Web Token), e.g. Flex microform or Unified Payment checkout result. .</param>
+        public TssV2TransactionsGet200ResponseTokenInformation(PtsV2PaymentsPost201ResponseTokenInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseTokenInformationCustomer), PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument PaymentInstrument = default(PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument), PtsV2PaymentsPost201ResponseTokenInformationShippingAddress ShippingAddress = default(PtsV2PaymentsPost201ResponseTokenInformationShippingAddress), TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier), string Jti = default(string), string TransientTokenJwt = default(string))
         {
             this.Customer = Customer;
             this.PaymentInstrument = PaymentInstrument;
             this.ShippingAddress = ShippingAddress;
             this.InstrumentIdentifier = InstrumentIdentifier;
+            this.Jti = Jti;
+            this.TransientTokenJwt = TransientTokenJwt;
         }
         
         /// <summary>
@@ -70,6 +74,20 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier { get; set; }
 
         /// <summary>
+        /// TMS Transient Token, 64 hexadecimal id value representing captured payment credentials (including Sensitive Authentication Data, e.g. CVV). 
+        /// </summary>
+        /// <value>TMS Transient Token, 64 hexadecimal id value representing captured payment credentials (including Sensitive Authentication Data, e.g. CVV). </value>
+        [DataMember(Name="jti", EmitDefaultValue=false)]
+        public string Jti { get; set; }
+
+        /// <summary>
+        /// Flex API Transient Token encoded as JWT (JSON Web Token), e.g. Flex microform or Unified Payment checkout result. 
+        /// </summary>
+        /// <value>Flex API Transient Token encoded as JWT (JSON Web Token), e.g. Flex microform or Unified Payment checkout result. </value>
+        [DataMember(Name="transientTokenJwt", EmitDefaultValue=false)]
+        public string TransientTokenJwt { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +99,8 @@ namespace CyberSource.Model
             sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
             sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
             sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            sb.Append("  Jti: ").Append(Jti).Append("\n");
+            sb.Append("  TransientTokenJwt: ").Append(TransientTokenJwt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +156,16 @@ namespace CyberSource.Model
                     this.InstrumentIdentifier == other.InstrumentIdentifier ||
                     this.InstrumentIdentifier != null &&
                     this.InstrumentIdentifier.Equals(other.InstrumentIdentifier)
+                ) && 
+                (
+                    this.Jti == other.Jti ||
+                    this.Jti != null &&
+                    this.Jti.Equals(other.Jti)
+                ) && 
+                (
+                    this.TransientTokenJwt == other.TransientTokenJwt ||
+                    this.TransientTokenJwt != null &&
+                    this.TransientTokenJwt.Equals(other.TransientTokenJwt)
                 );
         }
 
@@ -158,6 +188,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ShippingAddress.GetHashCode();
                 if (this.InstrumentIdentifier != null)
                     hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
+                if (this.Jti != null)
+                    hash = hash * 59 + this.Jti.GetHashCode();
+                if (this.TransientTokenJwt != null)
+                    hash = hash * 59 + this.TransientTokenJwt.GetHashCode();
                 return hash;
             }
         }

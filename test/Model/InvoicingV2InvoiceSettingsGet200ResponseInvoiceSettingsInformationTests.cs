@@ -128,6 +128,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PayerAuthentication3DSVersion'
         }
+        /// <summary>
+        /// Test the property 'ShowVatNumber'
+        /// </summary>
+        [Test]
+        public void ShowVatNumberTest()
+        {
+            // TODO unit test for the property 'ShowVatNumber'
+        }
+        /// <summary>
+        /// Test the property 'VatRegistrationNumber'
+        /// </summary>
+        [Test]
+        public void VatRegistrationNumberTest()
+        {
+            // TODO unit test for the property 'VatRegistrationNumber'
+        }
 
     }
 

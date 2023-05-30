@@ -145,6 +145,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ForwardedAcquirerCode'
         }
         /// <summary>
+        /// Test the property 'SettlementDate'
+        /// </summary>
+        [Test]
+        public void SettlementDateTest()
+        {
+            // TODO unit test for the property 'SettlementDate'
+        }
+        /// <summary>
         /// Test the property 'Avs'
         /// </summary>
         [Test]

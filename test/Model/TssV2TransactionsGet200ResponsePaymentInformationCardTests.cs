@@ -129,6 +129,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Type'
         }
         /// <summary>
+        /// Test the property 'BrandName'
+        /// </summary>
+        [Test]
+        public void BrandNameTest()
+        {
+            // TODO unit test for the property 'BrandName'
+        }
+        /// <summary>
+        /// Test the property 'Currency'
+        /// </summary>
+        [Test]
+        public void CurrencyTest()
+        {
+            // TODO unit test for the property 'Currency'
+        }
+        /// <summary>
         /// Test the property 'AccountEncoderId'
         /// </summary>
         [Test]

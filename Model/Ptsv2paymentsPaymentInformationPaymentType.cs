@@ -34,10 +34,12 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsPaymentInformationPaymentType" /> class.
         /// </summary>
         /// <param name="Name">A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. Possible values: - &#x60;CARD&#x60; (use this for a PIN debit transaction) - &#x60;CHECK&#x60; (use this for all eCheck payment transactions - ECP Debit, ECP Follow-on Credit, ECP StandAlone Credit) - &#x60;bankTransfer&#x60; (use for Online Bank Transafer for methods such as P24, iDeal, Estonia Bank, KCP) - &#x60;localCard&#x60; (KCP Local card via Altpay) - &#x60;carrierBilling&#x60; (KCP Carrier Billing via Altpay) .</param>
+        /// <param name="SubTypeName">Detailed information about the Payment Type. Possible values: - &#x60;DEBIT&#x60;: Use this value to indicate a PIN debit transaction.  Examples: For Card, if Credit or Debit or PrePaid. For Bank Transfer, if Online Bank Transfer or Wire Transfers. .</param>
         /// <param name="Method">Method.</param>
-        public Ptsv2paymentsPaymentInformationPaymentType(string Name = default(string), Ptsv2paymentsPaymentInformationPaymentTypeMethod Method = default(Ptsv2paymentsPaymentInformationPaymentTypeMethod))
+        public Ptsv2paymentsPaymentInformationPaymentType(string Name = default(string), string SubTypeName = default(string), Ptsv2paymentsPaymentInformationPaymentTypeMethod Method = default(Ptsv2paymentsPaymentInformationPaymentTypeMethod))
         {
             this.Name = Name;
+            this.SubTypeName = SubTypeName;
             this.Method = Method;
         }
         
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         /// <value>A Payment Type is an agreed means for a payee to receive legal tender from a payer. The way one pays for a commercial financial transaction. Examples: Card, Bank Transfer, Digital, Direct Debit. Possible values: - &#x60;CARD&#x60; (use this for a PIN debit transaction) - &#x60;CHECK&#x60; (use this for all eCheck payment transactions - ECP Debit, ECP Follow-on Credit, ECP StandAlone Credit) - &#x60;bankTransfer&#x60; (use for Online Bank Transafer for methods such as P24, iDeal, Estonia Bank, KCP) - &#x60;localCard&#x60; (KCP Local card via Altpay) - &#x60;carrierBilling&#x60; (KCP Carrier Billing via Altpay) </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Detailed information about the Payment Type. Possible values: - &#x60;DEBIT&#x60;: Use this value to indicate a PIN debit transaction.  Examples: For Card, if Credit or Debit or PrePaid. For Bank Transfer, if Online Bank Transfer or Wire Transfers. 
+        /// </summary>
+        /// <value>Detailed information about the Payment Type. Possible values: - &#x60;DEBIT&#x60;: Use this value to indicate a PIN debit transaction.  Examples: For Card, if Credit or Debit or PrePaid. For Bank Transfer, if Online Bank Transfer or Wire Transfers. </value>
+        [DataMember(Name="subTypeName", EmitDefaultValue=false)]
+        public string SubTypeName { get; set; }
 
         /// <summary>
         /// Gets or Sets Method
@@ -63,6 +72,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsPaymentInformationPaymentType {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  SubTypeName: ").Append(SubTypeName).Append("\n");
             sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -106,6 +116,11 @@ namespace CyberSource.Model
                     this.Name.Equals(other.Name)
                 ) && 
                 (
+                    this.SubTypeName == other.SubTypeName ||
+                    this.SubTypeName != null &&
+                    this.SubTypeName.Equals(other.SubTypeName)
+                ) && 
+                (
                     this.Method == other.Method ||
                     this.Method != null &&
                     this.Method.Equals(other.Method)
@@ -125,6 +140,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
+                if (this.SubTypeName != null)
+                    hash = hash * 59 + this.SubTypeName.GetHashCode();
                 if (this.Method != null)
                     hash = hash * 59 + this.Method.GetHashCode();
                 return hash;
