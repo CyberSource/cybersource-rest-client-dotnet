@@ -11,10 +11,10 @@
     <description>Use this client SDK to Call CyberSource REST API's. This SDK includes generates both HTTP Signature and JWT headers (including authentication headers) for the API requests.</description>
     <releaseNotes>Minor Release.</releaseNotes>
     <dependencies>
-      <dependency id="Newtonsoft.Json" version="13.0.1"></dependency>
-      <dependency id="RestSharp" version="108.0.3"></dependency>
-      <dependency id="NLog" version="4.5.10"></dependency>
-      <dependency id="CyberSource.Authentication" version="0.0.0.16"></dependency>
+      <dependency id="Newtonsoft.Json" version="[13.0.1]"></dependency>
+      <dependency id="RestSharp" version="[108.0.3]"></dependency>
+      <dependency id="NLog" version="[4.5.10]"></dependency>
+      <dependency id="CyberSource.Authentication" version="[0.0.0.16]"></dependency>
     </dependencies>
   </metadata>
   <files>
