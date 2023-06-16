@@ -14,6 +14,21 @@ The CyberSource .NET client provides convenient access to the [CyberSource REST 
 PM>  Install-Package CyberSource.Rest.Client
 ```
 
+## IMPORTANT FOR v0.0.1.30, v0.0.1.31, v0.0.1.32
+
+CyberSource is aware of an issue with these versions of the SDK caused by the tight coupling of the version of RestSharp with the SDK. The packaging information has not been updated to reflect the correct constraints for RestSharp. 
+
+**This issue will get resolved from the upcoming version onwards.**
+
+To resolve the issue in these three versions, run the following command from the Package Manager Console:
+
+`Install-Package RestSharp -Version 108.0.3`
+
+You may also want to execute the following command to upgrade the Authentication SDK to the correct version:
+
+`Install-Package CyberSource.Authentication -Version 0.0.0.16`
+
+
 ## Registration & Configuration
 
 Use of this SDK and the CyberSource APIs requires having an account on our system. You can find details of getting a test account and creating your keys [here](https://developer.cybersource.com/api/developer-guides/dita-gettingstarted/registration.html)
