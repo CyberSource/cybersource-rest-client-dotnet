@@ -175,7 +175,7 @@ namespace CyberSource.Client
                 }
                 else
                     request.AddHeader(param.Key, param.Value);
-            }            
+            }
 
             if (postBody == null)
             {
