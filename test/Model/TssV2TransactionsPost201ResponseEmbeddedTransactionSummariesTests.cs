@@ -89,6 +89,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'MerchantId'
         }
         /// <summary>
+        /// Test the property 'Status'
+        /// </summary>
+        [Test]
+        public void StatusTest()
+        {
+            // TODO unit test for the property 'Status'
+        }
+        /// <summary>
         /// Test the property 'ApplicationInformation'
         /// </summary>
         [Test]
@@ -127,6 +135,14 @@ namespace CyberSource.Test
         public void DeviceInformationTest()
         {
             // TODO unit test for the property 'DeviceInformation'
+        }
+        /// <summary>
+        /// Test the property 'ErrorInformation'
+        /// </summary>
+        [Test]
+        public void ErrorInformationTest()
+        {
+            // TODO unit test for the property 'ErrorInformation'
         }
         /// <summary>
         /// Test the property 'FraudMarkingInformation'

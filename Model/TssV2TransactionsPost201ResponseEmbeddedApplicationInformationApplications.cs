@@ -35,15 +35,19 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Name">The name of the CyberSource transaction type (such as CC settlement or CC authorization) that the merchant wants to process in a transaction request. More than one transaction type can included in a transaction request. Each transaction type separately returns their own status, reasonCode, rCode, and rFlag messages. .</param>
         /// <param name="ReasonCode">3-digit reason code that indicates why the customer profile payment succeeded or failed..</param>
+        /// <param name="Status">The status of the submitted transaction. Note: This field may not be returned for all transactions. .</param>
+        /// <param name="Reason">Description of why a request failed. Note: This field may not be returned for all transactions. .</param>
         /// <param name="RCode">Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful. .</param>
         /// <param name="RFlag">One-word description of the result of the application. .</param>
         /// <param name="ReconciliationId">Reference number that you use to reconcile your CyberSource reports with your processor reports. .</param>
         /// <param name="RMessage">Message that explains the reply flag for the application. .</param>
         /// <param name="ReturnCode">The description for this field is not available..</param>
-        public TssV2TransactionsPost201ResponseEmbeddedApplicationInformationApplications(string Name = default(string), string ReasonCode = default(string), string RCode = default(string), string RFlag = default(string), string ReconciliationId = default(string), string RMessage = default(string), int? ReturnCode = default(int?))
+        public TssV2TransactionsPost201ResponseEmbeddedApplicationInformationApplications(string Name = default(string), string ReasonCode = default(string), string Status = default(string), string Reason = default(string), string RCode = default(string), string RFlag = default(string), string ReconciliationId = default(string), string RMessage = default(string), int? ReturnCode = default(int?))
         {
             this.Name = Name;
             this.ReasonCode = ReasonCode;
+            this.Status = Status;
+            this.Reason = Reason;
             this.RCode = RCode;
             this.RFlag = RFlag;
             this.ReconciliationId = ReconciliationId;
@@ -64,6 +68,20 @@ namespace CyberSource.Model
         /// <value>3-digit reason code that indicates why the customer profile payment succeeded or failed.</value>
         [DataMember(Name="reasonCode", EmitDefaultValue=false)]
         public string ReasonCode { get; set; }
+
+        /// <summary>
+        /// The status of the submitted transaction. Note: This field may not be returned for all transactions. 
+        /// </summary>
+        /// <value>The status of the submitted transaction. Note: This field may not be returned for all transactions. </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// Description of why a request failed. Note: This field may not be returned for all transactions. 
+        /// </summary>
+        /// <value>Description of why a request failed. Note: This field may not be returned for all transactions. </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// Indicates whether the service request was successful. Possible values:  - &#x60;-1&#x60;: An error occurred. - &#x60;0&#x60;: The request was declined. - &#x60;1&#x60;: The request was successful. 
@@ -110,6 +128,8 @@ namespace CyberSource.Model
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedApplicationInformationApplications {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  RCode: ").Append(RCode).Append("\n");
             sb.Append("  RFlag: ").Append(RFlag).Append("\n");
             sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
@@ -162,6 +182,16 @@ namespace CyberSource.Model
                     this.ReasonCode.Equals(other.ReasonCode)
                 ) && 
                 (
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
+                ) && 
+                (
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
+                ) && 
+                (
                     this.RCode == other.RCode ||
                     this.RCode != null &&
                     this.RCode.Equals(other.RCode)
@@ -203,6 +233,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Name.GetHashCode();
                 if (this.ReasonCode != null)
                     hash = hash * 59 + this.ReasonCode.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Reason != null)
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.RCode != null)
                     hash = hash * 59 + this.RCode.GetHashCode();
                 if (this.RFlag != null)

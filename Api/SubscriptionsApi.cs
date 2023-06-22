@@ -34,9 +34,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="activateSubscriptionRequest"> (optional)</param>
         /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 ActivateSubscription (string id, Object activateSubscriptionRequest = null);
+        InlineResponse2009 ActivateSubscription (string id);
 
         /// <summary>
         /// Activate a Subscription
@@ -46,9 +45,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="activateSubscriptionRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> ActivateSubscriptionWithHttpInfo (string id, Object activateSubscriptionRequest = null);
+        ApiResponse<InlineResponse2009> ActivateSubscriptionWithHttpInfo (string id);
         /// <summary>
         /// Cancel a Subscription
         /// </summary>
@@ -57,9 +55,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="cancelSubscriptionRequest"> (optional)</param>
         /// <returns>InlineResponse202</returns>
-        InlineResponse202 CancelSubscription (string id, Object cancelSubscriptionRequest = null);
+        InlineResponse202 CancelSubscription (string id);
 
         /// <summary>
         /// Cancel a Subscription
@@ -69,9 +66,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="cancelSubscriptionRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> CancelSubscriptionWithHttpInfo (string id, Object cancelSubscriptionRequest = null);
+        ApiResponse<InlineResponse202> CancelSubscriptionWithHttpInfo (string id);
         /// <summary>
         /// Create a Subscription
         /// </summary>
@@ -168,9 +164,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="suspendSubscriptionRequest"> (optional)</param>
         /// <returns>InlineResponse2021</returns>
-        InlineResponse2021 SuspendSubscription (string id, Object suspendSubscriptionRequest = null);
+        InlineResponse2021 SuspendSubscription (string id);
 
         /// <summary>
         /// Suspend a Subscription
@@ -180,9 +175,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="suspendSubscriptionRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2021</returns>
-        ApiResponse<InlineResponse2021> SuspendSubscriptionWithHttpInfo (string id, Object suspendSubscriptionRequest = null);
+        ApiResponse<InlineResponse2021> SuspendSubscriptionWithHttpInfo (string id);
         /// <summary>
         /// Update a Subscription
         /// </summary>
@@ -216,9 +210,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="activateSubscriptionRequest"> (optional)</param>
         /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> ActivateSubscriptionAsync (string id, Object activateSubscriptionRequest = null);
+        System.Threading.Tasks.Task<InlineResponse2009> ActivateSubscriptionAsync (string id);
 
         /// <summary>
         /// Activate a Subscription
@@ -228,9 +221,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="activateSubscriptionRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> ActivateSubscriptionAsyncWithHttpInfo (string id, Object activateSubscriptionRequest = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> ActivateSubscriptionAsyncWithHttpInfo (string id);
         /// <summary>
         /// Cancel a Subscription
         /// </summary>
@@ -239,9 +231,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="cancelSubscriptionRequest"> (optional)</param>
         /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> CancelSubscriptionAsync (string id, Object cancelSubscriptionRequest = null);
+        System.Threading.Tasks.Task<InlineResponse202> CancelSubscriptionAsync (string id);
 
         /// <summary>
         /// Cancel a Subscription
@@ -251,9 +242,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="cancelSubscriptionRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> CancelSubscriptionAsyncWithHttpInfo (string id, Object cancelSubscriptionRequest = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> CancelSubscriptionAsyncWithHttpInfo (string id);
         /// <summary>
         /// Create a Subscription
         /// </summary>
@@ -350,9 +340,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="suspendSubscriptionRequest"> (optional)</param>
         /// <returns>Task of InlineResponse2021</returns>
-        System.Threading.Tasks.Task<InlineResponse2021> SuspendSubscriptionAsync (string id, Object suspendSubscriptionRequest = null);
+        System.Threading.Tasks.Task<InlineResponse2021> SuspendSubscriptionAsync (string id);
 
         /// <summary>
         /// Suspend a Subscription
@@ -362,9 +351,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="suspendSubscriptionRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2021)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2021>> SuspendSubscriptionAsyncWithHttpInfo (string id, Object suspendSubscriptionRequest = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2021>> SuspendSubscriptionAsyncWithHttpInfo (string id);
         /// <summary>
         /// Update a Subscription
         /// </summary>
@@ -533,13 +521,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="activateSubscriptionRequest"> (optional)</param>
         /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 ActivateSubscription (string id, Object activateSubscriptionRequest = null)
+        public InlineResponse2009 ActivateSubscription (string id)
         {
             logger.Debug("CALLING API \"ActivateSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2009> localVarResponse = ActivateSubscriptionWithHttpInfo(id, activateSubscriptionRequest);
+            ApiResponse<InlineResponse2009> localVarResponse = ActivateSubscriptionWithHttpInfo(id);
             logger.Debug("CALLING API \"ActivateSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -550,9 +537,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="activateSubscriptionRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse< InlineResponse2009 > ActivateSubscriptionWithHttpInfo (string id, Object activateSubscriptionRequest = null)
+        public ApiResponse< InlineResponse2009 > ActivateSubscriptionWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -592,22 +578,13 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (activateSubscriptionRequest != null && activateSubscriptionRequest.GetType() != typeof(byte[]))
+            if (Method.Post == Method.Post)
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(activateSubscriptionRequest); // http body (model) parameter
+                localVarPostBody = "{}";
             }
             else
             {
-                localVarPostBody = activateSubscriptionRequest; // byte array
-            }
-
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+                localVarPostBody = null;
             }
 
 
@@ -638,13 +615,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="activateSubscriptionRequest"> (optional)</param>
         /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009> ActivateSubscriptionAsync (string id, Object activateSubscriptionRequest = null)
+        public async System.Threading.Tasks.Task<InlineResponse2009> ActivateSubscriptionAsync (string id)
         {
             logger.Debug("CALLING API \"ActivateSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2009> localVarResponse = await ActivateSubscriptionAsyncWithHttpInfo(id, activateSubscriptionRequest);
+            ApiResponse<InlineResponse2009> localVarResponse = await ActivateSubscriptionAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"ActivateSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -656,9 +632,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="activateSubscriptionRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> ActivateSubscriptionAsyncWithHttpInfo (string id, Object activateSubscriptionRequest = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> ActivateSubscriptionAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -698,22 +673,13 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (activateSubscriptionRequest != null && activateSubscriptionRequest.GetType() != typeof(byte[]))
+            if (Method.Post == Method.Post)
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(activateSubscriptionRequest); // http body (model) parameter
+                localVarPostBody = "{}";
             }
             else
             {
-                localVarPostBody = activateSubscriptionRequest; // byte array
-            }
-
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+                localVarPostBody = null;
             }
 
 
@@ -743,13 +709,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="cancelSubscriptionRequest"> (optional)</param>
         /// <returns>InlineResponse202</returns>
-        public InlineResponse202 CancelSubscription (string id, Object cancelSubscriptionRequest = null)
+        public InlineResponse202 CancelSubscription (string id)
         {
             logger.Debug("CALLING API \"CancelSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse202> localVarResponse = CancelSubscriptionWithHttpInfo(id, cancelSubscriptionRequest);
+            ApiResponse<InlineResponse202> localVarResponse = CancelSubscriptionWithHttpInfo(id);
             logger.Debug("CALLING API \"CancelSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -760,9 +725,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="cancelSubscriptionRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse< InlineResponse202 > CancelSubscriptionWithHttpInfo (string id, Object cancelSubscriptionRequest = null)
+        public ApiResponse< InlineResponse202 > CancelSubscriptionWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -802,22 +766,13 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (cancelSubscriptionRequest != null && cancelSubscriptionRequest.GetType() != typeof(byte[]))
+            if (Method.Post == Method.Post)
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(cancelSubscriptionRequest); // http body (model) parameter
+                localVarPostBody = "{}";
             }
             else
             {
-                localVarPostBody = cancelSubscriptionRequest; // byte array
-            }
-
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+                localVarPostBody = null;
             }
 
 
@@ -848,13 +803,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="cancelSubscriptionRequest"> (optional)</param>
         /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202> CancelSubscriptionAsync (string id, Object cancelSubscriptionRequest = null)
+        public async System.Threading.Tasks.Task<InlineResponse202> CancelSubscriptionAsync (string id)
         {
             logger.Debug("CALLING API \"CancelSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse202> localVarResponse = await CancelSubscriptionAsyncWithHttpInfo(id, cancelSubscriptionRequest);
+            ApiResponse<InlineResponse202> localVarResponse = await CancelSubscriptionAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"CancelSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -866,9 +820,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="cancelSubscriptionRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> CancelSubscriptionAsyncWithHttpInfo (string id, Object cancelSubscriptionRequest = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> CancelSubscriptionAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -908,22 +861,13 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (cancelSubscriptionRequest != null && cancelSubscriptionRequest.GetType() != typeof(byte[]))
+            if (Method.Post == Method.Post)
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(cancelSubscriptionRequest); // http body (model) parameter
+                localVarPostBody = "{}";
             }
             else
             {
-                localVarPostBody = cancelSubscriptionRequest; // byte array
-            }
-
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+                localVarPostBody = null;
             }
 
 
@@ -1717,13 +1661,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="suspendSubscriptionRequest"> (optional)</param>
         /// <returns>InlineResponse2021</returns>
-        public InlineResponse2021 SuspendSubscription (string id, Object suspendSubscriptionRequest = null)
+        public InlineResponse2021 SuspendSubscription (string id)
         {
             logger.Debug("CALLING API \"SuspendSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2021> localVarResponse = SuspendSubscriptionWithHttpInfo(id, suspendSubscriptionRequest);
+            ApiResponse<InlineResponse2021> localVarResponse = SuspendSubscriptionWithHttpInfo(id);
             logger.Debug("CALLING API \"SuspendSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1734,9 +1677,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="suspendSubscriptionRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2021</returns>
-        public ApiResponse< InlineResponse2021 > SuspendSubscriptionWithHttpInfo (string id, Object suspendSubscriptionRequest = null)
+        public ApiResponse< InlineResponse2021 > SuspendSubscriptionWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1776,22 +1718,13 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (suspendSubscriptionRequest != null && suspendSubscriptionRequest.GetType() != typeof(byte[]))
+            if (Method.Post == Method.Post)
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(suspendSubscriptionRequest); // http body (model) parameter
+                localVarPostBody = "{}";
             }
             else
             {
-                localVarPostBody = suspendSubscriptionRequest; // byte array
-            }
-
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+                localVarPostBody = null;
             }
 
 
@@ -1822,13 +1755,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="suspendSubscriptionRequest"> (optional)</param>
         /// <returns>Task of InlineResponse2021</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2021> SuspendSubscriptionAsync (string id, Object suspendSubscriptionRequest = null)
+        public async System.Threading.Tasks.Task<InlineResponse2021> SuspendSubscriptionAsync (string id)
         {
             logger.Debug("CALLING API \"SuspendSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2021> localVarResponse = await SuspendSubscriptionAsyncWithHttpInfo(id, suspendSubscriptionRequest);
+            ApiResponse<InlineResponse2021> localVarResponse = await SuspendSubscriptionAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"SuspendSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1840,9 +1772,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="suspendSubscriptionRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2021)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2021>> SuspendSubscriptionAsyncWithHttpInfo (string id, Object suspendSubscriptionRequest = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2021>> SuspendSubscriptionAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1882,22 +1813,13 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (suspendSubscriptionRequest != null && suspendSubscriptionRequest.GetType() != typeof(byte[]))
+            if (Method.Post == Method.Post)
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(suspendSubscriptionRequest); // http body (model) parameter
+                localVarPostBody = "{}";
             }
             else
             {
-                localVarPostBody = suspendSubscriptionRequest; // byte array
-            }
-
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+                localVarPostBody = null;
             }
 
 

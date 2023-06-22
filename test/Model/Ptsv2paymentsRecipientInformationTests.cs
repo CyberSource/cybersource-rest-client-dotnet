@@ -96,6 +96,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PostalCode'
         }
+        /// <summary>
+        /// Test the property 'DateOfBirth'
+        /// </summary>
+        [Test]
+        public void DateOfBirthTest()
+        {
+            // TODO unit test for the property 'DateOfBirth'
+        }
 
     }
 
