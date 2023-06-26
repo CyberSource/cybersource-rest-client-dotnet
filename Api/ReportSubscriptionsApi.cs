@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -457,6 +458,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (predefinedSubscriptionRequestBean != null && predefinedSubscriptionRequestBean.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                predefinedSubscriptionRequestBean = (PredefinedSubscriptionRequestBean)sdkTracker.InsertDeveloperIdTracker(predefinedSubscriptionRequestBean, predefinedSubscriptionRequestBean.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(predefinedSubscriptionRequestBean); // http body (model) parameter
             }
             else
@@ -561,6 +564,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (predefinedSubscriptionRequestBean != null && predefinedSubscriptionRequestBean.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                predefinedSubscriptionRequestBean = (PredefinedSubscriptionRequestBean)sdkTracker.InsertDeveloperIdTracker(predefinedSubscriptionRequestBean, predefinedSubscriptionRequestBean.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(predefinedSubscriptionRequestBean); // http body (model) parameter
             }
             else
@@ -663,6 +668,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (createReportSubscriptionRequest != null && createReportSubscriptionRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createReportSubscriptionRequest = (CreateReportSubscriptionRequest)sdkTracker.InsertDeveloperIdTracker(createReportSubscriptionRequest, createReportSubscriptionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createReportSubscriptionRequest); // http body (model) parameter
             }
             else
@@ -767,6 +774,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (createReportSubscriptionRequest != null && createReportSubscriptionRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createReportSubscriptionRequest = (CreateReportSubscriptionRequest)sdkTracker.InsertDeveloperIdTracker(createReportSubscriptionRequest, createReportSubscriptionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createReportSubscriptionRequest); // http body (model) parameter
             }
             else

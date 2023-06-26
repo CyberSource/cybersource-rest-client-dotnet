@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -491,6 +492,8 @@ namespace CyberSource.Api
 
             if (createInvoiceRequest != null && createInvoiceRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createInvoiceRequest = (CreateInvoiceRequest)sdkTracker.InsertDeveloperIdTracker(createInvoiceRequest, createInvoiceRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createInvoiceRequest); // http body (model) parameter
             }
             else
@@ -590,6 +593,8 @@ namespace CyberSource.Api
 
             if (createInvoiceRequest != null && createInvoiceRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createInvoiceRequest = (CreateInvoiceRequest)sdkTracker.InsertDeveloperIdTracker(createInvoiceRequest, createInvoiceRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createInvoiceRequest); // http body (model) parameter
             }
             else
@@ -1492,6 +1497,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updateInvoiceRequest != null && updateInvoiceRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                updateInvoiceRequest = (UpdateInvoiceRequest)sdkTracker.InsertDeveloperIdTracker(updateInvoiceRequest, updateInvoiceRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(updateInvoiceRequest); // http body (model) parameter
             }
             else
@@ -1604,6 +1611,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updateInvoiceRequest != null && updateInvoiceRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                updateInvoiceRequest = (UpdateInvoiceRequest)sdkTracker.InsertDeveloperIdTracker(updateInvoiceRequest, updateInvoiceRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(updateInvoiceRequest); // http body (model) parameter
             }
             else

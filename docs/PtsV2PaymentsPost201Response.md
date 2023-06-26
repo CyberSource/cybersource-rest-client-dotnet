@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **BuyerInformation** | [**PtsV2PaymentsPost201ResponseBuyerInformation**](PtsV2PaymentsPost201ResponseBuyerInformation.md) |  | [optional] 
 **RiskInformation** | [**PtsV2PaymentsPost201ResponseRiskInformation**](PtsV2PaymentsPost201ResponseRiskInformation.md) |  | [optional] 
 **ConsumerAuthenticationInformation** | [**PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation**](PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation.md) |  | [optional] 
+**EmbeddedActions** | [**PtsV2PaymentsPost201ResponseEmbeddedActions**](PtsV2PaymentsPost201ResponseEmbeddedActions.md) |  | [optional] 
 **WatchlistScreeningInformation** | [**PtsV2PaymentsPost201ResponseWatchlistScreeningInformation**](PtsV2PaymentsPost201ResponseWatchlistScreeningInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

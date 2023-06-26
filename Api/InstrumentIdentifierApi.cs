@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -1172,6 +1173,8 @@ namespace CyberSource.Api
             }
             if (patchInstrumentIdentifierRequest != null && patchInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                patchInstrumentIdentifierRequest = (PatchInstrumentIdentifierRequest)sdkTracker.InsertDeveloperIdTracker(patchInstrumentIdentifierRequest, patchInstrumentIdentifierRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(patchInstrumentIdentifierRequest); // http body (model) parameter
             }
             else
@@ -1296,6 +1299,8 @@ namespace CyberSource.Api
             }
             if (patchInstrumentIdentifierRequest != null && patchInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                patchInstrumentIdentifierRequest = (PatchInstrumentIdentifierRequest)sdkTracker.InsertDeveloperIdTracker(patchInstrumentIdentifierRequest, patchInstrumentIdentifierRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(patchInstrumentIdentifierRequest); // http body (model) parameter
             }
             else
@@ -1399,6 +1404,8 @@ namespace CyberSource.Api
             }
             if (postInstrumentIdentifierRequest != null && postInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                postInstrumentIdentifierRequest = (PostInstrumentIdentifierRequest)sdkTracker.InsertDeveloperIdTracker(postInstrumentIdentifierRequest, postInstrumentIdentifierRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(postInstrumentIdentifierRequest); // http body (model) parameter
             }
             else
@@ -1504,6 +1511,8 @@ namespace CyberSource.Api
             }
             if (postInstrumentIdentifierRequest != null && postInstrumentIdentifierRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                postInstrumentIdentifierRequest = (PostInstrumentIdentifierRequest)sdkTracker.InsertDeveloperIdTracker(postInstrumentIdentifierRequest, postInstrumentIdentifierRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(postInstrumentIdentifierRequest); // http body (model) parameter
             }
             else
@@ -1617,6 +1626,8 @@ namespace CyberSource.Api
             }
             if (postInstrumentIdentifierEnrollmentRequest != null && postInstrumentIdentifierEnrollmentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                postInstrumentIdentifierEnrollmentRequest = (PostInstrumentIdentifierEnrollmentRequest)sdkTracker.InsertDeveloperIdTracker(postInstrumentIdentifierEnrollmentRequest, postInstrumentIdentifierEnrollmentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(postInstrumentIdentifierEnrollmentRequest); // http body (model) parameter
             }
             else
@@ -1733,6 +1744,8 @@ namespace CyberSource.Api
             }
             if (postInstrumentIdentifierEnrollmentRequest != null && postInstrumentIdentifierEnrollmentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                postInstrumentIdentifierEnrollmentRequest = (PostInstrumentIdentifierEnrollmentRequest)sdkTracker.InsertDeveloperIdTracker(postInstrumentIdentifierEnrollmentRequest, postInstrumentIdentifierEnrollmentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(postInstrumentIdentifierEnrollmentRequest); // http body (model) parameter
             }
             else

@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -1203,6 +1204,8 @@ namespace CyberSource.Api
             }
             if (patchCustomerPaymentInstrumentRequest != null && patchCustomerPaymentInstrumentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                patchCustomerPaymentInstrumentRequest = (PatchCustomerPaymentInstrumentRequest)sdkTracker.InsertDeveloperIdTracker(patchCustomerPaymentInstrumentRequest, patchCustomerPaymentInstrumentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(patchCustomerPaymentInstrumentRequest); // http body (model) parameter
             }
             else
@@ -1340,6 +1343,8 @@ namespace CyberSource.Api
             }
             if (patchCustomerPaymentInstrumentRequest != null && patchCustomerPaymentInstrumentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                patchCustomerPaymentInstrumentRequest = (PatchCustomerPaymentInstrumentRequest)sdkTracker.InsertDeveloperIdTracker(patchCustomerPaymentInstrumentRequest, patchCustomerPaymentInstrumentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(patchCustomerPaymentInstrumentRequest); // http body (model) parameter
             }
             else
@@ -1456,6 +1461,8 @@ namespace CyberSource.Api
             }
             if (postCustomerPaymentInstrumentRequest != null && postCustomerPaymentInstrumentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                postCustomerPaymentInstrumentRequest = (PostCustomerPaymentInstrumentRequest)sdkTracker.InsertDeveloperIdTracker(postCustomerPaymentInstrumentRequest, postCustomerPaymentInstrumentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(postCustomerPaymentInstrumentRequest); // http body (model) parameter
             }
             else
@@ -1574,6 +1581,8 @@ namespace CyberSource.Api
             }
             if (postCustomerPaymentInstrumentRequest != null && postCustomerPaymentInstrumentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                postCustomerPaymentInstrumentRequest = (PostCustomerPaymentInstrumentRequest)sdkTracker.InsertDeveloperIdTracker(postCustomerPaymentInstrumentRequest, postCustomerPaymentInstrumentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(postCustomerPaymentInstrumentRequest); // http body (model) parameter
             }
             else

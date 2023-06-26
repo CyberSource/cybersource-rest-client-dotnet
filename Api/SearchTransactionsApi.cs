@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -311,6 +312,8 @@ namespace CyberSource.Api
 
             if (createSearchRequest != null && createSearchRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createSearchRequest = (CreateSearchRequest)sdkTracker.InsertDeveloperIdTracker(createSearchRequest, createSearchRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createSearchRequest); // http body (model) parameter
             }
             else
@@ -410,6 +413,8 @@ namespace CyberSource.Api
 
             if (createSearchRequest != null && createSearchRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createSearchRequest = (CreateSearchRequest)sdkTracker.InsertDeveloperIdTracker(createSearchRequest, createSearchRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createSearchRequest); // http body (model) parameter
             }
             else

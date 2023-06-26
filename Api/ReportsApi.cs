@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -397,6 +398,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (createAdhocReportRequest != null && createAdhocReportRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createAdhocReportRequest = (CreateAdhocReportRequest)sdkTracker.InsertDeveloperIdTracker(createAdhocReportRequest, createAdhocReportRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createAdhocReportRequest); // http body (model) parameter
             }
             else
@@ -501,6 +504,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (createAdhocReportRequest != null && createAdhocReportRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createAdhocReportRequest = (CreateAdhocReportRequest)sdkTracker.InsertDeveloperIdTracker(createAdhocReportRequest, createAdhocReportRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createAdhocReportRequest); // http body (model) parameter
             }
             else

@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -286,6 +287,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updatePasswordKeysRequest != null && updatePasswordKeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                updatePasswordKeysRequest = (UpdatePasswordKeysRequest)sdkTracker.InsertDeveloperIdTracker(updatePasswordKeysRequest, updatePasswordKeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(updatePasswordKeysRequest); // http body (model) parameter
             }
             else
@@ -398,6 +401,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updatePasswordKeysRequest != null && updatePasswordKeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                updatePasswordKeysRequest = (UpdatePasswordKeysRequest)sdkTracker.InsertDeveloperIdTracker(updatePasswordKeysRequest, updatePasswordKeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(updatePasswordKeysRequest); // http body (model) parameter
             }
             else

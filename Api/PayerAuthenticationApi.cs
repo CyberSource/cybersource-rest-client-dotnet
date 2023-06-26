@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -353,6 +354,8 @@ namespace CyberSource.Api
 
             if (checkPayerAuthEnrollmentRequest != null && checkPayerAuthEnrollmentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                checkPayerAuthEnrollmentRequest = (CheckPayerAuthEnrollmentRequest)sdkTracker.InsertDeveloperIdTracker(checkPayerAuthEnrollmentRequest, checkPayerAuthEnrollmentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(checkPayerAuthEnrollmentRequest); // http body (model) parameter
             }
             else
@@ -452,6 +455,8 @@ namespace CyberSource.Api
 
             if (checkPayerAuthEnrollmentRequest != null && checkPayerAuthEnrollmentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                checkPayerAuthEnrollmentRequest = (CheckPayerAuthEnrollmentRequest)sdkTracker.InsertDeveloperIdTracker(checkPayerAuthEnrollmentRequest, checkPayerAuthEnrollmentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(checkPayerAuthEnrollmentRequest); // http body (model) parameter
             }
             else
@@ -549,6 +554,8 @@ namespace CyberSource.Api
 
             if (payerAuthSetupRequest != null && payerAuthSetupRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                payerAuthSetupRequest = (PayerAuthSetupRequest)sdkTracker.InsertDeveloperIdTracker(payerAuthSetupRequest, payerAuthSetupRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(payerAuthSetupRequest); // http body (model) parameter
             }
             else
@@ -648,6 +655,8 @@ namespace CyberSource.Api
 
             if (payerAuthSetupRequest != null && payerAuthSetupRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                payerAuthSetupRequest = (PayerAuthSetupRequest)sdkTracker.InsertDeveloperIdTracker(payerAuthSetupRequest, payerAuthSetupRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(payerAuthSetupRequest); // http body (model) parameter
             }
             else
@@ -745,6 +754,8 @@ namespace CyberSource.Api
 
             if (validateRequest != null && validateRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                validateRequest = (ValidateRequest)sdkTracker.InsertDeveloperIdTracker(validateRequest, validateRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(validateRequest); // http body (model) parameter
             }
             else
@@ -844,6 +855,8 @@ namespace CyberSource.Api
 
             if (validateRequest != null && validateRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                validateRequest = (ValidateRequest)sdkTracker.InsertDeveloperIdTracker(validateRequest, validateRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(validateRequest); // http body (model) parameter
             }
             else

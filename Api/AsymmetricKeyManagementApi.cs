@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -399,6 +400,8 @@ namespace CyberSource.Api
 
             if (createP12KeysRequest != null && createP12KeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createP12KeysRequest = (CreateP12KeysRequest)sdkTracker.InsertDeveloperIdTracker(createP12KeysRequest, createP12KeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createP12KeysRequest); // http body (model) parameter
             }
             else
@@ -498,6 +501,8 @@ namespace CyberSource.Api
 
             if (createP12KeysRequest != null && createP12KeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createP12KeysRequest = (CreateP12KeysRequest)sdkTracker.InsertDeveloperIdTracker(createP12KeysRequest, createP12KeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createP12KeysRequest); // http body (model) parameter
             }
             else
@@ -595,6 +600,8 @@ namespace CyberSource.Api
 
             if (deleteBulkP12KeysRequest != null && deleteBulkP12KeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                deleteBulkP12KeysRequest = (DeleteBulkP12KeysRequest)sdkTracker.InsertDeveloperIdTracker(deleteBulkP12KeysRequest, deleteBulkP12KeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(deleteBulkP12KeysRequest); // http body (model) parameter
             }
             else
@@ -694,6 +701,8 @@ namespace CyberSource.Api
 
             if (deleteBulkP12KeysRequest != null && deleteBulkP12KeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                deleteBulkP12KeysRequest = (DeleteBulkP12KeysRequest)sdkTracker.InsertDeveloperIdTracker(deleteBulkP12KeysRequest, deleteBulkP12KeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(deleteBulkP12KeysRequest); // http body (model) parameter
             }
             else
@@ -992,6 +1001,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updateAsymKeysRequest != null && updateAsymKeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                updateAsymKeysRequest = (UpdateAsymKeysRequest)sdkTracker.InsertDeveloperIdTracker(updateAsymKeysRequest, updateAsymKeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(updateAsymKeysRequest); // http body (model) parameter
             }
             else
@@ -1104,6 +1115,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updateAsymKeysRequest != null && updateAsymKeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                updateAsymKeysRequest = (UpdateAsymKeysRequest)sdkTracker.InsertDeveloperIdTracker(updateAsymKeysRequest, updateAsymKeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(updateAsymKeysRequest); // http body (model) parameter
             }
             else

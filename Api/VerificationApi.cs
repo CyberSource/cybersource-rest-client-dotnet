@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -311,6 +312,8 @@ namespace CyberSource.Api
 
             if (validateExportComplianceRequest != null && validateExportComplianceRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                validateExportComplianceRequest = (ValidateExportComplianceRequest)sdkTracker.InsertDeveloperIdTracker(validateExportComplianceRequest, validateExportComplianceRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(validateExportComplianceRequest); // http body (model) parameter
             }
             else
@@ -410,6 +413,8 @@ namespace CyberSource.Api
 
             if (validateExportComplianceRequest != null && validateExportComplianceRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                validateExportComplianceRequest = (ValidateExportComplianceRequest)sdkTracker.InsertDeveloperIdTracker(validateExportComplianceRequest, validateExportComplianceRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(validateExportComplianceRequest); // http body (model) parameter
             }
             else
@@ -507,6 +512,8 @@ namespace CyberSource.Api
 
             if (verifyCustomerAddressRequest != null && verifyCustomerAddressRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                verifyCustomerAddressRequest = (VerifyCustomerAddressRequest)sdkTracker.InsertDeveloperIdTracker(verifyCustomerAddressRequest, verifyCustomerAddressRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(verifyCustomerAddressRequest); // http body (model) parameter
             }
             else
@@ -606,6 +613,8 @@ namespace CyberSource.Api
 
             if (verifyCustomerAddressRequest != null && verifyCustomerAddressRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                verifyCustomerAddressRequest = (VerifyCustomerAddressRequest)sdkTracker.InsertDeveloperIdTracker(verifyCustomerAddressRequest, verifyCustomerAddressRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(verifyCustomerAddressRequest); // http body (model) parameter
             }
             else

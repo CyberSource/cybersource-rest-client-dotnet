@@ -225,6 +225,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ConsumerAuthenticationInformation'
         }
         /// <summary>
+        /// Test the property 'EmbeddedActions'
+        /// </summary>
+        [Test]
+        public void EmbeddedActionsTest()
+        {
+            // TODO unit test for the property 'EmbeddedActions'
+        }
+        /// <summary>
         /// Test the property 'WatchlistScreeningInformation'
         /// </summary>
         [Test]

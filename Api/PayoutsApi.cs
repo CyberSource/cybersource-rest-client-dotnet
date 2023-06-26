@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -269,6 +270,8 @@ namespace CyberSource.Api
 
             if (octCreatePaymentRequest != null && octCreatePaymentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                octCreatePaymentRequest = (OctCreatePaymentRequest)sdkTracker.InsertDeveloperIdTracker(octCreatePaymentRequest, octCreatePaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(octCreatePaymentRequest); // http body (model) parameter
             }
             else
@@ -368,6 +371,8 @@ namespace CyberSource.Api
 
             if (octCreatePaymentRequest != null && octCreatePaymentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                octCreatePaymentRequest = (OctCreatePaymentRequest)sdkTracker.InsertDeveloperIdTracker(octCreatePaymentRequest, octCreatePaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(octCreatePaymentRequest); // http body (model) parameter
             }
             else
