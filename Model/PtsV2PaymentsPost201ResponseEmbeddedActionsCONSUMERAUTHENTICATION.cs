@@ -33,12 +33,30 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION" /> class.
         /// </summary>
+        /// <param name="Status">The status for payerAuthentication 201 enroll and validate calls. Possible values are: - &#x60;AUTHENTICATION_SUCCESSFUL&#x60; - &#x60;PENDING_AUTHENTICATION&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; .</param>
+        /// <param name="Reason">The reason of the status. Possible values are: - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60; - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; .</param>
         /// <param name="Message">The message describing the reason of the status. Value is: - Encountered a Payer Authentication problem. Payer could not be authenticated. .</param>
-        public PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION(string Message = default(string))
+        public PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION(string Status = default(string), string Reason = default(string), string Message = default(string))
         {
+            this.Status = Status;
+            this.Reason = Reason;
             this.Message = Message;
         }
         
+        /// <summary>
+        /// The status for payerAuthentication 201 enroll and validate calls. Possible values are: - &#x60;AUTHENTICATION_SUCCESSFUL&#x60; - &#x60;PENDING_AUTHENTICATION&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; 
+        /// </summary>
+        /// <value>The status for payerAuthentication 201 enroll and validate calls. Possible values are: - &#x60;AUTHENTICATION_SUCCESSFUL&#x60; - &#x60;PENDING_AUTHENTICATION&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// The reason of the status. Possible values are: - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60; - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; 
+        /// </summary>
+        /// <value>The reason of the status. Possible values are: - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;CONSUMER_AUTHENTICATION_REQUIRED&#x60; - &#x60;CONSUMER_AUTHENTICATION_FAILED&#x60; - &#x60;AUTHENTICATION_FAILED&#x60; </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
+
         /// <summary>
         /// The message describing the reason of the status. Value is: - Encountered a Payer Authentication problem. Payer could not be authenticated. 
         /// </summary>
@@ -54,6 +72,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION {\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -92,6 +112,16 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
+                ) && 
+                (
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
+                ) && 
+                (
                     this.Message == other.Message ||
                     this.Message != null &&
                     this.Message.Equals(other.Message)
@@ -109,6 +139,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Reason != null)
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
                 return hash;

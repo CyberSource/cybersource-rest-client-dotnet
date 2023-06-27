@@ -34,10 +34,12 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseEmbeddedActionsWATCHLISTSCREENING" /> class.
         /// </summary>
         /// <param name="Status">The status for the call can be: - COMPLETED - INVALID_REQUEST - DECLINED .</param>
+        /// <param name="Reason">The reason of the status. Value can be   - &#x60;CUSTOMER_WATCHLIST_MATCH&#x60;   - &#x60;ADDRESS_COUNTRY_WATCHLIST_MATCH&#x60;   - &#x60;EMAIL_COUNTRY_WATCHLIST_MATCH&#x60;   - &#x60;IP_COUNTRY_WATCHLIST_MATCH&#x60;   - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; .</param>
         /// <param name="Message">The message describing the reason of the status. Value can be   - The customer matched the Denied Parties List   - The Export bill_country/ship_country  match   - Export email_country match   - Export hostname_country/ip_country match .</param>
-        public PtsV2PaymentsPost201ResponseEmbeddedActionsWATCHLISTSCREENING(string Status = default(string), string Message = default(string))
+        public PtsV2PaymentsPost201ResponseEmbeddedActionsWATCHLISTSCREENING(string Status = default(string), string Reason = default(string), string Message = default(string))
         {
             this.Status = Status;
+            this.Reason = Reason;
             this.Message = Message;
         }
         
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         /// <value>The status for the call can be: - COMPLETED - INVALID_REQUEST - DECLINED </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
+
+        /// <summary>
+        /// The reason of the status. Value can be   - &#x60;CUSTOMER_WATCHLIST_MATCH&#x60;   - &#x60;ADDRESS_COUNTRY_WATCHLIST_MATCH&#x60;   - &#x60;EMAIL_COUNTRY_WATCHLIST_MATCH&#x60;   - &#x60;IP_COUNTRY_WATCHLIST_MATCH&#x60;   - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; 
+        /// </summary>
+        /// <value>The reason of the status. Value can be   - &#x60;CUSTOMER_WATCHLIST_MATCH&#x60;   - &#x60;ADDRESS_COUNTRY_WATCHLIST_MATCH&#x60;   - &#x60;EMAIL_COUNTRY_WATCHLIST_MATCH&#x60;   - &#x60;IP_COUNTRY_WATCHLIST_MATCH&#x60;   - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// The message describing the reason of the status. Value can be   - The customer matched the Denied Parties List   - The Export bill_country/ship_country  match   - Export email_country match   - Export hostname_country/ip_country match 
@@ -64,6 +73,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseEmbeddedActionsWATCHLISTSCREENING {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -107,6 +117,11 @@ namespace CyberSource.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
+                ) && 
+                (
                     this.Message == other.Message ||
                     this.Message != null &&
                     this.Message.Equals(other.Message)
@@ -126,6 +141,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Reason != null)
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
                 return hash;
