@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="activateplan"></a>
 # **ActivatePlan**
-> InlineResponse2004 ActivatePlan (string id, Object activatePlanRequest = null)
+> InlineResponse2004 ActivatePlan (string id)
 
 Activate a Plan
 
@@ -38,12 +38,11 @@ namespace Example
         {
             var apiInstance = new PlansApi();
             var id = id_example;  // string | Plan Id
-            var activatePlanRequest = ;  // Object |  (optional) 
 
             try
             {
                 // Activate a Plan
-                InlineResponse2004 result = apiInstance.ActivatePlan(id, activatePlanRequest);
+                InlineResponse2004 result = apiInstance.ActivatePlan(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -60,7 +59,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Plan Id | 
- **activatePlanRequest** | **Object**|  | [optional] 
 
 ### Return type
 
@@ -73,7 +71,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -134,13 +132,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="deactivateplan"></a>
 # **DeactivatePlan**
-> InlineResponse2004 DeactivatePlan (string id, Object deactivatePlanRequest = null)
+> InlineResponse2004 DeactivatePlan (string id)
 
 Deactivate a Plan
 
@@ -162,12 +160,11 @@ namespace Example
         {
             var apiInstance = new PlansApi();
             var id = id_example;  // string | Plan Id
-            var deactivatePlanRequest = ;  // Object |  (optional) 
 
             try
             {
                 // Deactivate a Plan
-                InlineResponse2004 result = apiInstance.DeactivatePlan(id, deactivatePlanRequest);
+                InlineResponse2004 result = apiInstance.DeactivatePlan(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -184,7 +181,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Plan Id | 
- **deactivatePlanRequest** | **Object**|  | [optional] 
 
 ### Return type
 
@@ -197,7 +193,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -258,7 +254,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -319,7 +315,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -376,7 +372,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -445,7 +441,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -508,7 +504,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

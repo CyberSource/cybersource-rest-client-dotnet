@@ -16,6 +16,7 @@ using RestSharp;
 using CyberSource.Client;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {

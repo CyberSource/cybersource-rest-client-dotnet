@@ -81,6 +81,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ReasonCode'
         }
         /// <summary>
+        /// Test the property 'Status'
+        /// </summary>
+        [Test]
+        public void StatusTest()
+        {
+            // TODO unit test for the property 'Status'
+        }
+        /// <summary>
+        /// Test the property 'Reason'
+        /// </summary>
+        [Test]
+        public void ReasonTest()
+        {
+            // TODO unit test for the property 'Reason'
+        }
+        /// <summary>
         /// Test the property 'RCode'
         /// </summary>
         [Test]

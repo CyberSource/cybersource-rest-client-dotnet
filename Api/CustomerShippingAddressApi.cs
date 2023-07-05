@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -1203,6 +1204,8 @@ namespace CyberSource.Api
             }
             if (patchCustomerShippingAddressRequest != null && patchCustomerShippingAddressRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                patchCustomerShippingAddressRequest = (PatchCustomerShippingAddressRequest)sdkTracker.InsertDeveloperIdTracker(patchCustomerShippingAddressRequest, patchCustomerShippingAddressRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(patchCustomerShippingAddressRequest); // http body (model) parameter
             }
             else
@@ -1340,6 +1343,8 @@ namespace CyberSource.Api
             }
             if (patchCustomerShippingAddressRequest != null && patchCustomerShippingAddressRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                patchCustomerShippingAddressRequest = (PatchCustomerShippingAddressRequest)sdkTracker.InsertDeveloperIdTracker(patchCustomerShippingAddressRequest, patchCustomerShippingAddressRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(patchCustomerShippingAddressRequest); // http body (model) parameter
             }
             else
@@ -1456,6 +1461,8 @@ namespace CyberSource.Api
             }
             if (postCustomerShippingAddressRequest != null && postCustomerShippingAddressRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                postCustomerShippingAddressRequest = (PostCustomerShippingAddressRequest)sdkTracker.InsertDeveloperIdTracker(postCustomerShippingAddressRequest, postCustomerShippingAddressRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(postCustomerShippingAddressRequest); // http body (model) parameter
             }
             else
@@ -1574,6 +1581,8 @@ namespace CyberSource.Api
             }
             if (postCustomerShippingAddressRequest != null && postCustomerShippingAddressRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                postCustomerShippingAddressRequest = (PostCustomerShippingAddressRequest)sdkTracker.InsertDeveloperIdTracker(postCustomerShippingAddressRequest, postCustomerShippingAddressRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(postCustomerShippingAddressRequest); // http body (model) parameter
             }
             else

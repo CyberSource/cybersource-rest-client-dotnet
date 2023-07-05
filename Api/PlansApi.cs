@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -34,9 +35,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="activatePlanRequest"> (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 ActivatePlan (string id, Object activatePlanRequest = null);
+        InlineResponse2004 ActivatePlan (string id);
 
         /// <summary>
         /// Activate a Plan
@@ -46,9 +46,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="activatePlanRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> ActivatePlanWithHttpInfo (string id, Object activatePlanRequest = null);
+        ApiResponse<InlineResponse2004> ActivatePlanWithHttpInfo (string id);
         /// <summary>
         /// Create a Plan
         /// </summary>
@@ -78,9 +77,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="deactivatePlanRequest"> (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 DeactivatePlan (string id, Object deactivatePlanRequest = null);
+        InlineResponse2004 DeactivatePlan (string id);
 
         /// <summary>
         /// Deactivate a Plan
@@ -90,9 +88,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="deactivatePlanRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> DeactivatePlanWithHttpInfo (string id, Object deactivatePlanRequest = null);
+        ApiResponse<InlineResponse2004> DeactivatePlanWithHttpInfo (string id);
         /// <summary>
         /// Delete a Plan
         /// </summary>
@@ -216,9 +213,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="activatePlanRequest"> (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> ActivatePlanAsync (string id, Object activatePlanRequest = null);
+        System.Threading.Tasks.Task<InlineResponse2004> ActivatePlanAsync (string id);
 
         /// <summary>
         /// Activate a Plan
@@ -228,9 +224,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="activatePlanRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> ActivatePlanAsyncWithHttpInfo (string id, Object activatePlanRequest = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> ActivatePlanAsyncWithHttpInfo (string id);
         /// <summary>
         /// Create a Plan
         /// </summary>
@@ -260,9 +255,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="deactivatePlanRequest"> (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> DeactivatePlanAsync (string id, Object deactivatePlanRequest = null);
+        System.Threading.Tasks.Task<InlineResponse2004> DeactivatePlanAsync (string id);
 
         /// <summary>
         /// Deactivate a Plan
@@ -272,9 +266,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="deactivatePlanRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> DeactivatePlanAsyncWithHttpInfo (string id, Object deactivatePlanRequest = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> DeactivatePlanAsyncWithHttpInfo (string id);
         /// <summary>
         /// Delete a Plan
         /// </summary>
@@ -533,13 +526,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="activatePlanRequest"> (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 ActivatePlan (string id, Object activatePlanRequest = null)
+        public InlineResponse2004 ActivatePlan (string id)
         {
             logger.Debug("CALLING API \"ActivatePlan\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2004> localVarResponse = ActivatePlanWithHttpInfo(id, activatePlanRequest);
+            ApiResponse<InlineResponse2004> localVarResponse = ActivatePlanWithHttpInfo(id);
             logger.Debug("CALLING API \"ActivatePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -550,9 +542,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="activatePlanRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse< InlineResponse2004 > ActivatePlanWithHttpInfo (string id, Object activatePlanRequest = null)
+        public ApiResponse< InlineResponse2004 > ActivatePlanWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -579,7 +570,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -592,22 +583,13 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (activatePlanRequest != null && activatePlanRequest.GetType() != typeof(byte[]))
+            if (Method.Post == Method.Post)
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(activatePlanRequest); // http body (model) parameter
+                localVarPostBody = "{}";
             }
             else
             {
-                localVarPostBody = activatePlanRequest; // byte array
-            }
-
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+                localVarPostBody = null;
             }
 
 
@@ -638,13 +620,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="activatePlanRequest"> (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> ActivatePlanAsync (string id, Object activatePlanRequest = null)
+        public async System.Threading.Tasks.Task<InlineResponse2004> ActivatePlanAsync (string id)
         {
             logger.Debug("CALLING API \"ActivatePlanAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2004> localVarResponse = await ActivatePlanAsyncWithHttpInfo(id, activatePlanRequest);
+            ApiResponse<InlineResponse2004> localVarResponse = await ActivatePlanAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"ActivatePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -656,9 +637,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="activatePlanRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> ActivatePlanAsyncWithHttpInfo (string id, Object activatePlanRequest = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> ActivatePlanAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -685,7 +665,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -698,22 +678,13 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (activatePlanRequest != null && activatePlanRequest.GetType() != typeof(byte[]))
+            if (Method.Post == Method.Post)
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(activatePlanRequest); // http body (model) parameter
+                localVarPostBody = "{}";
             }
             else
             {
-                localVarPostBody = activatePlanRequest; // byte array
-            }
-
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+                localVarPostBody = null;
             }
 
 
@@ -787,7 +758,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -797,6 +768,8 @@ namespace CyberSource.Api
 
             if (createPlanRequest != null && createPlanRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createPlanRequest = (CreatePlanRequest)sdkTracker.InsertDeveloperIdTracker(createPlanRequest, createPlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createPlanRequest); // http body (model) parameter
             }
             else
@@ -886,7 +859,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -896,6 +869,8 @@ namespace CyberSource.Api
 
             if (createPlanRequest != null && createPlanRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createPlanRequest = (CreatePlanRequest)sdkTracker.InsertDeveloperIdTracker(createPlanRequest, createPlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createPlanRequest); // http body (model) parameter
             }
             else
@@ -939,13 +914,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="deactivatePlanRequest"> (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 DeactivatePlan (string id, Object deactivatePlanRequest = null)
+        public InlineResponse2004 DeactivatePlan (string id)
         {
             logger.Debug("CALLING API \"DeactivatePlan\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2004> localVarResponse = DeactivatePlanWithHttpInfo(id, deactivatePlanRequest);
+            ApiResponse<InlineResponse2004> localVarResponse = DeactivatePlanWithHttpInfo(id);
             logger.Debug("CALLING API \"DeactivatePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -956,9 +930,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="deactivatePlanRequest"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse< InlineResponse2004 > DeactivatePlanWithHttpInfo (string id, Object deactivatePlanRequest = null)
+        public ApiResponse< InlineResponse2004 > DeactivatePlanWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -985,7 +958,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -998,22 +971,13 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (deactivatePlanRequest != null && deactivatePlanRequest.GetType() != typeof(byte[]))
+            if (Method.Post == Method.Post)
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(deactivatePlanRequest); // http body (model) parameter
+                localVarPostBody = "{}";
             }
             else
             {
-                localVarPostBody = deactivatePlanRequest; // byte array
-            }
-
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+                localVarPostBody = null;
             }
 
 
@@ -1044,13 +1008,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="deactivatePlanRequest"> (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> DeactivatePlanAsync (string id, Object deactivatePlanRequest = null)
+        public async System.Threading.Tasks.Task<InlineResponse2004> DeactivatePlanAsync (string id)
         {
             logger.Debug("CALLING API \"DeactivatePlanAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2004> localVarResponse = await DeactivatePlanAsyncWithHttpInfo(id, deactivatePlanRequest);
+            ApiResponse<InlineResponse2004> localVarResponse = await DeactivatePlanAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"DeactivatePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1062,9 +1025,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <param name="deactivatePlanRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> DeactivatePlanAsyncWithHttpInfo (string id, Object deactivatePlanRequest = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> DeactivatePlanAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1091,7 +1053,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1104,22 +1066,13 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (deactivatePlanRequest != null && deactivatePlanRequest.GetType() != typeof(byte[]))
+            if (Method.Post == Method.Post)
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(deactivatePlanRequest); // http body (model) parameter
+                localVarPostBody = "{}";
             }
             else
             {
-                localVarPostBody = deactivatePlanRequest; // byte array
-            }
-
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+                localVarPostBody = null;
             }
 
 
@@ -1193,7 +1146,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1288,7 +1241,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1381,7 +1334,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1476,7 +1429,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1561,7 +1514,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1643,7 +1596,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1733,7 +1686,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1850,7 +1803,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1971,7 +1924,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1986,6 +1939,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updatePlanRequest != null && updatePlanRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                updatePlanRequest = (UpdatePlanRequest)sdkTracker.InsertDeveloperIdTracker(updatePlanRequest, updatePlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(updatePlanRequest); // http body (model) parameter
             }
             else
@@ -2083,7 +2038,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -2098,6 +2053,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (updatePlanRequest != null && updatePlanRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                updatePlanRequest = (UpdatePlanRequest)sdkTracker.InsertDeveloperIdTracker(updatePlanRequest, updatePlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(updatePlanRequest); // http body (model) parameter
             }
             else

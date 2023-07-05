@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -332,6 +333,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (refundCaptureRequest != null && refundCaptureRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                refundCaptureRequest = (RefundCaptureRequest)sdkTracker.InsertDeveloperIdTracker(refundCaptureRequest, refundCaptureRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(refundCaptureRequest); // http body (model) parameter
             }
             else
@@ -444,6 +447,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (refundCaptureRequest != null && refundCaptureRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                refundCaptureRequest = (RefundCaptureRequest)sdkTracker.InsertDeveloperIdTracker(refundCaptureRequest, refundCaptureRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(refundCaptureRequest); // http body (model) parameter
             }
             else
@@ -554,6 +559,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (refundPaymentRequest != null && refundPaymentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                refundPaymentRequest = (RefundPaymentRequest)sdkTracker.InsertDeveloperIdTracker(refundPaymentRequest, refundPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(refundPaymentRequest); // http body (model) parameter
             }
             else
@@ -666,6 +673,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (refundPaymentRequest != null && refundPaymentRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                refundPaymentRequest = (RefundPaymentRequest)sdkTracker.InsertDeveloperIdTracker(refundPaymentRequest, refundPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(refundPaymentRequest); // http body (model) parameter
             }
             else

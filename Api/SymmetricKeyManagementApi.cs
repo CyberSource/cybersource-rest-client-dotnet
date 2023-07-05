@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -399,6 +400,8 @@ namespace CyberSource.Api
 
             if (createSharedSecretKeysRequest != null && createSharedSecretKeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createSharedSecretKeysRequest = (CreateSharedSecretKeysRequest)sdkTracker.InsertDeveloperIdTracker(createSharedSecretKeysRequest, createSharedSecretKeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createSharedSecretKeysRequest); // http body (model) parameter
             }
             else
@@ -498,6 +501,8 @@ namespace CyberSource.Api
 
             if (createSharedSecretKeysRequest != null && createSharedSecretKeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createSharedSecretKeysRequest = (CreateSharedSecretKeysRequest)sdkTracker.InsertDeveloperIdTracker(createSharedSecretKeysRequest, createSharedSecretKeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createSharedSecretKeysRequest); // http body (model) parameter
             }
             else
@@ -607,6 +612,8 @@ namespace CyberSource.Api
             }
             if (createSharedSecretKeysVerifiRequest != null && createSharedSecretKeysVerifiRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createSharedSecretKeysVerifiRequest = (CreateSharedSecretKeysVerifiRequest)sdkTracker.InsertDeveloperIdTracker(createSharedSecretKeysVerifiRequest, createSharedSecretKeysVerifiRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createSharedSecretKeysVerifiRequest); // http body (model) parameter
             }
             else
@@ -718,6 +725,8 @@ namespace CyberSource.Api
             }
             if (createSharedSecretKeysVerifiRequest != null && createSharedSecretKeysVerifiRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createSharedSecretKeysVerifiRequest = (CreateSharedSecretKeysVerifiRequest)sdkTracker.InsertDeveloperIdTracker(createSharedSecretKeysVerifiRequest, createSharedSecretKeysVerifiRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createSharedSecretKeysVerifiRequest); // http body (model) parameter
             }
             else
@@ -815,6 +824,8 @@ namespace CyberSource.Api
 
             if (deleteBulkSymmetricKeysRequest != null && deleteBulkSymmetricKeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                deleteBulkSymmetricKeysRequest = (DeleteBulkSymmetricKeysRequest)sdkTracker.InsertDeveloperIdTracker(deleteBulkSymmetricKeysRequest, deleteBulkSymmetricKeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(deleteBulkSymmetricKeysRequest); // http body (model) parameter
             }
             else
@@ -914,6 +925,8 @@ namespace CyberSource.Api
 
             if (deleteBulkSymmetricKeysRequest != null && deleteBulkSymmetricKeysRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                deleteBulkSymmetricKeysRequest = (DeleteBulkSymmetricKeysRequest)sdkTracker.InsertDeveloperIdTracker(deleteBulkSymmetricKeysRequest, deleteBulkSymmetricKeysRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(deleteBulkSymmetricKeysRequest); // http body (model) parameter
             }
             else

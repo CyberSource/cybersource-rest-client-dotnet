@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -328,6 +329,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (authReversalRequest != null && authReversalRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                authReversalRequest = (AuthReversalRequest)sdkTracker.InsertDeveloperIdTracker(authReversalRequest, authReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(authReversalRequest); // http body (model) parameter
             }
             else
@@ -440,6 +443,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (authReversalRequest != null && authReversalRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                authReversalRequest = (AuthReversalRequest)sdkTracker.InsertDeveloperIdTracker(authReversalRequest, authReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(authReversalRequest); // http body (model) parameter
             }
             else
@@ -537,6 +542,8 @@ namespace CyberSource.Api
 
             if (mitReversalRequest != null && mitReversalRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                mitReversalRequest = (MitReversalRequest)sdkTracker.InsertDeveloperIdTracker(mitReversalRequest, mitReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(mitReversalRequest); // http body (model) parameter
             }
             else
@@ -636,6 +643,8 @@ namespace CyberSource.Api
 
             if (mitReversalRequest != null && mitReversalRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                mitReversalRequest = (MitReversalRequest)sdkTracker.InsertDeveloperIdTracker(mitReversalRequest, mitReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(mitReversalRequest); // http body (model) parameter
             }
             else

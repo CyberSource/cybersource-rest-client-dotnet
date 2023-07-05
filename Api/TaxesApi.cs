@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -315,6 +316,8 @@ namespace CyberSource.Api
 
             if (taxRequest != null && taxRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                taxRequest = (TaxRequest)sdkTracker.InsertDeveloperIdTracker(taxRequest, taxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(taxRequest); // http body (model) parameter
             }
             else
@@ -414,6 +417,8 @@ namespace CyberSource.Api
 
             if (taxRequest != null && taxRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                taxRequest = (TaxRequest)sdkTracker.InsertDeveloperIdTracker(taxRequest, taxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(taxRequest); // http body (model) parameter
             }
             else
@@ -524,6 +529,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidTaxRequest != null && voidTaxRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                voidTaxRequest = (VoidTaxRequest)sdkTracker.InsertDeveloperIdTracker(voidTaxRequest, voidTaxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(voidTaxRequest); // http body (model) parameter
             }
             else
@@ -636,6 +643,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (voidTaxRequest != null && voidTaxRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                voidTaxRequest = (VoidTaxRequest)sdkTracker.InsertDeveloperIdTracker(voidTaxRequest, voidTaxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(voidTaxRequest); // http body (model) parameter
             }
             else

@@ -17,6 +17,7 @@ using CyberSource.Client;
 using CyberSource.Model;
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace CyberSource.Api
 {
@@ -374,6 +375,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (addNegativeListRequest != null && addNegativeListRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                addNegativeListRequest = (AddNegativeListRequest)sdkTracker.InsertDeveloperIdTracker(addNegativeListRequest, addNegativeListRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(addNegativeListRequest); // http body (model) parameter
             }
             else
@@ -486,6 +489,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (addNegativeListRequest != null && addNegativeListRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                addNegativeListRequest = (AddNegativeListRequest)sdkTracker.InsertDeveloperIdTracker(addNegativeListRequest, addNegativeListRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(addNegativeListRequest); // http body (model) parameter
             }
             else
@@ -583,6 +588,8 @@ namespace CyberSource.Api
 
             if (createBundledDecisionManagerCaseRequest != null && createBundledDecisionManagerCaseRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createBundledDecisionManagerCaseRequest = (CreateBundledDecisionManagerCaseRequest)sdkTracker.InsertDeveloperIdTracker(createBundledDecisionManagerCaseRequest, createBundledDecisionManagerCaseRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createBundledDecisionManagerCaseRequest); // http body (model) parameter
             }
             else
@@ -682,6 +689,8 @@ namespace CyberSource.Api
 
             if (createBundledDecisionManagerCaseRequest != null && createBundledDecisionManagerCaseRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                createBundledDecisionManagerCaseRequest = (CreateBundledDecisionManagerCaseRequest)sdkTracker.InsertDeveloperIdTracker(createBundledDecisionManagerCaseRequest, createBundledDecisionManagerCaseRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(createBundledDecisionManagerCaseRequest); // http body (model) parameter
             }
             else
@@ -792,6 +801,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (fraudMarkingActionRequest != null && fraudMarkingActionRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                fraudMarkingActionRequest = (FraudMarkingActionRequest)sdkTracker.InsertDeveloperIdTracker(fraudMarkingActionRequest, fraudMarkingActionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(fraudMarkingActionRequest); // http body (model) parameter
             }
             else
@@ -904,6 +915,8 @@ namespace CyberSource.Api
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (fraudMarkingActionRequest != null && fraudMarkingActionRequest.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                fraudMarkingActionRequest = (FraudMarkingActionRequest)sdkTracker.InsertDeveloperIdTracker(fraudMarkingActionRequest, fraudMarkingActionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize(fraudMarkingActionRequest); // http body (model) parameter
             }
             else

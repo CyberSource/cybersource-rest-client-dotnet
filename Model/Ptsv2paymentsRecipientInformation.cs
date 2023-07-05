@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="LastName">Recipient’s last name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For details, see the &#x60;recipient_lastname&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="MiddleName">Recipient’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For details, see the &#x60;recipient_middlename&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="PostalCode">Partial postal code for the recipient’s address. For example, if the postal code is **NN5 7SG**, the value for this field should be the first part of the postal code: **NN5**. This field is a _pass-through_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For details, see the &#x60;recipient_postal_code&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
-        public Ptsv2paymentsRecipientInformation(string AccountId = default(string), string LastName = default(string), string MiddleName = default(string), string PostalCode = default(string))
+        /// <param name="DateOfBirth">Recipient’s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For more details, see &#x60;recipient_date_of_birth&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        public Ptsv2paymentsRecipientInformation(string AccountId = default(string), string LastName = default(string), string MiddleName = default(string), string PostalCode = default(string), string DateOfBirth = default(string))
         {
             this.AccountId = AccountId;
             this.LastName = LastName;
             this.MiddleName = MiddleName;
             this.PostalCode = PostalCode;
+            this.DateOfBirth = DateOfBirth;
         }
         
         /// <summary>
@@ -74,6 +76,13 @@ namespace CyberSource.Model
         public string PostalCode { get; set; }
 
         /// <summary>
+        /// Recipient’s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For more details, see &#x60;recipient_date_of_birth&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+        /// </summary>
+        /// <value>Recipient’s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor.  For more details, see &#x60;recipient_date_of_birth&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
+        [DataMember(Name="dateOfBirth", EmitDefaultValue=false)]
+        public string DateOfBirth { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +94,7 @@ namespace CyberSource.Model
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +150,11 @@ namespace CyberSource.Model
                     this.PostalCode == other.PostalCode ||
                     this.PostalCode != null &&
                     this.PostalCode.Equals(other.PostalCode)
+                ) && 
+                (
+                    this.DateOfBirth == other.DateOfBirth ||
+                    this.DateOfBirth != null &&
+                    this.DateOfBirth.Equals(other.DateOfBirth)
                 );
         }
 
@@ -162,6 +177,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MiddleName.GetHashCode();
                 if (this.PostalCode != null)
                     hash = hash * 59 + this.PostalCode.GetHashCode();
+                if (this.DateOfBirth != null)
+                    hash = hash * 59 + this.DateOfBirth.GetHashCode();
                 return hash;
             }
         }

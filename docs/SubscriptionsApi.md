@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="activatesubscription"></a>
 # **ActivateSubscription**
-> InlineResponse2009 ActivateSubscription (string id, Object activateSubscriptionRequest = null)
+> InlineResponse2009 ActivateSubscription (string id)
 
 Activate a Subscription
 
@@ -38,12 +38,11 @@ namespace Example
         {
             var apiInstance = new SubscriptionsApi();
             var id = id_example;  // string | Subscription Id
-            var activateSubscriptionRequest = ;  // Object |  (optional) 
 
             try
             {
                 // Activate a Subscription
-                InlineResponse2009 result = apiInstance.ActivateSubscription(id, activateSubscriptionRequest);
+                InlineResponse2009 result = apiInstance.ActivateSubscription(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -60,7 +59,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Subscription Id | 
- **activateSubscriptionRequest** | **Object**|  | [optional] 
 
 ### Return type
 
@@ -73,13 +71,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="cancelsubscription"></a>
 # **CancelSubscription**
-> InlineResponse202 CancelSubscription (string id, Object cancelSubscriptionRequest = null)
+> InlineResponse202 CancelSubscription (string id)
 
 Cancel a Subscription
 
@@ -101,12 +99,11 @@ namespace Example
         {
             var apiInstance = new SubscriptionsApi();
             var id = id_example;  // string | Subscription Id
-            var cancelSubscriptionRequest = ;  // Object |  (optional) 
 
             try
             {
                 // Cancel a Subscription
-                InlineResponse202 result = apiInstance.CancelSubscription(id, cancelSubscriptionRequest);
+                InlineResponse202 result = apiInstance.CancelSubscription(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -123,7 +120,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Subscription Id | 
- **cancelSubscriptionRequest** | **Object**|  | [optional] 
 
 ### Return type
 
@@ -136,7 +132,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -197,7 +193,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -264,7 +260,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -325,7 +321,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -382,13 +378,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="suspendsubscription"></a>
 # **SuspendSubscription**
-> InlineResponse2021 SuspendSubscription (string id, Object suspendSubscriptionRequest = null)
+> InlineResponse2021 SuspendSubscription (string id)
 
 Suspend a Subscription
 
@@ -410,12 +406,11 @@ namespace Example
         {
             var apiInstance = new SubscriptionsApi();
             var id = id_example;  // string | Subscription Id
-            var suspendSubscriptionRequest = ;  // Object |  (optional) 
 
             try
             {
                 // Suspend a Subscription
-                InlineResponse2021 result = apiInstance.SuspendSubscription(id, suspendSubscriptionRequest);
+                InlineResponse2021 result = apiInstance.SuspendSubscription(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -432,7 +427,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Subscription Id | 
- **suspendSubscriptionRequest** | **Object**|  | [optional] 
 
 ### Return type
 
@@ -445,7 +439,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -508,7 +502,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

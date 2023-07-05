@@ -72,8 +72,7 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
-            //Object activatePlanRequest = null;
-            //var response = instance.ActivatePlan(id, activatePlanRequest);
+            //var response = instance.ActivatePlan(id);
             //Assert.IsInstanceOf<InlineResponse2004> (response, "response is InlineResponse2004");
         }
         
@@ -97,8 +96,7 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
-            //Object deactivatePlanRequest = null;
-            //var response = instance.DeactivatePlan(id, deactivatePlanRequest);
+            //var response = instance.DeactivatePlan(id);
             //Assert.IsInstanceOf<InlineResponse2004> (response, "response is InlineResponse2004");
         }
         

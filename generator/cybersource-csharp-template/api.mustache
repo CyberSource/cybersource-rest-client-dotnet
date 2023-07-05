@@ -14,6 +14,7 @@ using {{packageName}}.Client;
 {{/hasImport}}
 using NLog;
 using AuthenticationSdk.util;
+using CyberSource.Utilities.Tracking;
 
 namespace {{packageName}}.{{apiPackage}}
 {
@@ -313,6 +314,8 @@ namespace {{packageName}}.{{apiPackage}}
             {{#bodyParam}}
             if ({{paramName}} != null && {{paramName}}.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                {{paramName}} = ({{{dataType}}})sdkTracker.InsertDeveloperIdTracker({{paramName}}, {{paramName}}.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize({{paramName}}); // http body (model) parameter
             }
             else
@@ -501,6 +504,8 @@ namespace {{packageName}}.{{apiPackage}}
             {{#bodyParam}}
             if ({{paramName}} != null && {{paramName}}.GetType() != typeof(byte[]))
             {
+                SdkTracker sdkTracker = new SdkTracker();
+                {{paramName}} = ({{{dataType}}})sdkTracker.InsertDeveloperIdTracker({{paramName}}, {{paramName}}.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
                 localVarPostBody = Configuration.ApiClient.Serialize({{paramName}}); // http body (model) parameter
             }
             else
