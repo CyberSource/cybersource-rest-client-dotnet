@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Riskv1authenticationsetupsTokenInformation" /> class.
         /// </summary>
         /// <param name="TransientToken">A temporary ID that represents the customer&#39;s payment data (which is securely stored in Visa Data Centers). Flex Microform generates this ID and sets it to expire within 15 minutes from when the ID is generated or until the first payment authorization is carried out (whichever occurs first).  Valid value for the ID is a 64-character, alphanumeric string.  Example: 1D08M4YB968R1F7YVL4TBBKYVNRIR02VZFH9CBYSQIJJXORPI1NK5C98D7F6EB53 .</param>
-        public Riskv1authenticationsetupsTokenInformation(string TransientToken = default(string))
+        /// <param name="Jti">TMS Transient Token, 64 hexadecimal id value representing captured payment credentials (including Sensitive Authentication Data, e.g. CVV). .</param>
+        public Riskv1authenticationsetupsTokenInformation(string TransientToken = default(string), string Jti = default(string))
         {
             this.TransientToken = TransientToken;
+            this.Jti = Jti;
         }
         
         /// <summary>
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         public string TransientToken { get; set; }
 
         /// <summary>
+        /// TMS Transient Token, 64 hexadecimal id value representing captured payment credentials (including Sensitive Authentication Data, e.g. CVV). 
+        /// </summary>
+        /// <value>TMS Transient Token, 64 hexadecimal id value representing captured payment credentials (including Sensitive Authentication Data, e.g. CVV). </value>
+        [DataMember(Name="jti", EmitDefaultValue=false)]
+        public string Jti { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Riskv1authenticationsetupsTokenInformation {\n");
             sb.Append("  TransientToken: ").Append(TransientToken).Append("\n");
+            sb.Append("  Jti: ").Append(Jti).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.TransientToken == other.TransientToken ||
                     this.TransientToken != null &&
                     this.TransientToken.Equals(other.TransientToken)
+                ) && 
+                (
+                    this.Jti == other.Jti ||
+                    this.Jti != null &&
+                    this.Jti.Equals(other.Jti)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.TransientToken != null)
                     hash = hash * 59 + this.TransientToken.GetHashCode();
+                if (this.Jti != null)
+                    hash = hash * 59 + this.Jti.GetHashCode();
                 return hash;
             }
         }
