@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **RecurringPaymentInformation** | [**Ptsv2paymentsRecurringPaymentInformation**](Ptsv2paymentsRecurringPaymentInformation.md) |  | [optional] 
 **ConsumerAuthenticationInformation** | [**Riskv1decisionsConsumerAuthenticationInformation**](Riskv1decisionsConsumerAuthenticationInformation.md) |  | [optional] 
 **WatchlistScreeningInformation** | [**Ptsv2paymentsWatchlistScreeningInformation**](Ptsv2paymentsWatchlistScreeningInformation.md) |  | [optional] 
+**TokenInformation** | [**Riskv1decisionsTokenInformation**](Riskv1decisionsTokenInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

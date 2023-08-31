@@ -41,11 +41,12 @@ namespace CyberSource.Model
         /// <param name="ShippingDetails">ShippingDetails.</param>
         /// <param name="ReturnsAccepted">This is only needed when you are requesting both payment and DM service at same time.  Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. .</param>
         /// <param name="IsCryptocurrencyPurchase">#### Visa Platform Connect : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. Additional values to add : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. valid values are - Y/y, true - N/n, false .</param>
+        /// <param name="CutoffDateTime">Starting date and time for an event or a journey that is independent of which transportation mechanism, in UTC. The cutoffDateTime will supersede travelInformation.transit.airline.legs[].departureDate and travelInformation.transit.airline.legs[].departureTime if these fields are supplied in the request. Format: YYYY-MM-DDThh:mm:ssZ. Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
         /// <param name="PreOrder">Indicates whether cardholder is placing an order with a future availability or release date. This field can contain one of these values: - MERCHANDISE_AVAILABLE: Merchandise available - FUTURE_AVAILABILITY: Future availability .</param>
         /// <param name="PreOrderDate">Expected date that a pre-ordered purchase will be available. Format: YYYYMMDD .</param>
         /// <param name="Reordered">Indicates whether the cardholder is reordering previously purchased merchandise. This field can contain one of these values: - false: First time ordered - true: Reordered .</param>
         /// <param name="TotalOffersCount">Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 .</param>
-        public Ptsv2paymentsOrderInformation(Ptsv2paymentsOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsOrderInformationAmountDetails), Ptsv2paymentsOrderInformationBillTo BillTo = default(Ptsv2paymentsOrderInformationBillTo), Ptsv2paymentsOrderInformationShipTo ShipTo = default(Ptsv2paymentsOrderInformationShipTo), List<Ptsv2paymentsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsOrderInformationLineItems>), Ptsv2paymentsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsOrderInformationInvoiceDetails), Ptsv2paymentsOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsOrderInformationShippingDetails), bool? ReturnsAccepted = default(bool?), string IsCryptocurrencyPurchase = default(string), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), string TotalOffersCount = default(string))
+        public Ptsv2paymentsOrderInformation(Ptsv2paymentsOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsOrderInformationAmountDetails), Ptsv2paymentsOrderInformationBillTo BillTo = default(Ptsv2paymentsOrderInformationBillTo), Ptsv2paymentsOrderInformationShipTo ShipTo = default(Ptsv2paymentsOrderInformationShipTo), List<Ptsv2paymentsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsOrderInformationLineItems>), Ptsv2paymentsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsOrderInformationInvoiceDetails), Ptsv2paymentsOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsOrderInformationShippingDetails), bool? ReturnsAccepted = default(bool?), string IsCryptocurrencyPurchase = default(string), string CutoffDateTime = default(string), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), string TotalOffersCount = default(string))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             this.ShippingDetails = ShippingDetails;
             this.ReturnsAccepted = ReturnsAccepted;
             this.IsCryptocurrencyPurchase = IsCryptocurrencyPurchase;
+            this.CutoffDateTime = CutoffDateTime;
             this.PreOrder = PreOrder;
             this.PreOrderDate = PreOrderDate;
             this.Reordered = Reordered;
@@ -112,6 +114,13 @@ namespace CyberSource.Model
         public string IsCryptocurrencyPurchase { get; set; }
 
         /// <summary>
+        /// Starting date and time for an event or a journey that is independent of which transportation mechanism, in UTC. The cutoffDateTime will supersede travelInformation.transit.airline.legs[].departureDate and travelInformation.transit.airline.legs[].departureTime if these fields are supplied in the request. Format: YYYY-MM-DDThh:mm:ssZ. Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// </summary>
+        /// <value>Starting date and time for an event or a journey that is independent of which transportation mechanism, in UTC. The cutoffDateTime will supersede travelInformation.transit.airline.legs[].departureDate and travelInformation.transit.airline.legs[].departureTime if these fields are supplied in the request. Format: YYYY-MM-DDThh:mm:ssZ. Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        [DataMember(Name="cutoffDateTime", EmitDefaultValue=false)]
+        public string CutoffDateTime { get; set; }
+
+        /// <summary>
         /// Indicates whether cardholder is placing an order with a future availability or release date. This field can contain one of these values: - MERCHANDISE_AVAILABLE: Merchandise available - FUTURE_AVAILABILITY: Future availability 
         /// </summary>
         /// <value>Indicates whether cardholder is placing an order with a future availability or release date. This field can contain one of these values: - MERCHANDISE_AVAILABLE: Merchandise available - FUTURE_AVAILABILITY: Future availability </value>
@@ -155,6 +164,7 @@ namespace CyberSource.Model
             sb.Append("  ShippingDetails: ").Append(ShippingDetails).Append("\n");
             sb.Append("  ReturnsAccepted: ").Append(ReturnsAccepted).Append("\n");
             sb.Append("  IsCryptocurrencyPurchase: ").Append(IsCryptocurrencyPurchase).Append("\n");
+            sb.Append("  CutoffDateTime: ").Append(CutoffDateTime).Append("\n");
             sb.Append("  PreOrder: ").Append(PreOrder).Append("\n");
             sb.Append("  PreOrderDate: ").Append(PreOrderDate).Append("\n");
             sb.Append("  Reordered: ").Append(Reordered).Append("\n");
@@ -236,6 +246,11 @@ namespace CyberSource.Model
                     this.IsCryptocurrencyPurchase.Equals(other.IsCryptocurrencyPurchase)
                 ) && 
                 (
+                    this.CutoffDateTime == other.CutoffDateTime ||
+                    this.CutoffDateTime != null &&
+                    this.CutoffDateTime.Equals(other.CutoffDateTime)
+                ) && 
+                (
                     this.PreOrder == other.PreOrder ||
                     this.PreOrder != null &&
                     this.PreOrder.Equals(other.PreOrder)
@@ -284,6 +299,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReturnsAccepted.GetHashCode();
                 if (this.IsCryptocurrencyPurchase != null)
                     hash = hash * 59 + this.IsCryptocurrencyPurchase.GetHashCode();
+                if (this.CutoffDateTime != null)
+                    hash = hash * 59 + this.CutoffDateTime.GetHashCode();
                 if (this.PreOrder != null)
                     hash = hash * 59 + this.PreOrder.GetHashCode();
                 if (this.PreOrderDate != null)
