@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation.</param>
-        public ValidateRequest(Riskv1decisionsClientReferenceInformation ClientReferenceInformation = default(Riskv1decisionsClientReferenceInformation), Riskv1authenticationsetupsProcessingInformation ProcessingInformation = default(Riskv1authenticationsetupsProcessingInformation), Riskv1authenticationresultsOrderInformation OrderInformation = default(Riskv1authenticationresultsOrderInformation), Riskv1authenticationresultsPaymentInformation PaymentInformation = default(Riskv1authenticationresultsPaymentInformation), Riskv1authenticationresultsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1authenticationresultsConsumerAuthenticationInformation), Riskv1authenticationresultsDeviceInformation DeviceInformation = default(Riskv1authenticationresultsDeviceInformation))
+        /// <param name="TokenInformation">TokenInformation.</param>
+        public ValidateRequest(Riskv1decisionsClientReferenceInformation ClientReferenceInformation = default(Riskv1decisionsClientReferenceInformation), Riskv1authenticationsetupsProcessingInformation ProcessingInformation = default(Riskv1authenticationsetupsProcessingInformation), Riskv1authenticationresultsOrderInformation OrderInformation = default(Riskv1authenticationresultsOrderInformation), Riskv1authenticationresultsPaymentInformation PaymentInformation = default(Riskv1authenticationresultsPaymentInformation), Riskv1authenticationresultsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1authenticationresultsConsumerAuthenticationInformation), Riskv1authenticationresultsDeviceInformation DeviceInformation = default(Riskv1authenticationresultsDeviceInformation), Riskv1decisionsTokenInformation TokenInformation = default(Riskv1decisionsTokenInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -47,6 +48,7 @@ namespace CyberSource.Model
             this.PaymentInformation = PaymentInformation;
             this.ConsumerAuthenticationInformation = ConsumerAuthenticationInformation;
             this.DeviceInformation = DeviceInformation;
+            this.TokenInformation = TokenInformation;
         }
         
         /// <summary>
@@ -86,6 +88,12 @@ namespace CyberSource.Model
         public Riskv1authenticationresultsDeviceInformation DeviceInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets TokenInformation
+        /// </summary>
+        [DataMember(Name="tokenInformation", EmitDefaultValue=false)]
+        public Riskv1decisionsTokenInformation TokenInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -99,6 +107,7 @@ namespace CyberSource.Model
             sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
             sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
+            sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -164,6 +173,11 @@ namespace CyberSource.Model
                     this.DeviceInformation == other.DeviceInformation ||
                     this.DeviceInformation != null &&
                     this.DeviceInformation.Equals(other.DeviceInformation)
+                ) && 
+                (
+                    this.TokenInformation == other.TokenInformation ||
+                    this.TokenInformation != null &&
+                    this.TokenInformation.Equals(other.TokenInformation)
                 );
         }
 
@@ -190,6 +204,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ConsumerAuthenticationInformation.GetHashCode();
                 if (this.DeviceInformation != null)
                     hash = hash * 59 + this.DeviceInformation.GetHashCode();
+                if (this.TokenInformation != null)
+                    hash = hash * 59 + this.TokenInformation.GetHashCode();
                 return hash;
             }
         }
