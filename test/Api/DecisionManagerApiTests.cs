@@ -65,6 +65,19 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test ActionDecisionManagerCase
+        /// </summary>
+        [Test]
+        public void ActionDecisionManagerCaseTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string id = null;
+            //CaseManagementActionsRequest caseManagementActionsRequest = null;
+            //var response = instance.ActionDecisionManagerCase(id, caseManagementActionsRequest);
+            //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
+        }
+        
+        /// <summary>
         /// Test AddNegative
         /// </summary>
         [Test]
@@ -75,6 +88,19 @@ namespace CyberSource.Test
             //AddNegativeListRequest addNegativeListRequest = null;
             //var response = instance.AddNegative(type, addNegativeListRequest);
             //Assert.IsInstanceOf<RiskV1UpdatePost201Response> (response, "response is RiskV1UpdatePost201Response");
+        }
+        
+        /// <summary>
+        /// Test CommentDecisionManagerCase
+        /// </summary>
+        [Test]
+        public void CommentDecisionManagerCaseTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string id = null;
+            //CaseManagementCommentsRequest caseManagementCommentsRequest = null;
+            //var response = instance.CommentDecisionManagerCase(id, caseManagementCommentsRequest);
+            //Assert.IsInstanceOf<InlineResponse201> (response, "response is InlineResponse201");
         }
         
         /// <summary>

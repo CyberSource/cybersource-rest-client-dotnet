@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="PlanInformation">PlanInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public UpdatePlanRequest(Rbsv1plansidPlanInformation PlanInformation = default(Rbsv1plansidPlanInformation), Rbsv1plansidProcessingInformation ProcessingInformation = default(Rbsv1plansidProcessingInformation), InlineResponse200OrderInformation OrderInformation = default(InlineResponse200OrderInformation))
+        public UpdatePlanRequest(Rbsv1plansidPlanInformation PlanInformation = default(Rbsv1plansidPlanInformation), Rbsv1plansidProcessingInformation ProcessingInformation = default(Rbsv1plansidProcessingInformation), GetAllPlansResponseOrderInformation OrderInformation = default(GetAllPlansResponseOrderInformation))
         {
             this.PlanInformation = PlanInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -59,7 +59,7 @@ namespace CyberSource.Model
         /// Gets or Sets OrderInformation
         /// </summary>
         [DataMember(Name="orderInformation", EmitDefaultValue=false)]
-        public InlineResponse200OrderInformation OrderInformation { get; set; }
+        public GetAllPlansResponseOrderInformation OrderInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="activatesubscription"></a>
 # **ActivateSubscription**
-> InlineResponse2009 ActivateSubscription (string id)
+> ActivateSubscriptionResponse ActivateSubscription (string id)
 
 Activate a Subscription
 
@@ -42,7 +42,7 @@ namespace Example
             try
             {
                 // Activate a Subscription
-                InlineResponse2009 result = apiInstance.ActivateSubscription(id);
+                ActivateSubscriptionResponse result = apiInstance.ActivateSubscription(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**ActivateSubscriptionResponse**](ActivateSubscriptionResponse.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ No authorization required
 
 <a name="cancelsubscription"></a>
 # **CancelSubscription**
-> InlineResponse202 CancelSubscription (string id)
+> CancelSubscriptionResponse CancelSubscription (string id)
 
 Cancel a Subscription
 
@@ -103,7 +103,7 @@ namespace Example
             try
             {
                 // Cancel a Subscription
-                InlineResponse202 result = apiInstance.CancelSubscription(id);
+                CancelSubscriptionResponse result = apiInstance.CancelSubscription(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**CancelSubscriptionResponse**](CancelSubscriptionResponse.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ No authorization required
 
 <a name="createsubscription"></a>
 # **CreateSubscription**
-> InlineResponse2011 CreateSubscription (CreateSubscriptionRequest createSubscriptionRequest)
+> CreateSubscriptionResponse CreateSubscription (CreateSubscriptionRequest createSubscriptionRequest)
 
 Create a Subscription
 
@@ -164,7 +164,7 @@ namespace Example
             try
             {
                 // Create a Subscription
-                InlineResponse2011 result = apiInstance.CreateSubscription(createSubscriptionRequest);
+                CreateSubscriptionResponse result = apiInstance.CreateSubscription(createSubscriptionRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**CreateSubscriptionResponse**](CreateSubscriptionResponse.md)
 
 ### Authorization
 
@@ -199,7 +199,7 @@ No authorization required
 
 <a name="getallsubscriptions"></a>
 # **GetAllSubscriptions**
-> InlineResponse2006 GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null)
+> GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null)
 
 Get a List of Subscriptions
 
@@ -228,7 +228,7 @@ namespace Example
             try
             {
                 // Get a List of Subscriptions
-                InlineResponse2006 result = apiInstance.GetAllSubscriptions(offset, limit, code, status);
+                GetAllSubscriptionsResponse result = apiInstance.GetAllSubscriptions(offset, limit, code, status);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**GetAllSubscriptionsResponse**](GetAllSubscriptionsResponse.md)
 
 ### Authorization
 
@@ -266,7 +266,7 @@ No authorization required
 
 <a name="getsubscription"></a>
 # **GetSubscription**
-> InlineResponse2007 GetSubscription (string id)
+> GetSubscriptionResponse GetSubscription (string id)
 
 Get a Subscription
 
@@ -292,7 +292,7 @@ namespace Example
             try
             {
                 // Get a Subscription
-                InlineResponse2007 result = apiInstance.GetSubscription(id);
+                GetSubscriptionResponse result = apiInstance.GetSubscription(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**GetSubscriptionResponse**](GetSubscriptionResponse.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ No authorization required
 
 <a name="getsubscriptioncode"></a>
 # **GetSubscriptionCode**
-> InlineResponse20010 GetSubscriptionCode ()
+> GetSubscriptionCodeResponse GetSubscriptionCode ()
 
 Get a Subscription Code
 
@@ -352,7 +352,7 @@ namespace Example
             try
             {
                 // Get a Subscription Code
-                InlineResponse20010 result = apiInstance.GetSubscriptionCode();
+                GetSubscriptionCodeResponse result = apiInstance.GetSubscriptionCode();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -369,7 +369,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**GetSubscriptionCodeResponse**](GetSubscriptionCodeResponse.md)
 
 ### Authorization
 
@@ -384,7 +384,7 @@ No authorization required
 
 <a name="suspendsubscription"></a>
 # **SuspendSubscription**
-> InlineResponse2021 SuspendSubscription (string id)
+> SuspendSubscriptionResponse SuspendSubscription (string id)
 
 Suspend a Subscription
 
@@ -410,7 +410,7 @@ namespace Example
             try
             {
                 // Suspend a Subscription
-                InlineResponse2021 result = apiInstance.SuspendSubscription(id);
+                SuspendSubscriptionResponse result = apiInstance.SuspendSubscription(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -430,7 +430,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2021**](InlineResponse2021.md)
+[**SuspendSubscriptionResponse**](SuspendSubscriptionResponse.md)
 
 ### Authorization
 
@@ -445,7 +445,7 @@ No authorization required
 
 <a name="updatesubscription"></a>
 # **UpdateSubscription**
-> InlineResponse2008 UpdateSubscription (string id, UpdateSubscription updateSubscription)
+> UpdateSubscriptionResponse UpdateSubscription (string id, UpdateSubscription updateSubscription)
 
 Update a Subscription
 
@@ -472,7 +472,7 @@ namespace Example
             try
             {
                 // Update a Subscription
-                InlineResponse2008 result = apiInstance.UpdateSubscription(id, updateSubscription);
+                UpdateSubscriptionResponse result = apiInstance.UpdateSubscription(id, updateSubscription);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -493,7 +493,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**UpdateSubscriptionResponse**](UpdateSubscriptionResponse.md)
 
 ### Authorization
 

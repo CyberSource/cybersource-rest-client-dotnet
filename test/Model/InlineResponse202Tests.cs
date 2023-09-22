@@ -73,36 +73,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Links'
         }
         /// <summary>
-        /// Test the property 'Id'
+        /// Test the property 'BatchId'
         /// </summary>
         [Test]
-        public void IdTest()
+        public void BatchIdTest()
         {
-            // TODO unit test for the property 'Id'
+            // TODO unit test for the property 'BatchId'
         }
         /// <summary>
-        /// Test the property 'SubmitTimeUtc'
+        /// Test the property 'BatchItemCount'
         /// </summary>
         [Test]
-        public void SubmitTimeUtcTest()
+        public void BatchItemCountTest()
         {
-            // TODO unit test for the property 'SubmitTimeUtc'
-        }
-        /// <summary>
-        /// Test the property 'Status'
-        /// </summary>
-        [Test]
-        public void StatusTest()
-        {
-            // TODO unit test for the property 'Status'
-        }
-        /// <summary>
-        /// Test the property 'SubscriptionInformation'
-        /// </summary>
-        [Test]
-        public void SubscriptionInformationTest()
-        {
-            // TODO unit test for the property 'SubscriptionInformation'
+            // TODO unit test for the property 'BatchItemCount'
         }
 
     }

@@ -33,23 +33,24 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
         /// </summary>
-        /// <param name="Links">Links.</param>
+        /// <param name="Id">UUID uniquely generated for this comments. .</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
-        /// <param name="TotalCount">total number of plans created.</param>
-        /// <param name="Plans">Plans.</param>
-        public InlineResponse200(InlineResponse200Links Links = default(InlineResponse200Links), string SubmitTimeUtc = default(string), int? TotalCount = default(int?), List<InlineResponse200Plans> Plans = default(List<InlineResponse200Plans>))
+        /// <param name="Status">The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; .</param>
+        /// <param name="Embedded">Embedded.</param>
+        public InlineResponse200(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), InlineResponse200Embedded Embedded = default(InlineResponse200Embedded))
         {
-            this.Links = Links;
+            this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
-            this.TotalCount = TotalCount;
-            this.Plans = Plans;
+            this.Status = Status;
+            this.Embedded = Embedded;
         }
         
         /// <summary>
-        /// Gets or Sets Links
+        /// UUID uniquely generated for this comments. 
         /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public InlineResponse200Links Links { get; set; }
+        /// <value>UUID uniquely generated for this comments. </value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
 
         /// <summary>
         /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
@@ -59,17 +60,17 @@ namespace CyberSource.Model
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// total number of plans created
+        /// The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; 
         /// </summary>
-        /// <value>total number of plans created</value>
-        [DataMember(Name="totalCount", EmitDefaultValue=false)]
-        public int? TotalCount { get; set; }
+        /// <value>The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets Plans
+        /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name="plans", EmitDefaultValue=false)]
-        public List<InlineResponse200Plans> Plans { get; set; }
+        [DataMember(Name="_embedded", EmitDefaultValue=false)]
+        public InlineResponse200Embedded Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,10 +80,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse200 {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
-            sb.Append("  Plans: ").Append(Plans).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,9 +121,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Links == other.Links ||
-                    this.Links != null &&
-                    this.Links.Equals(other.Links)
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
                     this.SubmitTimeUtc == other.SubmitTimeUtc ||
@@ -130,14 +131,14 @@ namespace CyberSource.Model
                     this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
                 ) && 
                 (
-                    this.TotalCount == other.TotalCount ||
-                    this.TotalCount != null &&
-                    this.TotalCount.Equals(other.TotalCount)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.Plans == other.Plans ||
-                    this.Plans != null &&
-                    this.Plans.SequenceEqual(other.Plans)
+                    this.Embedded == other.Embedded ||
+                    this.Embedded != null &&
+                    this.Embedded.Equals(other.Embedded)
                 );
         }
 
@@ -152,14 +153,14 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Links != null)
-                    hash = hash * 59 + this.Links.GetHashCode();
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.SubmitTimeUtc != null)
                     hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.TotalCount != null)
-                    hash = hash * 59 + this.TotalCount.GetHashCode();
-                if (this.Plans != null)
-                    hash = hash * 59 + this.Plans.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Embedded != null)
+                    hash = hash * 59 + this.Embedded.GetHashCode();
                 return hash;
             }
         }
