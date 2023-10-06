@@ -33,27 +33,65 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2002" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
-        /// <param name="Status">The status of the submitted transaction.  Possible values:  - COMPLETED .</param>
-        public InlineResponse2002(string SubmitTimeUtc = default(string), string Status = default(string))
+        /// <param name="Links">Links.</param>
+        /// <param name="_Object">_Object.</param>
+        /// <param name="Offset">Offset.</param>
+        /// <param name="Limit">Limit.</param>
+        /// <param name="Count">Count.</param>
+        /// <param name="Total">Total.</param>
+        /// <param name="Embedded">Embedded.</param>
+        public InlineResponse2002(List<InlineResponse2002Links> Links = default(List<InlineResponse2002Links>), string _Object = default(string), int? Offset = default(int?), int? Limit = default(int?), int? Count = default(int?), int? Total = default(int?), InlineResponse2002Embedded Embedded = default(InlineResponse2002Embedded))
         {
-            this.SubmitTimeUtc = SubmitTimeUtc;
-            this.Status = Status;
+            this.Links = Links;
+            this._Object = _Object;
+            this.Offset = Offset;
+            this.Limit = Limit;
+            this.Count = Count;
+            this.Total = Total;
+            this.Embedded = Embedded;
         }
         
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
-        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
+        [DataMember(Name="_links", EmitDefaultValue=false)]
+        public List<InlineResponse2002Links> Links { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - COMPLETED 
+        /// Gets or Sets _Object
         /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - COMPLETED </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
+        [DataMember(Name="object", EmitDefaultValue=false)]
+        public string _Object { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Offset
+        /// </summary>
+        [DataMember(Name="offset", EmitDefaultValue=false)]
+        public int? Offset { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Limit
+        /// </summary>
+        [DataMember(Name="limit", EmitDefaultValue=false)]
+        public int? Limit { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Count
+        /// </summary>
+        [DataMember(Name="count", EmitDefaultValue=false)]
+        public int? Count { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Total
+        /// </summary>
+        [DataMember(Name="total", EmitDefaultValue=false)]
+        public int? Total { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Embedded
+        /// </summary>
+        [DataMember(Name="_embedded", EmitDefaultValue=false)]
+        public InlineResponse2002Embedded Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,8 +101,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2002 {\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  _Object: ").Append(_Object).Append("\n");
+            sb.Append("  Offset: ").Append(Offset).Append("\n");
+            sb.Append("  Limit: ").Append(Limit).Append("\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  Total: ").Append(Total).Append("\n");
+            sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,14 +145,39 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.SequenceEqual(other.Links)
                 ) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this._Object == other._Object ||
+                    this._Object != null &&
+                    this._Object.Equals(other._Object)
+                ) && 
+                (
+                    this.Offset == other.Offset ||
+                    this.Offset != null &&
+                    this.Offset.Equals(other.Offset)
+                ) && 
+                (
+                    this.Limit == other.Limit ||
+                    this.Limit != null &&
+                    this.Limit.Equals(other.Limit)
+                ) && 
+                (
+                    this.Count == other.Count ||
+                    this.Count != null &&
+                    this.Count.Equals(other.Count)
+                ) && 
+                (
+                    this.Total == other.Total ||
+                    this.Total != null &&
+                    this.Total.Equals(other.Total)
+                ) && 
+                (
+                    this.Embedded == other.Embedded ||
+                    this.Embedded != null &&
+                    this.Embedded.Equals(other.Embedded)
                 );
         }
 
@@ -124,10 +192,20 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
+                if (this._Object != null)
+                    hash = hash * 59 + this._Object.GetHashCode();
+                if (this.Offset != null)
+                    hash = hash * 59 + this.Offset.GetHashCode();
+                if (this.Limit != null)
+                    hash = hash * 59 + this.Limit.GetHashCode();
+                if (this.Count != null)
+                    hash = hash * 59 + this.Count.GetHashCode();
+                if (this.Total != null)
+                    hash = hash * 59 + this.Total.GetHashCode();
+                if (this.Embedded != null)
+                    hash = hash * 59 + this.Embedded.GetHashCode();
                 return hash;
             }
         }

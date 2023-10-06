@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="activateplan"></a>
 # **ActivatePlan**
-> InlineResponse2004 ActivatePlan (string id)
+> ActivateDeactivatePlanResponse ActivatePlan (string id)
 
 Activate a Plan
 
@@ -42,7 +42,7 @@ namespace Example
             try
             {
                 // Activate a Plan
-                InlineResponse2004 result = apiInstance.ActivatePlan(id);
+                ActivateDeactivatePlanResponse result = apiInstance.ActivatePlan(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**ActivateDeactivatePlanResponse**](ActivateDeactivatePlanResponse.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ No authorization required
 
 <a name="createplan"></a>
 # **CreatePlan**
-> InlineResponse201 CreatePlan (CreatePlanRequest createPlanRequest)
+> CreatePlanResponse CreatePlan (CreatePlanRequest createPlanRequest)
 
 Create a Plan
 
@@ -103,7 +103,7 @@ namespace Example
             try
             {
                 // Create a Plan
-                InlineResponse201 result = apiInstance.CreatePlan(createPlanRequest);
+                CreatePlanResponse result = apiInstance.CreatePlan(createPlanRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**CreatePlanResponse**](CreatePlanResponse.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ No authorization required
 
 <a name="deactivateplan"></a>
 # **DeactivatePlan**
-> InlineResponse2004 DeactivatePlan (string id)
+> ActivateDeactivatePlanResponse DeactivatePlan (string id)
 
 Deactivate a Plan
 
@@ -164,7 +164,7 @@ namespace Example
             try
             {
                 // Deactivate a Plan
-                InlineResponse2004 result = apiInstance.DeactivatePlan(id);
+                ActivateDeactivatePlanResponse result = apiInstance.DeactivatePlan(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**ActivateDeactivatePlanResponse**](ActivateDeactivatePlanResponse.md)
 
 ### Authorization
 
@@ -199,7 +199,7 @@ No authorization required
 
 <a name="deleteplan"></a>
 # **DeletePlan**
-> InlineResponse2002 DeletePlan (string id)
+> DeletePlanResponse DeletePlan (string id)
 
 Delete a Plan
 
@@ -225,7 +225,7 @@ namespace Example
             try
             {
                 // Delete a Plan
-                InlineResponse2002 result = apiInstance.DeletePlan(id);
+                DeletePlanResponse result = apiInstance.DeletePlan(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**DeletePlanResponse**](DeletePlanResponse.md)
 
 ### Authorization
 
@@ -260,7 +260,7 @@ No authorization required
 
 <a name="getplan"></a>
 # **GetPlan**
-> InlineResponse2001 GetPlan (string id)
+> GetPlanResponse GetPlan (string id)
 
 Get a Plan
 
@@ -286,7 +286,7 @@ namespace Example
             try
             {
                 // Get a Plan
-                InlineResponse2001 result = apiInstance.GetPlan(id);
+                GetPlanResponse result = apiInstance.GetPlan(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**GetPlanResponse**](GetPlanResponse.md)
 
 ### Authorization
 
@@ -321,7 +321,7 @@ No authorization required
 
 <a name="getplancode"></a>
 # **GetPlanCode**
-> InlineResponse2005 GetPlanCode ()
+> GetPlanCodeResponse GetPlanCode ()
 
 Get a Plan Code
 
@@ -346,7 +346,7 @@ namespace Example
             try
             {
                 // Get a Plan Code
-                InlineResponse2005 result = apiInstance.GetPlanCode();
+                GetPlanCodeResponse result = apiInstance.GetPlanCode();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -363,7 +363,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**GetPlanCodeResponse**](GetPlanCodeResponse.md)
 
 ### Authorization
 
@@ -378,7 +378,7 @@ No authorization required
 
 <a name="getplans"></a>
 # **GetPlans**
-> InlineResponse200 GetPlans (int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
+> GetAllPlansResponse GetPlans (int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
 
 Get a List of Plans
 
@@ -408,7 +408,7 @@ namespace Example
             try
             {
                 // Get a List of Plans
-                InlineResponse200 result = apiInstance.GetPlans(offset, limit, code, status, name);
+                GetAllPlansResponse result = apiInstance.GetPlans(offset, limit, code, status, name);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**GetAllPlansResponse**](GetAllPlansResponse.md)
 
 ### Authorization
 
@@ -447,7 +447,7 @@ No authorization required
 
 <a name="updateplan"></a>
 # **UpdatePlan**
-> InlineResponse2003 UpdatePlan (string id, UpdatePlanRequest updatePlanRequest)
+> UpdatePlanResponse UpdatePlan (string id, UpdatePlanRequest updatePlanRequest)
 
 Update a Plan
 
@@ -474,7 +474,7 @@ namespace Example
             try
             {
                 // Update a Plan
-                InlineResponse2003 result = apiInstance.UpdatePlan(id, updatePlanRequest);
+                UpdatePlanResponse result = apiInstance.UpdatePlan(id, updatePlanRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**UpdatePlanResponse**](UpdatePlanResponse.md)
 
 ### Authorization
 

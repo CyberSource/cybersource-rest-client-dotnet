@@ -65,22 +65,6 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Links'
-        /// </summary>
-        [Test]
-        public void LinksTest()
-        {
-            // TODO unit test for the property 'Links'
-        }
-        /// <summary>
-        /// Test the property 'Id'
-        /// </summary>
-        [Test]
-        public void IdTest()
-        {
-            // TODO unit test for the property 'Id'
-        }
-        /// <summary>
         /// Test the property 'SubmitTimeUtc'
         /// </summary>
         [Test]
@@ -89,20 +73,44 @@ namespace CyberSource.Test
             // TODO unit test for the property 'SubmitTimeUtc'
         }
         /// <summary>
-        /// Test the property 'PlanInformation'
+        /// Test the property 'TotalCount'
         /// </summary>
         [Test]
-        public void PlanInformationTest()
+        public void TotalCountTest()
         {
-            // TODO unit test for the property 'PlanInformation'
+            // TODO unit test for the property 'TotalCount'
         }
         /// <summary>
-        /// Test the property 'OrderInformation'
+        /// Test the property 'Offset'
         /// </summary>
         [Test]
-        public void OrderInformationTest()
+        public void OffsetTest()
         {
-            // TODO unit test for the property 'OrderInformation'
+            // TODO unit test for the property 'Offset'
+        }
+        /// <summary>
+        /// Test the property 'Limit'
+        /// </summary>
+        [Test]
+        public void LimitTest()
+        {
+            // TODO unit test for the property 'Limit'
+        }
+        /// <summary>
+        /// Test the property 'Sort'
+        /// </summary>
+        [Test]
+        public void SortTest()
+        {
+            // TODO unit test for the property 'Sort'
+        }
+        /// <summary>
+        /// Test the property 'Keys'
+        /// </summary>
+        [Test]
+        public void KeysTest()
+        {
+            // TODO unit test for the property 'Keys'
         }
 
     }

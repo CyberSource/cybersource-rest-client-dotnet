@@ -73,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
             //var response = instance.ActivatePlan(id);
-            //Assert.IsInstanceOf<InlineResponse2004> (response, "response is InlineResponse2004");
+            //Assert.IsInstanceOf<ActivateDeactivatePlanResponse> (response, "response is ActivateDeactivatePlanResponse");
         }
         
         /// <summary>
@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //CreatePlanRequest createPlanRequest = null;
             //var response = instance.CreatePlan(createPlanRequest);
-            //Assert.IsInstanceOf<InlineResponse201> (response, "response is InlineResponse201");
+            //Assert.IsInstanceOf<CreatePlanResponse> (response, "response is CreatePlanResponse");
         }
         
         /// <summary>
@@ -97,7 +97,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
             //var response = instance.DeactivatePlan(id);
-            //Assert.IsInstanceOf<InlineResponse2004> (response, "response is InlineResponse2004");
+            //Assert.IsInstanceOf<ActivateDeactivatePlanResponse> (response, "response is ActivateDeactivatePlanResponse");
         }
         
         /// <summary>
@@ -109,7 +109,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
             //var response = instance.DeletePlan(id);
-            //Assert.IsInstanceOf<InlineResponse2002> (response, "response is InlineResponse2002");
+            //Assert.IsInstanceOf<DeletePlanResponse> (response, "response is DeletePlanResponse");
         }
         
         /// <summary>
@@ -121,7 +121,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
             //var response = instance.GetPlan(id);
-            //Assert.IsInstanceOf<InlineResponse2001> (response, "response is InlineResponse2001");
+            //Assert.IsInstanceOf<GetPlanResponse> (response, "response is GetPlanResponse");
         }
         
         /// <summary>
@@ -132,7 +132,7 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetPlanCode();
-            //Assert.IsInstanceOf<InlineResponse2005> (response, "response is InlineResponse2005");
+            //Assert.IsInstanceOf<GetPlanCodeResponse> (response, "response is GetPlanCodeResponse");
         }
         
         /// <summary>
@@ -148,7 +148,7 @@ namespace CyberSource.Test
             //string status = null;
             //string name = null;
             //var response = instance.GetPlans(offset, limit, code, status, name);
-            //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
+            //Assert.IsInstanceOf<GetAllPlansResponse> (response, "response is GetAllPlansResponse");
         }
         
         /// <summary>
@@ -161,7 +161,7 @@ namespace CyberSource.Test
             //string id = null;
             //UpdatePlanRequest updatePlanRequest = null;
             //var response = instance.UpdatePlan(id, updatePlanRequest);
-            //Assert.IsInstanceOf<InlineResponse2003> (response, "response is InlineResponse2003");
+            //Assert.IsInstanceOf<UpdatePlanResponse> (response, "response is UpdatePlanResponse");
         }
         
     }

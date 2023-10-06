@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="Status">Updating to &#x60;DRAFT&#x60; is not allowed from &#x60;ACTIVE&#x60; and &#x60;INACTIVE&#x60; status.  Plan Status:  - &#x60;DRAFT&#x60;  - &#x60;ACTIVE&#x60;  - &#x60;INACTIVE&#x60; .</param>
         /// <param name="BillingPeriod">BillingPeriod.</param>
         /// <param name="BillingCycles">BillingCycles.</param>
-        public Rbsv1plansidPlanInformation(string Code = default(string), string Name = default(string), string Description = default(string), string Status = default(string), InlineResponse200PlanInformationBillingPeriod BillingPeriod = default(InlineResponse200PlanInformationBillingPeriod), Rbsv1plansPlanInformationBillingCycles BillingCycles = default(Rbsv1plansPlanInformationBillingCycles))
+        public Rbsv1plansidPlanInformation(string Code = default(string), string Name = default(string), string Description = default(string), string Status = default(string), GetAllPlansResponsePlanInformationBillingPeriod BillingPeriod = default(GetAllPlansResponsePlanInformationBillingPeriod), Rbsv1plansPlanInformationBillingCycles BillingCycles = default(Rbsv1plansPlanInformationBillingCycles))
         {
             this.Code = Code;
             this.Name = Name;
@@ -81,7 +81,7 @@ namespace CyberSource.Model
         /// Gets or Sets BillingPeriod
         /// </summary>
         [DataMember(Name="billingPeriod", EmitDefaultValue=false)]
-        public InlineResponse200PlanInformationBillingPeriod BillingPeriod { get; set; }
+        public GetAllPlansResponsePlanInformationBillingPeriod BillingPeriod { get; set; }
 
         /// <summary>
         /// Gets or Sets BillingCycles

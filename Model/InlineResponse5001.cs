@@ -34,15 +34,17 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InlineResponse5001" /> class.
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
-        /// <param name="Status">The status of the submitted request.  Possible values:  - SERVER_ERROR .</param>
-        /// <param name="Reason">The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT .</param>
-        /// <param name="Message">The detail message related to the status and reason listed above..</param>
-        public InlineResponse5001(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string))
+        /// <param name="Status">The status of the submitted transaction. Possible values: - &#x60;SERVER_ERROR&#x60; .</param>
+        /// <param name="Reason">The reason of the status. Possible Values: - &#x60;SYSTEM_ERROR&#x60; .</param>
+        /// <param name="Message">Underlying service error with exception..</param>
+        /// <param name="Details">Details.</param>
+        public InlineResponse5001(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
             this.Reason = Reason;
             this.Message = Message;
+            this.Details = Details;
         }
         
         /// <summary>
@@ -53,25 +55,31 @@ namespace CyberSource.Model
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The status of the submitted request.  Possible values:  - SERVER_ERROR 
+        /// The status of the submitted transaction. Possible values: - &#x60;SERVER_ERROR&#x60; 
         /// </summary>
-        /// <value>The status of the submitted request.  Possible values:  - SERVER_ERROR </value>
+        /// <value>The status of the submitted transaction. Possible values: - &#x60;SERVER_ERROR&#x60; </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
         /// <summary>
-        /// The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT 
+        /// The reason of the status. Possible Values: - &#x60;SYSTEM_ERROR&#x60; 
         /// </summary>
-        /// <value>The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT </value>
+        /// <value>The reason of the status. Possible Values: - &#x60;SYSTEM_ERROR&#x60; </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 
         /// <summary>
-        /// The detail message related to the status and reason listed above.
+        /// Underlying service error with exception.
         /// </summary>
-        /// <value>The detail message related to the status and reason listed above.</value>
+        /// <value>Underlying service error with exception.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Details
+        /// </summary>
+        [DataMember(Name="details", EmitDefaultValue=false)]
+        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,6 +93,7 @@ namespace CyberSource.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +149,11 @@ namespace CyberSource.Model
                     this.Message == other.Message ||
                     this.Message != null &&
                     this.Message.Equals(other.Message)
+                ) && 
+                (
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -162,6 +176,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
+                if (this.Details != null)
+                    hash = hash * 59 + this.Details.GetHashCode();
                 return hash;
             }
         }

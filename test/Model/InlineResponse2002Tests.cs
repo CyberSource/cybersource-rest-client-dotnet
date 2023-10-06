@@ -65,20 +65,60 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'SubmitTimeUtc'
+        /// Test the property 'Links'
         /// </summary>
         [Test]
-        public void SubmitTimeUtcTest()
+        public void LinksTest()
         {
-            // TODO unit test for the property 'SubmitTimeUtc'
+            // TODO unit test for the property 'Links'
         }
         /// <summary>
-        /// Test the property 'Status'
+        /// Test the property '_Object'
         /// </summary>
         [Test]
-        public void StatusTest()
+        public void _ObjectTest()
         {
-            // TODO unit test for the property 'Status'
+            // TODO unit test for the property '_Object'
+        }
+        /// <summary>
+        /// Test the property 'Offset'
+        /// </summary>
+        [Test]
+        public void OffsetTest()
+        {
+            // TODO unit test for the property 'Offset'
+        }
+        /// <summary>
+        /// Test the property 'Limit'
+        /// </summary>
+        [Test]
+        public void LimitTest()
+        {
+            // TODO unit test for the property 'Limit'
+        }
+        /// <summary>
+        /// Test the property 'Count'
+        /// </summary>
+        [Test]
+        public void CountTest()
+        {
+            // TODO unit test for the property 'Count'
+        }
+        /// <summary>
+        /// Test the property 'Total'
+        /// </summary>
+        [Test]
+        public void TotalTest()
+        {
+            // TODO unit test for the property 'Total'
+        }
+        /// <summary>
+        /// Test the property 'Embedded'
+        /// </summary>
+        [Test]
+        public void EmbeddedTest()
+        {
+            // TODO unit test for the property 'Embedded'
         }
 
     }

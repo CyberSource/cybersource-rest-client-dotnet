@@ -73,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
             //var response = instance.ActivateSubscription(id);
-            //Assert.IsInstanceOf<InlineResponse2009> (response, "response is InlineResponse2009");
+            //Assert.IsInstanceOf<ActivateSubscriptionResponse> (response, "response is ActivateSubscriptionResponse");
         }
         
         /// <summary>
@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
             //var response = instance.CancelSubscription(id);
-            //Assert.IsInstanceOf<InlineResponse202> (response, "response is InlineResponse202");
+            //Assert.IsInstanceOf<CancelSubscriptionResponse> (response, "response is CancelSubscriptionResponse");
         }
         
         /// <summary>
@@ -97,7 +97,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //CreateSubscriptionRequest createSubscriptionRequest = null;
             //var response = instance.CreateSubscription(createSubscriptionRequest);
-            //Assert.IsInstanceOf<InlineResponse2011> (response, "response is InlineResponse2011");
+            //Assert.IsInstanceOf<CreateSubscriptionResponse> (response, "response is CreateSubscriptionResponse");
         }
         
         /// <summary>
@@ -112,7 +112,7 @@ namespace CyberSource.Test
             //string code = null;
             //string status = null;
             //var response = instance.GetAllSubscriptions(offset, limit, code, status);
-            //Assert.IsInstanceOf<InlineResponse2006> (response, "response is InlineResponse2006");
+            //Assert.IsInstanceOf<GetAllSubscriptionsResponse> (response, "response is GetAllSubscriptionsResponse");
         }
         
         /// <summary>
@@ -124,7 +124,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
             //var response = instance.GetSubscription(id);
-            //Assert.IsInstanceOf<InlineResponse2007> (response, "response is InlineResponse2007");
+            //Assert.IsInstanceOf<GetSubscriptionResponse> (response, "response is GetSubscriptionResponse");
         }
         
         /// <summary>
@@ -135,7 +135,7 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetSubscriptionCode();
-            //Assert.IsInstanceOf<InlineResponse20010> (response, "response is InlineResponse20010");
+            //Assert.IsInstanceOf<GetSubscriptionCodeResponse> (response, "response is GetSubscriptionCodeResponse");
         }
         
         /// <summary>
@@ -147,7 +147,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
             //var response = instance.SuspendSubscription(id);
-            //Assert.IsInstanceOf<InlineResponse2021> (response, "response is InlineResponse2021");
+            //Assert.IsInstanceOf<SuspendSubscriptionResponse> (response, "response is SuspendSubscriptionResponse");
         }
         
         /// <summary>
@@ -160,7 +160,7 @@ namespace CyberSource.Test
             //string id = null;
             //UpdateSubscription updateSubscription = null;
             //var response = instance.UpdateSubscription(id, updateSubscription);
-            //Assert.IsInstanceOf<InlineResponse2008> (response, "response is InlineResponse2008");
+            //Assert.IsInstanceOf<UpdateSubscriptionResponse> (response, "response is UpdateSubscriptionResponse");
         }
         
     }

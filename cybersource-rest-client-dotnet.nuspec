@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CyberSource.Rest.Client</id>
-    <version>0.0.1.34</version>
+    <version>0.0.1.35</version>
     <title>CyberSource.Rest.Client</title>
     <authors>CyberSource Corporation</authors>
     <owners>CyberSource</owners>
@@ -14,7 +14,7 @@
       <dependency id="Newtonsoft.Json" version="13.0.1"></dependency>
       <dependency id="RestSharp" version="[108.0.3]"></dependency>
       <dependency id="NLog" version="4.5.10"></dependency>
-      <dependency id="CyberSource.Authentication" version="[0.0.0.16]"></dependency>
+      <dependency id="CyberSource.Authentication" version="[0.0.0.17]"></dependency>
     </dependencies>
   </metadata>
   <files>
