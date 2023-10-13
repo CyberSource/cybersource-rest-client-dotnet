@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="SubscriptionInformation">SubscriptionInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public CreateSubscriptionRequest(Rbsv1subscriptionsClientReferenceInformation ClientReferenceInformation = default(Rbsv1subscriptionsClientReferenceInformation), Rbsv1subscriptionsProcessingInformation ProcessingInformation = default(Rbsv1subscriptionsProcessingInformation), Rbsv1subscriptionsPlanInformation PlanInformation = default(Rbsv1subscriptionsPlanInformation), Rbsv1subscriptionsSubscriptionInformation SubscriptionInformation = default(Rbsv1subscriptionsSubscriptionInformation), Rbsv1subscriptionsPaymentInformation PaymentInformation = default(Rbsv1subscriptionsPaymentInformation), InlineResponse200OrderInformation OrderInformation = default(InlineResponse200OrderInformation))
+        public CreateSubscriptionRequest(Rbsv1subscriptionsClientReferenceInformation ClientReferenceInformation = default(Rbsv1subscriptionsClientReferenceInformation), Rbsv1subscriptionsProcessingInformation ProcessingInformation = default(Rbsv1subscriptionsProcessingInformation), Rbsv1subscriptionsPlanInformation PlanInformation = default(Rbsv1subscriptionsPlanInformation), Rbsv1subscriptionsSubscriptionInformation SubscriptionInformation = default(Rbsv1subscriptionsSubscriptionInformation), Rbsv1subscriptionsPaymentInformation PaymentInformation = default(Rbsv1subscriptionsPaymentInformation), GetAllPlansResponseOrderInformation OrderInformation = default(GetAllPlansResponseOrderInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -83,7 +83,7 @@ namespace CyberSource.Model
         /// Gets or Sets OrderInformation
         /// </summary>
         [DataMember(Name="orderInformation", EmitDefaultValue=false)]
-        public InlineResponse200OrderInformation OrderInformation { get; set; }
+        public GetAllPlansResponseOrderInformation OrderInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

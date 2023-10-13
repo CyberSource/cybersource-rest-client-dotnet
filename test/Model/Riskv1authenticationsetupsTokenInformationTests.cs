@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TransientToken'
         }
+        /// <summary>
+        /// Test the property 'Jti'
+        /// </summary>
+        [Test]
+        public void JtiTest()
+        {
+            // TODO unit test for the property 'Jti'
+        }
 
     }
 

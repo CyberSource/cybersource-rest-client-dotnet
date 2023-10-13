@@ -65,14 +65,6 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Links'
-        /// </summary>
-        [Test]
-        public void LinksTest()
-        {
-            // TODO unit test for the property 'Links'
-        }
-        /// <summary>
         /// Test the property 'Id'
         /// </summary>
         [Test]
@@ -95,14 +87,6 @@ namespace CyberSource.Test
         public void StatusTest()
         {
             // TODO unit test for the property 'Status'
-        }
-        /// <summary>
-        /// Test the property 'PlanInformation'
-        /// </summary>
-        [Test]
-        public void PlanInformationTest()
-        {
-            // TODO unit test for the property 'PlanInformation'
         }
 
     }

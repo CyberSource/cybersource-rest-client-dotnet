@@ -89,6 +89,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'PreOrderDate'
         }
         /// <summary>
+        /// Test the property 'CutoffDateTime'
+        /// </summary>
+        [Test]
+        public void CutoffDateTimeTest()
+        {
+            // TODO unit test for the property 'CutoffDateTime'
+        }
+        /// <summary>
         /// Test the property 'Reordered'
         /// </summary>
         [Test]

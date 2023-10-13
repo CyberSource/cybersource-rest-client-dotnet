@@ -53,7 +53,8 @@ namespace CyberSource.Model
         /// <param name="DeferredAuthIndicator">Flag that indicates whether the authorization request was delayed because connectivity was interrupted.  Possible values:   - &#x60;true&#x60; (Deferred authorization)   - &#x60;false&#x60; (default: Not a deferred authorization) .</param>
         /// <param name="CashAdvanceIndicator">This API field enables the merchant to indicate that a given transaction is Cash Advance.  Cash advance or Cash disbursement functionality allows a merchant to dispense cash at a point of sale. It provides the ability of a POS system to act like an ATM. These terminals are typically seen in bank branches where customers can use their card and withdraw cash or at merchant locations where ATMs are sparse.  Possible values:   - &#x60;true&#x60; (Cash advance is supported)   - &#x60;false&#x60; (default: cash advance is not supported) .</param>
         /// <param name="SplitPaymentTransaction">#### Visa Platform Connect Indicates split payment transaction. A split payment allows the use of two payment methods for a single transaction.  Possible values:   - &#x60;true&#x60; (split payment transaction is supported)   - &#x60;false&#x60; (default: split payment transaction is not supported) .</param>
-        public Ptsv2paymentsProcessingInformationAuthorizationOptions(string AuthType = default(string), string PanReturnIndicator = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), bool? IgnoreCvResult = false, Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator Initiator = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string), bool? RedemptionInquiry = default(bool?), string TransportationMode = default(string), string AggregatedAuthIndicator = default(string), string DebtRecoveryIndicator = default(string), bool? DeferredAuthIndicator = default(bool?), bool? CashAdvanceIndicator = default(bool?), bool? SplitPaymentTransaction = default(bool?))
+        /// <param name="CardVerificationIndicator">This API field will indicate whether a card verification check is being performed during the transaction  Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; (default value) .</param>
+        public Ptsv2paymentsProcessingInformationAuthorizationOptions(string AuthType = default(string), string PanReturnIndicator = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), bool? IgnoreCvResult = false, Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator Initiator = default(Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string), bool? RedemptionInquiry = default(bool?), string TransportationMode = default(string), string AggregatedAuthIndicator = default(string), string DebtRecoveryIndicator = default(string), bool? DeferredAuthIndicator = default(bool?), bool? CashAdvanceIndicator = default(bool?), bool? SplitPaymentTransaction = default(bool?), bool? CardVerificationIndicator = default(bool?))
         {
             this.AuthType = AuthType;
             this.PanReturnIndicator = PanReturnIndicator;
@@ -91,6 +92,7 @@ namespace CyberSource.Model
             this.DeferredAuthIndicator = DeferredAuthIndicator;
             this.CashAdvanceIndicator = CashAdvanceIndicator;
             this.SplitPaymentTransaction = SplitPaymentTransaction;
+            this.CardVerificationIndicator = CardVerificationIndicator;
         }
         
         /// <summary>
@@ -233,6 +235,13 @@ namespace CyberSource.Model
         public bool? SplitPaymentTransaction { get; set; }
 
         /// <summary>
+        /// This API field will indicate whether a card verification check is being performed during the transaction  Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; (default value) 
+        /// </summary>
+        /// <value>This API field will indicate whether a card verification check is being performed during the transaction  Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; (default value) </value>
+        [DataMember(Name="cardVerificationIndicator", EmitDefaultValue=false)]
+        public bool? CardVerificationIndicator { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -260,6 +269,7 @@ namespace CyberSource.Model
             sb.Append("  DeferredAuthIndicator: ").Append(DeferredAuthIndicator).Append("\n");
             sb.Append("  CashAdvanceIndicator: ").Append(CashAdvanceIndicator).Append("\n");
             sb.Append("  SplitPaymentTransaction: ").Append(SplitPaymentTransaction).Append("\n");
+            sb.Append("  CardVerificationIndicator: ").Append(CardVerificationIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -395,6 +405,11 @@ namespace CyberSource.Model
                     this.SplitPaymentTransaction == other.SplitPaymentTransaction ||
                     this.SplitPaymentTransaction != null &&
                     this.SplitPaymentTransaction.Equals(other.SplitPaymentTransaction)
+                ) && 
+                (
+                    this.CardVerificationIndicator == other.CardVerificationIndicator ||
+                    this.CardVerificationIndicator != null &&
+                    this.CardVerificationIndicator.Equals(other.CardVerificationIndicator)
                 );
         }
 
@@ -449,6 +464,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CashAdvanceIndicator.GetHashCode();
                 if (this.SplitPaymentTransaction != null)
                     hash = hash * 59 + this.SplitPaymentTransaction.GetHashCode();
+                if (this.CardVerificationIndicator != null)
+                    hash = hash * 59 + this.CardVerificationIndicator.GetHashCode();
                 return hash;
             }
         }

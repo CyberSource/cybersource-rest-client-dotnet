@@ -31,170 +31,55 @@ namespace CyberSource.Model
     public partial class InlineResponse4006 :  IEquatable<InlineResponse4006>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Reason
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReasonEnum
-        {
-            
-            /// <summary>
-            /// Enum INVALIDAPIKEY for "INVALID_APIKEY"
-            /// </summary>
-            [EnumMember(Value = "INVALID_APIKEY")]
-            INVALIDAPIKEY,
-            
-            /// <summary>
-            /// Enum INVALIDSHIPPINGINPUTPARAMS for "INVALID_SHIPPING_INPUT_PARAMS"
-            /// </summary>
-            [EnumMember(Value = "INVALID_SHIPPING_INPUT_PARAMS")]
-            INVALIDSHIPPINGINPUTPARAMS,
-            
-            /// <summary>
-            /// Enum CAPTURECONTEXTINVALID for "CAPTURE_CONTEXT_INVALID"
-            /// </summary>
-            [EnumMember(Value = "CAPTURE_CONTEXT_INVALID")]
-            CAPTURECONTEXTINVALID,
-            
-            /// <summary>
-            /// Enum CAPTURECONTEXTEXPIRED for "CAPTURE_CONTEXT_EXPIRED"
-            /// </summary>
-            [EnumMember(Value = "CAPTURE_CONTEXT_EXPIRED")]
-            CAPTURECONTEXTEXPIRED,
-            
-            /// <summary>
-            /// Enum SDKXHRERROR for "SDK_XHR_ERROR"
-            /// </summary>
-            [EnumMember(Value = "SDK_XHR_ERROR")]
-            SDKXHRERROR,
-            
-            /// <summary>
-            /// Enum UNIFIEDPAYMENTSVALIDATIONPARAMS for "UNIFIEDPAYMENTS_VALIDATION_PARAMS"
-            /// </summary>
-            [EnumMember(Value = "UNIFIEDPAYMENTS_VALIDATION_PARAMS")]
-            UNIFIEDPAYMENTSVALIDATIONPARAMS,
-            
-            /// <summary>
-            /// Enum UNIFIEDPAYMENTSVALIDATIONFIELDS for "UNIFIEDPAYMENTS_VALIDATION_FIELDS"
-            /// </summary>
-            [EnumMember(Value = "UNIFIEDPAYMENTS_VALIDATION_FIELDS")]
-            UNIFIEDPAYMENTSVALIDATIONFIELDS,
-            
-            /// <summary>
-            /// Enum UNIFIEDPAYMENTPAYMENTPARAMITERS for "UNIFIEDPAYMENT_PAYMENT_PARAMITERS"
-            /// </summary>
-            [EnumMember(Value = "UNIFIEDPAYMENT_PAYMENT_PARAMITERS")]
-            UNIFIEDPAYMENTPAYMENTPARAMITERS,
-            
-            /// <summary>
-            /// Enum CREATETOKENTIMEOUT for "CREATE_TOKEN_TIMEOUT"
-            /// </summary>
-            [EnumMember(Value = "CREATE_TOKEN_TIMEOUT")]
-            CREATETOKENTIMEOUT,
-            
-            /// <summary>
-            /// Enum CREATETOKENXHRERROR for "CREATE_TOKEN_XHR_ERROR"
-            /// </summary>
-            [EnumMember(Value = "CREATE_TOKEN_XHR_ERROR")]
-            CREATETOKENXHRERROR,
-            
-            /// <summary>
-            /// Enum SHOWLOADCONTAINERSELECTOR for "SHOW_LOAD_CONTAINER_SELECTOR"
-            /// </summary>
-            [EnumMember(Value = "SHOW_LOAD_CONTAINER_SELECTOR")]
-            SHOWLOADCONTAINERSELECTOR,
-            
-            /// <summary>
-            /// Enum SHOWLOADINVALIDCONTAINER for "SHOW_LOAD_INVALID_CONTAINER"
-            /// </summary>
-            [EnumMember(Value = "SHOW_LOAD_INVALID_CONTAINER")]
-            SHOWLOADINVALIDCONTAINER,
-            
-            /// <summary>
-            /// Enum SHOWTOKENTIMEOUT for "SHOW_TOKEN_TIMEOUT"
-            /// </summary>
-            [EnumMember(Value = "SHOW_TOKEN_TIMEOUT")]
-            SHOWTOKENTIMEOUT,
-            
-            /// <summary>
-            /// Enum SHOWTOKENXHRERROR for "SHOW_TOKEN_XHR_ERROR"
-            /// </summary>
-            [EnumMember(Value = "SHOW_TOKEN_XHR_ERROR")]
-            SHOWTOKENXHRERROR,
-            
-            /// <summary>
-            /// Enum SHOWPAYMENTTIMEOUT for "SHOW_PAYMENT_TIMEOUT"
-            /// </summary>
-            [EnumMember(Value = "SHOW_PAYMENT_TIMEOUT")]
-            SHOWPAYMENTTIMEOUT
-        }
-
-        /// <summary>
-        /// Gets or Sets Reason
-        /// </summary>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public ReasonEnum? Reason { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4006" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InlineResponse4006() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse4006" /> class.
-        /// </summary>
-        /// <param name="CorrelationId">CorrelationId.</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
+        /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA .</param>
+        /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
-        /// <param name="InformationLink">InformationLink.</param>
-        /// <param name="Message">Message (required).</param>
-        /// <param name="Reason">Reason (required).</param>
-        public InlineResponse4006(string CorrelationId = default(string), List<InlineResponse4006Details> Details = default(List<InlineResponse4006Details>), string InformationLink = default(string), string Message = default(string), ReasonEnum? Reason = default(ReasonEnum?))
+        public InlineResponse4006(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
-            // to ensure "Message" is required (not null)
-            if (Message == null)
-            {
-                throw new InvalidDataException("Message is a required property for InlineResponse4006 and cannot be null");
-            }
-            else
-            {
-                this.Message = Message;
-            }
-            // to ensure "Reason" is required (not null)
-            if (Reason == null)
-            {
-                throw new InvalidDataException("Reason is a required property for InlineResponse4006 and cannot be null");
-            }
-            else
-            {
-                this.Reason = Reason;
-            }
-            this.CorrelationId = CorrelationId;
+            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Status = Status;
+            this.Reason = Reason;
+            this.Message = Message;
             this.Details = Details;
-            this.InformationLink = InformationLink;
         }
         
         /// <summary>
-        /// Gets or Sets CorrelationId
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
         /// </summary>
-        [DataMember(Name="correlationId", EmitDefaultValue=false)]
-        public string CorrelationId { get; set; }
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
+        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
+        public string SubmitTimeUtc { get; set; }
+
+        /// <summary>
+        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
+        /// </summary>
+        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA 
+        /// </summary>
+        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
+
+        /// <summary>
+        /// The detail message related to the status and reason listed above.
+        /// </summary>
+        /// <value>The detail message related to the status and reason listed above.</value>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; set; }
 
         /// <summary>
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="details", EmitDefaultValue=false)]
-        public List<InlineResponse4006Details> Details { get; set; }
-
-        /// <summary>
-        /// Gets or Sets InformationLink
-        /// </summary>
-        [DataMember(Name="informationLink", EmitDefaultValue=false)]
-        public string InformationLink { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Message
-        /// </summary>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
-
+        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -204,11 +89,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4006 {\n");
-            sb.Append("  CorrelationId: ").Append(CorrelationId).Append("\n");
-            sb.Append("  Details: ").Append(Details).Append("\n");
-            sb.Append("  InformationLink: ").Append(InformationLink).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -246,19 +131,19 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.CorrelationId == other.CorrelationId ||
-                    this.CorrelationId != null &&
-                    this.CorrelationId.Equals(other.CorrelationId)
+                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
+                    this.SubmitTimeUtc != null &&
+                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
                 ) && 
                 (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.InformationLink == other.InformationLink ||
-                    this.InformationLink != null &&
-                    this.InformationLink.Equals(other.InformationLink)
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -266,9 +151,9 @@ namespace CyberSource.Model
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -283,16 +168,16 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.CorrelationId != null)
-                    hash = hash * 59 + this.CorrelationId.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
-                if (this.InformationLink != null)
-                    hash = hash * 59 + this.InformationLink.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
+                if (this.SubmitTimeUtc != null)
+                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
                 if (this.Reason != null)
                     hash = hash * 59 + this.Reason.GetHashCode();
+                if (this.Message != null)
+                    hash = hash * 59 + this.Message.GetHashCode();
+                if (this.Details != null)
+                    hash = hash * 59 + this.Details.GetHashCode();
                 return hash;
             }
         }

@@ -35,8 +35,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>InlineResponse20014</returns>
-        InlineResponse20014 GetBatchReport (string batchId);
+        /// <returns>InlineResponse2004</returns>
+        InlineResponse2004 GetBatchReport (string batchId);
 
         /// <summary>
         /// Retrieve a Batch Report
@@ -46,8 +46,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>ApiResponse of InlineResponse20014</returns>
-        ApiResponse<InlineResponse20014> GetBatchReportWithHttpInfo (string batchId);
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        ApiResponse<InlineResponse2004> GetBatchReportWithHttpInfo (string batchId);
         /// <summary>
         /// Retrieve a Batch Status
         /// </summary>
@@ -56,8 +56,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>InlineResponse20013</returns>
-        InlineResponse20013 GetBatchStatus (string batchId);
+        /// <returns>InlineResponse2003</returns>
+        InlineResponse2003 GetBatchStatus (string batchId);
 
         /// <summary>
         /// Retrieve a Batch Status
@@ -67,8 +67,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>ApiResponse of InlineResponse20013</returns>
-        ApiResponse<InlineResponse20013> GetBatchStatusWithHttpInfo (string batchId);
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        ApiResponse<InlineResponse2003> GetBatchStatusWithHttpInfo (string batchId);
         /// <summary>
         /// List Batches
         /// </summary>
@@ -80,8 +80,8 @@ namespace CyberSource.Api
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. (optional, default to 20)</param>
         /// <param name="fromDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
         /// <param name="toDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
-        /// <returns>InlineResponse20012</returns>
-        InlineResponse20012 GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null);
+        /// <returns>InlineResponse2002</returns>
+        InlineResponse2002 GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null);
 
         /// <summary>
         /// List Batches
@@ -94,8 +94,8 @@ namespace CyberSource.Api
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. (optional, default to 20)</param>
         /// <param name="fromDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
         /// <param name="toDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20012</returns>
-        ApiResponse<InlineResponse20012> GetBatchesListWithHttpInfo (long? offset = null, long? limit = null, string fromDate = null, string toDate = null);
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        ApiResponse<InlineResponse2002> GetBatchesListWithHttpInfo (long? offset = null, long? limit = null, string fromDate = null, string toDate = null);
         /// <summary>
         /// Create a Batch
         /// </summary>
@@ -104,8 +104,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>InlineResponse2022</returns>
-        InlineResponse2022 PostBatch (Body body);
+        /// <returns>InlineResponse202</returns>
+        InlineResponse202 PostBatch (Body body);
 
         /// <summary>
         /// Create a Batch
@@ -115,8 +115,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>ApiResponse of InlineResponse2022</returns>
-        ApiResponse<InlineResponse2022> PostBatchWithHttpInfo (Body body);
+        /// <returns>ApiResponse of InlineResponse202</returns>
+        ApiResponse<InlineResponse202> PostBatchWithHttpInfo (Body body);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -127,8 +127,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>Task of InlineResponse20014</returns>
-        System.Threading.Tasks.Task<InlineResponse20014> GetBatchReportAsync (string batchId);
+        /// <returns>Task of InlineResponse2004</returns>
+        System.Threading.Tasks.Task<InlineResponse2004> GetBatchReportAsync (string batchId);
 
         /// <summary>
         /// Retrieve a Batch Report
@@ -138,8 +138,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> GetBatchReportAsyncWithHttpInfo (string batchId);
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetBatchReportAsyncWithHttpInfo (string batchId);
         /// <summary>
         /// Retrieve a Batch Status
         /// </summary>
@@ -148,8 +148,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>Task of InlineResponse20013</returns>
-        System.Threading.Tasks.Task<InlineResponse20013> GetBatchStatusAsync (string batchId);
+        /// <returns>Task of InlineResponse2003</returns>
+        System.Threading.Tasks.Task<InlineResponse2003> GetBatchStatusAsync (string batchId);
 
         /// <summary>
         /// Retrieve a Batch Status
@@ -159,8 +159,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetBatchStatusAsyncWithHttpInfo (string batchId);
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetBatchStatusAsyncWithHttpInfo (string batchId);
         /// <summary>
         /// List Batches
         /// </summary>
@@ -172,8 +172,8 @@ namespace CyberSource.Api
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. (optional, default to 20)</param>
         /// <param name="fromDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
         /// <param name="toDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
-        /// <returns>Task of InlineResponse20012</returns>
-        System.Threading.Tasks.Task<InlineResponse20012> GetBatchesListAsync (long? offset = null, long? limit = null, string fromDate = null, string toDate = null);
+        /// <returns>Task of InlineResponse2002</returns>
+        System.Threading.Tasks.Task<InlineResponse2002> GetBatchesListAsync (long? offset = null, long? limit = null, string fromDate = null, string toDate = null);
 
         /// <summary>
         /// List Batches
@@ -186,8 +186,8 @@ namespace CyberSource.Api
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. (optional, default to 20)</param>
         /// <param name="fromDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
         /// <param name="toDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetBatchesListAsyncWithHttpInfo (long? offset = null, long? limit = null, string fromDate = null, string toDate = null);
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetBatchesListAsyncWithHttpInfo (long? offset = null, long? limit = null, string fromDate = null, string toDate = null);
         /// <summary>
         /// Create a Batch
         /// </summary>
@@ -196,8 +196,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>Task of InlineResponse2022</returns>
-        System.Threading.Tasks.Task<InlineResponse2022> PostBatchAsync (Body body);
+        /// <returns>Task of InlineResponse202</returns>
+        System.Threading.Tasks.Task<InlineResponse202> PostBatchAsync (Body body);
 
         /// <summary>
         /// Create a Batch
@@ -207,8 +207,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2022)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2022>> PostBatchAsyncWithHttpInfo (Body body);
+        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> PostBatchAsyncWithHttpInfo (Body body);
         #endregion Asynchronous Operations
     }
 
@@ -354,12 +354,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>InlineResponse20014</returns>
-        public InlineResponse20014 GetBatchReport (string batchId)
+        /// <returns>InlineResponse2004</returns>
+        public InlineResponse2004 GetBatchReport (string batchId)
         {
             logger.Debug("CALLING API \"GetBatchReport\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20014> localVarResponse = GetBatchReportWithHttpInfo(batchId);
+            ApiResponse<InlineResponse2004> localVarResponse = GetBatchReportWithHttpInfo(batchId);
             logger.Debug("CALLING API \"GetBatchReport\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -370,8 +370,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>ApiResponse of InlineResponse20014</returns>
-        public ApiResponse< InlineResponse20014 > GetBatchReportWithHttpInfo (string batchId)
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        public ApiResponse< InlineResponse2004 > GetBatchReportWithHttpInfo (string batchId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -438,9 +438,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20014>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20014))); // Return statement
+                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004))); // Return statement
         }
 
         /// <summary>
@@ -448,12 +448,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>Task of InlineResponse20014</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20014> GetBatchReportAsync (string batchId)
+        /// <returns>Task of InlineResponse2004</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2004> GetBatchReportAsync (string batchId)
         {
             logger.Debug("CALLING API \"GetBatchReportAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20014> localVarResponse = await GetBatchReportAsyncWithHttpInfo(batchId);
+            ApiResponse<InlineResponse2004> localVarResponse = await GetBatchReportAsyncWithHttpInfo(batchId);
             logger.Debug("CALLING API \"GetBatchReportAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -465,8 +465,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> GetBatchReportAsyncWithHttpInfo (string batchId)
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetBatchReportAsyncWithHttpInfo (string batchId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -533,21 +533,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20014>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20014))); // Return statement
+                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004))); // Return statement
         }
         /// <summary>
         /// Retrieve a Batch Status **Get Batch Status**&lt;br&gt;This resource accepts a batch id and returns: - The batch status. - The total number of accepted, rejected, updated records. - The total number of card association responses. - The billable quantities of:   - New Account Numbers (NAN)   - New Expiry Dates (NED)   - Account Closures (ACL)   - Contact Card Holders (CCH) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>InlineResponse20013</returns>
-        public InlineResponse20013 GetBatchStatus (string batchId)
+        /// <returns>InlineResponse2003</returns>
+        public InlineResponse2003 GetBatchStatus (string batchId)
         {
             logger.Debug("CALLING API \"GetBatchStatus\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20013> localVarResponse = GetBatchStatusWithHttpInfo(batchId);
+            ApiResponse<InlineResponse2003> localVarResponse = GetBatchStatusWithHttpInfo(batchId);
             logger.Debug("CALLING API \"GetBatchStatus\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -558,8 +558,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>ApiResponse of InlineResponse20013</returns>
-        public ApiResponse< InlineResponse20013 > GetBatchStatusWithHttpInfo (string batchId)
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        public ApiResponse< InlineResponse2003 > GetBatchStatusWithHttpInfo (string batchId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -626,9 +626,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20013>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20013))); // Return statement
+                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003))); // Return statement
         }
 
         /// <summary>
@@ -636,12 +636,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>Task of InlineResponse20013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20013> GetBatchStatusAsync (string batchId)
+        /// <returns>Task of InlineResponse2003</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2003> GetBatchStatusAsync (string batchId)
         {
             logger.Debug("CALLING API \"GetBatchStatusAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20013> localVarResponse = await GetBatchStatusAsyncWithHttpInfo(batchId);
+            ApiResponse<InlineResponse2003> localVarResponse = await GetBatchStatusAsyncWithHttpInfo(batchId);
             logger.Debug("CALLING API \"GetBatchStatusAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -653,8 +653,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchId">Unique identification number assigned to the submitted request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetBatchStatusAsyncWithHttpInfo (string batchId)
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetBatchStatusAsyncWithHttpInfo (string batchId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -721,9 +721,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20013>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20013))); // Return statement
+                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003))); // Return statement
         }
         /// <summary>
         /// List Batches **List Batches**&lt;br&gt;This resource accepts a optional date range, record offset and limit, returning a paginated response of batches containing: - The batch id. - The batch status. - The batch created / modified dates. - The total number of accepted, rejected, updated records. - The total number of card association responses. 
@@ -733,12 +733,12 @@ namespace CyberSource.Api
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. (optional, default to 20)</param>
         /// <param name="fromDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
         /// <param name="toDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
-        /// <returns>InlineResponse20012</returns>
-        public InlineResponse20012 GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
+        /// <returns>InlineResponse2002</returns>
+        public InlineResponse2002 GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
         {
             logger.Debug("CALLING API \"GetBatchesList\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20012> localVarResponse = GetBatchesListWithHttpInfo(offset, limit, fromDate, toDate);
+            ApiResponse<InlineResponse2002> localVarResponse = GetBatchesListWithHttpInfo(offset, limit, fromDate, toDate);
             logger.Debug("CALLING API \"GetBatchesList\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -752,8 +752,8 @@ namespace CyberSource.Api
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. (optional, default to 20)</param>
         /// <param name="fromDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
         /// <param name="toDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20012</returns>
-        public ApiResponse< InlineResponse20012 > GetBatchesListWithHttpInfo (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        public ApiResponse< InlineResponse2002 > GetBatchesListWithHttpInfo (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -829,9 +829,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20012>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20012) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20012))); // Return statement
+                (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002))); // Return statement
         }
 
         /// <summary>
@@ -842,12 +842,12 @@ namespace CyberSource.Api
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. (optional, default to 20)</param>
         /// <param name="fromDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
         /// <param name="toDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
-        /// <returns>Task of InlineResponse20012</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20012> GetBatchesListAsync (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
+        /// <returns>Task of InlineResponse2002</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2002> GetBatchesListAsync (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
         {
             logger.Debug("CALLING API \"GetBatchesListAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20012> localVarResponse = await GetBatchesListAsyncWithHttpInfo(offset, limit, fromDate, toDate);
+            ApiResponse<InlineResponse2002> localVarResponse = await GetBatchesListAsyncWithHttpInfo(offset, limit, fromDate, toDate);
             logger.Debug("CALLING API \"GetBatchesListAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -862,8 +862,8 @@ namespace CyberSource.Api
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. (optional, default to 20)</param>
         /// <param name="fromDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
         /// <param name="toDate">ISO-8601 format: yyyyMMddTHHmmssZ (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetBatchesListAsyncWithHttpInfo (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetBatchesListAsyncWithHttpInfo (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -939,21 +939,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20012>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20012) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20012))); // Return statement
+                (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002))); // Return statement
         }
         /// <summary>
         /// Create a Batch **Create a Batch**&lt;br&gt;This resource accepts TMS tokens ids of a Customer, Payment Instrument or Instrument Identifier. &lt;br&gt; The card numbers for the supplied tokens ids are then sent to the relevant card associations to check for updates.&lt;br&gt;The following type of batches can be submitted: -  **oneOff** batch containing tokens id for Visa or MasterCard card numbers. - **amexRegistration** batch containing tokens id for Amex card numbers.  A batch id will be returned on a successful response which can be used to get the batch status and the batch report. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>InlineResponse2022</returns>
-        public InlineResponse2022 PostBatch (Body body)
+        /// <returns>InlineResponse202</returns>
+        public InlineResponse202 PostBatch (Body body)
         {
             logger.Debug("CALLING API \"PostBatch\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2022> localVarResponse = PostBatchWithHttpInfo(body);
+            ApiResponse<InlineResponse202> localVarResponse = PostBatchWithHttpInfo(body);
             logger.Debug("CALLING API \"PostBatch\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -964,8 +964,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>ApiResponse of InlineResponse2022</returns>
-        public ApiResponse< InlineResponse2022 > PostBatchWithHttpInfo (Body body)
+        /// <returns>ApiResponse of InlineResponse202</returns>
+        public ApiResponse< InlineResponse202 > PostBatchWithHttpInfo (Body body)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1038,9 +1038,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2022>(localVarStatusCode,
+            return new ApiResponse<InlineResponse202>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2022) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2022))); // Return statement
+                (InlineResponse202) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse202))); // Return statement
         }
 
         /// <summary>
@@ -1048,12 +1048,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>Task of InlineResponse2022</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2022> PostBatchAsync (Body body)
+        /// <returns>Task of InlineResponse202</returns>
+        public async System.Threading.Tasks.Task<InlineResponse202> PostBatchAsync (Body body)
         {
             logger.Debug("CALLING API \"PostBatchAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2022> localVarResponse = await PostBatchAsyncWithHttpInfo(body);
+            ApiResponse<InlineResponse202> localVarResponse = await PostBatchAsyncWithHttpInfo(body);
             logger.Debug("CALLING API \"PostBatchAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1065,8 +1065,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2022)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2022>> PostBatchAsyncWithHttpInfo (Body body)
+        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> PostBatchAsyncWithHttpInfo (Body body)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1139,9 +1139,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2022>(localVarStatusCode,
+            return new ApiResponse<InlineResponse202>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2022) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2022))); // Return statement
+                (InlineResponse202) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse202))); // Return statement
         }
     }
 }
