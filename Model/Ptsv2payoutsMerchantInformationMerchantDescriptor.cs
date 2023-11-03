@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// <param name="AdministrativeArea">The state where the merchant is located.  #### PIN debit State code or region code for your business. Use the Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf) This value might be displayed on the cardholder’s statement.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  **Note** This field is supported only for businesses located in the U.S. or Canada.  Optional field for PIN debit credit or PIN debit purchase. .</param>
         /// <param name="PostalCode">Merchant&#39;s postal code.  #### PIN debit Postal code for your business location. This value might be displayed on the cardholder’s statement.  If your business is domiciled in the U.S., you can use a 5-digit or 9-digit postal code. A 9-digit postal code must follow this format: [5 digits][dash][4 digits] Example: &#x60;12345-6789&#x60;  If your business is domiciled in Canada, you can use a 6-digit or 9-digit postal code. A 6-digit postal code must follow this format: [alpha][numeric][alpha][space] [numeric][alpha][numeric] Example: &#x60;A1B 2C3&#x60;  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  **Note** This field is supported only for businesses located in the U.S. or Canada. **Important** Mastercard requires a postal code for any country that uses postal codes. You can provide the postal code in your account or you can include this field in your request.  Optional field for PIN debit credit or PIN debit purchase. .</param>
         /// <param name="Contact">For the descriptions, used-by information, data types, and lengths for these fields, see &#x60;merchant_descriptor_contact&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)- -&gt; Contact information for the merchant.  **Note** These are the maximum data lengths for the following payment processors: - FDCCompass (13) - Paymentech (13) .</param>
-        public Ptsv2payoutsMerchantInformationMerchantDescriptor(string Name = default(string), string Locality = default(string), string Country = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Contact = default(string))
+        /// <param name="Address1">First line of merchant&#39;s address. For the descriptions, used-by information, data types, and lengths for these fields, see &#x60;merchant_descriptor_street&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        public Ptsv2payoutsMerchantInformationMerchantDescriptor(string Name = default(string), string Locality = default(string), string Country = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Contact = default(string), string Address1 = default(string))
         {
             this.Name = Name;
             this.Locality = Locality;
@@ -47,6 +48,7 @@ namespace CyberSource.Model
             this.AdministrativeArea = AdministrativeArea;
             this.PostalCode = PostalCode;
             this.Contact = Contact;
+            this.Address1 = Address1;
         }
         
         /// <summary>
@@ -92,6 +94,13 @@ namespace CyberSource.Model
         public string Contact { get; set; }
 
         /// <summary>
+        /// First line of merchant&#39;s address. For the descriptions, used-by information, data types, and lengths for these fields, see &#x60;merchant_descriptor_street&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// </summary>
+        /// <value>First line of merchant&#39;s address. For the descriptions, used-by information, data types, and lengths for these fields, see &#x60;merchant_descriptor_street&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        [DataMember(Name="address1", EmitDefaultValue=false)]
+        public string Address1 { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +114,7 @@ namespace CyberSource.Model
             sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  Contact: ").Append(Contact).Append("\n");
+            sb.Append("  Address1: ").Append(Address1).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +180,11 @@ namespace CyberSource.Model
                     this.Contact == other.Contact ||
                     this.Contact != null &&
                     this.Contact.Equals(other.Contact)
+                ) && 
+                (
+                    this.Address1 == other.Address1 ||
+                    this.Address1 != null &&
+                    this.Address1.Equals(other.Address1)
                 );
         }
 
@@ -196,6 +211,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.Contact != null)
                     hash = hash * 59 + this.Contact.GetHashCode();
+                if (this.Address1 != null)
+                    hash = hash * 59 + this.Address1.GetHashCode();
                 return hash;
             }
         }

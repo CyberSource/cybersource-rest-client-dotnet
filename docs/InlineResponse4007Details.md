@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Location** | **string** |  | [optional] 
-**Message** | **string** |  | [optional] 
+**Field** | **string** | This is the flattened JSON object field name/path that is either missing or invalid. | [optional] 
+**Reason** | **string** | Possible reasons for the error. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

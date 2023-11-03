@@ -96,6 +96,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ResponseCode'
         }
+        /// <summary>
+        /// Test the property 'PinRequestIndicator'
+        /// </summary>
+        [Test]
+        public void PinRequestIndicatorTest()
+        {
+            // TODO unit test for the property 'PinRequestIndicator'
+        }
 
     }
 

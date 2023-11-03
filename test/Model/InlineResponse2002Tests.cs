@@ -65,60 +65,60 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Links'
+        /// Test the property 'RegistrationInformation'
         /// </summary>
         [Test]
-        public void LinksTest()
+        public void RegistrationInformationTest()
         {
-            // TODO unit test for the property 'Links'
+            // TODO unit test for the property 'RegistrationInformation'
         }
         /// <summary>
-        /// Test the property '_Object'
+        /// Test the property 'IntegrationInformation'
         /// </summary>
         [Test]
-        public void _ObjectTest()
+        public void IntegrationInformationTest()
         {
-            // TODO unit test for the property '_Object'
+            // TODO unit test for the property 'IntegrationInformation'
         }
         /// <summary>
-        /// Test the property 'Offset'
+        /// Test the property 'OrganizationInformation'
         /// </summary>
         [Test]
-        public void OffsetTest()
+        public void OrganizationInformationTest()
         {
-            // TODO unit test for the property 'Offset'
+            // TODO unit test for the property 'OrganizationInformation'
         }
         /// <summary>
-        /// Test the property 'Limit'
+        /// Test the property 'ProductInformation'
         /// </summary>
         [Test]
-        public void LimitTest()
+        public void ProductInformationTest()
         {
-            // TODO unit test for the property 'Limit'
+            // TODO unit test for the property 'ProductInformation'
         }
         /// <summary>
-        /// Test the property 'Count'
+        /// Test the property 'ProductInformationSetups'
         /// </summary>
         [Test]
-        public void CountTest()
+        public void ProductInformationSetupsTest()
         {
-            // TODO unit test for the property 'Count'
+            // TODO unit test for the property 'ProductInformationSetups'
         }
         /// <summary>
-        /// Test the property 'Total'
+        /// Test the property 'DocumentInformation'
         /// </summary>
         [Test]
-        public void TotalTest()
+        public void DocumentInformationTest()
         {
-            // TODO unit test for the property 'Total'
+            // TODO unit test for the property 'DocumentInformation'
         }
         /// <summary>
-        /// Test the property 'Embedded'
+        /// Test the property 'Details'
         /// </summary>
         [Test]
-        public void EmbeddedTest()
+        public void DetailsTest()
         {
-            // TODO unit test for the property 'Embedded'
+            // TODO unit test for the property 'Details'
         }
 
     }

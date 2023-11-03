@@ -320,6 +320,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'IsReturnAuthRecordEnabled'
         }
+        /// <summary>
+        /// Test the property 'NetworkPartnerId'
+        /// </summary>
+        [Test]
+        public void NetworkPartnerIdTest()
+        {
+            // TODO unit test for the property 'NetworkPartnerId'
+        }
 
     }
 
