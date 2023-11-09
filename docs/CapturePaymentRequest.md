@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **AggregatorInformation** | [**Ptsv2paymentsidcapturesAggregatorInformation**](Ptsv2paymentsidcapturesAggregatorInformation.md) |  | [optional] 
 **PointOfSaleInformation** | [**Ptsv2paymentsidcapturesPointOfSaleInformation**](Ptsv2paymentsidcapturesPointOfSaleInformation.md) |  | [optional] 
 **MerchantDefinedInformation** | [**List&lt;Ptsv2paymentsMerchantDefinedInformation&gt;**](Ptsv2paymentsMerchantDefinedInformation.md) | The object containing the custom data that the merchant defines.  | [optional] 
+**MerchantDefinedSecureInformation** | [**Ptsv2paymentsMerchantDefinedSecureInformation**](Ptsv2paymentsMerchantDefinedSecureInformation.md) |  | [optional] 
 **InstallmentInformation** | [**Ptsv2paymentsidcapturesInstallmentInformation**](Ptsv2paymentsidcapturesInstallmentInformation.md) |  | [optional] 
 **TravelInformation** | [**Ptsv2paymentsTravelInformation**](Ptsv2paymentsTravelInformation.md) |  | [optional] 
 **PromotionInformation** | [**Ptsv2paymentsPromotionInformation**](Ptsv2paymentsPromotionInformation.md) |  | [optional] 

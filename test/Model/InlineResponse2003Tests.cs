@@ -65,84 +65,28 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Links'
+        /// Test the property 'ProductId'
         /// </summary>
         [Test]
-        public void LinksTest()
+        public void ProductIdTest()
         {
-            // TODO unit test for the property 'Links'
+            // TODO unit test for the property 'ProductId'
         }
         /// <summary>
-        /// Test the property 'BatchId'
+        /// Test the property 'ProductName'
         /// </summary>
         [Test]
-        public void BatchIdTest()
+        public void ProductNameTest()
         {
-            // TODO unit test for the property 'BatchId'
+            // TODO unit test for the property 'ProductName'
         }
         /// <summary>
-        /// Test the property 'BatchCreatedDate'
+        /// Test the property 'EventTypes'
         /// </summary>
         [Test]
-        public void BatchCreatedDateTest()
+        public void EventTypesTest()
         {
-            // TODO unit test for the property 'BatchCreatedDate'
-        }
-        /// <summary>
-        /// Test the property 'BatchSource'
-        /// </summary>
-        [Test]
-        public void BatchSourceTest()
-        {
-            // TODO unit test for the property 'BatchSource'
-        }
-        /// <summary>
-        /// Test the property 'MerchantReference'
-        /// </summary>
-        [Test]
-        public void MerchantReferenceTest()
-        {
-            // TODO unit test for the property 'MerchantReference'
-        }
-        /// <summary>
-        /// Test the property 'BatchCaEndpoints'
-        /// </summary>
-        [Test]
-        public void BatchCaEndpointsTest()
-        {
-            // TODO unit test for the property 'BatchCaEndpoints'
-        }
-        /// <summary>
-        /// Test the property 'Status'
-        /// </summary>
-        [Test]
-        public void StatusTest()
-        {
-            // TODO unit test for the property 'Status'
-        }
-        /// <summary>
-        /// Test the property 'Totals'
-        /// </summary>
-        [Test]
-        public void TotalsTest()
-        {
-            // TODO unit test for the property 'Totals'
-        }
-        /// <summary>
-        /// Test the property 'Billing'
-        /// </summary>
-        [Test]
-        public void BillingTest()
-        {
-            // TODO unit test for the property 'Billing'
-        }
-        /// <summary>
-        /// Test the property 'Description'
-        /// </summary>
-        [Test]
-        public void DescriptionTest()
-        {
-            // TODO unit test for the property 'Description'
+            // TODO unit test for the property 'EventTypes'
         }
 
     }

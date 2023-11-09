@@ -31,7 +31,7 @@ namespace CyberSource.Api
         /// Create a New Invoice
         /// </summary>
         /// <remarks>
-        /// Create a new invoice.
+        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -42,7 +42,7 @@ namespace CyberSource.Api
         /// Create a New Invoice
         /// </summary>
         /// <remarks>
-        /// Create a new invoice.
+        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -52,7 +52,7 @@ namespace CyberSource.Api
         /// Get a List of Invoices
         /// </summary>
         /// <remarks>
-        /// Get a list of invoices.
+        /// Provides a (filtered) list of invoices that have been created in your account. You can filter the list based on Invoice Status by setting the status query parameter to one of DRAFT, CREATED, SENT, PARTIAL, PAID or CANCELED.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
@@ -65,7 +65,7 @@ namespace CyberSource.Api
         /// Get a List of Invoices
         /// </summary>
         /// <remarks>
-        /// Get a list of invoices.
+        /// Provides a (filtered) list of invoices that have been created in your account. You can filter the list based on Invoice Status by setting the status query parameter to one of DRAFT, CREATED, SENT, PARTIAL, PAID or CANCELED.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
@@ -77,7 +77,7 @@ namespace CyberSource.Api
         /// Get Invoice Details
         /// </summary>
         /// <remarks>
-        /// Get the details of a specific invoice.
+        /// You can retrieve details of a specific invoice. This can be used to check the Invoice status and get a list of invoice payments in the invoice history section of the response. For each payment transaction you can use the Transaction Details API to get more details on the payment transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -88,7 +88,7 @@ namespace CyberSource.Api
         /// Get Invoice Details
         /// </summary>
         /// <remarks>
-        /// Get the details of a specific invoice.
+        /// You can retrieve details of a specific invoice. This can be used to check the Invoice status and get a list of invoice payments in the invoice history section of the response. For each payment transaction you can use the Transaction Details API to get more details on the payment transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -98,7 +98,7 @@ namespace CyberSource.Api
         /// Cancel an Invoice
         /// </summary>
         /// <remarks>
-        /// Cancel an invoice.
+        /// You can cancel an invoice if no payment is made to it. You cannot cancel partially or fully paid invoices.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -109,7 +109,7 @@ namespace CyberSource.Api
         /// Cancel an Invoice
         /// </summary>
         /// <remarks>
-        /// Cancel an invoice.
+        /// You can cancel an invoice if no payment is made to it. You cannot cancel partially or fully paid invoices.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -119,7 +119,7 @@ namespace CyberSource.Api
         /// Send an Invoice
         /// </summary>
         /// <remarks>
-        /// Send an invoice.
+        /// You can send an invoice in draft or created state or resend a sent or partially paid invoice. Fully paid or canceled invoices cannot be resent.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -130,7 +130,7 @@ namespace CyberSource.Api
         /// Send an Invoice
         /// </summary>
         /// <remarks>
-        /// Send an invoice.
+        /// You can send an invoice in draft or created state or resend a sent or partially paid invoice. Fully paid or canceled invoices cannot be resent.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -140,7 +140,7 @@ namespace CyberSource.Api
         /// Update an Invoice
         /// </summary>
         /// <remarks>
-        /// Update an invoice.
+        /// You can update all information except the invoice number till any payment is received for an invoice. Invoices that are partially or fully paid or cancelled cannot be updated.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -152,7 +152,7 @@ namespace CyberSource.Api
         /// Update an Invoice
         /// </summary>
         /// <remarks>
-        /// Update an invoice.
+        /// You can update all information except the invoice number till any payment is received for an invoice. Invoices that are partially or fully paid or cancelled cannot be updated.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -165,7 +165,7 @@ namespace CyberSource.Api
         /// Create a New Invoice
         /// </summary>
         /// <remarks>
-        /// Create a new invoice.
+        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -176,7 +176,7 @@ namespace CyberSource.Api
         /// Create a New Invoice
         /// </summary>
         /// <remarks>
-        /// Create a new invoice.
+        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -186,7 +186,7 @@ namespace CyberSource.Api
         /// Get a List of Invoices
         /// </summary>
         /// <remarks>
-        /// Get a list of invoices.
+        /// Provides a (filtered) list of invoices that have been created in your account. You can filter the list based on Invoice Status by setting the status query parameter to one of DRAFT, CREATED, SENT, PARTIAL, PAID or CANCELED.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
@@ -199,7 +199,7 @@ namespace CyberSource.Api
         /// Get a List of Invoices
         /// </summary>
         /// <remarks>
-        /// Get a list of invoices.
+        /// Provides a (filtered) list of invoices that have been created in your account. You can filter the list based on Invoice Status by setting the status query parameter to one of DRAFT, CREATED, SENT, PARTIAL, PAID or CANCELED.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
@@ -211,7 +211,7 @@ namespace CyberSource.Api
         /// Get Invoice Details
         /// </summary>
         /// <remarks>
-        /// Get the details of a specific invoice.
+        /// You can retrieve details of a specific invoice. This can be used to check the Invoice status and get a list of invoice payments in the invoice history section of the response. For each payment transaction you can use the Transaction Details API to get more details on the payment transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -222,7 +222,7 @@ namespace CyberSource.Api
         /// Get Invoice Details
         /// </summary>
         /// <remarks>
-        /// Get the details of a specific invoice.
+        /// You can retrieve details of a specific invoice. This can be used to check the Invoice status and get a list of invoice payments in the invoice history section of the response. For each payment transaction you can use the Transaction Details API to get more details on the payment transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -232,7 +232,7 @@ namespace CyberSource.Api
         /// Cancel an Invoice
         /// </summary>
         /// <remarks>
-        /// Cancel an invoice.
+        /// You can cancel an invoice if no payment is made to it. You cannot cancel partially or fully paid invoices.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -243,7 +243,7 @@ namespace CyberSource.Api
         /// Cancel an Invoice
         /// </summary>
         /// <remarks>
-        /// Cancel an invoice.
+        /// You can cancel an invoice if no payment is made to it. You cannot cancel partially or fully paid invoices.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -253,7 +253,7 @@ namespace CyberSource.Api
         /// Send an Invoice
         /// </summary>
         /// <remarks>
-        /// Send an invoice.
+        /// You can send an invoice in draft or created state or resend a sent or partially paid invoice. Fully paid or canceled invoices cannot be resent.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -264,7 +264,7 @@ namespace CyberSource.Api
         /// Send an Invoice
         /// </summary>
         /// <remarks>
-        /// Send an invoice.
+        /// You can send an invoice in draft or created state or resend a sent or partially paid invoice. Fully paid or canceled invoices cannot be resent.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -274,7 +274,7 @@ namespace CyberSource.Api
         /// Update an Invoice
         /// </summary>
         /// <remarks>
-        /// Update an invoice.
+        /// You can update all information except the invoice number till any payment is received for an invoice. Invoices that are partially or fully paid or cancelled cannot be updated.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -286,7 +286,7 @@ namespace CyberSource.Api
         /// Update an Invoice
         /// </summary>
         /// <remarks>
-        /// Update an invoice.
+        /// You can update all information except the invoice number till any payment is received for an invoice. Invoices that are partially or fully paid or cancelled cannot be updated.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -434,7 +434,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a New Invoice Create a new invoice.
+        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -450,7 +450,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a New Invoice Create a new invoice.
+        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -537,7 +537,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a New Invoice Create a new invoice.
+        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -554,7 +554,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a New Invoice Create a new invoice.
+        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -640,7 +640,7 @@ namespace CyberSource.Api
                 (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
         /// <summary>
-        /// Get a List of Invoices Get a list of invoices.
+        /// Get a List of Invoices Provides a (filtered) list of invoices that have been created in your account. You can filter the list based on Invoice Status by setting the status query parameter to one of DRAFT, CREATED, SENT, PARTIAL, PAID or CANCELED.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
@@ -658,7 +658,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get a List of Invoices Get a list of invoices.
+        /// Get a List of Invoices Provides a (filtered) list of invoices that have been created in your account. You can filter the list based on Invoice Status by setting the status query parameter to one of DRAFT, CREATED, SENT, PARTIAL, PAID or CANCELED.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
@@ -757,7 +757,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get a List of Invoices Get a list of invoices.
+        /// Get a List of Invoices Provides a (filtered) list of invoices that have been created in your account. You can filter the list based on Invoice Status by setting the status query parameter to one of DRAFT, CREATED, SENT, PARTIAL, PAID or CANCELED.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
@@ -776,7 +776,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get a List of Invoices Get a list of invoices.
+        /// Get a List of Invoices Provides a (filtered) list of invoices that have been created in your account. You can filter the list based on Invoice Status by setting the status query parameter to one of DRAFT, CREATED, SENT, PARTIAL, PAID or CANCELED.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
@@ -874,7 +874,7 @@ namespace CyberSource.Api
                 (InvoicingV2InvoicesAllGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesAllGet200Response))); // Return statement
         }
         /// <summary>
-        /// Get Invoice Details Get the details of a specific invoice.
+        /// Get Invoice Details You can retrieve details of a specific invoice. This can be used to check the Invoice status and get a list of invoice payments in the invoice history section of the response. For each payment transaction you can use the Transaction Details API to get more details on the payment transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -890,7 +890,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Invoice Details Get the details of a specific invoice.
+        /// Get Invoice Details You can retrieve details of a specific invoice. This can be used to check the Invoice status and get a list of invoice payments in the invoice history section of the response. For each payment transaction you can use the Transaction Details API to get more details on the payment transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -971,7 +971,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Invoice Details Get the details of a specific invoice.
+        /// Get Invoice Details You can retrieve details of a specific invoice. This can be used to check the Invoice status and get a list of invoice payments in the invoice history section of the response. For each payment transaction you can use the Transaction Details API to get more details on the payment transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -988,7 +988,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Invoice Details Get the details of a specific invoice.
+        /// Get Invoice Details You can retrieve details of a specific invoice. This can be used to check the Invoice status and get a list of invoice payments in the invoice history section of the response. For each payment transaction you can use the Transaction Details API to get more details on the payment transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1068,7 +1068,7 @@ namespace CyberSource.Api
                 (InvoicingV2InvoicesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesGet200Response))); // Return statement
         }
         /// <summary>
-        /// Cancel an Invoice Cancel an invoice.
+        /// Cancel an Invoice You can cancel an invoice if no payment is made to it. You cannot cancel partially or fully paid invoices.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1084,7 +1084,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Cancel an Invoice Cancel an invoice.
+        /// Cancel an Invoice You can cancel an invoice if no payment is made to it. You cannot cancel partially or fully paid invoices.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1165,7 +1165,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Cancel an Invoice Cancel an invoice.
+        /// Cancel an Invoice You can cancel an invoice if no payment is made to it. You cannot cancel partially or fully paid invoices.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1182,7 +1182,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Cancel an Invoice Cancel an invoice.
+        /// Cancel an Invoice You can cancel an invoice if no payment is made to it. You cannot cancel partially or fully paid invoices.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1262,7 +1262,7 @@ namespace CyberSource.Api
                 (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
         /// <summary>
-        /// Send an Invoice Send an invoice.
+        /// Send an Invoice You can send an invoice in draft or created state or resend a sent or partially paid invoice. Fully paid or canceled invoices cannot be resent.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1278,7 +1278,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Send an Invoice Send an invoice.
+        /// Send an Invoice You can send an invoice in draft or created state or resend a sent or partially paid invoice. Fully paid or canceled invoices cannot be resent.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1359,7 +1359,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Send an Invoice Send an invoice.
+        /// Send an Invoice You can send an invoice in draft or created state or resend a sent or partially paid invoice. Fully paid or canceled invoices cannot be resent.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1376,7 +1376,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Send an Invoice Send an invoice.
+        /// Send an Invoice You can send an invoice in draft or created state or resend a sent or partially paid invoice. Fully paid or canceled invoices cannot be resent.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1456,7 +1456,7 @@ namespace CyberSource.Api
                 (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
         }
         /// <summary>
-        /// Update an Invoice Update an invoice.
+        /// Update an Invoice You can update all information except the invoice number till any payment is received for an invoice. Invoices that are partially or fully paid or cancelled cannot be updated.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1473,7 +1473,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update an Invoice Update an invoice.
+        /// Update an Invoice You can update all information except the invoice number till any payment is received for an invoice. Invoices that are partially or fully paid or cancelled cannot be updated.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1572,7 +1572,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update an Invoice Update an invoice.
+        /// Update an Invoice You can update all information except the invoice number till any payment is received for an invoice. Invoices that are partially or fully paid or cancelled cannot be updated.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
@@ -1590,7 +1590,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update an Invoice Update an invoice.
+        /// Update an Invoice You can update all information except the invoice number till any payment is received for an invoice. Invoices that are partially or fully paid or cancelled cannot be updated.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>

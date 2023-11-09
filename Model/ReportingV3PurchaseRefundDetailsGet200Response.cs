@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// ReportingV3PurchaseRefundDetailsGet200Response
+    /// PurchaseAndRefundDetails
     /// </summary>
     [DataContract]
     public partial class ReportingV3PurchaseRefundDetailsGet200Response :  IEquatable<ReportingV3PurchaseRefundDetailsGet200Response>, IValidatableObject

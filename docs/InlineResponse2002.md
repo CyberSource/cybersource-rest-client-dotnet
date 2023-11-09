@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Links** | [**List&lt;InlineResponse2002Links&gt;**](InlineResponse2002Links.md) |  | [optional] 
-**_Object** | **string** |  | [optional] 
-**Offset** | **int?** |  | [optional] 
-**Limit** | **int?** |  | [optional] 
-**Count** | **int?** |  | [optional] 
-**Total** | **int?** |  | [optional] 
-**Embedded** | [**InlineResponse2002Embedded**](InlineResponse2002Embedded.md) |  | [optional] 
+**RegistrationInformation** | [**Boardingv1registrationsRegistrationInformation**](Boardingv1registrationsRegistrationInformation.md) |  | [optional] 
+**IntegrationInformation** | [**InlineResponse2002IntegrationInformation**](InlineResponse2002IntegrationInformation.md) |  | [optional] 
+**OrganizationInformation** | [**Boardingv1registrationsOrganizationInformation**](Boardingv1registrationsOrganizationInformation.md) |  | [optional] 
+**ProductInformation** | [**Boardingv1registrationsProductInformation**](Boardingv1registrationsProductInformation.md) |  | [optional] 
+**ProductInformationSetups** | [**List&lt;InlineResponse2011ProductInformationSetups&gt;**](InlineResponse2011ProductInformationSetups.md) |  | [optional] 
+**DocumentInformation** | [**Boardingv1registrationsDocumentInformation**](Boardingv1registrationsDocumentInformation.md) |  | [optional] 
+**Details** | **Dictionary&lt;string, List&lt;Object&gt;&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

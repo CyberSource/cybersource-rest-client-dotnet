@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Cavv'
         }
         /// <summary>
+        /// Test the property 'TransactionFlowIndicator'
+        /// </summary>
+        [Test]
+        public void TransactionFlowIndicatorTest()
+        {
+            // TODO unit test for the property 'TransactionFlowIndicator'
+        }
+        /// <summary>
         /// Test the property 'CavvAlgorithm'
         /// </summary>
         [Test]

@@ -33,65 +33,65 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2002" /> class.
         /// </summary>
-        /// <param name="Links">Links.</param>
-        /// <param name="_Object">_Object.</param>
-        /// <param name="Offset">Offset.</param>
-        /// <param name="Limit">Limit.</param>
-        /// <param name="Count">Count.</param>
-        /// <param name="Total">Total.</param>
-        /// <param name="Embedded">Embedded.</param>
-        public InlineResponse2002(List<InlineResponse2002Links> Links = default(List<InlineResponse2002Links>), string _Object = default(string), int? Offset = default(int?), int? Limit = default(int?), int? Count = default(int?), int? Total = default(int?), InlineResponse2002Embedded Embedded = default(InlineResponse2002Embedded))
+        /// <param name="RegistrationInformation">RegistrationInformation.</param>
+        /// <param name="IntegrationInformation">IntegrationInformation.</param>
+        /// <param name="OrganizationInformation">OrganizationInformation.</param>
+        /// <param name="ProductInformation">ProductInformation.</param>
+        /// <param name="ProductInformationSetups">ProductInformationSetups.</param>
+        /// <param name="DocumentInformation">DocumentInformation.</param>
+        /// <param name="Details">Details.</param>
+        public InlineResponse2002(Boardingv1registrationsRegistrationInformation RegistrationInformation = default(Boardingv1registrationsRegistrationInformation), InlineResponse2002IntegrationInformation IntegrationInformation = default(InlineResponse2002IntegrationInformation), Boardingv1registrationsOrganizationInformation OrganizationInformation = default(Boardingv1registrationsOrganizationInformation), Boardingv1registrationsProductInformation ProductInformation = default(Boardingv1registrationsProductInformation), List<InlineResponse2011ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2011ProductInformationSetups>), Boardingv1registrationsDocumentInformation DocumentInformation = default(Boardingv1registrationsDocumentInformation), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
         {
-            this.Links = Links;
-            this._Object = _Object;
-            this.Offset = Offset;
-            this.Limit = Limit;
-            this.Count = Count;
-            this.Total = Total;
-            this.Embedded = Embedded;
+            this.RegistrationInformation = RegistrationInformation;
+            this.IntegrationInformation = IntegrationInformation;
+            this.OrganizationInformation = OrganizationInformation;
+            this.ProductInformation = ProductInformation;
+            this.ProductInformationSetups = ProductInformationSetups;
+            this.DocumentInformation = DocumentInformation;
+            this.Details = Details;
         }
         
         /// <summary>
-        /// Gets or Sets Links
+        /// Gets or Sets RegistrationInformation
         /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public List<InlineResponse2002Links> Links { get; set; }
+        [DataMember(Name="registrationInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsRegistrationInformation RegistrationInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Object
+        /// Gets or Sets IntegrationInformation
         /// </summary>
-        [DataMember(Name="object", EmitDefaultValue=false)]
-        public string _Object { get; set; }
+        [DataMember(Name="integrationInformation", EmitDefaultValue=false)]
+        public InlineResponse2002IntegrationInformation IntegrationInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets Offset
+        /// Gets or Sets OrganizationInformation
         /// </summary>
-        [DataMember(Name="offset", EmitDefaultValue=false)]
-        public int? Offset { get; set; }
+        [DataMember(Name="organizationInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsOrganizationInformation OrganizationInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets Limit
+        /// Gets or Sets ProductInformation
         /// </summary>
-        [DataMember(Name="limit", EmitDefaultValue=false)]
-        public int? Limit { get; set; }
+        [DataMember(Name="productInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsProductInformation ProductInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets Count
+        /// Gets or Sets ProductInformationSetups
         /// </summary>
-        [DataMember(Name="count", EmitDefaultValue=false)]
-        public int? Count { get; set; }
+        [DataMember(Name="productInformationSetups", EmitDefaultValue=false)]
+        public List<InlineResponse2011ProductInformationSetups> ProductInformationSetups { get; set; }
 
         /// <summary>
-        /// Gets or Sets Total
+        /// Gets or Sets DocumentInformation
         /// </summary>
-        [DataMember(Name="total", EmitDefaultValue=false)]
-        public int? Total { get; set; }
+        [DataMember(Name="documentInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsDocumentInformation DocumentInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets Embedded
+        /// Gets or Sets Details
         /// </summary>
-        [DataMember(Name="_embedded", EmitDefaultValue=false)]
-        public InlineResponse2002Embedded Embedded { get; set; }
+        [DataMember(Name="details", EmitDefaultValue=false)]
+        public Dictionary<string, List<Object>> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,13 +101,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2002 {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  _Object: ").Append(_Object).Append("\n");
-            sb.Append("  Offset: ").Append(Offset).Append("\n");
-            sb.Append("  Limit: ").Append(Limit).Append("\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
-            sb.Append("  Total: ").Append(Total).Append("\n");
-            sb.Append("  Embedded: ").Append(Embedded).Append("\n");
+            sb.Append("  RegistrationInformation: ").Append(RegistrationInformation).Append("\n");
+            sb.Append("  IntegrationInformation: ").Append(IntegrationInformation).Append("\n");
+            sb.Append("  OrganizationInformation: ").Append(OrganizationInformation).Append("\n");
+            sb.Append("  ProductInformation: ").Append(ProductInformation).Append("\n");
+            sb.Append("  ProductInformationSetups: ").Append(ProductInformationSetups).Append("\n");
+            sb.Append("  DocumentInformation: ").Append(DocumentInformation).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,39 +145,39 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Links == other.Links ||
-                    this.Links != null &&
-                    this.Links.SequenceEqual(other.Links)
+                    this.RegistrationInformation == other.RegistrationInformation ||
+                    this.RegistrationInformation != null &&
+                    this.RegistrationInformation.Equals(other.RegistrationInformation)
                 ) && 
                 (
-                    this._Object == other._Object ||
-                    this._Object != null &&
-                    this._Object.Equals(other._Object)
+                    this.IntegrationInformation == other.IntegrationInformation ||
+                    this.IntegrationInformation != null &&
+                    this.IntegrationInformation.Equals(other.IntegrationInformation)
                 ) && 
                 (
-                    this.Offset == other.Offset ||
-                    this.Offset != null &&
-                    this.Offset.Equals(other.Offset)
+                    this.OrganizationInformation == other.OrganizationInformation ||
+                    this.OrganizationInformation != null &&
+                    this.OrganizationInformation.Equals(other.OrganizationInformation)
                 ) && 
                 (
-                    this.Limit == other.Limit ||
-                    this.Limit != null &&
-                    this.Limit.Equals(other.Limit)
+                    this.ProductInformation == other.ProductInformation ||
+                    this.ProductInformation != null &&
+                    this.ProductInformation.Equals(other.ProductInformation)
                 ) && 
                 (
-                    this.Count == other.Count ||
-                    this.Count != null &&
-                    this.Count.Equals(other.Count)
+                    this.ProductInformationSetups == other.ProductInformationSetups ||
+                    this.ProductInformationSetups != null &&
+                    this.ProductInformationSetups.SequenceEqual(other.ProductInformationSetups)
                 ) && 
                 (
-                    this.Total == other.Total ||
-                    this.Total != null &&
-                    this.Total.Equals(other.Total)
+                    this.DocumentInformation == other.DocumentInformation ||
+                    this.DocumentInformation != null &&
+                    this.DocumentInformation.Equals(other.DocumentInformation)
                 ) && 
                 (
-                    this.Embedded == other.Embedded ||
-                    this.Embedded != null &&
-                    this.Embedded.Equals(other.Embedded)
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -192,20 +192,20 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Links != null)
-                    hash = hash * 59 + this.Links.GetHashCode();
-                if (this._Object != null)
-                    hash = hash * 59 + this._Object.GetHashCode();
-                if (this.Offset != null)
-                    hash = hash * 59 + this.Offset.GetHashCode();
-                if (this.Limit != null)
-                    hash = hash * 59 + this.Limit.GetHashCode();
-                if (this.Count != null)
-                    hash = hash * 59 + this.Count.GetHashCode();
-                if (this.Total != null)
-                    hash = hash * 59 + this.Total.GetHashCode();
-                if (this.Embedded != null)
-                    hash = hash * 59 + this.Embedded.GetHashCode();
+                if (this.RegistrationInformation != null)
+                    hash = hash * 59 + this.RegistrationInformation.GetHashCode();
+                if (this.IntegrationInformation != null)
+                    hash = hash * 59 + this.IntegrationInformation.GetHashCode();
+                if (this.OrganizationInformation != null)
+                    hash = hash * 59 + this.OrganizationInformation.GetHashCode();
+                if (this.ProductInformation != null)
+                    hash = hash * 59 + this.ProductInformation.GetHashCode();
+                if (this.ProductInformationSetups != null)
+                    hash = hash * 59 + this.ProductInformationSetups.GetHashCode();
+                if (this.DocumentInformation != null)
+                    hash = hash * 59 + this.DocumentInformation.GetHashCode();
+                if (this.Details != null)
+                    hash = hash * 59 + this.Details.GetHashCode();
                 return hash;
             }
         }
