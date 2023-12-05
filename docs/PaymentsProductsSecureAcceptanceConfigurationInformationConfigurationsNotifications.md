@@ -1,0 +1,10 @@
+# CyberSource.Model.PaymentsProductsSecureAcceptanceConfigurationInformationConfigurationsNotifications
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**MerchantNotifications** | [**PaymentsProductsSecureAcceptanceConfigurationInformationConfigurationsNotificationsMerchantNotifications**](PaymentsProductsSecureAcceptanceConfigurationInformationConfigurationsNotificationsMerchantNotifications.md) |  | [optional] 
+**CustomerNotifications** | [**PaymentsProductsSecureAcceptanceConfigurationInformationConfigurationsNotificationsCustomerNotifications**](PaymentsProductsSecureAcceptanceConfigurationInformationConfigurationsNotificationsCustomerNotifications.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

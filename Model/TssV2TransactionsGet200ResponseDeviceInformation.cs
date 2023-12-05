@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="IpAddress">IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. .</param>
         /// <param name="HostName">DNS resolved hostname from &#x60;ipAddress&#x60;..</param>
-        /// <param name="CookiesAccepted">Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. .</param>
+        /// <param name="CookiesAccepted">Whether the customer&#39;s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer&#39;s browser accepts cookies. - &#x60;no&#x60;: The customer&#39;s browser does not accept cookies. .</param>
         public TssV2TransactionsGet200ResponseDeviceInformation(string IpAddress = default(string), string HostName = default(string), string CookiesAccepted = default(string))
         {
             this.IpAddress = IpAddress;
@@ -58,9 +58,9 @@ namespace CyberSource.Model
         public string HostName { get; set; }
 
         /// <summary>
-        /// Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. 
+        /// Whether the customer&#39;s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer&#39;s browser accepts cookies. - &#x60;no&#x60;: The customer&#39;s browser does not accept cookies. 
         /// </summary>
-        /// <value>Whether the customer’s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer’s browser accepts cookies. - &#x60;no&#x60;: The customer’s browser does not accept cookies. </value>
+        /// <value>Whether the customer&#39;s browser accepts cookies. This field can contain one of the following values: - &#x60;yes&#x60;: The customer&#39;s browser accepts cookies. - &#x60;no&#x60;: The customer&#39;s browser does not accept cookies. </value>
         [DataMember(Name="cookiesAccepted", EmitDefaultValue=false)]
         public string CookiesAccepted { get; set; }
 

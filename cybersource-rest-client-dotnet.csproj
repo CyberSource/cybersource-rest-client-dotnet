@@ -12,7 +12,7 @@ OpenAPI spec version: 0.0.1
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FB78DF99-70F9-48AD-8734-FDC1D8FA7029}</ProjectGuid>
+    <ProjectGuid>{B50ACCAD-A2D0-4593-BC66-B2D9BC58F03E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CyberSource</RootNamespace>

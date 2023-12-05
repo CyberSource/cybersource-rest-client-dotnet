@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="SubscriptionInformation">SubscriptionInformation.</param>
         /// <param name="ConfigurationInformation">ConfigurationInformation.</param>
-        public RiskProductsDecisionManager(PaymentProductsPayerAuthenticationSubscriptionInformation SubscriptionInformation = default(PaymentProductsPayerAuthenticationSubscriptionInformation), RiskProductsDecisionManagerConfigurationInformation ConfigurationInformation = default(RiskProductsDecisionManagerConfigurationInformation))
+        public RiskProductsDecisionManager(PaymentsProductsPayerAuthenticationSubscriptionInformation SubscriptionInformation = default(PaymentsProductsPayerAuthenticationSubscriptionInformation), RiskProductsDecisionManagerConfigurationInformation ConfigurationInformation = default(RiskProductsDecisionManagerConfigurationInformation))
         {
             this.SubscriptionInformation = SubscriptionInformation;
             this.ConfigurationInformation = ConfigurationInformation;
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// Gets or Sets SubscriptionInformation
         /// </summary>
         [DataMember(Name="subscriptionInformation", EmitDefaultValue=false)]
-        public PaymentProductsPayerAuthenticationSubscriptionInformation SubscriptionInformation { get; set; }
+        public PaymentsProductsPayerAuthenticationSubscriptionInformation SubscriptionInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ConfigurationInformation

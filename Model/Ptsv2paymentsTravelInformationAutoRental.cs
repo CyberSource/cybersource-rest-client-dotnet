@@ -37,21 +37,21 @@ namespace CyberSource.Model
         /// <param name="CustomerName">Name of the individual making the rental agreement.  Valid data lengths by card:  |Card Specific Validation|VISA|MasterCard|Discover|AMEX| |- -- |- -- |- -- |- -- | | Filed Length| 40| 40| 29| 26| | Field Type| AN| ANS| AN| AN| | M/O/C| O| M| M| M| .</param>
         /// <param name="VehicleClass">Classification of the rented auto.  **NOTE** For VISA, this is a 2-byte optional code.  Valid values for American Express &amp; MasterCard:  |American Express |MasterCard |Description| |- -- |- -- |- -- | | 0001| 0001| Mini| | 0002| 0002| Subcompact| | 0003| 0003| Economy| | 0004| 0004| Compact| | 0005| 0005| Midsize| | 0006| 0006| Intermediate| | 0007| 0007| Standard| | 0008| 0008| Fulll size| | 0009| 0009| Luxury| | 0010| 0010| Premium| | 0011| 0011| Minivan| | 0012| 0012| 12-passenger van| | 0013| 0013| Moving van| | 0014| 0014| 15-passenger van| | 0015| 0015| Cargo van| | 0016| 0016| 12-foot truck| | 0017| 0017| 20-foot truck| | 0018| 0018| 24-foot truck| | 0019| 0019| 26-foot truck| | 0020| 0020| Moped| | 0021| 0021| Stretch| | 0022| 0022| Regular| | 0023| 0023| Unique| | 0024| 0024| Exotic| | 0025| 0025| Small/medium truck| | 0026| 0026| Large truck| | 0027| 0027| Small SUV| | 0028| 0028| Medium SUV| | 0029| 0029| Large SUV| | 0030| 0030| Exotic SUV| | 9999| 9999| Miscellaneous|  Additional Values allowed **only** for &#x60;American Express&#x60;:  |American Express|MasterCard|Description| |- -- |- -- |- -- | | 0031| NA| Four Wheel Drive| | 0032| NA| Special| | 0099| NA| Taxi| .</param>
         /// <param name="DistanceTravelled">Total number of miles driven by the customer. This field is supported only for MasterCard and American Express. .</param>
-        /// <param name="DistanceUnit">Miles/Kilometers Indicator shows whether the “miles” fields are expressed in miles or kilometers.  Allowed values: - &#x60;K&#x60; - Kilometers - &#x60;M&#x60; - Miles .</param>
+        /// <param name="DistanceUnit">Miles/Kilometers Indicator shows whether the \&quot;miles\&quot; fields are expressed in miles or kilometers.  Allowed values: - &#x60;K&#x60; - Kilometers - &#x60;M&#x60; - Miles .</param>
         /// <param name="ReturnDateTime">Date/time the auto was returned to the rental agency. Format: &#x60;&#x60;yyyy-MM-dd HH-mm-ss z&#x60;&#x60; This field is supported for Visa, MasterCard, and American Express. .</param>
         /// <param name="RentalDateTime">Date/time the auto was picked up from the rental agency. Format: &#x60;yyyy-MM-dd HH-mm-ss z&#x60; This field is supported for Visa, MasterCard, and American Express. .</param>
         /// <param name="MaxFreeDistance">Maximum number of free miles or kilometers allowed to a customer for the duration of the auto rental agreement. This field is supported only for MasterCard and American Express. .</param>
         /// <param name="InsuranceIndicator">Used for MC and Discover  Valid values: - &#x60;true&#x60; - Yes (insurance was purchased) - &#x60;false&#x60; - No (insurance was not purchased) .</param>
-        /// <param name="ProgramCode">Used to identify special circumstances applicable to the Card Transaction or Cardholder, such as \&quot;renter” or ”show”.  This code is &#x60;2 digit&#x60; value agreed by Merchant and processor. .</param>
+        /// <param name="ProgramCode">Used to identify special circumstances applicable to the Card Transaction or Cardholder, such as \&quot;renter\&quot; or \&quot;show\&quot;.  This code is &#x60;2 digit&#x60; value agreed by Merchant and processor. .</param>
         /// <param name="ReturnAddress">ReturnAddress.</param>
         /// <param name="RentalAddress">RentalAddress.</param>
-        /// <param name="AgreementNumber">Auto rental agency’s agreement (invoice) number provided to the customer. It is used to trace any inquiries about transactions. This field is supported for Visa, MasterCard, and American Express. This Merchant-defined value, which may be composed of any combination of characters and/or numerals, may become part of the descriptive bill on the Cardmember&#39;s statement. .</param>
+        /// <param name="AgreementNumber">Auto rental agency&#39;s agreement (invoice) number provided to the customer. It is used to trace any inquiries about transactions. This field is supported for Visa, MasterCard, and American Express. This Merchant-defined value, which may be composed of any combination of characters and/or numerals, may become part of the descriptive bill on the Cardmember&#39;s statement. .</param>
         /// <param name="OdometerReading">Odometer reading at time of vehicle rental. .</param>
         /// <param name="VehicleIdentificationNumber">This field contains a unique identifier assigned by the company to the vehicle. .</param>
         /// <param name="CompanyId">Corporate Identifier provides the unique identifier of the corporation or entity renting the vehicle:  |Card Specific Validation|VISA|MasterCard|Discover|AMEX| |- -- |- -- |- -- |- -- | | Filed Length| NA| 12| NA| NA| | Field Type| NA| AN| NA| NA| | M/O/C| NA| O| NA| NA| .</param>
         /// <param name="NumberOfAdditionalDrivers">The number of additional drivers included on the rental agreement not including the individual who signed the rental agreement. .</param>
         /// <param name="DriverAge">Age of the driver renting the vehicle. .</param>
-        /// <param name="SpecialProgramCode">Program code used to identify special circumstances, such as “frequent renter” or “no show” status for the renter. Possible values: - &#x60;0&#x60;: not applicable (default) - &#x60;1&#x60;: frequent renter - &#x60;2&#x60;: no show  For authorizations, this field is supported only for Visa.  For captures, this field is supported for Visa, MasterCard, and American Express.  Code for special programs applicable to the Card Transaction or the Cardholder. .</param>
+        /// <param name="SpecialProgramCode">Program code used to identify special circumstances, such as \&quot;frequent renter\&quot; or \&quot;no show\&quot; status for the renter. Possible values: - &#x60;0&#x60;: not applicable (default) - &#x60;1&#x60;: frequent renter - &#x60;2&#x60;: no show  For authorizations, this field is supported only for Visa.  For captures, this field is supported for Visa, MasterCard, and American Express.  Code for special programs applicable to the Card Transaction or the Cardholder. .</param>
         /// <param name="VehicleMake">Make of the vehicle being rented (e.g., Chevrolet or Ford). .</param>
         /// <param name="VehicleModel">Model of the vehicle being rented (e.g., Cavalier or Focus). .</param>
         /// <param name="TimePeriod">Indicates the time period for which the vehicle rental rate applies (e.g., daily, weekly or monthly). Daily, Weekly and Monthly are valid values. .</param>
@@ -150,9 +150,9 @@ namespace CyberSource.Model
         public string DistanceTravelled { get; set; }
 
         /// <summary>
-        /// Miles/Kilometers Indicator shows whether the “miles” fields are expressed in miles or kilometers.  Allowed values: - &#x60;K&#x60; - Kilometers - &#x60;M&#x60; - Miles 
+        /// Miles/Kilometers Indicator shows whether the \&quot;miles\&quot; fields are expressed in miles or kilometers.  Allowed values: - &#x60;K&#x60; - Kilometers - &#x60;M&#x60; - Miles 
         /// </summary>
-        /// <value>Miles/Kilometers Indicator shows whether the “miles” fields are expressed in miles or kilometers.  Allowed values: - &#x60;K&#x60; - Kilometers - &#x60;M&#x60; - Miles </value>
+        /// <value>Miles/Kilometers Indicator shows whether the \&quot;miles\&quot; fields are expressed in miles or kilometers.  Allowed values: - &#x60;K&#x60; - Kilometers - &#x60;M&#x60; - Miles </value>
         [DataMember(Name="distanceUnit", EmitDefaultValue=false)]
         public string DistanceUnit { get; set; }
 
@@ -185,9 +185,9 @@ namespace CyberSource.Model
         public bool? InsuranceIndicator { get; set; }
 
         /// <summary>
-        /// Used to identify special circumstances applicable to the Card Transaction or Cardholder, such as \&quot;renter” or ”show”.  This code is &#x60;2 digit&#x60; value agreed by Merchant and processor. 
+        /// Used to identify special circumstances applicable to the Card Transaction or Cardholder, such as \&quot;renter\&quot; or \&quot;show\&quot;.  This code is &#x60;2 digit&#x60; value agreed by Merchant and processor. 
         /// </summary>
-        /// <value>Used to identify special circumstances applicable to the Card Transaction or Cardholder, such as \&quot;renter” or ”show”.  This code is &#x60;2 digit&#x60; value agreed by Merchant and processor. </value>
+        /// <value>Used to identify special circumstances applicable to the Card Transaction or Cardholder, such as \&quot;renter\&quot; or \&quot;show\&quot;.  This code is &#x60;2 digit&#x60; value agreed by Merchant and processor. </value>
         [DataMember(Name="programCode", EmitDefaultValue=false)]
         public string ProgramCode { get; set; }
 
@@ -204,9 +204,9 @@ namespace CyberSource.Model
         public Ptsv2paymentsTravelInformationAutoRentalRentalAddress RentalAddress { get; set; }
 
         /// <summary>
-        /// Auto rental agency’s agreement (invoice) number provided to the customer. It is used to trace any inquiries about transactions. This field is supported for Visa, MasterCard, and American Express. This Merchant-defined value, which may be composed of any combination of characters and/or numerals, may become part of the descriptive bill on the Cardmember&#39;s statement. 
+        /// Auto rental agency&#39;s agreement (invoice) number provided to the customer. It is used to trace any inquiries about transactions. This field is supported for Visa, MasterCard, and American Express. This Merchant-defined value, which may be composed of any combination of characters and/or numerals, may become part of the descriptive bill on the Cardmember&#39;s statement. 
         /// </summary>
-        /// <value>Auto rental agency’s agreement (invoice) number provided to the customer. It is used to trace any inquiries about transactions. This field is supported for Visa, MasterCard, and American Express. This Merchant-defined value, which may be composed of any combination of characters and/or numerals, may become part of the descriptive bill on the Cardmember&#39;s statement. </value>
+        /// <value>Auto rental agency&#39;s agreement (invoice) number provided to the customer. It is used to trace any inquiries about transactions. This field is supported for Visa, MasterCard, and American Express. This Merchant-defined value, which may be composed of any combination of characters and/or numerals, may become part of the descriptive bill on the Cardmember&#39;s statement. </value>
         [DataMember(Name="agreementNumber", EmitDefaultValue=false)]
         public string AgreementNumber { get; set; }
 
@@ -246,9 +246,9 @@ namespace CyberSource.Model
         public string DriverAge { get; set; }
 
         /// <summary>
-        /// Program code used to identify special circumstances, such as “frequent renter” or “no show” status for the renter. Possible values: - &#x60;0&#x60;: not applicable (default) - &#x60;1&#x60;: frequent renter - &#x60;2&#x60;: no show  For authorizations, this field is supported only for Visa.  For captures, this field is supported for Visa, MasterCard, and American Express.  Code for special programs applicable to the Card Transaction or the Cardholder. 
+        /// Program code used to identify special circumstances, such as \&quot;frequent renter\&quot; or \&quot;no show\&quot; status for the renter. Possible values: - &#x60;0&#x60;: not applicable (default) - &#x60;1&#x60;: frequent renter - &#x60;2&#x60;: no show  For authorizations, this field is supported only for Visa.  For captures, this field is supported for Visa, MasterCard, and American Express.  Code for special programs applicable to the Card Transaction or the Cardholder. 
         /// </summary>
-        /// <value>Program code used to identify special circumstances, such as “frequent renter” or “no show” status for the renter. Possible values: - &#x60;0&#x60;: not applicable (default) - &#x60;1&#x60;: frequent renter - &#x60;2&#x60;: no show  For authorizations, this field is supported only for Visa.  For captures, this field is supported for Visa, MasterCard, and American Express.  Code for special programs applicable to the Card Transaction or the Cardholder. </value>
+        /// <value>Program code used to identify special circumstances, such as \&quot;frequent renter\&quot; or \&quot;no show\&quot; status for the renter. Possible values: - &#x60;0&#x60;: not applicable (default) - &#x60;1&#x60;: frequent renter - &#x60;2&#x60;: no show  For authorizations, this field is supported only for Visa.  For captures, this field is supported for Visa, MasterCard, and American Express.  Code for special programs applicable to the Card Transaction or the Cardholder. </value>
         [DataMember(Name="specialProgramCode", EmitDefaultValue=false)]
         public string SpecialProgramCode { get; set; }
 

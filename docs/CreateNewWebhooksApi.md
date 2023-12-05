@@ -4,14 +4,14 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateWebhook**](CreateNewWebhooksApi.md#createwebhook) | **POST** /notification-subscriptions/v1/webhooks | Create a Webhook
-[**FindProductToSubscribe**](CreateNewWebhooksApi.md#findproducttosubscribe) | **GET** /notification-subscriptions/v1/products/{organizationId} | Find Products You Can Subscribe To
+[**CreateWebhookSubscription**](CreateNewWebhooksApi.md#createwebhooksubscription) | **POST** /notification-subscriptions/v1/webhooks | Create a Webhook
+[**FindProductsToSubscribe**](CreateNewWebhooksApi.md#findproductstosubscribe) | **GET** /notification-subscriptions/v1/products/{organizationId} | Find Products You Can Subscribe To
 [**SaveSymEgressKey**](CreateNewWebhooksApi.md#savesymegresskey) | **POST** /kms/egress/v2/keys-sym | Create Webhook Security Keys
 
 
-<a name="createwebhook"></a>
-# **CreateWebhook**
-> InlineResponse2013 CreateWebhook (CreateWebhook createWebhook = null)
+<a name="createwebhooksubscription"></a>
+# **CreateWebhookSubscription**
+> InlineResponse2013 CreateWebhookSubscription (CreateWebhookRequest createWebhookRequest = null)
 
 Create a Webhook
 
@@ -27,22 +27,22 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class CreateWebhookExample
+    public class CreateWebhookSubscriptionExample
     {
         public void main()
         {
             var apiInstance = new CreateNewWebhooksApi();
-            var createWebhook = new CreateWebhook(); // CreateWebhook | The webhook payload (optional) 
+            var createWebhookRequest = new CreateWebhookRequest(); // CreateWebhookRequest | The webhook payload (optional) 
 
             try
             {
                 // Create a Webhook
-                InlineResponse2013 result = apiInstance.CreateWebhook(createWebhook);
+                InlineResponse2013 result = apiInstance.CreateWebhookSubscription(createWebhookRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CreateNewWebhooksApi.CreateWebhook: " + e.Message );
+                Debug.Print("Exception when calling CreateNewWebhooksApi.CreateWebhookSubscription: " + e.Message );
             }
         }
     }
@@ -53,7 +53,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createWebhook** | [**CreateWebhook**](CreateWebhook.md)| The webhook payload | [optional] 
+ **createWebhookRequest** | [**CreateWebhookRequest**](CreateWebhookRequest.md)| The webhook payload | [optional] 
 
 ### Return type
 
@@ -66,13 +66,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="findproducttosubscribe"></a>
-# **FindProductToSubscribe**
-> List<InlineResponse2003> FindProductToSubscribe (string organizationId)
+<a name="findproductstosubscribe"></a>
+# **FindProductsToSubscribe**
+> List<InlineResponse2003> FindProductsToSubscribe (string organizationId)
 
 Find Products You Can Subscribe To
 
@@ -88,7 +88,7 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class FindProductToSubscribeExample
+    public class FindProductsToSubscribeExample
     {
         public void main()
         {
@@ -98,12 +98,12 @@ namespace Example
             try
             {
                 // Find Products You Can Subscribe To
-                List&lt;InlineResponse2003&gt; result = apiInstance.FindProductToSubscribe(organizationId);
+                List&lt;InlineResponse2003&gt; result = apiInstance.FindProductsToSubscribe(organizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CreateNewWebhooksApi.FindProductToSubscribe: " + e.Message );
+                Debug.Print("Exception when calling CreateNewWebhooksApi.FindProductsToSubscribe: " + e.Message );
             }
         }
     }
@@ -127,7 +127,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -194,7 +194,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

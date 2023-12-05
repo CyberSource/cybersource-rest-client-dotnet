@@ -37,16 +37,16 @@ namespace CyberSource.Model
         /// <param name="Account">Account.</param>
         /// <param name="FirstName">First name of sender (Optional). * CTV (14) * Paymentech (30) .</param>
         /// <param name="MiddleInitial">Recipient middle initial (Optional). .</param>
-        /// <param name="MiddleName">Sender’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
+        /// <param name="MiddleName">Sender&#39;s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
         /// <param name="LastName">Recipient last name (Optional). * CTV (14) * Paymentech (30) .</param>
         /// <param name="Name">Name of sender.  **Funds Disbursement**  This value is the name of the originator sending the funds disbursement. * CTV, Paymentech (30) .</param>
         /// <param name="Address1">Street address of sender.  **Funds Disbursement**  This value is the address of the originator sending the funds disbursement. .</param>
         /// <param name="Locality">City of sender.  **Funds Disbursement**  This value is the city of the originator sending the funds disbursement. .</param>
-        /// <param name="AdministrativeArea">Sender’s state. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf). .</param>
+        /// <param name="AdministrativeArea">Sender&#39;s state. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf). .</param>
         /// <param name="CountryCode">Country of sender. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). * CTV (3) .</param>
-        /// <param name="PostalCode">Sender’s postal code. Required only for FDCCompass..</param>
-        /// <param name="PhoneNumber">Sender’s phone number. Required only for FDCCompass..</param>
-        /// <param name="DateOfBirth">Sender’s date of birth in YYYYMMDD format. Required only for FDCCompass..</param>
+        /// <param name="PostalCode">Sender&#39;s postal code. Required only for FDCCompass..</param>
+        /// <param name="PhoneNumber">Sender&#39;s phone number. Required only for FDCCompass..</param>
+        /// <param name="DateOfBirth">Sender&#39;s date of birth in YYYYMMDD format. Required only for FDCCompass..</param>
         /// <param name="VatRegistrationNumber">Customer&#39;s government-assigned tax identification number. .</param>
         /// <param name="PersonalIdType">#### Visa Platform Connect This tag will contain the type of sender identification. The valid values are: • BTHD (Date of birth) • CUID (Customer identification (unspecified)) • NTID (National identification) • PASN (Passport number) • DRLN (Driver license) • TXIN (Tax identification) • CPNY (Company registration number) • PRXY (Proxy identification) • SSNB (Social security number) • ARNB (Alien registration number) • LAWE (Law enforcement identification) • MILI (Military identification) • TRVL (Travel identification (non-passport)) • EMAL (Email) • PHON (Phone number) .</param>
         /// <param name="Type">#### Visa Platform Connect This tag will denote whether the tax ID is a business or individual tax ID when personal ID Type contains the value of TXIN (Tax identification).  The valid values are: • B (Business) • I (Individual) .</param>
@@ -101,9 +101,9 @@ namespace CyberSource.Model
         public string MiddleInitial { get; set; }
 
         /// <summary>
-        /// Sender’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. 
+        /// Sender&#39;s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. 
         /// </summary>
-        /// <value>Sender’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. </value>
+        /// <value>Sender&#39;s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. </value>
         [DataMember(Name="middleName", EmitDefaultValue=false)]
         public string MiddleName { get; set; }
 
@@ -136,9 +136,9 @@ namespace CyberSource.Model
         public string Locality { get; set; }
 
         /// <summary>
-        /// Sender’s state. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf). 
+        /// Sender&#39;s state. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf). 
         /// </summary>
-        /// <value>Sender’s state. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf). </value>
+        /// <value>Sender&#39;s state. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf). </value>
         [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
         public string AdministrativeArea { get; set; }
 
@@ -150,23 +150,23 @@ namespace CyberSource.Model
         public string CountryCode { get; set; }
 
         /// <summary>
-        /// Sender’s postal code. Required only for FDCCompass.
+        /// Sender&#39;s postal code. Required only for FDCCompass.
         /// </summary>
-        /// <value>Sender’s postal code. Required only for FDCCompass.</value>
+        /// <value>Sender&#39;s postal code. Required only for FDCCompass.</value>
         [DataMember(Name="postalCode", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Sender’s phone number. Required only for FDCCompass.
+        /// Sender&#39;s phone number. Required only for FDCCompass.
         /// </summary>
-        /// <value>Sender’s phone number. Required only for FDCCompass.</value>
+        /// <value>Sender&#39;s phone number. Required only for FDCCompass.</value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Sender’s date of birth in YYYYMMDD format. Required only for FDCCompass.
+        /// Sender&#39;s date of birth in YYYYMMDD format. Required only for FDCCompass.
         /// </summary>
-        /// <value>Sender’s date of birth in YYYYMMDD format. Required only for FDCCompass.</value>
+        /// <value>Sender&#39;s date of birth in YYYYMMDD format. Required only for FDCCompass.</value>
         [DataMember(Name="dateOfBirth", EmitDefaultValue=false)]
         public string DateOfBirth { get; set; }
 

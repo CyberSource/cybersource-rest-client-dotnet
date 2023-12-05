@@ -49,6 +49,27 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteWebhookSubscriptionWithHttpInfo (string webhookId);
         /// <summary>
+        /// Get Details On a Single Webhook
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the details of a specific webhook by supplying the webhook ID in the path.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The webhook Identifier</param>
+        /// <returns>InlineResponse2004</returns>
+        InlineResponse2004 GetWebhookSubscriptionById (string webhookId);
+
+        /// <summary>
+        /// Get Details On a Single Webhook
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the details of a specific webhook by supplying the webhook ID in the path.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The webhook Identifier</param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        ApiResponse<InlineResponse2004> GetWebhookSubscriptionByIdWithHttpInfo (string webhookId);
+        /// <summary>
         /// Get Details On All Created Webhooks
         /// </summary>
         /// <remarks>
@@ -59,7 +80,7 @@ namespace CyberSource.Api
         /// <param name="productId">The Product Identifier.</param>
         /// <param name="eventType">The Event Type.</param>
         /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        List<InlineResponse2004> GetAllWebhooks (string organizationId, string productId, string eventType);
+        List<InlineResponse2004> GetWebhookSubscriptionsByOrg (string organizationId, string productId, string eventType);
 
         /// <summary>
         /// Get Details On All Created Webhooks
@@ -72,28 +93,7 @@ namespace CyberSource.Api
         /// <param name="productId">The Product Identifier.</param>
         /// <param name="eventType">The Event Type.</param>
         /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        ApiResponse<List<InlineResponse2004>> GetAllWebhooksWithHttpInfo (string organizationId, string productId, string eventType);
-        /// <summary>
-        /// Get Details On a Single Webhook
-        /// </summary>
-        /// <remarks>
-        /// Retrieve the details of a specific webhook by supplying the webhook ID in the path.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 GetWebhookDetails (string webhookId);
-
-        /// <summary>
-        /// Get Details On a Single Webhook
-        /// </summary>
-        /// <remarks>
-        /// Retrieve the details of a specific webhook by supplying the webhook ID in the path.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> GetWebhookDetailsWithHttpInfo (string webhookId);
+        ApiResponse<List<InlineResponse2004>> GetWebhookSubscriptionsByOrgWithHttpInfo (string organizationId, string productId, string eventType);
         /// <summary>
         /// Replay Previous Webhooks
         /// </summary>
@@ -102,9 +102,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook uuid identifier.</param>
-        /// <param name="replayWebhooks">The request query (optional)</param>
+        /// <param name="replayWebhooksRequest">The request query (optional)</param>
         /// <returns></returns>
-        void ReplayPreviousWebhook (string webhookId, ReplayWebhooks replayWebhooks = null);
+        void ReplayPreviousWebhooks (string webhookId, ReplayWebhooksRequest replayWebhooksRequest = null);
 
         /// <summary>
         /// Replay Previous Webhooks
@@ -114,9 +114,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook uuid identifier.</param>
-        /// <param name="replayWebhooks">The request query (optional)</param>
+        /// <param name="replayWebhooksRequest">The request query (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ReplayPreviousWebhookWithHttpInfo (string webhookId, ReplayWebhooks replayWebhooks = null);
+        ApiResponse<Object> ReplayPreviousWebhooksWithHttpInfo (string webhookId, ReplayWebhooksRequest replayWebhooksRequest = null);
         /// <summary>
         /// Message Level Encryption
         /// </summary>
@@ -152,9 +152,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <param name="updateWebhookRequest">The webhook payload or changes to apply. (optional)</param>
         /// <returns></returns>
-        void UpdateWebhookSubscription (string webhookId, UpdateWebhook updateWebhook = null);
+        void UpdateWebhookSubscription (string webhookId, UpdateWebhookRequest updateWebhookRequest = null);
 
         /// <summary>
         /// Update a Webhook Subscription
@@ -164,9 +164,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <param name="updateWebhookRequest">The webhook payload or changes to apply. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateWebhookSubscriptionWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null);
+        ApiResponse<Object> UpdateWebhookSubscriptionWithHttpInfo (string webhookId, UpdateWebhookRequest updateWebhookRequest = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -191,6 +191,27 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWebhookSubscriptionAsyncWithHttpInfo (string webhookId);
         /// <summary>
+        /// Get Details On a Single Webhook
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the details of a specific webhook by supplying the webhook ID in the path.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The webhook Identifier</param>
+        /// <returns>Task of InlineResponse2004</returns>
+        System.Threading.Tasks.Task<InlineResponse2004> GetWebhookSubscriptionByIdAsync (string webhookId);
+
+        /// <summary>
+        /// Get Details On a Single Webhook
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the details of a specific webhook by supplying the webhook ID in the path.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The webhook Identifier</param>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetWebhookSubscriptionByIdAsyncWithHttpInfo (string webhookId);
+        /// <summary>
         /// Get Details On All Created Webhooks
         /// </summary>
         /// <remarks>
@@ -201,7 +222,7 @@ namespace CyberSource.Api
         /// <param name="productId">The Product Identifier.</param>
         /// <param name="eventType">The Event Type.</param>
         /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2004>> GetAllWebhooksAsync (string organizationId, string productId, string eventType);
+        System.Threading.Tasks.Task<List<InlineResponse2004>> GetWebhookSubscriptionsByOrgAsync (string organizationId, string productId, string eventType);
 
         /// <summary>
         /// Get Details On All Created Webhooks
@@ -214,28 +235,7 @@ namespace CyberSource.Api
         /// <param name="productId">The Product Identifier.</param>
         /// <param name="eventType">The Event Type.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> GetAllWebhooksAsyncWithHttpInfo (string organizationId, string productId, string eventType);
-        /// <summary>
-        /// Get Details On a Single Webhook
-        /// </summary>
-        /// <remarks>
-        /// Retrieve the details of a specific webhook by supplying the webhook ID in the path.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> GetWebhookDetailsAsync (string webhookId);
-
-        /// <summary>
-        /// Get Details On a Single Webhook
-        /// </summary>
-        /// <remarks>
-        /// Retrieve the details of a specific webhook by supplying the webhook ID in the path.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetWebhookDetailsAsyncWithHttpInfo (string webhookId);
+        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> GetWebhookSubscriptionsByOrgAsyncWithHttpInfo (string organizationId, string productId, string eventType);
         /// <summary>
         /// Replay Previous Webhooks
         /// </summary>
@@ -244,9 +244,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook uuid identifier.</param>
-        /// <param name="replayWebhooks">The request query (optional)</param>
+        /// <param name="replayWebhooksRequest">The request query (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ReplayPreviousWebhookAsync (string webhookId, ReplayWebhooks replayWebhooks = null);
+        System.Threading.Tasks.Task ReplayPreviousWebhooksAsync (string webhookId, ReplayWebhooksRequest replayWebhooksRequest = null);
 
         /// <summary>
         /// Replay Previous Webhooks
@@ -256,9 +256,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook uuid identifier.</param>
-        /// <param name="replayWebhooks">The request query (optional)</param>
+        /// <param name="replayWebhooksRequest">The request query (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ReplayPreviousWebhookAsyncWithHttpInfo (string webhookId, ReplayWebhooks replayWebhooks = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ReplayPreviousWebhooksAsyncWithHttpInfo (string webhookId, ReplayWebhooksRequest replayWebhooksRequest = null);
         /// <summary>
         /// Message Level Encryption
         /// </summary>
@@ -294,9 +294,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <param name="updateWebhookRequest">The webhook payload or changes to apply. (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateWebhookSubscriptionAsync (string webhookId, UpdateWebhook updateWebhook = null);
+        System.Threading.Tasks.Task UpdateWebhookSubscriptionAsync (string webhookId, UpdateWebhookRequest updateWebhookRequest = null);
 
         /// <summary>
         /// Update a Webhook Subscription
@@ -306,9 +306,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <param name="updateWebhookRequest">The webhook payload or changes to apply. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWebhookSubscriptionAsyncWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWebhookSubscriptionAsyncWithHttpInfo (string webhookId, UpdateWebhookRequest updateWebhookRequest = null);
         #endregion Asynchronous Operations
     }
 
@@ -496,7 +496,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -589,7 +589,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -635,6 +635,195 @@ namespace CyberSource.Api
                 localVarResponse.Content); // Return statement
         }
         /// <summary>
+        /// Get Details On a Single Webhook Retrieve the details of a specific webhook by supplying the webhook ID in the path.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The webhook Identifier</param>
+        /// <returns>InlineResponse2004</returns>
+        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
+        public InlineResponse2004 GetWebhookSubscriptionById (string webhookId)
+        {
+            logger.Debug("CALLING API \"GetWebhookSubscriptionById\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse2004> localVarResponse = GetWebhookSubscriptionByIdWithHttpInfo(webhookId);
+            logger.Debug("CALLING API \"GetWebhookSubscriptionById\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Details On a Single Webhook Retrieve the details of a specific webhook by supplying the webhook ID in the path.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The webhook Identifier</param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        public ApiResponse< InlineResponse2004 > GetWebhookSubscriptionByIdWithHttpInfo (string webhookId)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'webhookId' is set
+            if (webhookId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookSubscriptionById");
+                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookSubscriptionById");
+            }
+
+            var localVarPath = $"/notification-subscriptions/v1/webhooks/{webhookId}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (webhookId != null)
+            {
+                localVarPathParams.Add("webhookId", Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.Get == Method.Post)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWebhookSubscriptionById", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004))); // Return statement
+        }
+
+        /// <summary>
+        /// Get Details On a Single Webhook Retrieve the details of a specific webhook by supplying the webhook ID in the path.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The webhook Identifier</param>
+        /// <returns>Task of InlineResponse2004</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2004> GetWebhookSubscriptionByIdAsync (string webhookId)
+        {
+            logger.Debug("CALLING API \"GetWebhookSubscriptionByIdAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse2004> localVarResponse = await GetWebhookSubscriptionByIdAsyncWithHttpInfo(webhookId);
+            logger.Debug("CALLING API \"GetWebhookSubscriptionByIdAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Details On a Single Webhook Retrieve the details of a specific webhook by supplying the webhook ID in the path.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The webhook Identifier</param>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetWebhookSubscriptionByIdAsyncWithHttpInfo (string webhookId)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'webhookId' is set
+            if (webhookId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookSubscriptionById");
+                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookSubscriptionById");
+            }
+
+            var localVarPath = $"/notification-subscriptions/v1/webhooks/{webhookId}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (webhookId != null)
+            {
+                localVarPathParams.Add("webhookId", Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.Get == Method.Post)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWebhookSubscriptionById", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004))); // Return statement
+        }
+        /// <summary>
         /// Get Details On All Created Webhooks Retrieve a list of all previously created webhooks.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
@@ -643,12 +832,12 @@ namespace CyberSource.Api
         /// <param name="eventType">The Event Type.</param>
         /// <returns>List&lt;InlineResponse2004&gt;</returns>
         /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public List<InlineResponse2004> GetAllWebhooks (string organizationId, string productId, string eventType)
+        public List<InlineResponse2004> GetWebhookSubscriptionsByOrg (string organizationId, string productId, string eventType)
         {
-            logger.Debug("CALLING API \"GetAllWebhooks\" STARTED");
+            logger.Debug("CALLING API \"GetWebhookSubscriptionsByOrg\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = GetAllWebhooksWithHttpInfo(organizationId, productId, eventType);
-            logger.Debug("CALLING API \"GetAllWebhooks\" ENDED");
+            ApiResponse<List<InlineResponse2004>> localVarResponse = GetWebhookSubscriptionsByOrgWithHttpInfo(organizationId, productId, eventType);
+            logger.Debug("CALLING API \"GetWebhookSubscriptionsByOrg\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -661,27 +850,27 @@ namespace CyberSource.Api
         /// <param name="productId">The Product Identifier.</param>
         /// <param name="eventType">The Event Type.</param>
         /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        public ApiResponse< List<InlineResponse2004> > GetAllWebhooksWithHttpInfo (string organizationId, string productId, string eventType)
+        public ApiResponse< List<InlineResponse2004> > GetWebhookSubscriptionsByOrgWithHttpInfo (string organizationId, string productId, string eventType)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'organizationId' is set
             if (organizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetAllWebhooks");
-                throw new ApiException(400, "Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetAllWebhooks");
+                logger.Error("ApiException : Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
+                throw new ApiException(400, "Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
             }
             // verify the required parameter 'productId' is set
             if (productId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'productId' when calling ManageWebhooksApi->GetAllWebhooks");
-                throw new ApiException(400, "Missing required parameter 'productId' when calling ManageWebhooksApi->GetAllWebhooks");
+                logger.Error("ApiException : Missing required parameter 'productId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
+                throw new ApiException(400, "Missing required parameter 'productId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
             }
             // verify the required parameter 'eventType' is set
             if (eventType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'eventType' when calling ManageWebhooksApi->GetAllWebhooks");
-                throw new ApiException(400, "Missing required parameter 'eventType' when calling ManageWebhooksApi->GetAllWebhooks");
+                logger.Error("ApiException : Missing required parameter 'eventType' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
+                throw new ApiException(400, "Missing required parameter 'eventType' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
             }
 
             var localVarPath = $"/notification-subscriptions/v1/webhooks";
@@ -700,7 +889,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -742,7 +931,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetAllWebhooks", localVarResponse);
+                Exception exception = ExceptionFactory("GetWebhookSubscriptionsByOrg", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -763,12 +952,12 @@ namespace CyberSource.Api
         /// <param name="productId">The Product Identifier.</param>
         /// <param name="eventType">The Event Type.</param>
         /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InlineResponse2004>> GetAllWebhooksAsync (string organizationId, string productId, string eventType)
+        public async System.Threading.Tasks.Task<List<InlineResponse2004>> GetWebhookSubscriptionsByOrgAsync (string organizationId, string productId, string eventType)
         {
-            logger.Debug("CALLING API \"GetAllWebhooksAsync\" STARTED");
+            logger.Debug("CALLING API \"GetWebhookSubscriptionsByOrgAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = await GetAllWebhooksAsyncWithHttpInfo(organizationId, productId, eventType);
-            logger.Debug("CALLING API \"GetAllWebhooksAsync\" ENDED");
+            ApiResponse<List<InlineResponse2004>> localVarResponse = await GetWebhookSubscriptionsByOrgAsyncWithHttpInfo(organizationId, productId, eventType);
+            logger.Debug("CALLING API \"GetWebhookSubscriptionsByOrgAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -782,27 +971,27 @@ namespace CyberSource.Api
         /// <param name="productId">The Product Identifier.</param>
         /// <param name="eventType">The Event Type.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> GetAllWebhooksAsyncWithHttpInfo (string organizationId, string productId, string eventType)
+        public async System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> GetWebhookSubscriptionsByOrgAsyncWithHttpInfo (string organizationId, string productId, string eventType)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'organizationId' is set
             if (organizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetAllWebhooks");
-                throw new ApiException(400, "Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetAllWebhooks");
+                logger.Error("ApiException : Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
+                throw new ApiException(400, "Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
             }
             // verify the required parameter 'productId' is set
             if (productId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'productId' when calling ManageWebhooksApi->GetAllWebhooks");
-                throw new ApiException(400, "Missing required parameter 'productId' when calling ManageWebhooksApi->GetAllWebhooks");
+                logger.Error("ApiException : Missing required parameter 'productId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
+                throw new ApiException(400, "Missing required parameter 'productId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
             }
             // verify the required parameter 'eventType' is set
             if (eventType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'eventType' when calling ManageWebhooksApi->GetAllWebhooks");
-                throw new ApiException(400, "Missing required parameter 'eventType' when calling ManageWebhooksApi->GetAllWebhooks");
+                logger.Error("ApiException : Missing required parameter 'eventType' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
+                throw new ApiException(400, "Missing required parameter 'eventType' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
             }
 
             var localVarPath = $"/notification-subscriptions/v1/webhooks";
@@ -821,7 +1010,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -863,7 +1052,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetAllWebhooks", localVarResponse);
+                Exception exception = ExceptionFactory("GetWebhookSubscriptionsByOrg", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -876,207 +1065,18 @@ namespace CyberSource.Api
                 (List<InlineResponse2004>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
         }
         /// <summary>
-        /// Get Details On a Single Webhook Retrieve the details of a specific webhook by supplying the webhook ID in the path.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>InlineResponse2004</returns>
-        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public InlineResponse2004 GetWebhookDetails (string webhookId)
-        {
-            logger.Debug("CALLING API \"GetWebhookDetails\" STARTED");
-            this.SetStatusCode(null);
-            ApiResponse<InlineResponse2004> localVarResponse = GetWebhookDetailsWithHttpInfo(webhookId);
-            logger.Debug("CALLING API \"GetWebhookDetails\" ENDED");
-            this.SetStatusCode(localVarResponse.StatusCode);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Details On a Single Webhook Retrieve the details of a specific webhook by supplying the webhook ID in the path.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse< InlineResponse2004 > GetWebhookDetailsWithHttpInfo (string webhookId)
-        {
-            LogUtility logUtility = new LogUtility();
-
-            // verify the required parameter 'webhookId' is set
-            if (webhookId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookDetails");
-                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookDetails");
-            }
-
-            var localVarPath = $"/notification-subscriptions/v1/webhooks/{webhookId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
-            };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-            {
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
-
-            if (webhookId != null)
-            {
-                localVarPathParams.Add("webhookId", Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (Method.Get == Method.Post)
-            {
-                localVarPostBody = "{}";
-            }
-            else
-            {
-                localVarPostBody = null;
-            }
-
-
-            // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetWebhookDetails", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
-            }
-
-            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004))); // Return statement
-        }
-
-        /// <summary>
-        /// Get Details On a Single Webhook Retrieve the details of a specific webhook by supplying the webhook ID in the path.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> GetWebhookDetailsAsync (string webhookId)
-        {
-            logger.Debug("CALLING API \"GetWebhookDetailsAsync\" STARTED");
-            this.SetStatusCode(null);
-            ApiResponse<InlineResponse2004> localVarResponse = await GetWebhookDetailsAsyncWithHttpInfo(webhookId);
-            logger.Debug("CALLING API \"GetWebhookDetailsAsync\" ENDED");
-            this.SetStatusCode(localVarResponse.StatusCode);
-            return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get Details On a Single Webhook Retrieve the details of a specific webhook by supplying the webhook ID in the path.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetWebhookDetailsAsyncWithHttpInfo (string webhookId)
-        {
-            LogUtility logUtility = new LogUtility();
-
-            // verify the required parameter 'webhookId' is set
-            if (webhookId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookDetails");
-                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookDetails");
-            }
-
-            var localVarPath = $"/notification-subscriptions/v1/webhooks/{webhookId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
-            };
-            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-            {
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
-
-            if (webhookId != null)
-            {
-                localVarPathParams.Add("webhookId", Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
-            }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (Method.Get == Method.Post)
-            {
-                localVarPostBody = "{}";
-            }
-            else
-            {
-                localVarPostBody = null;
-            }
-
-
-            // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetWebhookDetails", localVarResponse);
-                if (exception != null)
-                {
-                    logger.Error($"Exception : {exception.Message}");
-                    throw exception;
-                }
-            }
-
-            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004))); // Return statement
-        }
-        /// <summary>
         /// Replay Previous Webhooks Initiate a webhook replay request to replay transactions that happened in the past.  Cannot execute more than 1 replay request at a time. While one request is processing, you will not be allowed to execute another replay.  The difference between Start and End time cannot exceed a 24 hour window, and 1 month is the farthest date back that is eligible for replay. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook uuid identifier.</param>
-        /// <param name="replayWebhooks">The request query (optional)</param>
+        /// <param name="replayWebhooksRequest">The request query (optional)</param>
         /// <returns></returns>
         /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public void ReplayPreviousWebhook (string webhookId, ReplayWebhooks replayWebhooks = null)
+        public void ReplayPreviousWebhooks (string webhookId, ReplayWebhooksRequest replayWebhooksRequest = null)
         {
-            logger.Debug("CALLING API \"ReplayPreviousWebhook\" STARTED");
+            logger.Debug("CALLING API \"ReplayPreviousWebhooks\" STARTED");
             this.SetStatusCode(null);
-            ReplayPreviousWebhookWithHttpInfo(webhookId, replayWebhooks);
+            ReplayPreviousWebhooksWithHttpInfo(webhookId, replayWebhooksRequest);
         }
 
         /// <summary>
@@ -1084,17 +1084,17 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook uuid identifier.</param>
-        /// <param name="replayWebhooks">The request query (optional)</param>
+        /// <param name="replayWebhooksRequest">The request query (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ReplayPreviousWebhookWithHttpInfo (string webhookId, ReplayWebhooks replayWebhooks = null)
+        public ApiResponse<Object> ReplayPreviousWebhooksWithHttpInfo (string webhookId, ReplayWebhooksRequest replayWebhooksRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->ReplayPreviousWebhook");
-                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->ReplayPreviousWebhook");
+                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->ReplayPreviousWebhooks");
+                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->ReplayPreviousWebhooks");
             }
 
             var localVarPath = $"/nrtf/v1/webhooks/{webhookId}/replays";
@@ -1113,7 +1113,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1126,15 +1126,15 @@ namespace CyberSource.Api
                 localVarPathParams.Add("webhookId", Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (replayWebhooks != null && replayWebhooks.GetType() != typeof(byte[]))
+            if (replayWebhooksRequest != null && replayWebhooksRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                replayWebhooks = (ReplayWebhooks)sdkTracker.InsertDeveloperIdTracker(replayWebhooks, replayWebhooks.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
-                localVarPostBody = Configuration.ApiClient.Serialize(replayWebhooks); // http body (model) parameter
+                replayWebhooksRequest = (ReplayWebhooksRequest)sdkTracker.InsertDeveloperIdTracker(replayWebhooksRequest, replayWebhooksRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(replayWebhooksRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = replayWebhooks; // byte array
+                localVarPostBody = replayWebhooksRequest; // byte array
             }
 
             if (logUtility.IsMaskingEnabled(logger))
@@ -1156,7 +1156,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReplayPreviousWebhook", localVarResponse);
+                Exception exception = ExceptionFactory("ReplayPreviousWebhooks", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1175,13 +1175,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook uuid identifier.</param>
-        /// <param name="replayWebhooks">The request query (optional)</param>
+        /// <param name="replayWebhooksRequest">The request query (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ReplayPreviousWebhookAsync (string webhookId, ReplayWebhooks replayWebhooks = null)
+        public async System.Threading.Tasks.Task ReplayPreviousWebhooksAsync (string webhookId, ReplayWebhooksRequest replayWebhooksRequest = null)
         {
-            logger.Debug("CALLING API \"ReplayPreviousWebhookAsync\" STARTED");
+            logger.Debug("CALLING API \"ReplayPreviousWebhooksAsync\" STARTED");
             this.SetStatusCode(null);
-            await ReplayPreviousWebhookAsyncWithHttpInfo(webhookId, replayWebhooks);
+            await ReplayPreviousWebhooksAsyncWithHttpInfo(webhookId, replayWebhooksRequest);
 
         }
 
@@ -1190,17 +1190,17 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook uuid identifier.</param>
-        /// <param name="replayWebhooks">The request query (optional)</param>
+        /// <param name="replayWebhooksRequest">The request query (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ReplayPreviousWebhookAsyncWithHttpInfo (string webhookId, ReplayWebhooks replayWebhooks = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ReplayPreviousWebhooksAsyncWithHttpInfo (string webhookId, ReplayWebhooksRequest replayWebhooksRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->ReplayPreviousWebhook");
-                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->ReplayPreviousWebhook");
+                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->ReplayPreviousWebhooks");
+                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->ReplayPreviousWebhooks");
             }
 
             var localVarPath = $"/nrtf/v1/webhooks/{webhookId}/replays";
@@ -1219,7 +1219,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1232,15 +1232,15 @@ namespace CyberSource.Api
                 localVarPathParams.Add("webhookId", Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (replayWebhooks != null && replayWebhooks.GetType() != typeof(byte[]))
+            if (replayWebhooksRequest != null && replayWebhooksRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                replayWebhooks = (ReplayWebhooks)sdkTracker.InsertDeveloperIdTracker(replayWebhooks, replayWebhooks.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
-                localVarPostBody = Configuration.ApiClient.Serialize(replayWebhooks); // http body (model) parameter
+                replayWebhooksRequest = (ReplayWebhooksRequest)sdkTracker.InsertDeveloperIdTracker(replayWebhooksRequest, replayWebhooksRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(replayWebhooksRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = replayWebhooks; // byte array
+                localVarPostBody = replayWebhooksRequest; // byte array
             }
 
             if (logUtility.IsMaskingEnabled(logger))
@@ -1262,7 +1262,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReplayPreviousWebhook", localVarResponse);
+                Exception exception = ExceptionFactory("ReplayPreviousWebhooks", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -1343,7 +1343,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1474,7 +1474,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1541,14 +1541,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <param name="updateWebhookRequest">The webhook payload or changes to apply. (optional)</param>
         /// <returns></returns>
         /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public void UpdateWebhookSubscription (string webhookId, UpdateWebhook updateWebhook = null)
+        public void UpdateWebhookSubscription (string webhookId, UpdateWebhookRequest updateWebhookRequest = null)
         {
             logger.Debug("CALLING API \"UpdateWebhookSubscription\" STARTED");
             this.SetStatusCode(null);
-            UpdateWebhookSubscriptionWithHttpInfo(webhookId, updateWebhook);
+            UpdateWebhookSubscriptionWithHttpInfo(webhookId, updateWebhookRequest);
         }
 
         /// <summary>
@@ -1556,9 +1556,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <param name="updateWebhookRequest">The webhook payload or changes to apply. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateWebhookSubscriptionWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null)
+        public ApiResponse<Object> UpdateWebhookSubscriptionWithHttpInfo (string webhookId, UpdateWebhookRequest updateWebhookRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1585,7 +1585,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1598,15 +1598,15 @@ namespace CyberSource.Api
                 localVarPathParams.Add("webhookId", Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (updateWebhook != null && updateWebhook.GetType() != typeof(byte[]))
+            if (updateWebhookRequest != null && updateWebhookRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                updateWebhook = (UpdateWebhook)sdkTracker.InsertDeveloperIdTracker(updateWebhook, updateWebhook.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
-                localVarPostBody = Configuration.ApiClient.Serialize(updateWebhook); // http body (model) parameter
+                updateWebhookRequest = (UpdateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(updateWebhookRequest, updateWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(updateWebhookRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = updateWebhook; // byte array
+                localVarPostBody = updateWebhookRequest; // byte array
             }
 
             if (logUtility.IsMaskingEnabled(logger))
@@ -1647,13 +1647,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <param name="updateWebhookRequest">The webhook payload or changes to apply. (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateWebhookSubscriptionAsync (string webhookId, UpdateWebhook updateWebhook = null)
+        public async System.Threading.Tasks.Task UpdateWebhookSubscriptionAsync (string webhookId, UpdateWebhookRequest updateWebhookRequest = null)
         {
             logger.Debug("CALLING API \"UpdateWebhookSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            await UpdateWebhookSubscriptionAsyncWithHttpInfo(webhookId, updateWebhook);
+            await UpdateWebhookSubscriptionAsyncWithHttpInfo(webhookId, updateWebhookRequest);
 
         }
 
@@ -1662,9 +1662,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <param name="updateWebhookRequest">The webhook payload or changes to apply. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWebhookSubscriptionAsyncWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWebhookSubscriptionAsyncWithHttpInfo (string webhookId, UpdateWebhookRequest updateWebhookRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1691,7 +1691,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1704,15 +1704,15 @@ namespace CyberSource.Api
                 localVarPathParams.Add("webhookId", Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (updateWebhook != null && updateWebhook.GetType() != typeof(byte[]))
+            if (updateWebhookRequest != null && updateWebhookRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                updateWebhook = (UpdateWebhook)sdkTracker.InsertDeveloperIdTracker(updateWebhook, updateWebhook.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
-                localVarPostBody = Configuration.ApiClient.Serialize(updateWebhook); // http body (model) parameter
+                updateWebhookRequest = (UpdateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(updateWebhookRequest, updateWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(updateWebhookRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = updateWebhook; // byte array
+                localVarPostBody = updateWebhookRequest; // byte array
             }
 
             if (logUtility.IsMaskingEnabled(logger))

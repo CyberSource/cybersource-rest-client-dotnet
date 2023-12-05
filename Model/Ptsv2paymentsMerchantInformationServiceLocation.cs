@@ -33,10 +33,10 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsMerchantInformationServiceLocation" /> class.
         /// </summary>
-        /// <param name="Locality">#### Visa Platform Connect  Merchant’s service location city name. When merchant provides services from a location other than the location identified as merchant location. .</param>
-        /// <param name="CountrySubdivisionCode">#### Visa Platform Connect  Merchant’s service location country subdivision code. When merchant provides services from a location other than the location identified as merchant location. .</param>
-        /// <param name="CountryCode">#### Visa Platform Connect  Merchant’s service location country code. When merchant provides services from a location other than the location identified as merchant location. .</param>
-        /// <param name="PostalCode">#### Visa Platform Connect  Merchant’s service location postal code. When merchant provides services from a location other than the location identified as merchant location. .</param>
+        /// <param name="Locality">#### Visa Platform Connect  Merchant&#39;s service location city name. When merchant provides services from a location other than the location identified as merchant location. .</param>
+        /// <param name="CountrySubdivisionCode">#### Visa Platform Connect  Merchant&#39;s service location country subdivision code. When merchant provides services from a location other than the location identified as merchant location. .</param>
+        /// <param name="CountryCode">#### Visa Platform Connect  Merchant&#39;s service location country code. When merchant provides services from a location other than the location identified as merchant location. .</param>
+        /// <param name="PostalCode">#### Visa Platform Connect  Merchant&#39;s service location postal code. When merchant provides services from a location other than the location identified as merchant location. .</param>
         public Ptsv2paymentsMerchantInformationServiceLocation(string Locality = default(string), string CountrySubdivisionCode = default(string), string CountryCode = default(string), string PostalCode = default(string))
         {
             this.Locality = Locality;
@@ -46,30 +46,30 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// #### Visa Platform Connect  Merchant’s service location city name. When merchant provides services from a location other than the location identified as merchant location. 
+        /// #### Visa Platform Connect  Merchant&#39;s service location city name. When merchant provides services from a location other than the location identified as merchant location. 
         /// </summary>
-        /// <value>#### Visa Platform Connect  Merchant’s service location city name. When merchant provides services from a location other than the location identified as merchant location. </value>
+        /// <value>#### Visa Platform Connect  Merchant&#39;s service location city name. When merchant provides services from a location other than the location identified as merchant location. </value>
         [DataMember(Name="locality", EmitDefaultValue=false)]
         public string Locality { get; set; }
 
         /// <summary>
-        /// #### Visa Platform Connect  Merchant’s service location country subdivision code. When merchant provides services from a location other than the location identified as merchant location. 
+        /// #### Visa Platform Connect  Merchant&#39;s service location country subdivision code. When merchant provides services from a location other than the location identified as merchant location. 
         /// </summary>
-        /// <value>#### Visa Platform Connect  Merchant’s service location country subdivision code. When merchant provides services from a location other than the location identified as merchant location. </value>
+        /// <value>#### Visa Platform Connect  Merchant&#39;s service location country subdivision code. When merchant provides services from a location other than the location identified as merchant location. </value>
         [DataMember(Name="countrySubdivisionCode", EmitDefaultValue=false)]
         public string CountrySubdivisionCode { get; set; }
 
         /// <summary>
-        /// #### Visa Platform Connect  Merchant’s service location country code. When merchant provides services from a location other than the location identified as merchant location. 
+        /// #### Visa Platform Connect  Merchant&#39;s service location country code. When merchant provides services from a location other than the location identified as merchant location. 
         /// </summary>
-        /// <value>#### Visa Platform Connect  Merchant’s service location country code. When merchant provides services from a location other than the location identified as merchant location. </value>
+        /// <value>#### Visa Platform Connect  Merchant&#39;s service location country code. When merchant provides services from a location other than the location identified as merchant location. </value>
         [DataMember(Name="countryCode", EmitDefaultValue=false)]
         public string CountryCode { get; set; }
 
         /// <summary>
-        /// #### Visa Platform Connect  Merchant’s service location postal code. When merchant provides services from a location other than the location identified as merchant location. 
+        /// #### Visa Platform Connect  Merchant&#39;s service location postal code. When merchant provides services from a location other than the location identified as merchant location. 
         /// </summary>
-        /// <value>#### Visa Platform Connect  Merchant’s service location postal code. When merchant provides services from a location other than the location identified as merchant location. </value>
+        /// <value>#### Visa Platform Connect  Merchant&#39;s service location postal code. When merchant provides services from a location other than the location identified as merchant location. </value>
         [DataMember(Name="postalCode", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
 

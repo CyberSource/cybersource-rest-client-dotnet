@@ -77,41 +77,41 @@ namespace CyberSource.Test
         }
         
         /// <summary>
-        /// Test GetAllWebhooks
+        /// Test GetWebhookSubscriptionById
         /// </summary>
         [Test]
-        public void GetAllWebhooksTest()
+        public void GetWebhookSubscriptionByIdTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string webhookId = null;
+            //var response = instance.GetWebhookSubscriptionById(webhookId);
+            //Assert.IsInstanceOf<InlineResponse2004> (response, "response is InlineResponse2004");
+        }
+        
+        /// <summary>
+        /// Test GetWebhookSubscriptionsByOrg
+        /// </summary>
+        [Test]
+        public void GetWebhookSubscriptionsByOrgTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string organizationId = null;
             //string productId = null;
             //string eventType = null;
-            //var response = instance.GetAllWebhooks(organizationId, productId, eventType);
+            //var response = instance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
             //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
         }
         
         /// <summary>
-        /// Test GetWebhookDetails
+        /// Test ReplayPreviousWebhooks
         /// </summary>
         [Test]
-        public void GetWebhookDetailsTest()
+        public void ReplayPreviousWebhooksTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string webhookId = null;
-            //var response = instance.GetWebhookDetails(webhookId);
-            //Assert.IsInstanceOf<InlineResponse2004> (response, "response is InlineResponse2004");
-        }
-        
-        /// <summary>
-        /// Test ReplayPreviousWebhook
-        /// </summary>
-        [Test]
-        public void ReplayPreviousWebhookTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string webhookId = null;
-            //ReplayWebhooks replayWebhooks = null;
-            //instance.ReplayPreviousWebhook(webhookId, replayWebhooks);
+            //ReplayWebhooksRequest replayWebhooksRequest = null;
+            //instance.ReplayPreviousWebhooks(webhookId, replayWebhooksRequest);
             
         }
         
@@ -138,8 +138,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string webhookId = null;
-            //UpdateWebhook updateWebhook = null;
-            //instance.UpdateWebhookSubscription(webhookId, updateWebhook);
+            //UpdateWebhookRequest updateWebhookRequest = null;
+            //instance.UpdateWebhookSubscription(webhookId, updateWebhookRequest);
             
         }
         

@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="TransactionId">Network transaction identifier (TID). This value can be used to identify a specific transaction when you are discussing the transaction with your processor. .</param>
         /// <param name="ResponseCode">Transaction status from the processor. .</param>
         /// <param name="ApprovalCode">Issuer-generated approval code for the transaction. .</param>
-        /// <param name="SystemTraceAuditNumber">System audit number. Returned by authorization and incremental authorization services.  Visa Platform Connect  System trace number that must be printed on the customer’s receipt. .</param>
+        /// <param name="SystemTraceAuditNumber">System audit number. Returned by authorization and incremental authorization services.  Visa Platform Connect  System trace number that must be printed on the customer&#39;s receipt. .</param>
         /// <param name="ResponseCodeSource">Used by Visa only and contains the response source/reason code that identifies the source of the response decision. .</param>
         /// <param name="RetrievalReferenceNumber">Unique reference number returned by the processor that identifies the transaction at the network.  Supported by Mastercard Send .</param>
         public PushFunds201ResponseProcessorInformation(int? TransactionId = default(int?), string ResponseCode = default(string), string ApprovalCode = default(string), string SystemTraceAuditNumber = default(string), string ResponseCodeSource = default(string), string RetrievalReferenceNumber = default(string))
@@ -71,9 +71,9 @@ namespace CyberSource.Model
         public string ApprovalCode { get; set; }
 
         /// <summary>
-        /// System audit number. Returned by authorization and incremental authorization services.  Visa Platform Connect  System trace number that must be printed on the customer’s receipt. 
+        /// System audit number. Returned by authorization and incremental authorization services.  Visa Platform Connect  System trace number that must be printed on the customer&#39;s receipt. 
         /// </summary>
-        /// <value>System audit number. Returned by authorization and incremental authorization services.  Visa Platform Connect  System trace number that must be printed on the customer’s receipt. </value>
+        /// <value>System audit number. Returned by authorization and incremental authorization services.  Visa Platform Connect  System trace number that must be printed on the customer&#39;s receipt. </value>
         [DataMember(Name="systemTraceAuditNumber", EmitDefaultValue=false)]
         public string SystemTraceAuditNumber { get; set; }
 

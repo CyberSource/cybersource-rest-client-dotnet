@@ -65,26 +65,26 @@ namespace CyberSource.Test
 
         
         /// <summary>
-        /// Test CreateWebhook
+        /// Test CreateWebhookSubscription
         /// </summary>
         [Test]
-        public void CreateWebhookTest()
+        public void CreateWebhookSubscriptionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //CreateWebhook createWebhook = null;
-            //var response = instance.CreateWebhook(createWebhook);
+            //CreateWebhookRequest createWebhookRequest = null;
+            //var response = instance.CreateWebhookSubscription(createWebhookRequest);
             //Assert.IsInstanceOf<InlineResponse2013> (response, "response is InlineResponse2013");
         }
         
         /// <summary>
-        /// Test FindProductToSubscribe
+        /// Test FindProductsToSubscribe
         /// </summary>
         [Test]
-        public void FindProductToSubscribeTest()
+        public void FindProductsToSubscribeTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string organizationId = null;
-            //var response = instance.FindProductToSubscribe(organizationId);
+            //var response = instance.FindProductsToSubscribe(organizationId);
             //Assert.IsInstanceOf<List<InlineResponse2003>> (response, "response is List<InlineResponse2003>");
         }
         

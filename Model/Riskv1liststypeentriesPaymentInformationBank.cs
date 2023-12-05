@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Riskv1liststypeentriesPaymentInformationBank" /> class.
         /// </summary>
         /// <param name="AccountNumber">Customer&#39;s bank account number. You can use this field only when scoring a direct debit transaction. Use this field if you do not or are not allowed to provide the IBAN. Note Do not use the IBAN in this field. Use nly the traditional account number information. For the IBAN, use bank_iban. .</param>
-        /// <param name="Code">Country-specific code used to identify the customer’s bank. Required for some countries if you do not or are not allowed to provide the IBAN instead. You can use this field only when scoring a direct debit transaction. For specific requirements, see \&quot;Required Bank Account Information by Country,\&quot; .</param>
+        /// <param name="Code">Country-specific code used to identify the customer&#39;s bank. Required for some countries if you do not or are not allowed to provide the IBAN instead. You can use this field only when scoring a direct debit transaction. For specific requirements, see \&quot;Required Bank Account Information by Country,\&quot; .</param>
         /// <param name="Country">Country where the bank is located. Use the two-character ISO codes. You can use this field only when scoring a direct debit transaction. .</param>
         /// <param name="Iban">International Bank Account Number (IBAN) for the bank account. For some countries you can provide this number instead of the traditional bank account information. You can use this field only when scoring a direct debit transaction. For specific requirements, see \&quot;Required Bank Account Information by Country,\&quot; .</param>
         public Riskv1liststypeentriesPaymentInformationBank(string AccountNumber = default(string), string Code = default(string), string Country = default(string), string Iban = default(string))
@@ -53,9 +53,9 @@ namespace CyberSource.Model
         public string AccountNumber { get; set; }
 
         /// <summary>
-        /// Country-specific code used to identify the customer’s bank. Required for some countries if you do not or are not allowed to provide the IBAN instead. You can use this field only when scoring a direct debit transaction. For specific requirements, see \&quot;Required Bank Account Information by Country,\&quot; 
+        /// Country-specific code used to identify the customer&#39;s bank. Required for some countries if you do not or are not allowed to provide the IBAN instead. You can use this field only when scoring a direct debit transaction. For specific requirements, see \&quot;Required Bank Account Information by Country,\&quot; 
         /// </summary>
-        /// <value>Country-specific code used to identify the customer’s bank. Required for some countries if you do not or are not allowed to provide the IBAN instead. You can use this field only when scoring a direct debit transaction. For specific requirements, see \&quot;Required Bank Account Information by Country,\&quot; </value>
+        /// <value>Country-specific code used to identify the customer&#39;s bank. Required for some countries if you do not or are not allowed to provide the IBAN instead. You can use this field only when scoring a direct debit transaction. For specific requirements, see \&quot;Required Bank Account Information by Country,\&quot; </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 

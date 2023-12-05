@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="FirstName">First name of recipient. characters. * CTV (14) * Paymentech (30) .</param>
         /// <param name="MiddleInitial">Middle Initial of recipient. Required only for FDCCompass. .</param>
-        /// <param name="MiddleName">Recipient’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
+        /// <param name="MiddleName">Recipient&#39;s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
         /// <param name="LastName">Last name of recipient. characters. * CTV (14) * Paymentech (30) .</param>
         /// <param name="Address1">Recipient address information. Required only for FDCCompass..</param>
         /// <param name="Locality">Recipient city. Required only for FDCCompass..</param>
@@ -74,9 +74,9 @@ namespace CyberSource.Model
         public string MiddleInitial { get; set; }
 
         /// <summary>
-        /// Recipient’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. 
+        /// Recipient&#39;s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. 
         /// </summary>
-        /// <value>Recipient’s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. </value>
+        /// <value>Recipient&#39;s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. </value>
         [DataMember(Name="middleName", EmitDefaultValue=false)]
         public string MiddleName { get; set; }
 

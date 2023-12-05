@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="Risk">Risk.</param>
         /// <param name="CommerceSolutions">CommerceSolutions.</param>
         /// <param name="ValueAddedServices">ValueAddedServices.</param>
-        public Boardingv1registrationsProductInformationSelectedProducts(PaymentProducts Payments = default(PaymentProducts), RiskProducts Risk = default(RiskProducts), CommerceSolutionsProducts CommerceSolutions = default(CommerceSolutionsProducts), ValueAddedServicesProducts ValueAddedServices = default(ValueAddedServicesProducts))
+        public Boardingv1registrationsProductInformationSelectedProducts(PaymentsProducts Payments = default(PaymentsProducts), RiskProducts Risk = default(RiskProducts), CommerceSolutionsProducts CommerceSolutions = default(CommerceSolutionsProducts), ValueAddedServicesProducts ValueAddedServices = default(ValueAddedServicesProducts))
         {
             this.Payments = Payments;
             this.Risk = Risk;
@@ -49,7 +49,7 @@ namespace CyberSource.Model
         /// Gets or Sets Payments
         /// </summary>
         [DataMember(Name="payments", EmitDefaultValue=false)]
-        public PaymentProducts Payments { get; set; }
+        public PaymentsProducts Payments { get; set; }
 
         /// <summary>
         /// Gets or Sets Risk

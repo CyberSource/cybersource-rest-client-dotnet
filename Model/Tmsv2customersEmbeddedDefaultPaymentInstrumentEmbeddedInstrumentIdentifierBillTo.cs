@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBillTo" /> class.
         /// </summary>
-        /// <param name="Address1">Payment card billing street address as it appears on the credit card issuer’s records. .</param>
+        /// <param name="Address1">Payment card billing street address as it appears on the credit card issuer&#39;s records. .</param>
         /// <param name="Address2">Additional address information. .</param>
         /// <param name="Locality">Payment card billing city. .</param>
         /// <param name="AdministrativeArea">State or province of the billing address. Use the State, Province, and Territory Codes for the United States and Canada. .</param>
@@ -50,9 +50,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Payment card billing street address as it appears on the credit card issuer’s records. 
+        /// Payment card billing street address as it appears on the credit card issuer&#39;s records. 
         /// </summary>
-        /// <value>Payment card billing street address as it appears on the credit card issuer’s records. </value>
+        /// <value>Payment card billing street address as it appears on the credit card issuer&#39;s records. </value>
         [DataMember(Name="address1", EmitDefaultValue=false)]
         public string Address1 { get; set; }
 

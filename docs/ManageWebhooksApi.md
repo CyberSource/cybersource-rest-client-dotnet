@@ -5,9 +5,9 @@ All URIs are relative to *https://apitest.cybersource.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteWebhookSubscription**](ManageWebhooksApi.md#deletewebhooksubscription) | **DELETE** /notification-subscriptions/v1/webhooks/{webhookId} | Delete a Webhook Subscription
-[**GetAllWebhooks**](ManageWebhooksApi.md#getallwebhooks) | **GET** /notification-subscriptions/v1/webhooks | Get Details On All Created Webhooks
-[**GetWebhookDetails**](ManageWebhooksApi.md#getwebhookdetails) | **GET** /notification-subscriptions/v1/webhooks/{webhookId} | Get Details On a Single Webhook
-[**ReplayPreviousWebhook**](ManageWebhooksApi.md#replaypreviouswebhook) | **POST** /nrtf/v1/webhooks/{webhookId}/replays | Replay Previous Webhooks
+[**GetWebhookSubscriptionById**](ManageWebhooksApi.md#getwebhooksubscriptionbyid) | **GET** /notification-subscriptions/v1/webhooks/{webhookId} | Get Details On a Single Webhook
+[**GetWebhookSubscriptionsByOrg**](ManageWebhooksApi.md#getwebhooksubscriptionsbyorg) | **GET** /notification-subscriptions/v1/webhooks | Get Details On All Created Webhooks
+[**ReplayPreviousWebhooks**](ManageWebhooksApi.md#replaypreviouswebhooks) | **POST** /nrtf/v1/webhooks/{webhookId}/replays | Replay Previous Webhooks
 [**SaveAsymEgressKey**](ManageWebhooksApi.md#saveasymegresskey) | **POST** /kms/egress/v2/keys-asym | Message Level Encryption
 [**UpdateWebhookSubscription**](ManageWebhooksApi.md#updatewebhooksubscription) | **PATCH** /notification-subscriptions/v1/webhooks/{webhookId} | Update a Webhook Subscription
 
@@ -68,13 +68,74 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getallwebhooks"></a>
-# **GetAllWebhooks**
-> List<InlineResponse2004> GetAllWebhooks (string organizationId, string productId, string eventType)
+<a name="getwebhooksubscriptionbyid"></a>
+# **GetWebhookSubscriptionById**
+> InlineResponse2004 GetWebhookSubscriptionById (string webhookId)
+
+Get Details On a Single Webhook
+
+Retrieve the details of a specific webhook by supplying the webhook ID in the path.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class GetWebhookSubscriptionByIdExample
+    {
+        public void main()
+        {
+            var apiInstance = new ManageWebhooksApi();
+            var webhookId = webhookId_example;  // string | The webhook Identifier
+
+            try
+            {
+                // Get Details On a Single Webhook
+                InlineResponse2004 result = apiInstance.GetWebhookSubscriptionById(webhookId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ManageWebhooksApi.GetWebhookSubscriptionById: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhookId** | **string**| The webhook Identifier | 
+
+### Return type
+
+[**InlineResponse2004**](InlineResponse2004.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getwebhooksubscriptionsbyorg"></a>
+# **GetWebhookSubscriptionsByOrg**
+> List<InlineResponse2004> GetWebhookSubscriptionsByOrg (string organizationId, string productId, string eventType)
 
 Get Details On All Created Webhooks
 
@@ -90,7 +151,7 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class GetAllWebhooksExample
+    public class GetWebhookSubscriptionsByOrgExample
     {
         public void main()
         {
@@ -102,12 +163,12 @@ namespace Example
             try
             {
                 // Get Details On All Created Webhooks
-                List&lt;InlineResponse2004&gt; result = apiInstance.GetAllWebhooks(organizationId, productId, eventType);
+                List&lt;InlineResponse2004&gt; result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ManageWebhooksApi.GetAllWebhooks: " + e.Message );
+                Debug.Print("Exception when calling ManageWebhooksApi.GetWebhookSubscriptionsByOrg: " + e.Message );
             }
         }
     }
@@ -133,74 +194,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getwebhookdetails"></a>
-# **GetWebhookDetails**
-> InlineResponse2004 GetWebhookDetails (string webhookId)
-
-Get Details On a Single Webhook
-
-Retrieve the details of a specific webhook by supplying the webhook ID in the path.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CyberSource.Api;
-using CyberSource.Client;
-using CyberSource.Model;
-
-namespace Example
-{
-    public class GetWebhookDetailsExample
-    {
-        public void main()
-        {
-            var apiInstance = new ManageWebhooksApi();
-            var webhookId = webhookId_example;  // string | The webhook Identifier
-
-            try
-            {
-                // Get Details On a Single Webhook
-                InlineResponse2004 result = apiInstance.GetWebhookDetails(webhookId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ManageWebhooksApi.GetWebhookDetails: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhookId** | **string**| The webhook Identifier | 
-
-### Return type
-
-[**InlineResponse2004**](InlineResponse2004.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="replaypreviouswebhook"></a>
-# **ReplayPreviousWebhook**
-> void ReplayPreviousWebhook (string webhookId, ReplayWebhooks replayWebhooks = null)
+<a name="replaypreviouswebhooks"></a>
+# **ReplayPreviousWebhooks**
+> void ReplayPreviousWebhooks (string webhookId, ReplayWebhooksRequest replayWebhooksRequest = null)
 
 Replay Previous Webhooks
 
@@ -216,22 +216,22 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class ReplayPreviousWebhookExample
+    public class ReplayPreviousWebhooksExample
     {
         public void main()
         {
             var apiInstance = new ManageWebhooksApi();
             var webhookId = webhookId_example;  // string | The webhook uuid identifier.
-            var replayWebhooks = new ReplayWebhooks(); // ReplayWebhooks | The request query (optional) 
+            var replayWebhooksRequest = new ReplayWebhooksRequest(); // ReplayWebhooksRequest | The request query (optional) 
 
             try
             {
                 // Replay Previous Webhooks
-                apiInstance.ReplayPreviousWebhook(webhookId, replayWebhooks);
+                apiInstance.ReplayPreviousWebhooks(webhookId, replayWebhooksRequest);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ManageWebhooksApi.ReplayPreviousWebhook: " + e.Message );
+                Debug.Print("Exception when calling ManageWebhooksApi.ReplayPreviousWebhooks: " + e.Message );
             }
         }
     }
@@ -243,7 +243,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhookId** | **string**| The webhook uuid identifier. | 
- **replayWebhooks** | [**ReplayWebhooks**](ReplayWebhooks.md)| The request query | [optional] 
+ **replayWebhooksRequest** | [**ReplayWebhooksRequest**](ReplayWebhooksRequest.md)| The request query | [optional] 
 
 ### Return type
 
@@ -256,7 +256,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -323,13 +323,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="updatewebhooksubscription"></a>
 # **UpdateWebhookSubscription**
-> void UpdateWebhookSubscription (string webhookId, UpdateWebhook updateWebhook = null)
+> void UpdateWebhookSubscription (string webhookId, UpdateWebhookRequest updateWebhookRequest = null)
 
 Update a Webhook Subscription
 
@@ -351,12 +351,12 @@ namespace Example
         {
             var apiInstance = new ManageWebhooksApi();
             var webhookId = webhookId_example;  // string | The Webhook Identifier.
-            var updateWebhook = new UpdateWebhook(); // UpdateWebhook | The webhook payload or changes to apply. (optional) 
+            var updateWebhookRequest = new UpdateWebhookRequest(); // UpdateWebhookRequest | The webhook payload or changes to apply. (optional) 
 
             try
             {
                 // Update a Webhook Subscription
-                apiInstance.UpdateWebhookSubscription(webhookId, updateWebhook);
+                apiInstance.UpdateWebhookSubscription(webhookId, updateWebhookRequest);
             }
             catch (Exception e)
             {
@@ -372,7 +372,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhookId** | **string**| The Webhook Identifier. | 
- **updateWebhook** | [**UpdateWebhook**](UpdateWebhook.md)| The webhook payload or changes to apply. | [optional] 
+ **updateWebhookRequest** | [**UpdateWebhookRequest**](UpdateWebhookRequest.md)| The webhook payload or changes to apply. | [optional] 
 
 ### Return type
 
@@ -385,7 +385,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

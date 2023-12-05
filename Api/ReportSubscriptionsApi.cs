@@ -121,7 +121,7 @@ namespace CyberSource.Api
         /// Get Subscription for Report Name
         /// </summary>
         /// <remarks>
-        /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// View the details of a report subscription, such as the report format or report frequency, using the report&#39;s unique name. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -133,7 +133,7 @@ namespace CyberSource.Api
         /// Get Subscription for Report Name
         /// </summary>
         /// <remarks>
-        /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// View the details of a report subscription, such as the report format or report frequency, using the report&#39;s unique name. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -236,7 +236,7 @@ namespace CyberSource.Api
         /// Get Subscription for Report Name
         /// </summary>
         /// <remarks>
-        /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// View the details of a report subscription, such as the report format or report frequency, using the report&#39;s unique name. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -248,7 +248,7 @@ namespace CyberSource.Api
         /// Get Subscription for Report Name
         /// </summary>
         /// <remarks>
-        /// View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// View the details of a report subscription, such as the report format or report frequency, using the report&#39;s unique name. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -1190,7 +1190,7 @@ namespace CyberSource.Api
                 (ReportingV3ReportSubscriptionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportSubscriptionsGet200Response))); // Return statement
         }
         /// <summary>
-        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report&#39;s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -1207,7 +1207,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report&#39;s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -1291,7 +1291,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report&#39;s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>
@@ -1309,7 +1309,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+        /// Get Subscription for Report Name View the details of a report subscription, such as the report format or report frequency, using the report&#39;s unique name. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportName">Name of the Report to Retrieve</param>

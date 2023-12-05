@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="IpAddress">IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. .</param>
         /// <param name="RawData">RawData.</param>
-        /// <param name="HttpAcceptBrowserValue">Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. .</param>
+        /// <param name="HttpAcceptBrowserValue">Value of the Accept header sent by the customer&#39;s web browser. **Note** If the customer&#39;s browser provides a value, you must include it in your request. .</param>
         /// <param name="HttpAcceptContent">The exact content of the HTTP accept header. .</param>
         /// <param name="HttpBrowserLanguage">Value represents the browser language as defined in IETF BCP47. Example:en-US, refer  https://en.wikipedia.org/wiki/IETF_language_tag for more details. .</param>
         /// <param name="HttpBrowserJavaEnabled">A Boolean value that represents the ability of the cardholder browser to execute Java. Value is returned from the navigator.javaEnabled property. Possible Values:True/False .</param>
@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="HttpBrowserScreenHeight">Total height of the Cardholder&#39;s scree in pixels, example: 864. .</param>
         /// <param name="HttpBrowserScreenWidth">Total width of the cardholder&#39;s screen in pixels. Example: 1536. .</param>
         /// <param name="HttpBrowserTimeDifference">Time difference between UTC time and the cardholder browser local time, in minutes, Example:300 .</param>
-        /// <param name="UserAgentBrowserValue">Value of the User-Agent header sent by the customer’s web browser. Note If the customer’s browser provides a value, you must include it in your request. .</param>
+        /// <param name="UserAgentBrowserValue">Value of the User-Agent header sent by the customer&#39;s web browser. Note If the customer&#39;s browser provides a value, you must include it in your request. .</param>
         public Riskv1authenticationsDeviceInformation(string IpAddress = default(string), List<Ptsv2paymentsDeviceInformationRawData> RawData = default(List<Ptsv2paymentsDeviceInformationRawData>), string HttpAcceptBrowserValue = default(string), string HttpAcceptContent = default(string), string HttpBrowserLanguage = default(string), bool? HttpBrowserJavaEnabled = default(bool?), bool? HttpBrowserJavaScriptEnabled = default(bool?), string HttpBrowserColorDepth = default(string), string HttpBrowserScreenHeight = default(string), string HttpBrowserScreenWidth = default(string), string HttpBrowserTimeDifference = default(string), string UserAgentBrowserValue = default(string))
         {
             this.IpAddress = IpAddress;
@@ -75,9 +75,9 @@ namespace CyberSource.Model
         public List<Ptsv2paymentsDeviceInformationRawData> RawData { get; set; }
 
         /// <summary>
-        /// Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. 
+        /// Value of the Accept header sent by the customer&#39;s web browser. **Note** If the customer&#39;s browser provides a value, you must include it in your request. 
         /// </summary>
-        /// <value>Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. </value>
+        /// <value>Value of the Accept header sent by the customer&#39;s web browser. **Note** If the customer&#39;s browser provides a value, you must include it in your request. </value>
         [DataMember(Name="httpAcceptBrowserValue", EmitDefaultValue=false)]
         public string HttpAcceptBrowserValue { get; set; }
 
@@ -138,9 +138,9 @@ namespace CyberSource.Model
         public string HttpBrowserTimeDifference { get; set; }
 
         /// <summary>
-        /// Value of the User-Agent header sent by the customer’s web browser. Note If the customer’s browser provides a value, you must include it in your request. 
+        /// Value of the User-Agent header sent by the customer&#39;s web browser. Note If the customer&#39;s browser provides a value, you must include it in your request. 
         /// </summary>
-        /// <value>Value of the User-Agent header sent by the customer’s web browser. Note If the customer’s browser provides a value, you must include it in your request. </value>
+        /// <value>Value of the User-Agent header sent by the customer&#39;s web browser. Note If the customer&#39;s browser provides a value, you must include it in your request. </value>
         [DataMember(Name="userAgentBrowserValue", EmitDefaultValue=false)]
         public string UserAgentBrowserValue { get; set; }
 

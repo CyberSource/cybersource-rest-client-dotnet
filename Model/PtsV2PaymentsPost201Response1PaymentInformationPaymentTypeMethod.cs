@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201Response1PaymentInformationPaymentTypeMethod" /> class.
         /// </summary>
-        /// <param name="Type">The payment channel that facilitates the transactions. This parameter can be used if the payment channels are listed on the merchant’s site, and the payment channel is known.  Possible Values:  #### Via PPRO - &#x60;alfaVa&#x60; - &#x60;kredivo&#x60; - &#x60;consumerBarCode&#x60; - &#x60;merchantQrCode&#x60; - &#x60;dokuWallet&#x60; .</param>
+        /// <param name="Type">The payment channel that facilitates the transactions. This parameter can be used if the payment channels are listed on the merchant&#39;s site, and the payment channel is known.  Possible Values:  #### Via PPRO - &#x60;alfaVa&#x60; - &#x60;kredivo&#x60; - &#x60;consumerBarCode&#x60; - &#x60;merchantQrCode&#x60; - &#x60;dokuWallet&#x60; .</param>
         public PtsV2PaymentsPost201Response1PaymentInformationPaymentTypeMethod(string Type = default(string))
         {
             this.Type = Type;
         }
         
         /// <summary>
-        /// The payment channel that facilitates the transactions. This parameter can be used if the payment channels are listed on the merchant’s site, and the payment channel is known.  Possible Values:  #### Via PPRO - &#x60;alfaVa&#x60; - &#x60;kredivo&#x60; - &#x60;consumerBarCode&#x60; - &#x60;merchantQrCode&#x60; - &#x60;dokuWallet&#x60; 
+        /// The payment channel that facilitates the transactions. This parameter can be used if the payment channels are listed on the merchant&#39;s site, and the payment channel is known.  Possible Values:  #### Via PPRO - &#x60;alfaVa&#x60; - &#x60;kredivo&#x60; - &#x60;consumerBarCode&#x60; - &#x60;merchantQrCode&#x60; - &#x60;dokuWallet&#x60; 
         /// </summary>
-        /// <value>The payment channel that facilitates the transactions. This parameter can be used if the payment channels are listed on the merchant’s site, and the payment channel is known.  Possible Values:  #### Via PPRO - &#x60;alfaVa&#x60; - &#x60;kredivo&#x60; - &#x60;consumerBarCode&#x60; - &#x60;merchantQrCode&#x60; - &#x60;dokuWallet&#x60; </value>
+        /// <value>The payment channel that facilitates the transactions. This parameter can be used if the payment channels are listed on the merchant&#39;s site, and the payment channel is known.  Possible Values:  #### Via PPRO - &#x60;alfaVa&#x60; - &#x60;kredivo&#x60; - &#x60;consumerBarCode&#x60; - &#x60;merchantQrCode&#x60; - &#x60;dokuWallet&#x60; </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
