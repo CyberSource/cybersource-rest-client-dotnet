@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount" /> class.
         /// </summary>
-        /// <param name="LastChangeDate">Date the cardholder’s account was last changed. This includes changes to the billing or shipping address, new payment accounts or new users added. Recommended for Discover ProtectBuy. .</param>
+        /// <param name="LastChangeDate">Date the cardholder&#39;s account was last changed. This includes changes to the billing or shipping address, new payment accounts or new users added. Recommended for Discover ProtectBuy. .</param>
         /// <param name="CreationHistory">The values from the enum can be: - GUEST - NEW_ACCOUNT - EXISTING_ACCOUNT .</param>
         /// <param name="ModificationHistory">This field is applicable only in case of EXISTING_ACCOUNT in creationHistory. Possible values: - ACCOUNT_UPDATED_NOW - ACCOUNT_UPDATED_PAST .</param>
         /// <param name="PasswordHistory">This only applies for EXISTING_ACCOUNT in creationHistory. The values from the enum can be: - PASSWORD_CHANGED_NOW - PASSWORD_CHANGED_PAST - PASSWORD_NEVER_CHANGED .</param>
@@ -50,9 +50,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Date the cardholder’s account was last changed. This includes changes to the billing or shipping address, new payment accounts or new users added. Recommended for Discover ProtectBuy. 
+        /// Date the cardholder&#39;s account was last changed. This includes changes to the billing or shipping address, new payment accounts or new users added. Recommended for Discover ProtectBuy. 
         /// </summary>
-        /// <value>Date the cardholder’s account was last changed. This includes changes to the billing or shipping address, new payment accounts or new users added. Recommended for Discover ProtectBuy. </value>
+        /// <value>Date the cardholder&#39;s account was last changed. This includes changes to the billing or shipping address, new payment accounts or new users added. Recommended for Discover ProtectBuy. </value>
         [DataMember(Name="lastChangeDate", EmitDefaultValue=false)]
         public string LastChangeDate { get; set; }
 

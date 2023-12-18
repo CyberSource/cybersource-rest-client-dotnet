@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Payments** | [**PaymentProducts**](PaymentProducts.md) |  | [optional] 
+**Payments** | [**PaymentsProducts**](PaymentsProducts.md) |  | [optional] 
 **Risk** | [**RiskProducts**](RiskProducts.md) |  | [optional] 
 **CommerceSolutions** | [**CommerceSolutionsProducts**](CommerceSolutionsProducts.md) |  | [optional] 
 **ValueAddedServices** | [**ValueAddedServicesProducts**](ValueAddedServicesProducts.md) |  | [optional] 

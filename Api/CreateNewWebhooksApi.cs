@@ -34,9 +34,9 @@ namespace CyberSource.Api
         /// Create a new webhook subscription. Before creating a webhook, ensure that a security key has been created at the top of this developer center section. You will not need to pass us back the key during the creation of the webhook, but you will receive an error if you did not already create a key or store one on file. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <param name="createWebhookRequest">The webhook payload (optional)</param>
         /// <returns>InlineResponse2013</returns>
-        InlineResponse2013 CreateWebhook (CreateWebhook createWebhook = null);
+        InlineResponse2013 CreateWebhookSubscription (CreateWebhookRequest createWebhookRequest = null);
 
         /// <summary>
         /// Create a Webhook
@@ -45,9 +45,9 @@ namespace CyberSource.Api
         /// Create a new webhook subscription. Before creating a webhook, ensure that a security key has been created at the top of this developer center section. You will not need to pass us back the key during the creation of the webhook, but you will receive an error if you did not already create a key or store one on file. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <param name="createWebhookRequest">The webhook payload (optional)</param>
         /// <returns>ApiResponse of InlineResponse2013</returns>
-        ApiResponse<InlineResponse2013> CreateWebhookWithHttpInfo (CreateWebhook createWebhook = null);
+        ApiResponse<InlineResponse2013> CreateWebhookSubscriptionWithHttpInfo (CreateWebhookRequest createWebhookRequest = null);
         /// <summary>
         /// Find Products You Can Subscribe To
         /// </summary>
@@ -57,7 +57,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <returns>List&lt;InlineResponse2003&gt;</returns>
-        List<InlineResponse2003> FindProductToSubscribe (string organizationId);
+        List<InlineResponse2003> FindProductsToSubscribe (string organizationId);
 
         /// <summary>
         /// Find Products You Can Subscribe To
@@ -68,7 +68,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <returns>ApiResponse of List&lt;InlineResponse2003&gt;</returns>
-        ApiResponse<List<InlineResponse2003>> FindProductToSubscribeWithHttpInfo (string organizationId);
+        ApiResponse<List<InlineResponse2003>> FindProductsToSubscribeWithHttpInfo (string organizationId);
         /// <summary>
         /// Create Webhook Security Keys
         /// </summary>
@@ -105,9 +105,9 @@ namespace CyberSource.Api
         /// Create a new webhook subscription. Before creating a webhook, ensure that a security key has been created at the top of this developer center section. You will not need to pass us back the key during the creation of the webhook, but you will receive an error if you did not already create a key or store one on file. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <param name="createWebhookRequest">The webhook payload (optional)</param>
         /// <returns>Task of InlineResponse2013</returns>
-        System.Threading.Tasks.Task<InlineResponse2013> CreateWebhookAsync (CreateWebhook createWebhook = null);
+        System.Threading.Tasks.Task<InlineResponse2013> CreateWebhookSubscriptionAsync (CreateWebhookRequest createWebhookRequest = null);
 
         /// <summary>
         /// Create a Webhook
@@ -116,9 +116,9 @@ namespace CyberSource.Api
         /// Create a new webhook subscription. Before creating a webhook, ensure that a security key has been created at the top of this developer center section. You will not need to pass us back the key during the creation of the webhook, but you will receive an error if you did not already create a key or store one on file. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <param name="createWebhookRequest">The webhook payload (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> CreateWebhookAsyncWithHttpInfo (CreateWebhook createWebhook = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> CreateWebhookSubscriptionAsyncWithHttpInfo (CreateWebhookRequest createWebhookRequest = null);
         /// <summary>
         /// Find Products You Can Subscribe To
         /// </summary>
@@ -128,7 +128,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <returns>Task of List&lt;InlineResponse2003&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2003>> FindProductToSubscribeAsync (string organizationId);
+        System.Threading.Tasks.Task<List<InlineResponse2003>> FindProductsToSubscribeAsync (string organizationId);
 
         /// <summary>
         /// Find Products You Can Subscribe To
@@ -139,7 +139,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineResponse2003&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2003>>> FindProductToSubscribeAsyncWithHttpInfo (string organizationId);
+        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2003>>> FindProductsToSubscribeAsyncWithHttpInfo (string organizationId);
         /// <summary>
         /// Create Webhook Security Keys
         /// </summary>
@@ -311,15 +311,15 @@ namespace CyberSource.Api
         /// Create a Webhook Create a new webhook subscription. Before creating a webhook, ensure that a security key has been created at the top of this developer center section. You will not need to pass us back the key during the creation of the webhook, but you will receive an error if you did not already create a key or store one on file. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <param name="createWebhookRequest">The webhook payload (optional)</param>
         /// <returns>InlineResponse2013</returns>
-        /// <remarks>DISCLAIMER: Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested (“Beta Product”) solely for the purpose of evaluating the functionality or marketability of the Beta Product (a “Beta Evaluation”). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer’s participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period (“Beta Product Form”). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer’s use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided “AS IS” and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public InlineResponse2013 CreateWebhook (CreateWebhook createWebhook = null)
+        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
+        public InlineResponse2013 CreateWebhookSubscription (CreateWebhookRequest createWebhookRequest = null)
         {
-            logger.Debug("CALLING API \"CreateWebhook\" STARTED");
+            logger.Debug("CALLING API \"CreateWebhookSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2013> localVarResponse = CreateWebhookWithHttpInfo(createWebhook);
-            logger.Debug("CALLING API \"CreateWebhook\" ENDED");
+            ApiResponse<InlineResponse2013> localVarResponse = CreateWebhookSubscriptionWithHttpInfo(createWebhookRequest);
+            logger.Debug("CALLING API \"CreateWebhookSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -328,9 +328,9 @@ namespace CyberSource.Api
         /// Create a Webhook Create a new webhook subscription. Before creating a webhook, ensure that a security key has been created at the top of this developer center section. You will not need to pass us back the key during the creation of the webhook, but you will receive an error if you did not already create a key or store one on file. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <param name="createWebhookRequest">The webhook payload (optional)</param>
         /// <returns>ApiResponse of InlineResponse2013</returns>
-        public ApiResponse< InlineResponse2013 > CreateWebhookWithHttpInfo (CreateWebhook createWebhook = null)
+        public ApiResponse< InlineResponse2013 > CreateWebhookSubscriptionWithHttpInfo (CreateWebhookRequest createWebhookRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -351,7 +351,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -359,15 +359,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (createWebhook != null && createWebhook.GetType() != typeof(byte[]))
+            if (createWebhookRequest != null && createWebhookRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createWebhook = (CreateWebhook)sdkTracker.InsertDeveloperIdTracker(createWebhook, createWebhook.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
-                localVarPostBody = Configuration.ApiClient.Serialize(createWebhook); // http body (model) parameter
+                createWebhookRequest = (CreateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(createWebhookRequest, createWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(createWebhookRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = createWebhook; // byte array
+                localVarPostBody = createWebhookRequest; // byte array
             }
 
             if (logUtility.IsMaskingEnabled(logger))
@@ -389,7 +389,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateWebhook", localVarResponse);
+                Exception exception = ExceptionFactory("CreateWebhookSubscription", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -406,14 +406,14 @@ namespace CyberSource.Api
         /// Create a Webhook Create a new webhook subscription. Before creating a webhook, ensure that a security key has been created at the top of this developer center section. You will not need to pass us back the key during the creation of the webhook, but you will receive an error if you did not already create a key or store one on file. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <param name="createWebhookRequest">The webhook payload (optional)</param>
         /// <returns>Task of InlineResponse2013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2013> CreateWebhookAsync (CreateWebhook createWebhook = null)
+        public async System.Threading.Tasks.Task<InlineResponse2013> CreateWebhookSubscriptionAsync (CreateWebhookRequest createWebhookRequest = null)
         {
-            logger.Debug("CALLING API \"CreateWebhookAsync\" STARTED");
+            logger.Debug("CALLING API \"CreateWebhookSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2013> localVarResponse = await CreateWebhookAsyncWithHttpInfo(createWebhook);
-            logger.Debug("CALLING API \"CreateWebhookAsync\" ENDED");
+            ApiResponse<InlineResponse2013> localVarResponse = await CreateWebhookSubscriptionAsyncWithHttpInfo(createWebhookRequest);
+            logger.Debug("CALLING API \"CreateWebhookSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -423,9 +423,9 @@ namespace CyberSource.Api
         /// Create a Webhook Create a new webhook subscription. Before creating a webhook, ensure that a security key has been created at the top of this developer center section. You will not need to pass us back the key during the creation of the webhook, but you will receive an error if you did not already create a key or store one on file. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <param name="createWebhookRequest">The webhook payload (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> CreateWebhookAsyncWithHttpInfo (CreateWebhook createWebhook = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> CreateWebhookSubscriptionAsyncWithHttpInfo (CreateWebhookRequest createWebhookRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -446,7 +446,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -454,15 +454,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (createWebhook != null && createWebhook.GetType() != typeof(byte[]))
+            if (createWebhookRequest != null && createWebhookRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createWebhook = (CreateWebhook)sdkTracker.InsertDeveloperIdTracker(createWebhook, createWebhook.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
-                localVarPostBody = Configuration.ApiClient.Serialize(createWebhook); // http body (model) parameter
+                createWebhookRequest = (CreateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(createWebhookRequest, createWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(createWebhookRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = createWebhook; // byte array
+                localVarPostBody = createWebhookRequest; // byte array
             }
 
             if (logUtility.IsMaskingEnabled(logger))
@@ -484,7 +484,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateWebhook", localVarResponse);
+                Exception exception = ExceptionFactory("CreateWebhookSubscription", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -502,13 +502,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <returns>List&lt;InlineResponse2003&gt;</returns>
-        /// <remarks>DISCLAIMER: Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested (“Beta Product”) solely for the purpose of evaluating the functionality or marketability of the Beta Product (a “Beta Evaluation”). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer’s participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period (“Beta Product Form”). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer’s use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided “AS IS” and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public List<InlineResponse2003> FindProductToSubscribe (string organizationId)
+        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
+        public List<InlineResponse2003> FindProductsToSubscribe (string organizationId)
         {
-            logger.Debug("CALLING API \"FindProductToSubscribe\" STARTED");
+            logger.Debug("CALLING API \"FindProductsToSubscribe\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2003>> localVarResponse = FindProductToSubscribeWithHttpInfo(organizationId);
-            logger.Debug("CALLING API \"FindProductToSubscribe\" ENDED");
+            ApiResponse<List<InlineResponse2003>> localVarResponse = FindProductsToSubscribeWithHttpInfo(organizationId);
+            logger.Debug("CALLING API \"FindProductsToSubscribe\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -519,15 +519,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <returns>ApiResponse of List&lt;InlineResponse2003&gt;</returns>
-        public ApiResponse< List<InlineResponse2003> > FindProductToSubscribeWithHttpInfo (string organizationId)
+        public ApiResponse< List<InlineResponse2003> > FindProductsToSubscribeWithHttpInfo (string organizationId)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'organizationId' is set
             if (organizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'organizationId' when calling CreateNewWebhooksApi->FindProductToSubscribe");
-                throw new ApiException(400, "Missing required parameter 'organizationId' when calling CreateNewWebhooksApi->FindProductToSubscribe");
+                logger.Error("ApiException : Missing required parameter 'organizationId' when calling CreateNewWebhooksApi->FindProductsToSubscribe");
+                throw new ApiException(400, "Missing required parameter 'organizationId' when calling CreateNewWebhooksApi->FindProductsToSubscribe");
             }
 
             var localVarPath = $"/notification-subscriptions/v1/products/{organizationId}";
@@ -546,7 +546,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -578,7 +578,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FindProductToSubscribe", localVarResponse);
+                Exception exception = ExceptionFactory("FindProductsToSubscribe", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -597,12 +597,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <returns>Task of List&lt;InlineResponse2003&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InlineResponse2003>> FindProductToSubscribeAsync (string organizationId)
+        public async System.Threading.Tasks.Task<List<InlineResponse2003>> FindProductsToSubscribeAsync (string organizationId)
         {
-            logger.Debug("CALLING API \"FindProductToSubscribeAsync\" STARTED");
+            logger.Debug("CALLING API \"FindProductsToSubscribeAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2003>> localVarResponse = await FindProductToSubscribeAsyncWithHttpInfo(organizationId);
-            logger.Debug("CALLING API \"FindProductToSubscribeAsync\" ENDED");
+            ApiResponse<List<InlineResponse2003>> localVarResponse = await FindProductsToSubscribeAsyncWithHttpInfo(organizationId);
+            logger.Debug("CALLING API \"FindProductsToSubscribeAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -614,15 +614,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineResponse2003&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2003>>> FindProductToSubscribeAsyncWithHttpInfo (string organizationId)
+        public async System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2003>>> FindProductsToSubscribeAsyncWithHttpInfo (string organizationId)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'organizationId' is set
             if (organizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'organizationId' when calling CreateNewWebhooksApi->FindProductToSubscribe");
-                throw new ApiException(400, "Missing required parameter 'organizationId' when calling CreateNewWebhooksApi->FindProductToSubscribe");
+                logger.Error("ApiException : Missing required parameter 'organizationId' when calling CreateNewWebhooksApi->FindProductsToSubscribe");
+                throw new ApiException(400, "Missing required parameter 'organizationId' when calling CreateNewWebhooksApi->FindProductsToSubscribe");
             }
 
             var localVarPath = $"/notification-subscriptions/v1/products/{organizationId}";
@@ -641,7 +641,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -673,7 +673,7 @@ namespace CyberSource.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FindProductToSubscribe", localVarResponse);
+                Exception exception = ExceptionFactory("FindProductsToSubscribe", localVarResponse);
                 if (exception != null)
                 {
                     logger.Error($"Exception : {exception.Message}");
@@ -694,7 +694,7 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
         /// <returns>InlineResponse2012</returns>
-        /// <remarks>DISCLAIMER: Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested (“Beta Product”) solely for the purpose of evaluating the functionality or marketability of the Beta Product (a “Beta Evaluation”). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer’s participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period (“Beta Product Form”). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer’s use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided “AS IS” and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
+        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
         public InlineResponse2012 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             logger.Debug("CALLING API \"SaveSymEgressKey\" STARTED");
@@ -747,7 +747,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -872,7 +872,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)

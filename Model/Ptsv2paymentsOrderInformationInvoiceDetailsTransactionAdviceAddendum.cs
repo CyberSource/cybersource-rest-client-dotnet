@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum" /> class.
         /// </summary>
-        /// <param name="Data">Four Transaction Advice Addendum (TAA) fields. These fields are used to display descriptive information about a transaction on the customer’s American Express card statement. When you send TAA fields, start with amexdata_taa1, then ...taa2, and so on. Skipping a TAA field causes subsequent TAA fields to be ignored.  To use these fields, contact CyberSource Customer Support to have your account enabled for this feature. .</param>
+        /// <param name="Data">Four Transaction Advice Addendum (TAA) fields. These fields are used to display descriptive information about a transaction on the customer&#39;s American Express card statement. When you send TAA fields, start with amexdata_taa1, then ...taa2, and so on. Skipping a TAA field causes subsequent TAA fields to be ignored.  To use these fields, contact CyberSource Customer Support to have your account enabled for this feature. .</param>
         public Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum(string Data = default(string))
         {
             this.Data = Data;
         }
         
         /// <summary>
-        /// Four Transaction Advice Addendum (TAA) fields. These fields are used to display descriptive information about a transaction on the customer’s American Express card statement. When you send TAA fields, start with amexdata_taa1, then ...taa2, and so on. Skipping a TAA field causes subsequent TAA fields to be ignored.  To use these fields, contact CyberSource Customer Support to have your account enabled for this feature. 
+        /// Four Transaction Advice Addendum (TAA) fields. These fields are used to display descriptive information about a transaction on the customer&#39;s American Express card statement. When you send TAA fields, start with amexdata_taa1, then ...taa2, and so on. Skipping a TAA field causes subsequent TAA fields to be ignored.  To use these fields, contact CyberSource Customer Support to have your account enabled for this feature. 
         /// </summary>
-        /// <value>Four Transaction Advice Addendum (TAA) fields. These fields are used to display descriptive information about a transaction on the customer’s American Express card statement. When you send TAA fields, start with amexdata_taa1, then ...taa2, and so on. Skipping a TAA field causes subsequent TAA fields to be ignored.  To use these fields, contact CyberSource Customer Support to have your account enabled for this feature. </value>
+        /// <value>Four Transaction Advice Addendum (TAA) fields. These fields are used to display descriptive information about a transaction on the customer&#39;s American Express card statement. When you send TAA fields, start with amexdata_taa1, then ...taa2, and so on. Skipping a TAA field causes subsequent TAA fields to be ignored.  To use these fields, contact CyberSource Customer Support to have your account enabled for this feature. </value>
         [DataMember(Name="data", EmitDefaultValue=false)]
         public string Data { get; set; }
 

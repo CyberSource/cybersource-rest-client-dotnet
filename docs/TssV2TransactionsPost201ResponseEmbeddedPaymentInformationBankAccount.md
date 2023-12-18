@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Suffix** | **string** | Last four digits of the customer’s payment account number.  | [optional] 
+**Suffix** | **string** | Last four digits of the customer&#39;s payment account number.  | [optional] 
 **Prefix** | **string** | Bank Identification Number (BIN). This is the initial four to six numbers on a credit card account number.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

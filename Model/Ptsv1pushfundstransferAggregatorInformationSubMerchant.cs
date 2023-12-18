@@ -34,14 +34,14 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferAggregatorInformationSubMerchant" /> class.
         /// </summary>
         /// <param name="Id">The ID you assigned to your sub-merchant.  FDC Compass: This value must consist of uppercase characters.  Visa Platform Connect with Mastercard: String (15) FDC Compass: String (20) .</param>
-        /// <param name="Name">Sub-merchant’s business name.  Visa Platform Connect With American Express, the maximum length of the sub-merchant name depends on the length of the aggregator name. The combined length for both values must not exceed 36 characters. The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. .</param>
-        /// <param name="Address1">First line of the sub-merchant’s street address.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. .</param>
-        /// <param name="Locality">Sub-merchant’s city.  For processor-specific details, see submerchant_city request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. .</param>
-        /// <param name="AdministrativeArea">Sub-merchant’s state or province. See https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. .</param>
-        /// <param name="PostalCode">Partial postal code for the sub-merchant’s address.  For processor-specific details, see submerchant_postal_code request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. .</param>
-        /// <param name="Country">Sub-merchant’s country. Use the ISO Standard numeric Country Codes.  See https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. .</param>
-        /// <param name="Email">Sub-merchant’s email address.  CyberSource through VisaNet | With American Express, the value for this field corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCRB - Position: 25-64 - Field: American Express Seller E-mail Address - Note The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant’s acquirer, who uses this information to facilitate end-of-day clearing processing with payment card companies. .</param>
-        /// <param name="PhoneNumber">Sub-merchant’s telephone number.  Maximum length for procesors  Visa Platform Connect: 20 FDC Compass: 13  FDC Compass This value must consist of uppercase characters. Use one of these recommended formats: NNN-NNN-NNNN NNN-AAAAAAA .</param>
+        /// <param name="Name">Sub-merchant&#39;s business name.  Visa Platform Connect With American Express, the maximum length of the sub-merchant name depends on the length of the aggregator name. The combined length for both values must not exceed 36 characters. The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. .</param>
+        /// <param name="Address1">First line of the sub-merchant&#39;s street address.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. .</param>
+        /// <param name="Locality">Sub-merchant&#39;s city.  For processor-specific details, see submerchant_city request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. .</param>
+        /// <param name="AdministrativeArea">Sub-merchant&#39;s state or province. See https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. .</param>
+        /// <param name="PostalCode">Partial postal code for the sub-merchant&#39;s address.  For processor-specific details, see submerchant_postal_code request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. .</param>
+        /// <param name="Country">Sub-merchant&#39;s country. Use the ISO Standard numeric Country Codes.  See https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. .</param>
+        /// <param name="Email">Sub-merchant&#39;s email address.  CyberSource through VisaNet | With American Express, the value for this field corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCRB - Position: 25-64 - Field: American Express Seller E-mail Address - Note The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant&#39;s acquirer, who uses this information to facilitate end-of-day clearing processing with payment card companies. .</param>
+        /// <param name="PhoneNumber">Sub-merchant&#39;s telephone number.  Maximum length for procesors  Visa Platform Connect: 20 FDC Compass: 13  FDC Compass This value must consist of uppercase characters. Use one of these recommended formats: NNN-NNN-NNNN NNN-AAAAAAA .</param>
         public Ptsv1pushfundstransferAggregatorInformationSubMerchant(string Id = default(string), string Name = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string Email = default(string), string PhoneNumber = default(string))
         {
             this.Id = Id;
@@ -63,58 +63,58 @@ namespace CyberSource.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Sub-merchant’s business name.  Visa Platform Connect With American Express, the maximum length of the sub-merchant name depends on the length of the aggregator name. The combined length for both values must not exceed 36 characters. The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. 
+        /// Sub-merchant&#39;s business name.  Visa Platform Connect With American Express, the maximum length of the sub-merchant name depends on the length of the aggregator name. The combined length for both values must not exceed 36 characters. The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. 
         /// </summary>
-        /// <value>Sub-merchant’s business name.  Visa Platform Connect With American Express, the maximum length of the sub-merchant name depends on the length of the aggregator name. The combined length for both values must not exceed 36 characters. The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. </value>
+        /// <value>Sub-merchant&#39;s business name.  Visa Platform Connect With American Express, the maximum length of the sub-merchant name depends on the length of the aggregator name. The combined length for both values must not exceed 36 characters. The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// First line of the sub-merchant’s street address.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. 
+        /// First line of the sub-merchant&#39;s street address.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. 
         /// </summary>
-        /// <value>First line of the sub-merchant’s street address.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. </value>
+        /// <value>First line of the sub-merchant&#39;s street address.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. </value>
         [DataMember(Name="address1", EmitDefaultValue=false)]
         public string Address1 { get; set; }
 
         /// <summary>
-        /// Sub-merchant’s city.  For processor-specific details, see submerchant_city request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. 
+        /// Sub-merchant&#39;s city.  For processor-specific details, see submerchant_city request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. 
         /// </summary>
-        /// <value>Sub-merchant’s city.  For processor-specific details, see submerchant_city request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. </value>
+        /// <value>Sub-merchant&#39;s city.  For processor-specific details, see submerchant_city request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. </value>
         [DataMember(Name="locality", EmitDefaultValue=false)]
         public string Locality { get; set; }
 
         /// <summary>
-        /// Sub-merchant’s state or province. See https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. 
+        /// Sub-merchant&#39;s state or province. See https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. 
         /// </summary>
-        /// <value>Sub-merchant’s state or province. See https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. </value>
+        /// <value>Sub-merchant&#39;s state or province. See https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. </value>
         [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
         public string AdministrativeArea { get; set; }
 
         /// <summary>
-        /// Partial postal code for the sub-merchant’s address.  For processor-specific details, see submerchant_postal_code request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. 
+        /// Partial postal code for the sub-merchant&#39;s address.  For processor-specific details, see submerchant_postal_code request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. 
         /// </summary>
-        /// <value>Partial postal code for the sub-merchant’s address.  For processor-specific details, see submerchant_postal_code request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. </value>
+        /// <value>Partial postal code for the sub-merchant&#39;s address.  For processor-specific details, see submerchant_postal_code request field description in Credit Card Services Using the SCMP API.  Visa Platform Connect The value for this field does not map to the TC 33 capture file5.  FDC Compass This value must consist of uppercase characters. </value>
         [DataMember(Name="postalCode", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Sub-merchant’s country. Use the ISO Standard numeric Country Codes.  See https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. 
+        /// Sub-merchant&#39;s country. Use the ISO Standard numeric Country Codes.  See https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. 
         /// </summary>
-        /// <value>Sub-merchant’s country. Use the ISO Standard numeric Country Codes.  See https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. </value>
+        /// <value>Sub-merchant&#39;s country. Use the ISO Standard numeric Country Codes.  See https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf  Visa Platform Connect The value for this field does not map to the TC 33 capture file.  FDC Compass This value must consist of uppercase characters. </value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 
         /// <summary>
-        /// Sub-merchant’s email address.  CyberSource through VisaNet | With American Express, the value for this field corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCRB - Position: 25-64 - Field: American Express Seller E-mail Address - Note The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant’s acquirer, who uses this information to facilitate end-of-day clearing processing with payment card companies. 
+        /// Sub-merchant&#39;s email address.  CyberSource through VisaNet | With American Express, the value for this field corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCRB - Position: 25-64 - Field: American Express Seller E-mail Address - Note The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant&#39;s acquirer, who uses this information to facilitate end-of-day clearing processing with payment card companies. 
         /// </summary>
-        /// <value>Sub-merchant’s email address.  CyberSource through VisaNet | With American Express, the value for this field corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCRB - Position: 25-64 - Field: American Express Seller E-mail Address - Note The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant’s acquirer, who uses this information to facilitate end-of-day clearing processing with payment card companies. </value>
+        /// <value>Sub-merchant&#39;s email address.  CyberSource through VisaNet | With American Express, the value for this field corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCRB - Position: 25-64 - Field: American Express Seller E-mail Address - Note The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant&#39;s acquirer, who uses this information to facilitate end-of-day clearing processing with payment card companies. </value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Sub-merchant’s telephone number.  Maximum length for procesors  Visa Platform Connect: 20 FDC Compass: 13  FDC Compass This value must consist of uppercase characters. Use one of these recommended formats: NNN-NNN-NNNN NNN-AAAAAAA 
+        /// Sub-merchant&#39;s telephone number.  Maximum length for procesors  Visa Platform Connect: 20 FDC Compass: 13  FDC Compass This value must consist of uppercase characters. Use one of these recommended formats: NNN-NNN-NNNN NNN-AAAAAAA 
         /// </summary>
-        /// <value>Sub-merchant’s telephone number.  Maximum length for procesors  Visa Platform Connect: 20 FDC Compass: 13  FDC Compass This value must consist of uppercase characters. Use one of these recommended formats: NNN-NNN-NNNN NNN-AAAAAAA </value>
+        /// <value>Sub-merchant&#39;s telephone number.  Maximum length for procesors  Visa Platform Connect: 20 FDC Compass: 13  FDC Compass This value must consist of uppercase characters. Use one of these recommended formats: NNN-NNN-NNNN NNN-AAAAAAA </value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 

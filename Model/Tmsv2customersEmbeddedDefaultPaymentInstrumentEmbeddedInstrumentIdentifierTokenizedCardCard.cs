@@ -39,23 +39,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The customer’s latest payment card number suffix 
+        /// The customer&#39;s latest payment card number suffix 
         /// </summary>
-        /// <value>The customer’s latest payment card number suffix </value>
+        /// <value>The customer&#39;s latest payment card number suffix </value>
         [DataMember(Name="suffix", EmitDefaultValue=false)]
         public string Suffix { get; private set; }
 
         /// <summary>
-        ///  Two-digit month in which the customer’s latest payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. 
+        ///  Two-digit month in which the customer&#39;s latest payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. 
         /// </summary>
-        /// <value> Two-digit month in which the customer’s latest payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. </value>
+        /// <value> Two-digit month in which the customer&#39;s latest payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. </value>
         [DataMember(Name="expirationMonth", EmitDefaultValue=false)]
         public string ExpirationMonth { get; private set; }
 
         /// <summary>
-        /// Four-digit year in which the customer’s latest payment card expires.  Format: &#x60;YYYY&#x60;. 
+        /// Four-digit year in which the customer&#39;s latest payment card expires.  Format: &#x60;YYYY&#x60;. 
         /// </summary>
-        /// <value>Four-digit year in which the customer’s latest payment card expires.  Format: &#x60;YYYY&#x60;. </value>
+        /// <value>Four-digit year in which the customer&#39;s latest payment card expires.  Format: &#x60;YYYY&#x60;. </value>
         [DataMember(Name="expirationYear", EmitDefaultValue=false)]
         public string ExpirationYear { get; private set; }
 

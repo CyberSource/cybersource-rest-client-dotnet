@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAllSubscriptionsResponseOrderInformationBillTo" /> class.
         /// </summary>
-        /// <param name="FirstName">Customer’s first name. .</param>
-        /// <param name="LastName">Customer’s last name. .</param>
+        /// <param name="FirstName">Customer&#39;s first name. .</param>
+        /// <param name="LastName">Customer&#39;s last name. .</param>
         public GetAllSubscriptionsResponseOrderInformationBillTo(string FirstName = default(string), string LastName = default(string))
         {
             this.FirstName = FirstName;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Customer’s first name. 
+        /// Customer&#39;s first name. 
         /// </summary>
-        /// <value>Customer’s first name. </value>
+        /// <value>Customer&#39;s first name. </value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Customer’s last name. 
+        /// Customer&#39;s last name. 
         /// </summary>
-        /// <value>Customer’s last name. </value>
+        /// <value>Customer&#39;s last name. </value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 

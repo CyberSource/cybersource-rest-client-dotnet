@@ -264,7 +264,7 @@ No authorization required
 
 Get Subscription for Report Name
 
-View the details of a report subscription, such as the report format or report frequency, using the report’s unique name. 
+View the details of a report subscription, such as the report format or report frequency, using the report's unique name. 
 
 ### Example
 ```csharp

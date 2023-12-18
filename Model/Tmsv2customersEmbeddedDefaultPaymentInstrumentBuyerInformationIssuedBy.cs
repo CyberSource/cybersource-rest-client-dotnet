@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationIssuedBy" /> class.
         /// </summary>
-        /// <param name="AdministrativeArea">The State or province where the customer’s driver’s license was issued.  Use the two-character State, Province, and Territory Codes for the United States and Canada. .</param>
+        /// <param name="AdministrativeArea">The State or province where the customer&#39;s driver&#39;s license was issued.  Use the two-character State, Province, and Territory Codes for the United States and Canada. .</param>
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationIssuedBy(string AdministrativeArea = default(string))
         {
             this.AdministrativeArea = AdministrativeArea;
         }
         
         /// <summary>
-        /// The State or province where the customer’s driver’s license was issued.  Use the two-character State, Province, and Territory Codes for the United States and Canada. 
+        /// The State or province where the customer&#39;s driver&#39;s license was issued.  Use the two-character State, Province, and Territory Codes for the United States and Canada. 
         /// </summary>
-        /// <value>The State or province where the customer’s driver’s license was issued.  Use the two-character State, Province, and Territory Codes for the United States and Canada. </value>
+        /// <value>The State or province where the customer&#39;s driver&#39;s license was issued.  Use the two-character State, Province, and Territory Codes for the United States and Canada. </value>
         [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
         public string AdministrativeArea { get; set; }
 

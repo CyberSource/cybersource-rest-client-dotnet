@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedPaymentInformationBankAccount" /> class.
         /// </summary>
-        /// <param name="Suffix">Last four digits of the customer’s payment account number. .</param>
+        /// <param name="Suffix">Last four digits of the customer&#39;s payment account number. .</param>
         /// <param name="Prefix">Bank Identification Number (BIN). This is the initial four to six numbers on a credit card account number. .</param>
         public TssV2TransactionsPost201ResponseEmbeddedPaymentInformationBankAccount(string Suffix = default(string), string Prefix = default(string))
         {
@@ -42,9 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Last four digits of the customer’s payment account number. 
+        /// Last four digits of the customer&#39;s payment account number. 
         /// </summary>
-        /// <value>Last four digits of the customer’s payment account number. </value>
+        /// <value>Last four digits of the customer&#39;s payment account number. </value>
         [DataMember(Name="suffix", EmitDefaultValue=false)]
         public string Suffix { get; set; }
 

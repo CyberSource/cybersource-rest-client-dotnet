@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Reporting">Reporting.</param>
         /// <param name="TransactionSearch">TransactionSearch.</param>
-        public ValueAddedServicesProducts(PaymentProductsTax Reporting = default(PaymentProductsTax), PaymentProductsTax TransactionSearch = default(PaymentProductsTax))
+        public ValueAddedServicesProducts(PaymentsProductsTax Reporting = default(PaymentsProductsTax), PaymentsProductsTax TransactionSearch = default(PaymentsProductsTax))
         {
             this.Reporting = Reporting;
             this.TransactionSearch = TransactionSearch;
@@ -45,13 +45,13 @@ namespace CyberSource.Model
         /// Gets or Sets Reporting
         /// </summary>
         [DataMember(Name="reporting", EmitDefaultValue=false)]
-        public PaymentProductsTax Reporting { get; set; }
+        public PaymentsProductsTax Reporting { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionSearch
         /// </summary>
         [DataMember(Name="transactionSearch", EmitDefaultValue=false)]
-        public PaymentProductsTax TransactionSearch { get; set; }
+        public PaymentsProductsTax TransactionSearch { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

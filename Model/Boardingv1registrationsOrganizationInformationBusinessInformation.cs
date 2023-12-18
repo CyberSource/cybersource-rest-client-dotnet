@@ -941,54 +941,54 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            //// Name (string) pattern
+            // Name (string) pattern
             //Regex regexName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
             //if (false == regexName.Match(this.Name).Success)
             //{
             //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
             //}
 
-            //// DoingBusinessAs (string) pattern
+            // DoingBusinessAs (string) pattern
             //Regex regexDoingBusinessAs = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
             //if (false == regexDoingBusinessAs.Match(this.DoingBusinessAs).Success)
             //{
             //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DoingBusinessAs, must match a pattern of " + regexDoingBusinessAs, new [] { "DoingBusinessAs" });
             //}
 
-            //// Description (string) pattern
-            //Regex regexDescription = new Regex(@"[À-ÖØ-öø-ǿÀ-ÖØ-öø-ǿ\\n\\ra-zA-Z0-9().\\-_#,;\/\\\\@$:&amp;!?%«»€₣«»€₣ ]{1,}$", RegexOptions.CultureInvariant);
-            //if (false == regexDescription.Match(this.Description).Success)
-            //{
-            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
-            //}
+            // Description (string) pattern
+            Regex regexDescription = new Regex(@"[À-ÖØ-öø-ǿÀ-ÖØ-öø-ǿ\\n\\ra-zA-Z0-9().\\-_#,;\/\\\\@$:&amp;!?%«»€₣«»€₣ ]{1,}$", RegexOptions.CultureInvariant);
+            if (false == regexDescription.Match(this.Description).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+            }
 
-            //// WebsiteUrl (string) pattern
+            // WebsiteUrl (string) pattern
             //Regex regexWebsiteUrl = new Regex(@"\\b((?:https?:\/\/|www\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}\/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:'\".,<>?Â«Â»â€œâ€â€˜â€™]))", RegexOptions.CultureInvariant);
             //if (false == regexWebsiteUrl.Match(this.WebsiteUrl).Success)
             //{
             //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WebsiteUrl, must match a pattern of " + regexWebsiteUrl, new [] { "WebsiteUrl" });
             //}
 
-            //// TaxId (string) pattern
-            //Regex regexTaxId = new Regex(@"\\d{9}", RegexOptions.CultureInvariant);
-            //if (false == regexTaxId.Match(this.TaxId).Success)
-            //{
-            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxId, must match a pattern of " + regexTaxId, new [] { "TaxId" });
-            //}
+            // TaxId (string) pattern
+            Regex regexTaxId = new Regex(@"\\d{9}", RegexOptions.CultureInvariant);
+            if (false == regexTaxId.Match(this.TaxId).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxId, must match a pattern of " + regexTaxId, new [] { "TaxId" });
+            }
 
-            //// PhoneNumber (string) pattern
-            //Regex regexPhoneNumber = new Regex(@"^[0-9a-zA-Z\\\\+\\\\-]+$", RegexOptions.CultureInvariant);
-            //if (false == regexPhoneNumber.Match(this.PhoneNumber).Success)
-            //{
-            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, must match a pattern of " + regexPhoneNumber, new [] { "PhoneNumber" });
-            //}
+            // PhoneNumber (string) pattern
+            Regex regexPhoneNumber = new Regex(@"^[0-9a-zA-Z\\\\+\\\\-]+$", RegexOptions.CultureInvariant);
+            if (false == regexPhoneNumber.Match(this.PhoneNumber).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, must match a pattern of " + regexPhoneNumber, new [] { "PhoneNumber" });
+            }
 
-            //// MerchantCategoryCode (string) pattern
-            //Regex regexMerchantCategoryCode = new Regex(@"^\\d{3,4}$", RegexOptions.CultureInvariant);
-            //if (false == regexMerchantCategoryCode.Match(this.MerchantCategoryCode).Success)
-            //{
-            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantCategoryCode, must match a pattern of " + regexMerchantCategoryCode, new [] { "MerchantCategoryCode" });
-            //}
+            // MerchantCategoryCode (string) pattern
+            Regex regexMerchantCategoryCode = new Regex(@"^\\d{3,4}$", RegexOptions.CultureInvariant);
+            if (false == regexMerchantCategoryCode.Match(this.MerchantCategoryCode).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantCategoryCode, must match a pattern of " + regexMerchantCategoryCode, new [] { "MerchantCategoryCode" });
+            }
 
             yield break;
         }
