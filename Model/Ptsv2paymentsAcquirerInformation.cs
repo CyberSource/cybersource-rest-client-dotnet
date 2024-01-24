@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="Country">Issuers need to be aware of the Acquirer&#39;s Country Code when the Acquirer country differs from the Merchant country and the Acquirer is in the EEA (European Economic Area). .</param>
         /// <param name="Password">Registered password for the Visa directory server. .</param>
         /// <param name="MerchantId">Username for the visa directory server that is created when your acquirer sets up your account. This ID might be the same as your merchant ID. the username can be 15 or 23 characters. .</param>
-        public Ptsv2paymentsAcquirerInformation(string AcquirerBin = default(string), string Country = default(string), string Password = default(string), string MerchantId = default(string))
+        /// <param name="AcquirerMerchantId">Acquirer assigned merchant id. Check if your processor supports this field. .</param>
+        public Ptsv2paymentsAcquirerInformation(string AcquirerBin = default(string), string Country = default(string), string Password = default(string), string MerchantId = default(string), string AcquirerMerchantId = default(string))
         {
             this.AcquirerBin = AcquirerBin;
             this.Country = Country;
             this.Password = Password;
             this.MerchantId = MerchantId;
+            this.AcquirerMerchantId = AcquirerMerchantId;
         }
         
         /// <summary>
@@ -74,6 +76,13 @@ namespace CyberSource.Model
         public string MerchantId { get; set; }
 
         /// <summary>
+        /// Acquirer assigned merchant id. Check if your processor supports this field. 
+        /// </summary>
+        /// <value>Acquirer assigned merchant id. Check if your processor supports this field. </value>
+        [DataMember(Name="acquirerMerchantId", EmitDefaultValue=false)]
+        public string AcquirerMerchantId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +94,7 @@ namespace CyberSource.Model
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  AcquirerMerchantId: ").Append(AcquirerMerchantId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +150,11 @@ namespace CyberSource.Model
                     this.MerchantId == other.MerchantId ||
                     this.MerchantId != null &&
                     this.MerchantId.Equals(other.MerchantId)
+                ) && 
+                (
+                    this.AcquirerMerchantId == other.AcquirerMerchantId ||
+                    this.AcquirerMerchantId != null &&
+                    this.AcquirerMerchantId.Equals(other.AcquirerMerchantId)
                 );
         }
 
@@ -162,6 +177,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Password.GetHashCode();
                 if (this.MerchantId != null)
                     hash = hash * 59 + this.MerchantId.GetHashCode();
+                if (this.AcquirerMerchantId != null)
+                    hash = hash * 59 + this.AcquirerMerchantId.GetHashCode();
                 return hash;
             }
         }

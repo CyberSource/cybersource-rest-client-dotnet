@@ -72,8 +72,9 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tokenId = null;
+            //PostPaymentCredentialsRequest postPaymentCredentialsRequest = null;
             //string profileId = null;
-            //var response = instance.PostTokenPaymentCredentials(tokenId, profileId);
+            //var response = instance.PostTokenPaymentCredentials(tokenId, postPaymentCredentialsRequest, profileId);
             //Assert.IsInstanceOf<string> (response, "response is string");
         }
         

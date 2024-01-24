@@ -81,6 +81,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'State'
         }
         /// <summary>
+        /// Test the property 'EnrollmentId'
+        /// </summary>
+        [Test]
+        public void EnrollmentIdTest()
+        {
+            // TODO unit test for the property 'EnrollmentId'
+        }
+        /// <summary>
+        /// Test the property 'TokenReferenceId'
+        /// </summary>
+        [Test]
+        public void TokenReferenceIdTest()
+        {
+            // TODO unit test for the property 'TokenReferenceId'
+        }
+        /// <summary>
         /// Test the property 'Reason'
         /// </summary>
         [Test]
