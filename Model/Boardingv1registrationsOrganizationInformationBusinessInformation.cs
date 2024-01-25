@@ -942,18 +942,18 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Name (string) pattern
-            Regex regexName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
-            if (false == regexName.Match(this.Name).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
-            }
+            //Regex regexName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
+            //if (false == regexName.Match(this.Name).Success)
+            //{
+            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
+            //}
 
             // DoingBusinessAs (string) pattern
-            Regex regexDoingBusinessAs = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
-            if (false == regexDoingBusinessAs.Match(this.DoingBusinessAs).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DoingBusinessAs, must match a pattern of " + regexDoingBusinessAs, new [] { "DoingBusinessAs" });
-            }
+            //Regex regexDoingBusinessAs = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
+            //if (false == regexDoingBusinessAs.Match(this.DoingBusinessAs).Success)
+            //{
+            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DoingBusinessAs, must match a pattern of " + regexDoingBusinessAs, new [] { "DoingBusinessAs" });
+            //}
 
             // Description (string) pattern
             Regex regexDescription = new Regex(@"[À-ÖØ-öø-ǿÀ-ÖØ-öø-ǿ\\n\\ra-zA-Z0-9().\\-_#,;\/\\\\@$:&amp;!?%«»€₣«»€₣ ]{1,}$", RegexOptions.CultureInvariant);
@@ -963,11 +963,11 @@ namespace CyberSource.Model
             }
 
             // WebsiteUrl (string) pattern
-            Regex regexWebsiteUrl = new Regex(@"\\b((?:https?:\/\/|www\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}\/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:'\".,<>?Â«Â»â€œâ€â€˜â€™]))", RegexOptions.CultureInvariant);
-            if (false == regexWebsiteUrl.Match(this.WebsiteUrl).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WebsiteUrl, must match a pattern of " + regexWebsiteUrl, new [] { "WebsiteUrl" });
-            }
+            //Regex regexWebsiteUrl = new Regex(@"\\b((?:https?:\/\/|www\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}\/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:'\".,<>?Â«Â»â€œâ€â€˜â€™]))", RegexOptions.CultureInvariant);
+            //if (false == regexWebsiteUrl.Match(this.WebsiteUrl).Success)
+            //{
+            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WebsiteUrl, must match a pattern of " + regexWebsiteUrl, new [] { "WebsiteUrl" });
+            //}
 
             // TaxId (string) pattern
             Regex regexTaxId = new Regex(@"\\d{9}", RegexOptions.CultureInvariant);
