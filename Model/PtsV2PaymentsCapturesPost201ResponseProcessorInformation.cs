@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsCapturesPost201ResponseProcessorInformation" /> class.
         /// </summary>
         /// <param name="TransactionId">Processor transaction ID.  This value identifies the transaction on a host system. This value is supported only for Moneris. It contains this information:   - Terminal used to process the transaction  - Shift during which the transaction took place  - Batch number  - Transaction number within the batch  You must store this value. If you give the customer a receipt, display this value on the receipt.  Example For the value 66012345001069003:   - Terminal ID &#x3D; 66012345  - Shift number &#x3D; 001  - Batch number &#x3D; 069  - Transaction number &#x3D; 003 .</param>
-        public PtsV2PaymentsCapturesPost201ResponseProcessorInformation(string TransactionId = default(string))
+        /// <param name="NetworkTransactionId">Network Transaction Identifier Applicable for online capture transactions only. .</param>
+        public PtsV2PaymentsCapturesPost201ResponseProcessorInformation(string TransactionId = default(string), string NetworkTransactionId = default(string))
         {
             this.TransactionId = TransactionId;
+            this.NetworkTransactionId = NetworkTransactionId;
         }
         
         /// <summary>
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         public string TransactionId { get; set; }
 
         /// <summary>
+        /// Network Transaction Identifier Applicable for online capture transactions only. 
+        /// </summary>
+        /// <value>Network Transaction Identifier Applicable for online capture transactions only. </value>
+        [DataMember(Name="networkTransactionId", EmitDefaultValue=false)]
+        public string NetworkTransactionId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsCapturesPost201ResponseProcessorInformation {\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.TransactionId == other.TransactionId ||
                     this.TransactionId != null &&
                     this.TransactionId.Equals(other.TransactionId)
+                ) && 
+                (
+                    this.NetworkTransactionId == other.NetworkTransactionId ||
+                    this.NetworkTransactionId != null &&
+                    this.NetworkTransactionId.Equals(other.NetworkTransactionId)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.TransactionId != null)
                     hash = hash * 59 + this.TransactionId.GetHashCode();
+                if (this.NetworkTransactionId != null)
+                    hash = hash * 59 + this.NetworkTransactionId.GetHashCode();
                 return hash;
             }
         }

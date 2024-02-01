@@ -35,9 +35,10 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>string</returns>
-        string PostTokenPaymentCredentials (string tokenId, string profileId = null);
+        string PostTokenPaymentCredentials (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
 
         /// <summary>
         /// Generate Payment Credentials for a TMS Token
@@ -47,9 +48,10 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PostTokenPaymentCredentialsWithHttpInfo (string tokenId, string profileId = null);
+        ApiResponse<string> PostTokenPaymentCredentialsWithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -60,9 +62,10 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PostTokenPaymentCredentialsAsync (string tokenId, string profileId = null);
+        System.Threading.Tasks.Task<string> PostTokenPaymentCredentialsAsync (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
 
         /// <summary>
         /// Generate Payment Credentials for a TMS Token
@@ -72,9 +75,10 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo (string tokenId, string profileId = null);
+        System.Threading.Tasks.Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
         #endregion Asynchronous Operations
     }
 
@@ -220,13 +224,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>string</returns>
-        public string PostTokenPaymentCredentials (string tokenId, string profileId = null)
+        public string PostTokenPaymentCredentials (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostTokenPaymentCredentials\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<string> localVarResponse = PostTokenPaymentCredentialsWithHttpInfo(tokenId, profileId);
+            ApiResponse<string> localVarResponse = PostTokenPaymentCredentialsWithHttpInfo(tokenId, postPaymentCredentialsRequest, profileId);
             logger.Debug("CALLING API \"PostTokenPaymentCredentials\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -237,9 +242,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > PostTokenPaymentCredentialsWithHttpInfo (string tokenId, string profileId = null)
+        public ApiResponse< string > PostTokenPaymentCredentialsWithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -248,6 +254,12 @@ namespace CyberSource.Api
             {
                 logger.Error("ApiException : Missing required parameter 'tokenId' when calling TokenApi->PostTokenPaymentCredentials");
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling TokenApi->PostTokenPaymentCredentials");
+            }
+            // verify the required parameter 'postPaymentCredentialsRequest' is set
+            if (postPaymentCredentialsRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling TokenApi->PostTokenPaymentCredentials");
+                throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsRequest' when calling TokenApi->PostTokenPaymentCredentials");
             }
 
             var localVarPath = $"/tms/v2/tokens/{tokenId}/payment-credentials";
@@ -283,13 +295,24 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
-            if (Method.Post == Method.Post)
+            if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = "{}";
+                SdkTracker sdkTracker = new SdkTracker();
+                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = null;
+                localVarPostBody = postPaymentCredentialsRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 
@@ -320,13 +343,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PostTokenPaymentCredentialsAsync (string tokenId, string profileId = null)
+        public async System.Threading.Tasks.Task<string> PostTokenPaymentCredentialsAsync (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostTokenPaymentCredentialsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<string> localVarResponse = await PostTokenPaymentCredentialsAsyncWithHttpInfo(tokenId, profileId);
+            ApiResponse<string> localVarResponse = await PostTokenPaymentCredentialsAsyncWithHttpInfo(tokenId, postPaymentCredentialsRequest, profileId);
             logger.Debug("CALLING API \"PostTokenPaymentCredentialsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -338,9 +362,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo (string tokenId, string profileId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -349,6 +374,12 @@ namespace CyberSource.Api
             {
                 logger.Error("ApiException : Missing required parameter 'tokenId' when calling TokenApi->PostTokenPaymentCredentials");
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling TokenApi->PostTokenPaymentCredentials");
+            }
+            // verify the required parameter 'postPaymentCredentialsRequest' is set
+            if (postPaymentCredentialsRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling TokenApi->PostTokenPaymentCredentials");
+                throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsRequest' when calling TokenApi->PostTokenPaymentCredentials");
             }
 
             var localVarPath = $"/tms/v2/tokens/{tokenId}/payment-credentials";
@@ -384,13 +415,24 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
-            if (Method.Post == Method.Post)
+            if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = "{}";
+                SdkTracker sdkTracker = new SdkTracker();
+                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = null;
+                localVarPostBody = postPaymentCredentialsRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
 
 

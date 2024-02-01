@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseEmbeddedActionsCAPTURE" /> class.
         /// </summary>
-        /// <param name="Status">The status of the submitted transaction.  Possible values:  - PENDING .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - PENDING  - TRANSMITTED (Only for Online Capture enabled merchants) .</param>
         /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - EXCEEDS_AUTH_AMOUNT  - AUTH_ALREADY_REVERSED  - TRANSACTION_ALREADY_SETTLED  - INVALID_AMOUNT  - MISSING_AUTH  - TRANSACTION_ALREADY_REVERSED_OR_SETTLED  - NOT_SUPPORTED .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         public PtsV2PaymentsPost201ResponseEmbeddedActionsCAPTURE(string Status = default(string), string Reason = default(string), string Message = default(string))
@@ -44,9 +44,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - PENDING 
+        /// The status of the submitted transaction.  Possible values:  - PENDING  - TRANSMITTED (Only for Online Capture enabled merchants) 
         /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - PENDING </value>
+        /// <value>The status of the submitted transaction.  Possible values:  - PENDING  - TRANSMITTED (Only for Online Capture enabled merchants) </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
