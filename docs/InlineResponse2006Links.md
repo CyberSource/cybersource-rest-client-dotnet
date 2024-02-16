@@ -3,10 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Self** | [**PtsV2PaymentsPost201ResponseLinksSelf**](PtsV2PaymentsPost201ResponseLinksSelf.md) |  | [optional] 
-**Cancel** | [**PtsV2PaymentsPost201ResponseLinksSelf**](PtsV2PaymentsPost201ResponseLinksSelf.md) |  | [optional] 
-**Suspend** | [**PtsV2PaymentsPost201ResponseLinksSelf**](PtsV2PaymentsPost201ResponseLinksSelf.md) |  | [optional] 
-**Activate** | [**PtsV2PaymentsPost201ResponseLinksSelf**](PtsV2PaymentsPost201ResponseLinksSelf.md) |  | [optional] 
+**Self** | [**InlineResponse202LinksStatus**](InlineResponse202LinksStatus.md) |  | [optional] 
+**Report** | [**List&lt;InlineResponse2006LinksReport&gt;**](InlineResponse2006LinksReport.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

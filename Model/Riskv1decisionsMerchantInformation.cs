@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Riskv1decisionsMerchantInformation" /> class.
         /// </summary>
         /// <param name="MerchantDescriptor">MerchantDescriptor.</param>
-        /// <param name="MerchantName">Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. .</param>
+        /// <param name="MerchantName">Your company&#39;s name as you want it to appear to the customer in the issuing bank&#39;s authentication form. This value overrides the value specified by your merchant bank. .</param>
         public Riskv1decisionsMerchantInformation(Riskv1decisionsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Riskv1decisionsMerchantInformationMerchantDescriptor), string MerchantName = default(string))
         {
             this.MerchantDescriptor = MerchantDescriptor;
@@ -48,9 +48,9 @@ namespace CyberSource.Model
         public Riskv1decisionsMerchantInformationMerchantDescriptor MerchantDescriptor { get; set; }
 
         /// <summary>
-        /// Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. 
+        /// Your company&#39;s name as you want it to appear to the customer in the issuing bank&#39;s authentication form. This value overrides the value specified by your merchant bank. 
         /// </summary>
-        /// <value>Your company’s name as you want it to appear to the customer in the issuing bank’s authentication form. This value overrides the value specified by your merchant bank. </value>
+        /// <value>Your company&#39;s name as you want it to appear to the customer in the issuing bank&#39;s authentication form. This value overrides the value specified by your merchant bank. </value>
         [DataMember(Name="merchantName", EmitDefaultValue=false)]
         public string MerchantName { get; set; }
 

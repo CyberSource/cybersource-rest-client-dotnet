@@ -73,28 +73,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Self'
         }
         /// <summary>
-        /// Test the property 'Cancel'
+        /// Test the property 'Report'
         /// </summary>
         [Test]
-        public void CancelTest()
+        public void ReportTest()
         {
-            // TODO unit test for the property 'Cancel'
-        }
-        /// <summary>
-        /// Test the property 'Suspend'
-        /// </summary>
-        [Test]
-        public void SuspendTest()
-        {
-            // TODO unit test for the property 'Suspend'
-        }
-        /// <summary>
-        /// Test the property 'Activate'
-        /// </summary>
-        [Test]
-        public void ActivateTest()
-        {
-            // TODO unit test for the property 'Activate'
+            // TODO unit test for the property 'Report'
         }
 
     }

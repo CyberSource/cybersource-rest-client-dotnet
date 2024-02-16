@@ -190,3 +190,4 @@ $RECYCLE.BIN/
 build.bat
 git_push.sh
 mono_nunit_test.sh
+.vs/

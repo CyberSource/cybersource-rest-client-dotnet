@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="HostName">DNS resolved hostname from &#x60;ipAddress&#x60;..</param>
         /// <param name="IpAddress">IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. .</param>
-        /// <param name="UserAgent">Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. .</param>
+        /// <param name="UserAgent">Customer&#39;s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. .</param>
         public Ptsv2paymentsidcapturesDeviceInformation(string HostName = default(string), string IpAddress = default(string), string UserAgent = default(string))
         {
             this.HostName = HostName;
@@ -58,9 +58,9 @@ namespace CyberSource.Model
         public string IpAddress { get; set; }
 
         /// <summary>
-        /// Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. 
+        /// Customer&#39;s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. 
         /// </summary>
-        /// <value>Customer’s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. </value>
+        /// <value>Customer&#39;s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. </value>
         [DataMember(Name="userAgent", EmitDefaultValue=false)]
         public string UserAgent { get; set; }
 

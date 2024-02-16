@@ -80,7 +80,7 @@ namespace CyberSource.Test
             //DateTime? expirationStartDate = null;
             //DateTime? expirationEndDate = null;
             //var response = instance.SearchKeys(offset, limit, sort, organizationIds, keyIds, keyTypes, expirationStartDate, expirationEndDate);
-            //Assert.IsInstanceOf<InlineResponse20011> (response, "response is InlineResponse20011");
+            //Assert.IsInstanceOf<InlineResponse2001> (response, "response is InlineResponse2001");
         }
         
     }

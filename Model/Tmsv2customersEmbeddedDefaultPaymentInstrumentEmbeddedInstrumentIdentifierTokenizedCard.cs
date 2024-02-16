@@ -40,9 +40,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The network token card association brand Possible Values: - visa - mastercard 
+        /// The network token card association brand Possible Values: - visa - mastercard - americanexpress 
         /// </summary>
-        /// <value>The network token card association brand Possible Values: - visa - mastercard </value>
+        /// <value>The network token card association brand Possible Values: - visa - mastercard - americanexpress </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; private set; }
 
@@ -52,6 +52,20 @@ namespace CyberSource.Model
         /// <value>State of the network token or network token provision Possible Values: - ACTIVE : Network token is active. - SUSPENDED : Network token is suspended. This state can change back to ACTIVE. - DELETED : This is a final state for a network token instance. - UNPROVISIONED : A previous network token provision was unsuccessful. </value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; private set; }
+
+        /// <summary>
+        /// Unique Identifier for the enrolled PAN. This Id is provided by the card association when a network token is provisioned successfully. 
+        /// </summary>
+        /// <value>Unique Identifier for the enrolled PAN. This Id is provided by the card association when a network token is provisioned successfully. </value>
+        [DataMember(Name="enrollmentId", EmitDefaultValue=false)]
+        public string EnrollmentId { get; private set; }
+
+        /// <summary>
+        /// Unique Identifier for the network token. This Id is provided by the card association when a network token is provisioned successfully. 
+        /// </summary>
+        /// <value>Unique Identifier for the network token. This Id is provided by the card association when a network token is provisioned successfully. </value>
+        [DataMember(Name="tokenReferenceId", EmitDefaultValue=false)]
+        public string TokenReferenceId { get; private set; }
 
         /// <summary>
         /// Issuers state for the network token Possible Values: - INVALID_REQUEST : The network token provision request contained invalid data. - CARD_VERIFICATION_FAILED : The network token provision request contained data that could not be verified. - CARD_NOT_ELIGIBLE : Card can currently not be used with issuer for tokenization. - CARD_NOT_ALLOWED : Card can currently not be used with card association for tokenization. - DECLINED : Card can currently not be used with issuer for tokenization. - SERVICE_UNAVAILABLE : The network token service was unavailable or timed out. - SYSTEM_ERROR : An unexpected error occurred with network token service, check configuration. 
@@ -104,6 +118,8 @@ namespace CyberSource.Model
             sb.Append("class Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierTokenizedCard {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
+            sb.Append("  EnrollmentId: ").Append(EnrollmentId).Append("\n");
+            sb.Append("  TokenReferenceId: ").Append(TokenReferenceId).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
@@ -157,6 +173,16 @@ namespace CyberSource.Model
                     this.State.Equals(other.State)
                 ) && 
                 (
+                    this.EnrollmentId == other.EnrollmentId ||
+                    this.EnrollmentId != null &&
+                    this.EnrollmentId.Equals(other.EnrollmentId)
+                ) && 
+                (
+                    this.TokenReferenceId == other.TokenReferenceId ||
+                    this.TokenReferenceId != null &&
+                    this.TokenReferenceId.Equals(other.TokenReferenceId)
+                ) && 
+                (
                     this.Reason == other.Reason ||
                     this.Reason != null &&
                     this.Reason.Equals(other.Reason)
@@ -203,6 +229,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.State != null)
                     hash = hash * 59 + this.State.GetHashCode();
+                if (this.EnrollmentId != null)
+                    hash = hash * 59 + this.EnrollmentId.GetHashCode();
+                if (this.TokenReferenceId != null)
+                    hash = hash * 59 + this.TokenReferenceId.GetHashCode();
                 if (this.Reason != null)
                     hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Number != null)

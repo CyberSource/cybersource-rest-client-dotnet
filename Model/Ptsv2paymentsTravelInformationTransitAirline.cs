@@ -55,7 +55,7 @@ namespace CyberSource.Model
         /// <param name="TotalClearingAmount">Total clearing amount for all transactions in the clearing count set. This value cannot exceed &#x60;99999999999999999999&#x60; (twenty 9s). Format: English characters only. If this field is not set and if the total amount from the original authorization is not NULL, the total clearing amount is set to the total amount from the original authorization. .</param>
         /// <param name="NumberOfPassengers">Number of passengers for whom the ticket was issued. Format: English characters only. Optional request field. .</param>
         /// <param name="ReservationSystemCode">Code that specifies the computerized reservation system used to make the reservation and purchase the ticket. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field. .</param>
-        /// <param name="ProcessIdentifier">Airline process identifier. This value is the airline’s three-digit IATA1 code which is used to process extended payment airline tickets. .</param>
+        /// <param name="ProcessIdentifier">Airline process identifier. This value is the airline&#39;s three-digit IATA1 code which is used to process extended payment airline tickets. .</param>
         /// <param name="TicketIssueDate">Date on which the transaction occurred. Format: &#x60;YYYYMMDD&#x60; Format: English characters only. Optional request field. .</param>
         /// <param name="ElectronicTicketIndicator">Flag that indicates whether an electronic ticket was issued. Possible values: - &#x60;true&#x60; - &#x60;false&#x60; Optional request field. .</param>
         /// <param name="OriginalTicketNumber">Original ticket number when the transaction is for a replacement ticket. .</param>
@@ -267,9 +267,9 @@ namespace CyberSource.Model
         public string ReservationSystemCode { get; set; }
 
         /// <summary>
-        /// Airline process identifier. This value is the airline’s three-digit IATA1 code which is used to process extended payment airline tickets. 
+        /// Airline process identifier. This value is the airline&#39;s three-digit IATA1 code which is used to process extended payment airline tickets. 
         /// </summary>
-        /// <value>Airline process identifier. This value is the airline’s three-digit IATA1 code which is used to process extended payment airline tickets. </value>
+        /// <value>Airline process identifier. This value is the airline&#39;s three-digit IATA1 code which is used to process extended payment airline tickets. </value>
         [DataMember(Name="processIdentifier", EmitDefaultValue=false)]
         public string ProcessIdentifier { get; set; }
 

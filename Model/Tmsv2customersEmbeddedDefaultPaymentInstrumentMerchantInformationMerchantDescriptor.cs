@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2customersEmbeddedDefaultPaymentInstrumentMerchantInformationMerchantDescriptor" /> class.
         /// </summary>
-        /// <param name="AlternateName">Alternate contact information for your business,such as an email address or URL. This value might be displayed on the cardholder’s statement. When you do not include this value in your capture or credit request, the merchant URL from your CyberSource account is used. Important This value must consist of English characters .</param>
+        /// <param name="AlternateName">Alternate contact information for your business,such as an email address or URL. This value might be displayed on the cardholder&#39;s statement. When you do not include this value in your capture or credit request, the merchant URL from your CyberSource account is used. Important This value must consist of English characters .</param>
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentMerchantInformationMerchantDescriptor(string AlternateName = default(string))
         {
             this.AlternateName = AlternateName;
         }
         
         /// <summary>
-        /// Alternate contact information for your business,such as an email address or URL. This value might be displayed on the cardholder’s statement. When you do not include this value in your capture or credit request, the merchant URL from your CyberSource account is used. Important This value must consist of English characters 
+        /// Alternate contact information for your business,such as an email address or URL. This value might be displayed on the cardholder&#39;s statement. When you do not include this value in your capture or credit request, the merchant URL from your CyberSource account is used. Important This value must consist of English characters 
         /// </summary>
-        /// <value>Alternate contact information for your business,such as an email address or URL. This value might be displayed on the cardholder’s statement. When you do not include this value in your capture or credit request, the merchant URL from your CyberSource account is used. Important This value must consist of English characters </value>
+        /// <value>Alternate contact information for your business,such as an email address or URL. This value might be displayed on the cardholder&#39;s statement. When you do not include this value in your capture or credit request, the merchant URL from your CyberSource account is used. Important This value must consist of English characters </value>
         [DataMember(Name="alternateName", EmitDefaultValue=false)]
         public string AlternateName { get; set; }
 

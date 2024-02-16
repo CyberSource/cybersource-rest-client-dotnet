@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="AutoRental">AutoRental.</param>
         /// <param name="Lodging">Lodging.</param>
         /// <param name="Transit">Transit.</param>
-        public Ptsv2paymentsTravelInformation(string Duration = default(string), Ptsv2paymentsTravelInformationAgency Agency = default(Ptsv2paymentsTravelInformationAgency), Ptsv2paymentsTravelInformationAutoRental AutoRental = default(Ptsv2paymentsTravelInformationAutoRental), Ptsv2paymentsTravelInformationLodging Lodging = default(Ptsv2paymentsTravelInformationLodging), Ptsv2paymentsTravelInformationTransit Transit = default(Ptsv2paymentsTravelInformationTransit))
+        /// <param name="VehicleData">VehicleData.</param>
+        public Ptsv2paymentsTravelInformation(string Duration = default(string), Ptsv2paymentsTravelInformationAgency Agency = default(Ptsv2paymentsTravelInformationAgency), Ptsv2paymentsTravelInformationAutoRental AutoRental = default(Ptsv2paymentsTravelInformationAutoRental), Ptsv2paymentsTravelInformationLodging Lodging = default(Ptsv2paymentsTravelInformationLodging), Ptsv2paymentsTravelInformationTransit Transit = default(Ptsv2paymentsTravelInformationTransit), Ptsv2paymentsTravelInformationVehicleData VehicleData = default(Ptsv2paymentsTravelInformationVehicleData))
         {
             this.Duration = Duration;
             this.Agency = Agency;
             this.AutoRental = AutoRental;
             this.Lodging = Lodging;
             this.Transit = Transit;
+            this.VehicleData = VehicleData;
         }
         
         /// <summary>
@@ -79,6 +81,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsTravelInformationTransit Transit { get; set; }
 
         /// <summary>
+        /// Gets or Sets VehicleData
+        /// </summary>
+        [DataMember(Name="vehicleData", EmitDefaultValue=false)]
+        public Ptsv2paymentsTravelInformationVehicleData VehicleData { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -91,6 +99,7 @@ namespace CyberSource.Model
             sb.Append("  AutoRental: ").Append(AutoRental).Append("\n");
             sb.Append("  Lodging: ").Append(Lodging).Append("\n");
             sb.Append("  Transit: ").Append(Transit).Append("\n");
+            sb.Append("  VehicleData: ").Append(VehicleData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +160,11 @@ namespace CyberSource.Model
                     this.Transit == other.Transit ||
                     this.Transit != null &&
                     this.Transit.Equals(other.Transit)
+                ) && 
+                (
+                    this.VehicleData == other.VehicleData ||
+                    this.VehicleData != null &&
+                    this.VehicleData.Equals(other.VehicleData)
                 );
         }
 
@@ -175,6 +189,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Lodging.GetHashCode();
                 if (this.Transit != null)
                     hash = hash * 59 + this.Transit.GetHashCode();
+                if (this.VehicleData != null)
+                    hash = hash * 59 + this.VehicleData.GetHashCode();
                 return hash;
             }
         }

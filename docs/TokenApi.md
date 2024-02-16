@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="posttokenpaymentcredentials"></a>
 # **PostTokenPaymentCredentials**
-> string PostTokenPaymentCredentials (string tokenId, string profileId = null)
+> string PostTokenPaymentCredentials (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
 
 Generate Payment Credentials for a TMS Token
 
@@ -31,12 +31,13 @@ namespace Example
         {
             var apiInstance = new TokenApi();
             var tokenId = tokenId_example;  // string | The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.
+            var postPaymentCredentialsRequest = new PostPaymentCredentialsRequest(); // PostPaymentCredentialsRequest | 
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
 
             try
             {
                 // Generate Payment Credentials for a TMS Token
-                string result = apiInstance.PostTokenPaymentCredentials(tokenId, profileId);
+                string result = apiInstance.PostTokenPaymentCredentials(tokenId, postPaymentCredentialsRequest, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -53,6 +54,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tokenId** | **string**| The Id of a token representing a Customer, Payment Instrument or Instrument Identifier. | 
+ **postPaymentCredentialsRequest** | [**PostPaymentCredentialsRequest**](PostPaymentCredentialsRequest.md)|  | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
 
 ### Return type

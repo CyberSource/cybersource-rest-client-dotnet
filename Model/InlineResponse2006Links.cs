@@ -34,40 +34,24 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InlineResponse2006Links" /> class.
         /// </summary>
         /// <param name="Self">Self.</param>
-        /// <param name="Cancel">Cancel.</param>
-        /// <param name="Suspend">Suspend.</param>
-        /// <param name="Activate">Activate.</param>
-        public InlineResponse2006Links(PtsV2PaymentsPost201ResponseLinksSelf Self = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Cancel = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Suspend = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Activate = default(PtsV2PaymentsPost201ResponseLinksSelf))
+        /// <param name="Report">Report.</param>
+        public InlineResponse2006Links(InlineResponse202LinksStatus Self = default(InlineResponse202LinksStatus), List<InlineResponse2006LinksReport> Report = default(List<InlineResponse2006LinksReport>))
         {
             this.Self = Self;
-            this.Cancel = Cancel;
-            this.Suspend = Suspend;
-            this.Activate = Activate;
+            this.Report = Report;
         }
         
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
         [DataMember(Name="self", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseLinksSelf Self { get; set; }
+        public InlineResponse202LinksStatus Self { get; set; }
 
         /// <summary>
-        /// Gets or Sets Cancel
+        /// Gets or Sets Report
         /// </summary>
-        [DataMember(Name="cancel", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseLinksSelf Cancel { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Suspend
-        /// </summary>
-        [DataMember(Name="suspend", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseLinksSelf Suspend { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Activate
-        /// </summary>
-        [DataMember(Name="activate", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseLinksSelf Activate { get; set; }
+        [DataMember(Name="report", EmitDefaultValue=false)]
+        public List<InlineResponse2006LinksReport> Report { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,9 +62,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2006Links {\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  Cancel: ").Append(Cancel).Append("\n");
-            sb.Append("  Suspend: ").Append(Suspend).Append("\n");
-            sb.Append("  Activate: ").Append(Activate).Append("\n");
+            sb.Append("  Report: ").Append(Report).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,19 +105,9 @@ namespace CyberSource.Model
                     this.Self.Equals(other.Self)
                 ) && 
                 (
-                    this.Cancel == other.Cancel ||
-                    this.Cancel != null &&
-                    this.Cancel.Equals(other.Cancel)
-                ) && 
-                (
-                    this.Suspend == other.Suspend ||
-                    this.Suspend != null &&
-                    this.Suspend.Equals(other.Suspend)
-                ) && 
-                (
-                    this.Activate == other.Activate ||
-                    this.Activate != null &&
-                    this.Activate.Equals(other.Activate)
+                    this.Report == other.Report ||
+                    this.Report != null &&
+                    this.Report.SequenceEqual(other.Report)
                 );
         }
 
@@ -152,12 +124,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Self != null)
                     hash = hash * 59 + this.Self.GetHashCode();
-                if (this.Cancel != null)
-                    hash = hash * 59 + this.Cancel.GetHashCode();
-                if (this.Suspend != null)
-                    hash = hash * 59 + this.Suspend.GetHashCode();
-                if (this.Activate != null)
-                    hash = hash * 59 + this.Activate.GetHashCode();
+                if (this.Report != null)
+                    hash = hash * 59 + this.Report.GetHashCode();
                 return hash;
             }
         }

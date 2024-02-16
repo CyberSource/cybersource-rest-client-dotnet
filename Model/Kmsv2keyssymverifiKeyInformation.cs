@@ -66,7 +66,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Kmsv2keyssymverifiKeyInformation" /> class.
         /// </summary>
         /// <param name="OrganizationId">Merchant Id  (required).</param>
-        /// <param name="ReferenceNumber">Reference number is a unique identifier provided by the client along with the organization Id. This is an optional field provided solely for the client’s convenience. If client specifies value for this field in the request, it is expected to be available in the response. .</param>
+        /// <param name="ReferenceNumber">Reference number is a unique identifier provided by the client along with the organization Id. This is an optional field provided solely for the client&#39;s convenience. If client specifies value for this field in the request, it is expected to be available in the response. .</param>
         /// <param name="DigestAlgorithm">Algorithm for message signature authentication  (default to DigestAlgorithmEnum.HMACSHA2).</param>
         public Kmsv2keyssymverifiKeyInformation(string OrganizationId = default(string), string ReferenceNumber = default(string), DigestAlgorithmEnum? DigestAlgorithm = DigestAlgorithmEnum.HMACSHA2)
         {
@@ -99,9 +99,9 @@ namespace CyberSource.Model
         public string OrganizationId { get; set; }
 
         /// <summary>
-        /// Reference number is a unique identifier provided by the client along with the organization Id. This is an optional field provided solely for the client’s convenience. If client specifies value for this field in the request, it is expected to be available in the response. 
+        /// Reference number is a unique identifier provided by the client along with the organization Id. This is an optional field provided solely for the client&#39;s convenience. If client specifies value for this field in the request, it is expected to be available in the response. 
         /// </summary>
-        /// <value>Reference number is a unique identifier provided by the client along with the organization Id. This is an optional field provided solely for the client’s convenience. If client specifies value for this field in the request, it is expected to be available in the response. </value>
+        /// <value>Reference number is a unique identifier provided by the client along with the organization Id. This is an optional field provided solely for the client&#39;s convenience. If client specifies value for this field in the request, it is expected to be available in the response. </value>
         [DataMember(Name="referenceNumber", EmitDefaultValue=false)]
         public string ReferenceNumber { get; set; }
 

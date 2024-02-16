@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard" /> class.
         /// </summary>
-        /// <param name="Number">The customer’s payment card number, also known as the Primary Account Number (PAN). You can also use this field for encoded account numbers. .</param>
+        /// <param name="Number">The customer&#39;s payment card number, also known as the Primary Account Number (PAN). You can also use this field for encoded account numbers. .</param>
         /// <param name="ExpirationMonth">Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. .</param>
         /// <param name="ExpirationYear">Four-digit year in which the credit card expires.  Format: &#x60;YYYY&#x60;. .</param>
         /// <param name="SecurityCode">Card Verification Code.  This value is sent to the issuer to support the approval of a network token provision. It is not persisted against the Instrument Identifier. .</param>
@@ -46,9 +46,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The customer’s payment card number, also known as the Primary Account Number (PAN). You can also use this field for encoded account numbers. 
+        /// The customer&#39;s payment card number, also known as the Primary Account Number (PAN). You can also use this field for encoded account numbers. 
         /// </summary>
-        /// <value>The customer’s payment card number, also known as the Primary Account Number (PAN). You can also use this field for encoded account numbers. </value>
+        /// <value>The customer&#39;s payment card number, also known as the Primary Account Number (PAN). You can also use this field for encoded account numbers. </value>
         [DataMember(Name="number", EmitDefaultValue=false)]
         public string Number { get; set; }
 

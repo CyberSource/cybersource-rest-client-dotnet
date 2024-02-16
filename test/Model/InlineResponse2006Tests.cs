@@ -73,28 +73,76 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Links'
         }
         /// <summary>
-        /// Test the property 'SubmitTimeUtc'
+        /// Test the property 'BatchId'
         /// </summary>
         [Test]
-        public void SubmitTimeUtcTest()
+        public void BatchIdTest()
         {
-            // TODO unit test for the property 'SubmitTimeUtc'
+            // TODO unit test for the property 'BatchId'
         }
         /// <summary>
-        /// Test the property 'TotalCount'
+        /// Test the property 'BatchCreatedDate'
         /// </summary>
         [Test]
-        public void TotalCountTest()
+        public void BatchCreatedDateTest()
         {
-            // TODO unit test for the property 'TotalCount'
+            // TODO unit test for the property 'BatchCreatedDate'
         }
         /// <summary>
-        /// Test the property 'Subscriptions'
+        /// Test the property 'BatchSource'
         /// </summary>
         [Test]
-        public void SubscriptionsTest()
+        public void BatchSourceTest()
         {
-            // TODO unit test for the property 'Subscriptions'
+            // TODO unit test for the property 'BatchSource'
+        }
+        /// <summary>
+        /// Test the property 'MerchantReference'
+        /// </summary>
+        [Test]
+        public void MerchantReferenceTest()
+        {
+            // TODO unit test for the property 'MerchantReference'
+        }
+        /// <summary>
+        /// Test the property 'BatchCaEndpoints'
+        /// </summary>
+        [Test]
+        public void BatchCaEndpointsTest()
+        {
+            // TODO unit test for the property 'BatchCaEndpoints'
+        }
+        /// <summary>
+        /// Test the property 'Status'
+        /// </summary>
+        [Test]
+        public void StatusTest()
+        {
+            // TODO unit test for the property 'Status'
+        }
+        /// <summary>
+        /// Test the property 'Totals'
+        /// </summary>
+        [Test]
+        public void TotalsTest()
+        {
+            // TODO unit test for the property 'Totals'
+        }
+        /// <summary>
+        /// Test the property 'Billing'
+        /// </summary>
+        [Test]
+        public void BillingTest()
+        {
+            // TODO unit test for the property 'Billing'
+        }
+        /// <summary>
+        /// Test the property 'Description'
+        /// </summary>
+        [Test]
+        public void DescriptionTest()
+        {
+            // TODO unit test for the property 'Description'
         }
 
     }

@@ -34,12 +34,12 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseRiskInformationInfoCodes" /> class.
         /// </summary>
         /// <param name="Velocity">List of information codes triggered by the order. These information codes were generated when you created the order and product velocity rules and are returned so that you can associate them with the rules. .</param>
-        /// <param name="Address">Indicates a mismatch between the customer’s billing and shipping addresses. .</param>
+        /// <param name="Address">Indicates a mismatch between the customer&#39;s billing and shipping addresses. .</param>
         /// <param name="CustomerList">Indicates that customer information is associated with transactions that are either on the negative or the positive list. .</param>
         /// <param name="DeviceBehavior">Indicates the device behavior information code(s) returned from device fingerprinting. .</param>
         /// <param name="IdentityChange">Indicates excessive identity changes. The threshold is variable depending on the identity elements being compared. .</param>
-        /// <param name="Internet">Indicates a problem with the customer’s email address, IP address, or billing address. .</param>
-        /// <param name="Phone">Indicates a problem with the customer’s phone number. .</param>
+        /// <param name="Internet">Indicates a problem with the customer&#39;s email address, IP address, or billing address. .</param>
+        /// <param name="Phone">Indicates a problem with the customer&#39;s phone number. .</param>
         /// <param name="Suspicious">Indicates that the customer provided potentially suspicious information. .</param>
         /// <param name="GlobalVelocity">Indicates that the customer has a high purchase frequency. .</param>
         public PtsV2PaymentsPost201ResponseRiskInformationInfoCodes(List<string> Velocity = default(List<string>), List<string> Address = default(List<string>), List<string> CustomerList = default(List<string>), List<string> DeviceBehavior = default(List<string>), List<string> IdentityChange = default(List<string>), List<string> Internet = default(List<string>), List<string> Phone = default(List<string>), List<string> Suspicious = default(List<string>), List<string> GlobalVelocity = default(List<string>))
@@ -63,9 +63,9 @@ namespace CyberSource.Model
         public List<string> Velocity { get; set; }
 
         /// <summary>
-        /// Indicates a mismatch between the customer’s billing and shipping addresses. 
+        /// Indicates a mismatch between the customer&#39;s billing and shipping addresses. 
         /// </summary>
-        /// <value>Indicates a mismatch between the customer’s billing and shipping addresses. </value>
+        /// <value>Indicates a mismatch between the customer&#39;s billing and shipping addresses. </value>
         [DataMember(Name="address", EmitDefaultValue=false)]
         public List<string> Address { get; set; }
 
@@ -91,16 +91,16 @@ namespace CyberSource.Model
         public List<string> IdentityChange { get; set; }
 
         /// <summary>
-        /// Indicates a problem with the customer’s email address, IP address, or billing address. 
+        /// Indicates a problem with the customer&#39;s email address, IP address, or billing address. 
         /// </summary>
-        /// <value>Indicates a problem with the customer’s email address, IP address, or billing address. </value>
+        /// <value>Indicates a problem with the customer&#39;s email address, IP address, or billing address. </value>
         [DataMember(Name="internet", EmitDefaultValue=false)]
         public List<string> Internet { get; set; }
 
         /// <summary>
-        /// Indicates a problem with the customer’s phone number. 
+        /// Indicates a problem with the customer&#39;s phone number. 
         /// </summary>
-        /// <value>Indicates a problem with the customer’s phone number. </value>
+        /// <value>Indicates a problem with the customer&#39;s phone number. </value>
         [DataMember(Name="phone", EmitDefaultValue=false)]
         public List<string> Phone { get; set; }
 

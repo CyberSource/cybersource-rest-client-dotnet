@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1addressverificationsBuyerInformation" /> class.
         /// </summary>
-        /// <param name="MerchantCustomerId">Optional customer’s account ID, tracking number, reward number, or other unique number that you assign to the customer for the purpose that you choose .</param>
+        /// <param name="MerchantCustomerId">Optional customer&#39;s account ID, tracking number, reward number, or other unique number that you assign to the customer for the purpose that you choose .</param>
         public Riskv1addressverificationsBuyerInformation(string MerchantCustomerId = default(string))
         {
             this.MerchantCustomerId = MerchantCustomerId;
         }
         
         /// <summary>
-        /// Optional customer’s account ID, tracking number, reward number, or other unique number that you assign to the customer for the purpose that you choose 
+        /// Optional customer&#39;s account ID, tracking number, reward number, or other unique number that you assign to the customer for the purpose that you choose 
         /// </summary>
-        /// <value>Optional customer’s account ID, tracking number, reward number, or other unique number that you assign to the customer for the purpose that you choose </value>
+        /// <value>Optional customer&#39;s account ID, tracking number, reward number, or other unique number that you assign to the customer for the purpose that you choose </value>
         [DataMember(Name="merchantCustomerId", EmitDefaultValue=false)]
         public string MerchantCustomerId { get; set; }
 

@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="Status">Plan Status:  - &#x60;DRAFT&#x60;  - &#x60;ACTIVE&#x60; (default) .</param>
         /// <param name="BillingPeriod">BillingPeriod.</param>
         /// <param name="BillingCycles">BillingCycles.</param>
-        public Rbsv1plansPlanInformation(string Code = default(string), string Name = default(string), string Description = default(string), string Status = default(string), InlineResponse200PlanInformationBillingPeriod BillingPeriod = default(InlineResponse200PlanInformationBillingPeriod), Rbsv1plansPlanInformationBillingCycles BillingCycles = default(Rbsv1plansPlanInformationBillingCycles))
+        public Rbsv1plansPlanInformation(string Code = default(string), string Name = default(string), string Description = default(string), string Status = default(string), GetAllPlansResponsePlanInformationBillingPeriod BillingPeriod = default(GetAllPlansResponsePlanInformationBillingPeriod), Rbsv1plansPlanInformationBillingCycles BillingCycles = default(Rbsv1plansPlanInformationBillingCycles))
         {
             // to ensure "Name" is required (not null)
             if (Name == null)
@@ -94,7 +94,7 @@ namespace CyberSource.Model
         /// Gets or Sets BillingPeriod
         /// </summary>
         [DataMember(Name="billingPeriod", EmitDefaultValue=false)]
-        public InlineResponse200PlanInformationBillingPeriod BillingPeriod { get; set; }
+        public GetAllPlansResponsePlanInformationBillingPeriod BillingPeriod { get; set; }
 
         /// <summary>
         /// Gets or Sets BillingCycles

@@ -145,6 +145,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'MerchantDefinedInformation'
         }
         /// <summary>
+        /// Test the property 'MerchantDefinedSecureInformation'
+        /// </summary>
+        [Test]
+        public void MerchantDefinedSecureInformationTest()
+        {
+            // TODO unit test for the property 'MerchantDefinedSecureInformation'
+        }
+        /// <summary>
         /// Test the property 'InstallmentInformation'
         /// </summary>
         [Test]

@@ -35,8 +35,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 ActivatePlan (string id);
+        /// <returns>ActivateDeactivatePlanResponse</returns>
+        ActivateDeactivatePlanResponse ActivatePlan (string id);
 
         /// <summary>
         /// Activate a Plan
@@ -46,8 +46,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> ActivatePlanWithHttpInfo (string id);
+        /// <returns>ApiResponse of ActivateDeactivatePlanResponse</returns>
+        ApiResponse<ActivateDeactivatePlanResponse> ActivatePlanWithHttpInfo (string id);
         /// <summary>
         /// Create a Plan
         /// </summary>
@@ -56,8 +56,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPlanRequest"></param>
-        /// <returns>InlineResponse201</returns>
-        InlineResponse201 CreatePlan (CreatePlanRequest createPlanRequest);
+        /// <returns>CreatePlanResponse</returns>
+        CreatePlanResponse CreatePlan (CreatePlanRequest createPlanRequest);
 
         /// <summary>
         /// Create a Plan
@@ -67,8 +67,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPlanRequest"></param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        ApiResponse<InlineResponse201> CreatePlanWithHttpInfo (CreatePlanRequest createPlanRequest);
+        /// <returns>ApiResponse of CreatePlanResponse</returns>
+        ApiResponse<CreatePlanResponse> CreatePlanWithHttpInfo (CreatePlanRequest createPlanRequest);
         /// <summary>
         /// Deactivate a Plan
         /// </summary>
@@ -77,8 +77,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 DeactivatePlan (string id);
+        /// <returns>ActivateDeactivatePlanResponse</returns>
+        ActivateDeactivatePlanResponse DeactivatePlan (string id);
 
         /// <summary>
         /// Deactivate a Plan
@@ -88,8 +88,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> DeactivatePlanWithHttpInfo (string id);
+        /// <returns>ApiResponse of ActivateDeactivatePlanResponse</returns>
+        ApiResponse<ActivateDeactivatePlanResponse> DeactivatePlanWithHttpInfo (string id);
         /// <summary>
         /// Delete a Plan
         /// </summary>
@@ -98,8 +98,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 DeletePlan (string id);
+        /// <returns>DeletePlanResponse</returns>
+        DeletePlanResponse DeletePlan (string id);
 
         /// <summary>
         /// Delete a Plan
@@ -109,8 +109,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> DeletePlanWithHttpInfo (string id);
+        /// <returns>ApiResponse of DeletePlanResponse</returns>
+        ApiResponse<DeletePlanResponse> DeletePlanWithHttpInfo (string id);
         /// <summary>
         /// Get a Plan
         /// </summary>
@@ -119,8 +119,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetPlan (string id);
+        /// <returns>GetPlanResponse</returns>
+        GetPlanResponse GetPlan (string id);
 
         /// <summary>
         /// Get a Plan
@@ -130,8 +130,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetPlanWithHttpInfo (string id);
+        /// <returns>ApiResponse of GetPlanResponse</returns>
+        ApiResponse<GetPlanResponse> GetPlanWithHttpInfo (string id);
         /// <summary>
         /// Get a Plan Code
         /// </summary>
@@ -139,8 +139,8 @@ namespace CyberSource.Api
         /// Get a Unique Plan Code
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 GetPlanCode ();
+        /// <returns>GetPlanCodeResponse</returns>
+        GetPlanCodeResponse GetPlanCode ();
 
         /// <summary>
         /// Get a Plan Code
@@ -149,8 +149,8 @@ namespace CyberSource.Api
         /// Get a Unique Plan Code
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> GetPlanCodeWithHttpInfo ();
+        /// <returns>ApiResponse of GetPlanCodeResponse</returns>
+        ApiResponse<GetPlanCodeResponse> GetPlanCodeWithHttpInfo ();
         /// <summary>
         /// Get a List of Plans
         /// </summary>
@@ -163,8 +163,8 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Plan Code (optional)</param>
         /// <param name="status">Filter by Plan Status (optional)</param>
         /// <param name="name">Filter by Plan Name. (First sub string or full string) **[Not Recommended]**  (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 GetPlans (int? offset = null, int? limit = null, string code = null, string status = null, string name = null);
+        /// <returns>GetAllPlansResponse</returns>
+        GetAllPlansResponse GetPlans (int? offset = null, int? limit = null, string code = null, string status = null, string name = null);
 
         /// <summary>
         /// Get a List of Plans
@@ -178,8 +178,8 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Plan Code (optional)</param>
         /// <param name="status">Filter by Plan Status (optional)</param>
         /// <param name="name">Filter by Plan Name. (First sub string or full string) **[Not Recommended]**  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> GetPlansWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string name = null);
+        /// <returns>ApiResponse of GetAllPlansResponse</returns>
+        ApiResponse<GetAllPlansResponse> GetPlansWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string name = null);
         /// <summary>
         /// Update a Plan
         /// </summary>
@@ -189,8 +189,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
         /// <param name="updatePlanRequest"></param>
-        /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 UpdatePlan (string id, UpdatePlanRequest updatePlanRequest);
+        /// <returns>UpdatePlanResponse</returns>
+        UpdatePlanResponse UpdatePlan (string id, UpdatePlanRequest updatePlanRequest);
 
         /// <summary>
         /// Update a Plan
@@ -201,8 +201,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
         /// <param name="updatePlanRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> UpdatePlanWithHttpInfo (string id, UpdatePlanRequest updatePlanRequest);
+        /// <returns>ApiResponse of UpdatePlanResponse</returns>
+        ApiResponse<UpdatePlanResponse> UpdatePlanWithHttpInfo (string id, UpdatePlanRequest updatePlanRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -213,8 +213,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> ActivatePlanAsync (string id);
+        /// <returns>Task of ActivateDeactivatePlanResponse</returns>
+        System.Threading.Tasks.Task<ActivateDeactivatePlanResponse> ActivatePlanAsync (string id);
 
         /// <summary>
         /// Activate a Plan
@@ -224,8 +224,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> ActivatePlanAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (ActivateDeactivatePlanResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ActivateDeactivatePlanResponse>> ActivatePlanAsyncWithHttpInfo (string id);
         /// <summary>
         /// Create a Plan
         /// </summary>
@@ -234,8 +234,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPlanRequest"></param>
-        /// <returns>Task of InlineResponse201</returns>
-        System.Threading.Tasks.Task<InlineResponse201> CreatePlanAsync (CreatePlanRequest createPlanRequest);
+        /// <returns>Task of CreatePlanResponse</returns>
+        System.Threading.Tasks.Task<CreatePlanResponse> CreatePlanAsync (CreatePlanRequest createPlanRequest);
 
         /// <summary>
         /// Create a Plan
@@ -245,8 +245,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPlanRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreatePlanAsyncWithHttpInfo (CreatePlanRequest createPlanRequest);
+        /// <returns>Task of ApiResponse (CreatePlanResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreatePlanResponse>> CreatePlanAsyncWithHttpInfo (CreatePlanRequest createPlanRequest);
         /// <summary>
         /// Deactivate a Plan
         /// </summary>
@@ -255,8 +255,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> DeactivatePlanAsync (string id);
+        /// <returns>Task of ActivateDeactivatePlanResponse</returns>
+        System.Threading.Tasks.Task<ActivateDeactivatePlanResponse> DeactivatePlanAsync (string id);
 
         /// <summary>
         /// Deactivate a Plan
@@ -266,8 +266,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> DeactivatePlanAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (ActivateDeactivatePlanResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ActivateDeactivatePlanResponse>> DeactivatePlanAsyncWithHttpInfo (string id);
         /// <summary>
         /// Delete a Plan
         /// </summary>
@@ -276,8 +276,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> DeletePlanAsync (string id);
+        /// <returns>Task of DeletePlanResponse</returns>
+        System.Threading.Tasks.Task<DeletePlanResponse> DeletePlanAsync (string id);
 
         /// <summary>
         /// Delete a Plan
@@ -287,8 +287,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> DeletePlanAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (DeletePlanResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeletePlanResponse>> DeletePlanAsyncWithHttpInfo (string id);
         /// <summary>
         /// Get a Plan
         /// </summary>
@@ -297,8 +297,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetPlanAsync (string id);
+        /// <returns>Task of GetPlanResponse</returns>
+        System.Threading.Tasks.Task<GetPlanResponse> GetPlanAsync (string id);
 
         /// <summary>
         /// Get a Plan
@@ -308,8 +308,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetPlanAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (GetPlanResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetPlanResponse>> GetPlanAsyncWithHttpInfo (string id);
         /// <summary>
         /// Get a Plan Code
         /// </summary>
@@ -317,8 +317,8 @@ namespace CyberSource.Api
         /// Get a Unique Plan Code
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> GetPlanCodeAsync ();
+        /// <returns>Task of GetPlanCodeResponse</returns>
+        System.Threading.Tasks.Task<GetPlanCodeResponse> GetPlanCodeAsync ();
 
         /// <summary>
         /// Get a Plan Code
@@ -327,8 +327,8 @@ namespace CyberSource.Api
         /// Get a Unique Plan Code
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetPlanCodeAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (GetPlanCodeResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetPlanCodeResponse>> GetPlanCodeAsyncWithHttpInfo ();
         /// <summary>
         /// Get a List of Plans
         /// </summary>
@@ -341,8 +341,8 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Plan Code (optional)</param>
         /// <param name="status">Filter by Plan Status (optional)</param>
         /// <param name="name">Filter by Plan Name. (First sub string or full string) **[Not Recommended]**  (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> GetPlansAsync (int? offset = null, int? limit = null, string code = null, string status = null, string name = null);
+        /// <returns>Task of GetAllPlansResponse</returns>
+        System.Threading.Tasks.Task<GetAllPlansResponse> GetPlansAsync (int? offset = null, int? limit = null, string code = null, string status = null, string name = null);
 
         /// <summary>
         /// Get a List of Plans
@@ -356,8 +356,8 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Plan Code (optional)</param>
         /// <param name="status">Filter by Plan Status (optional)</param>
         /// <param name="name">Filter by Plan Name. (First sub string or full string) **[Not Recommended]**  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetPlansAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string name = null);
+        /// <returns>Task of ApiResponse (GetAllPlansResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetAllPlansResponse>> GetPlansAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string name = null);
         /// <summary>
         /// Update a Plan
         /// </summary>
@@ -367,8 +367,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
         /// <param name="updatePlanRequest"></param>
-        /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> UpdatePlanAsync (string id, UpdatePlanRequest updatePlanRequest);
+        /// <returns>Task of UpdatePlanResponse</returns>
+        System.Threading.Tasks.Task<UpdatePlanResponse> UpdatePlanAsync (string id, UpdatePlanRequest updatePlanRequest);
 
         /// <summary>
         /// Update a Plan
@@ -379,8 +379,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
         /// <param name="updatePlanRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> UpdatePlanAsyncWithHttpInfo (string id, UpdatePlanRequest updatePlanRequest);
+        /// <returns>Task of ApiResponse (UpdatePlanResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpdatePlanResponse>> UpdatePlanAsyncWithHttpInfo (string id, UpdatePlanRequest updatePlanRequest);
         #endregion Asynchronous Operations
     }
 
@@ -526,12 +526,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 ActivatePlan (string id)
+        /// <returns>ActivateDeactivatePlanResponse</returns>
+        public ActivateDeactivatePlanResponse ActivatePlan (string id)
         {
             logger.Debug("CALLING API \"ActivatePlan\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2004> localVarResponse = ActivatePlanWithHttpInfo(id);
+            ApiResponse<ActivateDeactivatePlanResponse> localVarResponse = ActivatePlanWithHttpInfo(id);
             logger.Debug("CALLING API \"ActivatePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -542,8 +542,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse< InlineResponse2004 > ActivatePlanWithHttpInfo (string id)
+        /// <returns>ApiResponse of ActivateDeactivatePlanResponse</returns>
+        public ApiResponse< ActivateDeactivatePlanResponse > ActivatePlanWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -613,9 +613,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+            return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004))); // Return statement
+                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
 
         /// <summary>
@@ -623,12 +623,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> ActivatePlanAsync (string id)
+        /// <returns>Task of ActivateDeactivatePlanResponse</returns>
+        public async System.Threading.Tasks.Task<ActivateDeactivatePlanResponse> ActivatePlanAsync (string id)
         {
             logger.Debug("CALLING API \"ActivatePlanAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2004> localVarResponse = await ActivatePlanAsyncWithHttpInfo(id);
+            ApiResponse<ActivateDeactivatePlanResponse> localVarResponse = await ActivatePlanAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"ActivatePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -640,8 +640,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> ActivatePlanAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (ActivateDeactivatePlanResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ActivateDeactivatePlanResponse>> ActivatePlanAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -711,21 +711,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+            return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004))); // Return statement
+                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
         /// <summary>
         /// Create a Plan The recurring billing service enables you to manage payment plans and subscriptions for recurring payment schedules. It securely stores your customer&#39;s payment information and personal data within secure Visa data centers, reducing storage risks and PCI DSS scope through the use of *Token Management* (*TMS*).  The three key elements of *Cybersource* Recurring Billing are:  -  **Token**: stores customer billing, shipping, and payment details.  -  **Plan**: stores the billing schedule.  -  **Subscription**: combines the token and plan, and defines the subscription start date, name, and description.  The APIs in this section demonstrate the management of the Plans and Subscriptions. For Tokens please refer to [Token Management](#token-management) 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPlanRequest"></param>
-        /// <returns>InlineResponse201</returns>
-        public InlineResponse201 CreatePlan (CreatePlanRequest createPlanRequest)
+        /// <returns>CreatePlanResponse</returns>
+        public CreatePlanResponse CreatePlan (CreatePlanRequest createPlanRequest)
         {
             logger.Debug("CALLING API \"CreatePlan\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse201> localVarResponse = CreatePlanWithHttpInfo(createPlanRequest);
+            ApiResponse<CreatePlanResponse> localVarResponse = CreatePlanWithHttpInfo(createPlanRequest);
             logger.Debug("CALLING API \"CreatePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -736,8 +736,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPlanRequest"></param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        public ApiResponse< InlineResponse201 > CreatePlanWithHttpInfo (CreatePlanRequest createPlanRequest)
+        /// <returns>ApiResponse of CreatePlanResponse</returns>
+        public ApiResponse< CreatePlanResponse > CreatePlanWithHttpInfo (CreatePlanRequest createPlanRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -813,9 +813,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse201>(localVarStatusCode,
+            return new ApiResponse<CreatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse201) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201))); // Return statement
+                (CreatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse))); // Return statement
         }
 
         /// <summary>
@@ -823,12 +823,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPlanRequest"></param>
-        /// <returns>Task of InlineResponse201</returns>
-        public async System.Threading.Tasks.Task<InlineResponse201> CreatePlanAsync (CreatePlanRequest createPlanRequest)
+        /// <returns>Task of CreatePlanResponse</returns>
+        public async System.Threading.Tasks.Task<CreatePlanResponse> CreatePlanAsync (CreatePlanRequest createPlanRequest)
         {
             logger.Debug("CALLING API \"CreatePlanAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse201> localVarResponse = await CreatePlanAsyncWithHttpInfo(createPlanRequest);
+            ApiResponse<CreatePlanResponse> localVarResponse = await CreatePlanAsyncWithHttpInfo(createPlanRequest);
             logger.Debug("CALLING API \"CreatePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -840,8 +840,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPlanRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreatePlanAsyncWithHttpInfo (CreatePlanRequest createPlanRequest)
+        /// <returns>Task of ApiResponse (CreatePlanResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CreatePlanResponse>> CreatePlanAsyncWithHttpInfo (CreatePlanRequest createPlanRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -917,21 +917,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse201>(localVarStatusCode,
+            return new ApiResponse<CreatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse201) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201))); // Return statement
+                (CreatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse))); // Return statement
         }
         /// <summary>
         /// Deactivate a Plan Deactivate a Plan
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 DeactivatePlan (string id)
+        /// <returns>ActivateDeactivatePlanResponse</returns>
+        public ActivateDeactivatePlanResponse DeactivatePlan (string id)
         {
             logger.Debug("CALLING API \"DeactivatePlan\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2004> localVarResponse = DeactivatePlanWithHttpInfo(id);
+            ApiResponse<ActivateDeactivatePlanResponse> localVarResponse = DeactivatePlanWithHttpInfo(id);
             logger.Debug("CALLING API \"DeactivatePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -942,8 +942,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse< InlineResponse2004 > DeactivatePlanWithHttpInfo (string id)
+        /// <returns>ApiResponse of ActivateDeactivatePlanResponse</returns>
+        public ApiResponse< ActivateDeactivatePlanResponse > DeactivatePlanWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1013,9 +1013,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+            return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004))); // Return statement
+                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
 
         /// <summary>
@@ -1023,12 +1023,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> DeactivatePlanAsync (string id)
+        /// <returns>Task of ActivateDeactivatePlanResponse</returns>
+        public async System.Threading.Tasks.Task<ActivateDeactivatePlanResponse> DeactivatePlanAsync (string id)
         {
             logger.Debug("CALLING API \"DeactivatePlanAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2004> localVarResponse = await DeactivatePlanAsyncWithHttpInfo(id);
+            ApiResponse<ActivateDeactivatePlanResponse> localVarResponse = await DeactivatePlanAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"DeactivatePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1040,8 +1040,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> DeactivatePlanAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (ActivateDeactivatePlanResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ActivateDeactivatePlanResponse>> DeactivatePlanAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1111,21 +1111,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+            return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2004) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004))); // Return statement
+                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
         /// <summary>
         /// Delete a Plan Delete a Plan is only allowed: - plan status is in &#x60;DRAFT&#x60; - plan status is in &#x60;ACTIVE&#x60;, and &#x60;INACTIVE&#x60; only allowed when no subscriptions attached to a plan in the lifetime of a plan 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 DeletePlan (string id)
+        /// <returns>DeletePlanResponse</returns>
+        public DeletePlanResponse DeletePlan (string id)
         {
             logger.Debug("CALLING API \"DeletePlan\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2002> localVarResponse = DeletePlanWithHttpInfo(id);
+            ApiResponse<DeletePlanResponse> localVarResponse = DeletePlanWithHttpInfo(id);
             logger.Debug("CALLING API \"DeletePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1136,8 +1136,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse< InlineResponse2002 > DeletePlanWithHttpInfo (string id)
+        /// <returns>ApiResponse of DeletePlanResponse</returns>
+        public ApiResponse< DeletePlanResponse > DeletePlanWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1207,9 +1207,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
+            return new ApiResponse<DeletePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002))); // Return statement
+                (DeletePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse))); // Return statement
         }
 
         /// <summary>
@@ -1217,12 +1217,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> DeletePlanAsync (string id)
+        /// <returns>Task of DeletePlanResponse</returns>
+        public async System.Threading.Tasks.Task<DeletePlanResponse> DeletePlanAsync (string id)
         {
             logger.Debug("CALLING API \"DeletePlanAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2002> localVarResponse = await DeletePlanAsyncWithHttpInfo(id);
+            ApiResponse<DeletePlanResponse> localVarResponse = await DeletePlanAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"DeletePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1234,8 +1234,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> DeletePlanAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (DeletePlanResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DeletePlanResponse>> DeletePlanAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1305,21 +1305,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
+            return new ApiResponse<DeletePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002))); // Return statement
+                (DeletePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse))); // Return statement
         }
         /// <summary>
         /// Get a Plan Retrieve a Plan details by Plan Id.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetPlan (string id)
+        /// <returns>GetPlanResponse</returns>
+        public GetPlanResponse GetPlan (string id)
         {
             logger.Debug("CALLING API \"GetPlan\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2001> localVarResponse = GetPlanWithHttpInfo(id);
+            ApiResponse<GetPlanResponse> localVarResponse = GetPlanWithHttpInfo(id);
             logger.Debug("CALLING API \"GetPlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1330,8 +1330,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse< InlineResponse2001 > GetPlanWithHttpInfo (string id)
+        /// <returns>ApiResponse of GetPlanResponse</returns>
+        public ApiResponse< GetPlanResponse > GetPlanWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1401,9 +1401,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<GetPlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001))); // Return statement
+                (GetPlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse))); // Return statement
         }
 
         /// <summary>
@@ -1411,12 +1411,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetPlanAsync (string id)
+        /// <returns>Task of GetPlanResponse</returns>
+        public async System.Threading.Tasks.Task<GetPlanResponse> GetPlanAsync (string id)
         {
             logger.Debug("CALLING API \"GetPlanAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2001> localVarResponse = await GetPlanAsyncWithHttpInfo(id);
+            ApiResponse<GetPlanResponse> localVarResponse = await GetPlanAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"GetPlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1428,8 +1428,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetPlanAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (GetPlanResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetPlanResponse>> GetPlanAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1499,20 +1499,20 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<GetPlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001))); // Return statement
+                (GetPlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse))); // Return statement
         }
         /// <summary>
         /// Get a Plan Code Get a Unique Plan Code
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 GetPlanCode ()
+        /// <returns>GetPlanCodeResponse</returns>
+        public GetPlanCodeResponse GetPlanCode ()
         {
             logger.Debug("CALLING API \"GetPlanCode\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2005> localVarResponse = GetPlanCodeWithHttpInfo();
+            ApiResponse<GetPlanCodeResponse> localVarResponse = GetPlanCodeWithHttpInfo();
             logger.Debug("CALLING API \"GetPlanCode\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1522,8 +1522,8 @@ namespace CyberSource.Api
         /// Get a Plan Code Get a Unique Plan Code
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse< InlineResponse2005 > GetPlanCodeWithHttpInfo ()
+        /// <returns>ApiResponse of GetPlanCodeResponse</returns>
+        public ApiResponse< GetPlanCodeResponse > GetPlanCodeWithHttpInfo ()
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1582,21 +1582,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<GetPlanCodeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+                (GetPlanCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse))); // Return statement
         }
 
         /// <summary>
         /// Get a Plan Code Get a Unique Plan Code
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> GetPlanCodeAsync ()
+        /// <returns>Task of GetPlanCodeResponse</returns>
+        public async System.Threading.Tasks.Task<GetPlanCodeResponse> GetPlanCodeAsync ()
         {
             logger.Debug("CALLING API \"GetPlanCodeAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2005> localVarResponse = await GetPlanCodeAsyncWithHttpInfo();
+            ApiResponse<GetPlanCodeResponse> localVarResponse = await GetPlanCodeAsyncWithHttpInfo();
             logger.Debug("CALLING API \"GetPlanCodeAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1607,8 +1607,8 @@ namespace CyberSource.Api
         /// Get a Plan Code Get a Unique Plan Code
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetPlanCodeAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (GetPlanCodeResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetPlanCodeResponse>> GetPlanCodeAsyncWithHttpInfo ()
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1667,9 +1667,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<GetPlanCodeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+                (GetPlanCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse))); // Return statement
         }
         /// <summary>
         /// Get a List of Plans Retrieve Plans by Plan Code &amp; Plan Status. 
@@ -1680,12 +1680,12 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Plan Code (optional)</param>
         /// <param name="status">Filter by Plan Status (optional)</param>
         /// <param name="name">Filter by Plan Name. (First sub string or full string) **[Not Recommended]**  (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        public InlineResponse200 GetPlans (int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
+        /// <returns>GetAllPlansResponse</returns>
+        public GetAllPlansResponse GetPlans (int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
         {
             logger.Debug("CALLING API \"GetPlans\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse200> localVarResponse = GetPlansWithHttpInfo(offset, limit, code, status, name);
+            ApiResponse<GetAllPlansResponse> localVarResponse = GetPlansWithHttpInfo(offset, limit, code, status, name);
             logger.Debug("CALLING API \"GetPlans\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1700,8 +1700,8 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Plan Code (optional)</param>
         /// <param name="status">Filter by Plan Status (optional)</param>
         /// <param name="name">Filter by Plan Name. (First sub string or full string) **[Not Recommended]**  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > GetPlansWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
+        /// <returns>ApiResponse of GetAllPlansResponse</returns>
+        public ApiResponse< GetAllPlansResponse > GetPlansWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1785,9 +1785,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<GetAllPlansResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+                (GetAllPlansResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse))); // Return statement
         }
 
         /// <summary>
@@ -1799,12 +1799,12 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Plan Code (optional)</param>
         /// <param name="status">Filter by Plan Status (optional)</param>
         /// <param name="name">Filter by Plan Name. (First sub string or full string) **[Not Recommended]**  (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetPlansAsync (int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
+        /// <returns>Task of GetAllPlansResponse</returns>
+        public async System.Threading.Tasks.Task<GetAllPlansResponse> GetPlansAsync (int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
         {
             logger.Debug("CALLING API \"GetPlansAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse200> localVarResponse = await GetPlansAsyncWithHttpInfo(offset, limit, code, status, name);
+            ApiResponse<GetAllPlansResponse> localVarResponse = await GetPlansAsyncWithHttpInfo(offset, limit, code, status, name);
             logger.Debug("CALLING API \"GetPlansAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1820,8 +1820,8 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Plan Code (optional)</param>
         /// <param name="status">Filter by Plan Status (optional)</param>
         /// <param name="name">Filter by Plan Name. (First sub string or full string) **[Not Recommended]**  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetPlansAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
+        /// <returns>Task of ApiResponse (GetAllPlansResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetAllPlansResponse>> GetPlansAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1905,9 +1905,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<GetAllPlansResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+                (GetAllPlansResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse))); // Return statement
         }
         /// <summary>
         /// Update a Plan Update a Plan  Plan in &#x60;DRAFT&#x60; status - All updates are allowed on Plan with &#x60;DRAFT&#x60; status  Plan in &#x60;ACTIVE&#x60; status [Following fields are **Not Updatable**] - &#x60;planInformation.billingPeriod&#x60; - &#x60;planInformation.billingCycles&#x60; [Update is only allowed to **increase** billingCycles] - &#x60;orderInformation.amountDetails.currency&#x60; 
@@ -1915,12 +1915,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
         /// <param name="updatePlanRequest"></param>
-        /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 UpdatePlan (string id, UpdatePlanRequest updatePlanRequest)
+        /// <returns>UpdatePlanResponse</returns>
+        public UpdatePlanResponse UpdatePlan (string id, UpdatePlanRequest updatePlanRequest)
         {
             logger.Debug("CALLING API \"UpdatePlan\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2003> localVarResponse = UpdatePlanWithHttpInfo(id, updatePlanRequest);
+            ApiResponse<UpdatePlanResponse> localVarResponse = UpdatePlanWithHttpInfo(id, updatePlanRequest);
             logger.Debug("CALLING API \"UpdatePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1932,8 +1932,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
         /// <param name="updatePlanRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        public ApiResponse< InlineResponse2003 > UpdatePlanWithHttpInfo (string id, UpdatePlanRequest updatePlanRequest)
+        /// <returns>ApiResponse of UpdatePlanResponse</returns>
+        public ApiResponse< UpdatePlanResponse > UpdatePlanWithHttpInfo (string id, UpdatePlanRequest updatePlanRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2020,9 +2020,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+            return new ApiResponse<UpdatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003))); // Return statement
+                (UpdatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse))); // Return statement
         }
 
         /// <summary>
@@ -2031,12 +2031,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
         /// <param name="updatePlanRequest"></param>
-        /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> UpdatePlanAsync (string id, UpdatePlanRequest updatePlanRequest)
+        /// <returns>Task of UpdatePlanResponse</returns>
+        public async System.Threading.Tasks.Task<UpdatePlanResponse> UpdatePlanAsync (string id, UpdatePlanRequest updatePlanRequest)
         {
             logger.Debug("CALLING API \"UpdatePlanAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2003> localVarResponse = await UpdatePlanAsyncWithHttpInfo(id, updatePlanRequest);
+            ApiResponse<UpdatePlanResponse> localVarResponse = await UpdatePlanAsyncWithHttpInfo(id, updatePlanRequest);
             logger.Debug("CALLING API \"UpdatePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2049,8 +2049,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Plan Id</param>
         /// <param name="updatePlanRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> UpdatePlanAsyncWithHttpInfo (string id, UpdatePlanRequest updatePlanRequest)
+        /// <returns>Task of ApiResponse (UpdatePlanResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UpdatePlanResponse>> UpdatePlanAsyncWithHttpInfo (string id, UpdatePlanRequest updatePlanRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2137,9 +2137,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+            return new ApiResponse<UpdatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003))); // Return statement
+                (UpdatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse))); // Return statement
         }
     }
 }

@@ -54,7 +54,7 @@ namespace CyberSource.Api
         /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
-        /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Download a report using the reportId value. If you don&#39;t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -66,7 +66,7 @@ namespace CyberSource.Api
         /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
-        /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Download a report using the reportId value. If you don&#39;t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -139,7 +139,7 @@ namespace CyberSource.Api
         /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
-        /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Download a report using the reportId value. If you don&#39;t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -151,7 +151,7 @@ namespace CyberSource.Api
         /// Get Report Based on Report Id
         /// </summary>
         /// <remarks>
-        /// Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Download a report using the reportId value. If you don&#39;t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -546,7 +546,7 @@ namespace CyberSource.Api
                 localVarResponse.Content); // Return statement
         }
         /// <summary>
-        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don&#39;t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -563,7 +563,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don&#39;t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -648,7 +648,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don&#39;t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>
@@ -666,7 +666,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Report Based on Report Id Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
+        /// Get Report Based on Report Id Download a report using the reportId value. If you don&#39;t already know this value, you can obtain it using the Retrieve available reports call. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Valid Report Id</param>

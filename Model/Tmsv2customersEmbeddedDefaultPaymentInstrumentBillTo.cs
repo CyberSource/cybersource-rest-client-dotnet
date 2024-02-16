@@ -33,17 +33,17 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo" /> class.
         /// </summary>
-        /// <param name="FirstName">Customer’s first name. This name must be the same as the name on the card. .</param>
-        /// <param name="LastName">Customer’s last name. This name must be the same as the name on the card. .</param>
-        /// <param name="Company">Name of the customer’s company. .</param>
-        /// <param name="Address1">Payment card billing street address as it appears on the credit card issuer’s records. .</param>
+        /// <param name="FirstName">Customer&#39;s first name. This name must be the same as the name on the card. .</param>
+        /// <param name="LastName">Customer&#39;s last name. This name must be the same as the name on the card. .</param>
+        /// <param name="Company">Name of the customer&#39;s company. .</param>
+        /// <param name="Address1">Payment card billing street address as it appears on the credit card issuer&#39;s records. .</param>
         /// <param name="Address2">Additional address information. .</param>
         /// <param name="Locality">Payment card billing city. .</param>
         /// <param name="AdministrativeArea">State or province of the billing address. Use the State, Province, and Territory Codes for the United States and Canada. .</param>
         /// <param name="PostalCode">Postal code for the billing address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  **Example** &#x60;12345-6789&#x60;  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  **Example** &#x60;A1B 2C3&#x60; .</param>
         /// <param name="Country">Payment card billing country. Use the two-character ISO Standard Country Codes. .</param>
         /// <param name="Email">Customer&#39;s email address, including the full domain name. .</param>
-        /// <param name="PhoneNumber">Customer’s phone number. .</param>
+        /// <param name="PhoneNumber">Customer&#39;s phone number. .</param>
         public Tmsv2customersEmbeddedDefaultPaymentInstrumentBillTo(string FirstName = default(string), string LastName = default(string), string Company = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string Email = default(string), string PhoneNumber = default(string))
         {
             this.FirstName = FirstName;
@@ -60,30 +60,30 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Customer’s first name. This name must be the same as the name on the card. 
+        /// Customer&#39;s first name. This name must be the same as the name on the card. 
         /// </summary>
-        /// <value>Customer’s first name. This name must be the same as the name on the card. </value>
+        /// <value>Customer&#39;s first name. This name must be the same as the name on the card. </value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Customer’s last name. This name must be the same as the name on the card. 
+        /// Customer&#39;s last name. This name must be the same as the name on the card. 
         /// </summary>
-        /// <value>Customer’s last name. This name must be the same as the name on the card. </value>
+        /// <value>Customer&#39;s last name. This name must be the same as the name on the card. </value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Name of the customer’s company. 
+        /// Name of the customer&#39;s company. 
         /// </summary>
-        /// <value>Name of the customer’s company. </value>
+        /// <value>Name of the customer&#39;s company. </value>
         [DataMember(Name="company", EmitDefaultValue=false)]
         public string Company { get; set; }
 
         /// <summary>
-        /// Payment card billing street address as it appears on the credit card issuer’s records. 
+        /// Payment card billing street address as it appears on the credit card issuer&#39;s records. 
         /// </summary>
-        /// <value>Payment card billing street address as it appears on the credit card issuer’s records. </value>
+        /// <value>Payment card billing street address as it appears on the credit card issuer&#39;s records. </value>
         [DataMember(Name="address1", EmitDefaultValue=false)]
         public string Address1 { get; set; }
 
@@ -130,9 +130,9 @@ namespace CyberSource.Model
         public string Email { get; set; }
 
         /// <summary>
-        /// Customer’s phone number. 
+        /// Customer&#39;s phone number. 
         /// </summary>
-        /// <value>Customer’s phone number. </value>
+        /// <value>Customer&#39;s phone number. </value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 

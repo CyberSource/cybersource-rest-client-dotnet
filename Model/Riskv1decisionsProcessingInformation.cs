@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Decides whether to call Payer Authentication or Watchlist Screening service along with DM or not
+    /// Decides whether to call Payer Authentication or Watchlist Screening service along with DM or not.
     /// </summary>
     [DataContract]
     public partial class Riskv1decisionsProcessingInformation :  IEquatable<Riskv1decisionsProcessingInformation>, IValidatableObject

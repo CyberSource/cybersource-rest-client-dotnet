@@ -35,8 +35,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 ActivateSubscription (string id);
+        /// <returns>ActivateSubscriptionResponse</returns>
+        ActivateSubscriptionResponse ActivateSubscription (string id);
 
         /// <summary>
         /// Activate a Subscription
@@ -46,8 +46,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> ActivateSubscriptionWithHttpInfo (string id);
+        /// <returns>ApiResponse of ActivateSubscriptionResponse</returns>
+        ApiResponse<ActivateSubscriptionResponse> ActivateSubscriptionWithHttpInfo (string id);
         /// <summary>
         /// Cancel a Subscription
         /// </summary>
@@ -56,8 +56,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 CancelSubscription (string id);
+        /// <returns>CancelSubscriptionResponse</returns>
+        CancelSubscriptionResponse CancelSubscription (string id);
 
         /// <summary>
         /// Cancel a Subscription
@@ -67,8 +67,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> CancelSubscriptionWithHttpInfo (string id);
+        /// <returns>ApiResponse of CancelSubscriptionResponse</returns>
+        ApiResponse<CancelSubscriptionResponse> CancelSubscriptionWithHttpInfo (string id);
         /// <summary>
         /// Create a Subscription
         /// </summary>
@@ -77,8 +77,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSubscriptionRequest"></param>
-        /// <returns>InlineResponse2011</returns>
-        InlineResponse2011 CreateSubscription (CreateSubscriptionRequest createSubscriptionRequest);
+        /// <returns>CreateSubscriptionResponse</returns>
+        CreateSubscriptionResponse CreateSubscription (CreateSubscriptionRequest createSubscriptionRequest);
 
         /// <summary>
         /// Create a Subscription
@@ -88,8 +88,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSubscriptionRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2011</returns>
-        ApiResponse<InlineResponse2011> CreateSubscriptionWithHttpInfo (CreateSubscriptionRequest createSubscriptionRequest);
+        /// <returns>ApiResponse of CreateSubscriptionResponse</returns>
+        ApiResponse<CreateSubscriptionResponse> CreateSubscriptionWithHttpInfo (CreateSubscriptionRequest createSubscriptionRequest);
         /// <summary>
         /// Get a List of Subscriptions
         /// </summary>
@@ -101,8 +101,8 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
-        /// <returns>InlineResponse2006</returns>
-        InlineResponse2006 GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null);
+        /// <returns>GetAllSubscriptionsResponse</returns>
+        GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null);
 
         /// <summary>
         /// Get a List of Subscriptions
@@ -115,8 +115,8 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2006</returns>
-        ApiResponse<InlineResponse2006> GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null);
+        /// <returns>ApiResponse of GetAllSubscriptionsResponse</returns>
+        ApiResponse<GetAllSubscriptionsResponse> GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null);
         /// <summary>
         /// Get a Subscription
         /// </summary>
@@ -125,8 +125,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 GetSubscription (string id);
+        /// <returns>GetSubscriptionResponse</returns>
+        GetSubscriptionResponse GetSubscription (string id);
 
         /// <summary>
         /// Get a Subscription
@@ -136,8 +136,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> GetSubscriptionWithHttpInfo (string id);
+        /// <returns>ApiResponse of GetSubscriptionResponse</returns>
+        ApiResponse<GetSubscriptionResponse> GetSubscriptionWithHttpInfo (string id);
         /// <summary>
         /// Get a Subscription Code
         /// </summary>
@@ -145,8 +145,8 @@ namespace CyberSource.Api
         /// Get a Unique Subscription Code
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse20010</returns>
-        InlineResponse20010 GetSubscriptionCode ();
+        /// <returns>GetSubscriptionCodeResponse</returns>
+        GetSubscriptionCodeResponse GetSubscriptionCode ();
 
         /// <summary>
         /// Get a Subscription Code
@@ -155,8 +155,8 @@ namespace CyberSource.Api
         /// Get a Unique Subscription Code
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse20010</returns>
-        ApiResponse<InlineResponse20010> GetSubscriptionCodeWithHttpInfo ();
+        /// <returns>ApiResponse of GetSubscriptionCodeResponse</returns>
+        ApiResponse<GetSubscriptionCodeResponse> GetSubscriptionCodeWithHttpInfo ();
         /// <summary>
         /// Suspend a Subscription
         /// </summary>
@@ -165,8 +165,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>InlineResponse2021</returns>
-        InlineResponse2021 SuspendSubscription (string id);
+        /// <returns>SuspendSubscriptionResponse</returns>
+        SuspendSubscriptionResponse SuspendSubscription (string id);
 
         /// <summary>
         /// Suspend a Subscription
@@ -176,8 +176,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>ApiResponse of InlineResponse2021</returns>
-        ApiResponse<InlineResponse2021> SuspendSubscriptionWithHttpInfo (string id);
+        /// <returns>ApiResponse of SuspendSubscriptionResponse</returns>
+        ApiResponse<SuspendSubscriptionResponse> SuspendSubscriptionWithHttpInfo (string id);
         /// <summary>
         /// Update a Subscription
         /// </summary>
@@ -187,8 +187,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updateSubscription">Update Subscription</param>
-        /// <returns>InlineResponse2008</returns>
-        InlineResponse2008 UpdateSubscription (string id, UpdateSubscription updateSubscription);
+        /// <returns>UpdateSubscriptionResponse</returns>
+        UpdateSubscriptionResponse UpdateSubscription (string id, UpdateSubscription updateSubscription);
 
         /// <summary>
         /// Update a Subscription
@@ -199,8 +199,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updateSubscription">Update Subscription</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        ApiResponse<InlineResponse2008> UpdateSubscriptionWithHttpInfo (string id, UpdateSubscription updateSubscription);
+        /// <returns>ApiResponse of UpdateSubscriptionResponse</returns>
+        ApiResponse<UpdateSubscriptionResponse> UpdateSubscriptionWithHttpInfo (string id, UpdateSubscription updateSubscription);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -211,8 +211,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> ActivateSubscriptionAsync (string id);
+        /// <returns>Task of ActivateSubscriptionResponse</returns>
+        System.Threading.Tasks.Task<ActivateSubscriptionResponse> ActivateSubscriptionAsync (string id);
 
         /// <summary>
         /// Activate a Subscription
@@ -222,8 +222,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> ActivateSubscriptionAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (ActivateSubscriptionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ActivateSubscriptionResponse>> ActivateSubscriptionAsyncWithHttpInfo (string id);
         /// <summary>
         /// Cancel a Subscription
         /// </summary>
@@ -232,8 +232,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> CancelSubscriptionAsync (string id);
+        /// <returns>Task of CancelSubscriptionResponse</returns>
+        System.Threading.Tasks.Task<CancelSubscriptionResponse> CancelSubscriptionAsync (string id);
 
         /// <summary>
         /// Cancel a Subscription
@@ -243,8 +243,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> CancelSubscriptionAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (CancelSubscriptionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CancelSubscriptionResponse>> CancelSubscriptionAsyncWithHttpInfo (string id);
         /// <summary>
         /// Create a Subscription
         /// </summary>
@@ -253,8 +253,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSubscriptionRequest"></param>
-        /// <returns>Task of InlineResponse2011</returns>
-        System.Threading.Tasks.Task<InlineResponse2011> CreateSubscriptionAsync (CreateSubscriptionRequest createSubscriptionRequest);
+        /// <returns>Task of CreateSubscriptionResponse</returns>
+        System.Threading.Tasks.Task<CreateSubscriptionResponse> CreateSubscriptionAsync (CreateSubscriptionRequest createSubscriptionRequest);
 
         /// <summary>
         /// Create a Subscription
@@ -264,8 +264,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSubscriptionRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CreateSubscriptionAsyncWithHttpInfo (CreateSubscriptionRequest createSubscriptionRequest);
+        /// <returns>Task of ApiResponse (CreateSubscriptionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateSubscriptionResponse>> CreateSubscriptionAsyncWithHttpInfo (CreateSubscriptionRequest createSubscriptionRequest);
         /// <summary>
         /// Get a List of Subscriptions
         /// </summary>
@@ -277,8 +277,8 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
-        /// <returns>Task of InlineResponse2006</returns>
-        System.Threading.Tasks.Task<InlineResponse2006> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null);
+        /// <returns>Task of GetAllSubscriptionsResponse</returns>
+        System.Threading.Tasks.Task<GetAllSubscriptionsResponse> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null);
 
         /// <summary>
         /// Get a List of Subscriptions
@@ -291,8 +291,8 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null);
+        /// <returns>Task of ApiResponse (GetAllSubscriptionsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetAllSubscriptionsResponse>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null);
         /// <summary>
         /// Get a Subscription
         /// </summary>
@@ -301,8 +301,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> GetSubscriptionAsync (string id);
+        /// <returns>Task of GetSubscriptionResponse</returns>
+        System.Threading.Tasks.Task<GetSubscriptionResponse> GetSubscriptionAsync (string id);
 
         /// <summary>
         /// Get a Subscription
@@ -312,8 +312,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetSubscriptionAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (GetSubscriptionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetSubscriptionResponse>> GetSubscriptionAsyncWithHttpInfo (string id);
         /// <summary>
         /// Get a Subscription Code
         /// </summary>
@@ -321,8 +321,8 @@ namespace CyberSource.Api
         /// Get a Unique Subscription Code
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse20010</returns>
-        System.Threading.Tasks.Task<InlineResponse20010> GetSubscriptionCodeAsync ();
+        /// <returns>Task of GetSubscriptionCodeResponse</returns>
+        System.Threading.Tasks.Task<GetSubscriptionCodeResponse> GetSubscriptionCodeAsync ();
 
         /// <summary>
         /// Get a Subscription Code
@@ -331,8 +331,8 @@ namespace CyberSource.Api
         /// Get a Unique Subscription Code
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> GetSubscriptionCodeAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (GetSubscriptionCodeResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetSubscriptionCodeResponse>> GetSubscriptionCodeAsyncWithHttpInfo ();
         /// <summary>
         /// Suspend a Subscription
         /// </summary>
@@ -341,8 +341,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of InlineResponse2021</returns>
-        System.Threading.Tasks.Task<InlineResponse2021> SuspendSubscriptionAsync (string id);
+        /// <returns>Task of SuspendSubscriptionResponse</returns>
+        System.Threading.Tasks.Task<SuspendSubscriptionResponse> SuspendSubscriptionAsync (string id);
 
         /// <summary>
         /// Suspend a Subscription
@@ -352,8 +352,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2021)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2021>> SuspendSubscriptionAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (SuspendSubscriptionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SuspendSubscriptionResponse>> SuspendSubscriptionAsyncWithHttpInfo (string id);
         /// <summary>
         /// Update a Subscription
         /// </summary>
@@ -363,8 +363,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updateSubscription">Update Subscription</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        System.Threading.Tasks.Task<InlineResponse2008> UpdateSubscriptionAsync (string id, UpdateSubscription updateSubscription);
+        /// <returns>Task of UpdateSubscriptionResponse</returns>
+        System.Threading.Tasks.Task<UpdateSubscriptionResponse> UpdateSubscriptionAsync (string id, UpdateSubscription updateSubscription);
 
         /// <summary>
         /// Update a Subscription
@@ -375,8 +375,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updateSubscription">Update Subscription</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> UpdateSubscriptionAsyncWithHttpInfo (string id, UpdateSubscription updateSubscription);
+        /// <returns>Task of ApiResponse (UpdateSubscriptionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpdateSubscriptionResponse>> UpdateSubscriptionAsyncWithHttpInfo (string id, UpdateSubscription updateSubscription);
         #endregion Asynchronous Operations
     }
 
@@ -522,12 +522,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 ActivateSubscription (string id)
+        /// <returns>ActivateSubscriptionResponse</returns>
+        public ActivateSubscriptionResponse ActivateSubscription (string id)
         {
             logger.Debug("CALLING API \"ActivateSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2009> localVarResponse = ActivateSubscriptionWithHttpInfo(id);
+            ApiResponse<ActivateSubscriptionResponse> localVarResponse = ActivateSubscriptionWithHttpInfo(id);
             logger.Debug("CALLING API \"ActivateSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -538,8 +538,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse< InlineResponse2009 > ActivateSubscriptionWithHttpInfo (string id)
+        /// <returns>ApiResponse of ActivateSubscriptionResponse</returns>
+        public ApiResponse< ActivateSubscriptionResponse > ActivateSubscriptionWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -609,9 +609,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2009>(localVarStatusCode,
+            return new ApiResponse<ActivateSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2009) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2009))); // Return statement
+                (ActivateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateSubscriptionResponse))); // Return statement
         }
 
         /// <summary>
@@ -619,12 +619,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009> ActivateSubscriptionAsync (string id)
+        /// <returns>Task of ActivateSubscriptionResponse</returns>
+        public async System.Threading.Tasks.Task<ActivateSubscriptionResponse> ActivateSubscriptionAsync (string id)
         {
             logger.Debug("CALLING API \"ActivateSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2009> localVarResponse = await ActivateSubscriptionAsyncWithHttpInfo(id);
+            ApiResponse<ActivateSubscriptionResponse> localVarResponse = await ActivateSubscriptionAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"ActivateSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -636,8 +636,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> ActivateSubscriptionAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (ActivateSubscriptionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ActivateSubscriptionResponse>> ActivateSubscriptionAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -707,21 +707,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2009>(localVarStatusCode,
+            return new ApiResponse<ActivateSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2009) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2009))); // Return statement
+                (ActivateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateSubscriptionResponse))); // Return statement
         }
         /// <summary>
         /// Cancel a Subscription Cancel a Subscription
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 CancelSubscription (string id)
+        /// <returns>CancelSubscriptionResponse</returns>
+        public CancelSubscriptionResponse CancelSubscription (string id)
         {
             logger.Debug("CALLING API \"CancelSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse202> localVarResponse = CancelSubscriptionWithHttpInfo(id);
+            ApiResponse<CancelSubscriptionResponse> localVarResponse = CancelSubscriptionWithHttpInfo(id);
             logger.Debug("CALLING API \"CancelSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -732,8 +732,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse< InlineResponse202 > CancelSubscriptionWithHttpInfo (string id)
+        /// <returns>ApiResponse of CancelSubscriptionResponse</returns>
+        public ApiResponse< CancelSubscriptionResponse > CancelSubscriptionWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -803,9 +803,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse202>(localVarStatusCode,
+            return new ApiResponse<CancelSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse202) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse202))); // Return statement
+                (CancelSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CancelSubscriptionResponse))); // Return statement
         }
 
         /// <summary>
@@ -813,12 +813,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202> CancelSubscriptionAsync (string id)
+        /// <returns>Task of CancelSubscriptionResponse</returns>
+        public async System.Threading.Tasks.Task<CancelSubscriptionResponse> CancelSubscriptionAsync (string id)
         {
             logger.Debug("CALLING API \"CancelSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse202> localVarResponse = await CancelSubscriptionAsyncWithHttpInfo(id);
+            ApiResponse<CancelSubscriptionResponse> localVarResponse = await CancelSubscriptionAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"CancelSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -830,8 +830,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> CancelSubscriptionAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (CancelSubscriptionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CancelSubscriptionResponse>> CancelSubscriptionAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -901,21 +901,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse202>(localVarStatusCode,
+            return new ApiResponse<CancelSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse202) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse202))); // Return statement
+                (CancelSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CancelSubscriptionResponse))); // Return statement
         }
         /// <summary>
         /// Create a Subscription Create a Recurring Billing Subscription
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSubscriptionRequest"></param>
-        /// <returns>InlineResponse2011</returns>
-        public InlineResponse2011 CreateSubscription (CreateSubscriptionRequest createSubscriptionRequest)
+        /// <returns>CreateSubscriptionResponse</returns>
+        public CreateSubscriptionResponse CreateSubscription (CreateSubscriptionRequest createSubscriptionRequest)
         {
             logger.Debug("CALLING API \"CreateSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2011> localVarResponse = CreateSubscriptionWithHttpInfo(createSubscriptionRequest);
+            ApiResponse<CreateSubscriptionResponse> localVarResponse = CreateSubscriptionWithHttpInfo(createSubscriptionRequest);
             logger.Debug("CALLING API \"CreateSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -926,8 +926,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSubscriptionRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2011</returns>
-        public ApiResponse< InlineResponse2011 > CreateSubscriptionWithHttpInfo (CreateSubscriptionRequest createSubscriptionRequest)
+        /// <returns>ApiResponse of CreateSubscriptionResponse</returns>
+        public ApiResponse< CreateSubscriptionResponse > CreateSubscriptionWithHttpInfo (CreateSubscriptionRequest createSubscriptionRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1003,9 +1003,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+            return new ApiResponse<CreateSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011))); // Return statement
+                (CreateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreateSubscriptionResponse))); // Return statement
         }
 
         /// <summary>
@@ -1013,12 +1013,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSubscriptionRequest"></param>
-        /// <returns>Task of InlineResponse2011</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2011> CreateSubscriptionAsync (CreateSubscriptionRequest createSubscriptionRequest)
+        /// <returns>Task of CreateSubscriptionResponse</returns>
+        public async System.Threading.Tasks.Task<CreateSubscriptionResponse> CreateSubscriptionAsync (CreateSubscriptionRequest createSubscriptionRequest)
         {
             logger.Debug("CALLING API \"CreateSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2011> localVarResponse = await CreateSubscriptionAsyncWithHttpInfo(createSubscriptionRequest);
+            ApiResponse<CreateSubscriptionResponse> localVarResponse = await CreateSubscriptionAsyncWithHttpInfo(createSubscriptionRequest);
             logger.Debug("CALLING API \"CreateSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1030,8 +1030,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSubscriptionRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CreateSubscriptionAsyncWithHttpInfo (CreateSubscriptionRequest createSubscriptionRequest)
+        /// <returns>Task of ApiResponse (CreateSubscriptionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CreateSubscriptionResponse>> CreateSubscriptionAsyncWithHttpInfo (CreateSubscriptionRequest createSubscriptionRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1107,9 +1107,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+            return new ApiResponse<CreateSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011))); // Return statement
+                (CreateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreateSubscriptionResponse))); // Return statement
         }
         /// <summary>
         /// Get a List of Subscriptions Retrieve Subscriptions by Subscription Code &amp; Subscription Status. 
@@ -1119,12 +1119,12 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
-        /// <returns>InlineResponse2006</returns>
-        public InlineResponse2006 GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null)
+        /// <returns>GetAllSubscriptionsResponse</returns>
+        public GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null)
         {
             logger.Debug("CALLING API \"GetAllSubscriptions\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2006> localVarResponse = GetAllSubscriptionsWithHttpInfo(offset, limit, code, status);
+            ApiResponse<GetAllSubscriptionsResponse> localVarResponse = GetAllSubscriptionsWithHttpInfo(offset, limit, code, status);
             logger.Debug("CALLING API \"GetAllSubscriptions\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1138,8 +1138,8 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2006</returns>
-        public ApiResponse< InlineResponse2006 > GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null)
+        /// <returns>ApiResponse of GetAllSubscriptionsResponse</returns>
+        public ApiResponse< GetAllSubscriptionsResponse > GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1218,9 +1218,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
+            return new ApiResponse<GetAllSubscriptionsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006))); // Return statement
+                (GetAllSubscriptionsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllSubscriptionsResponse))); // Return statement
         }
 
         /// <summary>
@@ -1231,12 +1231,12 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
-        /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null)
+        /// <returns>Task of GetAllSubscriptionsResponse</returns>
+        public async System.Threading.Tasks.Task<GetAllSubscriptionsResponse> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null)
         {
             logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2006> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo(offset, limit, code, status);
+            ApiResponse<GetAllSubscriptionsResponse> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo(offset, limit, code, status);
             logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1251,8 +1251,8 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null)
+        /// <returns>Task of ApiResponse (GetAllSubscriptionsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetAllSubscriptionsResponse>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1331,21 +1331,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
+            return new ApiResponse<GetAllSubscriptionsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006))); // Return statement
+                (GetAllSubscriptionsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllSubscriptionsResponse))); // Return statement
         }
         /// <summary>
         /// Get a Subscription Get a Subscription by Subscription Id
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 GetSubscription (string id)
+        /// <returns>GetSubscriptionResponse</returns>
+        public GetSubscriptionResponse GetSubscription (string id)
         {
             logger.Debug("CALLING API \"GetSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2007> localVarResponse = GetSubscriptionWithHttpInfo(id);
+            ApiResponse<GetSubscriptionResponse> localVarResponse = GetSubscriptionWithHttpInfo(id);
             logger.Debug("CALLING API \"GetSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1356,8 +1356,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        public ApiResponse< InlineResponse2007 > GetSubscriptionWithHttpInfo (string id)
+        /// <returns>ApiResponse of GetSubscriptionResponse</returns>
+        public ApiResponse< GetSubscriptionResponse > GetSubscriptionWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1427,9 +1427,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+            return new ApiResponse<GetSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007))); // Return statement
+                (GetSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionResponse))); // Return statement
         }
 
         /// <summary>
@@ -1437,12 +1437,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> GetSubscriptionAsync (string id)
+        /// <returns>Task of GetSubscriptionResponse</returns>
+        public async System.Threading.Tasks.Task<GetSubscriptionResponse> GetSubscriptionAsync (string id)
         {
             logger.Debug("CALLING API \"GetSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2007> localVarResponse = await GetSubscriptionAsyncWithHttpInfo(id);
+            ApiResponse<GetSubscriptionResponse> localVarResponse = await GetSubscriptionAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"GetSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1454,8 +1454,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetSubscriptionAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (GetSubscriptionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetSubscriptionResponse>> GetSubscriptionAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1525,20 +1525,20 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+            return new ApiResponse<GetSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007))); // Return statement
+                (GetSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionResponse))); // Return statement
         }
         /// <summary>
         /// Get a Subscription Code Get a Unique Subscription Code
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse20010</returns>
-        public InlineResponse20010 GetSubscriptionCode ()
+        /// <returns>GetSubscriptionCodeResponse</returns>
+        public GetSubscriptionCodeResponse GetSubscriptionCode ()
         {
             logger.Debug("CALLING API \"GetSubscriptionCode\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20010> localVarResponse = GetSubscriptionCodeWithHttpInfo();
+            ApiResponse<GetSubscriptionCodeResponse> localVarResponse = GetSubscriptionCodeWithHttpInfo();
             logger.Debug("CALLING API \"GetSubscriptionCode\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1548,8 +1548,8 @@ namespace CyberSource.Api
         /// Get a Subscription Code Get a Unique Subscription Code
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse20010</returns>
-        public ApiResponse< InlineResponse20010 > GetSubscriptionCodeWithHttpInfo ()
+        /// <returns>ApiResponse of GetSubscriptionCodeResponse</returns>
+        public ApiResponse< GetSubscriptionCodeResponse > GetSubscriptionCodeWithHttpInfo ()
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1608,21 +1608,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20010>(localVarStatusCode,
+            return new ApiResponse<GetSubscriptionCodeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20010) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20010))); // Return statement
+                (GetSubscriptionCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionCodeResponse))); // Return statement
         }
 
         /// <summary>
         /// Get a Subscription Code Get a Unique Subscription Code
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse20010</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20010> GetSubscriptionCodeAsync ()
+        /// <returns>Task of GetSubscriptionCodeResponse</returns>
+        public async System.Threading.Tasks.Task<GetSubscriptionCodeResponse> GetSubscriptionCodeAsync ()
         {
             logger.Debug("CALLING API \"GetSubscriptionCodeAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20010> localVarResponse = await GetSubscriptionCodeAsyncWithHttpInfo();
+            ApiResponse<GetSubscriptionCodeResponse> localVarResponse = await GetSubscriptionCodeAsyncWithHttpInfo();
             logger.Debug("CALLING API \"GetSubscriptionCodeAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1633,8 +1633,8 @@ namespace CyberSource.Api
         /// Get a Subscription Code Get a Unique Subscription Code
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> GetSubscriptionCodeAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (GetSubscriptionCodeResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetSubscriptionCodeResponse>> GetSubscriptionCodeAsyncWithHttpInfo ()
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1693,21 +1693,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20010>(localVarStatusCode,
+            return new ApiResponse<GetSubscriptionCodeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse20010) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20010))); // Return statement
+                (GetSubscriptionCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionCodeResponse))); // Return statement
         }
         /// <summary>
         /// Suspend a Subscription Suspend a Subscription
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>InlineResponse2021</returns>
-        public InlineResponse2021 SuspendSubscription (string id)
+        /// <returns>SuspendSubscriptionResponse</returns>
+        public SuspendSubscriptionResponse SuspendSubscription (string id)
         {
             logger.Debug("CALLING API \"SuspendSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2021> localVarResponse = SuspendSubscriptionWithHttpInfo(id);
+            ApiResponse<SuspendSubscriptionResponse> localVarResponse = SuspendSubscriptionWithHttpInfo(id);
             logger.Debug("CALLING API \"SuspendSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1718,8 +1718,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>ApiResponse of InlineResponse2021</returns>
-        public ApiResponse< InlineResponse2021 > SuspendSubscriptionWithHttpInfo (string id)
+        /// <returns>ApiResponse of SuspendSubscriptionResponse</returns>
+        public ApiResponse< SuspendSubscriptionResponse > SuspendSubscriptionWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1789,9 +1789,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2021>(localVarStatusCode,
+            return new ApiResponse<SuspendSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2021) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2021))); // Return statement
+                (SuspendSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SuspendSubscriptionResponse))); // Return statement
         }
 
         /// <summary>
@@ -1799,12 +1799,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of InlineResponse2021</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2021> SuspendSubscriptionAsync (string id)
+        /// <returns>Task of SuspendSubscriptionResponse</returns>
+        public async System.Threading.Tasks.Task<SuspendSubscriptionResponse> SuspendSubscriptionAsync (string id)
         {
             logger.Debug("CALLING API \"SuspendSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2021> localVarResponse = await SuspendSubscriptionAsyncWithHttpInfo(id);
+            ApiResponse<SuspendSubscriptionResponse> localVarResponse = await SuspendSubscriptionAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"SuspendSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1816,8 +1816,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <returns>Task of ApiResponse (InlineResponse2021)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2021>> SuspendSubscriptionAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (SuspendSubscriptionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SuspendSubscriptionResponse>> SuspendSubscriptionAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1887,9 +1887,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2021>(localVarStatusCode,
+            return new ApiResponse<SuspendSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2021) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2021))); // Return statement
+                (SuspendSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SuspendSubscriptionResponse))); // Return statement
         }
         /// <summary>
         /// Update a Subscription Update a Subscription by Subscription Id
@@ -1897,12 +1897,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updateSubscription">Update Subscription</param>
-        /// <returns>InlineResponse2008</returns>
-        public InlineResponse2008 UpdateSubscription (string id, UpdateSubscription updateSubscription)
+        /// <returns>UpdateSubscriptionResponse</returns>
+        public UpdateSubscriptionResponse UpdateSubscription (string id, UpdateSubscription updateSubscription)
         {
             logger.Debug("CALLING API \"UpdateSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2008> localVarResponse = UpdateSubscriptionWithHttpInfo(id, updateSubscription);
+            ApiResponse<UpdateSubscriptionResponse> localVarResponse = UpdateSubscriptionWithHttpInfo(id, updateSubscription);
             logger.Debug("CALLING API \"UpdateSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1914,8 +1914,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updateSubscription">Update Subscription</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        public ApiResponse< InlineResponse2008 > UpdateSubscriptionWithHttpInfo (string id, UpdateSubscription updateSubscription)
+        /// <returns>ApiResponse of UpdateSubscriptionResponse</returns>
+        public ApiResponse< UpdateSubscriptionResponse > UpdateSubscriptionWithHttpInfo (string id, UpdateSubscription updateSubscription)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2002,9 +2002,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
+            return new ApiResponse<UpdateSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2008) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008))); // Return statement
+                (UpdateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdateSubscriptionResponse))); // Return statement
         }
 
         /// <summary>
@@ -2013,12 +2013,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updateSubscription">Update Subscription</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2008> UpdateSubscriptionAsync (string id, UpdateSubscription updateSubscription)
+        /// <returns>Task of UpdateSubscriptionResponse</returns>
+        public async System.Threading.Tasks.Task<UpdateSubscriptionResponse> UpdateSubscriptionAsync (string id, UpdateSubscription updateSubscription)
         {
             logger.Debug("CALLING API \"UpdateSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2008> localVarResponse = await UpdateSubscriptionAsyncWithHttpInfo(id, updateSubscription);
+            ApiResponse<UpdateSubscriptionResponse> localVarResponse = await UpdateSubscriptionAsyncWithHttpInfo(id, updateSubscription);
             logger.Debug("CALLING API \"UpdateSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2031,8 +2031,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updateSubscription">Update Subscription</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> UpdateSubscriptionAsyncWithHttpInfo (string id, UpdateSubscription updateSubscription)
+        /// <returns>Task of ApiResponse (UpdateSubscriptionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UpdateSubscriptionResponse>> UpdateSubscriptionAsyncWithHttpInfo (string id, UpdateSubscription updateSubscription)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2119,9 +2119,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
+            return new ApiResponse<UpdateSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2008) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008))); // Return statement
+                (UpdateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdateSubscriptionResponse))); // Return statement
         }
     }
 }

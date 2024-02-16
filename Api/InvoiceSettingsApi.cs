@@ -31,7 +31,7 @@ namespace CyberSource.Api
         /// Get Invoice Settings
         /// </summary>
         /// <remarks>
-        /// Get the invoice settings for the invoice payment page.
+        /// Allows you to retrieve the invoice settings for the payment page.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>InvoicingV2InvoiceSettingsGet200Response</returns>
@@ -41,7 +41,7 @@ namespace CyberSource.Api
         /// Get Invoice Settings
         /// </summary>
         /// <remarks>
-        /// Get the invoice settings for the invoice payment page.
+        /// Allows you to retrieve the invoice settings for the payment page.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of InvoicingV2InvoiceSettingsGet200Response</returns>
@@ -50,7 +50,7 @@ namespace CyberSource.Api
         /// Update Invoice Settings
         /// </summary>
         /// <remarks>
-        /// Update invoice settings for the invoice payment page.
+        /// Allows you to customize the payment page, the checkout experience, email communication and payer authentication. You can customize the invoice to match your brand with your business name, logo and brand colors, and a VAT Tax number. You can choose to capture the payers shipping details, phone number and email during the checkout process. You can add a custom message to all invoice emails and enable or disable payer authentication for invoice payments.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
@@ -61,7 +61,7 @@ namespace CyberSource.Api
         /// Update Invoice Settings
         /// </summary>
         /// <remarks>
-        /// Update invoice settings for the invoice payment page.
+        /// Allows you to customize the payment page, the checkout experience, email communication and payer authentication. You can customize the invoice to match your brand with your business name, logo and brand colors, and a VAT Tax number. You can choose to capture the payers shipping details, phone number and email during the checkout process. You can add a custom message to all invoice emails and enable or disable payer authentication for invoice payments.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
@@ -73,7 +73,7 @@ namespace CyberSource.Api
         /// Get Invoice Settings
         /// </summary>
         /// <remarks>
-        /// Get the invoice settings for the invoice payment page.
+        /// Allows you to retrieve the invoice settings for the payment page.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of InvoicingV2InvoiceSettingsGet200Response</returns>
@@ -83,7 +83,7 @@ namespace CyberSource.Api
         /// Get Invoice Settings
         /// </summary>
         /// <remarks>
-        /// Get the invoice settings for the invoice payment page.
+        /// Allows you to retrieve the invoice settings for the payment page.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (InvoicingV2InvoiceSettingsGet200Response)</returns>
@@ -92,7 +92,7 @@ namespace CyberSource.Api
         /// Update Invoice Settings
         /// </summary>
         /// <remarks>
-        /// Update invoice settings for the invoice payment page.
+        /// Allows you to customize the payment page, the checkout experience, email communication and payer authentication. You can customize the invoice to match your brand with your business name, logo and brand colors, and a VAT Tax number. You can choose to capture the payers shipping details, phone number and email during the checkout process. You can add a custom message to all invoice emails and enable or disable payer authentication for invoice payments.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
@@ -103,7 +103,7 @@ namespace CyberSource.Api
         /// Update Invoice Settings
         /// </summary>
         /// <remarks>
-        /// Update invoice settings for the invoice payment page.
+        /// Allows you to customize the payment page, the checkout experience, email communication and payer authentication. You can customize the invoice to match your brand with your business name, logo and brand colors, and a VAT Tax number. You can choose to capture the payers shipping details, phone number and email during the checkout process. You can add a custom message to all invoice emails and enable or disable payer authentication for invoice payments.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
@@ -250,7 +250,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Invoice Settings Get the invoice settings for the invoice payment page.
+        /// Get Invoice Settings Allows you to retrieve the invoice settings for the payment page.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>InvoicingV2InvoiceSettingsGet200Response</returns>
@@ -265,7 +265,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Invoice Settings Get the invoice settings for the invoice payment page.
+        /// Get Invoice Settings Allows you to retrieve the invoice settings for the payment page.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of InvoicingV2InvoiceSettingsGet200Response</returns>
@@ -334,7 +334,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Invoice Settings Get the invoice settings for the invoice payment page.
+        /// Get Invoice Settings Allows you to retrieve the invoice settings for the payment page.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of InvoicingV2InvoiceSettingsGet200Response</returns>
@@ -350,7 +350,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Invoice Settings Get the invoice settings for the invoice payment page.
+        /// Get Invoice Settings Allows you to retrieve the invoice settings for the payment page.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (InvoicingV2InvoiceSettingsGet200Response)</returns>
@@ -418,7 +418,7 @@ namespace CyberSource.Api
                 (InvoicingV2InvoiceSettingsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoiceSettingsGet200Response))); // Return statement
         }
         /// <summary>
-        /// Update Invoice Settings Update invoice settings for the invoice payment page.
+        /// Update Invoice Settings Allows you to customize the payment page, the checkout experience, email communication and payer authentication. You can customize the invoice to match your brand with your business name, logo and brand colors, and a VAT Tax number. You can choose to capture the payers shipping details, phone number and email during the checkout process. You can add a custom message to all invoice emails and enable or disable payer authentication for invoice payments.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
@@ -434,7 +434,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update Invoice Settings Update invoice settings for the invoice payment page.
+        /// Update Invoice Settings Allows you to customize the payment page, the checkout experience, email communication and payer authentication. You can customize the invoice to match your brand with your business name, logo and brand colors, and a VAT Tax number. You can choose to capture the payers shipping details, phone number and email during the checkout process. You can add a custom message to all invoice emails and enable or disable payer authentication for invoice payments.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
@@ -521,7 +521,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update Invoice Settings Update invoice settings for the invoice payment page.
+        /// Update Invoice Settings Allows you to customize the payment page, the checkout experience, email communication and payer authentication. You can customize the invoice to match your brand with your business name, logo and brand colors, and a VAT Tax number. You can choose to capture the payers shipping details, phone number and email during the checkout process. You can add a custom message to all invoice emails and enable or disable payer authentication for invoice payments.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
@@ -538,7 +538,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update Invoice Settings Update invoice settings for the invoice payment page.
+        /// Update Invoice Settings Allows you to customize the payment page, the checkout experience, email communication and payer authentication. You can customize the invoice to match your brand with your business name, logo and brand colors, and a VAT Tax number. You can choose to capture the payers shipping details, phone number and email during the checkout process. You can add a custom message to all invoice emails and enable or disable payer authentication for invoice payments.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>

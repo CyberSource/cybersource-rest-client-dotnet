@@ -33,24 +33,24 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsOrderInformationBillTo" /> class.
         /// </summary>
-        /// <param name="Address1">Payment card billing street address as it appears on the credit card issuer’s records. .</param>
+        /// <param name="Address1">Payment card billing street address as it appears on the credit card issuer&#39;s records. .</param>
         /// <param name="Address2">Used for additional address information. For example: _Attention: Accounts Payable_ Optional field. .</param>
         /// <param name="Address3">Additional address information (third line of the billing address).</param>
         /// <param name="Address4">Additional address information (fourth line of the billing address) .</param>
         /// <param name="AdministrativeArea">State or province of the billing address. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf). .</param>
         /// <param name="BuildingNumber">Building number in the street address. .</param>
         /// <param name="Country">Payment card billing country. Use the two-character [ISO Standard Country Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). .</param>
-        /// <param name="District">Customer’s neighborhood, community, or region (a barrio in Brazil) within the city or municipality .</param>
+        /// <param name="District">Customer&#39;s neighborhood, community, or region (a barrio in Brazil) within the city or municipality .</param>
         /// <param name="Locality">Payment card billing city. .</param>
         /// <param name="PostalCode">Postal code for the billing address. The postal code must consist of 5 to 9 digits. .</param>
         /// <param name="Company">Company.</param>
         /// <param name="Email">Customer&#39;s email address, including the full domain name. .</param>
-        /// <param name="FirstName">Customer’s first name. This name must be the same as the name on the card.</param>
-        /// <param name="LastName">Customer’s last name. This name must be the same as the name on the card. .</param>
-        /// <param name="MiddleName">Customer’s middle name. .</param>
-        /// <param name="NameSuffix">Customer’s name suffix. .</param>
+        /// <param name="FirstName">Customer&#39;s first name. This name must be the same as the name on the card.</param>
+        /// <param name="LastName">Customer&#39;s last name. This name must be the same as the name on the card. .</param>
+        /// <param name="MiddleName">Customer&#39;s middle name. .</param>
+        /// <param name="NameSuffix">Customer&#39;s name suffix. .</param>
         /// <param name="Title">Title. .</param>
-        /// <param name="PhoneNumber">Customer’s phone number. .</param>
+        /// <param name="PhoneNumber">Customer&#39;s phone number. .</param>
         /// <param name="PhoneType">Customer&#39;s phone number type.  #### For Payouts: This field may be sent only for FDC Compass.  Possible Values: * day * home * night * work .</param>
         public Upv1capturecontextsOrderInformationBillTo(string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string AdministrativeArea = default(string), string BuildingNumber = default(string), string Country = default(string), string District = default(string), string Locality = default(string), string PostalCode = default(string), Upv1capturecontextsOrderInformationBillToCompany Company = default(Upv1capturecontextsOrderInformationBillToCompany), string Email = default(string), string FirstName = default(string), string LastName = default(string), string MiddleName = default(string), string NameSuffix = default(string), string Title = default(string), string PhoneNumber = default(string), string PhoneType = default(string))
         {
@@ -76,9 +76,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Payment card billing street address as it appears on the credit card issuer’s records. 
+        /// Payment card billing street address as it appears on the credit card issuer&#39;s records. 
         /// </summary>
-        /// <value>Payment card billing street address as it appears on the credit card issuer’s records. </value>
+        /// <value>Payment card billing street address as it appears on the credit card issuer&#39;s records. </value>
         [DataMember(Name="address1", EmitDefaultValue=false)]
         public string Address1 { get; set; }
 
@@ -125,9 +125,9 @@ namespace CyberSource.Model
         public string Country { get; set; }
 
         /// <summary>
-        /// Customer’s neighborhood, community, or region (a barrio in Brazil) within the city or municipality 
+        /// Customer&#39;s neighborhood, community, or region (a barrio in Brazil) within the city or municipality 
         /// </summary>
-        /// <value>Customer’s neighborhood, community, or region (a barrio in Brazil) within the city or municipality </value>
+        /// <value>Customer&#39;s neighborhood, community, or region (a barrio in Brazil) within the city or municipality </value>
         [DataMember(Name="district", EmitDefaultValue=false)]
         public string District { get; set; }
 
@@ -159,30 +159,30 @@ namespace CyberSource.Model
         public string Email { get; set; }
 
         /// <summary>
-        /// Customer’s first name. This name must be the same as the name on the card
+        /// Customer&#39;s first name. This name must be the same as the name on the card
         /// </summary>
-        /// <value>Customer’s first name. This name must be the same as the name on the card</value>
+        /// <value>Customer&#39;s first name. This name must be the same as the name on the card</value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Customer’s last name. This name must be the same as the name on the card. 
+        /// Customer&#39;s last name. This name must be the same as the name on the card. 
         /// </summary>
-        /// <value>Customer’s last name. This name must be the same as the name on the card. </value>
+        /// <value>Customer&#39;s last name. This name must be the same as the name on the card. </value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Customer’s middle name. 
+        /// Customer&#39;s middle name. 
         /// </summary>
-        /// <value>Customer’s middle name. </value>
+        /// <value>Customer&#39;s middle name. </value>
         [DataMember(Name="middleName", EmitDefaultValue=false)]
         public string MiddleName { get; set; }
 
         /// <summary>
-        /// Customer’s name suffix. 
+        /// Customer&#39;s name suffix. 
         /// </summary>
-        /// <value>Customer’s name suffix. </value>
+        /// <value>Customer&#39;s name suffix. </value>
         [DataMember(Name="nameSuffix", EmitDefaultValue=false)]
         public string NameSuffix { get; set; }
 
@@ -194,9 +194,9 @@ namespace CyberSource.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// Customer’s phone number. 
+        /// Customer&#39;s phone number. 
         /// </summary>
-        /// <value>Customer’s phone number. </value>
+        /// <value>Customer&#39;s phone number. </value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 

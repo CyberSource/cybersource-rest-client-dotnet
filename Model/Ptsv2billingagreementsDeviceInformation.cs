@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2billingagreementsDeviceInformation" /> class.
         /// </summary>
-        /// <param name="HttpAcceptBrowserValue">Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. .</param>
+        /// <param name="HttpAcceptBrowserValue">Value of the Accept header sent by the customer&#39;s web browser. **Note** If the customer&#39;s browser provides a value, you must include it in your request. .</param>
         /// <param name="IpAddress">IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. .</param>
-        /// <param name="UserAgentBrowserValue">Value of the User-Agent header sent by the customer’s web browser. Note If the customer’s browser provides a value, you must include it in your request. .</param>
+        /// <param name="UserAgentBrowserValue">Value of the User-Agent header sent by the customer&#39;s web browser. Note If the customer&#39;s browser provides a value, you must include it in your request. .</param>
         public Ptsv2billingagreementsDeviceInformation(string HttpAcceptBrowserValue = default(string), string IpAddress = default(string), string UserAgentBrowserValue = default(string))
         {
             this.HttpAcceptBrowserValue = HttpAcceptBrowserValue;
@@ -44,9 +44,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. 
+        /// Value of the Accept header sent by the customer&#39;s web browser. **Note** If the customer&#39;s browser provides a value, you must include it in your request. 
         /// </summary>
-        /// <value>Value of the Accept header sent by the customer’s web browser. **Note** If the customer’s browser provides a value, you must include it in your request. </value>
+        /// <value>Value of the Accept header sent by the customer&#39;s web browser. **Note** If the customer&#39;s browser provides a value, you must include it in your request. </value>
         [DataMember(Name="httpAcceptBrowserValue", EmitDefaultValue=false)]
         public string HttpAcceptBrowserValue { get; set; }
 
@@ -58,9 +58,9 @@ namespace CyberSource.Model
         public string IpAddress { get; set; }
 
         /// <summary>
-        /// Value of the User-Agent header sent by the customer’s web browser. Note If the customer’s browser provides a value, you must include it in your request. 
+        /// Value of the User-Agent header sent by the customer&#39;s web browser. Note If the customer&#39;s browser provides a value, you must include it in your request. 
         /// </summary>
-        /// <value>Value of the User-Agent header sent by the customer’s web browser. Note If the customer’s browser provides a value, you must include it in your request. </value>
+        /// <value>Value of the User-Agent header sent by the customer&#39;s web browser. Note If the customer&#39;s browser provides a value, you must include it in your request. </value>
         [DataMember(Name="userAgentBrowserValue", EmitDefaultValue=false)]
         public string UserAgentBrowserValue { get; set; }
 
