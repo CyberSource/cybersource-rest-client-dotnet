@@ -54,14 +54,16 @@ namespace CyberSource.Model
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="PaymentInsightsInformation">PaymentInsightsInformation.</param>
         /// <param name="PayoutOptions">PayoutOptions.</param>
+        /// <param name="UnscheduledPaymentInformation">UnscheduledPaymentInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
+        /// <param name="RecurringPaymentInformation">RecurringPaymentInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="TokenInformation">TokenInformation.</param>
         /// <param name="Links">Links.</param>
-        public TssV2TransactionsGet200Response(string Id = default(string), string RootId = default(string), string ReconciliationId = default(string), string MerchantId = default(string), string SubmitTimeUTC = default(string), string Status = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsGet200ResponseBuyerInformation BuyerInformation = default(TssV2TransactionsGet200ResponseBuyerInformation), TssV2TransactionsGet200ResponseClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsGet200ResponseClientReferenceInformation), TssV2TransactionsGet200ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformation), TssV2TransactionsGet200ResponseDeviceInformation DeviceInformation = default(TssV2TransactionsGet200ResponseDeviceInformation), TssV2TransactionsGet200ResponseErrorInformation ErrorInformation = default(TssV2TransactionsGet200ResponseErrorInformation), TssV2TransactionsGet200ResponseInstallmentInformation InstallmentInformation = default(TssV2TransactionsGet200ResponseInstallmentInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsGet200ResponseMerchantInformation MerchantInformation = default(TssV2TransactionsGet200ResponseMerchantInformation), TssV2TransactionsGet200ResponseOrderInformation OrderInformation = default(TssV2TransactionsGet200ResponseOrderInformation), TssV2TransactionsGet200ResponsePaymentInformation PaymentInformation = default(TssV2TransactionsGet200ResponsePaymentInformation), PtsV2PaymentsPost201ResponsePaymentInsightsInformation PaymentInsightsInformation = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformation), TssV2TransactionsGet200ResponsePayoutOptions PayoutOptions = default(TssV2TransactionsGet200ResponsePayoutOptions), TssV2TransactionsGet200ResponseProcessingInformation ProcessingInformation = default(TssV2TransactionsGet200ResponseProcessingInformation), TssV2TransactionsGet200ResponseProcessorInformation ProcessorInformation = default(TssV2TransactionsGet200ResponseProcessorInformation), TssV2TransactionsGet200ResponsePointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsGet200ResponsePointOfSaleInformation), TssV2TransactionsGet200ResponseRiskInformation RiskInformation = default(TssV2TransactionsGet200ResponseRiskInformation), TssV2TransactionsGet200ResponseSenderInformation SenderInformation = default(TssV2TransactionsGet200ResponseSenderInformation), TssV2TransactionsGet200ResponseTokenInformation TokenInformation = default(TssV2TransactionsGet200ResponseTokenInformation), TssV2TransactionsGet200ResponseLinks Links = default(TssV2TransactionsGet200ResponseLinks))
+        public TssV2TransactionsGet200Response(string Id = default(string), string RootId = default(string), string ReconciliationId = default(string), string MerchantId = default(string), string SubmitTimeUTC = default(string), string Status = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsGet200ResponseBuyerInformation BuyerInformation = default(TssV2TransactionsGet200ResponseBuyerInformation), TssV2TransactionsGet200ResponseClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsGet200ResponseClientReferenceInformation), TssV2TransactionsGet200ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformation), TssV2TransactionsGet200ResponseDeviceInformation DeviceInformation = default(TssV2TransactionsGet200ResponseDeviceInformation), TssV2TransactionsGet200ResponseErrorInformation ErrorInformation = default(TssV2TransactionsGet200ResponseErrorInformation), TssV2TransactionsGet200ResponseInstallmentInformation InstallmentInformation = default(TssV2TransactionsGet200ResponseInstallmentInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsGet200ResponseMerchantInformation MerchantInformation = default(TssV2TransactionsGet200ResponseMerchantInformation), TssV2TransactionsGet200ResponseOrderInformation OrderInformation = default(TssV2TransactionsGet200ResponseOrderInformation), TssV2TransactionsGet200ResponsePaymentInformation PaymentInformation = default(TssV2TransactionsGet200ResponsePaymentInformation), PtsV2PaymentsPost201ResponsePaymentInsightsInformation PaymentInsightsInformation = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformation), TssV2TransactionsGet200ResponsePayoutOptions PayoutOptions = default(TssV2TransactionsGet200ResponsePayoutOptions), TssV2TransactionsGet200ResponseUnscheduledPaymentInformation UnscheduledPaymentInformation = default(TssV2TransactionsGet200ResponseUnscheduledPaymentInformation), TssV2TransactionsGet200ResponseProcessingInformation ProcessingInformation = default(TssV2TransactionsGet200ResponseProcessingInformation), TssV2TransactionsGet200ResponseProcessorInformation ProcessorInformation = default(TssV2TransactionsGet200ResponseProcessorInformation), TssV2TransactionsGet200ResponseRecurringPaymentInformation RecurringPaymentInformation = default(TssV2TransactionsGet200ResponseRecurringPaymentInformation), TssV2TransactionsGet200ResponsePointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsGet200ResponsePointOfSaleInformation), TssV2TransactionsGet200ResponseRiskInformation RiskInformation = default(TssV2TransactionsGet200ResponseRiskInformation), TssV2TransactionsGet200ResponseSenderInformation SenderInformation = default(TssV2TransactionsGet200ResponseSenderInformation), TssV2TransactionsGet200ResponseTokenInformation TokenInformation = default(TssV2TransactionsGet200ResponseTokenInformation), TssV2TransactionsGet200ResponseLinks Links = default(TssV2TransactionsGet200ResponseLinks))
         {
             this.Id = Id;
             this.RootId = RootId;
@@ -84,8 +86,10 @@ namespace CyberSource.Model
             this.PaymentInformation = PaymentInformation;
             this.PaymentInsightsInformation = PaymentInsightsInformation;
             this.PayoutOptions = PayoutOptions;
+            this.UnscheduledPaymentInformation = UnscheduledPaymentInformation;
             this.ProcessingInformation = ProcessingInformation;
             this.ProcessorInformation = ProcessorInformation;
+            this.RecurringPaymentInformation = RecurringPaymentInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
             this.RiskInformation = RiskInformation;
             this.SenderInformation = SenderInformation;
@@ -227,6 +231,12 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponsePayoutOptions PayoutOptions { get; set; }
 
         /// <summary>
+        /// Gets or Sets UnscheduledPaymentInformation
+        /// </summary>
+        [DataMember(Name="unscheduledPaymentInformation", EmitDefaultValue=false)]
+        public TssV2TransactionsGet200ResponseUnscheduledPaymentInformation UnscheduledPaymentInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets ProcessingInformation
         /// </summary>
         [DataMember(Name="processingInformation", EmitDefaultValue=false)]
@@ -237,6 +247,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="processorInformation", EmitDefaultValue=false)]
         public TssV2TransactionsGet200ResponseProcessorInformation ProcessorInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecurringPaymentInformation
+        /// </summary>
+        [DataMember(Name="recurringPaymentInformation", EmitDefaultValue=false)]
+        public TssV2TransactionsGet200ResponseRecurringPaymentInformation RecurringPaymentInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets PointOfSaleInformation
@@ -297,8 +313,10 @@ namespace CyberSource.Model
             sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("  PaymentInsightsInformation: ").Append(PaymentInsightsInformation).Append("\n");
             sb.Append("  PayoutOptions: ").Append(PayoutOptions).Append("\n");
+            sb.Append("  UnscheduledPaymentInformation: ").Append(UnscheduledPaymentInformation).Append("\n");
             sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
+            sb.Append("  RecurringPaymentInformation: ").Append(RecurringPaymentInformation).Append("\n");
             sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
             sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
@@ -446,6 +464,11 @@ namespace CyberSource.Model
                     this.PayoutOptions.Equals(other.PayoutOptions)
                 ) && 
                 (
+                    this.UnscheduledPaymentInformation == other.UnscheduledPaymentInformation ||
+                    this.UnscheduledPaymentInformation != null &&
+                    this.UnscheduledPaymentInformation.Equals(other.UnscheduledPaymentInformation)
+                ) && 
+                (
                     this.ProcessingInformation == other.ProcessingInformation ||
                     this.ProcessingInformation != null &&
                     this.ProcessingInformation.Equals(other.ProcessingInformation)
@@ -454,6 +477,11 @@ namespace CyberSource.Model
                     this.ProcessorInformation == other.ProcessorInformation ||
                     this.ProcessorInformation != null &&
                     this.ProcessorInformation.Equals(other.ProcessorInformation)
+                ) && 
+                (
+                    this.RecurringPaymentInformation == other.RecurringPaymentInformation ||
+                    this.RecurringPaymentInformation != null &&
+                    this.RecurringPaymentInformation.Equals(other.RecurringPaymentInformation)
                 ) && 
                 (
                     this.PointOfSaleInformation == other.PointOfSaleInformation ||
@@ -535,10 +563,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInsightsInformation.GetHashCode();
                 if (this.PayoutOptions != null)
                     hash = hash * 59 + this.PayoutOptions.GetHashCode();
+                if (this.UnscheduledPaymentInformation != null)
+                    hash = hash * 59 + this.UnscheduledPaymentInformation.GetHashCode();
                 if (this.ProcessingInformation != null)
                     hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.ProcessorInformation != null)
                     hash = hash * 59 + this.ProcessorInformation.GetHashCode();
+                if (this.RecurringPaymentInformation != null)
+                    hash = hash * 59 + this.RecurringPaymentInformation.GetHashCode();
                 if (this.PointOfSaleInformation != null)
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
                 if (this.RiskInformation != null)

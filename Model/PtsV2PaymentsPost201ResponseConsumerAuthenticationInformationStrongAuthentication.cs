@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthentication" /> class.
         /// </summary>
         /// <param name="IssuerInformation">IssuerInformation.</param>
-        public PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthentication(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthenticationIssuerInformation IssuerInformation = default(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthenticationIssuerInformation))
+        public PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthentication(PaymentsStrongAuthIssuerInformation IssuerInformation = default(PaymentsStrongAuthIssuerInformation))
         {
             this.IssuerInformation = IssuerInformation;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets IssuerInformation
         /// </summary>
         [DataMember(Name="issuerInformation", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthenticationIssuerInformation IssuerInformation { get; set; }
+        public PaymentsStrongAuthIssuerInformation IssuerInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

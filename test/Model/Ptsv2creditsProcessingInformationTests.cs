@@ -208,6 +208,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'JapanPaymentOptions'
         }
+        /// <summary>
+        /// Test the property 'RefundOptions'
+        /// </summary>
+        [Test]
+        public void RefundOptionsTest()
+        {
+            // TODO unit test for the property 'RefundOptions'
+        }
 
     }
 

@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded" /> class.
         /// </summary>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
-        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier InstrumentIdentifier = default(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))
+        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbedded(TmsEmbeddedInstrumentIdentifier InstrumentIdentifier = default(TmsEmbeddedInstrumentIdentifier))
         {
             this.InstrumentIdentifier = InstrumentIdentifier;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets InstrumentIdentifier
         /// </summary>
         [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
-        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier InstrumentIdentifier { get; set; }
+        public TmsEmbeddedInstrumentIdentifier InstrumentIdentifier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

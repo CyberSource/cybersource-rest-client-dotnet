@@ -200,6 +200,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'UnifiedCheckout'
         }
+        /// <summary>
+        /// Test the property 'ReceivablesManager'
+        /// </summary>
+        [Test]
+        public void ReceivablesManagerTest()
+        {
+            // TODO unit test for the property 'ReceivablesManager'
+        }
 
     }
 

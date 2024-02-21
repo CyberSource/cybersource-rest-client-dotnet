@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CategoryCode'
         }
+        /// <summary>
+        /// Test the property 'ProcessorRawName'
+        /// </summary>
+        [Test]
+        public void ProcessorRawNameTest()
+        {
+            // TODO unit test for the property 'ProcessorRawName'
+        }
 
     }
 

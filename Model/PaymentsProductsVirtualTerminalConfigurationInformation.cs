@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="TemplateId">TemplateId.</param>
         /// <param name="Configurations">Configurations.</param>
-        public PaymentsProductsVirtualTerminalConfigurationInformation(Guid? TemplateId = default(Guid?), PaymentsProductsVirtualTerminalConfigurationInformationConfigurations Configurations = default(PaymentsProductsVirtualTerminalConfigurationInformationConfigurations))
+        public PaymentsProductsVirtualTerminalConfigurationInformation(Guid? TemplateId = default(Guid?), VTConfig Configurations = default(VTConfig))
         {
             this.TemplateId = TemplateId;
             this.Configurations = Configurations;
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// Gets or Sets Configurations
         /// </summary>
         [DataMember(Name="configurations", EmitDefaultValue=false)]
-        public PaymentsProductsVirtualTerminalConfigurationInformationConfigurations Configurations { get; set; }
+        public VTConfig Configurations { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -113,6 +113,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'PartialAuthIndicator'
         }
         /// <summary>
+        /// Test the property 'ExtendAuthIndicator'
+        /// </summary>
+        [Test]
+        public void ExtendAuthIndicatorTest()
+        {
+            // TODO unit test for the property 'ExtendAuthIndicator'
+        }
+        /// <summary>
         /// Test the property 'BalanceInquiry'
         /// </summary>
         [Test]

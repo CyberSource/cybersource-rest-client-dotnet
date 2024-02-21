@@ -51,7 +51,8 @@ namespace CyberSource.Model
         /// <param name="ElectronicBenefitsTransfer">ElectronicBenefitsTransfer.</param>
         /// <param name="LoanOptions">LoanOptions.</param>
         /// <param name="JapanPaymentOptions">JapanPaymentOptions.</param>
-        public Ptsv2creditsProcessingInformation(string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), string WalletType = default(string), string NationalNetDomesticData = default(string), string NetworkRoutingOrder = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2creditsProcessingInformationJapanPaymentOptions))
+        /// <param name="RefundOptions">RefundOptions.</param>
+        public Ptsv2creditsProcessingInformation(string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), string WalletType = default(string), string NationalNetDomesticData = default(string), string NetworkRoutingOrder = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2creditsProcessingInformationJapanPaymentOptions), Ptsv2creditsProcessingInformationRefundOptions RefundOptions = default(Ptsv2creditsProcessingInformationRefundOptions))
         {
             this.CommerceIndicator = CommerceIndicator;
             this.ProcessorId = ProcessorId;
@@ -71,6 +72,7 @@ namespace CyberSource.Model
             this.ElectronicBenefitsTransfer = ElectronicBenefitsTransfer;
             this.LoanOptions = LoanOptions;
             this.JapanPaymentOptions = JapanPaymentOptions;
+            this.RefundOptions = RefundOptions;
         }
         
         /// <summary>
@@ -194,6 +196,12 @@ namespace CyberSource.Model
         public Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions { get; set; }
 
         /// <summary>
+        /// Gets or Sets RefundOptions
+        /// </summary>
+        [DataMember(Name="refundOptions", EmitDefaultValue=false)]
+        public Ptsv2creditsProcessingInformationRefundOptions RefundOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -219,6 +227,7 @@ namespace CyberSource.Model
             sb.Append("  ElectronicBenefitsTransfer: ").Append(ElectronicBenefitsTransfer).Append("\n");
             sb.Append("  LoanOptions: ").Append(LoanOptions).Append("\n");
             sb.Append("  JapanPaymentOptions: ").Append(JapanPaymentOptions).Append("\n");
+            sb.Append("  RefundOptions: ").Append(RefundOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -344,6 +353,11 @@ namespace CyberSource.Model
                     this.JapanPaymentOptions == other.JapanPaymentOptions ||
                     this.JapanPaymentOptions != null &&
                     this.JapanPaymentOptions.Equals(other.JapanPaymentOptions)
+                ) && 
+                (
+                    this.RefundOptions == other.RefundOptions ||
+                    this.RefundOptions != null &&
+                    this.RefundOptions.Equals(other.RefundOptions)
                 );
         }
 
@@ -394,6 +408,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.LoanOptions.GetHashCode();
                 if (this.JapanPaymentOptions != null)
                     hash = hash * 59 + this.JapanPaymentOptions.GetHashCode();
+                if (this.RefundOptions != null)
+                    hash = hash * 59 + this.RefundOptions.GetHashCode();
                 return hash;
             }
         }

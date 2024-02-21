@@ -34,10 +34,16 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions" /> class.
         /// </summary>
         /// <param name="AuthType">Authorization type. Possible values:   - &#x60;AUTOCAPTURE&#x60;: automatic capture.  - &#x60;STANDARDCAPTURE&#x60;: standard capture.  - &#x60;VERBAL&#x60;: forced capture. Include it in the payment request for a forced capture. Include it in the capture request for a verbal payment.  #### Asia, Middle East, and Africa Gateway; Cielo; Comercio Latino; and CyberSource Latin American Processing Set this field to &#x60;AUTOCAPTURE&#x60; and include it in a bundled request to indicate that you are requesting an automatic capture. If your account is configured to enable automatic captures, set this field to &#x60;STANDARDCAPTURE&#x60; and include it in a standard authorization or bundled request to indicate that you are overriding an automatic capture. For more information, see the &#x60;auth_type&#x60; field description in [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### Forced Capture Set this field to &#x60;VERBAL&#x60; and include it in the authorization request to indicate that you are performing a forced capture; therefore, you receive the authorization code outside the CyberSource system.  #### Verbal Authorization Set this field to &#x60;VERBAL&#x60; and include it in the capture request to indicate that the request is for a verbal authorization. For more information, see \&quot;Verbal Authorizations\&quot; in [Credit Card Services Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html). .</param>
+        /// <param name="AuthIndicator">Flag that specifies the purpose of the authorization.  Possible values:  - **0**: Preauthorization  - **1**: Final authorization  To set the default for this field, contact CyberSource Customer Support.  #### Barclays and Elavon The default for Barclays and Elavon is 1 (final authorization). To change the default for this field, contact CyberSource Customer Support.  #### CyberSource through VisaNet When the value for this field is 0, it corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCR0  - Position: 164  - Field: Additional Authorization Indicators When the value for this field is 1, it does not correspond to any data in the TC 33 capture file. .</param>
+        /// <param name="ExtendAuthIndicator">Flag that indicates whether the transaction is an extended authorization. .</param>
+        /// <param name="CardVerificationIndicator">This API field will indicate whether a card verification check is being performed during the transaction  Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; (default value) .</param>
         /// <param name="Initiator">Initiator.</param>
-        public TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions(string AuthType = default(string), TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptionsInitiator Initiator = default(TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptionsInitiator))
+        public TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions(string AuthType = default(string), string AuthIndicator = default(string), string ExtendAuthIndicator = default(string), bool? CardVerificationIndicator = default(bool?), TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptionsInitiator Initiator = default(TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptionsInitiator))
         {
             this.AuthType = AuthType;
+            this.AuthIndicator = AuthIndicator;
+            this.ExtendAuthIndicator = ExtendAuthIndicator;
+            this.CardVerificationIndicator = CardVerificationIndicator;
             this.Initiator = Initiator;
         }
         
@@ -47,6 +53,27 @@ namespace CyberSource.Model
         /// <value>Authorization type. Possible values:   - &#x60;AUTOCAPTURE&#x60;: automatic capture.  - &#x60;STANDARDCAPTURE&#x60;: standard capture.  - &#x60;VERBAL&#x60;: forced capture. Include it in the payment request for a forced capture. Include it in the capture request for a verbal payment.  #### Asia, Middle East, and Africa Gateway; Cielo; Comercio Latino; and CyberSource Latin American Processing Set this field to &#x60;AUTOCAPTURE&#x60; and include it in a bundled request to indicate that you are requesting an automatic capture. If your account is configured to enable automatic captures, set this field to &#x60;STANDARDCAPTURE&#x60; and include it in a standard authorization or bundled request to indicate that you are overriding an automatic capture. For more information, see the &#x60;auth_type&#x60; field description in [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### Forced Capture Set this field to &#x60;VERBAL&#x60; and include it in the authorization request to indicate that you are performing a forced capture; therefore, you receive the authorization code outside the CyberSource system.  #### Verbal Authorization Set this field to &#x60;VERBAL&#x60; and include it in the capture request to indicate that the request is for a verbal authorization. For more information, see \&quot;Verbal Authorizations\&quot; in [Credit Card Services Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html). </value>
         [DataMember(Name="authType", EmitDefaultValue=false)]
         public string AuthType { get; set; }
+
+        /// <summary>
+        /// Flag that specifies the purpose of the authorization.  Possible values:  - **0**: Preauthorization  - **1**: Final authorization  To set the default for this field, contact CyberSource Customer Support.  #### Barclays and Elavon The default for Barclays and Elavon is 1 (final authorization). To change the default for this field, contact CyberSource Customer Support.  #### CyberSource through VisaNet When the value for this field is 0, it corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCR0  - Position: 164  - Field: Additional Authorization Indicators When the value for this field is 1, it does not correspond to any data in the TC 33 capture file. 
+        /// </summary>
+        /// <value>Flag that specifies the purpose of the authorization.  Possible values:  - **0**: Preauthorization  - **1**: Final authorization  To set the default for this field, contact CyberSource Customer Support.  #### Barclays and Elavon The default for Barclays and Elavon is 1 (final authorization). To change the default for this field, contact CyberSource Customer Support.  #### CyberSource through VisaNet When the value for this field is 0, it corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCR0  - Position: 164  - Field: Additional Authorization Indicators When the value for this field is 1, it does not correspond to any data in the TC 33 capture file. </value>
+        [DataMember(Name="authIndicator", EmitDefaultValue=false)]
+        public string AuthIndicator { get; set; }
+
+        /// <summary>
+        /// Flag that indicates whether the transaction is an extended authorization. 
+        /// </summary>
+        /// <value>Flag that indicates whether the transaction is an extended authorization. </value>
+        [DataMember(Name="extendAuthIndicator", EmitDefaultValue=false)]
+        public string ExtendAuthIndicator { get; set; }
+
+        /// <summary>
+        /// This API field will indicate whether a card verification check is being performed during the transaction  Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; (default value) 
+        /// </summary>
+        /// <value>This API field will indicate whether a card verification check is being performed during the transaction  Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; (default value) </value>
+        [DataMember(Name="cardVerificationIndicator", EmitDefaultValue=false)]
+        public bool? CardVerificationIndicator { get; set; }
 
         /// <summary>
         /// Gets or Sets Initiator
@@ -63,6 +90,9 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions {\n");
             sb.Append("  AuthType: ").Append(AuthType).Append("\n");
+            sb.Append("  AuthIndicator: ").Append(AuthIndicator).Append("\n");
+            sb.Append("  ExtendAuthIndicator: ").Append(ExtendAuthIndicator).Append("\n");
+            sb.Append("  CardVerificationIndicator: ").Append(CardVerificationIndicator).Append("\n");
             sb.Append("  Initiator: ").Append(Initiator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -106,6 +136,21 @@ namespace CyberSource.Model
                     this.AuthType.Equals(other.AuthType)
                 ) && 
                 (
+                    this.AuthIndicator == other.AuthIndicator ||
+                    this.AuthIndicator != null &&
+                    this.AuthIndicator.Equals(other.AuthIndicator)
+                ) && 
+                (
+                    this.ExtendAuthIndicator == other.ExtendAuthIndicator ||
+                    this.ExtendAuthIndicator != null &&
+                    this.ExtendAuthIndicator.Equals(other.ExtendAuthIndicator)
+                ) && 
+                (
+                    this.CardVerificationIndicator == other.CardVerificationIndicator ||
+                    this.CardVerificationIndicator != null &&
+                    this.CardVerificationIndicator.Equals(other.CardVerificationIndicator)
+                ) && 
+                (
                     this.Initiator == other.Initiator ||
                     this.Initiator != null &&
                     this.Initiator.Equals(other.Initiator)
@@ -125,6 +170,12 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.AuthType != null)
                     hash = hash * 59 + this.AuthType.GetHashCode();
+                if (this.AuthIndicator != null)
+                    hash = hash * 59 + this.AuthIndicator.GetHashCode();
+                if (this.ExtendAuthIndicator != null)
+                    hash = hash * 59 + this.ExtendAuthIndicator.GetHashCode();
+                if (this.CardVerificationIndicator != null)
+                    hash = hash * 59 + this.CardVerificationIndicator.GetHashCode();
                 if (this.Initiator != null)
                     hash = hash * 59 + this.Initiator.GetHashCode();
                 return hash;
