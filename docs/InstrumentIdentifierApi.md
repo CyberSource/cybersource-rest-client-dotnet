@@ -76,7 +76,7 @@ No authorization required
 
 <a name="getinstrumentidentifier"></a>
 # **GetInstrumentIdentifier**
-> Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null)
+> TmsEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null)
 
 Retrieve an Instrument Identifier
 
@@ -103,7 +103,7 @@ namespace Example
             try
             {
                 // Retrieve an Instrument Identifier
-                Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier result = apiInstance.GetInstrumentIdentifier(instrumentIdentifierId, profileId);
+                TmsEmbeddedInstrumentIdentifier result = apiInstance.GetInstrumentIdentifier(instrumentIdentifierId, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier**](Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier.md)
+[**TmsEmbeddedInstrumentIdentifier**](TmsEmbeddedInstrumentIdentifier.md)
 
 ### Authorization
 
@@ -206,7 +206,7 @@ No authorization required
 
 <a name="patchinstrumentidentifier"></a>
 # **PatchInstrumentIdentifier**
-> Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+> TmsEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
 
 Update an Instrument Identifier
 
@@ -235,7 +235,7 @@ namespace Example
             try
             {
                 // Update an Instrument Identifier
-                Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier result = apiInstance.PatchInstrumentIdentifier(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+                TmsEmbeddedInstrumentIdentifier result = apiInstance.PatchInstrumentIdentifier(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier**](Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier.md)
+[**TmsEmbeddedInstrumentIdentifier**](TmsEmbeddedInstrumentIdentifier.md)
 
 ### Authorization
 
@@ -273,7 +273,7 @@ No authorization required
 
 <a name="postinstrumentidentifier"></a>
 # **PostInstrumentIdentifier**
-> Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
+> TmsEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
 
 Create an Instrument Identifier
 
@@ -300,7 +300,7 @@ namespace Example
             try
             {
                 // Create an Instrument Identifier
-                Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier result = apiInstance.PostInstrumentIdentifier(postInstrumentIdentifierRequest, profileId);
+                TmsEmbeddedInstrumentIdentifier result = apiInstance.PostInstrumentIdentifier(postInstrumentIdentifierRequest, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier**](Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier.md)
+[**TmsEmbeddedInstrumentIdentifier**](TmsEmbeddedInstrumentIdentifier.md)
 
 ### Authorization
 

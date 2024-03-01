@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="TemplateId">TemplateId.</param>
         /// <param name="Configurations">Configurations.</param>
-        public RiskProductsDecisionManagerConfigurationInformation(Guid? TemplateId = default(Guid?), RiskProductsDecisionManagerConfigurationInformationConfigurations Configurations = default(RiskProductsDecisionManagerConfigurationInformationConfigurations))
+        public RiskProductsDecisionManagerConfigurationInformation(Guid? TemplateId = default(Guid?), DmConfig Configurations = default(DmConfig))
         {
             this.TemplateId = TemplateId;
             this.Configurations = Configurations;
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// Gets or Sets Configurations
         /// </summary>
         [DataMember(Name="configurations", EmitDefaultValue=false)]
-        public RiskProductsDecisionManagerConfigurationInformationConfigurations Configurations { get; set; }
+        public DmConfig Configurations { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

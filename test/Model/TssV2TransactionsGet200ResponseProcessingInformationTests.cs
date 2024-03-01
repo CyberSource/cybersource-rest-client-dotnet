@@ -129,6 +129,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'BankTransferOptions'
         }
         /// <summary>
+        /// Test the property 'CaptureOptions'
+        /// </summary>
+        [Test]
+        public void CaptureOptionsTest()
+        {
+            // TODO unit test for the property 'CaptureOptions'
+        }
+        /// <summary>
+        /// Test the property 'ReconciliationId'
+        /// </summary>
+        [Test]
+        public void ReconciliationIdTest()
+        {
+            // TODO unit test for the property 'ReconciliationId'
+        }
+        /// <summary>
         /// Test the property 'JapanPaymentOptions'
         /// </summary>
         [Test]

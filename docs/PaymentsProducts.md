@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **DifferentialFee** | [**PaymentsProductsDifferentialFee**](PaymentsProductsDifferentialFee.md) |  | [optional] 
 **PayByLink** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
 **UnifiedCheckout** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
+**ReceivablesManager** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

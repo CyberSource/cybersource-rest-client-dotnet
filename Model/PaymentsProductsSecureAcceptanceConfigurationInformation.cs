@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="TemplateId">TemplateId.</param>
         /// <param name="Configurations">Configurations.</param>
-        public PaymentsProductsSecureAcceptanceConfigurationInformation(Guid? TemplateId = default(Guid?), PaymentsProductsSecureAcceptanceConfigurationInformationConfigurations Configurations = default(PaymentsProductsSecureAcceptanceConfigurationInformationConfigurations))
+        public PaymentsProductsSecureAcceptanceConfigurationInformation(Guid? TemplateId = default(Guid?), SAConfig Configurations = default(SAConfig))
         {
             this.TemplateId = TemplateId;
             this.Configurations = Configurations;
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// Gets or Sets Configurations
         /// </summary>
         [DataMember(Name="configurations", EmitDefaultValue=false)]
-        public PaymentsProductsSecureAcceptanceConfigurationInformationConfigurations Configurations { get; set; }
+        public SAConfig Configurations { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

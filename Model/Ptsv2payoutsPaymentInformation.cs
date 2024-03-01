@@ -35,10 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Card">Card.</param>
         /// <param name="Customer">Customer.</param>
-        public Ptsv2payoutsPaymentInformation(Ptsv2payoutsPaymentInformationCard Card = default(Ptsv2payoutsPaymentInformationCard), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer))
+        /// <param name="PaymentInstrument">PaymentInstrument.</param>
+        /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
+        /// <param name="TokenizedCard">TokenizedCard.</param>
+        public Ptsv2payoutsPaymentInformation(Ptsv2payoutsPaymentInformationCard Card = default(Ptsv2payoutsPaymentInformationCard), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard))
         {
             this.Card = Card;
             this.Customer = Customer;
+            this.PaymentInstrument = PaymentInstrument;
+            this.InstrumentIdentifier = InstrumentIdentifier;
+            this.TokenizedCard = TokenizedCard;
         }
         
         /// <summary>
@@ -54,6 +60,24 @@ namespace CyberSource.Model
         public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentInstrument
+        /// </summary>
+        [DataMember(Name="paymentInstrument", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InstrumentIdentifier
+        /// </summary>
+        [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenizedCard
+        /// </summary>
+        [DataMember(Name="tokenizedCard", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +87,9 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2payoutsPaymentInformation {\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  Customer: ").Append(Customer).Append("\n");
+            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +135,21 @@ namespace CyberSource.Model
                     this.Customer == other.Customer ||
                     this.Customer != null &&
                     this.Customer.Equals(other.Customer)
+                ) && 
+                (
+                    this.PaymentInstrument == other.PaymentInstrument ||
+                    this.PaymentInstrument != null &&
+                    this.PaymentInstrument.Equals(other.PaymentInstrument)
+                ) && 
+                (
+                    this.InstrumentIdentifier == other.InstrumentIdentifier ||
+                    this.InstrumentIdentifier != null &&
+                    this.InstrumentIdentifier.Equals(other.InstrumentIdentifier)
+                ) && 
+                (
+                    this.TokenizedCard == other.TokenizedCard ||
+                    this.TokenizedCard != null &&
+                    this.TokenizedCard.Equals(other.TokenizedCard)
                 );
         }
 
@@ -126,6 +168,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
+                if (this.PaymentInstrument != null)
+                    hash = hash * 59 + this.PaymentInstrument.GetHashCode();
+                if (this.InstrumentIdentifier != null)
+                    hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
+                if (this.TokenizedCard != null)
+                    hash = hash * 59 + this.TokenizedCard.GetHashCode();
                 return hash;
             }
         }

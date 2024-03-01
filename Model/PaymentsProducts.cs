@@ -50,7 +50,8 @@ namespace CyberSource.Model
         /// <param name="DifferentialFee">DifferentialFee.</param>
         /// <param name="PayByLink">PayByLink.</param>
         /// <param name="UnifiedCheckout">UnifiedCheckout.</param>
-        public PaymentsProducts(PaymentsProductsCardProcessing CardProcessing = default(PaymentsProductsCardProcessing), PaymentsProductsCardPresentConnect CardPresentConnect = default(PaymentsProductsCardPresentConnect), PaymentsProductsCybsReadyTerminal CybsReadyTerminal = default(PaymentsProductsCybsReadyTerminal), PaymentsProductsECheck ECheck = default(PaymentsProductsECheck), PaymentsProductsPayerAuthentication PayerAuthentication = default(PaymentsProductsPayerAuthentication), PaymentsProductsDigitalPayments DigitalPayments = default(PaymentsProductsDigitalPayments), PaymentsProductsSecureAcceptance SecureAcceptance = default(PaymentsProductsSecureAcceptance), PaymentsProductsVirtualTerminal VirtualTerminal = default(PaymentsProductsVirtualTerminal), PaymentsProductsCurrencyConversion CurrencyConversion = default(PaymentsProductsCurrencyConversion), PaymentsProductsTax Tax = default(PaymentsProductsTax), PaymentsProductsTax CustomerInvoicing = default(PaymentsProductsTax), PaymentsProductsTax RecurringBilling = default(PaymentsProductsTax), PaymentsProductsTax PaymentOrchestration = default(PaymentsProductsTax), PaymentsProductsPayouts Payouts = default(PaymentsProductsPayouts), PaymentsProductsDifferentialFee DifferentialFee = default(PaymentsProductsDifferentialFee), PaymentsProductsTax PayByLink = default(PaymentsProductsTax), PaymentsProductsTax UnifiedCheckout = default(PaymentsProductsTax))
+        /// <param name="ReceivablesManager">ReceivablesManager.</param>
+        public PaymentsProducts(PaymentsProductsCardProcessing CardProcessing = default(PaymentsProductsCardProcessing), PaymentsProductsCardPresentConnect CardPresentConnect = default(PaymentsProductsCardPresentConnect), PaymentsProductsCybsReadyTerminal CybsReadyTerminal = default(PaymentsProductsCybsReadyTerminal), PaymentsProductsECheck ECheck = default(PaymentsProductsECheck), PaymentsProductsPayerAuthentication PayerAuthentication = default(PaymentsProductsPayerAuthentication), PaymentsProductsDigitalPayments DigitalPayments = default(PaymentsProductsDigitalPayments), PaymentsProductsSecureAcceptance SecureAcceptance = default(PaymentsProductsSecureAcceptance), PaymentsProductsVirtualTerminal VirtualTerminal = default(PaymentsProductsVirtualTerminal), PaymentsProductsCurrencyConversion CurrencyConversion = default(PaymentsProductsCurrencyConversion), PaymentsProductsTax Tax = default(PaymentsProductsTax), PaymentsProductsTax CustomerInvoicing = default(PaymentsProductsTax), PaymentsProductsTax RecurringBilling = default(PaymentsProductsTax), PaymentsProductsTax PaymentOrchestration = default(PaymentsProductsTax), PaymentsProductsPayouts Payouts = default(PaymentsProductsPayouts), PaymentsProductsDifferentialFee DifferentialFee = default(PaymentsProductsDifferentialFee), PaymentsProductsTax PayByLink = default(PaymentsProductsTax), PaymentsProductsTax UnifiedCheckout = default(PaymentsProductsTax), PaymentsProductsTax ReceivablesManager = default(PaymentsProductsTax))
         {
             this.CardProcessing = CardProcessing;
             this.CardPresentConnect = CardPresentConnect;
@@ -69,6 +70,7 @@ namespace CyberSource.Model
             this.DifferentialFee = DifferentialFee;
             this.PayByLink = PayByLink;
             this.UnifiedCheckout = UnifiedCheckout;
+            this.ReceivablesManager = ReceivablesManager;
         }
         
         /// <summary>
@@ -174,6 +176,12 @@ namespace CyberSource.Model
         public PaymentsProductsTax UnifiedCheckout { get; set; }
 
         /// <summary>
+        /// Gets or Sets ReceivablesManager
+        /// </summary>
+        [DataMember(Name="receivablesManager", EmitDefaultValue=false)]
+        public PaymentsProductsTax ReceivablesManager { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -198,6 +206,7 @@ namespace CyberSource.Model
             sb.Append("  DifferentialFee: ").Append(DifferentialFee).Append("\n");
             sb.Append("  PayByLink: ").Append(PayByLink).Append("\n");
             sb.Append("  UnifiedCheckout: ").Append(UnifiedCheckout).Append("\n");
+            sb.Append("  ReceivablesManager: ").Append(ReceivablesManager).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -318,6 +327,11 @@ namespace CyberSource.Model
                     this.UnifiedCheckout == other.UnifiedCheckout ||
                     this.UnifiedCheckout != null &&
                     this.UnifiedCheckout.Equals(other.UnifiedCheckout)
+                ) && 
+                (
+                    this.ReceivablesManager == other.ReceivablesManager ||
+                    this.ReceivablesManager != null &&
+                    this.ReceivablesManager.Equals(other.ReceivablesManager)
                 );
         }
 
@@ -366,6 +380,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PayByLink.GetHashCode();
                 if (this.UnifiedCheckout != null)
                     hash = hash * 59 + this.UnifiedCheckout.GetHashCode();
+                if (this.ReceivablesManager != null)
+                    hash = hash * 59 + this.ReceivablesManager.GetHashCode();
                 return hash;
             }
         }

@@ -87,7 +87,7 @@ namespace CyberSource.Test
             //string instrumentIdentifierId = null;
             //string profileId = null;
             //var response = instance.GetInstrumentIdentifier(instrumentIdentifierId, profileId);
-            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier");
+            //Assert.IsInstanceOf<TmsEmbeddedInstrumentIdentifier> (response, "response is TmsEmbeddedInstrumentIdentifier");
         }
         
         /// <summary>
@@ -117,7 +117,7 @@ namespace CyberSource.Test
             //string profileId = null;
             //string ifMatch = null;
             //var response = instance.PatchInstrumentIdentifier(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
-            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier");
+            //Assert.IsInstanceOf<TmsEmbeddedInstrumentIdentifier> (response, "response is TmsEmbeddedInstrumentIdentifier");
         }
         
         /// <summary>
@@ -130,7 +130,7 @@ namespace CyberSource.Test
             //PostInstrumentIdentifierRequest postInstrumentIdentifierRequest = null;
             //string profileId = null;
             //var response = instance.PostInstrumentIdentifier(postInstrumentIdentifierRequest, profileId);
-            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier");
+            //Assert.IsInstanceOf<TmsEmbeddedInstrumentIdentifier> (response, "response is TmsEmbeddedInstrumentIdentifier");
         }
         
         /// <summary>

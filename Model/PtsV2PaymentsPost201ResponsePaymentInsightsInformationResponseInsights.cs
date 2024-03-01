@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Category">Categorization of response message from processor  Possible Values: - &#x60;APPROVED&#x60; - &#x60;ISSUER_WILL_NEVER_APPROVE&#x60; - &#x60;ISSUER_CANT_APPROVE_AT_THIS_TIME&#x60; - &#x60;ISSUER_CANT_APPROVE_WITH_THESE_DETAILS&#x60; - &#x60;GENERIC_ERROR&#x60; - &#x60;OTHERS&#x60; - &#x60;MATCH_NOT_FOUND&#x60; .</param>
         /// <param name="CategoryCode">Categorization Code of response message from processor  Possible Values: - &#x60;01&#x60; : Issuer Will Never Approve - &#x60;02&#x60; : Issuer Can&#39;t Approve at this Time - &#x60;03&#x60; : Issuer Can&#39;t Approve with these Details - &#x60;04&#x60; : Generic Error - &#x60;98&#x60; : Others - &#x60;99&#x60; : Payment Insights Response Category Match Not Found .</param>
-        public PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights(string Category = default(string), string CategoryCode = default(string))
+        /// <param name="ProcessorRawName">Raw name of the processor used for the transaction processing, especially useful during acquirer swing to see which processor transaction settled with .</param>
+        public PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights(string Category = default(string), string CategoryCode = default(string), string ProcessorRawName = default(string))
         {
             this.Category = Category;
             this.CategoryCode = CategoryCode;
+            this.ProcessorRawName = ProcessorRawName;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace CyberSource.Model
         public string CategoryCode { get; set; }
 
         /// <summary>
+        /// Raw name of the processor used for the transaction processing, especially useful during acquirer swing to see which processor transaction settled with 
+        /// </summary>
+        /// <value>Raw name of the processor used for the transaction processing, especially useful during acquirer swing to see which processor transaction settled with </value>
+        [DataMember(Name="processorRawName", EmitDefaultValue=false)]
+        public string ProcessorRawName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights {\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
+            sb.Append("  ProcessorRawName: ").Append(ProcessorRawName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +120,11 @@ namespace CyberSource.Model
                     this.CategoryCode == other.CategoryCode ||
                     this.CategoryCode != null &&
                     this.CategoryCode.Equals(other.CategoryCode)
+                ) && 
+                (
+                    this.ProcessorRawName == other.ProcessorRawName ||
+                    this.ProcessorRawName != null &&
+                    this.ProcessorRawName.Equals(other.ProcessorRawName)
                 );
         }
 
@@ -128,6 +143,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Category.GetHashCode();
                 if (this.CategoryCode != null)
                     hash = hash * 59 + this.CategoryCode.GetHashCode();
+                if (this.ProcessorRawName != null)
+                    hash = hash * 59 + this.ProcessorRawName.GetHashCode();
                 return hash;
             }
         }

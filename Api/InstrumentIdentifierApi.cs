@@ -59,8 +59,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null);
+        /// <returns>TmsEmbeddedInstrumentIdentifier</returns>
+        TmsEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null);
 
         /// <summary>
         /// Retrieve an Instrument Identifier
@@ -71,8 +71,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null);
+        /// <returns>ApiResponse of TmsEmbeddedInstrumentIdentifier</returns>
+        ApiResponse<TmsEmbeddedInstrumentIdentifier> GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null);
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
         /// </summary>
@@ -111,8 +111,8 @@ namespace CyberSource.Api
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        /// <returns>TmsEmbeddedInstrumentIdentifier</returns>
+        TmsEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
 
         /// <summary>
         /// Update an Instrument Identifier
@@ -125,8 +125,8 @@ namespace CyberSource.Api
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        /// <returns>ApiResponse of TmsEmbeddedInstrumentIdentifier</returns>
+        ApiResponse<TmsEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
         /// <summary>
         /// Create an Instrument Identifier
         /// </summary>
@@ -136,8 +136,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
+        /// <returns>TmsEmbeddedInstrumentIdentifier</returns>
+        TmsEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
 
         /// <summary>
         /// Create an Instrument Identifier
@@ -148,8 +148,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
+        /// <returns>ApiResponse of TmsEmbeddedInstrumentIdentifier</returns>
+        ApiResponse<TmsEmbeddedInstrumentIdentifier> PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
         /// <summary>
         /// Enroll an Instrument Identifier for Payment Network Token
         /// </summary>
@@ -209,8 +209,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> GetInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null);
+        /// <returns>Task of TmsEmbeddedInstrumentIdentifier</returns>
+        System.Threading.Tasks.Task<TmsEmbeddedInstrumentIdentifier> GetInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null);
 
         /// <summary>
         /// Retrieve an Instrument Identifier
@@ -221,8 +221,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null);
+        /// <returns>Task of ApiResponse (TmsEmbeddedInstrumentIdentifier)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TmsEmbeddedInstrumentIdentifier>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null);
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
         /// </summary>
@@ -261,8 +261,8 @@ namespace CyberSource.Api
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierAsync (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        /// <returns>Task of TmsEmbeddedInstrumentIdentifier</returns>
+        System.Threading.Tasks.Task<TmsEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierAsync (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
 
         /// <summary>
         /// Update an Instrument Identifier
@@ -275,8 +275,8 @@ namespace CyberSource.Api
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        /// <returns>Task of ApiResponse (TmsEmbeddedInstrumentIdentifier)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TmsEmbeddedInstrumentIdentifier>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
         /// <summary>
         /// Create an Instrument Identifier
         /// </summary>
@@ -286,8 +286,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
+        /// <returns>Task of TmsEmbeddedInstrumentIdentifier</returns>
+        System.Threading.Tasks.Task<TmsEmbeddedInstrumentIdentifier> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
 
         /// <summary>
         /// Create an Instrument Identifier
@@ -298,8 +298,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
+        /// <returns>Task of ApiResponse (TmsEmbeddedInstrumentIdentifier)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TmsEmbeddedInstrumentIdentifier>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
         /// <summary>
         /// Enroll an Instrument Identifier for Payment Network Token
         /// </summary>
@@ -667,12 +667,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null)
+        /// <returns>TmsEmbeddedInstrumentIdentifier</returns>
+        public TmsEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = GetInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, profileId);
+            ApiResponse<TmsEmbeddedInstrumentIdentifier> localVarResponse = GetInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, profileId);
             logger.Debug("CALLING API \"GetInstrumentIdentifier\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -684,8 +684,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier > GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null)
+        /// <returns>ApiResponse of TmsEmbeddedInstrumentIdentifier</returns>
+        public ApiResponse< TmsEmbeddedInstrumentIdentifier > GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -756,9 +756,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
+            return new ApiResponse<TmsEmbeddedInstrumentIdentifier>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
+                (TmsEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsEmbeddedInstrumentIdentifier))); // Return statement
         }
 
         /// <summary>
@@ -767,12 +767,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> GetInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null)
+        /// <returns>Task of TmsEmbeddedInstrumentIdentifier</returns>
+        public async System.Threading.Tasks.Task<TmsEmbeddedInstrumentIdentifier> GetInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, profileId);
+            ApiResponse<TmsEmbeddedInstrumentIdentifier> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, profileId);
             logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -785,8 +785,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null)
+        /// <returns>Task of ApiResponse (TmsEmbeddedInstrumentIdentifier)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TmsEmbeddedInstrumentIdentifier>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -857,9 +857,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
+            return new ApiResponse<TmsEmbeddedInstrumentIdentifier>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
+                (TmsEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsEmbeddedInstrumentIdentifier))); // Return statement
         }
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing &lt;br&gt;and account numbers.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the &lt;br&gt;Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) &lt;br&gt;or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Retrieving all Payment Instruments associated with an Instrument Identifier**&lt;br&gt;Your system can use this API to retrieve all Payment Instruments linked to an Instrument Identifier. 
@@ -1097,12 +1097,12 @@ namespace CyberSource.Api
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        /// <returns>TmsEmbeddedInstrumentIdentifier</returns>
+        public TmsEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = PatchInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+            ApiResponse<TmsEmbeddedInstrumentIdentifier> localVarResponse = PatchInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchInstrumentIdentifier\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1116,8 +1116,8 @@ namespace CyberSource.Api
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier > PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        /// <returns>ApiResponse of TmsEmbeddedInstrumentIdentifier</returns>
+        public ApiResponse< TmsEmbeddedInstrumentIdentifier > PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1209,9 +1209,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
+            return new ApiResponse<TmsEmbeddedInstrumentIdentifier>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
+                (TmsEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsEmbeddedInstrumentIdentifier))); // Return statement
         }
 
         /// <summary>
@@ -1222,12 +1222,12 @@ namespace CyberSource.Api
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierAsync (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        /// <returns>Task of TmsEmbeddedInstrumentIdentifier</returns>
+        public async System.Threading.Tasks.Task<TmsEmbeddedInstrumentIdentifier> PatchInstrumentIdentifierAsync (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PatchInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+            ApiResponse<TmsEmbeddedInstrumentIdentifier> localVarResponse = await PatchInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1242,8 +1242,8 @@ namespace CyberSource.Api
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        /// <returns>Task of ApiResponse (TmsEmbeddedInstrumentIdentifier)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TmsEmbeddedInstrumentIdentifier>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1335,9 +1335,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
+            return new ApiResponse<TmsEmbeddedInstrumentIdentifier>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
+                (TmsEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsEmbeddedInstrumentIdentifier))); // Return statement
         }
         /// <summary>
         /// Create an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).&lt;br&gt;&lt;br&gt;**Creating an Instrument Identifier**&lt;br&gt;It is recommended you [create an Instrument Identifier via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body), this can be for a zero amount.&lt;br&gt;An Instrument Identifier will also be created if you [create a Customer via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body)&lt;br&gt;In Europe: You should perform Payer Authentication alongside the Authorization.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Instrument Identifiers**&lt;br&gt;To perform a payment with an Instrument Identifier simply specify the [Instrument Identifier Id in the payments request along with the expiration date, card type, &amp; billing address](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-instrument-identifier-token-id_liveconsole-tab-request-body).&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments. 
@@ -1345,12 +1345,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
+        /// <returns>TmsEmbeddedInstrumentIdentifier</returns>
+        public TmsEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = PostInstrumentIdentifierWithHttpInfo(postInstrumentIdentifierRequest, profileId);
+            ApiResponse<TmsEmbeddedInstrumentIdentifier> localVarResponse = PostInstrumentIdentifierWithHttpInfo(postInstrumentIdentifierRequest, profileId);
             logger.Debug("CALLING API \"PostInstrumentIdentifier\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1362,8 +1362,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public ApiResponse< Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier > PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
+        /// <returns>ApiResponse of TmsEmbeddedInstrumentIdentifier</returns>
+        public ApiResponse< TmsEmbeddedInstrumentIdentifier > PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1440,9 +1440,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
+            return new ApiResponse<TmsEmbeddedInstrumentIdentifier>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
+                (TmsEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsEmbeddedInstrumentIdentifier))); // Return statement
         }
 
         /// <summary>
@@ -1451,12 +1451,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier</returns>
-        public async System.Threading.Tasks.Task<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
+        /// <returns>Task of TmsEmbeddedInstrumentIdentifier</returns>
+        public async System.Threading.Tasks.Task<TmsEmbeddedInstrumentIdentifier> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier> localVarResponse = await PostInstrumentIdentifierAsyncWithHttpInfo(postInstrumentIdentifierRequest, profileId);
+            ApiResponse<TmsEmbeddedInstrumentIdentifier> localVarResponse = await PostInstrumentIdentifierAsyncWithHttpInfo(postInstrumentIdentifierRequest, profileId);
             logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1469,8 +1469,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
+        /// <returns>Task of ApiResponse (TmsEmbeddedInstrumentIdentifier)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TmsEmbeddedInstrumentIdentifier>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1547,9 +1547,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier>(localVarStatusCode,
+            return new ApiResponse<TmsEmbeddedInstrumentIdentifier>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifier))); // Return statement
+                (TmsEmbeddedInstrumentIdentifier) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsEmbeddedInstrumentIdentifier))); // Return statement
         }
         /// <summary>
         /// Enroll an Instrument Identifier for Payment Network Token |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Enroll an Instrument Identifier for a Payment Network Token**&lt;br&gt;Your system can use this API to provision a Network token for an existing Instrument Identifier.&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Network token can be [provisioned when creating an Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier_samplerequests-dropdown_create-instrument-identifier-card-enroll-for-network-token_liveconsole-tab-request-body).This will occur automatically when creating a [Customer](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), [Payment Instrument](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-create-default-payment-instrument-shipping-address-for-existing-customer_liveconsole-tab-request-body) or [Instrument Identifier](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-instrument-identifier-token-creation_liveconsole-tab-request-body) via the Payments API.&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide. 

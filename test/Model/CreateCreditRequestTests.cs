@@ -169,6 +169,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'TravelInformation'
         }
         /// <summary>
+        /// Test the property 'RecipientInformation'
+        /// </summary>
+        [Test]
+        public void RecipientInformationTest()
+        {
+            // TODO unit test for the property 'RecipientInformation'
+        }
+        /// <summary>
+        /// Test the property 'SenderInformation'
+        /// </summary>
+        [Test]
+        public void SenderInformationTest()
+        {
+            // TODO unit test for the property 'SenderInformation'
+        }
+        /// <summary>
         /// Test the property 'PromotionInformation'
         /// </summary>
         [Test]
