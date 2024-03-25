@@ -36,11 +36,17 @@ namespace CyberSource.Model
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public VoidPaymentRequest(Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsidreversalsClientReferenceInformation), Ptsv2paymentsidvoidsPaymentInformation PaymentInformation = default(Ptsv2paymentsidvoidsPaymentInformation), Ptsv2paymentsidvoidsOrderInformation OrderInformation = default(Ptsv2paymentsidvoidsOrderInformation))
+        /// <param name="AgreementInformation">AgreementInformation.</param>
+        /// <param name="MerchantInformation">MerchantInformation.</param>
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
+        public VoidPaymentRequest(Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsidreversalsClientReferenceInformation), Ptsv2paymentsidvoidsPaymentInformation PaymentInformation = default(Ptsv2paymentsidvoidsPaymentInformation), Ptsv2paymentsidvoidsOrderInformation OrderInformation = default(Ptsv2paymentsidvoidsOrderInformation), Ptsv2paymentsidvoidsAgreementInformation AgreementInformation = default(Ptsv2paymentsidvoidsAgreementInformation), Ptsv2paymentsidvoidsMerchantInformation MerchantInformation = default(Ptsv2paymentsidvoidsMerchantInformation), Ptsv2paymentsidvoidsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidvoidsProcessingInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
+            this.AgreementInformation = AgreementInformation;
+            this.MerchantInformation = MerchantInformation;
+            this.ProcessingInformation = ProcessingInformation;
         }
         
         /// <summary>
@@ -62,6 +68,24 @@ namespace CyberSource.Model
         public Ptsv2paymentsidvoidsOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets AgreementInformation
+        /// </summary>
+        [DataMember(Name="agreementInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsidvoidsAgreementInformation AgreementInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantInformation
+        /// </summary>
+        [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsidvoidsMerchantInformation MerchantInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProcessingInformation
+        /// </summary>
+        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsidvoidsProcessingInformation ProcessingInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +96,9 @@ namespace CyberSource.Model
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            sb.Append("  AgreementInformation: ").Append(AgreementInformation).Append("\n");
+            sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
+            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +149,21 @@ namespace CyberSource.Model
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
+                ) && 
+                (
+                    this.AgreementInformation == other.AgreementInformation ||
+                    this.AgreementInformation != null &&
+                    this.AgreementInformation.Equals(other.AgreementInformation)
+                ) && 
+                (
+                    this.MerchantInformation == other.MerchantInformation ||
+                    this.MerchantInformation != null &&
+                    this.MerchantInformation.Equals(other.MerchantInformation)
+                ) && 
+                (
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
                 );
         }
 
@@ -142,6 +184,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.AgreementInformation != null)
+                    hash = hash * 59 + this.AgreementInformation.GetHashCode();
+                if (this.MerchantInformation != null)
+                    hash = hash * 59 + this.MerchantInformation.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 return hash;
             }
         }

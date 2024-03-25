@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Customer">Customer.</param>
         /// <param name="Card">Card.</param>
-        public Ptsv2paymentsidcapturesPaymentInformation(Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsidcapturesPaymentInformationCard Card = default(Ptsv2paymentsidcapturesPaymentInformationCard))
+        /// <param name="PaymentType">PaymentType.</param>
+        public Ptsv2paymentsidcapturesPaymentInformation(Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsidcapturesPaymentInformationCard Card = default(Ptsv2paymentsidcapturesPaymentInformationCard), Ptsv2paymentsidcapturesPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsidcapturesPaymentInformationPaymentType))
         {
             this.Customer = Customer;
             this.Card = Card;
+            this.PaymentType = PaymentType;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsidcapturesPaymentInformationCard Card { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentType
+        /// </summary>
+        [DataMember(Name="paymentType", EmitDefaultValue=false)]
+        public Ptsv2paymentsidcapturesPaymentInformationPaymentType PaymentType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsidcapturesPaymentInformation {\n");
             sb.Append("  Customer: ").Append(Customer).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
+            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +117,11 @@ namespace CyberSource.Model
                     this.Card == other.Card ||
                     this.Card != null &&
                     this.Card.Equals(other.Card)
+                ) && 
+                (
+                    this.PaymentType == other.PaymentType ||
+                    this.PaymentType != null &&
+                    this.PaymentType.Equals(other.PaymentType)
                 );
         }
 
@@ -126,6 +140,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Customer.GetHashCode();
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
+                if (this.PaymentType != null)
+                    hash = hash * 59 + this.PaymentType.GetHashCode();
                 return hash;
             }
         }

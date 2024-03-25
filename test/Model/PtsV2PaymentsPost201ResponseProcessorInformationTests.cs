@@ -328,6 +328,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PublicKey'
         }
+        /// <summary>
+        /// Test the property 'SellerProtection'
+        /// </summary>
+        [Test]
+        public void SellerProtectionTest()
+        {
+            // TODO unit test for the property 'SellerProtection'
+        }
+        /// <summary>
+        /// Test the property 'TransactionExpiryDate'
+        /// </summary>
+        [Test]
+        public void TransactionExpiryDateTest()
+        {
+            // TODO unit test for the property 'TransactionExpiryDate'
+        }
 
     }
 

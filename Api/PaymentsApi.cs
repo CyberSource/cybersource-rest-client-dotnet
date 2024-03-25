@@ -28,6 +28,29 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Create a Payment Order Request
+        /// </summary>
+        /// <remarks>
+        /// Create a Payment Order Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderPaymentRequest"></param>
+        /// <param name="id">Request identifier number for the order request. </param>
+        /// <returns>PtsV2PaymentsOrderPost201Response</returns>
+        PtsV2PaymentsOrderPost201Response CreateOrderRequest (OrderPaymentRequest orderPaymentRequest, string id);
+
+        /// <summary>
+        /// Create a Payment Order Request
+        /// </summary>
+        /// <remarks>
+        /// Create a Payment Order Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderPaymentRequest"></param>
+        /// <param name="id">Request identifier number for the order request. </param>
+        /// <returns>ApiResponse of PtsV2PaymentsOrderPost201Response</returns>
+        ApiResponse<PtsV2PaymentsOrderPost201Response> CreateOrderRequestWithHttpInfo (OrderPaymentRequest orderPaymentRequest, string id);
+        /// <summary>
         /// Process a Payment
         /// </summary>
         /// <remarks>
@@ -48,6 +71,27 @@ namespace CyberSource.Api
         /// <param name="createPaymentRequest"></param>
         /// <returns>ApiResponse of PtsV2PaymentsPost201Response</returns>
         ApiResponse<PtsV2PaymentsPost201Response> CreatePaymentWithHttpInfo (CreatePaymentRequest createPaymentRequest);
+        /// <summary>
+        /// Create Alternative Payments Sessions Request
+        /// </summary>
+        /// <remarks>
+        /// Create Alternative Payments Sessions Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionReq"></param>
+        /// <returns>PtsV2PaymentsPost201Response2</returns>
+        PtsV2PaymentsPost201Response2 CreateSessionRequest (CreateSessionReq createSessionReq);
+
+        /// <summary>
+        /// Create Alternative Payments Sessions Request
+        /// </summary>
+        /// <remarks>
+        /// Create Alternative Payments Sessions Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionReq"></param>
+        /// <returns>ApiResponse of PtsV2PaymentsPost201Response2</returns>
+        ApiResponse<PtsV2PaymentsPost201Response2> CreateSessionRequestWithHttpInfo (CreateSessionReq createSessionReq);
         /// <summary>
         /// Increment an Authorization
         /// </summary>
@@ -94,8 +138,54 @@ namespace CyberSource.Api
         /// <param name="refreshPaymentStatusRequest"></param>
         /// <returns>ApiResponse of PtsV2PaymentsPost201Response1</returns>
         ApiResponse<PtsV2PaymentsPost201Response1> RefreshPaymentStatusWithHttpInfo (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
+        /// <summary>
+        /// Update Alternative Payments Sessions Request
+        /// </summary>
+        /// <remarks>
+        /// Update Alternative Payments Sessions Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionRequest"></param>
+        /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
+        /// <returns>PtsV2PaymentsPost201Response2</returns>
+        PtsV2PaymentsPost201Response2 UpdateSessionReq (CreateSessionRequest createSessionRequest, string id);
+
+        /// <summary>
+        /// Update Alternative Payments Sessions Request
+        /// </summary>
+        /// <remarks>
+        /// Update Alternative Payments Sessions Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionRequest"></param>
+        /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
+        /// <returns>ApiResponse of PtsV2PaymentsPost201Response2</returns>
+        ApiResponse<PtsV2PaymentsPost201Response2> UpdateSessionReqWithHttpInfo (CreateSessionRequest createSessionRequest, string id);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Create a Payment Order Request
+        /// </summary>
+        /// <remarks>
+        /// Create a Payment Order Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderPaymentRequest"></param>
+        /// <param name="id">Request identifier number for the order request. </param>
+        /// <returns>Task of PtsV2PaymentsOrderPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsOrderPost201Response> CreateOrderRequestAsync (OrderPaymentRequest orderPaymentRequest, string id);
+
+        /// <summary>
+        /// Create a Payment Order Request
+        /// </summary>
+        /// <remarks>
+        /// Create a Payment Order Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderPaymentRequest"></param>
+        /// <param name="id">Request identifier number for the order request. </param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsOrderPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsOrderPost201Response>> CreateOrderRequestAsyncWithHttpInfo (OrderPaymentRequest orderPaymentRequest, string id);
         /// <summary>
         /// Process a Payment
         /// </summary>
@@ -117,6 +207,27 @@ namespace CyberSource.Api
         /// <param name="createPaymentRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response>> CreatePaymentAsyncWithHttpInfo (CreatePaymentRequest createPaymentRequest);
+        /// <summary>
+        /// Create Alternative Payments Sessions Request
+        /// </summary>
+        /// <remarks>
+        /// Create Alternative Payments Sessions Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionReq"></param>
+        /// <returns>Task of PtsV2PaymentsPost201Response2</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsPost201Response2> CreateSessionRequestAsync (CreateSessionReq createSessionReq);
+
+        /// <summary>
+        /// Create Alternative Payments Sessions Request
+        /// </summary>
+        /// <remarks>
+        /// Create Alternative Payments Sessions Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionReq"></param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response2)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response2>> CreateSessionRequestAsyncWithHttpInfo (CreateSessionReq createSessionReq);
         /// <summary>
         /// Increment an Authorization
         /// </summary>
@@ -163,6 +274,29 @@ namespace CyberSource.Api
         /// <param name="refreshPaymentStatusRequest"></param>
         /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response1)</returns>
         System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response1>> RefreshPaymentStatusAsyncWithHttpInfo (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
+        /// <summary>
+        /// Update Alternative Payments Sessions Request
+        /// </summary>
+        /// <remarks>
+        /// Update Alternative Payments Sessions Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionRequest"></param>
+        /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
+        /// <returns>Task of PtsV2PaymentsPost201Response2</returns>
+        System.Threading.Tasks.Task<PtsV2PaymentsPost201Response2> UpdateSessionReqAsync (CreateSessionRequest createSessionRequest, string id);
+
+        /// <summary>
+        /// Update Alternative Payments Sessions Request
+        /// </summary>
+        /// <remarks>
+        /// Update Alternative Payments Sessions Request
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionRequest"></param>
+        /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response2)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response2>> UpdateSessionReqAsyncWithHttpInfo (CreateSessionRequest createSessionRequest, string id);
         #endregion Asynchronous Operations
     }
 
@@ -303,6 +437,232 @@ namespace CyberSource.Api
             this._statusCode = statusCode;
         }
 
+        /// <summary>
+        /// Create a Payment Order Request Create a Payment Order Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderPaymentRequest"></param>
+        /// <param name="id">Request identifier number for the order request. </param>
+        /// <returns>PtsV2PaymentsOrderPost201Response</returns>
+        public PtsV2PaymentsOrderPost201Response CreateOrderRequest (OrderPaymentRequest orderPaymentRequest, string id)
+        {
+            logger.Debug("CALLING API \"CreateOrderRequest\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<PtsV2PaymentsOrderPost201Response> localVarResponse = CreateOrderRequestWithHttpInfo(orderPaymentRequest, id);
+            logger.Debug("CALLING API \"CreateOrderRequest\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a Payment Order Request Create a Payment Order Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderPaymentRequest"></param>
+        /// <param name="id">Request identifier number for the order request. </param>
+        /// <returns>ApiResponse of PtsV2PaymentsOrderPost201Response</returns>
+        public ApiResponse< PtsV2PaymentsOrderPost201Response > CreateOrderRequestWithHttpInfo (OrderPaymentRequest orderPaymentRequest, string id)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'orderPaymentRequest' is set
+            if (orderPaymentRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'orderPaymentRequest' when calling PaymentsApi->CreateOrderRequest");
+                throw new ApiException(400, "Missing required parameter 'orderPaymentRequest' when calling PaymentsApi->CreateOrderRequest");
+            }
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->CreateOrderRequest");
+                throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->CreateOrderRequest");
+            }
+
+            var localVarPath = $"/pts/v2/payment-references/{id}/intents";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (orderPaymentRequest != null && orderPaymentRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                orderPaymentRequest = (OrderPaymentRequest)sdkTracker.InsertDeveloperIdTracker(orderPaymentRequest, orderPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(orderPaymentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = orderPaymentRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateOrderRequest", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<PtsV2PaymentsOrderPost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsOrderPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsOrderPost201Response))); // Return statement
+        }
+
+        /// <summary>
+        /// Create a Payment Order Request Create a Payment Order Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderPaymentRequest"></param>
+        /// <param name="id">Request identifier number for the order request. </param>
+        /// <returns>Task of PtsV2PaymentsOrderPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsOrderPost201Response> CreateOrderRequestAsync (OrderPaymentRequest orderPaymentRequest, string id)
+        {
+            logger.Debug("CALLING API \"CreateOrderRequestAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<PtsV2PaymentsOrderPost201Response> localVarResponse = await CreateOrderRequestAsyncWithHttpInfo(orderPaymentRequest, id);
+            logger.Debug("CALLING API \"CreateOrderRequestAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a Payment Order Request Create a Payment Order Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderPaymentRequest"></param>
+        /// <param name="id">Request identifier number for the order request. </param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsOrderPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsOrderPost201Response>> CreateOrderRequestAsyncWithHttpInfo (OrderPaymentRequest orderPaymentRequest, string id)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'orderPaymentRequest' is set
+            if (orderPaymentRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'orderPaymentRequest' when calling PaymentsApi->CreateOrderRequest");
+                throw new ApiException(400, "Missing required parameter 'orderPaymentRequest' when calling PaymentsApi->CreateOrderRequest");
+            }
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->CreateOrderRequest");
+                throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->CreateOrderRequest");
+            }
+
+            var localVarPath = $"/pts/v2/payment-references/{id}/intents";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (orderPaymentRequest != null && orderPaymentRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                orderPaymentRequest = (OrderPaymentRequest)sdkTracker.InsertDeveloperIdTracker(orderPaymentRequest, orderPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(orderPaymentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = orderPaymentRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateOrderRequest", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<PtsV2PaymentsOrderPost201Response>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsOrderPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsOrderPost201Response))); // Return statement
+        }
         /// <summary>
         /// Process a Payment A payment authorizes the amount for the transaction. There are a number of supported payment features, such as E-commerce and Card Present - Credit Card/Debit Card, Echeck, e-Wallets, Level II/III Data, etc..  A payment response includes the status of the request. It also includes processor-specific information when the request is successful and errors if unsuccessful. See the [Payments Developer Guides Page](https://developer.cybersource.com/docs/cybs/en-us/payments/developer/ctv/rest/payments/payments-intro.html).  Authorization can be requested with Capture, Decision Manager, Payer Authentication(3ds), and Token Creation. 
         /// </summary>
@@ -502,6 +862,206 @@ namespace CyberSource.Api
             return new ApiResponse<PtsV2PaymentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PtsV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response))); // Return statement
+        }
+        /// <summary>
+        /// Create Alternative Payments Sessions Request Create Alternative Payments Sessions Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionReq"></param>
+        /// <returns>PtsV2PaymentsPost201Response2</returns>
+        public PtsV2PaymentsPost201Response2 CreateSessionRequest (CreateSessionReq createSessionReq)
+        {
+            logger.Debug("CALLING API \"CreateSessionRequest\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = CreateSessionRequestWithHttpInfo(createSessionReq);
+            logger.Debug("CALLING API \"CreateSessionRequest\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Alternative Payments Sessions Request Create Alternative Payments Sessions Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionReq"></param>
+        /// <returns>ApiResponse of PtsV2PaymentsPost201Response2</returns>
+        public ApiResponse< PtsV2PaymentsPost201Response2 > CreateSessionRequestWithHttpInfo (CreateSessionReq createSessionReq)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'createSessionReq' is set
+            if (createSessionReq == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'createSessionReq' when calling PaymentsApi->CreateSessionRequest");
+                throw new ApiException(400, "Missing required parameter 'createSessionReq' when calling PaymentsApi->CreateSessionRequest");
+            }
+
+            var localVarPath = $"/pts/v2/payment-references";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (createSessionReq != null && createSessionReq.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                createSessionReq = (CreateSessionReq)sdkTracker.InsertDeveloperIdTracker(createSessionReq, createSessionReq.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(createSessionReq); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createSessionReq; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSessionRequest", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<PtsV2PaymentsPost201Response2>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsPost201Response2) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2))); // Return statement
+        }
+
+        /// <summary>
+        /// Create Alternative Payments Sessions Request Create Alternative Payments Sessions Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionReq"></param>
+        /// <returns>Task of PtsV2PaymentsPost201Response2</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsPost201Response2> CreateSessionRequestAsync (CreateSessionReq createSessionReq)
+        {
+            logger.Debug("CALLING API \"CreateSessionRequestAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = await CreateSessionRequestAsyncWithHttpInfo(createSessionReq);
+            logger.Debug("CALLING API \"CreateSessionRequestAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create Alternative Payments Sessions Request Create Alternative Payments Sessions Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionReq"></param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response2)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response2>> CreateSessionRequestAsyncWithHttpInfo (CreateSessionReq createSessionReq)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'createSessionReq' is set
+            if (createSessionReq == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'createSessionReq' when calling PaymentsApi->CreateSessionRequest");
+                throw new ApiException(400, "Missing required parameter 'createSessionReq' when calling PaymentsApi->CreateSessionRequest");
+            }
+
+            var localVarPath = $"/pts/v2/payment-references";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (createSessionReq != null && createSessionReq.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                createSessionReq = (CreateSessionReq)sdkTracker.InsertDeveloperIdTracker(createSessionReq, createSessionReq.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(createSessionReq); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createSessionReq; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSessionRequest", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<PtsV2PaymentsPost201Response2>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsPost201Response2) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2))); // Return statement
         }
         /// <summary>
         /// Increment an Authorization Use this service to authorize additional charges in a lodging or autorental transaction. Include the ID returned from the original authorization in the PATCH request to add additional charges to that authorization. 
@@ -954,6 +1514,232 @@ namespace CyberSource.Api
             return new ApiResponse<PtsV2PaymentsPost201Response1>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PtsV2PaymentsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response1))); // Return statement
+        }
+        /// <summary>
+        /// Update Alternative Payments Sessions Request Update Alternative Payments Sessions Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionRequest"></param>
+        /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
+        /// <returns>PtsV2PaymentsPost201Response2</returns>
+        public PtsV2PaymentsPost201Response2 UpdateSessionReq (CreateSessionRequest createSessionRequest, string id)
+        {
+            logger.Debug("CALLING API \"UpdateSessionReq\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = UpdateSessionReqWithHttpInfo(createSessionRequest, id);
+            logger.Debug("CALLING API \"UpdateSessionReq\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Alternative Payments Sessions Request Update Alternative Payments Sessions Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionRequest"></param>
+        /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
+        /// <returns>ApiResponse of PtsV2PaymentsPost201Response2</returns>
+        public ApiResponse< PtsV2PaymentsPost201Response2 > UpdateSessionReqWithHttpInfo (CreateSessionRequest createSessionRequest, string id)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'createSessionRequest' is set
+            if (createSessionRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'createSessionRequest' when calling PaymentsApi->UpdateSessionReq");
+                throw new ApiException(400, "Missing required parameter 'createSessionRequest' when calling PaymentsApi->UpdateSessionReq");
+            }
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->UpdateSessionReq");
+                throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->UpdateSessionReq");
+            }
+
+            var localVarPath = $"/pts/v2/payment-references/{id}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (createSessionRequest != null && createSessionRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                createSessionRequest = (CreateSessionRequest)sdkTracker.InsertDeveloperIdTracker(createSessionRequest, createSessionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(createSessionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createSessionRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSessionReq", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<PtsV2PaymentsPost201Response2>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsPost201Response2) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2))); // Return statement
+        }
+
+        /// <summary>
+        /// Update Alternative Payments Sessions Request Update Alternative Payments Sessions Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionRequest"></param>
+        /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
+        /// <returns>Task of PtsV2PaymentsPost201Response2</returns>
+        public async System.Threading.Tasks.Task<PtsV2PaymentsPost201Response2> UpdateSessionReqAsync (CreateSessionRequest createSessionRequest, string id)
+        {
+            logger.Debug("CALLING API \"UpdateSessionReqAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = await UpdateSessionReqAsyncWithHttpInfo(createSessionRequest, id);
+            logger.Debug("CALLING API \"UpdateSessionReqAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update Alternative Payments Sessions Request Update Alternative Payments Sessions Request
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSessionRequest"></param>
+        /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
+        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response2)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response2>> UpdateSessionReqAsyncWithHttpInfo (CreateSessionRequest createSessionRequest, string id)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'createSessionRequest' is set
+            if (createSessionRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'createSessionRequest' when calling PaymentsApi->UpdateSessionReq");
+                throw new ApiException(400, "Missing required parameter 'createSessionRequest' when calling PaymentsApi->UpdateSessionReq");
+            }
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->UpdateSessionReq");
+                throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->UpdateSessionReq");
+            }
+
+            var localVarPath = $"/pts/v2/payment-references/{id}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (createSessionRequest != null && createSessionRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                createSessionRequest = (CreateSessionRequest)sdkTracker.InsertDeveloperIdTracker(createSessionRequest, createSessionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                localVarPostBody = Configuration.ApiClient.Serialize(createSessionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createSessionRequest; // byte array
+            }
+
+            if (logUtility.IsMaskingEnabled(logger))
+            {
+                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            }
+            else
+            {
+                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            }
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSessionReq", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<PtsV2PaymentsPost201Response2>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PtsV2PaymentsPost201Response2) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2))); // Return statement
         }
     }
 }

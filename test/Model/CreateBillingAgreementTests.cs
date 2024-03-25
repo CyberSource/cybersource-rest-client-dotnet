@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'AgreementInformation'
+        /// </summary>
+        [Test]
+        public void AgreementInformationTest()
+        {
+            // TODO unit test for the property 'AgreementInformation'
+        }
+        /// <summary>
         /// Test the property 'ClientReferenceInformation'
         /// </summary>
         [Test]
@@ -135,6 +143,14 @@ namespace CyberSource.Test
         public void ProcessingInformationTest()
         {
             // TODO unit test for the property 'ProcessingInformation'
+        }
+        /// <summary>
+        /// Test the property 'BuyerInformation'
+        /// </summary>
+        [Test]
+        public void BuyerInformationTest()
+        {
+            // TODO unit test for the property 'BuyerInformation'
         }
 
     }

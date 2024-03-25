@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="VatRegistrationNumber">Customer&#39;s government-assigned tax identification number.  #### Tax Calculation Optional for international and value added taxes only. Not applicable to U.S. and Canadian taxes.  For processor-specific information, see the purchaser_vat_registration_number field in [Level II and Level III Processing Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/Level_2_3_SCMP_API/html) .</param>
         /// <param name="PersonalIdentification">PersonalIdentification.</param>
         /// <param name="TaxId">The description for this field is not available..</param>
-        public PtsV2PaymentsPost201ResponseBuyerInformation(string MerchantCustomerId = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), string TaxId = default(string))
+        /// <param name="LoginId">The buyer&#39;s Alipay login Id, the id might be an email or mobile number. The id is partially masked for privacy. cao***@126.com  or 186***22156 .</param>
+        public PtsV2PaymentsPost201ResponseBuyerInformation(string MerchantCustomerId = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), string TaxId = default(string), string LoginId = default(string))
         {
             this.MerchantCustomerId = MerchantCustomerId;
             this.DateOfBirth = DateOfBirth;
             this.VatRegistrationNumber = VatRegistrationNumber;
             this.PersonalIdentification = PersonalIdentification;
             this.TaxId = TaxId;
+            this.LoginId = LoginId;
         }
         
         /// <summary>
@@ -82,6 +84,13 @@ namespace CyberSource.Model
         public string TaxId { get; set; }
 
         /// <summary>
+        /// The buyer&#39;s Alipay login Id, the id might be an email or mobile number. The id is partially masked for privacy. cao***@126.com  or 186***22156 
+        /// </summary>
+        /// <value>The buyer&#39;s Alipay login Id, the id might be an email or mobile number. The id is partially masked for privacy. cao***@126.com  or 186***22156 </value>
+        [DataMember(Name="loginId", EmitDefaultValue=false)]
+        public string LoginId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,6 +103,7 @@ namespace CyberSource.Model
             sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
             sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
             sb.Append("  TaxId: ").Append(TaxId).Append("\n");
+            sb.Append("  LoginId: ").Append(LoginId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -154,6 +164,11 @@ namespace CyberSource.Model
                     this.TaxId == other.TaxId ||
                     this.TaxId != null &&
                     this.TaxId.Equals(other.TaxId)
+                ) && 
+                (
+                    this.LoginId == other.LoginId ||
+                    this.LoginId != null &&
+                    this.LoginId.Equals(other.LoginId)
                 );
         }
 
@@ -178,6 +193,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PersonalIdentification.GetHashCode();
                 if (this.TaxId != null)
                     hash = hash * 59 + this.TaxId.GetHashCode();
+                if (this.LoginId != null)
+                    hash = hash * 59 + this.LoginId.GetHashCode();
                 return hash;
             }
         }

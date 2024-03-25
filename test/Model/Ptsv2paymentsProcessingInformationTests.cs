@@ -169,6 +169,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'PurchaseLevel'
         }
         /// <summary>
+        /// Test the property 'TransactionTimeout'
+        /// </summary>
+        [Test]
+        public void TransactionTimeoutTest()
+        {
+            // TODO unit test for the property 'TransactionTimeout'
+        }
+        /// <summary>
+        /// Test the property 'IntentsId'
+        /// </summary>
+        [Test]
+        public void IntentsIdTest()
+        {
+            // TODO unit test for the property 'IntentsId'
+        }
+        /// <summary>
         /// Test the property 'PaymentId'
         /// </summary>
         [Test]
@@ -327,6 +343,14 @@ namespace CyberSource.Test
         public void NetworkPartnerIdTest()
         {
             // TODO unit test for the property 'NetworkPartnerId'
+        }
+        /// <summary>
+        /// Test the property 'PaymentType'
+        /// </summary>
+        [Test]
+        public void PaymentTypeTest()
+        {
+            // TODO unit test for the property 'PaymentType'
         }
 
     }

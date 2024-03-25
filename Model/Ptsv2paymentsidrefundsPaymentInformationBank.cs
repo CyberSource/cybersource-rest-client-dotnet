@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="RoutingNumber">Bank routing number. This is also called the _transit number_.  For details, see &#x60;ecp_rdfi&#x60; request field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) .</param>
         /// <param name="Iban">International Bank Account Number (IBAN) for the bank account. For some countries you can provide this number instead of the traditional bank account information. You can use this field only when scoring a direct debit transaction.  For all possible values, see the &#x60;bank_iban&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="SwiftCode">Bank&#39;s SWIFT code. You can use this field only when scoring a direct debit transaction. Required only for crossborder transactions.  For all possible values, see the &#x60;bank_swiftcode&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
-        public Ptsv2paymentsidrefundsPaymentInformationBank(Ptsv2paymentsPaymentInformationBankAccount Account = default(Ptsv2paymentsPaymentInformationBankAccount), string RoutingNumber = default(string), string Iban = default(string), string SwiftCode = default(string))
+        public Ptsv2paymentsidrefundsPaymentInformationBank(Ptsv2paymentsidrefundsPaymentInformationBankAccount Account = default(Ptsv2paymentsidrefundsPaymentInformationBankAccount), string RoutingNumber = default(string), string Iban = default(string), string SwiftCode = default(string))
         {
             this.Account = Account;
             this.RoutingNumber = RoutingNumber;
@@ -49,7 +49,7 @@ namespace CyberSource.Model
         /// Gets or Sets Account
         /// </summary>
         [DataMember(Name="account", EmitDefaultValue=false)]
-        public Ptsv2paymentsPaymentInformationBankAccount Account { get; set; }
+        public Ptsv2paymentsidrefundsPaymentInformationBankAccount Account { get; set; }
 
         /// <summary>
         /// Bank routing number. This is also called the _transit number_.  For details, see &#x60;ecp_rdfi&#x60; request field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 

@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsPaymentInformationEWallet" /> class.
         /// </summary>
         /// <param name="AccountId">The ID of the customer, passed in the return_url field by PayPal after customer approval..</param>
-        public Ptsv2paymentsPaymentInformationEWallet(string AccountId = default(string))
+        /// <param name="FundingSource">Payment method for the unit purchase. Possible values: - &#x60;UNRESTRICTED (default)—this value is only available if configured by PayPal for the merchant.&#x60; - &#x60;INSTANT&#x60; .</param>
+        public Ptsv2paymentsPaymentInformationEWallet(string AccountId = default(string), string FundingSource = default(string))
         {
             this.AccountId = AccountId;
+            this.FundingSource = FundingSource;
         }
         
         /// <summary>
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         public string AccountId { get; set; }
 
         /// <summary>
+        /// Payment method for the unit purchase. Possible values: - &#x60;UNRESTRICTED (default)—this value is only available if configured by PayPal for the merchant.&#x60; - &#x60;INSTANT&#x60; 
+        /// </summary>
+        /// <value>Payment method for the unit purchase. Possible values: - &#x60;UNRESTRICTED (default)—this value is only available if configured by PayPal for the merchant.&#x60; - &#x60;INSTANT&#x60; </value>
+        [DataMember(Name="fundingSource", EmitDefaultValue=false)]
+        public string FundingSource { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsPaymentInformationEWallet {\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
+            sb.Append("  FundingSource: ").Append(FundingSource).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.AccountId == other.AccountId ||
                     this.AccountId != null &&
                     this.AccountId.Equals(other.AccountId)
+                ) && 
+                (
+                    this.FundingSource == other.FundingSource ||
+                    this.FundingSource != null &&
+                    this.FundingSource.Equals(other.FundingSource)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.AccountId != null)
                     hash = hash * 59 + this.AccountId.GetHashCode();
+                if (this.FundingSource != null)
+                    hash = hash * 59 + this.FundingSource.GetHashCode();
                 return hash;
             }
         }

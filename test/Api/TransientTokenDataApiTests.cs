@@ -64,6 +64,18 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test GetPaymentCredentialsForTransientToken
+        /// </summary>
+        [Test]
+        public void GetPaymentCredentialsForTransientTokenTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string jti = null;
+            //var response = instance.GetPaymentCredentialsForTransientToken(jti);
+            //Assert.IsInstanceOf<string> (response, "response is string");
+        }
+        
+        /// <summary>
         /// Test GetTransactionForTransientToken
         /// </summary>
         [Test]

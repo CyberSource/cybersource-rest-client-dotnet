@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AuthorizationOptions'
         }
+        /// <summary>
+        /// Test the property 'Reversal'
+        /// </summary>
+        [Test]
+        public void ReversalTest()
+        {
+            // TODO unit test for the property 'Reversal'
+        }
 
     }
 

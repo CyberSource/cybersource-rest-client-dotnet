@@ -33,6 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateBillingAgreement" /> class.
         /// </summary>
+        /// <param name="AgreementInformation">AgreementInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
@@ -42,8 +43,10 @@ namespace CyberSource.Model
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
-        public CreateBillingAgreement(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2billingagreementsAggregatorInformation AggregatorInformation = default(Ptsv2billingagreementsAggregatorInformation), Ptsv2billingagreementsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2billingagreementsConsumerAuthenticationInformation), Ptsv2billingagreementsDeviceInformation DeviceInformation = default(Ptsv2billingagreementsDeviceInformation), Ptsv2billingagreementsInstallmentInformation InstallmentInformation = default(Ptsv2billingagreementsInstallmentInformation), Ptsv2billingagreementsMerchantInformation MerchantInformation = default(Ptsv2billingagreementsMerchantInformation), Ptsv2billingagreementsOrderInformation OrderInformation = default(Ptsv2billingagreementsOrderInformation), Ptsv2billingagreementsPaymentInformation PaymentInformation = default(Ptsv2billingagreementsPaymentInformation), Ptsv2billingagreementsProcessingInformation ProcessingInformation = default(Ptsv2billingagreementsProcessingInformation))
+        /// <param name="BuyerInformation">BuyerInformation.</param>
+        public CreateBillingAgreement(Ptsv2billingagreementsAgreementInformation AgreementInformation = default(Ptsv2billingagreementsAgreementInformation), Ptsv2billingagreementsClientReferenceInformation ClientReferenceInformation = default(Ptsv2billingagreementsClientReferenceInformation), Ptsv2billingagreementsAggregatorInformation AggregatorInformation = default(Ptsv2billingagreementsAggregatorInformation), Ptsv2billingagreementsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2billingagreementsConsumerAuthenticationInformation), Ptsv2billingagreementsDeviceInformation DeviceInformation = default(Ptsv2billingagreementsDeviceInformation), Ptsv2billingagreementsInstallmentInformation InstallmentInformation = default(Ptsv2billingagreementsInstallmentInformation), Ptsv2billingagreementsMerchantInformation MerchantInformation = default(Ptsv2billingagreementsMerchantInformation), Ptsv2billingagreementsOrderInformation OrderInformation = default(Ptsv2billingagreementsOrderInformation), Ptsv2billingagreementsPaymentInformation PaymentInformation = default(Ptsv2billingagreementsPaymentInformation), Ptsv2billingagreementsProcessingInformation ProcessingInformation = default(Ptsv2billingagreementsProcessingInformation), Ptsv2billingagreementsBuyerInformation BuyerInformation = default(Ptsv2billingagreementsBuyerInformation))
         {
+            this.AgreementInformation = AgreementInformation;
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.AggregatorInformation = AggregatorInformation;
             this.ConsumerAuthenticationInformation = ConsumerAuthenticationInformation;
@@ -53,13 +56,20 @@ namespace CyberSource.Model
             this.OrderInformation = OrderInformation;
             this.PaymentInformation = PaymentInformation;
             this.ProcessingInformation = ProcessingInformation;
+            this.BuyerInformation = BuyerInformation;
         }
         
+        /// <summary>
+        /// Gets or Sets AgreementInformation
+        /// </summary>
+        [DataMember(Name="agreementInformation", EmitDefaultValue=false)]
+        public Ptsv2billingagreementsAgreementInformation AgreementInformation { get; set; }
+
         /// <summary>
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Ptsv2paymentsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Ptsv2billingagreementsClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets AggregatorInformation
@@ -110,6 +120,12 @@ namespace CyberSource.Model
         public Ptsv2billingagreementsProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets BuyerInformation
+        /// </summary>
+        [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
+        public Ptsv2billingagreementsBuyerInformation BuyerInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -117,6 +133,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CreateBillingAgreement {\n");
+            sb.Append("  AgreementInformation: ").Append(AgreementInformation).Append("\n");
             sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
             sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
@@ -126,6 +143,7 @@ namespace CyberSource.Model
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
+            sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -162,6 +180,11 @@ namespace CyberSource.Model
                 return false;
 
             return 
+                (
+                    this.AgreementInformation == other.AgreementInformation ||
+                    this.AgreementInformation != null &&
+                    this.AgreementInformation.Equals(other.AgreementInformation)
+                ) && 
                 (
                     this.ClientReferenceInformation == other.ClientReferenceInformation ||
                     this.ClientReferenceInformation != null &&
@@ -206,6 +229,11 @@ namespace CyberSource.Model
                     this.ProcessingInformation == other.ProcessingInformation ||
                     this.ProcessingInformation != null &&
                     this.ProcessingInformation.Equals(other.ProcessingInformation)
+                ) && 
+                (
+                    this.BuyerInformation == other.BuyerInformation ||
+                    this.BuyerInformation != null &&
+                    this.BuyerInformation.Equals(other.BuyerInformation)
                 );
         }
 
@@ -220,6 +248,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.AgreementInformation != null)
+                    hash = hash * 59 + this.AgreementInformation.GetHashCode();
                 if (this.ClientReferenceInformation != null)
                     hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 if (this.AggregatorInformation != null)
@@ -238,6 +268,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.ProcessingInformation != null)
                     hash = hash * 59 + this.ProcessingInformation.GetHashCode();
+                if (this.BuyerInformation != null)
+                    hash = hash * 59 + this.BuyerInformation.GetHashCode();
                 return hash;
             }
         }

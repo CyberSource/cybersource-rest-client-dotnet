@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **CaptureOptions** | [**Ptsv2paymentsidcapturesProcessingInformationCaptureOptions**](Ptsv2paymentsidcapturesProcessingInformationCaptureOptions.md) |  | [optional] 
 **LoanOptions** | [**Ptsv2paymentsProcessingInformationLoanOptions**](Ptsv2paymentsProcessingInformationLoanOptions.md) |  | [optional] 
 **PayByPointsIndicator** | **bool?** | Flag that indicates if the transaction is pay by points transaction true: Transaction uses loyalty points false: Transaction does not use loyalty points Default: false  | [optional] 
+**ActionList** | **List&lt;string&gt;** | Array of actions (one or more) to be included in the capture to invoke bundled services along with capture.  Possible values :   - &#x60;AP_CAPTURE&#x60;: Use this when Alternative Payment Capture service is requested.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -193,6 +193,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ServiceLocation'
         }
         /// <summary>
+        /// Test the property 'NoteToBuyer'
+        /// </summary>
+        [Test]
+        public void NoteToBuyerTest()
+        {
+            // TODO unit test for the property 'NoteToBuyer'
+        }
+        /// <summary>
         /// Test the property 'MerchantName'
         /// </summary>
         [Test]

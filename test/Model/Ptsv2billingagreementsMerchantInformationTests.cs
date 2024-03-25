@@ -96,6 +96,30 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TransactionLocalDateTime'
         }
+        /// <summary>
+        /// Test the property 'CancelUrl'
+        /// </summary>
+        [Test]
+        public void CancelUrlTest()
+        {
+            // TODO unit test for the property 'CancelUrl'
+        }
+        /// <summary>
+        /// Test the property 'SuccessUrl'
+        /// </summary>
+        [Test]
+        public void SuccessUrlTest()
+        {
+            // TODO unit test for the property 'SuccessUrl'
+        }
+        /// <summary>
+        /// Test the property 'FailureUrl'
+        /// </summary>
+        [Test]
+        public void FailureUrlTest()
+        {
+            // TODO unit test for the property 'FailureUrl'
+        }
 
     }
 

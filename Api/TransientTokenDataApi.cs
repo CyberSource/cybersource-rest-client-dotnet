@@ -27,6 +27,27 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Get Payment Credentials
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the Payment data captured by Unified Checkout. This API is used to retrieve the detailed data represented by the Transient Token. This API will return PCI payment data captured by the Unified Checkout platform.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jti">The jti field contained within the Transient token returned from a successful Unified Checkout transaction </param>
+        /// <returns>string</returns>
+        string GetPaymentCredentialsForTransientToken (string jti);
+
+        /// <summary>
+        /// Get Payment Credentials
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the Payment data captured by Unified Checkout. This API is used to retrieve the detailed data represented by the Transient Token. This API will return PCI payment data captured by the Unified Checkout platform.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jti">The jti field contained within the Transient token returned from a successful Unified Checkout transaction </param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> GetPaymentCredentialsForTransientTokenWithHttpInfo (string jti);
+        /// <summary>
         /// Get Transient Token Data
         /// </summary>
         /// <remarks>
@@ -49,6 +70,27 @@ namespace CyberSource.Api
         ApiResponse<Object> GetTransactionForTransientTokenWithHttpInfo (string transientToken);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Get Payment Credentials
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the Payment data captured by Unified Checkout. This API is used to retrieve the detailed data represented by the Transient Token. This API will return PCI payment data captured by the Unified Checkout platform.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jti">The jti field contained within the Transient token returned from a successful Unified Checkout transaction </param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> GetPaymentCredentialsForTransientTokenAsync (string jti);
+
+        /// <summary>
+        /// Get Payment Credentials
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the Payment data captured by Unified Checkout. This API is used to retrieve the detailed data represented by the Transient Token. This API will return PCI payment data captured by the Unified Checkout platform.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jti">The jti field contained within the Transient token returned from a successful Unified Checkout transaction </param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> GetPaymentCredentialsForTransientTokenAsyncWithHttpInfo (string jti);
         /// <summary>
         /// Get Transient Token Data
         /// </summary>
@@ -210,6 +252,194 @@ namespace CyberSource.Api
             this._statusCode = statusCode;
         }
 
+        /// <summary>
+        /// Get Payment Credentials Retrieve the Payment data captured by Unified Checkout. This API is used to retrieve the detailed data represented by the Transient Token. This API will return PCI payment data captured by the Unified Checkout platform.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jti">The jti field contained within the Transient token returned from a successful Unified Checkout transaction </param>
+        /// <returns>string</returns>
+        public string GetPaymentCredentialsForTransientToken (string jti)
+        {
+            logger.Debug("CALLING API \"GetPaymentCredentialsForTransientToken\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<string> localVarResponse = GetPaymentCredentialsForTransientTokenWithHttpInfo(jti);
+            logger.Debug("CALLING API \"GetPaymentCredentialsForTransientToken\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Payment Credentials Retrieve the Payment data captured by Unified Checkout. This API is used to retrieve the detailed data represented by the Transient Token. This API will return PCI payment data captured by the Unified Checkout platform.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jti">The jti field contained within the Transient token returned from a successful Unified Checkout transaction </param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse< string > GetPaymentCredentialsForTransientTokenWithHttpInfo (string jti)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'jti' is set
+            if (jti == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'jti' when calling TransientTokenDataApi->GetPaymentCredentialsForTransientToken");
+                throw new ApiException(400, "Missing required parameter 'jti' when calling TransientTokenDataApi->GetPaymentCredentialsForTransientToken");
+            }
+
+            var localVarPath = $"/up/v1/payment-credentials/{jti}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (jti != null)
+            {
+                localVarPathParams.Add("jti", Configuration.ApiClient.ParameterToString(jti)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.Get == Method.Post)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPaymentCredentialsForTransientToken", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string))); // Return statement
+        }
+
+        /// <summary>
+        /// Get Payment Credentials Retrieve the Payment data captured by Unified Checkout. This API is used to retrieve the detailed data represented by the Transient Token. This API will return PCI payment data captured by the Unified Checkout platform.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jti">The jti field contained within the Transient token returned from a successful Unified Checkout transaction </param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> GetPaymentCredentialsForTransientTokenAsync (string jti)
+        {
+            logger.Debug("CALLING API \"GetPaymentCredentialsForTransientTokenAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<string> localVarResponse = await GetPaymentCredentialsForTransientTokenAsyncWithHttpInfo(jti);
+            logger.Debug("CALLING API \"GetPaymentCredentialsForTransientTokenAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Payment Credentials Retrieve the Payment data captured by Unified Checkout. This API is used to retrieve the detailed data represented by the Transient Token. This API will return PCI payment data captured by the Unified Checkout platform.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jti">The jti field contained within the Transient token returned from a successful Unified Checkout transaction </param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> GetPaymentCredentialsForTransientTokenAsyncWithHttpInfo (string jti)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'jti' is set
+            if (jti == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'jti' when calling TransientTokenDataApi->GetPaymentCredentialsForTransientToken");
+                throw new ApiException(400, "Missing required parameter 'jti' when calling TransientTokenDataApi->GetPaymentCredentialsForTransientToken");
+            }
+
+            var localVarPath = $"/up/v1/payment-credentials/{jti}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (jti != null)
+            {
+                localVarPathParams.Add("jti", Configuration.ApiClient.ParameterToString(jti)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.Get == Method.Post)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPaymentCredentialsForTransientToken", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string))); // Return statement
+        }
         /// <summary>
         /// Get Transient Token Data Retrieve the data captured by Unified Checkout. This API is used to retrieve the detailed data represented by the Transient Token. This API will not return PCI payment data (PAN). Include the Request ID in the GET request to retrieve the transaction details.
         /// </summary>

@@ -39,8 +39,9 @@ namespace CyberSource.Model
         /// <param name="LocationId">The agency code, address, phone number, etc., used to identify the location where the vehicle was rented. .</param>
         /// <param name="Address1">Address from where the vehicle was rented. .</param>
         /// <param name="Address2">Address from where the vehicle was rented. .</param>
+        /// <param name="PostalCode">When merchant wants to send the rental address&#39;s postal code. .</param>
         /// <param name="Location">This field contains the location where a taxi passenger was picked up or where an auto rental vehicle was picked up. In most cases, this is the rental agency&#39;s business name that appears on the storefront and/or customer receipts, commonly referred to as the DBA (Doing Business As) name. However, if the vehicle was picked up at another location (e.g., a hotel,auto dealership, repair shop, etc.), the name of that location should be used. This entry must be easily recognized by the Cardmember to avoid unnecessary inquiries. If the name is more than 38  characters, use proper and meaningful abbreviation, when possible. .</param>
-        public Ptsv2paymentsTravelInformationAutoRentalRentalAddress(string City = default(string), string State = default(string), string Country = default(string), string LocationId = default(string), string Address1 = default(string), string Address2 = default(string), string Location = default(string))
+        public Ptsv2paymentsTravelInformationAutoRentalRentalAddress(string City = default(string), string State = default(string), string Country = default(string), string LocationId = default(string), string Address1 = default(string), string Address2 = default(string), string PostalCode = default(string), string Location = default(string))
         {
             this.City = City;
             this.State = State;
@@ -48,6 +49,7 @@ namespace CyberSource.Model
             this.LocationId = LocationId;
             this.Address1 = Address1;
             this.Address2 = Address2;
+            this.PostalCode = PostalCode;
             this.Location = Location;
         }
         
@@ -94,6 +96,13 @@ namespace CyberSource.Model
         public string Address2 { get; set; }
 
         /// <summary>
+        /// When merchant wants to send the rental address&#39;s postal code. 
+        /// </summary>
+        /// <value>When merchant wants to send the rental address&#39;s postal code. </value>
+        [DataMember(Name="postalCode", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
+
+        /// <summary>
         /// This field contains the location where a taxi passenger was picked up or where an auto rental vehicle was picked up. In most cases, this is the rental agency&#39;s business name that appears on the storefront and/or customer receipts, commonly referred to as the DBA (Doing Business As) name. However, if the vehicle was picked up at another location (e.g., a hotel,auto dealership, repair shop, etc.), the name of that location should be used. This entry must be easily recognized by the Cardmember to avoid unnecessary inquiries. If the name is more than 38  characters, use proper and meaningful abbreviation, when possible. 
         /// </summary>
         /// <value>This field contains the location where a taxi passenger was picked up or where an auto rental vehicle was picked up. In most cases, this is the rental agency&#39;s business name that appears on the storefront and/or customer receipts, commonly referred to as the DBA (Doing Business As) name. However, if the vehicle was picked up at another location (e.g., a hotel,auto dealership, repair shop, etc.), the name of that location should be used. This entry must be easily recognized by the Cardmember to avoid unnecessary inquiries. If the name is more than 38  characters, use proper and meaningful abbreviation, when possible. </value>
@@ -114,6 +123,7 @@ namespace CyberSource.Model
             sb.Append("  LocationId: ").Append(LocationId).Append("\n");
             sb.Append("  Address1: ").Append(Address1).Append("\n");
             sb.Append("  Address2: ").Append(Address2).Append("\n");
+            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -182,6 +192,11 @@ namespace CyberSource.Model
                     this.Address2.Equals(other.Address2)
                 ) && 
                 (
+                    this.PostalCode == other.PostalCode ||
+                    this.PostalCode != null &&
+                    this.PostalCode.Equals(other.PostalCode)
+                ) && 
+                (
                     this.Location == other.Location ||
                     this.Location != null &&
                     this.Location.Equals(other.Location)
@@ -211,6 +226,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Address1.GetHashCode();
                 if (this.Address2 != null)
                     hash = hash * 59 + this.Address2.GetHashCode();
+                if (this.PostalCode != null)
+                    hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.Location != null)
                     hash = hash * 59 + this.Location.GetHashCode();
                 return hash;

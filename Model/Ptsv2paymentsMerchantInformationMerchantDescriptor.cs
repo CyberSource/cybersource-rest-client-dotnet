@@ -45,7 +45,8 @@ namespace CyberSource.Model
         /// <param name="Url">Address of company&#39;s website provided by merchant .</param>
         /// <param name="CountryOfOrigin">#### Visa Platform Connect This field will indicate merchant country of origin .</param>
         /// <param name="CustomerServicePhoneNumber">#### Visa Platform Connect Indicates customer service phone number of Merchant. .</param>
-        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Phone = default(string), string Url = default(string), string CountryOfOrigin = default(string), string CustomerServicePhoneNumber = default(string))
+        /// <param name="StoreId">The unique id of the merchant&#39;s shop which assigned by the merchant .</param>
+        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Phone = default(string), string Url = default(string), string CountryOfOrigin = default(string), string CustomerServicePhoneNumber = default(string), string StoreId = default(string))
         {
             this.Name = Name;
             this.AlternateName = AlternateName;
@@ -59,6 +60,7 @@ namespace CyberSource.Model
             this.Url = Url;
             this.CountryOfOrigin = CountryOfOrigin;
             this.CustomerServicePhoneNumber = CustomerServicePhoneNumber;
+            this.StoreId = StoreId;
         }
         
         /// <summary>
@@ -146,6 +148,13 @@ namespace CyberSource.Model
         public string CustomerServicePhoneNumber { get; set; }
 
         /// <summary>
+        /// The unique id of the merchant&#39;s shop which assigned by the merchant 
+        /// </summary>
+        /// <value>The unique id of the merchant&#39;s shop which assigned by the merchant </value>
+        [DataMember(Name="storeId", EmitDefaultValue=false)]
+        public string StoreId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -165,6 +174,7 @@ namespace CyberSource.Model
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  CountryOfOrigin: ").Append(CountryOfOrigin).Append("\n");
             sb.Append("  CustomerServicePhoneNumber: ").Append(CustomerServicePhoneNumber).Append("\n");
+            sb.Append("  StoreId: ").Append(StoreId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -260,6 +270,11 @@ namespace CyberSource.Model
                     this.CustomerServicePhoneNumber == other.CustomerServicePhoneNumber ||
                     this.CustomerServicePhoneNumber != null &&
                     this.CustomerServicePhoneNumber.Equals(other.CustomerServicePhoneNumber)
+                ) && 
+                (
+                    this.StoreId == other.StoreId ||
+                    this.StoreId != null &&
+                    this.StoreId.Equals(other.StoreId)
                 );
         }
 
@@ -298,6 +313,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CountryOfOrigin.GetHashCode();
                 if (this.CustomerServicePhoneNumber != null)
                     hash = hash * 59 + this.CustomerServicePhoneNumber.GetHashCode();
+                if (this.StoreId != null)
+                    hash = hash * 59 + this.StoreId.GetHashCode();
                 return hash;
             }
         }

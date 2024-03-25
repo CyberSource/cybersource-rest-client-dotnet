@@ -34,9 +34,13 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsVoidsPost201ResponseProcessorInformation" /> class.
         /// </summary>
         /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;processorInformation.responseCategoryCode&#x60; field. String (3) .</param>
-        public PtsV2PaymentsVoidsPost201ResponseProcessorInformation(string ResponseCode = default(string))
+        /// <param name="ResponseDetails">The reason for when the transaction status is Pending or Reversed. Possible values: - &#x60;PAYER_SHIPPING_UNCONFIRMED&#x60; - &#x60;MULTI_CURRENCY&#x60; - &#x60;RISK_REVIEW&#x60; - &#x60;REGULATORY_REVIEW&#x60; - &#x60;VERIFICATION_REQUIRED&#x60; - &#x60;ORDER&#x60; - &#x60;OTHER&#x60; .</param>
+        /// <param name="TransactionId">Identifier of the order transaction. .</param>
+        public PtsV2PaymentsVoidsPost201ResponseProcessorInformation(string ResponseCode = default(string), string ResponseDetails = default(string), string TransactionId = default(string))
         {
             this.ResponseCode = ResponseCode;
+            this.ResponseDetails = ResponseDetails;
+            this.TransactionId = TransactionId;
         }
         
         /// <summary>
@@ -47,6 +51,20 @@ namespace CyberSource.Model
         public string ResponseCode { get; set; }
 
         /// <summary>
+        /// The reason for when the transaction status is Pending or Reversed. Possible values: - &#x60;PAYER_SHIPPING_UNCONFIRMED&#x60; - &#x60;MULTI_CURRENCY&#x60; - &#x60;RISK_REVIEW&#x60; - &#x60;REGULATORY_REVIEW&#x60; - &#x60;VERIFICATION_REQUIRED&#x60; - &#x60;ORDER&#x60; - &#x60;OTHER&#x60; 
+        /// </summary>
+        /// <value>The reason for when the transaction status is Pending or Reversed. Possible values: - &#x60;PAYER_SHIPPING_UNCONFIRMED&#x60; - &#x60;MULTI_CURRENCY&#x60; - &#x60;RISK_REVIEW&#x60; - &#x60;REGULATORY_REVIEW&#x60; - &#x60;VERIFICATION_REQUIRED&#x60; - &#x60;ORDER&#x60; - &#x60;OTHER&#x60; </value>
+        [DataMember(Name="responseDetails", EmitDefaultValue=false)]
+        public string ResponseDetails { get; set; }
+
+        /// <summary>
+        /// Identifier of the order transaction. 
+        /// </summary>
+        /// <value>Identifier of the order transaction. </value>
+        [DataMember(Name="transactionId", EmitDefaultValue=false)]
+        public string TransactionId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +73,8 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsVoidsPost201ResponseProcessorInformation {\n");
             sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+            sb.Append("  ResponseDetails: ").Append(ResponseDetails).Append("\n");
+            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +115,16 @@ namespace CyberSource.Model
                     this.ResponseCode == other.ResponseCode ||
                     this.ResponseCode != null &&
                     this.ResponseCode.Equals(other.ResponseCode)
+                ) && 
+                (
+                    this.ResponseDetails == other.ResponseDetails ||
+                    this.ResponseDetails != null &&
+                    this.ResponseDetails.Equals(other.ResponseDetails)
+                ) && 
+                (
+                    this.TransactionId == other.TransactionId ||
+                    this.TransactionId != null &&
+                    this.TransactionId.Equals(other.TransactionId)
                 );
         }
 
@@ -111,6 +141,10 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.ResponseCode != null)
                     hash = hash * 59 + this.ResponseCode.GetHashCode();
+                if (this.ResponseDetails != null)
+                    hash = hash * 59 + this.ResponseDetails.GetHashCode();
+                if (this.TransactionId != null)
+                    hash = hash * 59 + this.TransactionId.GetHashCode();
                 return hash;
             }
         }
