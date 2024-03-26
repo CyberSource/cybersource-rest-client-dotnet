@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="Status">The status of the submitted transaction..</param>
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="InstallmentInformation">InstallmentInformation.</param>
-        public PtsV2CreditsPost201Response1(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), PtsV2CreditsPost201Response1ProcessorInformation ProcessorInformation = default(PtsV2CreditsPost201Response1ProcessorInformation), PtsV2CreditsPost201Response1InstallmentInformation InstallmentInformation = default(PtsV2CreditsPost201Response1InstallmentInformation))
+        public PtsV2CreditsPost201Response1(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), PtsV2CreditsPost201Response1ProcessorInformation ProcessorInformation = default(PtsV2CreditsPost201Response1ProcessorInformation), PtsV2CreateBillingAgreementPost201ResponseInstallmentInformation InstallmentInformation = default(PtsV2CreateBillingAgreementPost201ResponseInstallmentInformation))
         {
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
@@ -78,7 +78,7 @@ namespace CyberSource.Model
         /// Gets or Sets InstallmentInformation
         /// </summary>
         [DataMember(Name="installmentInformation", EmitDefaultValue=false)]
-        public PtsV2CreditsPost201Response1InstallmentInformation InstallmentInformation { get; set; }
+        public PtsV2CreateBillingAgreementPost201ResponseInstallmentInformation InstallmentInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

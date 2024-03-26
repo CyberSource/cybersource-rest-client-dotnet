@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// <param name="SystemTraceAuditNumber">This field is returned only for **American Express Direct** and **CyberSource through VisaNet**. Returned by authorization and incremental authorization services.  #### American Express Direct  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  #### CyberSource through VisaNet  System trace number that must be printed on the customer&#39;s receipt. .</param>
         /// <param name="ResponseDetails">This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. .</param>
         /// <param name="MerchantAdvice">MerchantAdvice.</param>
-        public PtsV2IncrementalAuthorizationPatch201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ResponseCode = default(string), string SystemTraceAuditNumber = default(string), string ResponseDetails = default(string), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice))
+        /// <param name="SellerProtection">SellerProtection.</param>
+        public PtsV2IncrementalAuthorizationPatch201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ResponseCode = default(string), string SystemTraceAuditNumber = default(string), string ResponseDetails = default(string), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection))
         {
             this.ApprovalCode = ApprovalCode;
             this.TransactionId = TransactionId;
@@ -47,6 +48,7 @@ namespace CyberSource.Model
             this.SystemTraceAuditNumber = SystemTraceAuditNumber;
             this.ResponseDetails = ResponseDetails;
             this.MerchantAdvice = MerchantAdvice;
+            this.SellerProtection = SellerProtection;
         }
         
         /// <summary>
@@ -91,6 +93,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice { get; set; }
 
         /// <summary>
+        /// Gets or Sets SellerProtection
+        /// </summary>
+        [DataMember(Name="sellerProtection", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +112,7 @@ namespace CyberSource.Model
             sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
             sb.Append("  ResponseDetails: ").Append(ResponseDetails).Append("\n");
             sb.Append("  MerchantAdvice: ").Append(MerchantAdvice).Append("\n");
+            sb.Append("  SellerProtection: ").Append(SellerProtection).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,6 +178,11 @@ namespace CyberSource.Model
                     this.MerchantAdvice == other.MerchantAdvice ||
                     this.MerchantAdvice != null &&
                     this.MerchantAdvice.Equals(other.MerchantAdvice)
+                ) && 
+                (
+                    this.SellerProtection == other.SellerProtection ||
+                    this.SellerProtection != null &&
+                    this.SellerProtection.Equals(other.SellerProtection)
                 );
         }
 
@@ -195,6 +209,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ResponseDetails.GetHashCode();
                 if (this.MerchantAdvice != null)
                     hash = hash * 59 + this.MerchantAdvice.GetHashCode();
+                if (this.SellerProtection != null)
+                    hash = hash * 59 + this.SellerProtection.GetHashCode();
                 return hash;
             }
         }

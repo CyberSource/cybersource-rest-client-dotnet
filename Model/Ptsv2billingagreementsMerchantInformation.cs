@@ -37,12 +37,18 @@ namespace CyberSource.Model
         /// <param name="CategoryCode">The value for this field is a four-digit number that the payment card industry uses to classify merchants into market segments. A payment card company assigned one or more of these values to your business when you started accepting the payment card company&#39;s cards. When you do not include this field in your request, CyberSource uses the value in your CyberSource account.  For processor-specific information, see the &#x60;merchant_category_code&#x60; field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR4 - Position: 150-153 - Field: Merchant Category Code .</param>
         /// <param name="AdministrativeArea">The state where the merchant is located.  #### PIN debit State code or region code for your business. Use the Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf) This value might be displayed on the cardholder&#39;s statement.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  **Note** This field is supported only for businesses located in the U.S. or Canada.  Optional field for PIN debit credit or PIN debit purchase. .</param>
         /// <param name="TransactionLocalDateTime">Date and time at your physical location.  Format: &#x60;YYYYMMDDhhmmss&#x60;, where:  - &#x60;YYYY&#x60; &#x3D; year  - &#x60;MM&#x60; &#x3D; month  - &#x60;DD&#x60; &#x3D; day  - &#x60;hh&#x60; &#x3D; hour  - &#x60;mm&#x60; &#x3D; minutes  - &#x60;ss&#x60; &#x3D; seconds  #### Used by **Authorization** Required for these processors: - American Express Direct                                                                                                                                                                                                                                                                                                                         - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - SIX  Optional for all other processors. .</param>
-        public Ptsv2billingagreementsMerchantInformation(Ptsv2billingagreementsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2billingagreementsMerchantInformationMerchantDescriptor), int? CategoryCode = default(int?), string AdministrativeArea = default(string), string TransactionLocalDateTime = default(string))
+        /// <param name="CancelUrl">URL to which the customer is directed if they fail to sign the mandate. #### SEPA Required for Create Mandate and Update Mandate #### BACS Required for Create Mandate .</param>
+        /// <param name="SuccessUrl">URL to which the customer is directed if they fail to sign the mandate. #### SEPA Required for Create Mandate and Update Mandate #### BACS Required for Create Mandate .</param>
+        /// <param name="FailureUrl">URL to which the customer is directed if they fail to sign the mandate. #### SEPA Required for Create Mandate and Update Mandate #### BACS Required for Create Mandate .</param>
+        public Ptsv2billingagreementsMerchantInformation(Ptsv2billingagreementsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2billingagreementsMerchantInformationMerchantDescriptor), int? CategoryCode = default(int?), string AdministrativeArea = default(string), string TransactionLocalDateTime = default(string), string CancelUrl = default(string), string SuccessUrl = default(string), string FailureUrl = default(string))
         {
             this.MerchantDescriptor = MerchantDescriptor;
             this.CategoryCode = CategoryCode;
             this.AdministrativeArea = AdministrativeArea;
             this.TransactionLocalDateTime = TransactionLocalDateTime;
+            this.CancelUrl = CancelUrl;
+            this.SuccessUrl = SuccessUrl;
+            this.FailureUrl = FailureUrl;
         }
         
         /// <summary>
@@ -73,6 +79,27 @@ namespace CyberSource.Model
         public string TransactionLocalDateTime { get; set; }
 
         /// <summary>
+        /// URL to which the customer is directed if they fail to sign the mandate. #### SEPA Required for Create Mandate and Update Mandate #### BACS Required for Create Mandate 
+        /// </summary>
+        /// <value>URL to which the customer is directed if they fail to sign the mandate. #### SEPA Required for Create Mandate and Update Mandate #### BACS Required for Create Mandate </value>
+        [DataMember(Name="cancelUrl", EmitDefaultValue=false)]
+        public string CancelUrl { get; set; }
+
+        /// <summary>
+        /// URL to which the customer is directed if they fail to sign the mandate. #### SEPA Required for Create Mandate and Update Mandate #### BACS Required for Create Mandate 
+        /// </summary>
+        /// <value>URL to which the customer is directed if they fail to sign the mandate. #### SEPA Required for Create Mandate and Update Mandate #### BACS Required for Create Mandate </value>
+        [DataMember(Name="successUrl", EmitDefaultValue=false)]
+        public string SuccessUrl { get; set; }
+
+        /// <summary>
+        /// URL to which the customer is directed if they fail to sign the mandate. #### SEPA Required for Create Mandate and Update Mandate #### BACS Required for Create Mandate 
+        /// </summary>
+        /// <value>URL to which the customer is directed if they fail to sign the mandate. #### SEPA Required for Create Mandate and Update Mandate #### BACS Required for Create Mandate </value>
+        [DataMember(Name="failureUrl", EmitDefaultValue=false)]
+        public string FailureUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,6 +111,9 @@ namespace CyberSource.Model
             sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
             sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             sb.Append("  TransactionLocalDateTime: ").Append(TransactionLocalDateTime).Append("\n");
+            sb.Append("  CancelUrl: ").Append(CancelUrl).Append("\n");
+            sb.Append("  SuccessUrl: ").Append(SuccessUrl).Append("\n");
+            sb.Append("  FailureUrl: ").Append(FailureUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +169,21 @@ namespace CyberSource.Model
                     this.TransactionLocalDateTime == other.TransactionLocalDateTime ||
                     this.TransactionLocalDateTime != null &&
                     this.TransactionLocalDateTime.Equals(other.TransactionLocalDateTime)
+                ) && 
+                (
+                    this.CancelUrl == other.CancelUrl ||
+                    this.CancelUrl != null &&
+                    this.CancelUrl.Equals(other.CancelUrl)
+                ) && 
+                (
+                    this.SuccessUrl == other.SuccessUrl ||
+                    this.SuccessUrl != null &&
+                    this.SuccessUrl.Equals(other.SuccessUrl)
+                ) && 
+                (
+                    this.FailureUrl == other.FailureUrl ||
+                    this.FailureUrl != null &&
+                    this.FailureUrl.Equals(other.FailureUrl)
                 );
         }
 
@@ -161,6 +206,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AdministrativeArea.GetHashCode();
                 if (this.TransactionLocalDateTime != null)
                     hash = hash * 59 + this.TransactionLocalDateTime.GetHashCode();
+                if (this.CancelUrl != null)
+                    hash = hash * 59 + this.CancelUrl.GetHashCode();
+                if (this.SuccessUrl != null)
+                    hash = hash * 59 + this.SuccessUrl.GetHashCode();
+                if (this.FailureUrl != null)
+                    hash = hash * 59 + this.FailureUrl.GetHashCode();
                 return hash;
             }
         }

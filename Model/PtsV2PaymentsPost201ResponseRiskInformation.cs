@@ -43,7 +43,8 @@ namespace CyberSource.Model
         /// <param name="IpAddress">IpAddress.</param>
         /// <param name="Providers">Name of the 3rd party provider, for example, Emailage. For all possible values, see the &#x60;decision_provider_#_name&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link)..</param>
         /// <param name="Travel">Travel.</param>
-        public PtsV2PaymentsPost201ResponseRiskInformation(PtsV2PaymentsPost201ResponseRiskInformationProfile Profile = default(PtsV2PaymentsPost201ResponseRiskInformationProfile), List<PtsV2PaymentsPost201ResponseRiskInformationRules> Rules = default(List<PtsV2PaymentsPost201ResponseRiskInformationRules>), PtsV2PaymentsPost201ResponseRiskInformationInfoCodes InfoCodes = default(PtsV2PaymentsPost201ResponseRiskInformationInfoCodes), PtsV2PaymentsPost201ResponseRiskInformationVelocity Velocity = default(PtsV2PaymentsPost201ResponseRiskInformationVelocity), int? CasePriority = default(int?), string LocalTime = default(string), PtsV2PaymentsPost201ResponseRiskInformationScore Score = default(PtsV2PaymentsPost201ResponseRiskInformationScore), PtsV2PaymentsPost201ResponseRiskInformationIpAddress IpAddress = default(PtsV2PaymentsPost201ResponseRiskInformationIpAddress), Dictionary<string, Dictionary<string, string>> Providers = default(Dictionary<string, Dictionary<string, string>>), PtsV2PaymentsPost201ResponseRiskInformationTravel Travel = default(PtsV2PaymentsPost201ResponseRiskInformationTravel))
+        /// <param name="ProcessorResults">ProcessorResults.</param>
+        public PtsV2PaymentsPost201ResponseRiskInformation(PtsV2PaymentsPost201ResponseRiskInformationProfile Profile = default(PtsV2PaymentsPost201ResponseRiskInformationProfile), List<PtsV2PaymentsPost201ResponseRiskInformationRules> Rules = default(List<PtsV2PaymentsPost201ResponseRiskInformationRules>), PtsV2PaymentsPost201ResponseRiskInformationInfoCodes InfoCodes = default(PtsV2PaymentsPost201ResponseRiskInformationInfoCodes), PtsV2PaymentsPost201ResponseRiskInformationVelocity Velocity = default(PtsV2PaymentsPost201ResponseRiskInformationVelocity), int? CasePriority = default(int?), string LocalTime = default(string), PtsV2PaymentsPost201ResponseRiskInformationScore Score = default(PtsV2PaymentsPost201ResponseRiskInformationScore), PtsV2PaymentsPost201ResponseRiskInformationIpAddress IpAddress = default(PtsV2PaymentsPost201ResponseRiskInformationIpAddress), Dictionary<string, Dictionary<string, string>> Providers = default(Dictionary<string, Dictionary<string, string>>), PtsV2PaymentsPost201ResponseRiskInformationTravel Travel = default(PtsV2PaymentsPost201ResponseRiskInformationTravel), PtsV2PaymentsPost201ResponseRiskInformationProcessorResults ProcessorResults = default(PtsV2PaymentsPost201ResponseRiskInformationProcessorResults))
         {
             this.Profile = Profile;
             this.Rules = Rules;
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             this.IpAddress = IpAddress;
             this.Providers = Providers;
             this.Travel = Travel;
+            this.ProcessorResults = ProcessorResults;
         }
         
         /// <summary>
@@ -121,6 +123,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseRiskInformationTravel Travel { get; set; }
 
         /// <summary>
+        /// Gets or Sets ProcessorResults
+        /// </summary>
+        [DataMember(Name="processorResults", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseRiskInformationProcessorResults ProcessorResults { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -138,6 +146,7 @@ namespace CyberSource.Model
             sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
             sb.Append("  Providers: ").Append(Providers).Append("\n");
             sb.Append("  Travel: ").Append(Travel).Append("\n");
+            sb.Append("  ProcessorResults: ").Append(ProcessorResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -223,6 +232,11 @@ namespace CyberSource.Model
                     this.Travel == other.Travel ||
                     this.Travel != null &&
                     this.Travel.Equals(other.Travel)
+                ) && 
+                (
+                    this.ProcessorResults == other.ProcessorResults ||
+                    this.ProcessorResults != null &&
+                    this.ProcessorResults.Equals(other.ProcessorResults)
                 );
         }
 
@@ -257,6 +271,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Providers.GetHashCode();
                 if (this.Travel != null)
                     hash = hash * 59 + this.Travel.GetHashCode();
+                if (this.ProcessorResults != null)
+                    hash = hash * 59 + this.ProcessorResults.GetHashCode();
                 return hash;
             }
         }

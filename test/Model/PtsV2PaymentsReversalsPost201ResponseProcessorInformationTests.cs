@@ -112,6 +112,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'MasterCardServiceReplyCode'
         }
+        /// <summary>
+        /// Test the property 'ResponseDetails'
+        /// </summary>
+        [Test]
+        public void ResponseDetailsTest()
+        {
+            // TODO unit test for the property 'ResponseDetails'
+        }
+        /// <summary>
+        /// Test the property 'ProviderResponse'
+        /// </summary>
+        [Test]
+        public void ProviderResponseTest()
+        {
+            // TODO unit test for the property 'ProviderResponse'
+        }
 
     }
 

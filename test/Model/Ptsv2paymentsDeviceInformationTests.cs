@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'Id'
+        /// </summary>
+        [Test]
+        public void IdTest()
+        {
+            // TODO unit test for the property 'Id'
+        }
+        /// <summary>
         /// Test the property 'HostName'
         /// </summary>
         [Test]
@@ -119,6 +127,14 @@ namespace CyberSource.Test
         public void AppUrlTest()
         {
             // TODO unit test for the property 'AppUrl'
+        }
+        /// <summary>
+        /// Test the property 'Metadata'
+        /// </summary>
+        [Test]
+        public void MetadataTest()
+        {
+            // TODO unit test for the property 'Metadata'
         }
         /// <summary>
         /// Test the property 'RawData'

@@ -35,10 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="TransactionId">Processor transaction ID.  This value identifies the transaction on a host system. This value is supported only for Moneris. It contains this information:   - Terminal used to process the transaction  - Shift during which the transaction took place  - Batch number  - Transaction number within the batch  You must store this value. If you give the customer a receipt, display this value on the receipt.  Example For the value 66012345001069003:   - Terminal ID &#x3D; 66012345  - Shift number &#x3D; 001  - Batch number &#x3D; 069  - Transaction number &#x3D; 003 .</param>
         /// <param name="NetworkTransactionId">Network Transaction Identifier Applicable for online capture transactions only. .</param>
-        public PtsV2PaymentsCapturesPost201ResponseProcessorInformation(string TransactionId = default(string), string NetworkTransactionId = default(string))
+        /// <param name="ResponseDetails">The processor code that describes why the transaction state is pending or reversed. .</param>
+        /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;processorInformation.responseCategoryCode&#x60; field. String (3) .</param>
+        /// <param name="ProviderResponse">Processor response to the API request. .</param>
+        public PtsV2PaymentsCapturesPost201ResponseProcessorInformation(string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseDetails = default(string), string ResponseCode = default(string), string ProviderResponse = default(string))
         {
             this.TransactionId = TransactionId;
             this.NetworkTransactionId = NetworkTransactionId;
+            this.ResponseDetails = ResponseDetails;
+            this.ResponseCode = ResponseCode;
+            this.ProviderResponse = ProviderResponse;
         }
         
         /// <summary>
@@ -56,6 +62,27 @@ namespace CyberSource.Model
         public string NetworkTransactionId { get; set; }
 
         /// <summary>
+        /// The processor code that describes why the transaction state is pending or reversed. 
+        /// </summary>
+        /// <value>The processor code that describes why the transaction state is pending or reversed. </value>
+        [DataMember(Name="responseDetails", EmitDefaultValue=false)]
+        public string ResponseDetails { get; set; }
+
+        /// <summary>
+        /// For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;processorInformation.responseCategoryCode&#x60; field. String (3) 
+        /// </summary>
+        /// <value>For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;processorInformation.responseCategoryCode&#x60; field. String (3) </value>
+        [DataMember(Name="responseCode", EmitDefaultValue=false)]
+        public string ResponseCode { get; set; }
+
+        /// <summary>
+        /// Processor response to the API request. 
+        /// </summary>
+        /// <value>Processor response to the API request. </value>
+        [DataMember(Name="providerResponse", EmitDefaultValue=false)]
+        public string ProviderResponse { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +92,9 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsCapturesPost201ResponseProcessorInformation {\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
+            sb.Append("  ResponseDetails: ").Append(ResponseDetails).Append("\n");
+            sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+            sb.Append("  ProviderResponse: ").Append(ProviderResponse).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +140,21 @@ namespace CyberSource.Model
                     this.NetworkTransactionId == other.NetworkTransactionId ||
                     this.NetworkTransactionId != null &&
                     this.NetworkTransactionId.Equals(other.NetworkTransactionId)
+                ) && 
+                (
+                    this.ResponseDetails == other.ResponseDetails ||
+                    this.ResponseDetails != null &&
+                    this.ResponseDetails.Equals(other.ResponseDetails)
+                ) && 
+                (
+                    this.ResponseCode == other.ResponseCode ||
+                    this.ResponseCode != null &&
+                    this.ResponseCode.Equals(other.ResponseCode)
+                ) && 
+                (
+                    this.ProviderResponse == other.ProviderResponse ||
+                    this.ProviderResponse != null &&
+                    this.ProviderResponse.Equals(other.ProviderResponse)
                 );
         }
 
@@ -128,6 +173,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionId.GetHashCode();
                 if (this.NetworkTransactionId != null)
                     hash = hash * 59 + this.NetworkTransactionId.GetHashCode();
+                if (this.ResponseDetails != null)
+                    hash = hash * 59 + this.ResponseDetails.GetHashCode();
+                if (this.ResponseCode != null)
+                    hash = hash * 59 + this.ResponseCode.GetHashCode();
+                if (this.ProviderResponse != null)
+                    hash = hash * 59 + this.ProviderResponse.GetHashCode();
                 return hash;
             }
         }

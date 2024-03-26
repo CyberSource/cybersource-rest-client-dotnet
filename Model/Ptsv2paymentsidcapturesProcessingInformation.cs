@@ -45,7 +45,8 @@ namespace CyberSource.Model
         /// <param name="CaptureOptions">CaptureOptions.</param>
         /// <param name="LoanOptions">LoanOptions.</param>
         /// <param name="PayByPointsIndicator">Flag that indicates if the transaction is pay by points transaction true: Transaction uses loyalty points false: Transaction does not use loyalty points Default: false .</param>
-        public Ptsv2paymentsidcapturesProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions), Ptsv2paymentsidcapturesProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsidcapturesProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), bool? PayByPointsIndicator = default(bool?))
+        /// <param name="ActionList">Array of actions (one or more) to be included in the capture to invoke bundled services along with capture.  Possible values :   - &#x60;AP_CAPTURE&#x60;: Use this when Alternative Payment Capture service is requested. .</param>
+        public Ptsv2paymentsidcapturesProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions), Ptsv2paymentsidcapturesProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsidcapturesProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), bool? PayByPointsIndicator = default(bool?), List<string> ActionList = default(List<string>))
         {
             this.PaymentSolution = PaymentSolution;
             this.ReconciliationId = ReconciliationId;
@@ -59,6 +60,7 @@ namespace CyberSource.Model
             this.CaptureOptions = CaptureOptions;
             this.LoanOptions = LoanOptions;
             this.PayByPointsIndicator = PayByPointsIndicator;
+            this.ActionList = ActionList;
         }
         
         /// <summary>
@@ -142,6 +144,13 @@ namespace CyberSource.Model
         public bool? PayByPointsIndicator { get; set; }
 
         /// <summary>
+        /// Array of actions (one or more) to be included in the capture to invoke bundled services along with capture.  Possible values :   - &#x60;AP_CAPTURE&#x60;: Use this when Alternative Payment Capture service is requested. 
+        /// </summary>
+        /// <value>Array of actions (one or more) to be included in the capture to invoke bundled services along with capture.  Possible values :   - &#x60;AP_CAPTURE&#x60;: Use this when Alternative Payment Capture service is requested. </value>
+        [DataMember(Name="actionList", EmitDefaultValue=false)]
+        public List<string> ActionList { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -161,6 +170,7 @@ namespace CyberSource.Model
             sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
             sb.Append("  LoanOptions: ").Append(LoanOptions).Append("\n");
             sb.Append("  PayByPointsIndicator: ").Append(PayByPointsIndicator).Append("\n");
+            sb.Append("  ActionList: ").Append(ActionList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -256,6 +266,11 @@ namespace CyberSource.Model
                     this.PayByPointsIndicator == other.PayByPointsIndicator ||
                     this.PayByPointsIndicator != null &&
                     this.PayByPointsIndicator.Equals(other.PayByPointsIndicator)
+                ) && 
+                (
+                    this.ActionList == other.ActionList ||
+                    this.ActionList != null &&
+                    this.ActionList.SequenceEqual(other.ActionList)
                 );
         }
 
@@ -294,6 +309,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.LoanOptions.GetHashCode();
                 if (this.PayByPointsIndicator != null)
                     hash = hash * 59 + this.PayByPointsIndicator.GetHashCode();
+                if (this.ActionList != null)
+                    hash = hash * 59 + this.ActionList.GetHashCode();
                 return hash;
             }
         }

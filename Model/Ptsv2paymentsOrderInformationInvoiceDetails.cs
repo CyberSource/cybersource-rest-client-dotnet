@@ -50,7 +50,8 @@ namespace CyberSource.Model
         /// <param name="InvoiceDate">Date of the tax calculation. Use format YYYYMMDD. You can provide a date in the past if you are calculating tax for a refund and want to know what the tax was on the date the order was placed. You can provide a date in the future if you are calculating the tax for a future date, such as an upcoming tax holiday.  The default is the date, in Pacific time, that the bank receives the request. Keep this in mind if you are in a different time zone and want the tax calculated with the rates that are applicable on a specific date.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. .</param>
         /// <param name="CostCenter">Cost centre of the merchant.</param>
         /// <param name="IssuerMessage">Text message from the issuer. If you give the customer a receipt, display this value on the receipt..</param>
-        public Ptsv2paymentsOrderInformationInvoiceDetails(string InvoiceNumber = default(string), string BarcodeNumber = default(string), string ExpirationDate = default(string), string PurchaseOrderNumber = default(string), string PurchaseOrderDate = default(string), string PurchaseContactName = default(string), bool? Taxable = default(bool?), string VatInvoiceReferenceNumber = default(string), string CommodityCode = default(string), int? MerchandiseCode = default(int?), List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum> TransactionAdviceAddendum = default(List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum>), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), int? SalesSlipNumber = default(int?), string InvoiceDate = default(string), string CostCenter = default(string), string IssuerMessage = default(string))
+        /// <param name="ProductDescription">Brief description of item..</param>
+        public Ptsv2paymentsOrderInformationInvoiceDetails(string InvoiceNumber = default(string), string BarcodeNumber = default(string), string ExpirationDate = default(string), string PurchaseOrderNumber = default(string), string PurchaseOrderDate = default(string), string PurchaseContactName = default(string), bool? Taxable = default(bool?), string VatInvoiceReferenceNumber = default(string), string CommodityCode = default(string), int? MerchandiseCode = default(int?), List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum> TransactionAdviceAddendum = default(List<Ptsv2paymentsOrderInformationInvoiceDetailsTransactionAdviceAddendum>), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), int? SalesSlipNumber = default(int?), string InvoiceDate = default(string), string CostCenter = default(string), string IssuerMessage = default(string), string ProductDescription = default(string))
         {
             this.InvoiceNumber = InvoiceNumber;
             this.BarcodeNumber = BarcodeNumber;
@@ -69,6 +70,7 @@ namespace CyberSource.Model
             this.InvoiceDate = InvoiceDate;
             this.CostCenter = CostCenter;
             this.IssuerMessage = IssuerMessage;
+            this.ProductDescription = ProductDescription;
         }
         
         /// <summary>
@@ -190,6 +192,13 @@ namespace CyberSource.Model
         public string IssuerMessage { get; set; }
 
         /// <summary>
+        /// Brief description of item.
+        /// </summary>
+        /// <value>Brief description of item.</value>
+        [DataMember(Name="productDescription", EmitDefaultValue=false)]
+        public string ProductDescription { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -214,6 +223,7 @@ namespace CyberSource.Model
             sb.Append("  InvoiceDate: ").Append(InvoiceDate).Append("\n");
             sb.Append("  CostCenter: ").Append(CostCenter).Append("\n");
             sb.Append("  IssuerMessage: ").Append(IssuerMessage).Append("\n");
+            sb.Append("  ProductDescription: ").Append(ProductDescription).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -334,6 +344,11 @@ namespace CyberSource.Model
                     this.IssuerMessage == other.IssuerMessage ||
                     this.IssuerMessage != null &&
                     this.IssuerMessage.Equals(other.IssuerMessage)
+                ) && 
+                (
+                    this.ProductDescription == other.ProductDescription ||
+                    this.ProductDescription != null &&
+                    this.ProductDescription.Equals(other.ProductDescription)
                 );
         }
 
@@ -382,6 +397,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CostCenter.GetHashCode();
                 if (this.IssuerMessage != null)
                     hash = hash * 59 + this.IssuerMessage.GetHashCode();
+                if (this.ProductDescription != null)
+                    hash = hash * 59 + this.ProductDescription.GetHashCode();
                 return hash;
             }
         }

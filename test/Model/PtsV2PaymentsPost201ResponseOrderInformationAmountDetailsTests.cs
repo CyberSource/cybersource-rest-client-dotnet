@@ -88,6 +88,46 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Currency'
         }
+        /// <summary>
+        /// Test the property 'ProcessorTransactionFee'
+        /// </summary>
+        [Test]
+        public void ProcessorTransactionFeeTest()
+        {
+            // TODO unit test for the property 'ProcessorTransactionFee'
+        }
+        /// <summary>
+        /// Test the property 'ExchangeRate'
+        /// </summary>
+        [Test]
+        public void ExchangeRateTest()
+        {
+            // TODO unit test for the property 'ExchangeRate'
+        }
+        /// <summary>
+        /// Test the property 'ForeignCurrency'
+        /// </summary>
+        [Test]
+        public void ForeignCurrencyTest()
+        {
+            // TODO unit test for the property 'ForeignCurrency'
+        }
+        /// <summary>
+        /// Test the property 'ForeignAmount'
+        /// </summary>
+        [Test]
+        public void ForeignAmountTest()
+        {
+            // TODO unit test for the property 'ForeignAmount'
+        }
+        /// <summary>
+        /// Test the property 'DiscountAmount'
+        /// </summary>
+        [Test]
+        public void DiscountAmountTest()
+        {
+            // TODO unit test for the property 'DiscountAmount'
+        }
 
     }
 

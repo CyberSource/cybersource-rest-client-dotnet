@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
         /// <param name="RewardPointsDetails">RewardPointsDetails.</param>
         /// <param name="BillTo">BillTo.</param>
-        public PtsV2PaymentsPost201ResponseOrderInformation(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails), PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails), PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails RewardPointsDetails = default(PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails), PtsV2PaymentsPost201ResponseOrderInformationBillTo BillTo = default(PtsV2PaymentsPost201ResponseOrderInformationBillTo))
+        /// <param name="ShipTo">ShipTo.</param>
+        public PtsV2PaymentsPost201ResponseOrderInformation(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails), PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails), PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails RewardPointsDetails = default(PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails), PtsV2PaymentsPost201ResponseOrderInformationBillTo BillTo = default(PtsV2PaymentsPost201ResponseOrderInformationBillTo), PtsV2PaymentsPost201ResponseOrderInformationShipTo ShipTo = default(PtsV2PaymentsPost201ResponseOrderInformationShipTo))
         {
             this.AmountDetails = AmountDetails;
             this.InvoiceDetails = InvoiceDetails;
             this.RewardPointsDetails = RewardPointsDetails;
             this.BillTo = BillTo;
+            this.ShipTo = ShipTo;
         }
         
         /// <summary>
@@ -70,6 +72,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseOrderInformationBillTo BillTo { get; set; }
 
         /// <summary>
+        /// Gets or Sets ShipTo
+        /// </summary>
+        [DataMember(Name="shipTo", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseOrderInformationShipTo ShipTo { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +89,7 @@ namespace CyberSource.Model
             sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
             sb.Append("  RewardPointsDetails: ").Append(RewardPointsDetails).Append("\n");
             sb.Append("  BillTo: ").Append(BillTo).Append("\n");
+            sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +145,11 @@ namespace CyberSource.Model
                     this.BillTo == other.BillTo ||
                     this.BillTo != null &&
                     this.BillTo.Equals(other.BillTo)
+                ) && 
+                (
+                    this.ShipTo == other.ShipTo ||
+                    this.ShipTo != null &&
+                    this.ShipTo.Equals(other.ShipTo)
                 );
         }
 
@@ -158,6 +172,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RewardPointsDetails.GetHashCode();
                 if (this.BillTo != null)
                     hash = hash * 59 + this.BillTo.GetHashCode();
+                if (this.ShipTo != null)
+                    hash = hash * 59 + this.ShipTo.GetHashCode();
                 return hash;
             }
         }

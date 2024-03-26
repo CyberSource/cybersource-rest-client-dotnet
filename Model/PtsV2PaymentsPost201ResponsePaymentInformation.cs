@@ -46,7 +46,8 @@ namespace CyberSource.Model
         /// <param name="AccountType">Type of payment card account. This field can refer to a credit card, debit card, or prepaid card account type.  For all possible values, see the &#x60;score_card_account_type&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="Issuer">Name of the bank or entity that issued the card account.  For all possible values, see the &#x60;score_card_issuer&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="BinCountry">Country (two-digit country code) associated with the BIN of the customer&#39;s card used for the payment. Returned if the information is available. Use this field for additional information when reviewing orders. This information is also displayed in the details page of the CyberSource Business Center.  For all possible values, see the &#x60;bin_country&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
-        public PtsV2PaymentsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard Card = default(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard), PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard TokenizedCard = default(PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard), PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures AccountFeatures = default(PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures), PtsV2PaymentsPost201ResponsePaymentInformationBank Bank = default(PtsV2PaymentsPost201ResponsePaymentInformationBank), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), string Scheme = default(string), string Bin = default(string), string AccountType = default(string), string Issuer = default(string), string BinCountry = default(string))
+        /// <param name="EWallet">EWallet.</param>
+        public PtsV2PaymentsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard Card = default(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard), PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard TokenizedCard = default(PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard), PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures AccountFeatures = default(PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures), PtsV2PaymentsPost201ResponsePaymentInformationBank Bank = default(PtsV2PaymentsPost201ResponsePaymentInformationBank), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), string Scheme = default(string), string Bin = default(string), string AccountType = default(string), string Issuer = default(string), string BinCountry = default(string), PtsV2PaymentsPost201ResponsePaymentInformationEWallet EWallet = default(PtsV2PaymentsPost201ResponsePaymentInformationEWallet))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
@@ -61,6 +62,7 @@ namespace CyberSource.Model
             this.AccountType = AccountType;
             this.Issuer = Issuer;
             this.BinCountry = BinCountry;
+            this.EWallet = EWallet;
         }
         
         /// <summary>
@@ -147,6 +149,12 @@ namespace CyberSource.Model
         public string BinCountry { get; set; }
 
         /// <summary>
+        /// Gets or Sets EWallet
+        /// </summary>
+        [DataMember(Name="eWallet", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponsePaymentInformationEWallet EWallet { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -167,6 +175,7 @@ namespace CyberSource.Model
             sb.Append("  AccountType: ").Append(AccountType).Append("\n");
             sb.Append("  Issuer: ").Append(Issuer).Append("\n");
             sb.Append("  BinCountry: ").Append(BinCountry).Append("\n");
+            sb.Append("  EWallet: ").Append(EWallet).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -267,6 +276,11 @@ namespace CyberSource.Model
                     this.BinCountry == other.BinCountry ||
                     this.BinCountry != null &&
                     this.BinCountry.Equals(other.BinCountry)
+                ) && 
+                (
+                    this.EWallet == other.EWallet ||
+                    this.EWallet != null &&
+                    this.EWallet.Equals(other.EWallet)
                 );
         }
 
@@ -307,6 +321,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Issuer.GetHashCode();
                 if (this.BinCountry != null)
                     hash = hash * 59 + this.BinCountry.GetHashCode();
+                if (this.EWallet != null)
+                    hash = hash * 59 + this.EWallet.GetHashCode();
                 return hash;
             }
         }

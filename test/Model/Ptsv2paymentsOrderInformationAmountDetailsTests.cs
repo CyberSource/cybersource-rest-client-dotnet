@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'GiftWrapAmount'
+        /// </summary>
+        [Test]
+        public void GiftWrapAmountTest()
+        {
+            // TODO unit test for the property 'GiftWrapAmount'
+        }
+        /// <summary>
         /// Test the property 'TotalAmount'
         /// </summary>
         [Test]
@@ -271,6 +279,14 @@ namespace CyberSource.Test
         public void CurrencyConversionTest()
         {
             // TODO unit test for the property 'CurrencyConversion'
+        }
+        /// <summary>
+        /// Test the property 'Order'
+        /// </summary>
+        [Test]
+        public void OrderTest()
+        {
+            // TODO unit test for the property 'Order'
         }
 
     }

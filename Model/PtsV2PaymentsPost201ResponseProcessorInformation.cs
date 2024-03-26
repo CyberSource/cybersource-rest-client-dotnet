@@ -66,7 +66,9 @@ namespace CyberSource.Model
         /// <param name="CompleteUrl">The redirect URL for forwarding the consumer to complete page.  This redirect needed by PSP to track browser information of consumer. PSP then redirect consumer to merchant success URL. .</param>
         /// <param name="Signature">Signature.</param>
         /// <param name="PublicKey">PublicKey.</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string))
+        /// <param name="SellerProtection">SellerProtection.</param>
+        /// <param name="TransactionExpiryDate">The date on which the transaction expires and payment cannot be made. .</param>
+        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), string TransactionExpiryDate = default(string))
         {
             this.AuthIndicator = AuthIndicator;
             this.ApprovalCode = ApprovalCode;
@@ -101,6 +103,8 @@ namespace CyberSource.Model
             this.CompleteUrl = CompleteUrl;
             this.Signature = Signature;
             this.PublicKey = PublicKey;
+            this.SellerProtection = SellerProtection;
+            this.TransactionExpiryDate = TransactionExpiryDate;
         }
         
         /// <summary>
@@ -325,6 +329,19 @@ namespace CyberSource.Model
         public string PublicKey { get; set; }
 
         /// <summary>
+        /// Gets or Sets SellerProtection
+        /// </summary>
+        [DataMember(Name="sellerProtection", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection { get; set; }
+
+        /// <summary>
+        /// The date on which the transaction expires and payment cannot be made. 
+        /// </summary>
+        /// <value>The date on which the transaction expires and payment cannot be made. </value>
+        [DataMember(Name="transactionExpiryDate", EmitDefaultValue=false)]
+        public string TransactionExpiryDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -365,6 +382,8 @@ namespace CyberSource.Model
             sb.Append("  CompleteUrl: ").Append(CompleteUrl).Append("\n");
             sb.Append("  Signature: ").Append(Signature).Append("\n");
             sb.Append("  PublicKey: ").Append(PublicKey).Append("\n");
+            sb.Append("  SellerProtection: ").Append(SellerProtection).Append("\n");
+            sb.Append("  TransactionExpiryDate: ").Append(TransactionExpiryDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -565,6 +584,16 @@ namespace CyberSource.Model
                     this.PublicKey == other.PublicKey ||
                     this.PublicKey != null &&
                     this.PublicKey.Equals(other.PublicKey)
+                ) && 
+                (
+                    this.SellerProtection == other.SellerProtection ||
+                    this.SellerProtection != null &&
+                    this.SellerProtection.Equals(other.SellerProtection)
+                ) && 
+                (
+                    this.TransactionExpiryDate == other.TransactionExpiryDate ||
+                    this.TransactionExpiryDate != null &&
+                    this.TransactionExpiryDate.Equals(other.TransactionExpiryDate)
                 );
         }
 
@@ -645,6 +674,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Signature.GetHashCode();
                 if (this.PublicKey != null)
                     hash = hash * 59 + this.PublicKey.GetHashCode();
+                if (this.SellerProtection != null)
+                    hash = hash * 59 + this.SellerProtection.GetHashCode();
+                if (this.TransactionExpiryDate != null)
+                    hash = hash * 59 + this.TransactionExpiryDate.GetHashCode();
                 return hash;
             }
         }

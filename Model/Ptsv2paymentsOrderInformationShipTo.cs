@@ -42,15 +42,17 @@ namespace CyberSource.Model
         /// <param name="Locality">City of the shipping address.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
         /// <param name="AdministrativeArea">State or province of the shipping address. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf) (maximum length: 2)   Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
         /// <param name="PostalCode">Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  #### American Express Direct Before sending the postal code to the processor, all nonalphanumeric characters are removed and, if the remaining value is longer than nine characters, the value is truncated starting from the right side. #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
+        /// <param name="County">U.S. county if available..</param>
         /// <param name="Country">Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
         /// <param name="District">Neighborhood, community, or region within a city or municipality..</param>
         /// <param name="BuildingNumber">Building number in the street address. For example, the building number is 187 in the following address:  Rua da Quitanda 187 .</param>
         /// <param name="PhoneNumber">Phone number associated with the shipping address..</param>
+        /// <param name="Email">Email of the recipient. .</param>
         /// <param name="Company">Name of the customer&#39;s company.  For processor-specific information, see the company_name field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
         /// <param name="DestinationTypes">Shipping destination of item. Example: Commercial, Residential, Store .</param>
         /// <param name="DestinationCode">Indicates destination chosen for the transaction. Possible values: - 01- Ship to cardholder billing address - 02- Ship to another verified address on file with merchant - 03- Ship to address that is different than billing address - 04- Ship to store (store address should be populated on request) - 05- Digital goods - 06- Travel and event tickets, not shipped - 07- Other .</param>
         /// <param name="Method">Shipping method for the product. Possible values: - lowcost: Lowest-cost service - sameday: Courier or same-day service - oneday: Next-day or overnight service - twoday: Two-day service - threeday: Three-day service - pickup: Store pick-up - other: Other shipping method - none: No shipping method because product is a service or subscription Required for American Express SafeKey (U.S.). .</param>
-        public Ptsv2paymentsOrderInformationShipTo(string Title = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string PhoneNumber = default(string), string Company = default(string), string DestinationTypes = default(string), int? DestinationCode = default(int?), string Method = default(string))
+        public Ptsv2paymentsOrderInformationShipTo(string Title = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string County = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string PhoneNumber = default(string), string Email = default(string), string Company = default(string), string DestinationTypes = default(string), int? DestinationCode = default(int?), string Method = default(string))
         {
             this.Title = Title;
             this.FirstName = FirstName;
@@ -61,10 +63,12 @@ namespace CyberSource.Model
             this.Locality = Locality;
             this.AdministrativeArea = AdministrativeArea;
             this.PostalCode = PostalCode;
+            this.County = County;
             this.Country = Country;
             this.District = District;
             this.BuildingNumber = BuildingNumber;
             this.PhoneNumber = PhoneNumber;
+            this.Email = Email;
             this.Company = Company;
             this.DestinationTypes = DestinationTypes;
             this.DestinationCode = DestinationCode;
@@ -135,6 +139,13 @@ namespace CyberSource.Model
         public string PostalCode { get; set; }
 
         /// <summary>
+        /// U.S. county if available.
+        /// </summary>
+        /// <value>U.S. county if available.</value>
+        [DataMember(Name="county", EmitDefaultValue=false)]
+        public string County { get; set; }
+
+        /// <summary>
         /// Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. 
         /// </summary>
         /// <value>Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. </value>
@@ -161,6 +172,13 @@ namespace CyberSource.Model
         /// <value>Phone number associated with the shipping address.</value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Email of the recipient. 
+        /// </summary>
+        /// <value>Email of the recipient. </value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Name of the customer&#39;s company.  For processor-specific information, see the company_name field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
@@ -207,10 +225,12 @@ namespace CyberSource.Model
             sb.Append("  Locality: ").Append(Locality).Append("\n");
             sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            sb.Append("  County: ").Append(County).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  District: ").Append(District).Append("\n");
             sb.Append("  BuildingNumber: ").Append(BuildingNumber).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Company: ").Append(Company).Append("\n");
             sb.Append("  DestinationTypes: ").Append(DestinationTypes).Append("\n");
             sb.Append("  DestinationCode: ").Append(DestinationCode).Append("\n");
@@ -297,6 +317,11 @@ namespace CyberSource.Model
                     this.PostalCode.Equals(other.PostalCode)
                 ) && 
                 (
+                    this.County == other.County ||
+                    this.County != null &&
+                    this.County.Equals(other.County)
+                ) && 
+                (
                     this.Country == other.Country ||
                     this.Country != null &&
                     this.Country.Equals(other.Country)
@@ -315,6 +340,11 @@ namespace CyberSource.Model
                     this.PhoneNumber == other.PhoneNumber ||
                     this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(other.PhoneNumber)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
                 ) && 
                 (
                     this.Company == other.Company ||
@@ -367,6 +397,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AdministrativeArea.GetHashCode();
                 if (this.PostalCode != null)
                     hash = hash * 59 + this.PostalCode.GetHashCode();
+                if (this.County != null)
+                    hash = hash * 59 + this.County.GetHashCode();
                 if (this.Country != null)
                     hash = hash * 59 + this.Country.GetHashCode();
                 if (this.District != null)
@@ -375,6 +407,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BuildingNumber.GetHashCode();
                 if (this.PhoneNumber != null)
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
                 if (this.Company != null)
                     hash = hash * 59 + this.Company.GetHashCode();
                 if (this.DestinationTypes != null)

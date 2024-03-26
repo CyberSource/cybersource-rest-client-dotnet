@@ -65,6 +65,19 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test CreateOrderRequest
+        /// </summary>
+        [Test]
+        public void CreateOrderRequestTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //OrderPaymentRequest orderPaymentRequest = null;
+            //string id = null;
+            //var response = instance.CreateOrderRequest(orderPaymentRequest, id);
+            //Assert.IsInstanceOf<PtsV2PaymentsOrderPost201Response> (response, "response is PtsV2PaymentsOrderPost201Response");
+        }
+        
+        /// <summary>
         /// Test CreatePayment
         /// </summary>
         [Test]
@@ -74,6 +87,18 @@ namespace CyberSource.Test
             //CreatePaymentRequest createPaymentRequest = null;
             //var response = instance.CreatePayment(createPaymentRequest);
             //Assert.IsInstanceOf<PtsV2PaymentsPost201Response> (response, "response is PtsV2PaymentsPost201Response");
+        }
+        
+        /// <summary>
+        /// Test CreateSessionRequest
+        /// </summary>
+        [Test]
+        public void CreateSessionRequestTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CreateSessionReq createSessionReq = null;
+            //var response = instance.CreateSessionRequest(createSessionReq);
+            //Assert.IsInstanceOf<PtsV2PaymentsPost201Response2> (response, "response is PtsV2PaymentsPost201Response2");
         }
         
         /// <summary>
@@ -100,6 +125,19 @@ namespace CyberSource.Test
             //RefreshPaymentStatusRequest refreshPaymentStatusRequest = null;
             //var response = instance.RefreshPaymentStatus(id, refreshPaymentStatusRequest);
             //Assert.IsInstanceOf<PtsV2PaymentsPost201Response1> (response, "response is PtsV2PaymentsPost201Response1");
+        }
+        
+        /// <summary>
+        /// Test UpdateSessionReq
+        /// </summary>
+        [Test]
+        public void UpdateSessionReqTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CreateSessionRequest createSessionRequest = null;
+            //string id = null;
+            //var response = instance.UpdateSessionReq(createSessionRequest, id);
+            //Assert.IsInstanceOf<PtsV2PaymentsPost201Response2> (response, "response is PtsV2PaymentsPost201Response2");
         }
         
     }

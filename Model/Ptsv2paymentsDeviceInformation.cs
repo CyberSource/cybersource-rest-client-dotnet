@@ -33,6 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsDeviceInformation" /> class.
         /// </summary>
+        /// <param name="Id">Value created by the client software that uniquely identifies the POS device. CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only for authorizations and credits on these processors: - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - OmniPay Direct - SIX  Optional field. String (32) .</param>
         /// <param name="HostName">DNS resolved hostname from &#x60;ipAddress&#x60;..</param>
         /// <param name="IpAddress">IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. .</param>
         /// <param name="UserAgent">Customer&#39;s browser as identified from the HTTP header data. For example, &#x60;Mozilla&#x60; is the value that identifies the Netscape browser. .</param>
@@ -40,6 +41,7 @@ namespace CyberSource.Model
         /// <param name="UseRawFingerprintSessionId">Boolean that indicates whether request contains the device fingerprint information. Values: - &#x60;true&#x60;: Use raw fingerprintSessionId when looking up device details. - &#x60;false&#x60; (default): Use merchant id + fingerprintSessionId as the session id for Device detail collection. .</param>
         /// <param name="DeviceType">The device type at the client side..</param>
         /// <param name="AppUrl">This field will contain the deep link that would help the Customer App to wake up. .</param>
+        /// <param name="Metadata">Verifies that the payment is originating from a valid, user-approved application and device. Sending this field helps reduce fraud and declined transactions. Note The length is set for a hexadecimal representation of the GUID/UUID. This field accepts a 36-character string (with hyphens) or a 32-character string (without hyphens). Example 123e4567-e89b-12d3-a456-426655440000 Example 123e4567e89b12d3a456426655440000 .</param>
         /// <param name="RawData">RawData.</param>
         /// <param name="HttpAcceptBrowserValue">Value of the Accept header sent by the customer&#39;s web browser. **Note** If the customer&#39;s browser provides a value, you must include it in your request. .</param>
         /// <param name="HttpAcceptContent">The exact content of the HTTP accept header. .</param>
@@ -52,8 +54,9 @@ namespace CyberSource.Model
         /// <param name="HttpBrowserScreenWidth">Total width of the cardholder&#39;s screen in pixels. Example: 1536. .</param>
         /// <param name="HttpBrowserTimeDifference">Time difference between UTC time and the cardholder browser local time, in minutes, Example:300 .</param>
         /// <param name="UserAgentBrowserValue">Value of the User-Agent header sent by the customer&#39;s web browser. Note If the customer&#39;s browser provides a value, you must include it in your request. .</param>
-        public Ptsv2paymentsDeviceInformation(string HostName = default(string), string IpAddress = default(string), string UserAgent = default(string), string FingerprintSessionId = default(string), bool? UseRawFingerprintSessionId = default(bool?), string DeviceType = default(string), string AppUrl = default(string), List<Ptsv2paymentsDeviceInformationRawData> RawData = default(List<Ptsv2paymentsDeviceInformationRawData>), string HttpAcceptBrowserValue = default(string), string HttpAcceptContent = default(string), string HttpBrowserEmail = default(string), string HttpBrowserLanguage = default(string), bool? HttpBrowserJavaEnabled = default(bool?), bool? HttpBrowserJavaScriptEnabled = default(bool?), string HttpBrowserColorDepth = default(string), string HttpBrowserScreenHeight = default(string), string HttpBrowserScreenWidth = default(string), string HttpBrowserTimeDifference = default(string), string UserAgentBrowserValue = default(string))
+        public Ptsv2paymentsDeviceInformation(string Id = default(string), string HostName = default(string), string IpAddress = default(string), string UserAgent = default(string), string FingerprintSessionId = default(string), bool? UseRawFingerprintSessionId = default(bool?), string DeviceType = default(string), string AppUrl = default(string), string Metadata = default(string), List<Ptsv2paymentsDeviceInformationRawData> RawData = default(List<Ptsv2paymentsDeviceInformationRawData>), string HttpAcceptBrowserValue = default(string), string HttpAcceptContent = default(string), string HttpBrowserEmail = default(string), string HttpBrowserLanguage = default(string), bool? HttpBrowserJavaEnabled = default(bool?), bool? HttpBrowserJavaScriptEnabled = default(bool?), string HttpBrowserColorDepth = default(string), string HttpBrowserScreenHeight = default(string), string HttpBrowserScreenWidth = default(string), string HttpBrowserTimeDifference = default(string), string UserAgentBrowserValue = default(string))
         {
+            this.Id = Id;
             this.HostName = HostName;
             this.IpAddress = IpAddress;
             this.UserAgent = UserAgent;
@@ -61,6 +64,7 @@ namespace CyberSource.Model
             this.UseRawFingerprintSessionId = UseRawFingerprintSessionId;
             this.DeviceType = DeviceType;
             this.AppUrl = AppUrl;
+            this.Metadata = Metadata;
             this.RawData = RawData;
             this.HttpAcceptBrowserValue = HttpAcceptBrowserValue;
             this.HttpAcceptContent = HttpAcceptContent;
@@ -75,6 +79,13 @@ namespace CyberSource.Model
             this.UserAgentBrowserValue = UserAgentBrowserValue;
         }
         
+        /// <summary>
+        /// Value created by the client software that uniquely identifies the POS device. CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only for authorizations and credits on these processors: - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - OmniPay Direct - SIX  Optional field. String (32) 
+        /// </summary>
+        /// <value>Value created by the client software that uniquely identifies the POS device. CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only for authorizations and credits on these processors: - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - OmniPay Direct - SIX  Optional field. String (32) </value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
+
         /// <summary>
         /// DNS resolved hostname from &#x60;ipAddress&#x60;.
         /// </summary>
@@ -123,6 +134,13 @@ namespace CyberSource.Model
         /// <value>This field will contain the deep link that would help the Customer App to wake up. </value>
         [DataMember(Name="appUrl", EmitDefaultValue=false)]
         public string AppUrl { get; set; }
+
+        /// <summary>
+        /// Verifies that the payment is originating from a valid, user-approved application and device. Sending this field helps reduce fraud and declined transactions. Note The length is set for a hexadecimal representation of the GUID/UUID. This field accepts a 36-character string (with hyphens) or a 32-character string (without hyphens). Example 123e4567-e89b-12d3-a456-426655440000 Example 123e4567e89b12d3a456426655440000 
+        /// </summary>
+        /// <value>Verifies that the payment is originating from a valid, user-approved application and device. Sending this field helps reduce fraud and declined transactions. Note The length is set for a hexadecimal representation of the GUID/UUID. This field accepts a 36-character string (with hyphens) or a 32-character string (without hyphens). Example 123e4567-e89b-12d3-a456-426655440000 Example 123e4567e89b12d3a456426655440000 </value>
+        [DataMember(Name="metadata", EmitDefaultValue=false)]
+        public string Metadata { get; set; }
 
         /// <summary>
         /// Gets or Sets RawData
@@ -215,6 +233,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsDeviceInformation {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  HostName: ").Append(HostName).Append("\n");
             sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
             sb.Append("  UserAgent: ").Append(UserAgent).Append("\n");
@@ -222,6 +241,7 @@ namespace CyberSource.Model
             sb.Append("  UseRawFingerprintSessionId: ").Append(UseRawFingerprintSessionId).Append("\n");
             sb.Append("  DeviceType: ").Append(DeviceType).Append("\n");
             sb.Append("  AppUrl: ").Append(AppUrl).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  RawData: ").Append(RawData).Append("\n");
             sb.Append("  HttpAcceptBrowserValue: ").Append(HttpAcceptBrowserValue).Append("\n");
             sb.Append("  HttpAcceptContent: ").Append(HttpAcceptContent).Append("\n");
@@ -271,6 +291,11 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
+                ) && 
+                (
                     this.HostName == other.HostName ||
                     this.HostName != null &&
                     this.HostName.Equals(other.HostName)
@@ -304,6 +329,11 @@ namespace CyberSource.Model
                     this.AppUrl == other.AppUrl ||
                     this.AppUrl != null &&
                     this.AppUrl.Equals(other.AppUrl)
+                ) && 
+                (
+                    this.Metadata == other.Metadata ||
+                    this.Metadata != null &&
+                    this.Metadata.Equals(other.Metadata)
                 ) && 
                 (
                     this.RawData == other.RawData ||
@@ -378,6 +408,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.HostName != null)
                     hash = hash * 59 + this.HostName.GetHashCode();
                 if (this.IpAddress != null)
@@ -392,6 +424,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DeviceType.GetHashCode();
                 if (this.AppUrl != null)
                     hash = hash * 59 + this.AppUrl.GetHashCode();
+                if (this.Metadata != null)
+                    hash = hash * 59 + this.Metadata.GetHashCode();
                 if (this.RawData != null)
                     hash = hash * 59 + this.RawData.GetHashCode();
                 if (this.HttpAcceptBrowserValue != null)

@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  For details, see &#x60;report_group&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. .</param>
         /// <param name="Issuer">Issuer.</param>
-        public Ptsv2paymentsidreversalsProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation))
+        /// <param name="ActionList">Array of actions (one or more) to be included in the reversal Possible value: - &#x60;AP_AUTH_REVERSAL&#x60;: Use this when you want to reverse an Alternative Payment Authorization. .</param>
+        public Ptsv2paymentsidreversalsProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), List<string> ActionList = default(List<string>))
         {
             this.PaymentSolution = PaymentSolution;
             this.ReconciliationId = ReconciliationId;
@@ -47,6 +48,7 @@ namespace CyberSource.Model
             this.ReportGroup = ReportGroup;
             this.VisaCheckoutId = VisaCheckoutId;
             this.Issuer = Issuer;
+            this.ActionList = ActionList;
         }
         
         /// <summary>
@@ -91,6 +93,13 @@ namespace CyberSource.Model
         public Ptsv2paymentsIssuerInformation Issuer { get; set; }
 
         /// <summary>
+        /// Array of actions (one or more) to be included in the reversal Possible value: - &#x60;AP_AUTH_REVERSAL&#x60;: Use this when you want to reverse an Alternative Payment Authorization. 
+        /// </summary>
+        /// <value>Array of actions (one or more) to be included in the reversal Possible value: - &#x60;AP_AUTH_REVERSAL&#x60;: Use this when you want to reverse an Alternative Payment Authorization. </value>
+        [DataMember(Name="actionList", EmitDefaultValue=false)]
+        public List<string> ActionList { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +113,7 @@ namespace CyberSource.Model
             sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
             sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
             sb.Append("  Issuer: ").Append(Issuer).Append("\n");
+            sb.Append("  ActionList: ").Append(ActionList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,6 +179,11 @@ namespace CyberSource.Model
                     this.Issuer == other.Issuer ||
                     this.Issuer != null &&
                     this.Issuer.Equals(other.Issuer)
+                ) && 
+                (
+                    this.ActionList == other.ActionList ||
+                    this.ActionList != null &&
+                    this.ActionList.SequenceEqual(other.ActionList)
                 );
         }
 
@@ -195,6 +210,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.VisaCheckoutId.GetHashCode();
                 if (this.Issuer != null)
                     hash = hash * 59 + this.Issuer.GetHashCode();
+                if (this.ActionList != null)
+                    hash = hash * 59 + this.ActionList.GetHashCode();
                 return hash;
             }
         }

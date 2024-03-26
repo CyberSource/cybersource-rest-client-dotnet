@@ -168,6 +168,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'BinCountry'
         }
+        /// <summary>
+        /// Test the property 'EWallet'
+        /// </summary>
+        [Test]
+        public void EWalletTest()
+        {
+            // TODO unit test for the property 'EWallet'
+        }
 
     }
 

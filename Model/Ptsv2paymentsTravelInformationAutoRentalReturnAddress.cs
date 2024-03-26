@@ -37,13 +37,17 @@ namespace CyberSource.Model
         /// <param name="State">State in which the auto was returned to the rental agency. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf).  For authorizations, this field is supported for Visa, MasterCard, and American Express.  For captures, this field is supported only for MasterCard and American Express. .</param>
         /// <param name="Country">Country where the auto was returned to the rental agency. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). .</param>
         /// <param name="LocationId">Code, address, phone number, etc. used to identify the location of the auto rental return. This field is supported only for MasterCard and American Express. .</param>
+        /// <param name="Address1">When merchant wants to send the rental address&#39;s street address. .</param>
+        /// <param name="PostalCode">When merchant wants to send the return address&#39;s postal code. .</param>
         /// <param name="Location">This field contains the location where the taxi passenger was dropped off or where the auto rental vehicle was returned. .</param>
-        public Ptsv2paymentsTravelInformationAutoRentalReturnAddress(string City = default(string), string State = default(string), string Country = default(string), string LocationId = default(string), string Location = default(string))
+        public Ptsv2paymentsTravelInformationAutoRentalReturnAddress(string City = default(string), string State = default(string), string Country = default(string), string LocationId = default(string), string Address1 = default(string), string PostalCode = default(string), string Location = default(string))
         {
             this.City = City;
             this.State = State;
             this.Country = Country;
             this.LocationId = LocationId;
+            this.Address1 = Address1;
+            this.PostalCode = PostalCode;
             this.Location = Location;
         }
         
@@ -76,6 +80,20 @@ namespace CyberSource.Model
         public string LocationId { get; set; }
 
         /// <summary>
+        /// When merchant wants to send the rental address&#39;s street address. 
+        /// </summary>
+        /// <value>When merchant wants to send the rental address&#39;s street address. </value>
+        [DataMember(Name="address1", EmitDefaultValue=false)]
+        public string Address1 { get; set; }
+
+        /// <summary>
+        /// When merchant wants to send the return address&#39;s postal code. 
+        /// </summary>
+        /// <value>When merchant wants to send the return address&#39;s postal code. </value>
+        [DataMember(Name="postalCode", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
+
+        /// <summary>
         /// This field contains the location where the taxi passenger was dropped off or where the auto rental vehicle was returned. 
         /// </summary>
         /// <value>This field contains the location where the taxi passenger was dropped off or where the auto rental vehicle was returned. </value>
@@ -94,6 +112,8 @@ namespace CyberSource.Model
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  LocationId: ").Append(LocationId).Append("\n");
+            sb.Append("  Address1: ").Append(Address1).Append("\n");
+            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -152,6 +172,16 @@ namespace CyberSource.Model
                     this.LocationId.Equals(other.LocationId)
                 ) && 
                 (
+                    this.Address1 == other.Address1 ||
+                    this.Address1 != null &&
+                    this.Address1.Equals(other.Address1)
+                ) && 
+                (
+                    this.PostalCode == other.PostalCode ||
+                    this.PostalCode != null &&
+                    this.PostalCode.Equals(other.PostalCode)
+                ) && 
+                (
                     this.Location == other.Location ||
                     this.Location != null &&
                     this.Location.Equals(other.Location)
@@ -177,6 +207,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Country.GetHashCode();
                 if (this.LocationId != null)
                     hash = hash * 59 + this.LocationId.GetHashCode();
+                if (this.Address1 != null)
+                    hash = hash * 59 + this.Address1.GetHashCode();
+                if (this.PostalCode != null)
+                    hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.Location != null)
                     hash = hash * 59 + this.Location.GetHashCode();
                 return hash;

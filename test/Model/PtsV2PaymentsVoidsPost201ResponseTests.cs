@@ -120,6 +120,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ProcessorInformation'
         }
+        /// <summary>
+        /// Test the property 'ReconciliationId'
+        /// </summary>
+        [Test]
+        public void ReconciliationIdTest()
+        {
+            // TODO unit test for the property 'ReconciliationId'
+        }
 
     }
 

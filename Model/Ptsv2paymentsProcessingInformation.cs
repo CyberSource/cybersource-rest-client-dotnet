@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsProcessingInformation" /> class.
         /// </summary>
-        /// <param name="ActionList">Array of actions (one or more) to be included in the payment to invoke bundled services along with payment.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s).   - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your payment request.   - &#x60;CONSUMER_AUTHENTICATION&#x60;: Use this when you want to check if a card is enrolled in Payer Authentication along with your payment request.   - &#x60;VALIDATE_CONSUMER_AUTHENTICATION&#x60;: Use this after you acquire a Payer Authentication result that needs to be included for your payment request.    - &#x60;AP_INITIATE&#x60;: Use this when Alternative Payment Initiate service is requested.   - &#x60;WATCHLIST_SCREENING&#x60; : Use this when you want to call Watchlist Screening service. .</param>
+        /// <param name="ActionList">Array of actions (one or more) to be included in the payment to invoke bundled services along with payment.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s).   - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your payment request.   - &#x60;CONSUMER_AUTHENTICATION&#x60;: Use this when you want to check if a card is enrolled in Payer Authentication along with your payment request.   - &#x60;VALIDATE_CONSUMER_AUTHENTICATION&#x60;: Use this after you acquire a Payer Authentication result that needs to be included for your payment request.    - &#x60;AP_INITIATE&#x60;: Use this when Alternative Payment Initiate service is requested.   - &#x60;WATCHLIST_SCREENING&#x60; : Use this when you want to call Watchlist Screening service.   - &#x60;AP_SALE&#x60; : Use this when Alternative Payment Sale service is requested.    - &#x60;AP_AUTH&#x60; : Use this when Alternative Payment Authorize service is requested. .</param>
         /// <param name="EnableEscrowOption">Indicates whether to use the customer&#39;s escrow agreement. Possible values: - &#x60;true&#x60;: yes, use the customer&#39;s escrow agreement. - &#x60;false&#x60;: no, do not use the customer&#39;s escrow agreement.  .</param>
         /// <param name="ActionTokenTypes">CyberSource tokens types you are performing a create on. If not supplied the default token type for the merchants token vault will be used.  Valid values: - customer - paymentInstrument - instrumentIdentifier - shippingAddress .</param>
         /// <param name="BinSource">Bin Source File Identifier. Possible values: - itmx - rupay .</param>
@@ -46,6 +46,8 @@ namespace CyberSource.Model
         /// <param name="ReconciliationId">Please check with Cybersource customer support to see if your merchant account is configured correctly so you can include this field in your request. * For Payouts: max length for FDCCompass is String (22). .</param>
         /// <param name="LinkId">Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:  - Partial authorizations - Split shipments  For details, see &#x60;link_to_request&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="PurchaseLevel">Set this field to 3 to indicate that the request includes Level III data..</param>
+        /// <param name="TransactionTimeout">The time-out limit in seconds for the transaction. The time-out limit starts when the customer is directed to the merchant URL that is included in the sale service response. The maximum value is 99999 (about 27 hours). When the transaction times out, the payment system changes the status to abandoned..</param>
+        /// <param name="IntentsId">Set to the value of the requestID field returned in the order service response..</param>
         /// <param name="PaymentId">This field is to accept the id of credit/capture in the body of L1 requests so the type of void can be identified and processed correctly downstream..</param>
         /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**.  For details, see &#x60;report_group&#x60; field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. .</param>
@@ -66,7 +68,8 @@ namespace CyberSource.Model
         /// <param name="PayByPointsIndicator">Flag that indicates if the transaction is pay by points transaction true: Transaction uses loyalty points false: Transaction does not use loyalty points Default: false .</param>
         /// <param name="IsReturnAuthRecordEnabled">Flag that indicates the functionality we are having for merchants for which auth is done through Cybersource but settlement is done by themselves. true: functionality is supported. Processor should send raw processor auth response to Merchant. false: functionality is not supported. Default: false .</param>
         /// <param name="NetworkPartnerId">Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction.  This field is supported for Visa Platform Connect. .</param>
-        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), string PaymentId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string))
+        /// <param name="PaymentType">Identifier for the payment type. .</param>
+        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), int? TransactionTimeout = default(int?), string IntentsId = default(string), string PaymentId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string), string PaymentType = default(string))
         {
             this.ActionList = ActionList;
             this.EnableEscrowOption = EnableEscrowOption;
@@ -89,6 +92,8 @@ namespace CyberSource.Model
             this.ReconciliationId = ReconciliationId;
             this.LinkId = LinkId;
             this.PurchaseLevel = PurchaseLevel;
+            this.TransactionTimeout = TransactionTimeout;
+            this.IntentsId = IntentsId;
             this.PaymentId = PaymentId;
             this.ReportGroup = ReportGroup;
             this.VisaCheckoutId = VisaCheckoutId;
@@ -109,12 +114,13 @@ namespace CyberSource.Model
             this.PayByPointsIndicator = PayByPointsIndicator;
             this.IsReturnAuthRecordEnabled = IsReturnAuthRecordEnabled;
             this.NetworkPartnerId = NetworkPartnerId;
+            this.PaymentType = PaymentType;
         }
         
         /// <summary>
-        /// Array of actions (one or more) to be included in the payment to invoke bundled services along with payment.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s).   - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your payment request.   - &#x60;CONSUMER_AUTHENTICATION&#x60;: Use this when you want to check if a card is enrolled in Payer Authentication along with your payment request.   - &#x60;VALIDATE_CONSUMER_AUTHENTICATION&#x60;: Use this after you acquire a Payer Authentication result that needs to be included for your payment request.    - &#x60;AP_INITIATE&#x60;: Use this when Alternative Payment Initiate service is requested.   - &#x60;WATCHLIST_SCREENING&#x60; : Use this when you want to call Watchlist Screening service. 
+        /// Array of actions (one or more) to be included in the payment to invoke bundled services along with payment.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s).   - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your payment request.   - &#x60;CONSUMER_AUTHENTICATION&#x60;: Use this when you want to check if a card is enrolled in Payer Authentication along with your payment request.   - &#x60;VALIDATE_CONSUMER_AUTHENTICATION&#x60;: Use this after you acquire a Payer Authentication result that needs to be included for your payment request.    - &#x60;AP_INITIATE&#x60;: Use this when Alternative Payment Initiate service is requested.   - &#x60;WATCHLIST_SCREENING&#x60; : Use this when you want to call Watchlist Screening service.   - &#x60;AP_SALE&#x60; : Use this when Alternative Payment Sale service is requested.    - &#x60;AP_AUTH&#x60; : Use this when Alternative Payment Authorize service is requested. 
         /// </summary>
-        /// <value>Array of actions (one or more) to be included in the payment to invoke bundled services along with payment.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s).   - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your payment request.   - &#x60;CONSUMER_AUTHENTICATION&#x60;: Use this when you want to check if a card is enrolled in Payer Authentication along with your payment request.   - &#x60;VALIDATE_CONSUMER_AUTHENTICATION&#x60;: Use this after you acquire a Payer Authentication result that needs to be included for your payment request.    - &#x60;AP_INITIATE&#x60;: Use this when Alternative Payment Initiate service is requested.   - &#x60;WATCHLIST_SCREENING&#x60; : Use this when you want to call Watchlist Screening service. </value>
+        /// <value>Array of actions (one or more) to be included in the payment to invoke bundled services along with payment.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s).   - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your payment request.   - &#x60;CONSUMER_AUTHENTICATION&#x60;: Use this when you want to check if a card is enrolled in Payer Authentication along with your payment request.   - &#x60;VALIDATE_CONSUMER_AUTHENTICATION&#x60;: Use this after you acquire a Payer Authentication result that needs to be included for your payment request.    - &#x60;AP_INITIATE&#x60;: Use this when Alternative Payment Initiate service is requested.   - &#x60;WATCHLIST_SCREENING&#x60; : Use this when you want to call Watchlist Screening service.   - &#x60;AP_SALE&#x60; : Use this when Alternative Payment Sale service is requested.    - &#x60;AP_AUTH&#x60; : Use this when Alternative Payment Authorize service is requested. </value>
         [DataMember(Name="actionList", EmitDefaultValue=false)]
         public List<string> ActionList { get; set; }
 
@@ -201,6 +207,20 @@ namespace CyberSource.Model
         /// <value>Set this field to 3 to indicate that the request includes Level III data.</value>
         [DataMember(Name="purchaseLevel", EmitDefaultValue=false)]
         public string PurchaseLevel { get; set; }
+
+        /// <summary>
+        /// The time-out limit in seconds for the transaction. The time-out limit starts when the customer is directed to the merchant URL that is included in the sale service response. The maximum value is 99999 (about 27 hours). When the transaction times out, the payment system changes the status to abandoned.
+        /// </summary>
+        /// <value>The time-out limit in seconds for the transaction. The time-out limit starts when the customer is directed to the merchant URL that is included in the sale service response. The maximum value is 99999 (about 27 hours). When the transaction times out, the payment system changes the status to abandoned.</value>
+        [DataMember(Name="transactionTimeout", EmitDefaultValue=false)]
+        public int? TransactionTimeout { get; set; }
+
+        /// <summary>
+        /// Set to the value of the requestID field returned in the order service response.
+        /// </summary>
+        /// <value>Set to the value of the requestID field returned in the order service response.</value>
+        [DataMember(Name="intentsId", EmitDefaultValue=false)]
+        public string IntentsId { get; set; }
 
         /// <summary>
         /// This field is to accept the id of credit/capture in the body of L1 requests so the type of void can be identified and processed correctly downstream.
@@ -335,6 +355,13 @@ namespace CyberSource.Model
         public string NetworkPartnerId { get; set; }
 
         /// <summary>
+        /// Identifier for the payment type. 
+        /// </summary>
+        /// <value>Identifier for the payment type. </value>
+        [DataMember(Name="paymentType", EmitDefaultValue=false)]
+        public string PaymentType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -355,6 +382,8 @@ namespace CyberSource.Model
             sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
             sb.Append("  LinkId: ").Append(LinkId).Append("\n");
             sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
+            sb.Append("  TransactionTimeout: ").Append(TransactionTimeout).Append("\n");
+            sb.Append("  IntentsId: ").Append(IntentsId).Append("\n");
             sb.Append("  PaymentId: ").Append(PaymentId).Append("\n");
             sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
             sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
@@ -375,6 +404,7 @@ namespace CyberSource.Model
             sb.Append("  PayByPointsIndicator: ").Append(PayByPointsIndicator).Append("\n");
             sb.Append("  IsReturnAuthRecordEnabled: ").Append(IsReturnAuthRecordEnabled).Append("\n");
             sb.Append("  NetworkPartnerId: ").Append(NetworkPartnerId).Append("\n");
+            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -477,6 +507,16 @@ namespace CyberSource.Model
                     this.PurchaseLevel.Equals(other.PurchaseLevel)
                 ) && 
                 (
+                    this.TransactionTimeout == other.TransactionTimeout ||
+                    this.TransactionTimeout != null &&
+                    this.TransactionTimeout.Equals(other.TransactionTimeout)
+                ) && 
+                (
+                    this.IntentsId == other.IntentsId ||
+                    this.IntentsId != null &&
+                    this.IntentsId.Equals(other.IntentsId)
+                ) && 
+                (
                     this.PaymentId == other.PaymentId ||
                     this.PaymentId != null &&
                     this.PaymentId.Equals(other.PaymentId)
@@ -575,6 +615,11 @@ namespace CyberSource.Model
                     this.NetworkPartnerId == other.NetworkPartnerId ||
                     this.NetworkPartnerId != null &&
                     this.NetworkPartnerId.Equals(other.NetworkPartnerId)
+                ) && 
+                (
+                    this.PaymentType == other.PaymentType ||
+                    this.PaymentType != null &&
+                    this.PaymentType.Equals(other.PaymentType)
                 );
         }
 
@@ -615,6 +660,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.LinkId.GetHashCode();
                 if (this.PurchaseLevel != null)
                     hash = hash * 59 + this.PurchaseLevel.GetHashCode();
+                if (this.TransactionTimeout != null)
+                    hash = hash * 59 + this.TransactionTimeout.GetHashCode();
+                if (this.IntentsId != null)
+                    hash = hash * 59 + this.IntentsId.GetHashCode();
                 if (this.PaymentId != null)
                     hash = hash * 59 + this.PaymentId.GetHashCode();
                 if (this.ReportGroup != null)
@@ -655,6 +704,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.IsReturnAuthRecordEnabled.GetHashCode();
                 if (this.NetworkPartnerId != null)
                     hash = hash * 59 + this.NetworkPartnerId.GetHashCode();
+                if (this.PaymentType != null)
+                    hash = hash * 59 + this.PaymentType.GetHashCode();
                 return hash;
             }
         }
@@ -666,6 +717,12 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // TransactionTimeout (int?) maximum
+            if(this.TransactionTimeout >= (int?)99999)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTimeout, must be a value less than or equal to 99999.", new [] { "TransactionTimeout" });
+            }
+
             yield break;
         }
     }

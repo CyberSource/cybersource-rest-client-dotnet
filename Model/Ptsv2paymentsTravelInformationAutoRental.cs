@@ -75,7 +75,9 @@ namespace CyberSource.Model
         /// <param name="PhoneCharge">Additional charges incurred for phone usage included on the total bill. .</param>
         /// <param name="ParkingViolationCharge">Extra charges incurred due to a parking violation for the auto. This field is supported only for Visa. .</param>
         /// <param name="OtherCharges">Total amount charged for all other miscellaneous charges not previously defined. .</param>
-        public Ptsv2paymentsTravelInformationAutoRental(bool? NoShowIndicator = default(bool?), string CustomerName = default(string), string VehicleClass = default(string), string DistanceTravelled = default(string), string DistanceUnit = default(string), string ReturnDateTime = default(string), string RentalDateTime = default(string), string MaxFreeDistance = default(string), bool? InsuranceIndicator = default(bool?), string ProgramCode = default(string), Ptsv2paymentsTravelInformationAutoRentalReturnAddress ReturnAddress = default(Ptsv2paymentsTravelInformationAutoRentalReturnAddress), Ptsv2paymentsTravelInformationAutoRentalRentalAddress RentalAddress = default(Ptsv2paymentsTravelInformationAutoRentalRentalAddress), string AgreementNumber = default(string), string OdometerReading = default(string), string VehicleIdentificationNumber = default(string), string CompanyId = default(string), string NumberOfAdditionalDrivers = default(string), string DriverAge = default(string), string SpecialProgramCode = default(string), string VehicleMake = default(string), string VehicleModel = default(string), string TimePeriod = default(string), string CommodityCode = default(string), string CustomerServicePhoneNumber = default(string), Ptsv2paymentsTravelInformationAutoRentalTaxDetails TaxDetails = default(Ptsv2paymentsTravelInformationAutoRentalTaxDetails), string InsuranceAmount = default(string), string OneWayDropOffAmount = default(string), string AdjustedAmountIndicator = default(string), string AdjustedAmount = default(string), string FuelCharges = default(string), string WeeklyRentalRate = default(string), string DailyRentalRate = default(string), string RatePerMile = default(string), string MileageCharge = default(string), string ExtraMileageCharge = default(string), string LateFeeAmount = default(string), string TowingCharge = default(string), string ExtraCharge = default(string), string GpsCharge = default(string), string PhoneCharge = default(string), string ParkingViolationCharge = default(string), string OtherCharges = default(string))
+        /// <param name="CompanyName">Merchant to send their auto rental company name .</param>
+        /// <param name="AffiliateName">When merchant wants to send the affiliate name. .</param>
+        public Ptsv2paymentsTravelInformationAutoRental(bool? NoShowIndicator = default(bool?), string CustomerName = default(string), string VehicleClass = default(string), string DistanceTravelled = default(string), string DistanceUnit = default(string), string ReturnDateTime = default(string), string RentalDateTime = default(string), string MaxFreeDistance = default(string), bool? InsuranceIndicator = default(bool?), string ProgramCode = default(string), Ptsv2paymentsTravelInformationAutoRentalReturnAddress ReturnAddress = default(Ptsv2paymentsTravelInformationAutoRentalReturnAddress), Ptsv2paymentsTravelInformationAutoRentalRentalAddress RentalAddress = default(Ptsv2paymentsTravelInformationAutoRentalRentalAddress), string AgreementNumber = default(string), string OdometerReading = default(string), string VehicleIdentificationNumber = default(string), string CompanyId = default(string), string NumberOfAdditionalDrivers = default(string), string DriverAge = default(string), string SpecialProgramCode = default(string), string VehicleMake = default(string), string VehicleModel = default(string), string TimePeriod = default(string), string CommodityCode = default(string), string CustomerServicePhoneNumber = default(string), Ptsv2paymentsTravelInformationAutoRentalTaxDetails TaxDetails = default(Ptsv2paymentsTravelInformationAutoRentalTaxDetails), string InsuranceAmount = default(string), string OneWayDropOffAmount = default(string), string AdjustedAmountIndicator = default(string), string AdjustedAmount = default(string), string FuelCharges = default(string), string WeeklyRentalRate = default(string), string DailyRentalRate = default(string), string RatePerMile = default(string), string MileageCharge = default(string), string ExtraMileageCharge = default(string), string LateFeeAmount = default(string), string TowingCharge = default(string), string ExtraCharge = default(string), string GpsCharge = default(string), string PhoneCharge = default(string), string ParkingViolationCharge = default(string), string OtherCharges = default(string), string CompanyName = default(string), string AffiliateName = default(string))
         {
             this.NoShowIndicator = NoShowIndicator;
             this.CustomerName = CustomerName;
@@ -119,6 +121,8 @@ namespace CyberSource.Model
             this.PhoneCharge = PhoneCharge;
             this.ParkingViolationCharge = ParkingViolationCharge;
             this.OtherCharges = OtherCharges;
+            this.CompanyName = CompanyName;
+            this.AffiliateName = AffiliateName;
         }
         
         /// <summary>
@@ -413,6 +417,20 @@ namespace CyberSource.Model
         public string OtherCharges { get; set; }
 
         /// <summary>
+        /// Merchant to send their auto rental company name 
+        /// </summary>
+        /// <value>Merchant to send their auto rental company name </value>
+        [DataMember(Name="companyName", EmitDefaultValue=false)]
+        public string CompanyName { get; set; }
+
+        /// <summary>
+        /// When merchant wants to send the affiliate name. 
+        /// </summary>
+        /// <value>When merchant wants to send the affiliate name. </value>
+        [DataMember(Name="affiliateName", EmitDefaultValue=false)]
+        public string AffiliateName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -462,6 +480,8 @@ namespace CyberSource.Model
             sb.Append("  PhoneCharge: ").Append(PhoneCharge).Append("\n");
             sb.Append("  ParkingViolationCharge: ").Append(ParkingViolationCharge).Append("\n");
             sb.Append("  OtherCharges: ").Append(OtherCharges).Append("\n");
+            sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
+            sb.Append("  AffiliateName: ").Append(AffiliateName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -707,6 +727,16 @@ namespace CyberSource.Model
                     this.OtherCharges == other.OtherCharges ||
                     this.OtherCharges != null &&
                     this.OtherCharges.Equals(other.OtherCharges)
+                ) && 
+                (
+                    this.CompanyName == other.CompanyName ||
+                    this.CompanyName != null &&
+                    this.CompanyName.Equals(other.CompanyName)
+                ) && 
+                (
+                    this.AffiliateName == other.AffiliateName ||
+                    this.AffiliateName != null &&
+                    this.AffiliateName.Equals(other.AffiliateName)
                 );
         }
 
@@ -805,6 +835,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ParkingViolationCharge.GetHashCode();
                 if (this.OtherCharges != null)
                     hash = hash * 59 + this.OtherCharges.GetHashCode();
+                if (this.CompanyName != null)
+                    hash = hash * 59 + this.CompanyName.GetHashCode();
+                if (this.AffiliateName != null)
+                    hash = hash * 59 + this.AffiliateName.GetHashCode();
                 return hash;
             }
         }

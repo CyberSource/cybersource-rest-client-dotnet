@@ -36,11 +36,15 @@ namespace CyberSource.Model
         /// <param name="AdministrativeArea">State or province of the shipping address. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf) (maximum length: 2)   Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
         /// <param name="Country">Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
         /// <param name="PostalCode">Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  #### American Express Direct Before sending the postal code to the processor, all nonalphanumeric characters are removed and, if the remaining value is longer than nine characters, the value is truncated starting from the right side. #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
-        public Ptsv2paymentsidcapturesOrderInformationShipTo(string AdministrativeArea = default(string), string Country = default(string), string PostalCode = default(string))
+        /// <param name="Email">Email of the recipient..</param>
+        /// <param name="County">U.S. county if available..</param>
+        public Ptsv2paymentsidcapturesOrderInformationShipTo(string AdministrativeArea = default(string), string Country = default(string), string PostalCode = default(string), string Email = default(string), string County = default(string))
         {
             this.AdministrativeArea = AdministrativeArea;
             this.Country = Country;
             this.PostalCode = PostalCode;
+            this.Email = Email;
+            this.County = County;
         }
         
         /// <summary>
@@ -65,6 +69,20 @@ namespace CyberSource.Model
         public string PostalCode { get; set; }
 
         /// <summary>
+        /// Email of the recipient.
+        /// </summary>
+        /// <value>Email of the recipient.</value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// U.S. county if available.
+        /// </summary>
+        /// <value>U.S. county if available.</value>
+        [DataMember(Name="county", EmitDefaultValue=false)]
+        public string County { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +93,8 @@ namespace CyberSource.Model
             sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  County: ").Append(County).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +145,16 @@ namespace CyberSource.Model
                     this.PostalCode == other.PostalCode ||
                     this.PostalCode != null &&
                     this.PostalCode.Equals(other.PostalCode)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
+                ) && 
+                (
+                    this.County == other.County ||
+                    this.County != null &&
+                    this.County.Equals(other.County)
                 );
         }
 
@@ -145,6 +175,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Country.GetHashCode();
                 if (this.PostalCode != null)
                     hash = hash * 59 + this.PostalCode.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
+                if (this.County != null)
+                    hash = hash * 59 + this.County.GetHashCode();
                 return hash;
             }
         }

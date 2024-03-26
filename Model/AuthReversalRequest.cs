@@ -38,13 +38,17 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        public AuthReversalRequest(Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsidreversalsClientReferenceInformation), Ptsv2paymentsidreversalsReversalInformation ReversalInformation = default(Ptsv2paymentsidreversalsReversalInformation), Ptsv2paymentsidreversalsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidreversalsProcessingInformation), Ptsv2paymentsidreversalsOrderInformation OrderInformation = default(Ptsv2paymentsidreversalsOrderInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation))
+        /// <param name="PaymentInformation">PaymentInformation.</param>
+        /// <param name="ProcessorInformation">ProcessorInformation.</param>
+        public AuthReversalRequest(Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsidreversalsClientReferenceInformation), Ptsv2paymentsidreversalsReversalInformation ReversalInformation = default(Ptsv2paymentsidreversalsReversalInformation), Ptsv2paymentsidreversalsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidreversalsProcessingInformation), Ptsv2paymentsidreversalsOrderInformation OrderInformation = default(Ptsv2paymentsidreversalsOrderInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation), Ptsv2paymentsidreversalsPaymentInformation PaymentInformation = default(Ptsv2paymentsidreversalsPaymentInformation), Ptsv2paymentsProcessorInformationReversal ProcessorInformation = default(Ptsv2paymentsProcessorInformationReversal))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ReversalInformation = ReversalInformation;
             this.ProcessingInformation = ProcessingInformation;
             this.OrderInformation = OrderInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
+            this.PaymentInformation = PaymentInformation;
+            this.ProcessorInformation = ProcessorInformation;
         }
         
         /// <summary>
@@ -78,6 +82,18 @@ namespace CyberSource.Model
         public Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentInformation
+        /// </summary>
+        [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsidreversalsPaymentInformation PaymentInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProcessorInformation
+        /// </summary>
+        [DataMember(Name="processorInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessorInformationReversal ProcessorInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +106,8 @@ namespace CyberSource.Model
             sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
+            sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +168,16 @@ namespace CyberSource.Model
                     this.PointOfSaleInformation == other.PointOfSaleInformation ||
                     this.PointOfSaleInformation != null &&
                     this.PointOfSaleInformation.Equals(other.PointOfSaleInformation)
+                ) && 
+                (
+                    this.PaymentInformation == other.PaymentInformation ||
+                    this.PaymentInformation != null &&
+                    this.PaymentInformation.Equals(other.PaymentInformation)
+                ) && 
+                (
+                    this.ProcessorInformation == other.ProcessorInformation ||
+                    this.ProcessorInformation != null &&
+                    this.ProcessorInformation.Equals(other.ProcessorInformation)
                 );
         }
 
@@ -174,6 +202,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 if (this.PointOfSaleInformation != null)
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
+                if (this.PaymentInformation != null)
+                    hash = hash * 59 + this.PaymentInformation.GetHashCode();
+                if (this.ProcessorInformation != null)
+                    hash = hash * 59 + this.ProcessorInformation.GetHashCode();
                 return hash;
             }
         }

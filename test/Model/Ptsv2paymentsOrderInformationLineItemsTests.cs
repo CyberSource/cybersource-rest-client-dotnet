@@ -273,6 +273,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ReferenceDataNumber'
         }
         /// <summary>
+        /// Test the property 'UnitTaxAmount'
+        /// </summary>
+        [Test]
+        public void UnitTaxAmountTest()
+        {
+            // TODO unit test for the property 'UnitTaxAmount'
+        }
+        /// <summary>
         /// Test the property 'ProductDescription'
         /// </summary>
         [Test]

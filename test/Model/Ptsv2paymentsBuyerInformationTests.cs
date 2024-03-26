@@ -129,6 +129,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Language'
         }
         /// <summary>
+        /// Test the property 'NoteToSeller'
+        /// </summary>
+        [Test]
+        public void NoteToSellerTest()
+        {
+            // TODO unit test for the property 'NoteToSeller'
+        }
+        /// <summary>
         /// Test the property 'MobilePhone'
         /// </summary>
         [Test]

@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2IncrementalAuthorizationPatch201ResponseOrderInformation" /> class.
         /// </summary>
         /// <param name="AmountDetails">AmountDetails.</param>
-        public PtsV2IncrementalAuthorizationPatch201ResponseOrderInformation(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails))
+        /// <param name="InvoiceDetails">InvoiceDetails.</param>
+        public PtsV2IncrementalAuthorizationPatch201ResponseOrderInformation(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsPost201ResponseOrderInformationAmountDetails), PtsV2IncrementalAuthorizationPatch201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2IncrementalAuthorizationPatch201ResponseOrderInformationInvoiceDetails))
         {
             this.AmountDetails = AmountDetails;
+            this.InvoiceDetails = InvoiceDetails;
         }
         
         /// <summary>
@@ -44,6 +46,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="amountDetails", EmitDefaultValue=false)]
         public PtsV2PaymentsPost201ResponseOrderInformationAmountDetails AmountDetails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InvoiceDetails
+        /// </summary>
+        [DataMember(Name="invoiceDetails", EmitDefaultValue=false)]
+        public PtsV2IncrementalAuthorizationPatch201ResponseOrderInformationInvoiceDetails InvoiceDetails { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +62,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2IncrementalAuthorizationPatch201ResponseOrderInformation {\n");
             sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
+            sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +103,11 @@ namespace CyberSource.Model
                     this.AmountDetails == other.AmountDetails ||
                     this.AmountDetails != null &&
                     this.AmountDetails.Equals(other.AmountDetails)
+                ) && 
+                (
+                    this.InvoiceDetails == other.InvoiceDetails ||
+                    this.InvoiceDetails != null &&
+                    this.InvoiceDetails.Equals(other.InvoiceDetails)
                 );
         }
 
@@ -110,6 +124,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.AmountDetails != null)
                     hash = hash * 59 + this.AmountDetails.GetHashCode();
+                if (this.InvoiceDetails != null)
+                    hash = hash * 59 + this.InvoiceDetails.GetHashCode();
                 return hash;
             }
         }

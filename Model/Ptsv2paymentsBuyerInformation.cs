@@ -41,8 +41,9 @@ namespace CyberSource.Model
         /// <param name="HashedPassword">The merchant&#39;s password that CyberSource hashes and stores as a hashed password.  For details about this field, see the &#x60;customer_password&#x60; field description in _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="Gender">Customer&#39;s gender. Possible values are F (female), M (male),O (other)..</param>
         /// <param name="Language">language setting of the user.</param>
+        /// <param name="NoteToSeller">Note to the recipient of the funds in this transaction.</param>
         /// <param name="MobilePhone">Cardholder&#39;s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
-        public Ptsv2paymentsBuyerInformation(string MerchantCustomerId = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), string CompanyTaxId = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), string HashedPassword = default(string), string Gender = default(string), string Language = default(string), int? MobilePhone = default(int?))
+        public Ptsv2paymentsBuyerInformation(string MerchantCustomerId = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), string CompanyTaxId = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), string HashedPassword = default(string), string Gender = default(string), string Language = default(string), string NoteToSeller = default(string), int? MobilePhone = default(int?))
         {
             this.MerchantCustomerId = MerchantCustomerId;
             this.DateOfBirth = DateOfBirth;
@@ -52,6 +53,7 @@ namespace CyberSource.Model
             this.HashedPassword = HashedPassword;
             this.Gender = Gender;
             this.Language = Language;
+            this.NoteToSeller = NoteToSeller;
             this.MobilePhone = MobilePhone;
         }
         
@@ -111,6 +113,13 @@ namespace CyberSource.Model
         public string Language { get; set; }
 
         /// <summary>
+        /// Note to the recipient of the funds in this transaction
+        /// </summary>
+        /// <value>Note to the recipient of the funds in this transaction</value>
+        [DataMember(Name="noteToSeller", EmitDefaultValue=false)]
+        public string NoteToSeller { get; set; }
+
+        /// <summary>
         /// Cardholder&#39;s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. 
         /// </summary>
         /// <value>Cardholder&#39;s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. </value>
@@ -133,6 +142,7 @@ namespace CyberSource.Model
             sb.Append("  HashedPassword: ").Append(HashedPassword).Append("\n");
             sb.Append("  Gender: ").Append(Gender).Append("\n");
             sb.Append("  Language: ").Append(Language).Append("\n");
+            sb.Append("  NoteToSeller: ").Append(NoteToSeller).Append("\n");
             sb.Append("  MobilePhone: ").Append(MobilePhone).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -211,6 +221,11 @@ namespace CyberSource.Model
                     this.Language.Equals(other.Language)
                 ) && 
                 (
+                    this.NoteToSeller == other.NoteToSeller ||
+                    this.NoteToSeller != null &&
+                    this.NoteToSeller.Equals(other.NoteToSeller)
+                ) && 
+                (
                     this.MobilePhone == other.MobilePhone ||
                     this.MobilePhone != null &&
                     this.MobilePhone.Equals(other.MobilePhone)
@@ -244,6 +259,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Gender.GetHashCode();
                 if (this.Language != null)
                     hash = hash * 59 + this.Language.GetHashCode();
+                if (this.NoteToSeller != null)
+                    hash = hash * 59 + this.NoteToSeller.GetHashCode();
                 if (this.MobilePhone != null)
                     hash = hash * 59 + this.MobilePhone.GetHashCode();
                 return hash;

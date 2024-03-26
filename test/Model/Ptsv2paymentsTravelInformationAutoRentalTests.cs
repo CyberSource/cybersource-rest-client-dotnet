@@ -400,6 +400,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'OtherCharges'
         }
+        /// <summary>
+        /// Test the property 'CompanyName'
+        /// </summary>
+        [Test]
+        public void CompanyNameTest()
+        {
+            // TODO unit test for the property 'CompanyName'
+        }
+        /// <summary>
+        /// Test the property 'AffiliateName'
+        /// </summary>
+        [Test]
+        public void AffiliateNameTest()
+        {
+            // TODO unit test for the property 'AffiliateName'
+        }
 
     }
 

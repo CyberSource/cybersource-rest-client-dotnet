@@ -113,6 +113,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Country'
         }
         /// <summary>
+        /// Test the property 'County'
+        /// </summary>
+        [Test]
+        public void CountyTest()
+        {
+            // TODO unit test for the property 'County'
+        }
+        /// <summary>
         /// Test the property 'District'
         /// </summary>
         [Test]
@@ -135,6 +143,14 @@ namespace CyberSource.Test
         public void FirstNameTest()
         {
             // TODO unit test for the property 'FirstName'
+        }
+        /// <summary>
+        /// Test the property 'MiddleName'
+        /// </summary>
+        [Test]
+        public void MiddleNameTest()
+        {
+            // TODO unit test for the property 'MiddleName'
         }
         /// <summary>
         /// Test the property 'LastName'
@@ -167,6 +183,14 @@ namespace CyberSource.Test
         public void PostalCodeTest()
         {
             // TODO unit test for the property 'PostalCode'
+        }
+        /// <summary>
+        /// Test the property 'Title'
+        /// </summary>
+        [Test]
+        public void TitleTest()
+        {
+            // TODO unit test for the property 'Title'
         }
 
     }

@@ -74,7 +74,7 @@ namespace CyberSource.Test
             //ModifyBillingAgreement modifyBillingAgreement = null;
             //string id = null;
             //var response = instance.BillingAgreementsDeRegistration(modifyBillingAgreement, id);
-            //Assert.IsInstanceOf<PtsV2CreditsPost201Response1> (response, "response is PtsV2CreditsPost201Response1");
+            //Assert.IsInstanceOf<PtsV2ModifyBillingAgreementPost201Response> (response, "response is PtsV2ModifyBillingAgreementPost201Response");
         }
         
         /// <summary>
@@ -99,7 +99,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //CreateBillingAgreement createBillingAgreement = null;
             //var response = instance.BillingAgreementsRegistration(createBillingAgreement);
-            //Assert.IsInstanceOf<PtsV2CreditsPost201Response1> (response, "response is PtsV2CreditsPost201Response1");
+            //Assert.IsInstanceOf<PtsV2CreateBillingAgreementPost201Response> (response, "response is PtsV2CreateBillingAgreementPost201Response");
         }
         
     }

@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="EncoderId">Identifier for the bank that provided the customer&#39;s encoded account number.  To obtain the bank identifier, contact your processor.  For details, see &#x60;account_encoder_id&#x60; request-level field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
         /// <param name="CheckNumber">Check number.  Chase Paymentech Solutions - Optional. CyberSource ACH Service - Not used. RBS WorldPay Atlanta - Optional on debits. Required on credits. TeleCheck - Strongly recommended on debit requests. Optional on credits. .</param>
         /// <param name="CheckImageReferenceNumber">Image reference number associated with the check. You cannot include any special characters. .</param>
-        public Ptsv2paymentsPaymentInformationBankAccount(string Type = default(string), string Number = default(string), string EncoderId = default(string), string CheckNumber = default(string), string CheckImageReferenceNumber = default(string))
+        /// <param name="Iban">International Bank Account Number (IBAN) for the bank account. For some countries you can provide this number instead of the traditional bank account information. You can use this field only when scoring a direct debit transaction.  For all possible values, see the &#x60;bank_iban&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
+        public Ptsv2paymentsPaymentInformationBankAccount(string Type = default(string), string Number = default(string), string EncoderId = default(string), string CheckNumber = default(string), string CheckImageReferenceNumber = default(string), string Iban = default(string))
         {
             this.Type = Type;
             this.Number = Number;
             this.EncoderId = EncoderId;
             this.CheckNumber = CheckNumber;
             this.CheckImageReferenceNumber = CheckImageReferenceNumber;
+            this.Iban = Iban;
         }
         
         /// <summary>
@@ -83,6 +85,13 @@ namespace CyberSource.Model
         public string CheckImageReferenceNumber { get; set; }
 
         /// <summary>
+        /// International Bank Account Number (IBAN) for the bank account. For some countries you can provide this number instead of the traditional bank account information. You can use this field only when scoring a direct debit transaction.  For all possible values, see the &#x60;bank_iban&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). 
+        /// </summary>
+        /// <value>International Bank Account Number (IBAN) for the bank account. For some countries you can provide this number instead of the traditional bank account information. You can use this field only when scoring a direct debit transaction.  For all possible values, see the &#x60;bank_iban&#x60; field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). </value>
+        [DataMember(Name="iban", EmitDefaultValue=false)]
+        public string Iban { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +104,7 @@ namespace CyberSource.Model
             sb.Append("  EncoderId: ").Append(EncoderId).Append("\n");
             sb.Append("  CheckNumber: ").Append(CheckNumber).Append("\n");
             sb.Append("  CheckImageReferenceNumber: ").Append(CheckImageReferenceNumber).Append("\n");
+            sb.Append("  Iban: ").Append(Iban).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +165,11 @@ namespace CyberSource.Model
                     this.CheckImageReferenceNumber == other.CheckImageReferenceNumber ||
                     this.CheckImageReferenceNumber != null &&
                     this.CheckImageReferenceNumber.Equals(other.CheckImageReferenceNumber)
+                ) && 
+                (
+                    this.Iban == other.Iban ||
+                    this.Iban != null &&
+                    this.Iban.Equals(other.Iban)
                 );
         }
 
@@ -179,6 +194,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CheckNumber.GetHashCode();
                 if (this.CheckImageReferenceNumber != null)
                     hash = hash * 59 + this.CheckImageReferenceNumber.GetHashCode();
+                if (this.Iban != null)
+                    hash = hash * 59 + this.Iban.GetHashCode();
                 return hash;
             }
         }
