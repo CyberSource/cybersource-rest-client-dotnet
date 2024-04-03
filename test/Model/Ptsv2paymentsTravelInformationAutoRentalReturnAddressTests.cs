@@ -97,6 +97,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'LocationId'
         }
         /// <summary>
+        /// Test the property 'Address1'
+        /// </summary>
+        [Test]
+        public void Address1Test()
+        {
+            // TODO unit test for the property 'Address1'
+        }
+        /// <summary>
+        /// Test the property 'PostalCode'
+        /// </summary>
+        [Test]
+        public void PostalCodeTest()
+        {
+            // TODO unit test for the property 'PostalCode'
+        }
+        /// <summary>
         /// Test the property 'Location'
         /// </summary>
         [Test]

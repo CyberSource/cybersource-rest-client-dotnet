@@ -137,6 +137,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'PostalCode'
         }
         /// <summary>
+        /// Test the property 'County'
+        /// </summary>
+        [Test]
+        public void CountyTest()
+        {
+            // TODO unit test for the property 'County'
+        }
+        /// <summary>
         /// Test the property 'Country'
         /// </summary>
         [Test]
@@ -167,6 +175,14 @@ namespace CyberSource.Test
         public void PhoneNumberTest()
         {
             // TODO unit test for the property 'PhoneNumber'
+        }
+        /// <summary>
+        /// Test the property 'Email'
+        /// </summary>
+        [Test]
+        public void EmailTest()
+        {
+            // TODO unit test for the property 'Email'
         }
         /// <summary>
         /// Test the property 'Company'

@@ -28,28 +28,28 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Standing Instruction Cancellation or Modification
+        /// Modify a Billing Agreement
         /// </summary>
         /// <remarks>
-        /// Standing Instruction with or without Token
+        /// #### Standing Instruction: Standing Instruction with or without Token.  #### Revoke Mandate: When you revoke a mandate, any pending direct debits linked to that mandate are canceled. No notifications are sent. When you revoke a mandate with no pending direct debits, the Bacs scheme or customer&#39;s bank notify you of any subsequent direct debit events. When you revoke a mandate, you cannot send a direct debit request using the mandate ID. Customer payments cannot be made against a revoked mandate. You can revoke a mandate when the customer:   - Requests that you revoke the mandate.   - Closes their account with you. Possible revoke mandate status values -   - Revoked—the revoke mandate request was successfully processed.   - Failed—the revoke mandate request was not accepted.  #### Update Mandate: In most cases, the account details of an existing mandate cannot be updated in the Bacs schema, except by creating a new mandate. However, some very limited customer information, like name and address, can be updated to the mandate without needing to revoke it first  #### Mandate Status: After the customer signs the mandate, request that the mandate status service verify the mandate status. Possible mandate status values:   - Active—the mandate is successfully created. A direct debit can be sent for this mandate ID.   - Pending—a pending mandate means the mandate is not yet signed.   - Failed—the customer did not authenticate.   - Expired—the deadline to create the mandate passed.   - Revoked—the mandate is cancelled.  #### Paypal Billing Agreement:  A billing agreement is set up between PayPal and your customer. When you collect the details of a customer&#39;s billing agreement, you are able to bill that customer without requiring an authorization for each payment.  You can bill the customer at the same time you process their PayPal Express checkout order, which simplifies your business processes. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modifyBillingAgreement"></param>
         /// <param name="id">ID for de-registration or cancellation of Billing Agreement</param>
-        /// <returns>PtsV2CreditsPost201Response1</returns>
-        PtsV2CreditsPost201Response1 BillingAgreementsDeRegistration (ModifyBillingAgreement modifyBillingAgreement, string id);
+        /// <returns>PtsV2ModifyBillingAgreementPost201Response</returns>
+        PtsV2ModifyBillingAgreementPost201Response BillingAgreementsDeRegistration (ModifyBillingAgreement modifyBillingAgreement, string id);
 
         /// <summary>
-        /// Standing Instruction Cancellation or Modification
+        /// Modify a Billing Agreement
         /// </summary>
         /// <remarks>
-        /// Standing Instruction with or without Token
+        /// #### Standing Instruction: Standing Instruction with or without Token.  #### Revoke Mandate: When you revoke a mandate, any pending direct debits linked to that mandate are canceled. No notifications are sent. When you revoke a mandate with no pending direct debits, the Bacs scheme or customer&#39;s bank notify you of any subsequent direct debit events. When you revoke a mandate, you cannot send a direct debit request using the mandate ID. Customer payments cannot be made against a revoked mandate. You can revoke a mandate when the customer:   - Requests that you revoke the mandate.   - Closes their account with you. Possible revoke mandate status values -   - Revoked—the revoke mandate request was successfully processed.   - Failed—the revoke mandate request was not accepted.  #### Update Mandate: In most cases, the account details of an existing mandate cannot be updated in the Bacs schema, except by creating a new mandate. However, some very limited customer information, like name and address, can be updated to the mandate without needing to revoke it first  #### Mandate Status: After the customer signs the mandate, request that the mandate status service verify the mandate status. Possible mandate status values:   - Active—the mandate is successfully created. A direct debit can be sent for this mandate ID.   - Pending—a pending mandate means the mandate is not yet signed.   - Failed—the customer did not authenticate.   - Expired—the deadline to create the mandate passed.   - Revoked—the mandate is cancelled.  #### Paypal Billing Agreement:  A billing agreement is set up between PayPal and your customer. When you collect the details of a customer&#39;s billing agreement, you are able to bill that customer without requiring an authorization for each payment.  You can bill the customer at the same time you process their PayPal Express checkout order, which simplifies your business processes. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modifyBillingAgreement"></param>
         /// <param name="id">ID for de-registration or cancellation of Billing Agreement</param>
-        /// <returns>ApiResponse of PtsV2CreditsPost201Response1</returns>
-        ApiResponse<PtsV2CreditsPost201Response1> BillingAgreementsDeRegistrationWithHttpInfo (ModifyBillingAgreement modifyBillingAgreement, string id);
+        /// <returns>ApiResponse of PtsV2ModifyBillingAgreementPost201Response</returns>
+        ApiResponse<PtsV2ModifyBillingAgreementPost201Response> BillingAgreementsDeRegistrationWithHttpInfo (ModifyBillingAgreement modifyBillingAgreement, string id);
         /// <summary>
         /// Standing Instruction intimation
         /// </summary>
@@ -74,51 +74,51 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of PtsV2CreditsPost201Response1</returns>
         ApiResponse<PtsV2CreditsPost201Response1> BillingAgreementsIntimationWithHttpInfo (IntimateBillingAgreement intimateBillingAgreement, string id);
         /// <summary>
-        /// Standing Instruction completion registration
+        /// Create a Billing Agreement
         /// </summary>
         /// <remarks>
-        /// Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed
+        /// #### Standing Instruction: Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed  #### Create Mandate: You can create a mandate through the direct debit mandate flow. Possible create mandate status values:   - Pending—the create mandate request was successfully processed.   - Failed—the create mandate request was not accepted.  #### Import Mandate: In the Bacs scheme, a mandate is created with a status of active. Direct debit collections can be made against it immediately. You can import a mandate to the CyberSource database when:   - You have existing customers with signed, active mandates   - You manage mandates outside of CyberSource.  When you import an existing mandate to the CyberSource database, provide a unique value for the mandate ID or the request results in an error. If an import mandate request is not accepted, the import mandate status value is failed. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBillingAgreement"></param>
-        /// <returns>PtsV2CreditsPost201Response1</returns>
-        PtsV2CreditsPost201Response1 BillingAgreementsRegistration (CreateBillingAgreement createBillingAgreement);
+        /// <returns>PtsV2CreateBillingAgreementPost201Response</returns>
+        PtsV2CreateBillingAgreementPost201Response BillingAgreementsRegistration (CreateBillingAgreement createBillingAgreement);
 
         /// <summary>
-        /// Standing Instruction completion registration
+        /// Create a Billing Agreement
         /// </summary>
         /// <remarks>
-        /// Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed
+        /// #### Standing Instruction: Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed  #### Create Mandate: You can create a mandate through the direct debit mandate flow. Possible create mandate status values:   - Pending—the create mandate request was successfully processed.   - Failed—the create mandate request was not accepted.  #### Import Mandate: In the Bacs scheme, a mandate is created with a status of active. Direct debit collections can be made against it immediately. You can import a mandate to the CyberSource database when:   - You have existing customers with signed, active mandates   - You manage mandates outside of CyberSource.  When you import an existing mandate to the CyberSource database, provide a unique value for the mandate ID or the request results in an error. If an import mandate request is not accepted, the import mandate status value is failed. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBillingAgreement"></param>
-        /// <returns>ApiResponse of PtsV2CreditsPost201Response1</returns>
-        ApiResponse<PtsV2CreditsPost201Response1> BillingAgreementsRegistrationWithHttpInfo (CreateBillingAgreement createBillingAgreement);
+        /// <returns>ApiResponse of PtsV2CreateBillingAgreementPost201Response</returns>
+        ApiResponse<PtsV2CreateBillingAgreementPost201Response> BillingAgreementsRegistrationWithHttpInfo (CreateBillingAgreement createBillingAgreement);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Standing Instruction Cancellation or Modification
+        /// Modify a Billing Agreement
         /// </summary>
         /// <remarks>
-        /// Standing Instruction with or without Token
+        /// #### Standing Instruction: Standing Instruction with or without Token.  #### Revoke Mandate: When you revoke a mandate, any pending direct debits linked to that mandate are canceled. No notifications are sent. When you revoke a mandate with no pending direct debits, the Bacs scheme or customer&#39;s bank notify you of any subsequent direct debit events. When you revoke a mandate, you cannot send a direct debit request using the mandate ID. Customer payments cannot be made against a revoked mandate. You can revoke a mandate when the customer:   - Requests that you revoke the mandate.   - Closes their account with you. Possible revoke mandate status values -   - Revoked—the revoke mandate request was successfully processed.   - Failed—the revoke mandate request was not accepted.  #### Update Mandate: In most cases, the account details of an existing mandate cannot be updated in the Bacs schema, except by creating a new mandate. However, some very limited customer information, like name and address, can be updated to the mandate without needing to revoke it first  #### Mandate Status: After the customer signs the mandate, request that the mandate status service verify the mandate status. Possible mandate status values:   - Active—the mandate is successfully created. A direct debit can be sent for this mandate ID.   - Pending—a pending mandate means the mandate is not yet signed.   - Failed—the customer did not authenticate.   - Expired—the deadline to create the mandate passed.   - Revoked—the mandate is cancelled.  #### Paypal Billing Agreement:  A billing agreement is set up between PayPal and your customer. When you collect the details of a customer&#39;s billing agreement, you are able to bill that customer without requiring an authorization for each payment.  You can bill the customer at the same time you process their PayPal Express checkout order, which simplifies your business processes. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modifyBillingAgreement"></param>
         /// <param name="id">ID for de-registration or cancellation of Billing Agreement</param>
-        /// <returns>Task of PtsV2CreditsPost201Response1</returns>
-        System.Threading.Tasks.Task<PtsV2CreditsPost201Response1> BillingAgreementsDeRegistrationAsync (ModifyBillingAgreement modifyBillingAgreement, string id);
+        /// <returns>Task of PtsV2ModifyBillingAgreementPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2ModifyBillingAgreementPost201Response> BillingAgreementsDeRegistrationAsync (ModifyBillingAgreement modifyBillingAgreement, string id);
 
         /// <summary>
-        /// Standing Instruction Cancellation or Modification
+        /// Modify a Billing Agreement
         /// </summary>
         /// <remarks>
-        /// Standing Instruction with or without Token
+        /// #### Standing Instruction: Standing Instruction with or without Token.  #### Revoke Mandate: When you revoke a mandate, any pending direct debits linked to that mandate are canceled. No notifications are sent. When you revoke a mandate with no pending direct debits, the Bacs scheme or customer&#39;s bank notify you of any subsequent direct debit events. When you revoke a mandate, you cannot send a direct debit request using the mandate ID. Customer payments cannot be made against a revoked mandate. You can revoke a mandate when the customer:   - Requests that you revoke the mandate.   - Closes their account with you. Possible revoke mandate status values -   - Revoked—the revoke mandate request was successfully processed.   - Failed—the revoke mandate request was not accepted.  #### Update Mandate: In most cases, the account details of an existing mandate cannot be updated in the Bacs schema, except by creating a new mandate. However, some very limited customer information, like name and address, can be updated to the mandate without needing to revoke it first  #### Mandate Status: After the customer signs the mandate, request that the mandate status service verify the mandate status. Possible mandate status values:   - Active—the mandate is successfully created. A direct debit can be sent for this mandate ID.   - Pending—a pending mandate means the mandate is not yet signed.   - Failed—the customer did not authenticate.   - Expired—the deadline to create the mandate passed.   - Revoked—the mandate is cancelled.  #### Paypal Billing Agreement:  A billing agreement is set up between PayPal and your customer. When you collect the details of a customer&#39;s billing agreement, you are able to bill that customer without requiring an authorization for each payment.  You can bill the customer at the same time you process their PayPal Express checkout order, which simplifies your business processes. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modifyBillingAgreement"></param>
         /// <param name="id">ID for de-registration or cancellation of Billing Agreement</param>
-        /// <returns>Task of ApiResponse (PtsV2CreditsPost201Response1)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2CreditsPost201Response1>> BillingAgreementsDeRegistrationAsyncWithHttpInfo (ModifyBillingAgreement modifyBillingAgreement, string id);
+        /// <returns>Task of ApiResponse (PtsV2ModifyBillingAgreementPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2ModifyBillingAgreementPost201Response>> BillingAgreementsDeRegistrationAsyncWithHttpInfo (ModifyBillingAgreement modifyBillingAgreement, string id);
         /// <summary>
         /// Standing Instruction intimation
         /// </summary>
@@ -143,26 +143,26 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (PtsV2CreditsPost201Response1)</returns>
         System.Threading.Tasks.Task<ApiResponse<PtsV2CreditsPost201Response1>> BillingAgreementsIntimationAsyncWithHttpInfo (IntimateBillingAgreement intimateBillingAgreement, string id);
         /// <summary>
-        /// Standing Instruction completion registration
+        /// Create a Billing Agreement
         /// </summary>
         /// <remarks>
-        /// Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed
+        /// #### Standing Instruction: Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed  #### Create Mandate: You can create a mandate through the direct debit mandate flow. Possible create mandate status values:   - Pending—the create mandate request was successfully processed.   - Failed—the create mandate request was not accepted.  #### Import Mandate: In the Bacs scheme, a mandate is created with a status of active. Direct debit collections can be made against it immediately. You can import a mandate to the CyberSource database when:   - You have existing customers with signed, active mandates   - You manage mandates outside of CyberSource.  When you import an existing mandate to the CyberSource database, provide a unique value for the mandate ID or the request results in an error. If an import mandate request is not accepted, the import mandate status value is failed. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBillingAgreement"></param>
-        /// <returns>Task of PtsV2CreditsPost201Response1</returns>
-        System.Threading.Tasks.Task<PtsV2CreditsPost201Response1> BillingAgreementsRegistrationAsync (CreateBillingAgreement createBillingAgreement);
+        /// <returns>Task of PtsV2CreateBillingAgreementPost201Response</returns>
+        System.Threading.Tasks.Task<PtsV2CreateBillingAgreementPost201Response> BillingAgreementsRegistrationAsync (CreateBillingAgreement createBillingAgreement);
 
         /// <summary>
-        /// Standing Instruction completion registration
+        /// Create a Billing Agreement
         /// </summary>
         /// <remarks>
-        /// Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed
+        /// #### Standing Instruction: Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed  #### Create Mandate: You can create a mandate through the direct debit mandate flow. Possible create mandate status values:   - Pending—the create mandate request was successfully processed.   - Failed—the create mandate request was not accepted.  #### Import Mandate: In the Bacs scheme, a mandate is created with a status of active. Direct debit collections can be made against it immediately. You can import a mandate to the CyberSource database when:   - You have existing customers with signed, active mandates   - You manage mandates outside of CyberSource.  When you import an existing mandate to the CyberSource database, provide a unique value for the mandate ID or the request results in an error. If an import mandate request is not accepted, the import mandate status value is failed. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBillingAgreement"></param>
-        /// <returns>Task of ApiResponse (PtsV2CreditsPost201Response1)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2CreditsPost201Response1>> BillingAgreementsRegistrationAsyncWithHttpInfo (CreateBillingAgreement createBillingAgreement);
+        /// <returns>Task of ApiResponse (PtsV2CreateBillingAgreementPost201Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PtsV2CreateBillingAgreementPost201Response>> BillingAgreementsRegistrationAsyncWithHttpInfo (CreateBillingAgreement createBillingAgreement);
         #endregion Asynchronous Operations
     }
 
@@ -304,30 +304,30 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Standing Instruction Cancellation or Modification Standing Instruction with or without Token
+        /// Modify a Billing Agreement #### Standing Instruction: Standing Instruction with or without Token.  #### Revoke Mandate: When you revoke a mandate, any pending direct debits linked to that mandate are canceled. No notifications are sent. When you revoke a mandate with no pending direct debits, the Bacs scheme or customer&#39;s bank notify you of any subsequent direct debit events. When you revoke a mandate, you cannot send a direct debit request using the mandate ID. Customer payments cannot be made against a revoked mandate. You can revoke a mandate when the customer:   - Requests that you revoke the mandate.   - Closes their account with you. Possible revoke mandate status values -   - Revoked—the revoke mandate request was successfully processed.   - Failed—the revoke mandate request was not accepted.  #### Update Mandate: In most cases, the account details of an existing mandate cannot be updated in the Bacs schema, except by creating a new mandate. However, some very limited customer information, like name and address, can be updated to the mandate without needing to revoke it first  #### Mandate Status: After the customer signs the mandate, request that the mandate status service verify the mandate status. Possible mandate status values:   - Active—the mandate is successfully created. A direct debit can be sent for this mandate ID.   - Pending—a pending mandate means the mandate is not yet signed.   - Failed—the customer did not authenticate.   - Expired—the deadline to create the mandate passed.   - Revoked—the mandate is cancelled.  #### Paypal Billing Agreement:  A billing agreement is set up between PayPal and your customer. When you collect the details of a customer&#39;s billing agreement, you are able to bill that customer without requiring an authorization for each payment.  You can bill the customer at the same time you process their PayPal Express checkout order, which simplifies your business processes. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modifyBillingAgreement"></param>
         /// <param name="id">ID for de-registration or cancellation of Billing Agreement</param>
-        /// <returns>PtsV2CreditsPost201Response1</returns>
-        public PtsV2CreditsPost201Response1 BillingAgreementsDeRegistration (ModifyBillingAgreement modifyBillingAgreement, string id)
+        /// <returns>PtsV2ModifyBillingAgreementPost201Response</returns>
+        public PtsV2ModifyBillingAgreementPost201Response BillingAgreementsDeRegistration (ModifyBillingAgreement modifyBillingAgreement, string id)
         {
             logger.Debug("CALLING API \"BillingAgreementsDeRegistration\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2CreditsPost201Response1> localVarResponse = BillingAgreementsDeRegistrationWithHttpInfo(modifyBillingAgreement, id);
+            ApiResponse<PtsV2ModifyBillingAgreementPost201Response> localVarResponse = BillingAgreementsDeRegistrationWithHttpInfo(modifyBillingAgreement, id);
             logger.Debug("CALLING API \"BillingAgreementsDeRegistration\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Standing Instruction Cancellation or Modification Standing Instruction with or without Token
+        /// Modify a Billing Agreement #### Standing Instruction: Standing Instruction with or without Token.  #### Revoke Mandate: When you revoke a mandate, any pending direct debits linked to that mandate are canceled. No notifications are sent. When you revoke a mandate with no pending direct debits, the Bacs scheme or customer&#39;s bank notify you of any subsequent direct debit events. When you revoke a mandate, you cannot send a direct debit request using the mandate ID. Customer payments cannot be made against a revoked mandate. You can revoke a mandate when the customer:   - Requests that you revoke the mandate.   - Closes their account with you. Possible revoke mandate status values -   - Revoked—the revoke mandate request was successfully processed.   - Failed—the revoke mandate request was not accepted.  #### Update Mandate: In most cases, the account details of an existing mandate cannot be updated in the Bacs schema, except by creating a new mandate. However, some very limited customer information, like name and address, can be updated to the mandate without needing to revoke it first  #### Mandate Status: After the customer signs the mandate, request that the mandate status service verify the mandate status. Possible mandate status values:   - Active—the mandate is successfully created. A direct debit can be sent for this mandate ID.   - Pending—a pending mandate means the mandate is not yet signed.   - Failed—the customer did not authenticate.   - Expired—the deadline to create the mandate passed.   - Revoked—the mandate is cancelled.  #### Paypal Billing Agreement:  A billing agreement is set up between PayPal and your customer. When you collect the details of a customer&#39;s billing agreement, you are able to bill that customer without requiring an authorization for each payment.  You can bill the customer at the same time you process their PayPal Express checkout order, which simplifies your business processes. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modifyBillingAgreement"></param>
         /// <param name="id">ID for de-registration or cancellation of Billing Agreement</param>
-        /// <returns>ApiResponse of PtsV2CreditsPost201Response1</returns>
-        public ApiResponse< PtsV2CreditsPost201Response1 > BillingAgreementsDeRegistrationWithHttpInfo (ModifyBillingAgreement modifyBillingAgreement, string id)
+        /// <returns>ApiResponse of PtsV2ModifyBillingAgreementPost201Response</returns>
+        public ApiResponse< PtsV2ModifyBillingAgreementPost201Response > BillingAgreementsDeRegistrationWithHttpInfo (ModifyBillingAgreement modifyBillingAgreement, string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -411,23 +411,23 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2CreditsPost201Response1>(localVarStatusCode,
+            return new ApiResponse<PtsV2ModifyBillingAgreementPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2CreditsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1))); // Return statement
+                (PtsV2ModifyBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2ModifyBillingAgreementPost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Standing Instruction Cancellation or Modification Standing Instruction with or without Token
+        /// Modify a Billing Agreement #### Standing Instruction: Standing Instruction with or without Token.  #### Revoke Mandate: When you revoke a mandate, any pending direct debits linked to that mandate are canceled. No notifications are sent. When you revoke a mandate with no pending direct debits, the Bacs scheme or customer&#39;s bank notify you of any subsequent direct debit events. When you revoke a mandate, you cannot send a direct debit request using the mandate ID. Customer payments cannot be made against a revoked mandate. You can revoke a mandate when the customer:   - Requests that you revoke the mandate.   - Closes their account with you. Possible revoke mandate status values -   - Revoked—the revoke mandate request was successfully processed.   - Failed—the revoke mandate request was not accepted.  #### Update Mandate: In most cases, the account details of an existing mandate cannot be updated in the Bacs schema, except by creating a new mandate. However, some very limited customer information, like name and address, can be updated to the mandate without needing to revoke it first  #### Mandate Status: After the customer signs the mandate, request that the mandate status service verify the mandate status. Possible mandate status values:   - Active—the mandate is successfully created. A direct debit can be sent for this mandate ID.   - Pending—a pending mandate means the mandate is not yet signed.   - Failed—the customer did not authenticate.   - Expired—the deadline to create the mandate passed.   - Revoked—the mandate is cancelled.  #### Paypal Billing Agreement:  A billing agreement is set up between PayPal and your customer. When you collect the details of a customer&#39;s billing agreement, you are able to bill that customer without requiring an authorization for each payment.  You can bill the customer at the same time you process their PayPal Express checkout order, which simplifies your business processes. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modifyBillingAgreement"></param>
         /// <param name="id">ID for de-registration or cancellation of Billing Agreement</param>
-        /// <returns>Task of PtsV2CreditsPost201Response1</returns>
-        public async System.Threading.Tasks.Task<PtsV2CreditsPost201Response1> BillingAgreementsDeRegistrationAsync (ModifyBillingAgreement modifyBillingAgreement, string id)
+        /// <returns>Task of PtsV2ModifyBillingAgreementPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2ModifyBillingAgreementPost201Response> BillingAgreementsDeRegistrationAsync (ModifyBillingAgreement modifyBillingAgreement, string id)
         {
             logger.Debug("CALLING API \"BillingAgreementsDeRegistrationAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2CreditsPost201Response1> localVarResponse = await BillingAgreementsDeRegistrationAsyncWithHttpInfo(modifyBillingAgreement, id);
+            ApiResponse<PtsV2ModifyBillingAgreementPost201Response> localVarResponse = await BillingAgreementsDeRegistrationAsyncWithHttpInfo(modifyBillingAgreement, id);
             logger.Debug("CALLING API \"BillingAgreementsDeRegistrationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -435,13 +435,13 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Standing Instruction Cancellation or Modification Standing Instruction with or without Token
+        /// Modify a Billing Agreement #### Standing Instruction: Standing Instruction with or without Token.  #### Revoke Mandate: When you revoke a mandate, any pending direct debits linked to that mandate are canceled. No notifications are sent. When you revoke a mandate with no pending direct debits, the Bacs scheme or customer&#39;s bank notify you of any subsequent direct debit events. When you revoke a mandate, you cannot send a direct debit request using the mandate ID. Customer payments cannot be made against a revoked mandate. You can revoke a mandate when the customer:   - Requests that you revoke the mandate.   - Closes their account with you. Possible revoke mandate status values -   - Revoked—the revoke mandate request was successfully processed.   - Failed—the revoke mandate request was not accepted.  #### Update Mandate: In most cases, the account details of an existing mandate cannot be updated in the Bacs schema, except by creating a new mandate. However, some very limited customer information, like name and address, can be updated to the mandate without needing to revoke it first  #### Mandate Status: After the customer signs the mandate, request that the mandate status service verify the mandate status. Possible mandate status values:   - Active—the mandate is successfully created. A direct debit can be sent for this mandate ID.   - Pending—a pending mandate means the mandate is not yet signed.   - Failed—the customer did not authenticate.   - Expired—the deadline to create the mandate passed.   - Revoked—the mandate is cancelled.  #### Paypal Billing Agreement:  A billing agreement is set up between PayPal and your customer. When you collect the details of a customer&#39;s billing agreement, you are able to bill that customer without requiring an authorization for each payment.  You can bill the customer at the same time you process their PayPal Express checkout order, which simplifies your business processes. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modifyBillingAgreement"></param>
         /// <param name="id">ID for de-registration or cancellation of Billing Agreement</param>
-        /// <returns>Task of ApiResponse (PtsV2CreditsPost201Response1)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2CreditsPost201Response1>> BillingAgreementsDeRegistrationAsyncWithHttpInfo (ModifyBillingAgreement modifyBillingAgreement, string id)
+        /// <returns>Task of ApiResponse (PtsV2ModifyBillingAgreementPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2ModifyBillingAgreementPost201Response>> BillingAgreementsDeRegistrationAsyncWithHttpInfo (ModifyBillingAgreement modifyBillingAgreement, string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -525,9 +525,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2CreditsPost201Response1>(localVarStatusCode,
+            return new ApiResponse<PtsV2ModifyBillingAgreementPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2CreditsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1))); // Return statement
+                (PtsV2ModifyBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2ModifyBillingAgreementPost201Response))); // Return statement
         }
         /// <summary>
         /// Standing Instruction intimation Standing Instruction with or without Token.
@@ -756,28 +756,28 @@ namespace CyberSource.Api
                 (PtsV2CreditsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1))); // Return statement
         }
         /// <summary>
-        /// Standing Instruction completion registration Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed
+        /// Create a Billing Agreement #### Standing Instruction: Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed  #### Create Mandate: You can create a mandate through the direct debit mandate flow. Possible create mandate status values:   - Pending—the create mandate request was successfully processed.   - Failed—the create mandate request was not accepted.  #### Import Mandate: In the Bacs scheme, a mandate is created with a status of active. Direct debit collections can be made against it immediately. You can import a mandate to the CyberSource database when:   - You have existing customers with signed, active mandates   - You manage mandates outside of CyberSource.  When you import an existing mandate to the CyberSource database, provide a unique value for the mandate ID or the request results in an error. If an import mandate request is not accepted, the import mandate status value is failed. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBillingAgreement"></param>
-        /// <returns>PtsV2CreditsPost201Response1</returns>
-        public PtsV2CreditsPost201Response1 BillingAgreementsRegistration (CreateBillingAgreement createBillingAgreement)
+        /// <returns>PtsV2CreateBillingAgreementPost201Response</returns>
+        public PtsV2CreateBillingAgreementPost201Response BillingAgreementsRegistration (CreateBillingAgreement createBillingAgreement)
         {
             logger.Debug("CALLING API \"BillingAgreementsRegistration\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2CreditsPost201Response1> localVarResponse = BillingAgreementsRegistrationWithHttpInfo(createBillingAgreement);
+            ApiResponse<PtsV2CreateBillingAgreementPost201Response> localVarResponse = BillingAgreementsRegistrationWithHttpInfo(createBillingAgreement);
             logger.Debug("CALLING API \"BillingAgreementsRegistration\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Standing Instruction completion registration Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed
+        /// Create a Billing Agreement #### Standing Instruction: Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed  #### Create Mandate: You can create a mandate through the direct debit mandate flow. Possible create mandate status values:   - Pending—the create mandate request was successfully processed.   - Failed—the create mandate request was not accepted.  #### Import Mandate: In the Bacs scheme, a mandate is created with a status of active. Direct debit collections can be made against it immediately. You can import a mandate to the CyberSource database when:   - You have existing customers with signed, active mandates   - You manage mandates outside of CyberSource.  When you import an existing mandate to the CyberSource database, provide a unique value for the mandate ID or the request results in an error. If an import mandate request is not accepted, the import mandate status value is failed. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBillingAgreement"></param>
-        /// <returns>ApiResponse of PtsV2CreditsPost201Response1</returns>
-        public ApiResponse< PtsV2CreditsPost201Response1 > BillingAgreementsRegistrationWithHttpInfo (CreateBillingAgreement createBillingAgreement)
+        /// <returns>ApiResponse of PtsV2CreateBillingAgreementPost201Response</returns>
+        public ApiResponse< PtsV2CreateBillingAgreementPost201Response > BillingAgreementsRegistrationWithHttpInfo (CreateBillingAgreement createBillingAgreement)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -850,22 +850,22 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2CreditsPost201Response1>(localVarStatusCode,
+            return new ApiResponse<PtsV2CreateBillingAgreementPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2CreditsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1))); // Return statement
+                (PtsV2CreateBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreateBillingAgreementPost201Response))); // Return statement
         }
 
         /// <summary>
-        /// Standing Instruction completion registration Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed
+        /// Create a Billing Agreement #### Standing Instruction: Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed  #### Create Mandate: You can create a mandate through the direct debit mandate flow. Possible create mandate status values:   - Pending—the create mandate request was successfully processed.   - Failed—the create mandate request was not accepted.  #### Import Mandate: In the Bacs scheme, a mandate is created with a status of active. Direct debit collections can be made against it immediately. You can import a mandate to the CyberSource database when:   - You have existing customers with signed, active mandates   - You manage mandates outside of CyberSource.  When you import an existing mandate to the CyberSource database, provide a unique value for the mandate ID or the request results in an error. If an import mandate request is not accepted, the import mandate status value is failed. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBillingAgreement"></param>
-        /// <returns>Task of PtsV2CreditsPost201Response1</returns>
-        public async System.Threading.Tasks.Task<PtsV2CreditsPost201Response1> BillingAgreementsRegistrationAsync (CreateBillingAgreement createBillingAgreement)
+        /// <returns>Task of PtsV2CreateBillingAgreementPost201Response</returns>
+        public async System.Threading.Tasks.Task<PtsV2CreateBillingAgreementPost201Response> BillingAgreementsRegistrationAsync (CreateBillingAgreement createBillingAgreement)
         {
             logger.Debug("CALLING API \"BillingAgreementsRegistrationAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2CreditsPost201Response1> localVarResponse = await BillingAgreementsRegistrationAsyncWithHttpInfo(createBillingAgreement);
+            ApiResponse<PtsV2CreateBillingAgreementPost201Response> localVarResponse = await BillingAgreementsRegistrationAsyncWithHttpInfo(createBillingAgreement);
             logger.Debug("CALLING API \"BillingAgreementsRegistrationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -873,12 +873,12 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Standing Instruction completion registration Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed
+        /// Create a Billing Agreement #### Standing Instruction: Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed  #### Create Mandate: You can create a mandate through the direct debit mandate flow. Possible create mandate status values:   - Pending—the create mandate request was successfully processed.   - Failed—the create mandate request was not accepted.  #### Import Mandate: In the Bacs scheme, a mandate is created with a status of active. Direct debit collections can be made against it immediately. You can import a mandate to the CyberSource database when:   - You have existing customers with signed, active mandates   - You manage mandates outside of CyberSource.  When you import an existing mandate to the CyberSource database, provide a unique value for the mandate ID or the request results in an error. If an import mandate request is not accepted, the import mandate status value is failed. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBillingAgreement"></param>
-        /// <returns>Task of ApiResponse (PtsV2CreditsPost201Response1)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PtsV2CreditsPost201Response1>> BillingAgreementsRegistrationAsyncWithHttpInfo (CreateBillingAgreement createBillingAgreement)
+        /// <returns>Task of ApiResponse (PtsV2CreateBillingAgreementPost201Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PtsV2CreateBillingAgreementPost201Response>> BillingAgreementsRegistrationAsyncWithHttpInfo (CreateBillingAgreement createBillingAgreement)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -951,9 +951,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2CreditsPost201Response1>(localVarStatusCode,
+            return new ApiResponse<PtsV2CreateBillingAgreementPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PtsV2CreditsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1))); // Return statement
+                (PtsV2CreateBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreateBillingAgreementPost201Response))); // Return statement
         }
     }
 }

@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'DateToCapture'
         }
+        /// <summary>
+        /// Test the property 'IsFinal'
+        /// </summary>
+        [Test]
+        public void IsFinalTest()
+        {
+            // TODO unit test for the property 'IsFinal'
+        }
 
     }
 

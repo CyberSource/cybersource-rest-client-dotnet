@@ -33,14 +33,97 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseOrderInformationBillTo" /> class.
         /// </summary>
+        /// <param name="FirstName">FirstName.</param>
+        /// <param name="LastName">LastName.</param>
+        /// <param name="Address1">First line of the billing street address. .</param>
+        /// <param name="Address2">Second line of the billing street address. .</param>
+        /// <param name="Locality">City of the billing address. .</param>
+        /// <param name="PostalCode">Postal code for the billing address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits] Example: 12345-6789 When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space] [numeric][alpha][numeric] Example: A1B 2C3 .</param>
+        /// <param name="AdministrativeArea">State or province of the billing address. Use the State, Province, and Territory Codes for the United States and Canada. .</param>
+        /// <param name="Country">Country of the billing address. Use the two-character ISO Standard Country Codes. .</param>
+        /// <param name="Email">Email address of the customer. .</param>
         /// <param name="AlternatePhoneNumberVerificationStatus">#### Visa Platform Connect Contains one of the following values that will identify the phone number result code in the account verification response message:  &#39;VERIFIED&#39; - Customer verified  &#39;UNVERIFIED&#39; - Customer not verified  &#39;FAILED&#39; - Customer verification failed .</param>
         /// <param name="AlternateEmailVerificationStatus">#### Visa Platform Connect Contains one of the following values that will identify the phone number result code in the account verification response message:  &#39;VERIFIED&#39; - Customer verified  &#39;UNVERIFIED&#39; - Customer not verified  &#39;FAILED&#39; - Customer verification failed .</param>
-        public PtsV2PaymentsPost201ResponseOrderInformationBillTo(string AlternatePhoneNumberVerificationStatus = default(string), string AlternateEmailVerificationStatus = default(string))
+        /// <param name="PhoneNumber">Customer&#39;s phone number.  It is recommended that you include the country code when the order is from outside the U.S.  #### Chase Paymentech Solutions Optional field.  ####  Credit Mutuel-CIC Optional field.  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  #### For Payouts: This field may be sent only for FDC Compass.  #### OmniPay Direct Optional field.  #### SIX Optional field.  #### TSYS Acquiring Solutions Optional field.  #### Worldpay VAP Optional field.  #### All other processors Not used. .</param>
+        /// <param name="NameSuffix">Customer&#39;s name suffix. .</param>
+        public PtsV2PaymentsPost201ResponseOrderInformationBillTo(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Country = default(string), string Email = default(string), string AlternatePhoneNumberVerificationStatus = default(string), string AlternateEmailVerificationStatus = default(string), string PhoneNumber = default(string), string NameSuffix = default(string))
         {
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.Address1 = Address1;
+            this.Address2 = Address2;
+            this.Locality = Locality;
+            this.PostalCode = PostalCode;
+            this.AdministrativeArea = AdministrativeArea;
+            this.Country = Country;
+            this.Email = Email;
             this.AlternatePhoneNumberVerificationStatus = AlternatePhoneNumberVerificationStatus;
             this.AlternateEmailVerificationStatus = AlternateEmailVerificationStatus;
+            this.PhoneNumber = PhoneNumber;
+            this.NameSuffix = NameSuffix;
         }
         
+        /// <summary>
+        /// Gets or Sets FirstName
+        /// </summary>
+        [DataMember(Name="firstName", EmitDefaultValue=false)]
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LastName
+        /// </summary>
+        [DataMember(Name="lastName", EmitDefaultValue=false)]
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// First line of the billing street address. 
+        /// </summary>
+        /// <value>First line of the billing street address. </value>
+        [DataMember(Name="address1", EmitDefaultValue=false)]
+        public string Address1 { get; set; }
+
+        /// <summary>
+        /// Second line of the billing street address. 
+        /// </summary>
+        /// <value>Second line of the billing street address. </value>
+        [DataMember(Name="address2", EmitDefaultValue=false)]
+        public string Address2 { get; set; }
+
+        /// <summary>
+        /// City of the billing address. 
+        /// </summary>
+        /// <value>City of the billing address. </value>
+        [DataMember(Name="locality", EmitDefaultValue=false)]
+        public string Locality { get; set; }
+
+        /// <summary>
+        /// Postal code for the billing address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits] Example: 12345-6789 When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space] [numeric][alpha][numeric] Example: A1B 2C3 
+        /// </summary>
+        /// <value>Postal code for the billing address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits] Example: 12345-6789 When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space] [numeric][alpha][numeric] Example: A1B 2C3 </value>
+        [DataMember(Name="postalCode", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
+
+        /// <summary>
+        /// State or province of the billing address. Use the State, Province, and Territory Codes for the United States and Canada. 
+        /// </summary>
+        /// <value>State or province of the billing address. Use the State, Province, and Territory Codes for the United States and Canada. </value>
+        [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
+        public string AdministrativeArea { get; set; }
+
+        /// <summary>
+        /// Country of the billing address. Use the two-character ISO Standard Country Codes. 
+        /// </summary>
+        /// <value>Country of the billing address. Use the two-character ISO Standard Country Codes. </value>
+        [DataMember(Name="country", EmitDefaultValue=false)]
+        public string Country { get; set; }
+
+        /// <summary>
+        /// Email address of the customer. 
+        /// </summary>
+        /// <value>Email address of the customer. </value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
+
         /// <summary>
         /// #### Visa Platform Connect Contains one of the following values that will identify the phone number result code in the account verification response message:  &#39;VERIFIED&#39; - Customer verified  &#39;UNVERIFIED&#39; - Customer not verified  &#39;FAILED&#39; - Customer verification failed 
         /// </summary>
@@ -56,6 +139,20 @@ namespace CyberSource.Model
         public string AlternateEmailVerificationStatus { get; set; }
 
         /// <summary>
+        /// Customer&#39;s phone number.  It is recommended that you include the country code when the order is from outside the U.S.  #### Chase Paymentech Solutions Optional field.  ####  Credit Mutuel-CIC Optional field.  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  #### For Payouts: This field may be sent only for FDC Compass.  #### OmniPay Direct Optional field.  #### SIX Optional field.  #### TSYS Acquiring Solutions Optional field.  #### Worldpay VAP Optional field.  #### All other processors Not used. 
+        /// </summary>
+        /// <value>Customer&#39;s phone number.  It is recommended that you include the country code when the order is from outside the U.S.  #### Chase Paymentech Solutions Optional field.  ####  Credit Mutuel-CIC Optional field.  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  #### For Payouts: This field may be sent only for FDC Compass.  #### OmniPay Direct Optional field.  #### SIX Optional field.  #### TSYS Acquiring Solutions Optional field.  #### Worldpay VAP Optional field.  #### All other processors Not used. </value>
+        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
+        public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Customer&#39;s name suffix. 
+        /// </summary>
+        /// <value>Customer&#39;s name suffix. </value>
+        [DataMember(Name="nameSuffix", EmitDefaultValue=false)]
+        public string NameSuffix { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,8 +160,19 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseOrderInformationBillTo {\n");
+            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  Address1: ").Append(Address1).Append("\n");
+            sb.Append("  Address2: ").Append(Address2).Append("\n");
+            sb.Append("  Locality: ").Append(Locality).Append("\n");
+            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            sb.Append("  Country: ").Append(Country).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  AlternatePhoneNumberVerificationStatus: ").Append(AlternatePhoneNumberVerificationStatus).Append("\n");
             sb.Append("  AlternateEmailVerificationStatus: ").Append(AlternateEmailVerificationStatus).Append("\n");
+            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  NameSuffix: ").Append(NameSuffix).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,6 +210,51 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.FirstName == other.FirstName ||
+                    this.FirstName != null &&
+                    this.FirstName.Equals(other.FirstName)
+                ) && 
+                (
+                    this.LastName == other.LastName ||
+                    this.LastName != null &&
+                    this.LastName.Equals(other.LastName)
+                ) && 
+                (
+                    this.Address1 == other.Address1 ||
+                    this.Address1 != null &&
+                    this.Address1.Equals(other.Address1)
+                ) && 
+                (
+                    this.Address2 == other.Address2 ||
+                    this.Address2 != null &&
+                    this.Address2.Equals(other.Address2)
+                ) && 
+                (
+                    this.Locality == other.Locality ||
+                    this.Locality != null &&
+                    this.Locality.Equals(other.Locality)
+                ) && 
+                (
+                    this.PostalCode == other.PostalCode ||
+                    this.PostalCode != null &&
+                    this.PostalCode.Equals(other.PostalCode)
+                ) && 
+                (
+                    this.AdministrativeArea == other.AdministrativeArea ||
+                    this.AdministrativeArea != null &&
+                    this.AdministrativeArea.Equals(other.AdministrativeArea)
+                ) && 
+                (
+                    this.Country == other.Country ||
+                    this.Country != null &&
+                    this.Country.Equals(other.Country)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
+                ) && 
+                (
                     this.AlternatePhoneNumberVerificationStatus == other.AlternatePhoneNumberVerificationStatus ||
                     this.AlternatePhoneNumberVerificationStatus != null &&
                     this.AlternatePhoneNumberVerificationStatus.Equals(other.AlternatePhoneNumberVerificationStatus)
@@ -110,6 +263,16 @@ namespace CyberSource.Model
                     this.AlternateEmailVerificationStatus == other.AlternateEmailVerificationStatus ||
                     this.AlternateEmailVerificationStatus != null &&
                     this.AlternateEmailVerificationStatus.Equals(other.AlternateEmailVerificationStatus)
+                ) && 
+                (
+                    this.PhoneNumber == other.PhoneNumber ||
+                    this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(other.PhoneNumber)
+                ) && 
+                (
+                    this.NameSuffix == other.NameSuffix ||
+                    this.NameSuffix != null &&
+                    this.NameSuffix.Equals(other.NameSuffix)
                 );
         }
 
@@ -124,10 +287,32 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.FirstName != null)
+                    hash = hash * 59 + this.FirstName.GetHashCode();
+                if (this.LastName != null)
+                    hash = hash * 59 + this.LastName.GetHashCode();
+                if (this.Address1 != null)
+                    hash = hash * 59 + this.Address1.GetHashCode();
+                if (this.Address2 != null)
+                    hash = hash * 59 + this.Address2.GetHashCode();
+                if (this.Locality != null)
+                    hash = hash * 59 + this.Locality.GetHashCode();
+                if (this.PostalCode != null)
+                    hash = hash * 59 + this.PostalCode.GetHashCode();
+                if (this.AdministrativeArea != null)
+                    hash = hash * 59 + this.AdministrativeArea.GetHashCode();
+                if (this.Country != null)
+                    hash = hash * 59 + this.Country.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
                 if (this.AlternatePhoneNumberVerificationStatus != null)
                     hash = hash * 59 + this.AlternatePhoneNumberVerificationStatus.GetHashCode();
                 if (this.AlternateEmailVerificationStatus != null)
                     hash = hash * 59 + this.AlternateEmailVerificationStatus.GetHashCode();
+                if (this.PhoneNumber != null)
+                    hash = hash * 59 + this.PhoneNumber.GetHashCode();
+                if (this.NameSuffix != null)
+                    hash = hash * 59 + this.NameSuffix.GetHashCode();
                 return hash;
             }
         }

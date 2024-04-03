@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **ProcessingInformation** | [**Ptsv2paymentsidreversalsProcessingInformation**](Ptsv2paymentsidreversalsProcessingInformation.md) |  | [optional] 
 **OrderInformation** | [**Ptsv2paymentsidreversalsOrderInformation**](Ptsv2paymentsidreversalsOrderInformation.md) |  | [optional] 
 **PointOfSaleInformation** | [**Ptsv2paymentsidreversalsPointOfSaleInformation**](Ptsv2paymentsidreversalsPointOfSaleInformation.md) |  | [optional] 
+**PaymentInformation** | [**Ptsv2paymentsidreversalsPaymentInformation**](Ptsv2paymentsidreversalsPaymentInformation.md) |  | [optional] 
+**ProcessorInformation** | [**Ptsv2paymentsProcessorInformationReversal**](Ptsv2paymentsProcessorInformationReversal.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

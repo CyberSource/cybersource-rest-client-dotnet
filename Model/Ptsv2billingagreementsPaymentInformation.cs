@@ -35,10 +35,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Card">Card.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
-        public Ptsv2billingagreementsPaymentInformation(Ptsv2billingagreementsPaymentInformationCard Card = default(Ptsv2billingagreementsPaymentInformationCard), Ptsv2billingagreementsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2billingagreementsPaymentInformationTokenizedCard))
+        /// <param name="PaymentType">PaymentType.</param>
+        /// <param name="Bank">Bank.</param>
+        public Ptsv2billingagreementsPaymentInformation(Ptsv2billingagreementsPaymentInformationCard Card = default(Ptsv2billingagreementsPaymentInformationCard), Ptsv2billingagreementsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2billingagreementsPaymentInformationTokenizedCard), Ptsv2billingagreementsPaymentInformationPaymentType PaymentType = default(Ptsv2billingagreementsPaymentInformationPaymentType), Ptsv2billingagreementsPaymentInformationBank Bank = default(Ptsv2billingagreementsPaymentInformationBank))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
+            this.PaymentType = PaymentType;
+            this.Bank = Bank;
         }
         
         /// <summary>
@@ -54,6 +58,18 @@ namespace CyberSource.Model
         public Ptsv2billingagreementsPaymentInformationTokenizedCard TokenizedCard { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentType
+        /// </summary>
+        [DataMember(Name="paymentType", EmitDefaultValue=false)]
+        public Ptsv2billingagreementsPaymentInformationPaymentType PaymentType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Bank
+        /// </summary>
+        [DataMember(Name="bank", EmitDefaultValue=false)]
+        public Ptsv2billingagreementsPaymentInformationBank Bank { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +79,8 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2billingagreementsPaymentInformation {\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
+            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            sb.Append("  Bank: ").Append(Bank).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +126,16 @@ namespace CyberSource.Model
                     this.TokenizedCard == other.TokenizedCard ||
                     this.TokenizedCard != null &&
                     this.TokenizedCard.Equals(other.TokenizedCard)
+                ) && 
+                (
+                    this.PaymentType == other.PaymentType ||
+                    this.PaymentType != null &&
+                    this.PaymentType.Equals(other.PaymentType)
+                ) && 
+                (
+                    this.Bank == other.Bank ||
+                    this.Bank != null &&
+                    this.Bank.Equals(other.Bank)
                 );
         }
 
@@ -126,6 +154,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.TokenizedCard != null)
                     hash = hash * 59 + this.TokenizedCard.GetHashCode();
+                if (this.PaymentType != null)
+                    hash = hash * 59 + this.PaymentType.GetHashCode();
+                if (this.Bank != null)
+                    hash = hash * 59 + this.Bank.GetHashCode();
                 return hash;
             }
         }
