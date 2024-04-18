@@ -42,8 +42,9 @@ namespace CyberSource.Model
         /// <param name="CompanyId">*EXISTING* company ID assigned to merchant by Acquiring bank. This field is alphanumeric.</param>
         /// <param name="BatchGroup">*EXISTING* Capture requests are grouped into a batch bound for your payment processor. The batch time can be identified by reading the last 2-digits as military time. E.g., &lt;processor&gt;_16 &#x3D; your processing cutoff is 4PM PST. Please note if you are in a different location you may then need to convert time zone as well..</param>
         /// <param name="EnableAccuityForAvs">*NEW* Accuity is the original validation service that checks the account/routing number for formatting issues. Used by WF and set to \&quot;Yes\&quot; unless told otherwise (default to true).</param>
+        /// <param name="AccuityCheckType">*NEW*.</param>
         /// <param name="SetCompletedState">*Moved* When set to Yes we will automatically update transactions to a completed status X-number of days after the transaction comes through; if no failure notification is received. When set to No means we will not update transaction status in this manner. For BAMS/Bank of America merchants, they should be set to No unless we are explicitly asked to set a merchant to YES. (default to false).</param>
-        public ECheckConfigCommonProcessors(string CompanyEntryDescription = default(string), string CompanyId = default(string), string BatchGroup = default(string), bool? EnableAccuityForAvs = true, bool? SetCompletedState = false)
+        public ECheckConfigCommonProcessors(string CompanyEntryDescription = default(string), string CompanyId = default(string), string BatchGroup = default(string), bool? EnableAccuityForAvs = true, Object AccuityCheckType = default(Object), bool? SetCompletedState = false)
         {
             // to ensure "CompanyEntryDescription" is required (not null)
             if (CompanyEntryDescription == null)
@@ -65,6 +66,7 @@ namespace CyberSource.Model
             {
                 this.EnableAccuityForAvs = EnableAccuityForAvs;
             }
+            this.AccuityCheckType = AccuityCheckType;
             // use default value if no "SetCompletedState" provided
             if (SetCompletedState == null)
             {
@@ -105,6 +107,13 @@ namespace CyberSource.Model
         public bool? EnableAccuityForAvs { get; set; }
 
         /// <summary>
+        /// *NEW*
+        /// </summary>
+        /// <value>*NEW*</value>
+        [DataMember(Name="accuityCheckType", EmitDefaultValue=false)]
+        public Object AccuityCheckType { get; set; }
+
+        /// <summary>
         /// *Moved* When set to Yes we will automatically update transactions to a completed status X-number of days after the transaction comes through; if no failure notification is received. When set to No means we will not update transaction status in this manner. For BAMS/Bank of America merchants, they should be set to No unless we are explicitly asked to set a merchant to YES.
         /// </summary>
         /// <value>*Moved* When set to Yes we will automatically update transactions to a completed status X-number of days after the transaction comes through; if no failure notification is received. When set to No means we will not update transaction status in this manner. For BAMS/Bank of America merchants, they should be set to No unless we are explicitly asked to set a merchant to YES.</value>
@@ -123,6 +132,7 @@ namespace CyberSource.Model
             sb.Append("  CompanyId: ").Append(CompanyId).Append("\n");
             sb.Append("  BatchGroup: ").Append(BatchGroup).Append("\n");
             sb.Append("  EnableAccuityForAvs: ").Append(EnableAccuityForAvs).Append("\n");
+            sb.Append("  AccuityCheckType: ").Append(AccuityCheckType).Append("\n");
             sb.Append("  SetCompletedState: ").Append(SetCompletedState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -181,6 +191,11 @@ namespace CyberSource.Model
                     this.EnableAccuityForAvs.Equals(other.EnableAccuityForAvs)
                 ) && 
                 (
+                    this.AccuityCheckType == other.AccuityCheckType ||
+                    this.AccuityCheckType != null &&
+                    this.AccuityCheckType.Equals(other.AccuityCheckType)
+                ) && 
+                (
                     this.SetCompletedState == other.SetCompletedState ||
                     this.SetCompletedState != null &&
                     this.SetCompletedState.Equals(other.SetCompletedState)
@@ -206,6 +221,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BatchGroup.GetHashCode();
                 if (this.EnableAccuityForAvs != null)
                     hash = hash * 59 + this.EnableAccuityForAvs.GetHashCode();
+                if (this.AccuityCheckType != null)
+                    hash = hash * 59 + this.AccuityCheckType.GetHashCode();
                 if (this.SetCompletedState != null)
                     hash = hash * 59 + this.SetCompletedState.GetHashCode();
                 return hash;

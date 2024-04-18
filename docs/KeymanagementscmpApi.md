@@ -1,10 +1,10 @@
-# CyberSource.Api.KeymanagementscmpApi
+# CyberSource.Api.KeyManagementScmpApi
 
 All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UpdateSCMP**](KeymanagementscmpApi.md#updatescmp) | **PATCH** /kms/v2/keys-scmp/{keyId} | Update or Deactivate
+[**UpdateSCMP**](KeyManagementScmpApi.md#updatescmp) | **PATCH** /kms/v2/keys-scmp/{keyId} | Update or Deactivate
 
 
 <a name="updatescmp"></a>
@@ -29,7 +29,7 @@ namespace Example
     {
         public void main()
         {
-            var apiInstance = new KeymanagementscmpApi();
+            var apiInstance = new KeyManagementScmpApi();
             var keyId = keyId_example;  // string | Key ID. 
             var updatePGPKeysRequest = new UpdatePGPKeysRequest1(); // UpdatePGPKeysRequest1 | 
 
@@ -41,7 +41,7 @@ namespace Example
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling KeymanagementscmpApi.UpdateSCMP: " + e.Message );
+                Debug.Print("Exception when calling KeyManagementScmpApi.UpdateSCMP: " + e.Message );
             }
         }
     }

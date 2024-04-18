@@ -39,12 +39,11 @@ namespace CyberSource.Model
         {
             
             /// <summary>
-            /// Enum ERROR for "SYSTEM_ERROR"
+            /// Enum SYSTEMERROR for "SYSTEM_ERROR"
             /// </summary>
             [EnumMember(Value = "SYSTEM_ERROR")]
-            ERROR
+            SYSTEMERROR
         }
-
         /// <summary>
         /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;SYSTEM_ERROR&#39; 
         /// </summary>

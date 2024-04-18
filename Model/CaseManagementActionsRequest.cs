@@ -33,11 +33,24 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CaseManagementActionsRequest" /> class.
         /// </summary>
-        /// <param name="DecisionInformation">DecisionInformation.</param>
+        [JsonConstructorAttribute]
+        protected CaseManagementActionsRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CaseManagementActionsRequest" /> class.
+        /// </summary>
+        /// <param name="DecisionInformation">DecisionInformation (required).</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         public CaseManagementActionsRequest(Riskv1decisionsidactionsDecisionInformation DecisionInformation = default(Riskv1decisionsidactionsDecisionInformation), Riskv1decisionsidactionsProcessingInformation ProcessingInformation = default(Riskv1decisionsidactionsProcessingInformation))
         {
-            this.DecisionInformation = DecisionInformation;
+            // to ensure "DecisionInformation" is required (not null)
+            if (DecisionInformation == null)
+            {
+                throw new InvalidDataException("DecisionInformation is a required property for CaseManagementActionsRequest and cannot be null");
+            }
+            else
+            {
+                this.DecisionInformation = DecisionInformation;
+            }
             this.ProcessingInformation = ProcessingInformation;
         }
         

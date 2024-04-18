@@ -33,12 +33,12 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvoicingV2InvoicesGet200ResponseInvoiceHistory" /> class.
         /// </summary>
-        /// <param name="_Event">The event triggered for the invoice.  Possible values:  - &#x60;CREATE&#x60;  - &#x60;UPDATE&#x60;  - &#x60;SEND&#x60;  - &#x60;RESEND&#x60;  - &#x60;REMINDER&#x60;  - &#x60;PAYMENT&#x60;  - &#x60;CANCEL&#x60; .</param>
+        /// <param name="Event">The event triggered for the invoice.  Possible values:  - &#x60;CREATE&#x60;  - &#x60;UPDATE&#x60;  - &#x60;SEND&#x60;  - &#x60;RESEND&#x60;  - &#x60;REMINDER&#x60;  - &#x60;PAYMENT&#x60;  - &#x60;CANCEL&#x60; .</param>
         /// <param name="Date">The date and time when the invoice event was triggered in ISO 8601 format. Format: YYYY-MM-DDThh:mm:ssZ .</param>
         /// <param name="TransactionDetails">TransactionDetails.</param>
-        public InvoicingV2InvoicesGet200ResponseInvoiceHistory(string _Event = default(string), DateTime? Date = default(DateTime?), InvoicingV2InvoicesGet200ResponseTransactionDetails TransactionDetails = default(InvoicingV2InvoicesGet200ResponseTransactionDetails))
+        public InvoicingV2InvoicesGet200ResponseInvoiceHistory(string Event = default(string), DateTime? Date = default(DateTime?), InvoicingV2InvoicesGet200ResponseTransactionDetails TransactionDetails = default(InvoicingV2InvoicesGet200ResponseTransactionDetails))
         {
-            this._Event = _Event;
+            this.Event = Event;
             this.Date = Date;
             this.TransactionDetails = TransactionDetails;
         }
@@ -48,7 +48,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The event triggered for the invoice.  Possible values:  - &#x60;CREATE&#x60;  - &#x60;UPDATE&#x60;  - &#x60;SEND&#x60;  - &#x60;RESEND&#x60;  - &#x60;REMINDER&#x60;  - &#x60;PAYMENT&#x60;  - &#x60;CANCEL&#x60; </value>
         [DataMember(Name="event", EmitDefaultValue=false)]
-        public string _Event { get; set; }
+        public string Event { get; set; }
 
         /// <summary>
         /// The date and time when the invoice event was triggered in ISO 8601 format. Format: YYYY-MM-DDThh:mm:ssZ 
@@ -71,7 +71,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InvoicingV2InvoicesGet200ResponseInvoiceHistory {\n");
-            sb.Append("  _Event: ").Append(_Event).Append("\n");
+            sb.Append("  Event: ").Append(Event).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  TransactionDetails: ").Append(TransactionDetails).Append("\n");
             sb.Append("}\n");
@@ -111,9 +111,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this._Event == other._Event ||
-                    this._Event != null &&
-                    this._Event.Equals(other._Event)
+                    this.Event == other.Event ||
+                    this.Event != null &&
+                    this.Event.Equals(other.Event)
                 ) && 
                 (
                     this.Date == other.Date ||
@@ -138,8 +138,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this._Event != null)
-                    hash = hash * 59 + this._Event.GetHashCode();
+                if (this.Event != null)
+                    hash = hash * 59 + this.Event.GetHashCode();
                 if (this.Date != null)
                     hash = hash * 59 + this.Date.GetHashCode();
                 if (this.TransactionDetails != null)

@@ -59,8 +59,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">The Id of a Customer.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>TmsV2CustomersResponse</returns>
-        TmsV2CustomersResponse GetCustomer (string customerId, string profileId = null);
+        /// <returns>PostCustomerRequest</returns>
+        PostCustomerRequest GetCustomer (string customerId, string profileId = null);
 
         /// <summary>
         /// Retrieve a Customer
@@ -71,8 +71,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">The Id of a Customer.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of TmsV2CustomersResponse</returns>
-        ApiResponse<TmsV2CustomersResponse> GetCustomerWithHttpInfo (string customerId, string profileId = null);
+        /// <returns>ApiResponse of PostCustomerRequest</returns>
+        ApiResponse<PostCustomerRequest> GetCustomerWithHttpInfo (string customerId, string profileId = null);
         /// <summary>
         /// Update a Customer
         /// </summary>
@@ -84,8 +84,8 @@ namespace CyberSource.Api
         /// <param name="patchCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>TmsV2CustomersResponse</returns>
-        TmsV2CustomersResponse PatchCustomer (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null);
+        /// <returns>PatchCustomerRequest</returns>
+        PatchCustomerRequest PatchCustomer (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null);
 
         /// <summary>
         /// Update a Customer
@@ -98,8 +98,8 @@ namespace CyberSource.Api
         /// <param name="patchCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>ApiResponse of TmsV2CustomersResponse</returns>
-        ApiResponse<TmsV2CustomersResponse> PatchCustomerWithHttpInfo (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null);
+        /// <returns>ApiResponse of PatchCustomerRequest</returns>
+        ApiResponse<PatchCustomerRequest> PatchCustomerWithHttpInfo (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null);
         /// <summary>
         /// Create a Customer
         /// </summary>
@@ -109,8 +109,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>TmsV2CustomersResponse</returns>
-        TmsV2CustomersResponse PostCustomer (PostCustomerRequest postCustomerRequest, string profileId = null);
+        /// <returns>PostCustomerRequest</returns>
+        PostCustomerRequest PostCustomer (PostCustomerRequest postCustomerRequest, string profileId = null);
 
         /// <summary>
         /// Create a Customer
@@ -121,8 +121,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of TmsV2CustomersResponse</returns>
-        ApiResponse<TmsV2CustomersResponse> PostCustomerWithHttpInfo (PostCustomerRequest postCustomerRequest, string profileId = null);
+        /// <returns>ApiResponse of PostCustomerRequest</returns>
+        ApiResponse<PostCustomerRequest> PostCustomerWithHttpInfo (PostCustomerRequest postCustomerRequest, string profileId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -157,8 +157,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">The Id of a Customer.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of TmsV2CustomersResponse</returns>
-        System.Threading.Tasks.Task<TmsV2CustomersResponse> GetCustomerAsync (string customerId, string profileId = null);
+        /// <returns>Task of PostCustomerRequest</returns>
+        System.Threading.Tasks.Task<PostCustomerRequest> GetCustomerAsync (string customerId, string profileId = null);
 
         /// <summary>
         /// Retrieve a Customer
@@ -169,8 +169,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">The Id of a Customer.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (TmsV2CustomersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV2CustomersResponse>> GetCustomerAsyncWithHttpInfo (string customerId, string profileId = null);
+        /// <returns>Task of ApiResponse (PostCustomerRequest)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PostCustomerRequest>> GetCustomerAsyncWithHttpInfo (string customerId, string profileId = null);
         /// <summary>
         /// Update a Customer
         /// </summary>
@@ -182,8 +182,8 @@ namespace CyberSource.Api
         /// <param name="patchCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>Task of TmsV2CustomersResponse</returns>
-        System.Threading.Tasks.Task<TmsV2CustomersResponse> PatchCustomerAsync (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null);
+        /// <returns>Task of PatchCustomerRequest</returns>
+        System.Threading.Tasks.Task<PatchCustomerRequest> PatchCustomerAsync (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null);
 
         /// <summary>
         /// Update a Customer
@@ -196,8 +196,8 @@ namespace CyberSource.Api
         /// <param name="patchCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>Task of ApiResponse (TmsV2CustomersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV2CustomersResponse>> PatchCustomerAsyncWithHttpInfo (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null);
+        /// <returns>Task of ApiResponse (PatchCustomerRequest)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PatchCustomerRequest>> PatchCustomerAsyncWithHttpInfo (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null);
         /// <summary>
         /// Create a Customer
         /// </summary>
@@ -207,8 +207,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of TmsV2CustomersResponse</returns>
-        System.Threading.Tasks.Task<TmsV2CustomersResponse> PostCustomerAsync (PostCustomerRequest postCustomerRequest, string profileId = null);
+        /// <returns>Task of PostCustomerRequest</returns>
+        System.Threading.Tasks.Task<PostCustomerRequest> PostCustomerAsync (PostCustomerRequest postCustomerRequest, string profileId = null);
 
         /// <summary>
         /// Create a Customer
@@ -219,8 +219,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (TmsV2CustomersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TmsV2CustomersResponse>> PostCustomerAsyncWithHttpInfo (PostCustomerRequest postCustomerRequest, string profileId = null);
+        /// <returns>Task of ApiResponse (PostCustomerRequest)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PostCustomerRequest>> PostCustomerAsyncWithHttpInfo (PostCustomerRequest postCustomerRequest, string profileId = null);
         #endregion Asynchronous Operations
     }
 
@@ -563,12 +563,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">The Id of a Customer.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>TmsV2CustomersResponse</returns>
-        public TmsV2CustomersResponse GetCustomer (string customerId, string profileId = null)
+        /// <returns>PostCustomerRequest</returns>
+        public PostCustomerRequest GetCustomer (string customerId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetCustomer\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TmsV2CustomersResponse> localVarResponse = GetCustomerWithHttpInfo(customerId, profileId);
+            ApiResponse<PostCustomerRequest> localVarResponse = GetCustomerWithHttpInfo(customerId, profileId);
             logger.Debug("CALLING API \"GetCustomer\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -580,8 +580,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">The Id of a Customer.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of TmsV2CustomersResponse</returns>
-        public ApiResponse< TmsV2CustomersResponse > GetCustomerWithHttpInfo (string customerId, string profileId = null)
+        /// <returns>ApiResponse of PostCustomerRequest</returns>
+        public ApiResponse< PostCustomerRequest > GetCustomerWithHttpInfo (string customerId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -652,9 +652,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<TmsV2CustomersResponse>(localVarStatusCode,
+            return new ApiResponse<PostCustomerRequest>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV2CustomersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV2CustomersResponse))); // Return statement
+                (PostCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerRequest))); // Return statement
         }
 
         /// <summary>
@@ -663,12 +663,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">The Id of a Customer.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of TmsV2CustomersResponse</returns>
-        public async System.Threading.Tasks.Task<TmsV2CustomersResponse> GetCustomerAsync (string customerId, string profileId = null)
+        /// <returns>Task of PostCustomerRequest</returns>
+        public async System.Threading.Tasks.Task<PostCustomerRequest> GetCustomerAsync (string customerId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetCustomerAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TmsV2CustomersResponse> localVarResponse = await GetCustomerAsyncWithHttpInfo(customerId, profileId);
+            ApiResponse<PostCustomerRequest> localVarResponse = await GetCustomerAsyncWithHttpInfo(customerId, profileId);
             logger.Debug("CALLING API \"GetCustomerAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -681,8 +681,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">The Id of a Customer.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (TmsV2CustomersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV2CustomersResponse>> GetCustomerAsyncWithHttpInfo (string customerId, string profileId = null)
+        /// <returns>Task of ApiResponse (PostCustomerRequest)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PostCustomerRequest>> GetCustomerAsyncWithHttpInfo (string customerId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -753,9 +753,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<TmsV2CustomersResponse>(localVarStatusCode,
+            return new ApiResponse<PostCustomerRequest>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV2CustomersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV2CustomersResponse))); // Return statement
+                (PostCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerRequest))); // Return statement
         }
         /// <summary>
         /// Update a Customer |  |  |  | | - -- | - -- | - -- | |**Customers**&lt;br&gt;A Customer represents your tokenized customer information.&lt;br&gt;You should associate the Customer Id with the customer account on your systems.&lt;br&gt;A Customer can have one or more [Payment Instruments](#token-management_customer-payment-instrument_create-a-customer-payment-instrumentl) or [Shipping Addresses](#token-management_customer-shipping-address_create-a-customer-shipping-address) with one allocated as the Customers default.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Updating a Customer**&lt;br&gt;Your system can use this API to update a Customers details including selecting a  [default Payment Instrument](#token-management_customer_update-a-customer_samplerequests-dropdown_update-customers-default-payment-instrument_liveconsole-tab-request-body) or [default Shipping Address](#token-management_customer_update-a-customer_samplerequests-dropdown_update-customers-default-shipping-address_liveconsole-tab-request-body) for use in payments.&lt;br&gt;Note: Updating a Customers [Payment Instrument](#token-management_customer-payment-instrument_update-a-customer-payment-instrument) or [Shipping Address](#token-management_customer-shipping-address_update-a-customer-shipping-address) details is performed using their own dedicated API resources. 
@@ -765,12 +765,12 @@ namespace CyberSource.Api
         /// <param name="patchCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>TmsV2CustomersResponse</returns>
-        public TmsV2CustomersResponse PatchCustomer (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null)
+        /// <returns>PatchCustomerRequest</returns>
+        public PatchCustomerRequest PatchCustomer (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchCustomer\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TmsV2CustomersResponse> localVarResponse = PatchCustomerWithHttpInfo(customerId, patchCustomerRequest, profileId, ifMatch);
+            ApiResponse<PatchCustomerRequest> localVarResponse = PatchCustomerWithHttpInfo(customerId, patchCustomerRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchCustomer\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -784,8 +784,8 @@ namespace CyberSource.Api
         /// <param name="patchCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>ApiResponse of TmsV2CustomersResponse</returns>
-        public ApiResponse< TmsV2CustomersResponse > PatchCustomerWithHttpInfo (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null)
+        /// <returns>ApiResponse of PatchCustomerRequest</returns>
+        public ApiResponse< PatchCustomerRequest > PatchCustomerWithHttpInfo (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -877,9 +877,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<TmsV2CustomersResponse>(localVarStatusCode,
+            return new ApiResponse<PatchCustomerRequest>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV2CustomersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV2CustomersResponse))); // Return statement
+                (PatchCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchCustomerRequest))); // Return statement
         }
 
         /// <summary>
@@ -890,12 +890,12 @@ namespace CyberSource.Api
         /// <param name="patchCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>Task of TmsV2CustomersResponse</returns>
-        public async System.Threading.Tasks.Task<TmsV2CustomersResponse> PatchCustomerAsync (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null)
+        /// <returns>Task of PatchCustomerRequest</returns>
+        public async System.Threading.Tasks.Task<PatchCustomerRequest> PatchCustomerAsync (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchCustomerAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TmsV2CustomersResponse> localVarResponse = await PatchCustomerAsyncWithHttpInfo(customerId, patchCustomerRequest, profileId, ifMatch);
+            ApiResponse<PatchCustomerRequest> localVarResponse = await PatchCustomerAsyncWithHttpInfo(customerId, patchCustomerRequest, profileId, ifMatch);
             logger.Debug("CALLING API \"PatchCustomerAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -910,8 +910,8 @@ namespace CyberSource.Api
         /// <param name="patchCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
-        /// <returns>Task of ApiResponse (TmsV2CustomersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV2CustomersResponse>> PatchCustomerAsyncWithHttpInfo (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null)
+        /// <returns>Task of ApiResponse (PatchCustomerRequest)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PatchCustomerRequest>> PatchCustomerAsyncWithHttpInfo (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1003,9 +1003,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<TmsV2CustomersResponse>(localVarStatusCode,
+            return new ApiResponse<PatchCustomerRequest>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV2CustomersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV2CustomersResponse))); // Return statement
+                (PatchCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchCustomerRequest))); // Return statement
         }
         /// <summary>
         /// Create a Customer |  |  |  | | - -- | - -- | - -- | |**Customers**&lt;br&gt;A Customer represents your tokenized customer information.&lt;br&gt;You should associate the Customer Id with the customer account on your systems.&lt;br&gt;A Customer can have one or more [Payment Instruments](#token-management_customer-payment-instrument_create-a-customer-payment-instrumentl) or [Shipping Addresses](#token-management_customer-shipping-address_create-a-customer-shipping-address) with one allocated as the Customers default.&lt;br&gt;&lt;br&gt;**Creating a Customer**&lt;br&gt;It is recommended you [create a Customer via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), this can be for a zero amount.&lt;br&gt;The Customer will be created with a Payment Instrument and Shipping Address.&lt;br&gt;You can also [add additional Payment Instruments to a Customer via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-create-default-payment-instrument-shipping-address-for-existing-customer_liveconsole-tab-request-body).&lt;br&gt;In Europe: You should perform Payer Authentication alongside the Authorization.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Customers**&lt;br&gt;To perform a payment with the Customers default details specify the [Customer Id in the payments request](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-customer-token-id_liveconsole-tab-request-body).&lt;br&gt;To perform a payment with a particular Payment Instrument or Shipping Address &lt;br&gt;specify the [Payment Instrument or Shipping Address Ids in the payments request](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-customer-payment-instrument-and-shipping-address-token-id_liveconsole-tab-request-body). 
@@ -1013,12 +1013,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>TmsV2CustomersResponse</returns>
-        public TmsV2CustomersResponse PostCustomer (PostCustomerRequest postCustomerRequest, string profileId = null)
+        /// <returns>PostCustomerRequest</returns>
+        public PostCustomerRequest PostCustomer (PostCustomerRequest postCustomerRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostCustomer\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TmsV2CustomersResponse> localVarResponse = PostCustomerWithHttpInfo(postCustomerRequest, profileId);
+            ApiResponse<PostCustomerRequest> localVarResponse = PostCustomerWithHttpInfo(postCustomerRequest, profileId);
             logger.Debug("CALLING API \"PostCustomer\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1030,8 +1030,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of TmsV2CustomersResponse</returns>
-        public ApiResponse< TmsV2CustomersResponse > PostCustomerWithHttpInfo (PostCustomerRequest postCustomerRequest, string profileId = null)
+        /// <returns>ApiResponse of PostCustomerRequest</returns>
+        public ApiResponse< PostCustomerRequest > PostCustomerWithHttpInfo (PostCustomerRequest postCustomerRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1108,9 +1108,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<TmsV2CustomersResponse>(localVarStatusCode,
+            return new ApiResponse<PostCustomerRequest>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV2CustomersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV2CustomersResponse))); // Return statement
+                (PostCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerRequest))); // Return statement
         }
 
         /// <summary>
@@ -1119,12 +1119,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of TmsV2CustomersResponse</returns>
-        public async System.Threading.Tasks.Task<TmsV2CustomersResponse> PostCustomerAsync (PostCustomerRequest postCustomerRequest, string profileId = null)
+        /// <returns>Task of PostCustomerRequest</returns>
+        public async System.Threading.Tasks.Task<PostCustomerRequest> PostCustomerAsync (PostCustomerRequest postCustomerRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostCustomerAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TmsV2CustomersResponse> localVarResponse = await PostCustomerAsyncWithHttpInfo(postCustomerRequest, profileId);
+            ApiResponse<PostCustomerRequest> localVarResponse = await PostCustomerAsyncWithHttpInfo(postCustomerRequest, profileId);
             logger.Debug("CALLING API \"PostCustomerAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1137,8 +1137,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postCustomerRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (TmsV2CustomersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TmsV2CustomersResponse>> PostCustomerAsyncWithHttpInfo (PostCustomerRequest postCustomerRequest, string profileId = null)
+        /// <returns>Task of ApiResponse (PostCustomerRequest)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PostCustomerRequest>> PostCustomerAsyncWithHttpInfo (PostCustomerRequest postCustomerRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1215,9 +1215,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<TmsV2CustomersResponse>(localVarStatusCode,
+            return new ApiResponse<PostCustomerRequest>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TmsV2CustomersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TmsV2CustomersResponse))); // Return statement
+                (PostCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerRequest))); // Return statement
         }
     }
 }

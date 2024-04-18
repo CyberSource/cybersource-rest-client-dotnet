@@ -33,17 +33,17 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsTokenInformationPaymentInstrument" /> class.
         /// </summary>
-        /// <param name="_Default">Flag that specifies if the Payment Instrument should be made the Customers default. Possible values: - true - false : (default)  (default to false).</param>
-        public Ptsv2paymentsTokenInformationPaymentInstrument(bool? _Default = false)
+        /// <param name="Default">Flag that specifies if the Payment Instrument should be made the Customers default. Possible values: - true - false : (default)  (default to false).</param>
+        public Ptsv2paymentsTokenInformationPaymentInstrument(bool? Default = false)
         {
-            // use default value if no "_Default" provided
-            if (_Default == null)
+            // use default value if no "Default" provided
+            if (Default == null)
             {
-                this._Default = false;
+                this.Default = false;
             }
             else
             {
-                this._Default = _Default;
+                this.Default = Default;
             }
         }
         
@@ -52,7 +52,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Flag that specifies if the Payment Instrument should be made the Customers default. Possible values: - true - false : (default) </value>
         [DataMember(Name="default", EmitDefaultValue=false)]
-        public bool? _Default { get; set; }
+        public bool? Default { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,7 +62,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsTokenInformationPaymentInstrument {\n");
-            sb.Append("  _Default: ").Append(_Default).Append("\n");
+            sb.Append("  Default: ").Append(Default).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,9 +100,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this._Default == other._Default ||
-                    this._Default != null &&
-                    this._Default.Equals(other._Default)
+                    this.Default == other.Default ||
+                    this.Default != null &&
+                    this.Default.Equals(other.Default)
                 );
         }
 
@@ -117,8 +117,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this._Default != null)
-                    hash = hash * 59 + this._Default.GetHashCode();
+                if (this.Default != null)
+                    hash = hash * 59 + this.Default.GetHashCode();
                 return hash;
             }
         }

@@ -33,12 +33,25 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferOrderInformation" /> class.
         /// </summary>
-        /// <param name="AmountDetails">AmountDetails.</param>
+        [JsonConstructorAttribute]
+        protected Ptsv1pushfundstransferOrderInformation() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferOrderInformation" /> class.
+        /// </summary>
+        /// <param name="AmountDetails">AmountDetails (required).</param>
         /// <param name="IsCryptocurrencyPurchase">This indicates that the funds transfer is for a crypto currency transaction. Optional Y/y, true N/n, false .</param>
         /// <param name="Surcharge">Surcharge.</param>
         public Ptsv1pushfundstransferOrderInformation(Ptsv1pushfundstransferOrderInformationAmountDetails AmountDetails = default(Ptsv1pushfundstransferOrderInformationAmountDetails), string IsCryptocurrencyPurchase = default(string), Ptsv1pushfundstransferOrderInformationSurcharge Surcharge = default(Ptsv1pushfundstransferOrderInformationSurcharge))
         {
-            this.AmountDetails = AmountDetails;
+            // to ensure "AmountDetails" is required (not null)
+            if (AmountDetails == null)
+            {
+                throw new InvalidDataException("AmountDetails is a required property for Ptsv1pushfundstransferOrderInformation and cannot be null");
+            }
+            else
+            {
+                this.AmountDetails = AmountDetails;
+            }
             this.IsCryptocurrencyPurchase = IsCryptocurrencyPurchase;
             this.Surcharge = Surcharge;
         }

@@ -55,7 +55,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "TEST")]
             TEST
         }
-
         /// <summary>
         /// Gets or Sets Status
         /// </summary>

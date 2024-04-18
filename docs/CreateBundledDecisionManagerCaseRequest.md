@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ProcessorInformation** | [**Riskv1decisionsProcessorInformation**](Riskv1decisionsProcessorInformation.md) |  | [optional] 
 **ProcessingInformation** | [**Riskv1decisionsProcessingInformation**](Riskv1decisionsProcessingInformation.md) |  | [optional] 
 **PaymentInformation** | [**Riskv1decisionsPaymentInformation**](Riskv1decisionsPaymentInformation.md) |  | [optional] 
-**OrderInformation** | [**Riskv1decisionsOrderInformation**](Riskv1decisionsOrderInformation.md) |  | [optional] 
+**OrderInformation** | [**Riskv1decisionsOrderInformation**](Riskv1decisionsOrderInformation.md) |  | 
 **BuyerInformation** | [**Riskv1decisionsBuyerInformation**](Riskv1decisionsBuyerInformation.md) |  | [optional] 
 **DeviceInformation** | [**Riskv1decisionsDeviceInformation**](Riskv1decisionsDeviceInformation.md) |  | [optional] 
 **RiskInformation** | [**Riskv1decisionsRiskInformation**](Riskv1decisionsRiskInformation.md) |  | [optional] 

@@ -65,12 +65,12 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property '_Void'
+        /// Test the property 'Void'
         /// </summary>
         [Test]
-        public void _VoidTest()
+        public void VoidTest()
         {
-            // TODO unit test for the property '_Void'
+            // TODO unit test for the property 'Void'
         }
 
     }

@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="ECheckConfigFeaturesAccountValidationServiceInternalOnly" /> class.
         /// </summary>
         /// <param name="Processors">*NEW* Payment Processing connection used to support eCheck, aka ACH, payment methods. Example * \&quot;bofaach\&quot; * \&quot;wellsfargoach\&quot; .</param>
-        public ECheckConfigFeaturesAccountValidationServiceInternalOnly(Dictionary<string, Object> Processors = default(Dictionary<string, Object>))
+        public ECheckConfigFeaturesAccountValidationServiceInternalOnly(Dictionary<string, ECheckConfigFeaturesAccountValidationServiceInternalOnlyProcessors> Processors = default(Dictionary<string, ECheckConfigFeaturesAccountValidationServiceInternalOnlyProcessors>))
         {
             this.Processors = Processors;
         }
@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>*NEW* Payment Processing connection used to support eCheck, aka ACH, payment methods. Example * \&quot;bofaach\&quot; * \&quot;wellsfargoach\&quot; </value>
         [DataMember(Name="processors", EmitDefaultValue=false)]
-        public Dictionary<string, Object> Processors { get; set; }
+        public Dictionary<string, ECheckConfigFeaturesAccountValidationServiceInternalOnlyProcessors> Processors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

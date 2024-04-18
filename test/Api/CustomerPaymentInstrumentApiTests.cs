@@ -89,7 +89,7 @@ namespace CyberSource.Test
             //string paymentInstrumentId = null;
             //string profileId = null;
             //var response = instance.GetCustomerPaymentInstrument(customerId, paymentInstrumentId, profileId);
-            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrument> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrument");
+            //Assert.IsInstanceOf<PostCustomerPaymentInstrumentRequest> (response, "response is PostCustomerPaymentInstrumentRequest");
         }
         
         /// <summary>
@@ -120,7 +120,7 @@ namespace CyberSource.Test
             //string profileId = null;
             //string ifMatch = null;
             //var response = instance.PatchCustomersPaymentInstrument(customerId, paymentInstrumentId, patchCustomerPaymentInstrumentRequest, profileId, ifMatch);
-            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrument> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrument");
+            //Assert.IsInstanceOf<PatchCustomerPaymentInstrumentRequest> (response, "response is PatchCustomerPaymentInstrumentRequest");
         }
         
         /// <summary>
@@ -134,7 +134,7 @@ namespace CyberSource.Test
             //PostCustomerPaymentInstrumentRequest postCustomerPaymentInstrumentRequest = null;
             //string profileId = null;
             //var response = instance.PostCustomerPaymentInstrument(customerId, postCustomerPaymentInstrumentRequest, profileId);
-            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultPaymentInstrument> (response, "response is Tmsv2customersEmbeddedDefaultPaymentInstrument");
+            //Assert.IsInstanceOf<PostCustomerPaymentInstrumentRequest> (response, "response is PostCustomerPaymentInstrumentRequest");
         }
         
     }

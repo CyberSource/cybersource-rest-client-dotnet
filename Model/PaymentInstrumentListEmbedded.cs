@@ -33,17 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentInstrumentListEmbedded" /> class.
         /// </summary>
-        /// <param name="PaymentInstruments">PaymentInstruments.</param>
-        public PaymentInstrumentListEmbedded(List<Tmsv2customersEmbeddedDefaultPaymentInstrument> PaymentInstruments = default(List<Tmsv2customersEmbeddedDefaultPaymentInstrument>))
+        [JsonConstructorAttribute]
+        public PaymentInstrumentListEmbedded()
         {
-            this.PaymentInstruments = PaymentInstruments;
         }
         
         /// <summary>
         /// Gets or Sets PaymentInstruments
         /// </summary>
         [DataMember(Name="paymentInstruments", EmitDefaultValue=false)]
-        public List<Tmsv2customersEmbeddedDefaultPaymentInstrument> PaymentInstruments { get; set; }
+        public List<Tmsv2customersEmbeddedDefaultPaymentInstrument> PaymentInstruments { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object

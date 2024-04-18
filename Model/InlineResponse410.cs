@@ -33,17 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse410" /> class.
         /// </summary>
-        /// <param name="Errors">Errors.</param>
-        public InlineResponse410(List<InlineResponse410Errors> Errors = default(List<InlineResponse410Errors>))
+        [JsonConstructorAttribute]
+        public InlineResponse410()
         {
-            this.Errors = Errors;
         }
         
         /// <summary>
         /// Gets or Sets Errors
         /// </summary>
         [DataMember(Name="errors", EmitDefaultValue=false)]
-        public List<InlineResponse410Errors> Errors { get; set; }
+        public List<InlineResponse410Errors> Errors { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object

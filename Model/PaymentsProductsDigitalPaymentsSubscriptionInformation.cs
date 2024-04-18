@@ -56,7 +56,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "SELF_SERVICE_ONLY")]
             SELFSERVICEONLY
         }
-
         /// <summary>
         /// Indicates if the organization can enable this product using self service.
         /// </summary>
@@ -69,7 +68,7 @@ namespace CyberSource.Model
         /// <param name="Enabled">Enabled.</param>
         /// <param name="SelfServiceability">Indicates if the organization can enable this product using self service. (default to SelfServiceabilityEnum.NOTSELFSERVICEABLE).</param>
         /// <param name="Features">Allowed values are; &lt;table&gt;    &lt;tr&gt;       &lt;td&gt;visaCheckout&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;       &lt;td&gt;applePay&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;       &lt;td&gt;samsungPay&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;        &lt;td&gt;googlePay&lt;/td&gt;     &lt;/tr&gt; &lt;/table&gt; .</param>
-        public PaymentsProductsDigitalPaymentsSubscriptionInformation(bool? Enabled = default(bool?), SelfServiceabilityEnum? SelfServiceability = SelfServiceabilityEnum.NOTSELFSERVICEABLE, Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures> Features = default(Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures>))
+        public PaymentsProductsDigitalPaymentsSubscriptionInformation(bool? Enabled = default(bool?), SelfServiceabilityEnum? SelfServiceability = SelfServiceabilityEnum.NOTSELFSERVICEABLE, Dictionary<string, PaymentsProductsDigitalPaymentsSubscriptionInformationFeatures> Features = default(Dictionary<string, PaymentsProductsDigitalPaymentsSubscriptionInformationFeatures>))
         {
             this.Enabled = Enabled;
             // use default value if no "SelfServiceability" provided
@@ -96,7 +95,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Allowed values are; &lt;table&gt;    &lt;tr&gt;       &lt;td&gt;visaCheckout&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;       &lt;td&gt;applePay&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;       &lt;td&gt;samsungPay&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;        &lt;td&gt;googlePay&lt;/td&gt;     &lt;/tr&gt; &lt;/table&gt; </value>
         [DataMember(Name="features", EmitDefaultValue=false)]
-        public Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures> Features { get; set; }
+        public Dictionary<string, PaymentsProductsDigitalPaymentsSubscriptionInformationFeatures> Features { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

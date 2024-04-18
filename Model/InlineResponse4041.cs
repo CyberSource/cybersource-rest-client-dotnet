@@ -39,12 +39,11 @@ namespace CyberSource.Model
         {
             
             /// <summary>
-            /// Enum FOUND for "RESOURCE_NOT_FOUND"
+            /// Enum RESOURCENOTFOUND for "RESOURCE_NOT_FOUND"
             /// </summary>
             [EnumMember(Value = "RESOURCE_NOT_FOUND")]
-            FOUND
+            RESOURCENOTFOUND
         }
-
         /// <summary>
         /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; 
         /// </summary>

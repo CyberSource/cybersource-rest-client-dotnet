@@ -61,7 +61,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "NOT_SETUP")]
             NOTSETUP
         }
-
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>
@@ -99,7 +98,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "NOT_APPLICABLE")]
             NOTAPPLICABLE
         }
-
         /// <summary>
         /// Gets or Sets Status
         /// </summary>

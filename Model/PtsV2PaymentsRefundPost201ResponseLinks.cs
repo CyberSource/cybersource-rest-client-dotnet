@@ -34,11 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsRefundPost201ResponseLinks" /> class.
         /// </summary>
         /// <param name="Self">Self.</param>
-        /// <param name="_Void">_Void.</param>
-        public PtsV2PaymentsRefundPost201ResponseLinks(PtsV2PaymentsPost201ResponseLinksSelf Self = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf _Void = default(PtsV2PaymentsPost201ResponseLinksSelf))
+        /// <param name="Void">Void.</param>
+        public PtsV2PaymentsRefundPost201ResponseLinks(PtsV2PaymentsPost201ResponseLinksSelf Self = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Void = default(PtsV2PaymentsPost201ResponseLinksSelf))
         {
             this.Self = Self;
-            this._Void = _Void;
+            this.Void = Void;
         }
         
         /// <summary>
@@ -48,10 +48,10 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseLinksSelf Self { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Void
+        /// Gets or Sets Void
         /// </summary>
         [DataMember(Name="void", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseLinksSelf _Void { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf Void { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,7 +62,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsRefundPost201ResponseLinks {\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  _Void: ").Append(_Void).Append("\n");
+            sb.Append("  Void: ").Append(Void).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,9 +105,9 @@ namespace CyberSource.Model
                     this.Self.Equals(other.Self)
                 ) && 
                 (
-                    this._Void == other._Void ||
-                    this._Void != null &&
-                    this._Void.Equals(other._Void)
+                    this.Void == other.Void ||
+                    this.Void != null &&
+                    this.Void.Equals(other.Void)
                 );
         }
 
@@ -124,8 +124,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Self != null)
                     hash = hash * 59 + this.Self.GetHashCode();
-                if (this._Void != null)
-                    hash = hash * 59 + this._Void.GetHashCode();
+                if (this.Void != null)
+                    hash = hash * 59 + this.Void.GetHashCode();
                 return hash;
             }
         }

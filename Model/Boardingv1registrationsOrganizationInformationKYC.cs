@@ -55,7 +55,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "OTHER")]
             OTHER
         }
-
         /// <summary>
         /// Gets or Sets TimeToProductDelivery
         /// </summary>
@@ -93,7 +92,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "GREATERTHAN10")]
             GREATERTHAN10
         }
-
         /// <summary>
         /// Gets or Sets WhenIsCustomerCharged
         /// </summary>

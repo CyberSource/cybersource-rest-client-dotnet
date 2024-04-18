@@ -223,25 +223,25 @@ namespace CyberSource.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // FirstName (string) pattern
-            //Regex regexFirstName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
-            //if (false == regexFirstName.Match(this.FirstName).Success)
-            //{
-            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, must match a pattern of " + regexFirstName, new [] { "FirstName" });
-            //}
+            Regex regexFirstName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
+            if (false == regexFirstName.Match(this.FirstName).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, must match a pattern of " + regexFirstName, new [] { "FirstName" });
+            }
 
             // MiddleName (string) pattern
-            //Regex regexMiddleName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
-            //if (false == regexMiddleName.Match(this.MiddleName).Success)
-            //{
-            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MiddleName, must match a pattern of " + regexMiddleName, new [] { "MiddleName" });
-            //}
+            Regex regexMiddleName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
+            if (false == regexMiddleName.Match(this.MiddleName).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MiddleName, must match a pattern of " + regexMiddleName, new [] { "MiddleName" });
+            }
 
             // LastName (string) pattern
-            //Regex regexLastName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
-            //if (false == regexLastName.Match(this.LastName).Success)
-            //{
-            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, must match a pattern of " + regexLastName, new [] { "LastName" });
-            //}
+            Regex regexLastName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
+            if (false == regexLastName.Match(this.LastName).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, must match a pattern of " + regexLastName, new [] { "LastName" });
+            }
 
             // PhoneNumber (string) pattern
             Regex regexPhoneNumber = new Regex(@"^[0-9a-zA-Z\\\\+\\\\-]+$", RegexOptions.CultureInvariant);

@@ -36,15 +36,18 @@ namespace CyberSource.Model
         /// <param name="AvsAccountOwnershipService">*NEW* Determined in WF eTicket if account has opted into the Account Ownership Service..</param>
         /// <param name="AvsAccountStatusService">*NEW* Determined in WF eTicket if account has opted into the Account Status Service..</param>
         /// <param name="AvsSignedAgreement">*NEW* Taken from Addendum Agreement Column in boarding form..</param>
+        /// <param name="AvsCalculatedResponseBehavior">*NEW*.</param>
         /// <param name="AvsAdditionalId">*NEW* Also known as the Additional ID. Taken from the boarding form..</param>
         /// <param name="EnableAvs">*NEW* (default to true).</param>
         /// <param name="AvsEntityId">*NEW* Also known as the AVS Gateway Entity ID..</param>
+        /// <param name="AvsResultMode">*NEW*.</param>
         /// <param name="EnableAvsTokenCreation">*NEW* Applicable if the merchant wants to run AVS on token creation requests only. (default to false).</param>
-        public ECheckConfigFeaturesAccountValidationServiceProcessors(bool? AvsAccountOwnershipService = default(bool?), bool? AvsAccountStatusService = default(bool?), bool? AvsSignedAgreement = default(bool?), string AvsAdditionalId = default(string), bool? EnableAvs = true, string AvsEntityId = default(string), bool? EnableAvsTokenCreation = false)
+        public ECheckConfigFeaturesAccountValidationServiceProcessors(bool? AvsAccountOwnershipService = default(bool?), bool? AvsAccountStatusService = default(bool?), bool? AvsSignedAgreement = default(bool?), Object AvsCalculatedResponseBehavior = default(Object), string AvsAdditionalId = default(string), bool? EnableAvs = true, string AvsEntityId = default(string), Object AvsResultMode = default(Object), bool? EnableAvsTokenCreation = false)
         {
             this.AvsAccountOwnershipService = AvsAccountOwnershipService;
             this.AvsAccountStatusService = AvsAccountStatusService;
             this.AvsSignedAgreement = AvsSignedAgreement;
+            this.AvsCalculatedResponseBehavior = AvsCalculatedResponseBehavior;
             this.AvsAdditionalId = AvsAdditionalId;
             // use default value if no "EnableAvs" provided
             if (EnableAvs == null)
@@ -56,6 +59,7 @@ namespace CyberSource.Model
                 this.EnableAvs = EnableAvs;
             }
             this.AvsEntityId = AvsEntityId;
+            this.AvsResultMode = AvsResultMode;
             // use default value if no "EnableAvsTokenCreation" provided
             if (EnableAvsTokenCreation == null)
             {
@@ -89,6 +93,13 @@ namespace CyberSource.Model
         public bool? AvsSignedAgreement { get; set; }
 
         /// <summary>
+        /// *NEW*
+        /// </summary>
+        /// <value>*NEW*</value>
+        [DataMember(Name="avsCalculatedResponseBehavior", EmitDefaultValue=false)]
+        public Object AvsCalculatedResponseBehavior { get; set; }
+
+        /// <summary>
         /// *NEW* Also known as the Additional ID. Taken from the boarding form.
         /// </summary>
         /// <value>*NEW* Also known as the Additional ID. Taken from the boarding form.</value>
@@ -110,6 +121,13 @@ namespace CyberSource.Model
         public string AvsEntityId { get; set; }
 
         /// <summary>
+        /// *NEW*
+        /// </summary>
+        /// <value>*NEW*</value>
+        [DataMember(Name="avsResultMode", EmitDefaultValue=false)]
+        public Object AvsResultMode { get; set; }
+
+        /// <summary>
         /// *NEW* Applicable if the merchant wants to run AVS on token creation requests only.
         /// </summary>
         /// <value>*NEW* Applicable if the merchant wants to run AVS on token creation requests only.</value>
@@ -127,9 +145,11 @@ namespace CyberSource.Model
             sb.Append("  AvsAccountOwnershipService: ").Append(AvsAccountOwnershipService).Append("\n");
             sb.Append("  AvsAccountStatusService: ").Append(AvsAccountStatusService).Append("\n");
             sb.Append("  AvsSignedAgreement: ").Append(AvsSignedAgreement).Append("\n");
+            sb.Append("  AvsCalculatedResponseBehavior: ").Append(AvsCalculatedResponseBehavior).Append("\n");
             sb.Append("  AvsAdditionalId: ").Append(AvsAdditionalId).Append("\n");
             sb.Append("  EnableAvs: ").Append(EnableAvs).Append("\n");
             sb.Append("  AvsEntityId: ").Append(AvsEntityId).Append("\n");
+            sb.Append("  AvsResultMode: ").Append(AvsResultMode).Append("\n");
             sb.Append("  EnableAvsTokenCreation: ").Append(EnableAvsTokenCreation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -183,6 +203,11 @@ namespace CyberSource.Model
                     this.AvsSignedAgreement.Equals(other.AvsSignedAgreement)
                 ) && 
                 (
+                    this.AvsCalculatedResponseBehavior == other.AvsCalculatedResponseBehavior ||
+                    this.AvsCalculatedResponseBehavior != null &&
+                    this.AvsCalculatedResponseBehavior.Equals(other.AvsCalculatedResponseBehavior)
+                ) && 
+                (
                     this.AvsAdditionalId == other.AvsAdditionalId ||
                     this.AvsAdditionalId != null &&
                     this.AvsAdditionalId.Equals(other.AvsAdditionalId)
@@ -196,6 +221,11 @@ namespace CyberSource.Model
                     this.AvsEntityId == other.AvsEntityId ||
                     this.AvsEntityId != null &&
                     this.AvsEntityId.Equals(other.AvsEntityId)
+                ) && 
+                (
+                    this.AvsResultMode == other.AvsResultMode ||
+                    this.AvsResultMode != null &&
+                    this.AvsResultMode.Equals(other.AvsResultMode)
                 ) && 
                 (
                     this.EnableAvsTokenCreation == other.EnableAvsTokenCreation ||
@@ -221,12 +251,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AvsAccountStatusService.GetHashCode();
                 if (this.AvsSignedAgreement != null)
                     hash = hash * 59 + this.AvsSignedAgreement.GetHashCode();
+                if (this.AvsCalculatedResponseBehavior != null)
+                    hash = hash * 59 + this.AvsCalculatedResponseBehavior.GetHashCode();
                 if (this.AvsAdditionalId != null)
                     hash = hash * 59 + this.AvsAdditionalId.GetHashCode();
                 if (this.EnableAvs != null)
                     hash = hash * 59 + this.EnableAvs.GetHashCode();
                 if (this.AvsEntityId != null)
                     hash = hash * 59 + this.AvsEntityId.GetHashCode();
+                if (this.AvsResultMode != null)
+                    hash = hash * 59 + this.AvsResultMode.GetHashCode();
                 if (this.EnableAvsTokenCreation != null)
                     hash = hash * 59 + this.EnableAvsTokenCreation.GetHashCode();
                 return hash;

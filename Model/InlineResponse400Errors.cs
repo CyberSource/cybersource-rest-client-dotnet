@@ -33,10 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse400Errors" /> class.
         /// </summary>
-        /// <param name="Details">Details.</param>
-        public InlineResponse400Errors(List<InlineResponse400Details> Details = default(List<InlineResponse400Details>))
+        [JsonConstructorAttribute]
+        public InlineResponse400Errors()
         {
-            this.Details = Details;
         }
         
         /// <summary>
@@ -57,7 +56,7 @@ namespace CyberSource.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="details", EmitDefaultValue=false)]
-        public List<InlineResponse400Details> Details { get; set; }
+        public List<InlineResponse400Details> Details { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object

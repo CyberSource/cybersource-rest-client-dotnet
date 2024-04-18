@@ -61,7 +61,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "PENDING")]
             PENDING
         }
-
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>
@@ -99,7 +98,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "DUPLICATE_FIELD")]
             DUPLICATEFIELD
         }
-
         /// <summary>
         /// Gets or Sets Status
         /// </summary>

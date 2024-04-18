@@ -24,7 +24,7 @@ namespace CyberSource.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IKeymanagementApi : IApiAccessor
+    public interface IKeyManagementApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -105,17 +105,17 @@ namespace CyberSource.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class KeymanagementApi : IKeymanagementApi
+    public partial class KeyManagementApi : IKeyManagementApi
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
         private int? _statusCode;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeymanagementApi"/> class.
+        /// Initializes a new instance of the <see cref="KeyManagementApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public KeymanagementApi(string basePath)
+        public KeyManagementApi(string basePath)
         {
             Configuration = new Configuration(new ApiClient(basePath));
 
@@ -134,12 +134,12 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeymanagementApi"/> class
+        /// Initializes a new instance of the <see cref="KeyManagementApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public KeymanagementApi(Configuration configuration = null)
+        public KeyManagementApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 Configuration = Configuration.Default;

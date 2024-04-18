@@ -33,11 +33,24 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FraudMarkingActionRequest" /> class.
         /// </summary>
-        /// <param name="RiskInformation">RiskInformation.</param>
+        [JsonConstructorAttribute]
+        protected FraudMarkingActionRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FraudMarkingActionRequest" /> class.
+        /// </summary>
+        /// <param name="RiskInformation">RiskInformation (required).</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         public FraudMarkingActionRequest(Riskv1decisionsidmarkingRiskInformation RiskInformation = default(Riskv1decisionsidmarkingRiskInformation), Riskv1liststypeentriesClientReferenceInformation ClientReferenceInformation = default(Riskv1liststypeentriesClientReferenceInformation))
         {
-            this.RiskInformation = RiskInformation;
+            // to ensure "RiskInformation" is required (not null)
+            if (RiskInformation == null)
+            {
+                throw new InvalidDataException("RiskInformation is a required property for FraudMarkingActionRequest and cannot be null");
+            }
+            else
+            {
+                this.RiskInformation = RiskInformation;
+            }
             this.ClientReferenceInformation = ClientReferenceInformation;
         }
         

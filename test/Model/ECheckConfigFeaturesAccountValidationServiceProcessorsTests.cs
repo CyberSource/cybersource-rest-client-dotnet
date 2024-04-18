@@ -89,6 +89,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AvsSignedAgreement'
         }
         /// <summary>
+        /// Test the property 'AvsCalculatedResponseBehavior'
+        /// </summary>
+        [Test]
+        public void AvsCalculatedResponseBehaviorTest()
+        {
+            // TODO unit test for the property 'AvsCalculatedResponseBehavior'
+        }
+        /// <summary>
         /// Test the property 'AvsAdditionalId'
         /// </summary>
         [Test]
@@ -111,6 +119,14 @@ namespace CyberSource.Test
         public void AvsEntityIdTest()
         {
             // TODO unit test for the property 'AvsEntityId'
+        }
+        /// <summary>
+        /// Test the property 'AvsResultMode'
+        /// </summary>
+        [Test]
+        public void AvsResultModeTest()
+        {
+            // TODO unit test for the property 'AvsResultMode'
         }
         /// <summary>
         /// Test the property 'EnableAvsTokenCreation'

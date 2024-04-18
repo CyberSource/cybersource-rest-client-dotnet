@@ -87,7 +87,7 @@ namespace CyberSource.Test
             //string instrumentIdentifierId = null;
             //string profileId = null;
             //var response = instance.GetInstrumentIdentifier(instrumentIdentifierId, profileId);
-            //Assert.IsInstanceOf<TmsEmbeddedInstrumentIdentifier> (response, "response is TmsEmbeddedInstrumentIdentifier");
+            //Assert.IsInstanceOf<PostInstrumentIdentifierRequest> (response, "response is PostInstrumentIdentifierRequest");
         }
         
         /// <summary>
@@ -102,7 +102,7 @@ namespace CyberSource.Test
             //long? offset = null;
             //long? limit = null;
             //var response = instance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierId, profileId, offset, limit);
-            //Assert.IsInstanceOf<PaymentInstrumentList> (response, "response is PaymentInstrumentList");
+            //Assert.IsInstanceOf<PaymentInstrumentList1> (response, "response is PaymentInstrumentList1");
         }
         
         /// <summary>
@@ -117,7 +117,7 @@ namespace CyberSource.Test
             //string profileId = null;
             //string ifMatch = null;
             //var response = instance.PatchInstrumentIdentifier(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
-            //Assert.IsInstanceOf<TmsEmbeddedInstrumentIdentifier> (response, "response is TmsEmbeddedInstrumentIdentifier");
+            //Assert.IsInstanceOf<PatchInstrumentIdentifierRequest> (response, "response is PatchInstrumentIdentifierRequest");
         }
         
         /// <summary>
@@ -130,7 +130,7 @@ namespace CyberSource.Test
             //PostInstrumentIdentifierRequest postInstrumentIdentifierRequest = null;
             //string profileId = null;
             //var response = instance.PostInstrumentIdentifier(postInstrumentIdentifierRequest, profileId);
-            //Assert.IsInstanceOf<TmsEmbeddedInstrumentIdentifier> (response, "response is TmsEmbeddedInstrumentIdentifier");
+            //Assert.IsInstanceOf<PostInstrumentIdentifierRequest> (response, "response is PostInstrumentIdentifierRequest");
         }
         
         /// <summary>

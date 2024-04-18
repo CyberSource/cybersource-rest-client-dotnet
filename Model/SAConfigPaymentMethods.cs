@@ -30,7 +30,6 @@ namespace CyberSource.Model
     [DataContract]
     public partial class SAConfigPaymentMethods :  IEquatable<SAConfigPaymentMethods>, IValidatableObject
     {
-
         /// <summary>
         /// Gets or Sets EnabledPaymentMethods
         /// </summary>
@@ -62,7 +61,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "PAYPAL")]
             PAYPAL
         }
-
         /// <summary>
         /// Gets or Sets EnabledPaymentMethods
         /// </summary>

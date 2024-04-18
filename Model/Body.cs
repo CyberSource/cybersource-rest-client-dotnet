@@ -39,11 +39,20 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Body" /> class.
         /// </summary>
         /// <param name="Type">Valid Values:   * oneOff   * amexRegistration  (default to &quot;oneOff&quot;).</param>
-        /// <param name="Included">Included.</param>
+        /// <param name="Included">Included (required).</param>
         /// <param name="MerchantReference">Reference used by merchant to identify batch..</param>
         /// <param name="NotificationEmail">Email used to notify the batch status. (required).</param>
         public Body(string Type = "oneOff", Accountupdaterv1batchesIncluded Included = default(Accountupdaterv1batchesIncluded), string MerchantReference = default(string), string NotificationEmail = default(string))
         {
+            // to ensure "Included" is required (not null)
+            if (Included == null)
+            {
+                throw new InvalidDataException("Included is a required property for Body and cannot be null");
+            }
+            else
+            {
+                this.Included = Included;
+            }
             // to ensure "NotificationEmail" is required (not null)
             if (NotificationEmail == null)
             {
@@ -62,7 +71,6 @@ namespace CyberSource.Model
             {
                 this.Type = Type;
             }
-            this.Included = Included;
             this.MerchantReference = MerchantReference;
         }
         

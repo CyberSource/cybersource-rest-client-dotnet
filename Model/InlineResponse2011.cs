@@ -74,7 +74,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "PARTIAL")]
             PARTIAL
         }
-
         /// <summary>
         /// The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; 
         /// </summary>

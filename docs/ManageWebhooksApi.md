@@ -74,7 +74,7 @@ No authorization required
 
 <a name="getwebhooksubscriptionbyid"></a>
 # **GetWebhookSubscriptionById**
-> InlineResponse2004 GetWebhookSubscriptionById (string webhookId)
+> InlineResponse2005 GetWebhookSubscriptionById (string webhookId)
 
 Get Details On a Single Webhook
 
@@ -100,7 +100,7 @@ namespace Example
             try
             {
                 // Get Details On a Single Webhook
-                InlineResponse2004 result = apiInstance.GetWebhookSubscriptionById(webhookId);
+                InlineResponse2005 result = apiInstance.GetWebhookSubscriptionById(webhookId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 

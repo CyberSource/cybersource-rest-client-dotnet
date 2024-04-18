@@ -75,7 +75,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The type.  Possible Values: - instrumentIdentifier </value>
         [DataMember(Name="object", EmitDefaultValue=false)]
-        public string _Object { get; private set; }
+        public string Object { get; private set; }
 
         /// <summary>
         /// Issuers state for the card number. Possible Values: - ACTIVE - CLOSED : The account has been closed. 
@@ -143,7 +143,7 @@ namespace CyberSource.Model
             sb.Append("class PostInstrumentIdentifierRequest {\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  _Object: ").Append(_Object).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
@@ -200,9 +200,9 @@ namespace CyberSource.Model
                     this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this._Object == other._Object ||
-                    this._Object != null &&
-                    this._Object.Equals(other._Object)
+                    this.Object == other.Object ||
+                    this.Object != null &&
+                    this.Object.Equals(other.Object)
                 ) && 
                 (
                     this.State == other.State ||
@@ -266,8 +266,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Links.GetHashCode();
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
-                if (this._Object != null)
-                    hash = hash * 59 + this._Object.GetHashCode();
+                if (this.Object != null)
+                    hash = hash * 59 + this.Object.GetHashCode();
                 if (this.State != null)
                     hash = hash * 59 + this.State.GetHashCode();
                 if (this.Type != null)

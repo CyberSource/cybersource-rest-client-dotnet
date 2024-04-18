@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Links** | [**TmsEmbeddedInstrumentIdentifierLinks**](TmsEmbeddedInstrumentIdentifierLinks.md) |  | [optional] 
 **Id** | **string** | The Id of the Instrument Identifier Token.  | [optional] 
-**_Object** | **string** | The type.  Possible Values: - instrumentIdentifier  | [optional] 
+**Object** | **string** | The type.  Possible Values: - instrumentIdentifier  | [optional] 
 **State** | **string** | Issuers state for the card number. Possible Values: - ACTIVE - CLOSED : The account has been closed.  | [optional] 
 **Type** | **string** | The type of Instrument Identifier. Possible Values: - enrollable card  | [optional] 
 **Card** | [**TmsEmbeddedInstrumentIdentifierCard**](TmsEmbeddedInstrumentIdentifierCard.md) |  | [optional] 

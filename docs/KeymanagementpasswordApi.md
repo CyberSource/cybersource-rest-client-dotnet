@@ -1,10 +1,10 @@
-# CyberSource.Api.KeymanagementpasswordApi
+# CyberSource.Api.KeyManagementPasswordApi
 
 All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UpdatePassword**](KeymanagementpasswordApi.md#updatepassword) | **PATCH** /kms/v2/keys-password/{keyId} | Activate or De-activate Password
+[**UpdatePassword**](KeyManagementPasswordApi.md#updatepassword) | **PATCH** /kms/v2/keys-password/{keyId} | Activate or De-activate Password
 
 
 <a name="updatepassword"></a>
@@ -29,7 +29,7 @@ namespace Example
     {
         public void main()
         {
-            var apiInstance = new KeymanagementpasswordApi();
+            var apiInstance = new KeyManagementPasswordApi();
             var keyId = keyId_example;  // string | Key ID. 
             var updatePasswordKeysRequest = new UpdatePasswordKeysRequest(); // UpdatePasswordKeysRequest | 
 
@@ -41,7 +41,7 @@ namespace Example
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling KeymanagementpasswordApi.UpdatePassword: " + e.Message );
+                Debug.Print("Exception when calling KeyManagementPasswordApi.UpdatePassword: " + e.Message );
             }
         }
     }

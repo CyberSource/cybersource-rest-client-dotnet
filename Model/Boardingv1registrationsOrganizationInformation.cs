@@ -56,7 +56,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "MERCHANT")]
             MERCHANT
         }
-
         /// <summary>
         /// Determines the status that the organization will be after being onboarded Possible Values:             - &#39;LIVE&#39;             - &#39;TEST&#39;             - &#39;DRAFT&#39; 
         /// </summary>
@@ -83,7 +82,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "DRAFT")]
             DRAFT
         }
-
         /// <summary>
         /// Determines the type of organization in the hirarchy that this registration will use to onboard this Organization Possible Values:   - &#39;TRANSACTING&#39;   - &#39;STRUCTURAL&#39;   - &#39;MERCHANT&#39; 
         /// </summary>
@@ -99,20 +97,32 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Boardingv1registrationsOrganizationInformation" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected Boardingv1registrationsOrganizationInformation() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Boardingv1registrationsOrganizationInformation" /> class.
+        /// </summary>
         /// <param name="OrganizationId">OrganizationId.</param>
         /// <param name="ParentOrganizationId">This field is required for Organization Types: MERCHANT, TRANSACTING .</param>
-        /// <param name="ChildOrganizations">ChildOrganizations.</param>
         /// <param name="Type">Determines the type of organization in the hirarchy that this registration will use to onboard this Organization Possible Values:   - &#39;TRANSACTING&#39;   - &#39;STRUCTURAL&#39;   - &#39;MERCHANT&#39; .</param>
         /// <param name="Status">Determines the status that the organization will be after being onboarded Possible Values:             - &#39;LIVE&#39;             - &#39;TEST&#39;             - &#39;DRAFT&#39; .</param>
         /// <param name="Configurable">This denotes the one organization, with exception to the TRANSACTING types, that is allowed to be used for configuration purposes against products.  Eventually this field will be deprecated and all organizations will be allowed for product configuration. (default to false).</param>
-        /// <param name="BusinessInformation">BusinessInformation.</param>
+        /// <param name="BusinessInformation">BusinessInformation (required).</param>
         /// <param name="KYC">KYC.</param>
         /// <param name="Owners">Owners.</param>
-        public Boardingv1registrationsOrganizationInformation(string OrganizationId = default(string), string ParentOrganizationId = default(string), List<string> ChildOrganizations = default(List<string>), TypeEnum? Type = default(TypeEnum?), StatusEnum? Status = default(StatusEnum?), bool? Configurable = false, Boardingv1registrationsOrganizationInformationBusinessInformation BusinessInformation = default(Boardingv1registrationsOrganizationInformationBusinessInformation), Boardingv1registrationsOrganizationInformationKYC KYC = default(Boardingv1registrationsOrganizationInformationKYC), List<Boardingv1registrationsOrganizationInformationOwners> Owners = default(List<Boardingv1registrationsOrganizationInformationOwners>))
+        public Boardingv1registrationsOrganizationInformation(string OrganizationId = default(string), string ParentOrganizationId = default(string), TypeEnum? Type = default(TypeEnum?), StatusEnum? Status = default(StatusEnum?), bool? Configurable = false, Boardingv1registrationsOrganizationInformationBusinessInformation BusinessInformation = default(Boardingv1registrationsOrganizationInformationBusinessInformation), Boardingv1registrationsOrganizationInformationKYC KYC = default(Boardingv1registrationsOrganizationInformationKYC), List<Boardingv1registrationsOrganizationInformationOwners> Owners = default(List<Boardingv1registrationsOrganizationInformationOwners>))
         {
+            // to ensure "BusinessInformation" is required (not null)
+            if (BusinessInformation == null)
+            {
+                throw new InvalidDataException("BusinessInformation is a required property for Boardingv1registrationsOrganizationInformation and cannot be null");
+            }
+            else
+            {
+                this.BusinessInformation = BusinessInformation;
+            }
             this.OrganizationId = OrganizationId;
             this.ParentOrganizationId = ParentOrganizationId;
-            this.ChildOrganizations = ChildOrganizations;
             this.Type = Type;
             this.Status = Status;
             // use default value if no "Configurable" provided
@@ -124,7 +134,6 @@ namespace CyberSource.Model
             {
                 this.Configurable = Configurable;
             }
-            this.BusinessInformation = BusinessInformation;
             this.KYC = KYC;
             this.Owners = Owners;
         }
@@ -146,7 +155,7 @@ namespace CyberSource.Model
         /// Gets or Sets ChildOrganizations
         /// </summary>
         [DataMember(Name="childOrganizations", EmitDefaultValue=false)]
-        public List<string> ChildOrganizations { get; set; }
+        public List<string> ChildOrganizations { get; private set; }
 
 
 

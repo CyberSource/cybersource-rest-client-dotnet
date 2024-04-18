@@ -89,7 +89,7 @@ namespace CyberSource.Test
             //string shippingAddressId = null;
             //string profileId = null;
             //var response = instance.GetCustomerShippingAddress(customerId, shippingAddressId, profileId);
-            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultShippingAddress> (response, "response is Tmsv2customersEmbeddedDefaultShippingAddress");
+            //Assert.IsInstanceOf<PostCustomerShippingAddressRequest> (response, "response is PostCustomerShippingAddressRequest");
         }
         
         /// <summary>
@@ -120,7 +120,7 @@ namespace CyberSource.Test
             //string profileId = null;
             //string ifMatch = null;
             //var response = instance.PatchCustomersShippingAddress(customerId, shippingAddressId, patchCustomerShippingAddressRequest, profileId, ifMatch);
-            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultShippingAddress> (response, "response is Tmsv2customersEmbeddedDefaultShippingAddress");
+            //Assert.IsInstanceOf<PatchCustomerShippingAddressRequest> (response, "response is PatchCustomerShippingAddressRequest");
         }
         
         /// <summary>
@@ -134,7 +134,7 @@ namespace CyberSource.Test
             //PostCustomerShippingAddressRequest postCustomerShippingAddressRequest = null;
             //string profileId = null;
             //var response = instance.PostCustomerShippingAddress(customerId, postCustomerShippingAddressRequest, profileId);
-            //Assert.IsInstanceOf<Tmsv2customersEmbeddedDefaultShippingAddress> (response, "response is Tmsv2customersEmbeddedDefaultShippingAddress");
+            //Assert.IsInstanceOf<PostCustomerShippingAddressRequest> (response, "response is PostCustomerShippingAddressRequest");
         }
         
     }

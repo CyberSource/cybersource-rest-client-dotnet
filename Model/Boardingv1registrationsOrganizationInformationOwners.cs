@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// <param name="OwnershipPercentage">Determines the percentage of ownership this owner has. For the primary owner the percentage can be from 0-100; for other owners the percentage can be from 25-100 and the sum of ownership accross owners cannot exceed 100 (required).</param>
         /// <param name="PhoneNumber">PhoneNumber (required).</param>
         /// <param name="Email">Email (required).</param>
-        /// <param name="Address">Address.</param>
+        /// <param name="Address">Address (required).</param>
         public Boardingv1registrationsOrganizationInformationOwners(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), DateTime? BirthDate = default(DateTime?), bool? IsPrimary = default(bool?), string Ssn = default(string), string PassportNumber = default(string), string PassportCountry = default(string), string JobTitle = default(string), bool? HasSignificantResponsability = default(bool?), decimal? OwnershipPercentage = default(decimal?), string PhoneNumber = default(string), string Email = default(string), Boardingv1registrationsOrganizationInformationBusinessInformationAddress Address = default(Boardingv1registrationsOrganizationInformationBusinessInformationAddress))
         {
             // to ensure "FirstName" is required (not null)
@@ -135,11 +135,19 @@ namespace CyberSource.Model
             {
                 this.Email = Email;
             }
+            // to ensure "Address" is required (not null)
+            if (Address == null)
+            {
+                throw new InvalidDataException("Address is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
+            }
+            else
+            {
+                this.Address = Address;
+            }
             this.MiddleName = MiddleName;
             this.Ssn = Ssn;
             this.PassportNumber = PassportNumber;
             this.PassportCountry = PassportCountry;
-            this.Address = Address;
         }
         
         /// <summary>

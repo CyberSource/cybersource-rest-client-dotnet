@@ -74,7 +74,7 @@ No authorization required
 
 <a name="getpaymentinstrument"></a>
 # **GetPaymentInstrument**
-> Tmsv2customersEmbeddedDefaultPaymentInstrument GetPaymentInstrument (string paymentInstrumentId, string profileId = null)
+> PostPaymentInstrumentRequest GetPaymentInstrument (string paymentInstrumentId, string profileId = null)
 
 Retrieve a Payment Instrument
 
@@ -101,7 +101,7 @@ namespace Example
             try
             {
                 // Retrieve a Payment Instrument
-                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.GetPaymentInstrument(paymentInstrumentId, profileId);
+                PostPaymentInstrumentRequest result = apiInstance.GetPaymentInstrument(paymentInstrumentId, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultPaymentInstrument**](Tmsv2customersEmbeddedDefaultPaymentInstrument.md)
+[**PostPaymentInstrumentRequest**](PostPaymentInstrumentRequest.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ No authorization required
 
 <a name="patchpaymentinstrument"></a>
 # **PatchPaymentInstrument**
-> Tmsv2customersEmbeddedDefaultPaymentInstrument PatchPaymentInstrument (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
+> PatchPaymentInstrumentRequest PatchPaymentInstrument (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
 
 Update a Payment Instrument
 
@@ -166,7 +166,7 @@ namespace Example
             try
             {
                 // Update a Payment Instrument
-                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.PatchPaymentInstrument(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, ifMatch);
+                PatchPaymentInstrumentRequest result = apiInstance.PatchPaymentInstrument(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, ifMatch);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultPaymentInstrument**](Tmsv2customersEmbeddedDefaultPaymentInstrument.md)
+[**PatchPaymentInstrumentRequest**](PatchPaymentInstrumentRequest.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ No authorization required
 
 <a name="postpaymentinstrument"></a>
 # **PostPaymentInstrument**
-> Tmsv2customersEmbeddedDefaultPaymentInstrument PostPaymentInstrument (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null)
+> PostPaymentInstrumentRequest PostPaymentInstrument (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null)
 
 Create a Payment Instrument
 
@@ -231,7 +231,7 @@ namespace Example
             try
             {
                 // Create a Payment Instrument
-                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.PostPaymentInstrument(postPaymentInstrumentRequest, profileId);
+                PostPaymentInstrumentRequest result = apiInstance.PostPaymentInstrument(postPaymentInstrumentRequest, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultPaymentInstrument**](Tmsv2customersEmbeddedDefaultPaymentInstrument.md)
+[**PostPaymentInstrumentRequest**](PostPaymentInstrumentRequest.md)
 
 ### Authorization
 
