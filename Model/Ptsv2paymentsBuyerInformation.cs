@@ -43,7 +43,8 @@ namespace CyberSource.Model
         /// <param name="Language">language setting of the user.</param>
         /// <param name="NoteToSeller">Note to the recipient of the funds in this transaction.</param>
         /// <param name="MobilePhone">Cardholder&#39;s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
-        public Ptsv2paymentsBuyerInformation(string MerchantCustomerId = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), string CompanyTaxId = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), string HashedPassword = default(string), string Gender = default(string), string Language = default(string), string NoteToSeller = default(string), int? MobilePhone = default(int?))
+        /// <param name="WalletId">The one-time identification code of the Alipay wallet user.  It is scanned from the barcode that is shown by the mobile application. .</param>
+        public Ptsv2paymentsBuyerInformation(string MerchantCustomerId = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), string CompanyTaxId = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), string HashedPassword = default(string), string Gender = default(string), string Language = default(string), string NoteToSeller = default(string), int? MobilePhone = default(int?), string WalletId = default(string))
         {
             this.MerchantCustomerId = MerchantCustomerId;
             this.DateOfBirth = DateOfBirth;
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             this.Language = Language;
             this.NoteToSeller = NoteToSeller;
             this.MobilePhone = MobilePhone;
+            this.WalletId = WalletId;
         }
         
         /// <summary>
@@ -127,6 +129,13 @@ namespace CyberSource.Model
         public int? MobilePhone { get; set; }
 
         /// <summary>
+        /// The one-time identification code of the Alipay wallet user.  It is scanned from the barcode that is shown by the mobile application. 
+        /// </summary>
+        /// <value>The one-time identification code of the Alipay wallet user.  It is scanned from the barcode that is shown by the mobile application. </value>
+        [DataMember(Name="walletId", EmitDefaultValue=false)]
+        public string WalletId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -144,6 +153,7 @@ namespace CyberSource.Model
             sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("  NoteToSeller: ").Append(NoteToSeller).Append("\n");
             sb.Append("  MobilePhone: ").Append(MobilePhone).Append("\n");
+            sb.Append("  WalletId: ").Append(WalletId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -229,6 +239,11 @@ namespace CyberSource.Model
                     this.MobilePhone == other.MobilePhone ||
                     this.MobilePhone != null &&
                     this.MobilePhone.Equals(other.MobilePhone)
+                ) && 
+                (
+                    this.WalletId == other.WalletId ||
+                    this.WalletId != null &&
+                    this.WalletId.Equals(other.WalletId)
                 );
         }
 
@@ -263,6 +278,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.NoteToSeller.GetHashCode();
                 if (this.MobilePhone != null)
                     hash = hash * 59 + this.MobilePhone.GetHashCode();
+                if (this.WalletId != null)
+                    hash = hash * 59 + this.WalletId.GetHashCode();
                 return hash;
             }
         }

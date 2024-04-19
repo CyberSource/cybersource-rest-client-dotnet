@@ -265,6 +265,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'RecurringPaymentInformation'
         }
         /// <summary>
+        /// Test the property 'HostedPaymentInformation'
+        /// </summary>
+        [Test]
+        public void HostedPaymentInformationTest()
+        {
+            // TODO unit test for the property 'HostedPaymentInformation'
+        }
+        /// <summary>
         /// Test the property 'WatchlistScreeningInformation'
         /// </summary>
         [Test]

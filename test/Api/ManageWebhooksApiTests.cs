@@ -103,19 +103,6 @@ namespace CyberSource.Test
         }
         
         /// <summary>
-        /// Test ReplayPreviousWebhooks
-        /// </summary>
-        [Test]
-        public void ReplayPreviousWebhooksTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string webhookId = null;
-            //ReplayWebhooksRequest replayWebhooksRequest = null;
-            //instance.ReplayPreviousWebhooks(webhookId, replayWebhooksRequest);
-            
-        }
-        
-        /// <summary>
         /// Test SaveAsymEgressKey
         /// </summary>
         [Test]

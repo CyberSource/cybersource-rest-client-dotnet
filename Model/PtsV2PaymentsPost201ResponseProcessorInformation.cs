@@ -68,7 +68,10 @@ namespace CyberSource.Model
         /// <param name="PublicKey">PublicKey.</param>
         /// <param name="SellerProtection">SellerProtection.</param>
         /// <param name="TransactionExpiryDate">The date on which the transaction expires and payment cannot be made. .</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), string TransactionExpiryDate = default(string))
+        /// <param name="CustomUrl">For merchants to declare customs Customs declaration service URL. .</param>
+        /// <param name="SchemeAssignedId">Unique id assigned to a merchant by the APM and not PSP The merchant ID, as boarded with Alipay .</param>
+        /// <param name="DeviceUrl">The QR code value. Convert this value into an image and send it to the POS terminal to be displayed. The terminal can also perform the conversion. The value is a URL like in the example below: https://qr.alipay.com/pmxabcka1ts5grar12. .</param>
+        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), string TransactionExpiryDate = default(string), string CustomUrl = default(string), string SchemeAssignedId = default(string), string DeviceUrl = default(string))
         {
             this.AuthIndicator = AuthIndicator;
             this.ApprovalCode = ApprovalCode;
@@ -105,6 +108,9 @@ namespace CyberSource.Model
             this.PublicKey = PublicKey;
             this.SellerProtection = SellerProtection;
             this.TransactionExpiryDate = TransactionExpiryDate;
+            this.CustomUrl = CustomUrl;
+            this.SchemeAssignedId = SchemeAssignedId;
+            this.DeviceUrl = DeviceUrl;
         }
         
         /// <summary>
@@ -342,6 +348,27 @@ namespace CyberSource.Model
         public string TransactionExpiryDate { get; set; }
 
         /// <summary>
+        /// For merchants to declare customs Customs declaration service URL. 
+        /// </summary>
+        /// <value>For merchants to declare customs Customs declaration service URL. </value>
+        [DataMember(Name="customUrl", EmitDefaultValue=false)]
+        public string CustomUrl { get; set; }
+
+        /// <summary>
+        /// Unique id assigned to a merchant by the APM and not PSP The merchant ID, as boarded with Alipay 
+        /// </summary>
+        /// <value>Unique id assigned to a merchant by the APM and not PSP The merchant ID, as boarded with Alipay </value>
+        [DataMember(Name="schemeAssignedId", EmitDefaultValue=false)]
+        public string SchemeAssignedId { get; set; }
+
+        /// <summary>
+        /// The QR code value. Convert this value into an image and send it to the POS terminal to be displayed. The terminal can also perform the conversion. The value is a URL like in the example below: https://qr.alipay.com/pmxabcka1ts5grar12. 
+        /// </summary>
+        /// <value>The QR code value. Convert this value into an image and send it to the POS terminal to be displayed. The terminal can also perform the conversion. The value is a URL like in the example below: https://qr.alipay.com/pmxabcka1ts5grar12. </value>
+        [DataMember(Name="deviceUrl", EmitDefaultValue=false)]
+        public string DeviceUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -384,6 +411,9 @@ namespace CyberSource.Model
             sb.Append("  PublicKey: ").Append(PublicKey).Append("\n");
             sb.Append("  SellerProtection: ").Append(SellerProtection).Append("\n");
             sb.Append("  TransactionExpiryDate: ").Append(TransactionExpiryDate).Append("\n");
+            sb.Append("  CustomUrl: ").Append(CustomUrl).Append("\n");
+            sb.Append("  SchemeAssignedId: ").Append(SchemeAssignedId).Append("\n");
+            sb.Append("  DeviceUrl: ").Append(DeviceUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -594,6 +624,21 @@ namespace CyberSource.Model
                     this.TransactionExpiryDate == other.TransactionExpiryDate ||
                     this.TransactionExpiryDate != null &&
                     this.TransactionExpiryDate.Equals(other.TransactionExpiryDate)
+                ) && 
+                (
+                    this.CustomUrl == other.CustomUrl ||
+                    this.CustomUrl != null &&
+                    this.CustomUrl.Equals(other.CustomUrl)
+                ) && 
+                (
+                    this.SchemeAssignedId == other.SchemeAssignedId ||
+                    this.SchemeAssignedId != null &&
+                    this.SchemeAssignedId.Equals(other.SchemeAssignedId)
+                ) && 
+                (
+                    this.DeviceUrl == other.DeviceUrl ||
+                    this.DeviceUrl != null &&
+                    this.DeviceUrl.Equals(other.DeviceUrl)
                 );
         }
 
@@ -678,6 +723,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SellerProtection.GetHashCode();
                 if (this.TransactionExpiryDate != null)
                     hash = hash * 59 + this.TransactionExpiryDate.GetHashCode();
+                if (this.CustomUrl != null)
+                    hash = hash * 59 + this.CustomUrl.GetHashCode();
+                if (this.SchemeAssignedId != null)
+                    hash = hash * 59 + this.SchemeAssignedId.GetHashCode();
+                if (this.DeviceUrl != null)
+                    hash = hash * 59 + this.DeviceUrl.GetHashCode();
                 return hash;
             }
         }

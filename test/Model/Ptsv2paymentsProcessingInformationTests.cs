@@ -329,6 +329,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'PayByPointsIndicator'
         }
         /// <summary>
+        /// Test the property 'Timeout'
+        /// </summary>
+        [Test]
+        public void TimeoutTest()
+        {
+            // TODO unit test for the property 'Timeout'
+        }
+        /// <summary>
         /// Test the property 'IsReturnAuthRecordEnabled'
         /// </summary>
         [Test]

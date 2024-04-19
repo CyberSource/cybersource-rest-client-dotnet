@@ -36,6 +36,7 @@ namespace CyberSource.Model
         /// <param name="Links">Links.</param>
         /// <param name="Id">The Id of the Instrument Identifier Token. .</param>
         /// <param name="Type">The type of Instrument Identifier. Possible Values: - enrollable card .</param>
+        /// <param name="TokenProvisioningInformation">TokenProvisioningInformation.</param>
         /// <param name="Card">Card.</param>
         /// <param name="BankAccount">BankAccount.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
@@ -43,11 +44,12 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="BillTo">BillTo.</param>
         /// <param name="Metadata">Metadata.</param>
-        public TmsEmbeddedInstrumentIdentifier(TmsEmbeddedInstrumentIdentifierLinks Links = default(TmsEmbeddedInstrumentIdentifierLinks), string Id = default(string), string Type = default(string), TmsEmbeddedInstrumentIdentifierCard Card = default(TmsEmbeddedInstrumentIdentifierCard), TmsEmbeddedInstrumentIdentifierBankAccount BankAccount = default(TmsEmbeddedInstrumentIdentifierBankAccount), TmsEmbeddedInstrumentIdentifierTokenizedCard TokenizedCard = default(TmsEmbeddedInstrumentIdentifierTokenizedCard), TmsEmbeddedInstrumentIdentifierIssuer Issuer = default(TmsEmbeddedInstrumentIdentifierIssuer), TmsEmbeddedInstrumentIdentifierProcessingInformation ProcessingInformation = default(TmsEmbeddedInstrumentIdentifierProcessingInformation), TmsEmbeddedInstrumentIdentifierBillTo BillTo = default(TmsEmbeddedInstrumentIdentifierBillTo), TmsEmbeddedInstrumentIdentifierMetadata Metadata = default(TmsEmbeddedInstrumentIdentifierMetadata))
+        public TmsEmbeddedInstrumentIdentifier(TmsEmbeddedInstrumentIdentifierLinks Links = default(TmsEmbeddedInstrumentIdentifierLinks), string Id = default(string), string Type = default(string), TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation TokenProvisioningInformation = default(TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation), TmsEmbeddedInstrumentIdentifierCard Card = default(TmsEmbeddedInstrumentIdentifierCard), TmsEmbeddedInstrumentIdentifierBankAccount BankAccount = default(TmsEmbeddedInstrumentIdentifierBankAccount), TmsEmbeddedInstrumentIdentifierTokenizedCard TokenizedCard = default(TmsEmbeddedInstrumentIdentifierTokenizedCard), TmsEmbeddedInstrumentIdentifierIssuer Issuer = default(TmsEmbeddedInstrumentIdentifierIssuer), TmsEmbeddedInstrumentIdentifierProcessingInformation ProcessingInformation = default(TmsEmbeddedInstrumentIdentifierProcessingInformation), TmsEmbeddedInstrumentIdentifierBillTo BillTo = default(TmsEmbeddedInstrumentIdentifierBillTo), TmsEmbeddedInstrumentIdentifierMetadata Metadata = default(TmsEmbeddedInstrumentIdentifierMetadata))
         {
             this.Links = Links;
             this.Id = Id;
             this.Type = Type;
+            this.TokenProvisioningInformation = TokenProvisioningInformation;
             this.Card = Card;
             this.BankAccount = BankAccount;
             this.TokenizedCard = TokenizedCard;
@@ -90,6 +92,12 @@ namespace CyberSource.Model
         /// <value>The type of Instrument Identifier. Possible Values: - enrollable card </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenProvisioningInformation
+        /// </summary>
+        [DataMember(Name="tokenProvisioningInformation", EmitDefaultValue=false)]
+        public TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation TokenProvisioningInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets Card
@@ -146,6 +154,7 @@ namespace CyberSource.Model
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  TokenProvisioningInformation: ").Append(TokenProvisioningInformation).Append("\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
@@ -215,6 +224,11 @@ namespace CyberSource.Model
                     this.Type.Equals(other.Type)
                 ) && 
                 (
+                    this.TokenProvisioningInformation == other.TokenProvisioningInformation ||
+                    this.TokenProvisioningInformation != null &&
+                    this.TokenProvisioningInformation.Equals(other.TokenProvisioningInformation)
+                ) && 
+                (
                     this.Card == other.Card ||
                     this.Card != null &&
                     this.Card.Equals(other.Card)
@@ -272,6 +286,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.State.GetHashCode();
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
+                if (this.TokenProvisioningInformation != null)
+                    hash = hash * 59 + this.TokenProvisioningInformation.GetHashCode();
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.BankAccount != null)

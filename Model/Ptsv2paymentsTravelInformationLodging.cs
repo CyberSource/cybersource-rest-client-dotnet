@@ -75,7 +75,11 @@ namespace CyberSource.Model
         /// <param name="NonRoomTaxAmount">Tax on non-room purchases. .</param>
         /// <param name="EarlyCheckOutCost">Service fee for early departure. .</param>
         /// <param name="InternetAccessCost">Cost of Internet access. .</param>
-        public Ptsv2paymentsTravelInformationLodging(string CheckInDate = default(string), string CheckOutDate = default(string), List<Ptsv2paymentsTravelInformationLodgingRoom> Room = default(List<Ptsv2paymentsTravelInformationLodgingRoom>), string SmokingPreference = default(string), int? NumberOfRooms = default(int?), int? NumberOfGuests = default(int?), string RoomBedType = default(string), string RoomTaxType = default(string), string RoomRateType = default(string), string GuestName = default(string), string CustomerServicePhoneNumber = default(string), string CorporateClientCode = default(string), string AdditionalDiscountAmount = default(string), string RoomLocation = default(string), string SpecialProgramCode = default(string), string TotalTaxAmount = default(string), string PrepaidCost = default(string), string FoodAndBeverageCost = default(string), string RoomTaxAmount = default(string), string AdjustmentAmount = default(string), string PhoneCost = default(string), string RestaurantCost = default(string), string RoomServiceCost = default(string), string MiniBarCost = default(string), string LaundryCost = default(string), string MiscellaneousCost = default(string), string GiftShopCost = default(string), string MovieCost = default(string), string HealthClubCost = default(string), string ValetParkingCost = default(string), string CashDisbursementCost = default(string), string NonRoomCost = default(string), string BusinessCenterCost = default(string), string LoungeBarCost = default(string), string TransportationCost = default(string), string GratuityAmount = default(string), string ConferenceRoomCost = default(string), string AudioVisualCost = default(string), string BanquestCost = default(string), string NonRoomTaxAmount = default(string), string EarlyCheckOutCost = default(string), string InternetAccessCost = default(string))
+        /// <param name="Name">Name of the hotel for which the reservation is for. Mandatory in case the merchant&#39;s business type is Hotel. .</param>
+        /// <param name="HotelName">The name of the hotel for which the reservation was made. .</param>
+        /// <param name="CheckInDateTime">The date of the check-in in GMT+8 offset. .</param>
+        /// <param name="CheckOutDateTime">The date of the check-out in GMT+8 offset. .</param>
+        public Ptsv2paymentsTravelInformationLodging(string CheckInDate = default(string), string CheckOutDate = default(string), List<Ptsv2paymentsTravelInformationLodgingRoom> Room = default(List<Ptsv2paymentsTravelInformationLodgingRoom>), string SmokingPreference = default(string), int? NumberOfRooms = default(int?), int? NumberOfGuests = default(int?), string RoomBedType = default(string), string RoomTaxType = default(string), string RoomRateType = default(string), string GuestName = default(string), string CustomerServicePhoneNumber = default(string), string CorporateClientCode = default(string), string AdditionalDiscountAmount = default(string), string RoomLocation = default(string), string SpecialProgramCode = default(string), string TotalTaxAmount = default(string), string PrepaidCost = default(string), string FoodAndBeverageCost = default(string), string RoomTaxAmount = default(string), string AdjustmentAmount = default(string), string PhoneCost = default(string), string RestaurantCost = default(string), string RoomServiceCost = default(string), string MiniBarCost = default(string), string LaundryCost = default(string), string MiscellaneousCost = default(string), string GiftShopCost = default(string), string MovieCost = default(string), string HealthClubCost = default(string), string ValetParkingCost = default(string), string CashDisbursementCost = default(string), string NonRoomCost = default(string), string BusinessCenterCost = default(string), string LoungeBarCost = default(string), string TransportationCost = default(string), string GratuityAmount = default(string), string ConferenceRoomCost = default(string), string AudioVisualCost = default(string), string BanquestCost = default(string), string NonRoomTaxAmount = default(string), string EarlyCheckOutCost = default(string), string InternetAccessCost = default(string), string Name = default(string), string HotelName = default(string), string CheckInDateTime = default(string), string CheckOutDateTime = default(string))
         {
             this.CheckInDate = CheckInDate;
             this.CheckOutDate = CheckOutDate;
@@ -119,6 +123,10 @@ namespace CyberSource.Model
             this.NonRoomTaxAmount = NonRoomTaxAmount;
             this.EarlyCheckOutCost = EarlyCheckOutCost;
             this.InternetAccessCost = InternetAccessCost;
+            this.Name = Name;
+            this.HotelName = HotelName;
+            this.CheckInDateTime = CheckInDateTime;
+            this.CheckOutDateTime = CheckOutDateTime;
         }
         
         /// <summary>
@@ -416,6 +424,34 @@ namespace CyberSource.Model
         public string InternetAccessCost { get; set; }
 
         /// <summary>
+        /// Name of the hotel for which the reservation is for. Mandatory in case the merchant&#39;s business type is Hotel. 
+        /// </summary>
+        /// <value>Name of the hotel for which the reservation is for. Mandatory in case the merchant&#39;s business type is Hotel. </value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// The name of the hotel for which the reservation was made. 
+        /// </summary>
+        /// <value>The name of the hotel for which the reservation was made. </value>
+        [DataMember(Name="hotelName", EmitDefaultValue=false)]
+        public string HotelName { get; set; }
+
+        /// <summary>
+        /// The date of the check-in in GMT+8 offset. 
+        /// </summary>
+        /// <value>The date of the check-in in GMT+8 offset. </value>
+        [DataMember(Name="checkInDateTime", EmitDefaultValue=false)]
+        public string CheckInDateTime { get; set; }
+
+        /// <summary>
+        /// The date of the check-out in GMT+8 offset. 
+        /// </summary>
+        /// <value>The date of the check-out in GMT+8 offset. </value>
+        [DataMember(Name="checkOutDateTime", EmitDefaultValue=false)]
+        public string CheckOutDateTime { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -465,6 +501,10 @@ namespace CyberSource.Model
             sb.Append("  NonRoomTaxAmount: ").Append(NonRoomTaxAmount).Append("\n");
             sb.Append("  EarlyCheckOutCost: ").Append(EarlyCheckOutCost).Append("\n");
             sb.Append("  InternetAccessCost: ").Append(InternetAccessCost).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  HotelName: ").Append(HotelName).Append("\n");
+            sb.Append("  CheckInDateTime: ").Append(CheckInDateTime).Append("\n");
+            sb.Append("  CheckOutDateTime: ").Append(CheckOutDateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -710,6 +750,26 @@ namespace CyberSource.Model
                     this.InternetAccessCost == other.InternetAccessCost ||
                     this.InternetAccessCost != null &&
                     this.InternetAccessCost.Equals(other.InternetAccessCost)
+                ) && 
+                (
+                    this.Name == other.Name ||
+                    this.Name != null &&
+                    this.Name.Equals(other.Name)
+                ) && 
+                (
+                    this.HotelName == other.HotelName ||
+                    this.HotelName != null &&
+                    this.HotelName.Equals(other.HotelName)
+                ) && 
+                (
+                    this.CheckInDateTime == other.CheckInDateTime ||
+                    this.CheckInDateTime != null &&
+                    this.CheckInDateTime.Equals(other.CheckInDateTime)
+                ) && 
+                (
+                    this.CheckOutDateTime == other.CheckOutDateTime ||
+                    this.CheckOutDateTime != null &&
+                    this.CheckOutDateTime.Equals(other.CheckOutDateTime)
                 );
         }
 
@@ -808,6 +868,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EarlyCheckOutCost.GetHashCode();
                 if (this.InternetAccessCost != null)
                     hash = hash * 59 + this.InternetAccessCost.GetHashCode();
+                if (this.Name != null)
+                    hash = hash * 59 + this.Name.GetHashCode();
+                if (this.HotelName != null)
+                    hash = hash * 59 + this.HotelName.GetHashCode();
+                if (this.CheckInDateTime != null)
+                    hash = hash * 59 + this.CheckInDateTime.GetHashCode();
+                if (this.CheckOutDateTime != null)
+                    hash = hash * 59 + this.CheckOutDateTime.GetHashCode();
                 return hash;
             }
         }
