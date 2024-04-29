@@ -81,20 +81,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property '_Object'
+        /// Test the property 'Object'
         /// </summary>
         [Test]
-        public void _ObjectTest()
+        public void ObjectTest()
         {
-            // TODO unit test for the property '_Object'
+            // TODO unit test for the property 'Object'
         }
         /// <summary>
-        /// Test the property '_Default'
+        /// Test the property 'Default'
         /// </summary>
         [Test]
-        public void _DefaultTest()
+        public void DefaultTest()
         {
-            // TODO unit test for the property '_Default'
+            // TODO unit test for the property 'Default'
         }
         /// <summary>
         /// Test the property 'State'

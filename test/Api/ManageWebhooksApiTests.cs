@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string webhookId = null;
             //var response = instance.GetWebhookSubscriptionById(webhookId);
-            //Assert.IsInstanceOf<InlineResponse2004> (response, "response is InlineResponse2004");
+            //Assert.IsInstanceOf<InlineResponse2005> (response, "response is InlineResponse2005");
         }
         
         /// <summary>
@@ -100,19 +100,6 @@ namespace CyberSource.Test
             //string eventType = null;
             //var response = instance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
             //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
-        }
-        
-        /// <summary>
-        /// Test ReplayPreviousWebhooks
-        /// </summary>
-        [Test]
-        public void ReplayPreviousWebhooksTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string webhookId = null;
-            //ReplayWebhooksRequest replayWebhooksRequest = null;
-            //instance.ReplayPreviousWebhooks(webhookId, replayWebhooksRequest);
-            
         }
         
         /// <summary>

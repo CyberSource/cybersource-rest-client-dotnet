@@ -77,7 +77,7 @@ No authorization required
 
 <a name="getcustomershippingaddress"></a>
 # **GetCustomerShippingAddress**
-> Tmsv2customersEmbeddedDefaultShippingAddress GetCustomerShippingAddress (string customerId, string shippingAddressId, string profileId = null)
+> PostCustomerShippingAddressRequest GetCustomerShippingAddress (string customerId, string shippingAddressId, string profileId = null)
 
 Retrieve a Customer Shipping Address
 
@@ -105,7 +105,7 @@ namespace Example
             try
             {
                 // Retrieve a Customer Shipping Address
-                Tmsv2customersEmbeddedDefaultShippingAddress result = apiInstance.GetCustomerShippingAddress(customerId, shippingAddressId, profileId);
+                PostCustomerShippingAddressRequest result = apiInstance.GetCustomerShippingAddress(customerId, shippingAddressId, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultShippingAddress**](Tmsv2customersEmbeddedDefaultShippingAddress.md)
+[**PostCustomerShippingAddressRequest**](PostCustomerShippingAddressRequest.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ No authorization required
 
 <a name="patchcustomersshippingaddress"></a>
 # **PatchCustomersShippingAddress**
-> Tmsv2customersEmbeddedDefaultShippingAddress PatchCustomersShippingAddress (string customerId, string shippingAddressId, PatchCustomerShippingAddressRequest patchCustomerShippingAddressRequest, string profileId = null, string ifMatch = null)
+> PatchCustomerShippingAddressRequest PatchCustomersShippingAddress (string customerId, string shippingAddressId, PatchCustomerShippingAddressRequest patchCustomerShippingAddressRequest, string profileId = null, string ifMatch = null)
 
 Update a Customer Shipping Address
 
@@ -239,7 +239,7 @@ namespace Example
             try
             {
                 // Update a Customer Shipping Address
-                Tmsv2customersEmbeddedDefaultShippingAddress result = apiInstance.PatchCustomersShippingAddress(customerId, shippingAddressId, patchCustomerShippingAddressRequest, profileId, ifMatch);
+                PatchCustomerShippingAddressRequest result = apiInstance.PatchCustomersShippingAddress(customerId, shippingAddressId, patchCustomerShippingAddressRequest, profileId, ifMatch);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultShippingAddress**](Tmsv2customersEmbeddedDefaultShippingAddress.md)
+[**PatchCustomerShippingAddressRequest**](PatchCustomerShippingAddressRequest.md)
 
 ### Authorization
 
@@ -278,7 +278,7 @@ No authorization required
 
 <a name="postcustomershippingaddress"></a>
 # **PostCustomerShippingAddress**
-> Tmsv2customersEmbeddedDefaultShippingAddress PostCustomerShippingAddress (string customerId, PostCustomerShippingAddressRequest postCustomerShippingAddressRequest, string profileId = null)
+> PostCustomerShippingAddressRequest PostCustomerShippingAddress (string customerId, PostCustomerShippingAddressRequest postCustomerShippingAddressRequest, string profileId = null)
 
 Create a Customer Shipping Address
 
@@ -306,7 +306,7 @@ namespace Example
             try
             {
                 // Create a Customer Shipping Address
-                Tmsv2customersEmbeddedDefaultShippingAddress result = apiInstance.PostCustomerShippingAddress(customerId, postCustomerShippingAddressRequest, profileId);
+                PostCustomerShippingAddressRequest result = apiInstance.PostCustomerShippingAddress(customerId, postCustomerShippingAddressRequest, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultShippingAddress**](Tmsv2customersEmbeddedDefaultShippingAddress.md)
+[**PostCustomerShippingAddressRequest**](PostCustomerShippingAddressRequest.md)
 
 ### Authorization
 

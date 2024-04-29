@@ -24,7 +24,7 @@ namespace CyberSource.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IKeymanagementpasswordApi : IApiAccessor
+    public interface IKeyManagementPasswordApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -81,17 +81,17 @@ namespace CyberSource.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class KeymanagementpasswordApi : IKeymanagementpasswordApi
+    public partial class KeyManagementPasswordApi : IKeyManagementPasswordApi
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
         private int? _statusCode;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeymanagementpasswordApi"/> class.
+        /// Initializes a new instance of the <see cref="KeyManagementPasswordApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public KeymanagementpasswordApi(string basePath)
+        public KeyManagementPasswordApi(string basePath)
         {
             Configuration = new Configuration(new ApiClient(basePath));
 
@@ -110,12 +110,12 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeymanagementpasswordApi"/> class
+        /// Initializes a new instance of the <see cref="KeyManagementPasswordApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public KeymanagementpasswordApi(Configuration configuration = null)
+        public KeyManagementPasswordApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 Configuration = Configuration.Default;
@@ -246,14 +246,14 @@ namespace CyberSource.Api
             // verify the required parameter 'keyId' is set
             if (keyId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeymanagementpasswordApi->UpdatePassword");
-                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeymanagementpasswordApi->UpdatePassword");
+                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeyManagementPasswordApi->UpdatePassword");
+                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeyManagementPasswordApi->UpdatePassword");
             }
             // verify the required parameter 'updatePasswordKeysRequest' is set
             if (updatePasswordKeysRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updatePasswordKeysRequest' when calling KeymanagementpasswordApi->UpdatePassword");
-                throw new ApiException(400, "Missing required parameter 'updatePasswordKeysRequest' when calling KeymanagementpasswordApi->UpdatePassword");
+                logger.Error("ApiException : Missing required parameter 'updatePasswordKeysRequest' when calling KeyManagementPasswordApi->UpdatePassword");
+                throw new ApiException(400, "Missing required parameter 'updatePasswordKeysRequest' when calling KeyManagementPasswordApi->UpdatePassword");
             }
 
             var localVarPath = $"/kms/v2/keys-password/{keyId}";
@@ -360,14 +360,14 @@ namespace CyberSource.Api
             // verify the required parameter 'keyId' is set
             if (keyId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeymanagementpasswordApi->UpdatePassword");
-                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeymanagementpasswordApi->UpdatePassword");
+                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeyManagementPasswordApi->UpdatePassword");
+                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeyManagementPasswordApi->UpdatePassword");
             }
             // verify the required parameter 'updatePasswordKeysRequest' is set
             if (updatePasswordKeysRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updatePasswordKeysRequest' when calling KeymanagementpasswordApi->UpdatePassword");
-                throw new ApiException(400, "Missing required parameter 'updatePasswordKeysRequest' when calling KeymanagementpasswordApi->UpdatePassword");
+                logger.Error("ApiException : Missing required parameter 'updatePasswordKeysRequest' when calling KeyManagementPasswordApi->UpdatePassword");
+                throw new ApiException(400, "Missing required parameter 'updatePasswordKeysRequest' when calling KeyManagementPasswordApi->UpdatePassword");
             }
 
             var localVarPath = $"/kms/v2/keys-password/{keyId}";

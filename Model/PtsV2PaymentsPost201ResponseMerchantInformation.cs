@@ -33,12 +33,29 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseMerchantInformation" /> class.
         /// </summary>
+        /// <param name="MerchantName">Use this field only if you are requesting payment with Payer Authentication serice together.  Your company&#39;s name as you want it to appear to the customer in the issuing bank&#39;s authentication form. This value overrides the value specified by your merchant bank. .</param>
+        /// <param name="MerchantDescriptor">MerchantDescriptor.</param>
         /// <param name="ReturnUrl">URL for displaying payment results to the consumer (notifications) after the transaction is processed. Usually this URL belongs to merchant and its behavior is defined by merchant .</param>
-        public PtsV2PaymentsPost201ResponseMerchantInformation(string ReturnUrl = default(string))
+        public PtsV2PaymentsPost201ResponseMerchantInformation(string MerchantName = default(string), PtsV2PaymentsPost201ResponseMerchantInformationMerchantDescriptor MerchantDescriptor = default(PtsV2PaymentsPost201ResponseMerchantInformationMerchantDescriptor), string ReturnUrl = default(string))
         {
+            this.MerchantName = MerchantName;
+            this.MerchantDescriptor = MerchantDescriptor;
             this.ReturnUrl = ReturnUrl;
         }
         
+        /// <summary>
+        /// Use this field only if you are requesting payment with Payer Authentication serice together.  Your company&#39;s name as you want it to appear to the customer in the issuing bank&#39;s authentication form. This value overrides the value specified by your merchant bank. 
+        /// </summary>
+        /// <value>Use this field only if you are requesting payment with Payer Authentication serice together.  Your company&#39;s name as you want it to appear to the customer in the issuing bank&#39;s authentication form. This value overrides the value specified by your merchant bank. </value>
+        [DataMember(Name="merchantName", EmitDefaultValue=false)]
+        public string MerchantName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantDescriptor
+        /// </summary>
+        [DataMember(Name="merchantDescriptor", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseMerchantInformationMerchantDescriptor MerchantDescriptor { get; set; }
+
         /// <summary>
         /// URL for displaying payment results to the consumer (notifications) after the transaction is processed. Usually this URL belongs to merchant and its behavior is defined by merchant 
         /// </summary>
@@ -54,6 +71,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseMerchantInformation {\n");
+            sb.Append("  MerchantName: ").Append(MerchantName).Append("\n");
+            sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
             sb.Append("  ReturnUrl: ").Append(ReturnUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -92,6 +111,16 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.MerchantName == other.MerchantName ||
+                    this.MerchantName != null &&
+                    this.MerchantName.Equals(other.MerchantName)
+                ) && 
+                (
+                    this.MerchantDescriptor == other.MerchantDescriptor ||
+                    this.MerchantDescriptor != null &&
+                    this.MerchantDescriptor.Equals(other.MerchantDescriptor)
+                ) && 
+                (
                     this.ReturnUrl == other.ReturnUrl ||
                     this.ReturnUrl != null &&
                     this.ReturnUrl.Equals(other.ReturnUrl)
@@ -109,6 +138,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.MerchantName != null)
+                    hash = hash * 59 + this.MerchantName.GetHashCode();
+                if (this.MerchantDescriptor != null)
+                    hash = hash * 59 + this.MerchantDescriptor.GetHashCode();
                 if (this.ReturnUrl != null)
                     hash = hash * 59 + this.ReturnUrl.GetHashCode();
                 return hash;

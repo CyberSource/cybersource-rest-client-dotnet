@@ -62,7 +62,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "PARTIAL")]
             PARTIAL
         }
-
         /// <summary>
         /// Determines the boarding flow for this registration. Possible Values:   - &#39;ENTERPRISE&#39;   - &#39;SMB&#39;   - &#39;ADDPRODUCT&#39; 
         /// </summary>
@@ -89,7 +88,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "ADDPRODUCT")]
             ADDPRODUCT
         }
-
         /// <summary>
         /// In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; 
         /// </summary>
@@ -110,7 +108,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "PARTIAL")]
             PARTIAL
         }
-
         /// <summary>
         /// The status of Registration request Possible Values:   - &#39;PROCESSING&#39;: This status is for Registrations that are still in Progress, you can get the latest status by calling the GET endpoint using the Registration Id   - &#39;SUCCESS&#39;: This status is for Registrations that were successfull on every step of the on boarding process.   - &#39;FAILURE&#39;: This status is for Registrations that fail before the Organization was created; please refer to the details section in the reponse for more information.   - &#39;PARTIAL&#39;: This status is for Registrations that created the Organization successfully but fail in at least on step while configuring it; please refer to the details section in the response for more information. 
         /// </summary>

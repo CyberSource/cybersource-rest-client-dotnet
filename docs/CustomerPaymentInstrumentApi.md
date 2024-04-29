@@ -77,7 +77,7 @@ No authorization required
 
 <a name="getcustomerpaymentinstrument"></a>
 # **GetCustomerPaymentInstrument**
-> Tmsv2customersEmbeddedDefaultPaymentInstrument GetCustomerPaymentInstrument (string customerId, string paymentInstrumentId, string profileId = null)
+> PostCustomerPaymentInstrumentRequest GetCustomerPaymentInstrument (string customerId, string paymentInstrumentId, string profileId = null)
 
 Retrieve a Customer Payment Instrument
 
@@ -105,7 +105,7 @@ namespace Example
             try
             {
                 // Retrieve a Customer Payment Instrument
-                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.GetCustomerPaymentInstrument(customerId, paymentInstrumentId, profileId);
+                PostCustomerPaymentInstrumentRequest result = apiInstance.GetCustomerPaymentInstrument(customerId, paymentInstrumentId, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultPaymentInstrument**](Tmsv2customersEmbeddedDefaultPaymentInstrument.md)
+[**PostCustomerPaymentInstrumentRequest**](PostCustomerPaymentInstrumentRequest.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ No authorization required
 
 <a name="patchcustomerspaymentinstrument"></a>
 # **PatchCustomersPaymentInstrument**
-> Tmsv2customersEmbeddedDefaultPaymentInstrument PatchCustomersPaymentInstrument (string customerId, string paymentInstrumentId, PatchCustomerPaymentInstrumentRequest patchCustomerPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
+> PatchCustomerPaymentInstrumentRequest PatchCustomersPaymentInstrument (string customerId, string paymentInstrumentId, PatchCustomerPaymentInstrumentRequest patchCustomerPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
 
 Update a Customer Payment Instrument
 
@@ -239,7 +239,7 @@ namespace Example
             try
             {
                 // Update a Customer Payment Instrument
-                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.PatchCustomersPaymentInstrument(customerId, paymentInstrumentId, patchCustomerPaymentInstrumentRequest, profileId, ifMatch);
+                PatchCustomerPaymentInstrumentRequest result = apiInstance.PatchCustomersPaymentInstrument(customerId, paymentInstrumentId, patchCustomerPaymentInstrumentRequest, profileId, ifMatch);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultPaymentInstrument**](Tmsv2customersEmbeddedDefaultPaymentInstrument.md)
+[**PatchCustomerPaymentInstrumentRequest**](PatchCustomerPaymentInstrumentRequest.md)
 
 ### Authorization
 
@@ -278,7 +278,7 @@ No authorization required
 
 <a name="postcustomerpaymentinstrument"></a>
 # **PostCustomerPaymentInstrument**
-> Tmsv2customersEmbeddedDefaultPaymentInstrument PostCustomerPaymentInstrument (string customerId, PostCustomerPaymentInstrumentRequest postCustomerPaymentInstrumentRequest, string profileId = null)
+> PostCustomerPaymentInstrumentRequest PostCustomerPaymentInstrument (string customerId, PostCustomerPaymentInstrumentRequest postCustomerPaymentInstrumentRequest, string profileId = null)
 
 Create a Customer Payment Instrument
 
@@ -306,7 +306,7 @@ namespace Example
             try
             {
                 // Create a Customer Payment Instrument
-                Tmsv2customersEmbeddedDefaultPaymentInstrument result = apiInstance.PostCustomerPaymentInstrument(customerId, postCustomerPaymentInstrumentRequest, profileId);
+                PostCustomerPaymentInstrumentRequest result = apiInstance.PostCustomerPaymentInstrument(customerId, postCustomerPaymentInstrumentRequest, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Tmsv2customersEmbeddedDefaultPaymentInstrument**](Tmsv2customersEmbeddedDefaultPaymentInstrument.md)
+[**PostCustomerPaymentInstrumentRequest**](PostCustomerPaymentInstrumentRequest.md)
 
 ### Authorization
 

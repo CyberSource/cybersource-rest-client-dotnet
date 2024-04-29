@@ -81,12 +81,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property '_Object'
+        /// Test the property 'Object'
         /// </summary>
         [Test]
-        public void _ObjectTest()
+        public void ObjectTest()
         {
-            // TODO unit test for the property '_Object'
+            // TODO unit test for the property 'Object'
         }
         /// <summary>
         /// Test the property 'State'
@@ -103,6 +103,14 @@ namespace CyberSource.Test
         public void TypeTest()
         {
             // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'TokenProvisioningInformation'
+        /// </summary>
+        [Test]
+        public void TokenProvisioningInformationTest()
+        {
+            // TODO unit test for the property 'TokenProvisioningInformation'
         }
         /// <summary>
         /// Test the property 'Card'

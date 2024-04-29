@@ -73,12 +73,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Type'
         }
         /// <summary>
-        /// Test the property 'Eligibilty'
+        /// Test the property 'Eligibility'
         /// </summary>
         [Test]
-        public void EligibiltyTest()
+        public void EligibilityTest()
         {
-            // TODO unit test for the property 'Eligibilty'
+            // TODO unit test for the property 'Eligibility'
         }
         /// <summary>
         /// Test the property 'EligibilityType'

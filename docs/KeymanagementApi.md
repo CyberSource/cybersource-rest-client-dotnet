@@ -1,10 +1,10 @@
-# CyberSource.Api.KeymanagementApi
+# CyberSource.Api.KeyManagementApi
 
 All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SearchKeys**](KeymanagementApi.md#searchkeys) | **GET** /kms/v2/keys | Search Keys
+[**SearchKeys**](KeyManagementApi.md#searchkeys) | **GET** /kms/v2/keys | Search Keys
 
 
 <a name="searchkeys"></a>
@@ -29,7 +29,7 @@ namespace Example
     {
         public void main()
         {
-            var apiInstance = new KeymanagementApi();
+            var apiInstance = new KeyManagementApi();
             var offset = 56;  // int? | This allows you to specify the page offset from the resulting list resultset you want the records to be returned (optional) 
             var limit = 56;  // int? | This allows you to specify the total number of records to be returned off the resulting list resultset (optional) 
             var sort = sort_example;  // string | This allows you to specify a comma separated list of fields in the order which the resulting list resultset must be sorted. (optional) 
@@ -47,7 +47,7 @@ namespace Example
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling KeymanagementApi.SearchKeys: " + e.Message );
+                Debug.Print("Exception when calling KeyManagementApi.SearchKeys: " + e.Message );
             }
         }
     }

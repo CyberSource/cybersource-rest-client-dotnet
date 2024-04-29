@@ -50,7 +50,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "HMACSHA2")]
             HMACSHA2
         }
-
         /// <summary>
         /// Algorithm for message signature authentication 
         /// </summary>

@@ -56,7 +56,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "RESOURCE_NOT_FOUND")]
             RESOURCENOTFOUND
         }
-
         /// <summary>
         /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39;   - &#39;SYSTEM_ERROR&#39;   - &#39;RESOURCE_NOT_FOUND&#39; 
         /// </summary>

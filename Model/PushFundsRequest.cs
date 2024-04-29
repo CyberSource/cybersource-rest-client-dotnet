@@ -33,24 +33,53 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PushFundsRequest" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected PushFundsRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PushFundsRequest" /> class.
+        /// </summary>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
-        /// <param name="OrderInformation">OrderInformation.</param>
-        /// <param name="ProcessingInformation">ProcessingInformation.</param>
+        /// <param name="OrderInformation">OrderInformation (required).</param>
+        /// <param name="ProcessingInformation">ProcessingInformation (required).</param>
         /// <param name="ProcessingOptions">ProcessingOptions.</param>
         /// <param name="RecipientInformation">RecipientInformation.</param>
-        /// <param name="SenderInformation">SenderInformation.</param>
+        /// <param name="SenderInformation">SenderInformation (required).</param>
         /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="MerchantDefinedInformation">MerchantDefinedInformation.</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="PointOfServiceInformation">PointOfServiceInformation.</param>
         public PushFundsRequest(Ptsv1pushfundstransferClientReferenceInformation ClientReferenceInformation = default(Ptsv1pushfundstransferClientReferenceInformation), Ptsv1pushfundstransferOrderInformation OrderInformation = default(Ptsv1pushfundstransferOrderInformation), Ptsv1pushfundstransferProcessingInformation ProcessingInformation = default(Ptsv1pushfundstransferProcessingInformation), Ptsv1pushfundstransferProcessingOptions ProcessingOptions = default(Ptsv1pushfundstransferProcessingOptions), Ptsv1pushfundstransferRecipientInformation RecipientInformation = default(Ptsv1pushfundstransferRecipientInformation), Ptsv1pushfundstransferSenderInformation SenderInformation = default(Ptsv1pushfundstransferSenderInformation), Ptsv1pushfundstransferAggregatorInformation AggregatorInformation = default(Ptsv1pushfundstransferAggregatorInformation), Ptsv1pushfundstransferMerchantDefinedInformation MerchantDefinedInformation = default(Ptsv1pushfundstransferMerchantDefinedInformation), Ptsv1pushfundstransferMerchantInformation MerchantInformation = default(Ptsv1pushfundstransferMerchantInformation), Ptsv1pushfundstransferPointOfServiceInformation PointOfServiceInformation = default(Ptsv1pushfundstransferPointOfServiceInformation))
         {
+            // to ensure "OrderInformation" is required (not null)
+            if (OrderInformation == null)
+            {
+                throw new InvalidDataException("OrderInformation is a required property for PushFundsRequest and cannot be null");
+            }
+            else
+            {
+                this.OrderInformation = OrderInformation;
+            }
+            // to ensure "ProcessingInformation" is required (not null)
+            if (ProcessingInformation == null)
+            {
+                throw new InvalidDataException("ProcessingInformation is a required property for PushFundsRequest and cannot be null");
+            }
+            else
+            {
+                this.ProcessingInformation = ProcessingInformation;
+            }
+            // to ensure "SenderInformation" is required (not null)
+            if (SenderInformation == null)
+            {
+                throw new InvalidDataException("SenderInformation is a required property for PushFundsRequest and cannot be null");
+            }
+            else
+            {
+                this.SenderInformation = SenderInformation;
+            }
             this.ClientReferenceInformation = ClientReferenceInformation;
-            this.OrderInformation = OrderInformation;
-            this.ProcessingInformation = ProcessingInformation;
             this.ProcessingOptions = ProcessingOptions;
             this.RecipientInformation = RecipientInformation;
-            this.SenderInformation = SenderInformation;
             this.AggregatorInformation = AggregatorInformation;
             this.MerchantDefinedInformation = MerchantDefinedInformation;
             this.MerchantInformation = MerchantInformation;

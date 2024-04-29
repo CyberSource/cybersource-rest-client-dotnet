@@ -36,13 +36,19 @@ namespace CyberSource.Model
         /// <param name="Enabled">Enabled.</param>
         /// <param name="EnabledCardPresent">Indicates whether the card-present transaction is activated for the selected currency. If both enabledCardPresent and enabledCardNotPresent are set to null, then enabledCardPresent will have the value of enabled. .</param>
         /// <param name="EnabledCardNotPresent">Indicates whether the card-present transaction is activated for the selected currency. If both enabledCardPresent and enabledCardNotPresent are set to null, then enabledCardNotPresent will have the value of enabled. .</param>
+        /// <param name="MerchantId">Merchant ID assigned by an acquirer or a processor. Should not be overriden by any other party.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;Barclays&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
+        /// <param name="TerminalId">The &#39;Terminal Id&#39; aka TID, is an identifier used for with your payments processor. Depending on the processor and payment acceptance type this may also be the default Terminal ID used for Card Present and Virtual Terminal transactions.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;Barclays&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;^[0-9]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
         /// <param name="TerminalIds">Applicable for Prisma (prisma) processor..</param>
-        public CardProcessingConfigCommonCurrencies1(bool? Enabled = default(bool?), bool? EnabledCardPresent = default(bool?), bool? EnabledCardNotPresent = default(bool?), List<string> TerminalIds = default(List<string>))
+        /// <param name="ServiceEnablementNumber">Service Establishment Number (a.k.a. SE Number) is a unique ten-digit number assigned by American Express to a merchant that accepts American Express cards. 10 digit number provided by acquirer currency. This may be unique for each currency, however it depends on the way the processor is set up for the merchant.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;^[0-9]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
+        public CardProcessingConfigCommonCurrencies1(bool? Enabled = default(bool?), bool? EnabledCardPresent = default(bool?), bool? EnabledCardNotPresent = default(bool?), Object MerchantId = default(Object), Object TerminalId = default(Object), List<string> TerminalIds = default(List<string>), Object ServiceEnablementNumber = default(Object))
         {
             this.Enabled = Enabled;
             this.EnabledCardPresent = EnabledCardPresent;
             this.EnabledCardNotPresent = EnabledCardNotPresent;
+            this.MerchantId = MerchantId;
+            this.TerminalId = TerminalId;
             this.TerminalIds = TerminalIds;
+            this.ServiceEnablementNumber = ServiceEnablementNumber;
         }
         
         /// <summary>
@@ -66,11 +72,32 @@ namespace CyberSource.Model
         public bool? EnabledCardNotPresent { get; set; }
 
         /// <summary>
+        /// Merchant ID assigned by an acquirer or a processor. Should not be overriden by any other party.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;Barclays&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; 
+        /// </summary>
+        /// <value>Merchant ID assigned by an acquirer or a processor. Should not be overriden by any other party.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;Barclays&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; </value>
+        [DataMember(Name="merchantId", EmitDefaultValue=false)]
+        public Object MerchantId { get; set; }
+
+        /// <summary>
+        /// The &#39;Terminal Id&#39; aka TID, is an identifier used for with your payments processor. Depending on the processor and payment acceptance type this may also be the default Terminal ID used for Card Present and Virtual Terminal transactions.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;Barclays&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;^[0-9]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; 
+        /// </summary>
+        /// <value>The &#39;Terminal Id&#39; aka TID, is an identifier used for with your payments processor. Depending on the processor and payment acceptance type this may also be the default Terminal ID used for Card Present and Virtual Terminal transactions.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;Barclays&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;^[0-9]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; </value>
+        [DataMember(Name="terminalId", EmitDefaultValue=false)]
+        public Object TerminalId { get; set; }
+
+        /// <summary>
         /// Applicable for Prisma (prisma) processor.
         /// </summary>
         /// <value>Applicable for Prisma (prisma) processor.</value>
         [DataMember(Name="terminalIds", EmitDefaultValue=false)]
         public List<string> TerminalIds { get; set; }
+
+        /// <summary>
+        /// Service Establishment Number (a.k.a. SE Number) is a unique ten-digit number assigned by American Express to a merchant that accepts American Express cards. 10 digit number provided by acquirer currency. This may be unique for each currency, however it depends on the way the processor is set up for the merchant.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;^[0-9]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; 
+        /// </summary>
+        /// <value>Service Establishment Number (a.k.a. SE Number) is a unique ten-digit number assigned by American Express to a merchant that accepts American Express cards. 10 digit number provided by acquirer currency. This may be unique for each currency, however it depends on the way the processor is set up for the merchant.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;^[0-9]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; </value>
+        [DataMember(Name="serviceEnablementNumber", EmitDefaultValue=false)]
+        public Object ServiceEnablementNumber { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,7 +110,10 @@ namespace CyberSource.Model
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  EnabledCardPresent: ").Append(EnabledCardPresent).Append("\n");
             sb.Append("  EnabledCardNotPresent: ").Append(EnabledCardNotPresent).Append("\n");
+            sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
             sb.Append("  TerminalIds: ").Append(TerminalIds).Append("\n");
+            sb.Append("  ServiceEnablementNumber: ").Append(ServiceEnablementNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,9 +166,24 @@ namespace CyberSource.Model
                     this.EnabledCardNotPresent.Equals(other.EnabledCardNotPresent)
                 ) && 
                 (
+                    this.MerchantId == other.MerchantId ||
+                    this.MerchantId != null &&
+                    this.MerchantId.Equals(other.MerchantId)
+                ) && 
+                (
+                    this.TerminalId == other.TerminalId ||
+                    this.TerminalId != null &&
+                    this.TerminalId.Equals(other.TerminalId)
+                ) && 
+                (
                     this.TerminalIds == other.TerminalIds ||
                     this.TerminalIds != null &&
                     this.TerminalIds.SequenceEqual(other.TerminalIds)
+                ) && 
+                (
+                    this.ServiceEnablementNumber == other.ServiceEnablementNumber ||
+                    this.ServiceEnablementNumber != null &&
+                    this.ServiceEnablementNumber.Equals(other.ServiceEnablementNumber)
                 );
         }
 
@@ -159,8 +204,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EnabledCardPresent.GetHashCode();
                 if (this.EnabledCardNotPresent != null)
                     hash = hash * 59 + this.EnabledCardNotPresent.GetHashCode();
+                if (this.MerchantId != null)
+                    hash = hash * 59 + this.MerchantId.GetHashCode();
+                if (this.TerminalId != null)
+                    hash = hash * 59 + this.TerminalId.GetHashCode();
                 if (this.TerminalIds != null)
                     hash = hash * 59 + this.TerminalIds.GetHashCode();
+                if (this.ServiceEnablementNumber != null)
+                    hash = hash * 59 + this.ServiceEnablementNumber.GetHashCode();
                 return hash;
             }
         }

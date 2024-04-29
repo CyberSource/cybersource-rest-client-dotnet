@@ -49,7 +49,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "SALE")]
             SALE
         }
-
         /// <summary>
         /// Gets or Sets DefaultPaymentType
         /// </summary>
@@ -69,7 +68,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "ECHECK")]
             ECHECK
         }
-
         /// <summary>
         /// Gets or Sets DefaultTransactionType
         /// </summary>

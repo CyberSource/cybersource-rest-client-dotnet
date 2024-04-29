@@ -34,12 +34,12 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection" /> class.
         /// </summary>
         /// <param name="Type">The kind of seller protection in force for the transaction. This field is returned only when the protection eligibility value is set to ELIGIBLE or PARTIALLY_ELIGIBLE. Possible values - ITEM_NOT_RECEIVED_ELIGIBLE: Sellers are protected against claims for items not received. - UNAUTHORIZED_PAYMENT_ELIGIBLE: Sellers are protected against claims for unauthorized payments. One or both values can be returned. .</param>
-        /// <param name="Eligibilty">The level of seller protection in force for the transaction. Possible values: - &#x60;ELIGIBLE&#x60; - &#x60;PARTIALLY_ELIGIBLE&#x60; - &#x60;INELIGIBLE&#x60; .</param>
+        /// <param name="Eligibility">The level of seller protection in force for the transaction. Possible values: - &#x60;ELIGIBLE&#x60; - &#x60;PARTIALLY_ELIGIBLE&#x60; - &#x60;INELIGIBLE&#x60; .</param>
         /// <param name="EligibilityType">The kind of seller protection in force for the transaction. This field is returned only when the protection_eligibility property is set to ELIGIBLE or PARTIALLY_ELIGIBLE. Possible values: - &#x60;ITEM_NOT_RECEIVED_ELIGIBLE: Sellers are protected against claims for items not received.&#x60; - &#x60;UNAUTHORIZED_PAYMENT_ELIGIBLE: Sellers are protected against claims for unauthorized payments.&#x60; One or both values can be returned. .</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection(string Type = default(string), string Eligibilty = default(string), string EligibilityType = default(string))
+        public PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection(string Type = default(string), string Eligibility = default(string), string EligibilityType = default(string))
         {
             this.Type = Type;
-            this.Eligibilty = Eligibilty;
+            this.Eligibility = Eligibility;
             this.EligibilityType = EligibilityType;
         }
         
@@ -54,8 +54,8 @@ namespace CyberSource.Model
         /// The level of seller protection in force for the transaction. Possible values: - &#x60;ELIGIBLE&#x60; - &#x60;PARTIALLY_ELIGIBLE&#x60; - &#x60;INELIGIBLE&#x60; 
         /// </summary>
         /// <value>The level of seller protection in force for the transaction. Possible values: - &#x60;ELIGIBLE&#x60; - &#x60;PARTIALLY_ELIGIBLE&#x60; - &#x60;INELIGIBLE&#x60; </value>
-        [DataMember(Name="eligibilty", EmitDefaultValue=false)]
-        public string Eligibilty { get; set; }
+        [DataMember(Name="eligibility", EmitDefaultValue=false)]
+        public string Eligibility { get; set; }
 
         /// <summary>
         /// The kind of seller protection in force for the transaction. This field is returned only when the protection_eligibility property is set to ELIGIBLE or PARTIALLY_ELIGIBLE. Possible values: - &#x60;ITEM_NOT_RECEIVED_ELIGIBLE: Sellers are protected against claims for items not received.&#x60; - &#x60;UNAUTHORIZED_PAYMENT_ELIGIBLE: Sellers are protected against claims for unauthorized payments.&#x60; One or both values can be returned. 
@@ -73,7 +73,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Eligibilty: ").Append(Eligibilty).Append("\n");
+            sb.Append("  Eligibility: ").Append(Eligibility).Append("\n");
             sb.Append("  EligibilityType: ").Append(EligibilityType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -117,9 +117,9 @@ namespace CyberSource.Model
                     this.Type.Equals(other.Type)
                 ) && 
                 (
-                    this.Eligibilty == other.Eligibilty ||
-                    this.Eligibilty != null &&
-                    this.Eligibilty.Equals(other.Eligibilty)
+                    this.Eligibility == other.Eligibility ||
+                    this.Eligibility != null &&
+                    this.Eligibility.Equals(other.Eligibility)
                 ) && 
                 (
                     this.EligibilityType == other.EligibilityType ||
@@ -141,8 +141,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
-                if (this.Eligibilty != null)
-                    hash = hash * 59 + this.Eligibilty.GetHashCode();
+                if (this.Eligibility != null)
+                    hash = hash * 59 + this.Eligibility.GetHashCode();
                 if (this.EligibilityType != null)
                     hash = hash * 59 + this.EligibilityType.GetHashCode();
                 return hash;

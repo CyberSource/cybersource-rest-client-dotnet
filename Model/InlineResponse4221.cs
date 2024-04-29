@@ -39,12 +39,11 @@ namespace CyberSource.Model
         {
             
             /// <summary>
-            /// Enum DATA for "INVALID_DATA"
+            /// Enum INVALIDDATA for "INVALID_DATA"
             /// </summary>
             [EnumMember(Value = "INVALID_DATA")]
-            DATA
+            INVALIDDATA
         }
-
         /// <summary>
         /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39; 
         /// </summary>

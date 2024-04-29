@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'IsDomestic'
+        /// </summary>
+        [Test]
+        public void IsDomesticTest()
+        {
+            // TODO unit test for the property 'IsDomestic'
+        }
+        /// <summary>
         /// Test the property 'BookingReferenceNumber'
         /// </summary>
         [Test]
@@ -367,6 +375,54 @@ namespace CyberSource.Test
         public void AncillaryInformationTest()
         {
             // TODO unit test for the property 'AncillaryInformation'
+        }
+        /// <summary>
+        /// Test the property 'FlightType'
+        /// </summary>
+        [Test]
+        public void FlightTypeTest()
+        {
+            // TODO unit test for the property 'FlightType'
+        }
+        /// <summary>
+        /// Test the property 'InsuranceAmount'
+        /// </summary>
+        [Test]
+        public void InsuranceAmountTest()
+        {
+            // TODO unit test for the property 'InsuranceAmount'
+        }
+        /// <summary>
+        /// Test the property 'FrequentFlyerNumber'
+        /// </summary>
+        [Test]
+        public void FrequentFlyerNumberTest()
+        {
+            // TODO unit test for the property 'FrequentFlyerNumber'
+        }
+        /// <summary>
+        /// Test the property 'ThirdPartyStatus'
+        /// </summary>
+        [Test]
+        public void ThirdPartyStatusTest()
+        {
+            // TODO unit test for the property 'ThirdPartyStatus'
+        }
+        /// <summary>
+        /// Test the property 'PassengerType'
+        /// </summary>
+        [Test]
+        public void PassengerTypeTest()
+        {
+            // TODO unit test for the property 'PassengerType'
+        }
+        /// <summary>
+        /// Test the property 'TotalInsuranceAmount'
+        /// </summary>
+        [Test]
+        public void TotalInsuranceAmountTest()
+        {
+            // TODO unit test for the property 'TotalInsuranceAmount'
         }
 
     }

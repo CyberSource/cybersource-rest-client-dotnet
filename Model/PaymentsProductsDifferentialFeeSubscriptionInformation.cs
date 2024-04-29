@@ -56,7 +56,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "SELF_SERVICE_ONLY")]
             SELFSERVICEONLY
         }
-
         /// <summary>
         /// Indicates if the organization can enable this product using self service.
         /// </summary>

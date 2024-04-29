@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**IsDomestic** | **string** | Specifies if the flight is: Domestic (01) International (02) If Y then 01 else 02  | [optional] 
 **BookingReferenceNumber** | **string** | Reference number for the airline booking. Required if ticket numbers are not issued.  | [optional] 
 **CarrierName** | **string** | Airline that generated the ticket. Format: English characters only. Optional request field.  | [optional] 
 **TicketIssuer** | [**Ptsv2paymentsTravelInformationTransitAirlineTicketIssuer**](Ptsv2paymentsTravelInformationTransitAirlineTicketIssuer.md) |  | [optional] 
@@ -41,6 +42,12 @@ Name | Type | Description | Notes
 **BoardingFeeAmount** | **string** | Boarding fee.  | [optional] 
 **Legs** | [**List&lt;Ptsv2paymentsTravelInformationTransitAirlineLegs&gt;**](Ptsv2paymentsTravelInformationTransitAirlineLegs.md) |  | [optional] 
 **AncillaryInformation** | [**Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation**](Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation.md) |  | [optional] 
+**FlightType** | **string** | Specifies the type of flight. One way (0) Return (1) Transit (2) Transit &amp; Return (3) Multi-City (4)  | [optional] 
+**InsuranceAmount** | **string** | The total cost of the flight insurance. Example: 10000.00  | [optional] 
+**FrequentFlyerNumber** | **string** | The consumer&#39;s frequent flyer number. Leave 0 if there is no frequent flyer number  | [optional] 
+**ThirdPartyStatus** | **string** | Specifies if the travel agent joins the flight (0) or not (1)  | [optional] 
+**PassengerType** | **string** | List of passenger types in a booking code: A (Adult) C (Child) Comma separated values for total number of passenger  | [optional] 
+**TotalInsuranceAmount** | **string** | Total insurance amount. We have per leg and not total  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

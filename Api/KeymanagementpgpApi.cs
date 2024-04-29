@@ -24,7 +24,7 @@ namespace CyberSource.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IKeymanagementpgpApi : IApiAccessor
+    public interface IKeyManagementPgpApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -81,17 +81,17 @@ namespace CyberSource.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class KeymanagementpgpApi : IKeymanagementpgpApi
+    public partial class KeyManagementPgpApi : IKeyManagementPgpApi
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
         private int? _statusCode;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeymanagementpgpApi"/> class.
+        /// Initializes a new instance of the <see cref="KeyManagementPgpApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public KeymanagementpgpApi(string basePath)
+        public KeyManagementPgpApi(string basePath)
         {
             Configuration = new Configuration(new ApiClient(basePath));
 
@@ -110,12 +110,12 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeymanagementpgpApi"/> class
+        /// Initializes a new instance of the <see cref="KeyManagementPgpApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public KeymanagementpgpApi(Configuration configuration = null)
+        public KeyManagementPgpApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 Configuration = Configuration.Default;
@@ -246,14 +246,14 @@ namespace CyberSource.Api
             // verify the required parameter 'keyId' is set
             if (keyId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeymanagementpgpApi->UpdatePGP");
-                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeymanagementpgpApi->UpdatePGP");
+                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeyManagementPgpApi->UpdatePGP");
+                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeyManagementPgpApi->UpdatePGP");
             }
             // verify the required parameter 'updatePGPKeysRequest' is set
             if (updatePGPKeysRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updatePGPKeysRequest' when calling KeymanagementpgpApi->UpdatePGP");
-                throw new ApiException(400, "Missing required parameter 'updatePGPKeysRequest' when calling KeymanagementpgpApi->UpdatePGP");
+                logger.Error("ApiException : Missing required parameter 'updatePGPKeysRequest' when calling KeyManagementPgpApi->UpdatePGP");
+                throw new ApiException(400, "Missing required parameter 'updatePGPKeysRequest' when calling KeyManagementPgpApi->UpdatePGP");
             }
 
             var localVarPath = $"/kms/v2/keys-pgp/{keyId}";
@@ -360,14 +360,14 @@ namespace CyberSource.Api
             // verify the required parameter 'keyId' is set
             if (keyId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeymanagementpgpApi->UpdatePGP");
-                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeymanagementpgpApi->UpdatePGP");
+                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeyManagementPgpApi->UpdatePGP");
+                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeyManagementPgpApi->UpdatePGP");
             }
             // verify the required parameter 'updatePGPKeysRequest' is set
             if (updatePGPKeysRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updatePGPKeysRequest' when calling KeymanagementpgpApi->UpdatePGP");
-                throw new ApiException(400, "Missing required parameter 'updatePGPKeysRequest' when calling KeymanagementpgpApi->UpdatePGP");
+                logger.Error("ApiException : Missing required parameter 'updatePGPKeysRequest' when calling KeyManagementPgpApi->UpdatePGP");
+                throw new ApiException(400, "Missing required parameter 'updatePGPKeysRequest' when calling KeyManagementPgpApi->UpdatePGP");
             }
 
             var localVarPath = $"/kms/v2/keys-pgp/{keyId}";

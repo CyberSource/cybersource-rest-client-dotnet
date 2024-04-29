@@ -39,12 +39,11 @@ namespace CyberSource.Model
         {
             
             /// <summary>
-            /// Enum SERVICEABLE for "NOT_SELF_SERVICEABLE"
+            /// Enum NOTSELFSERVICEABLE for "NOT_SELF_SERVICEABLE"
             /// </summary>
             [EnumMember(Value = "NOT_SELF_SERVICEABLE")]
-            SERVICEABLE
+            NOTSELFSERVICEABLE
         }
-
         /// <summary>
         /// Indicates if the organization can enable this product using self service.
         /// </summary>
@@ -55,14 +54,14 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PaymentsProductsCardPresentConnectSubscriptionInformation" /> class.
         /// </summary>
         /// <param name="Enabled">Enabled.</param>
-        /// <param name="SelfServiceability">Indicates if the organization can enable this product using self service. (default to SelfServiceabilityEnum.SERVICEABLE).</param>
-        public PaymentsProductsCardPresentConnectSubscriptionInformation(bool? Enabled = default(bool?), SelfServiceabilityEnum? SelfServiceability = SelfServiceabilityEnum.SERVICEABLE)
+        /// <param name="SelfServiceability">Indicates if the organization can enable this product using self service. (default to SelfServiceabilityEnum.NOTSELFSERVICEABLE).</param>
+        public PaymentsProductsCardPresentConnectSubscriptionInformation(bool? Enabled = default(bool?), SelfServiceabilityEnum? SelfServiceability = SelfServiceabilityEnum.NOTSELFSERVICEABLE)
         {
             this.Enabled = Enabled;
             // use default value if no "SelfServiceability" provided
             if (SelfServiceability == null)
             {
-                this.SelfServiceability = SelfServiceabilityEnum.SERVICEABLE;
+                this.SelfServiceability = SelfServiceabilityEnum.NOTSELFSERVICEABLE;
             }
             else
             {

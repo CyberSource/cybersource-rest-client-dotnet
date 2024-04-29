@@ -127,7 +127,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "SHOW_PAYMENT_TIMEOUT")]
             SHOWPAYMENTTIMEOUT
         }
-
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>

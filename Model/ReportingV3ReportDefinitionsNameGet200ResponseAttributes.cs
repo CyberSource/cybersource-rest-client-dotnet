@@ -37,16 +37,16 @@ namespace CyberSource.Model
         /// <param name="Name">Name.</param>
         /// <param name="Description">Description.</param>
         /// <param name="FilterType">Attribute Filter Type..</param>
-        /// <param name="_Default">_Default.</param>
+        /// <param name="Default">Default.</param>
         /// <param name="Required">Required.</param>
         /// <param name="SupportedType">Valid values for the filter..</param>
-        public ReportingV3ReportDefinitionsNameGet200ResponseAttributes(string Id = default(string), string Name = default(string), string Description = default(string), string FilterType = default(string), bool? _Default = default(bool?), bool? Required = default(bool?), string SupportedType = default(string))
+        public ReportingV3ReportDefinitionsNameGet200ResponseAttributes(string Id = default(string), string Name = default(string), string Description = default(string), string FilterType = default(string), bool? Default = default(bool?), bool? Required = default(bool?), string SupportedType = default(string))
         {
             this.Id = Id;
             this.Name = Name;
             this.Description = Description;
             this.FilterType = FilterType;
-            this._Default = _Default;
+            this.Default = Default;
             this.Required = Required;
             this.SupportedType = SupportedType;
         }
@@ -77,10 +77,10 @@ namespace CyberSource.Model
         public string FilterType { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Default
+        /// Gets or Sets Default
         /// </summary>
         [DataMember(Name="default", EmitDefaultValue=false)]
-        public bool? _Default { get; set; }
+        public bool? Default { get; set; }
 
         /// <summary>
         /// Gets or Sets Required
@@ -107,7 +107,7 @@ namespace CyberSource.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  FilterType: ").Append(FilterType).Append("\n");
-            sb.Append("  _Default: ").Append(_Default).Append("\n");
+            sb.Append("  Default: ").Append(Default).Append("\n");
             sb.Append("  Required: ").Append(Required).Append("\n");
             sb.Append("  SupportedType: ").Append(SupportedType).Append("\n");
             sb.Append("}\n");
@@ -167,9 +167,9 @@ namespace CyberSource.Model
                     this.FilterType.Equals(other.FilterType)
                 ) && 
                 (
-                    this._Default == other._Default ||
-                    this._Default != null &&
-                    this._Default.Equals(other._Default)
+                    this.Default == other.Default ||
+                    this.Default != null &&
+                    this.Default.Equals(other.Default)
                 ) && 
                 (
                     this.Required == other.Required ||
@@ -202,8 +202,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Description.GetHashCode();
                 if (this.FilterType != null)
                     hash = hash * 59 + this.FilterType.GetHashCode();
-                if (this._Default != null)
-                    hash = hash * 59 + this._Default.GetHashCode();
+                if (this.Default != null)
+                    hash = hash * 59 + this.Default.GetHashCode();
                 if (this.Required != null)
                     hash = hash * 59 + this.Required.GetHashCode();
                 if (this.SupportedType != null)

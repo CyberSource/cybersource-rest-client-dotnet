@@ -34,12 +34,12 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsCapturesPost201ResponseLinks" /> class.
         /// </summary>
         /// <param name="Self">Self.</param>
-        /// <param name="_Void">_Void.</param>
+        /// <param name="Void">Void.</param>
         /// <param name="Refund">Refund.</param>
-        public PtsV2PaymentsCapturesPost201ResponseLinks(PtsV2PaymentsPost201ResponseLinksSelf Self = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf _Void = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Refund = default(PtsV2PaymentsPost201ResponseLinksSelf))
+        public PtsV2PaymentsCapturesPost201ResponseLinks(PtsV2PaymentsPost201ResponseLinksSelf Self = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Void = default(PtsV2PaymentsPost201ResponseLinksSelf), PtsV2PaymentsPost201ResponseLinksSelf Refund = default(PtsV2PaymentsPost201ResponseLinksSelf))
         {
             this.Self = Self;
-            this._Void = _Void;
+            this.Void = Void;
             this.Refund = Refund;
         }
         
@@ -50,10 +50,10 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseLinksSelf Self { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Void
+        /// Gets or Sets Void
         /// </summary>
         [DataMember(Name="void", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseLinksSelf _Void { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf Void { get; set; }
 
         /// <summary>
         /// Gets or Sets Refund
@@ -70,7 +70,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsCapturesPost201ResponseLinks {\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  _Void: ").Append(_Void).Append("\n");
+            sb.Append("  Void: ").Append(Void).Append("\n");
             sb.Append("  Refund: ").Append(Refund).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -114,9 +114,9 @@ namespace CyberSource.Model
                     this.Self.Equals(other.Self)
                 ) && 
                 (
-                    this._Void == other._Void ||
-                    this._Void != null &&
-                    this._Void.Equals(other._Void)
+                    this.Void == other.Void ||
+                    this.Void != null &&
+                    this.Void.Equals(other.Void)
                 ) && 
                 (
                     this.Refund == other.Refund ||
@@ -138,8 +138,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Self != null)
                     hash = hash * 59 + this.Self.GetHashCode();
-                if (this._Void != null)
-                    hash = hash * 59 + this._Void.GetHashCode();
+                if (this.Void != null)
+                    hash = hash * 59 + this.Void.GetHashCode();
                 if (this.Refund != null)
                     hash = hash * 59 + this.Refund.GetHashCode();
                 return hash;

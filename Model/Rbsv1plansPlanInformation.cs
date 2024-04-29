@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="Name">Plan name  (required).</param>
         /// <param name="Description">Plan description .</param>
         /// <param name="Status">Plan Status:  - &#x60;DRAFT&#x60;  - &#x60;ACTIVE&#x60; (default) .</param>
-        /// <param name="BillingPeriod">BillingPeriod.</param>
+        /// <param name="BillingPeriod">BillingPeriod (required).</param>
         /// <param name="BillingCycles">BillingCycles.</param>
         public Rbsv1plansPlanInformation(string Code = default(string), string Name = default(string), string Description = default(string), string Status = default(string), GetAllPlansResponsePlanInformationBillingPeriod BillingPeriod = default(GetAllPlansResponsePlanInformationBillingPeriod), Rbsv1plansPlanInformationBillingCycles BillingCycles = default(Rbsv1plansPlanInformationBillingCycles))
         {
@@ -55,10 +55,18 @@ namespace CyberSource.Model
             {
                 this.Name = Name;
             }
+            // to ensure "BillingPeriod" is required (not null)
+            if (BillingPeriod == null)
+            {
+                throw new InvalidDataException("BillingPeriod is a required property for Rbsv1plansPlanInformation and cannot be null");
+            }
+            else
+            {
+                this.BillingPeriod = BillingPeriod;
+            }
             this.Code = Code;
             this.Description = Description;
             this.Status = Status;
-            this.BillingPeriod = BillingPeriod;
             this.BillingCycles = BillingCycles;
         }
         

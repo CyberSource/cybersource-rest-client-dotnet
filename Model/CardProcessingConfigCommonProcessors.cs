@@ -104,7 +104,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "R")]
             R
         }
-
         /// <summary>
         /// Field used to identify the industry type of the merchant submitting the authorization request.  Valid values: &#x60;0&#x60; – unknown or unsure &#x60;A&#x60; – auto rental (EMV supported) &#x60;B&#x60; – bank/financial institution (EMV supported) &#x60;D&#x60; – direct marketing &#x60;F&#x60; – food/restaurant (EMV supported) &#x60;G&#x60; – grocery store/super market (EMV supported) &#x60;H&#x60; – hotel (EMV supported) &#x60;L&#x60; – limited amount terminal (EMV supported) &#x60;O&#x60; – oil company/automated fueling system (EMV supported) &#x60;P&#x60; – passenger transport (EMV supported) &#x60;R&#x60; – retail (EMV supported) Applicable for TSYS (tsys), RUPAY and Elavon Americas (elavonamericas) processors. 
         /// </summary>

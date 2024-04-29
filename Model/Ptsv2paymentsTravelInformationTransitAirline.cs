@@ -33,6 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsTravelInformationTransitAirline" /> class.
         /// </summary>
+        /// <param name="IsDomestic">Specifies if the flight is: Domestic (01) International (02) If Y then 01 else 02 .</param>
         /// <param name="BookingReferenceNumber">Reference number for the airline booking. Required if ticket numbers are not issued. .</param>
         /// <param name="CarrierName">Airline that generated the ticket. Format: English characters only. Optional request field. .</param>
         /// <param name="TicketIssuer">TicketIssuer.</param>
@@ -71,8 +72,15 @@ namespace CyberSource.Model
         /// <param name="BoardingFeeAmount">Boarding fee. .</param>
         /// <param name="Legs">Legs.</param>
         /// <param name="AncillaryInformation">AncillaryInformation.</param>
-        public Ptsv2paymentsTravelInformationTransitAirline(string BookingReferenceNumber = default(string), string CarrierName = default(string), Ptsv2paymentsTravelInformationTransitAirlineTicketIssuer TicketIssuer = default(Ptsv2paymentsTravelInformationTransitAirlineTicketIssuer), string TicketNumber = default(string), string CheckDigit = default(string), int? RestrictedTicketIndicator = default(int?), int? TransactionType = default(int?), string ExtendedPaymentCode = default(string), string PassengerName = default(string), string CustomerCode = default(string), string DocumentType = default(string), string DocumentNumber = default(string), int? DocumentNumberOfParts = default(int?), string InvoiceNumber = default(string), int? InvoiceDate = default(int?), string AdditionalCharges = default(string), string TotalFeeAmount = default(string), string ClearingSequence = default(string), string ClearingCount = default(string), string TotalClearingAmount = default(string), int? NumberOfPassengers = default(int?), string ReservationSystemCode = default(string), string ProcessIdentifier = default(string), string TicketIssueDate = default(string), bool? ElectronicTicketIndicator = default(bool?), string OriginalTicketNumber = default(string), string PurchaseType = default(string), string CreditReasonIndicator = default(string), string TicketChangeIndicator = default(string), string PlanNumber = default(string), string ArrivalDate = default(string), string RestrictedTicketDesciption = default(string), string ExchangeTicketAmount = default(string), string ExchangeTicketFeeAmount = default(string), string ReservationType = default(string), string BoardingFeeAmount = default(string), List<Ptsv2paymentsTravelInformationTransitAirlineLegs> Legs = default(List<Ptsv2paymentsTravelInformationTransitAirlineLegs>), Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation AncillaryInformation = default(Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation))
+        /// <param name="FlightType">Specifies the type of flight. One way (0) Return (1) Transit (2) Transit &amp; Return (3) Multi-City (4) .</param>
+        /// <param name="InsuranceAmount">The total cost of the flight insurance. Example: 10000.00 .</param>
+        /// <param name="FrequentFlyerNumber">The consumer&#39;s frequent flyer number. Leave 0 if there is no frequent flyer number .</param>
+        /// <param name="ThirdPartyStatus">Specifies if the travel agent joins the flight (0) or not (1) .</param>
+        /// <param name="PassengerType">List of passenger types in a booking code: A (Adult) C (Child) Comma separated values for total number of passenger .</param>
+        /// <param name="TotalInsuranceAmount">Total insurance amount. We have per leg and not total .</param>
+        public Ptsv2paymentsTravelInformationTransitAirline(string IsDomestic = default(string), string BookingReferenceNumber = default(string), string CarrierName = default(string), Ptsv2paymentsTravelInformationTransitAirlineTicketIssuer TicketIssuer = default(Ptsv2paymentsTravelInformationTransitAirlineTicketIssuer), string TicketNumber = default(string), string CheckDigit = default(string), int? RestrictedTicketIndicator = default(int?), int? TransactionType = default(int?), string ExtendedPaymentCode = default(string), string PassengerName = default(string), string CustomerCode = default(string), string DocumentType = default(string), string DocumentNumber = default(string), int? DocumentNumberOfParts = default(int?), string InvoiceNumber = default(string), int? InvoiceDate = default(int?), string AdditionalCharges = default(string), string TotalFeeAmount = default(string), string ClearingSequence = default(string), string ClearingCount = default(string), string TotalClearingAmount = default(string), int? NumberOfPassengers = default(int?), string ReservationSystemCode = default(string), string ProcessIdentifier = default(string), string TicketIssueDate = default(string), bool? ElectronicTicketIndicator = default(bool?), string OriginalTicketNumber = default(string), string PurchaseType = default(string), string CreditReasonIndicator = default(string), string TicketChangeIndicator = default(string), string PlanNumber = default(string), string ArrivalDate = default(string), string RestrictedTicketDesciption = default(string), string ExchangeTicketAmount = default(string), string ExchangeTicketFeeAmount = default(string), string ReservationType = default(string), string BoardingFeeAmount = default(string), List<Ptsv2paymentsTravelInformationTransitAirlineLegs> Legs = default(List<Ptsv2paymentsTravelInformationTransitAirlineLegs>), Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation AncillaryInformation = default(Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation), string FlightType = default(string), string InsuranceAmount = default(string), string FrequentFlyerNumber = default(string), string ThirdPartyStatus = default(string), string PassengerType = default(string), string TotalInsuranceAmount = default(string))
         {
+            this.IsDomestic = IsDomestic;
             this.BookingReferenceNumber = BookingReferenceNumber;
             this.CarrierName = CarrierName;
             this.TicketIssuer = TicketIssuer;
@@ -111,8 +119,21 @@ namespace CyberSource.Model
             this.BoardingFeeAmount = BoardingFeeAmount;
             this.Legs = Legs;
             this.AncillaryInformation = AncillaryInformation;
+            this.FlightType = FlightType;
+            this.InsuranceAmount = InsuranceAmount;
+            this.FrequentFlyerNumber = FrequentFlyerNumber;
+            this.ThirdPartyStatus = ThirdPartyStatus;
+            this.PassengerType = PassengerType;
+            this.TotalInsuranceAmount = TotalInsuranceAmount;
         }
         
+        /// <summary>
+        /// Specifies if the flight is: Domestic (01) International (02) If Y then 01 else 02 
+        /// </summary>
+        /// <value>Specifies if the flight is: Domestic (01) International (02) If Y then 01 else 02 </value>
+        [DataMember(Name="isDomestic", EmitDefaultValue=false)]
+        public string IsDomestic { get; set; }
+
         /// <summary>
         /// Reference number for the airline booking. Required if ticket numbers are not issued. 
         /// </summary>
@@ -377,6 +398,48 @@ namespace CyberSource.Model
         public Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation AncillaryInformation { get; set; }
 
         /// <summary>
+        /// Specifies the type of flight. One way (0) Return (1) Transit (2) Transit &amp; Return (3) Multi-City (4) 
+        /// </summary>
+        /// <value>Specifies the type of flight. One way (0) Return (1) Transit (2) Transit &amp; Return (3) Multi-City (4) </value>
+        [DataMember(Name="flightType", EmitDefaultValue=false)]
+        public string FlightType { get; set; }
+
+        /// <summary>
+        /// The total cost of the flight insurance. Example: 10000.00 
+        /// </summary>
+        /// <value>The total cost of the flight insurance. Example: 10000.00 </value>
+        [DataMember(Name="insuranceAmount", EmitDefaultValue=false)]
+        public string InsuranceAmount { get; set; }
+
+        /// <summary>
+        /// The consumer&#39;s frequent flyer number. Leave 0 if there is no frequent flyer number 
+        /// </summary>
+        /// <value>The consumer&#39;s frequent flyer number. Leave 0 if there is no frequent flyer number </value>
+        [DataMember(Name="frequentFlyerNumber", EmitDefaultValue=false)]
+        public string FrequentFlyerNumber { get; set; }
+
+        /// <summary>
+        /// Specifies if the travel agent joins the flight (0) or not (1) 
+        /// </summary>
+        /// <value>Specifies if the travel agent joins the flight (0) or not (1) </value>
+        [DataMember(Name="thirdPartyStatus", EmitDefaultValue=false)]
+        public string ThirdPartyStatus { get; set; }
+
+        /// <summary>
+        /// List of passenger types in a booking code: A (Adult) C (Child) Comma separated values for total number of passenger 
+        /// </summary>
+        /// <value>List of passenger types in a booking code: A (Adult) C (Child) Comma separated values for total number of passenger </value>
+        [DataMember(Name="passengerType", EmitDefaultValue=false)]
+        public string PassengerType { get; set; }
+
+        /// <summary>
+        /// Total insurance amount. We have per leg and not total 
+        /// </summary>
+        /// <value>Total insurance amount. We have per leg and not total </value>
+        [DataMember(Name="totalInsuranceAmount", EmitDefaultValue=false)]
+        public string TotalInsuranceAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -384,6 +447,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsTravelInformationTransitAirline {\n");
+            sb.Append("  IsDomestic: ").Append(IsDomestic).Append("\n");
             sb.Append("  BookingReferenceNumber: ").Append(BookingReferenceNumber).Append("\n");
             sb.Append("  CarrierName: ").Append(CarrierName).Append("\n");
             sb.Append("  TicketIssuer: ").Append(TicketIssuer).Append("\n");
@@ -422,6 +486,12 @@ namespace CyberSource.Model
             sb.Append("  BoardingFeeAmount: ").Append(BoardingFeeAmount).Append("\n");
             sb.Append("  Legs: ").Append(Legs).Append("\n");
             sb.Append("  AncillaryInformation: ").Append(AncillaryInformation).Append("\n");
+            sb.Append("  FlightType: ").Append(FlightType).Append("\n");
+            sb.Append("  InsuranceAmount: ").Append(InsuranceAmount).Append("\n");
+            sb.Append("  FrequentFlyerNumber: ").Append(FrequentFlyerNumber).Append("\n");
+            sb.Append("  ThirdPartyStatus: ").Append(ThirdPartyStatus).Append("\n");
+            sb.Append("  PassengerType: ").Append(PassengerType).Append("\n");
+            sb.Append("  TotalInsuranceAmount: ").Append(TotalInsuranceAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -458,6 +528,11 @@ namespace CyberSource.Model
                 return false;
 
             return 
+                (
+                    this.IsDomestic == other.IsDomestic ||
+                    this.IsDomestic != null &&
+                    this.IsDomestic.Equals(other.IsDomestic)
+                ) && 
                 (
                     this.BookingReferenceNumber == other.BookingReferenceNumber ||
                     this.BookingReferenceNumber != null &&
@@ -647,6 +722,36 @@ namespace CyberSource.Model
                     this.AncillaryInformation == other.AncillaryInformation ||
                     this.AncillaryInformation != null &&
                     this.AncillaryInformation.Equals(other.AncillaryInformation)
+                ) && 
+                (
+                    this.FlightType == other.FlightType ||
+                    this.FlightType != null &&
+                    this.FlightType.Equals(other.FlightType)
+                ) && 
+                (
+                    this.InsuranceAmount == other.InsuranceAmount ||
+                    this.InsuranceAmount != null &&
+                    this.InsuranceAmount.Equals(other.InsuranceAmount)
+                ) && 
+                (
+                    this.FrequentFlyerNumber == other.FrequentFlyerNumber ||
+                    this.FrequentFlyerNumber != null &&
+                    this.FrequentFlyerNumber.Equals(other.FrequentFlyerNumber)
+                ) && 
+                (
+                    this.ThirdPartyStatus == other.ThirdPartyStatus ||
+                    this.ThirdPartyStatus != null &&
+                    this.ThirdPartyStatus.Equals(other.ThirdPartyStatus)
+                ) && 
+                (
+                    this.PassengerType == other.PassengerType ||
+                    this.PassengerType != null &&
+                    this.PassengerType.Equals(other.PassengerType)
+                ) && 
+                (
+                    this.TotalInsuranceAmount == other.TotalInsuranceAmount ||
+                    this.TotalInsuranceAmount != null &&
+                    this.TotalInsuranceAmount.Equals(other.TotalInsuranceAmount)
                 );
         }
 
@@ -661,6 +766,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.IsDomestic != null)
+                    hash = hash * 59 + this.IsDomestic.GetHashCode();
                 if (this.BookingReferenceNumber != null)
                     hash = hash * 59 + this.BookingReferenceNumber.GetHashCode();
                 if (this.CarrierName != null)
@@ -737,6 +844,18 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Legs.GetHashCode();
                 if (this.AncillaryInformation != null)
                     hash = hash * 59 + this.AncillaryInformation.GetHashCode();
+                if (this.FlightType != null)
+                    hash = hash * 59 + this.FlightType.GetHashCode();
+                if (this.InsuranceAmount != null)
+                    hash = hash * 59 + this.InsuranceAmount.GetHashCode();
+                if (this.FrequentFlyerNumber != null)
+                    hash = hash * 59 + this.FrequentFlyerNumber.GetHashCode();
+                if (this.ThirdPartyStatus != null)
+                    hash = hash * 59 + this.ThirdPartyStatus.GetHashCode();
+                if (this.PassengerType != null)
+                    hash = hash * 59 + this.PassengerType.GetHashCode();
+                if (this.TotalInsuranceAmount != null)
+                    hash = hash * 59 + this.TotalInsuranceAmount.GetHashCode();
                 return hash;
             }
         }

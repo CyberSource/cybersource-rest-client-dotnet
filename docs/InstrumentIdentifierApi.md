@@ -76,7 +76,7 @@ No authorization required
 
 <a name="getinstrumentidentifier"></a>
 # **GetInstrumentIdentifier**
-> TmsEmbeddedInstrumentIdentifier GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null)
+> PostInstrumentIdentifierRequest GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null)
 
 Retrieve an Instrument Identifier
 
@@ -103,7 +103,7 @@ namespace Example
             try
             {
                 // Retrieve an Instrument Identifier
-                TmsEmbeddedInstrumentIdentifier result = apiInstance.GetInstrumentIdentifier(instrumentIdentifierId, profileId);
+                PostInstrumentIdentifierRequest result = apiInstance.GetInstrumentIdentifier(instrumentIdentifierId, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TmsEmbeddedInstrumentIdentifier**](TmsEmbeddedInstrumentIdentifier.md)
+[**PostInstrumentIdentifierRequest**](PostInstrumentIdentifierRequest.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ No authorization required
 
 <a name="getinstrumentidentifierpaymentinstrumentslist"></a>
 # **GetInstrumentIdentifierPaymentInstrumentsList**
-> PaymentInstrumentList GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null)
+> PaymentInstrumentList1 GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null)
 
 List Payment Instruments for an Instrument Identifier
 
@@ -168,7 +168,7 @@ namespace Example
             try
             {
                 // List Payment Instruments for an Instrument Identifier
-                PaymentInstrumentList result = apiInstance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierId, profileId, offset, limit);
+                PaymentInstrumentList1 result = apiInstance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierId, profileId, offset, limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaymentInstrumentList**](PaymentInstrumentList.md)
+[**PaymentInstrumentList1**](PaymentInstrumentList1.md)
 
 ### Authorization
 
@@ -206,7 +206,7 @@ No authorization required
 
 <a name="patchinstrumentidentifier"></a>
 # **PatchInstrumentIdentifier**
-> TmsEmbeddedInstrumentIdentifier PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+> PatchInstrumentIdentifierRequest PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
 
 Update an Instrument Identifier
 
@@ -235,7 +235,7 @@ namespace Example
             try
             {
                 // Update an Instrument Identifier
-                TmsEmbeddedInstrumentIdentifier result = apiInstance.PatchInstrumentIdentifier(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+                PatchInstrumentIdentifierRequest result = apiInstance.PatchInstrumentIdentifier(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TmsEmbeddedInstrumentIdentifier**](TmsEmbeddedInstrumentIdentifier.md)
+[**PatchInstrumentIdentifierRequest**](PatchInstrumentIdentifierRequest.md)
 
 ### Authorization
 
@@ -273,7 +273,7 @@ No authorization required
 
 <a name="postinstrumentidentifier"></a>
 # **PostInstrumentIdentifier**
-> TmsEmbeddedInstrumentIdentifier PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
+> PostInstrumentIdentifierRequest PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
 
 Create an Instrument Identifier
 
@@ -300,7 +300,7 @@ namespace Example
             try
             {
                 // Create an Instrument Identifier
-                TmsEmbeddedInstrumentIdentifier result = apiInstance.PostInstrumentIdentifier(postInstrumentIdentifierRequest, profileId);
+                PostInstrumentIdentifierRequest result = apiInstance.PostInstrumentIdentifier(postInstrumentIdentifierRequest, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TmsEmbeddedInstrumentIdentifier**](TmsEmbeddedInstrumentIdentifier.md)
+[**PostInstrumentIdentifierRequest**](PostInstrumentIdentifierRequest.md)
 
 ### Authorization
 

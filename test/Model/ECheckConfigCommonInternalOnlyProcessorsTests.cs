@@ -97,6 +97,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'PortalSupportedPaytypes'
         }
         /// <summary>
+        /// Test the property 'SettlementMethod'
+        /// </summary>
+        [Test]
+        public void SettlementMethodTest()
+        {
+            // TODO unit test for the property 'SettlementMethod'
+        }
+        /// <summary>
+        /// Test the property 'VerificationLevel'
+        /// </summary>
+        [Test]
+        public void VerificationLevelTest()
+        {
+            // TODO unit test for the property 'VerificationLevel'
+        }
+        /// <summary>
         /// Test the property 'SetCompletedState'
         /// </summary>
         [Test]

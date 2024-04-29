@@ -65,12 +65,12 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property '_Event'
+        /// Test the property 'Event'
         /// </summary>
         [Test]
-        public void _EventTest()
+        public void EventTest()
         {
-            // TODO unit test for the property '_Event'
+            // TODO unit test for the property 'Event'
         }
         /// <summary>
         /// Test the property 'Date'

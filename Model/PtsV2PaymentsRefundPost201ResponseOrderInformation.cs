@@ -33,12 +33,20 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsRefundPost201ResponseOrderInformation" /> class.
         /// </summary>
+        /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
-        public PtsV2PaymentsRefundPost201ResponseOrderInformation(PtsV2PaymentsCapturesPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsCapturesPost201ResponseOrderInformationInvoiceDetails))
+        public PtsV2PaymentsRefundPost201ResponseOrderInformation(PtsV2PaymentsRefundPost201ResponseOrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsRefundPost201ResponseOrderInformationAmountDetails), PtsV2PaymentsCapturesPost201ResponseOrderInformationInvoiceDetails InvoiceDetails = default(PtsV2PaymentsCapturesPost201ResponseOrderInformationInvoiceDetails))
         {
+            this.AmountDetails = AmountDetails;
             this.InvoiceDetails = InvoiceDetails;
         }
         
+        /// <summary>
+        /// Gets or Sets AmountDetails
+        /// </summary>
+        [DataMember(Name="amountDetails", EmitDefaultValue=false)]
+        public PtsV2PaymentsRefundPost201ResponseOrderInformationAmountDetails AmountDetails { get; set; }
+
         /// <summary>
         /// Gets or Sets InvoiceDetails
         /// </summary>
@@ -53,6 +61,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsRefundPost201ResponseOrderInformation {\n");
+            sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
             sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -91,6 +100,11 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.AmountDetails == other.AmountDetails ||
+                    this.AmountDetails != null &&
+                    this.AmountDetails.Equals(other.AmountDetails)
+                ) && 
+                (
                     this.InvoiceDetails == other.InvoiceDetails ||
                     this.InvoiceDetails != null &&
                     this.InvoiceDetails.Equals(other.InvoiceDetails)
@@ -108,6 +122,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.AmountDetails != null)
+                    hash = hash * 59 + this.AmountDetails.GetHashCode();
                 if (this.InvoiceDetails != null)
                     hash = hash * 59 + this.InvoiceDetails.GetHashCode();
                 return hash;

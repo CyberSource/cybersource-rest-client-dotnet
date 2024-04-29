@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="CarrierCode">IATA code for the carrier for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
         /// <param name="FlightNumber">Flight number for this leg of the trip. Restrictions are limitations for the ticket based on the type of fare, such as a nonrefundable ticket or a 3-day minimum stay. Format: English characters only. Optional request field for travel legs. .</param>
         /// <param name="OriginatingAirportCode">IATA code for the originating airport for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
-        /// <param name="_Class">IATA code for the class of service for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
+        /// <param name="Class">IATA code for the class of service for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
         /// <param name="StopoverIndicator">Code that indicates whether a stopover is allowed on this leg of the trip. Possible values: - &#x60;O&#x60; (capital letter \&quot;O\&quot;) (default): Stopover allowed - &#x60;X&#x60; (capital letter \&quot;X\&quot;): Stopover not allowed Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
         /// <param name="DepartureDate">Departure date for the first leg of the trip. Format: &#x60;YYYYMMDD&#x60;. Format: English characters only. Optional request field for travel legs. .</param>
         /// <param name="DestinationAirportCode">IATA code for the destination airport for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. .</param>
@@ -53,12 +53,12 @@ namespace CyberSource.Model
         /// <param name="TotalFareAmount">Total fare for this leg of the trip. Format: English characters only. Optional request field for travel legs. .</param>
         /// <param name="FeeAmount">Fee for this leg of the trip, such as an airport fee or country fee. Format: English characters only. Optional request field for travel legs. .</param>
         /// <param name="TaxAmount">Tax for this leg of the trip. Format: English characters only. Optional request field for travel legs. .</param>
-        public Ptsv2paymentsTravelInformationTransitAirlineLegs(string CarrierCode = default(string), string FlightNumber = default(string), string OriginatingAirportCode = default(string), string _Class = default(string), int? StopoverIndicator = default(int?), int? DepartureDate = default(int?), string DestinationAirportCode = default(string), string FareBasis = default(string), string DepartTaxAmount = default(string), string ConjunctionTicket = default(string), string ExchangeTicketNumber = default(string), string CouponNumber = default(string), int? DepartureTime = default(int?), string DepartureTimeMeridian = default(string), int? ArrivalTime = default(int?), string ArrivalTimeMeridian = default(string), string EndorsementsRestrictions = default(string), string TotalFareAmount = default(string), string FeeAmount = default(string), string TaxAmount = default(string))
+        public Ptsv2paymentsTravelInformationTransitAirlineLegs(string CarrierCode = default(string), string FlightNumber = default(string), string OriginatingAirportCode = default(string), string Class = default(string), int? StopoverIndicator = default(int?), int? DepartureDate = default(int?), string DestinationAirportCode = default(string), string FareBasis = default(string), string DepartTaxAmount = default(string), string ConjunctionTicket = default(string), string ExchangeTicketNumber = default(string), string CouponNumber = default(string), int? DepartureTime = default(int?), string DepartureTimeMeridian = default(string), int? ArrivalTime = default(int?), string ArrivalTimeMeridian = default(string), string EndorsementsRestrictions = default(string), string TotalFareAmount = default(string), string FeeAmount = default(string), string TaxAmount = default(string))
         {
             this.CarrierCode = CarrierCode;
             this.FlightNumber = FlightNumber;
             this.OriginatingAirportCode = OriginatingAirportCode;
-            this._Class = _Class;
+            this.Class = Class;
             this.StopoverIndicator = StopoverIndicator;
             this.DepartureDate = DepartureDate;
             this.DestinationAirportCode = DestinationAirportCode;
@@ -103,7 +103,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>IATA code for the class of service for this leg of the trip. Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. </value>
         [DataMember(Name="class", EmitDefaultValue=false)]
-        public string _Class { get; set; }
+        public string Class { get; set; }
 
         /// <summary>
         /// Code that indicates whether a stopover is allowed on this leg of the trip. Possible values: - &#x60;O&#x60; (capital letter \&quot;O\&quot;) (default): Stopover allowed - &#x60;X&#x60; (capital letter \&quot;X\&quot;): Stopover not allowed Format: English characters only. Restricted string data type that indicates a sequence of letters, numbers, and spaces; special characters are not included. Optional request field for travel legs. 
@@ -228,7 +228,7 @@ namespace CyberSource.Model
             sb.Append("  CarrierCode: ").Append(CarrierCode).Append("\n");
             sb.Append("  FlightNumber: ").Append(FlightNumber).Append("\n");
             sb.Append("  OriginatingAirportCode: ").Append(OriginatingAirportCode).Append("\n");
-            sb.Append("  _Class: ").Append(_Class).Append("\n");
+            sb.Append("  Class: ").Append(Class).Append("\n");
             sb.Append("  StopoverIndicator: ").Append(StopoverIndicator).Append("\n");
             sb.Append("  DepartureDate: ").Append(DepartureDate).Append("\n");
             sb.Append("  DestinationAirportCode: ").Append(DestinationAirportCode).Append("\n");
@@ -297,9 +297,9 @@ namespace CyberSource.Model
                     this.OriginatingAirportCode.Equals(other.OriginatingAirportCode)
                 ) && 
                 (
-                    this._Class == other._Class ||
-                    this._Class != null &&
-                    this._Class.Equals(other._Class)
+                    this.Class == other.Class ||
+                    this.Class != null &&
+                    this.Class.Equals(other.Class)
                 ) && 
                 (
                     this.StopoverIndicator == other.StopoverIndicator ||
@@ -400,8 +400,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FlightNumber.GetHashCode();
                 if (this.OriginatingAirportCode != null)
                     hash = hash * 59 + this.OriginatingAirportCode.GetHashCode();
-                if (this._Class != null)
-                    hash = hash * 59 + this._Class.GetHashCode();
+                if (this.Class != null)
+                    hash = hash * 59 + this.Class.GetHashCode();
                 if (this.StopoverIndicator != null)
                     hash = hash * 59 + this.StopoverIndicator.GetHashCode();
                 if (this.DepartureDate != null)

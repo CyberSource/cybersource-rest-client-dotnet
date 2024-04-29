@@ -33,17 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ShippingAddressListForCustomerEmbedded" /> class.
         /// </summary>
-        /// <param name="ShippingAddresses">ShippingAddresses.</param>
-        public ShippingAddressListForCustomerEmbedded(List<Tmsv2customersEmbeddedDefaultShippingAddress> ShippingAddresses = default(List<Tmsv2customersEmbeddedDefaultShippingAddress>))
+        [JsonConstructorAttribute]
+        public ShippingAddressListForCustomerEmbedded()
         {
-            this.ShippingAddresses = ShippingAddresses;
         }
         
         /// <summary>
         /// Gets or Sets ShippingAddresses
         /// </summary>
         [DataMember(Name="shippingAddresses", EmitDefaultValue=false)]
-        public List<Tmsv2customersEmbeddedDefaultShippingAddress> ShippingAddresses { get; set; }
+        public List<Tmsv2customersEmbeddedDefaultShippingAddress> ShippingAddresses { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object

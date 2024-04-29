@@ -169,6 +169,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'InitiationChannel'
         }
         /// <summary>
+        /// Test the property 'Sepa'
+        /// </summary>
+        [Test]
+        public void SepaTest()
+        {
+            // TODO unit test for the property 'Sepa'
+        }
+        /// <summary>
         /// Test the property 'EWallet'
         /// </summary>
         [Test]

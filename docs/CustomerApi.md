@@ -74,7 +74,7 @@ No authorization required
 
 <a name="getcustomer"></a>
 # **GetCustomer**
-> TmsV2CustomersResponse GetCustomer (string customerId, string profileId = null)
+> PostCustomerRequest GetCustomer (string customerId, string profileId = null)
 
 Retrieve a Customer
 
@@ -101,7 +101,7 @@ namespace Example
             try
             {
                 // Retrieve a Customer
-                TmsV2CustomersResponse result = apiInstance.GetCustomer(customerId, profileId);
+                PostCustomerRequest result = apiInstance.GetCustomer(customerId, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TmsV2CustomersResponse**](TmsV2CustomersResponse.md)
+[**PostCustomerRequest**](PostCustomerRequest.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ No authorization required
 
 <a name="patchcustomer"></a>
 # **PatchCustomer**
-> TmsV2CustomersResponse PatchCustomer (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null)
+> PatchCustomerRequest PatchCustomer (string customerId, PatchCustomerRequest patchCustomerRequest, string profileId = null, string ifMatch = null)
 
 Update a Customer
 
@@ -166,7 +166,7 @@ namespace Example
             try
             {
                 // Update a Customer
-                TmsV2CustomersResponse result = apiInstance.PatchCustomer(customerId, patchCustomerRequest, profileId, ifMatch);
+                PatchCustomerRequest result = apiInstance.PatchCustomer(customerId, patchCustomerRequest, profileId, ifMatch);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TmsV2CustomersResponse**](TmsV2CustomersResponse.md)
+[**PatchCustomerRequest**](PatchCustomerRequest.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ No authorization required
 
 <a name="postcustomer"></a>
 # **PostCustomer**
-> TmsV2CustomersResponse PostCustomer (PostCustomerRequest postCustomerRequest, string profileId = null)
+> PostCustomerRequest PostCustomer (PostCustomerRequest postCustomerRequest, string profileId = null)
 
 Create a Customer
 
@@ -231,7 +231,7 @@ namespace Example
             try
             {
                 // Create a Customer
-                TmsV2CustomersResponse result = apiInstance.PostCustomer(postCustomerRequest, profileId);
+                PostCustomerRequest result = apiInstance.PostCustomer(postCustomerRequest, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TmsV2CustomersResponse**](TmsV2CustomersResponse.md)
+[**PostCustomerRequest**](PostCustomerRequest.md)
 
 ### Authorization
 

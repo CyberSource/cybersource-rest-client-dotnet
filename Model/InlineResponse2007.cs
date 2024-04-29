@@ -33,42 +33,35 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2007" /> class.
         /// </summary>
-        /// <param name="Version">Version.</param>
-        /// <param name="ReportCreatedDate">ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ.</param>
+        /// <param name="Links">Links.</param>
         /// <param name="BatchId">Unique identification number assigned to the submitted request..</param>
-        /// <param name="BatchSource">Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE .</param>
-        /// <param name="BatchCaEndpoints">BatchCaEndpoints.</param>
         /// <param name="BatchCreatedDate">ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ.</param>
+        /// <param name="BatchSource">Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE .</param>
         /// <param name="MerchantReference">Reference used by merchant to identify batch..</param>
+        /// <param name="BatchCaEndpoints">BatchCaEndpoints.</param>
+        /// <param name="Status">Valid Values:   * REJECTED   * RECEIVED   * VALIDATED   * DECLINED   * PROCESSING   * COMPLETED .</param>
         /// <param name="Totals">Totals.</param>
         /// <param name="Billing">Billing.</param>
-        /// <param name="Records">Records.</param>
-        public InlineResponse2007(string Version = default(string), string ReportCreatedDate = default(string), string BatchId = default(string), string BatchSource = default(string), string BatchCaEndpoints = default(string), string BatchCreatedDate = default(string), string MerchantReference = default(string), InlineResponse2005EmbeddedTotals Totals = default(InlineResponse2005EmbeddedTotals), InlineResponse2006Billing Billing = default(InlineResponse2006Billing), List<InlineResponse2007Records> Records = default(List<InlineResponse2007Records>))
+        /// <param name="Description">Description.</param>
+        public InlineResponse2007(InlineResponse2007Links Links = default(InlineResponse2007Links), string BatchId = default(string), string BatchCreatedDate = default(string), string BatchSource = default(string), string MerchantReference = default(string), string BatchCaEndpoints = default(string), string Status = default(string), InlineResponse2006EmbeddedTotals Totals = default(InlineResponse2006EmbeddedTotals), InlineResponse2007Billing Billing = default(InlineResponse2007Billing), string Description = default(string))
         {
-            this.Version = Version;
-            this.ReportCreatedDate = ReportCreatedDate;
+            this.Links = Links;
             this.BatchId = BatchId;
-            this.BatchSource = BatchSource;
-            this.BatchCaEndpoints = BatchCaEndpoints;
             this.BatchCreatedDate = BatchCreatedDate;
+            this.BatchSource = BatchSource;
             this.MerchantReference = MerchantReference;
+            this.BatchCaEndpoints = BatchCaEndpoints;
+            this.Status = Status;
             this.Totals = Totals;
             this.Billing = Billing;
-            this.Records = Records;
+            this.Description = Description;
         }
         
         /// <summary>
-        /// Gets or Sets Version
+        /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name="version", EmitDefaultValue=false)]
-        public string Version { get; set; }
-
-        /// <summary>
-        /// ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ
-        /// </summary>
-        /// <value>ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ</value>
-        [DataMember(Name="reportCreatedDate", EmitDefaultValue=false)]
-        public string ReportCreatedDate { get; set; }
+        [DataMember(Name="_links", EmitDefaultValue=false)]
+        public InlineResponse2007Links Links { get; set; }
 
         /// <summary>
         /// Unique identification number assigned to the submitted request.
@@ -78,24 +71,18 @@ namespace CyberSource.Model
         public string BatchId { get; set; }
 
         /// <summary>
-        /// Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE 
-        /// </summary>
-        /// <value>Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE </value>
-        [DataMember(Name="batchSource", EmitDefaultValue=false)]
-        public string BatchSource { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BatchCaEndpoints
-        /// </summary>
-        [DataMember(Name="batchCaEndpoints", EmitDefaultValue=false)]
-        public string BatchCaEndpoints { get; set; }
-
-        /// <summary>
         /// ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ
         /// </summary>
         /// <value>ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ</value>
         [DataMember(Name="batchCreatedDate", EmitDefaultValue=false)]
         public string BatchCreatedDate { get; set; }
+
+        /// <summary>
+        /// Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE 
+        /// </summary>
+        /// <value>Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE </value>
+        [DataMember(Name="batchSource", EmitDefaultValue=false)]
+        public string BatchSource { get; set; }
 
         /// <summary>
         /// Reference used by merchant to identify batch.
@@ -105,22 +92,35 @@ namespace CyberSource.Model
         public string MerchantReference { get; set; }
 
         /// <summary>
+        /// Gets or Sets BatchCaEndpoints
+        /// </summary>
+        [DataMember(Name="batchCaEndpoints", EmitDefaultValue=false)]
+        public string BatchCaEndpoints { get; set; }
+
+        /// <summary>
+        /// Valid Values:   * REJECTED   * RECEIVED   * VALIDATED   * DECLINED   * PROCESSING   * COMPLETED 
+        /// </summary>
+        /// <value>Valid Values:   * REJECTED   * RECEIVED   * VALIDATED   * DECLINED   * PROCESSING   * COMPLETED </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
+
+        /// <summary>
         /// Gets or Sets Totals
         /// </summary>
         [DataMember(Name="totals", EmitDefaultValue=false)]
-        public InlineResponse2005EmbeddedTotals Totals { get; set; }
+        public InlineResponse2006EmbeddedTotals Totals { get; set; }
 
         /// <summary>
         /// Gets or Sets Billing
         /// </summary>
         [DataMember(Name="billing", EmitDefaultValue=false)]
-        public InlineResponse2006Billing Billing { get; set; }
+        public InlineResponse2007Billing Billing { get; set; }
 
         /// <summary>
-        /// Gets or Sets Records
+        /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name="records", EmitDefaultValue=false)]
-        public List<InlineResponse2007Records> Records { get; set; }
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -130,16 +130,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2007 {\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
-            sb.Append("  ReportCreatedDate: ").Append(ReportCreatedDate).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("  BatchId: ").Append(BatchId).Append("\n");
-            sb.Append("  BatchSource: ").Append(BatchSource).Append("\n");
-            sb.Append("  BatchCaEndpoints: ").Append(BatchCaEndpoints).Append("\n");
             sb.Append("  BatchCreatedDate: ").Append(BatchCreatedDate).Append("\n");
+            sb.Append("  BatchSource: ").Append(BatchSource).Append("\n");
             sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
+            sb.Append("  BatchCaEndpoints: ").Append(BatchCaEndpoints).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Totals: ").Append(Totals).Append("\n");
             sb.Append("  Billing: ").Append(Billing).Append("\n");
-            sb.Append("  Records: ").Append(Records).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,14 +177,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Version == other.Version ||
-                    this.Version != null &&
-                    this.Version.Equals(other.Version)
-                ) && 
-                (
-                    this.ReportCreatedDate == other.ReportCreatedDate ||
-                    this.ReportCreatedDate != null &&
-                    this.ReportCreatedDate.Equals(other.ReportCreatedDate)
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.Equals(other.Links)
                 ) && 
                 (
                     this.BatchId == other.BatchId ||
@@ -192,9 +187,19 @@ namespace CyberSource.Model
                     this.BatchId.Equals(other.BatchId)
                 ) && 
                 (
+                    this.BatchCreatedDate == other.BatchCreatedDate ||
+                    this.BatchCreatedDate != null &&
+                    this.BatchCreatedDate.Equals(other.BatchCreatedDate)
+                ) && 
+                (
                     this.BatchSource == other.BatchSource ||
                     this.BatchSource != null &&
                     this.BatchSource.Equals(other.BatchSource)
+                ) && 
+                (
+                    this.MerchantReference == other.MerchantReference ||
+                    this.MerchantReference != null &&
+                    this.MerchantReference.Equals(other.MerchantReference)
                 ) && 
                 (
                     this.BatchCaEndpoints == other.BatchCaEndpoints ||
@@ -202,14 +207,9 @@ namespace CyberSource.Model
                     this.BatchCaEndpoints.Equals(other.BatchCaEndpoints)
                 ) && 
                 (
-                    this.BatchCreatedDate == other.BatchCreatedDate ||
-                    this.BatchCreatedDate != null &&
-                    this.BatchCreatedDate.Equals(other.BatchCreatedDate)
-                ) && 
-                (
-                    this.MerchantReference == other.MerchantReference ||
-                    this.MerchantReference != null &&
-                    this.MerchantReference.Equals(other.MerchantReference)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 ) && 
                 (
                     this.Totals == other.Totals ||
@@ -222,9 +222,9 @@ namespace CyberSource.Model
                     this.Billing.Equals(other.Billing)
                 ) && 
                 (
-                    this.Records == other.Records ||
-                    this.Records != null &&
-                    this.Records.SequenceEqual(other.Records)
+                    this.Description == other.Description ||
+                    this.Description != null &&
+                    this.Description.Equals(other.Description)
                 );
         }
 
@@ -239,26 +239,26 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Version != null)
-                    hash = hash * 59 + this.Version.GetHashCode();
-                if (this.ReportCreatedDate != null)
-                    hash = hash * 59 + this.ReportCreatedDate.GetHashCode();
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
                 if (this.BatchId != null)
                     hash = hash * 59 + this.BatchId.GetHashCode();
-                if (this.BatchSource != null)
-                    hash = hash * 59 + this.BatchSource.GetHashCode();
-                if (this.BatchCaEndpoints != null)
-                    hash = hash * 59 + this.BatchCaEndpoints.GetHashCode();
                 if (this.BatchCreatedDate != null)
                     hash = hash * 59 + this.BatchCreatedDate.GetHashCode();
+                if (this.BatchSource != null)
+                    hash = hash * 59 + this.BatchSource.GetHashCode();
                 if (this.MerchantReference != null)
                     hash = hash * 59 + this.MerchantReference.GetHashCode();
+                if (this.BatchCaEndpoints != null)
+                    hash = hash * 59 + this.BatchCaEndpoints.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
                 if (this.Totals != null)
                     hash = hash * 59 + this.Totals.GetHashCode();
                 if (this.Billing != null)
                     hash = hash * 59 + this.Billing.GetHashCode();
-                if (this.Records != null)
-                    hash = hash * 59 + this.Records.GetHashCode();
+                if (this.Description != null)
+                    hash = hash * 59 + this.Description.GetHashCode();
                 return hash;
             }
         }

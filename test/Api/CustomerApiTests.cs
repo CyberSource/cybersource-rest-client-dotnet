@@ -87,7 +87,7 @@ namespace CyberSource.Test
             //string customerId = null;
             //string profileId = null;
             //var response = instance.GetCustomer(customerId, profileId);
-            //Assert.IsInstanceOf<TmsV2CustomersResponse> (response, "response is TmsV2CustomersResponse");
+            //Assert.IsInstanceOf<PostCustomerRequest> (response, "response is PostCustomerRequest");
         }
         
         /// <summary>
@@ -102,7 +102,7 @@ namespace CyberSource.Test
             //string profileId = null;
             //string ifMatch = null;
             //var response = instance.PatchCustomer(customerId, patchCustomerRequest, profileId, ifMatch);
-            //Assert.IsInstanceOf<TmsV2CustomersResponse> (response, "response is TmsV2CustomersResponse");
+            //Assert.IsInstanceOf<PatchCustomerRequest> (response, "response is PatchCustomerRequest");
         }
         
         /// <summary>
@@ -115,7 +115,7 @@ namespace CyberSource.Test
             //PostCustomerRequest postCustomerRequest = null;
             //string profileId = null;
             //var response = instance.PostCustomer(postCustomerRequest, profileId);
-            //Assert.IsInstanceOf<TmsV2CustomersResponse> (response, "response is TmsV2CustomersResponse");
+            //Assert.IsInstanceOf<PostCustomerRequest> (response, "response is PostCustomerRequest");
         }
         
     }

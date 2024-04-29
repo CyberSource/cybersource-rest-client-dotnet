@@ -400,6 +400,38 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'InternetAccessCost'
         }
+        /// <summary>
+        /// Test the property 'Name'
+        /// </summary>
+        [Test]
+        public void NameTest()
+        {
+            // TODO unit test for the property 'Name'
+        }
+        /// <summary>
+        /// Test the property 'HotelName'
+        /// </summary>
+        [Test]
+        public void HotelNameTest()
+        {
+            // TODO unit test for the property 'HotelName'
+        }
+        /// <summary>
+        /// Test the property 'CheckInDateTime'
+        /// </summary>
+        [Test]
+        public void CheckInDateTimeTest()
+        {
+            // TODO unit test for the property 'CheckInDateTime'
+        }
+        /// <summary>
+        /// Test the property 'CheckOutDateTime'
+        /// </summary>
+        [Test]
+        public void CheckOutDateTimeTest()
+        {
+            // TODO unit test for the property 'CheckOutDateTime'
+        }
 
     }
 

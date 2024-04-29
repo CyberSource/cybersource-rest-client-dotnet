@@ -24,7 +24,7 @@ namespace CyberSource.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IKeymanagementscmpApi : IApiAccessor
+    public interface IKeyManagementScmpApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -81,17 +81,17 @@ namespace CyberSource.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class KeymanagementscmpApi : IKeymanagementscmpApi
+    public partial class KeyManagementScmpApi : IKeyManagementScmpApi
     {
         private static Logger logger;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
         private int? _statusCode;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeymanagementscmpApi"/> class.
+        /// Initializes a new instance of the <see cref="KeyManagementScmpApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public KeymanagementscmpApi(string basePath)
+        public KeyManagementScmpApi(string basePath)
         {
             Configuration = new Configuration(new ApiClient(basePath));
 
@@ -110,12 +110,12 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeymanagementscmpApi"/> class
+        /// Initializes a new instance of the <see cref="KeyManagementScmpApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public KeymanagementscmpApi(Configuration configuration = null)
+        public KeyManagementScmpApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 Configuration = Configuration.Default;
@@ -246,14 +246,14 @@ namespace CyberSource.Api
             // verify the required parameter 'keyId' is set
             if (keyId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeymanagementscmpApi->UpdateSCMP");
-                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeymanagementscmpApi->UpdateSCMP");
+                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeyManagementScmpApi->UpdateSCMP");
+                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeyManagementScmpApi->UpdateSCMP");
             }
             // verify the required parameter 'updatePGPKeysRequest' is set
             if (updatePGPKeysRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updatePGPKeysRequest' when calling KeymanagementscmpApi->UpdateSCMP");
-                throw new ApiException(400, "Missing required parameter 'updatePGPKeysRequest' when calling KeymanagementscmpApi->UpdateSCMP");
+                logger.Error("ApiException : Missing required parameter 'updatePGPKeysRequest' when calling KeyManagementScmpApi->UpdateSCMP");
+                throw new ApiException(400, "Missing required parameter 'updatePGPKeysRequest' when calling KeyManagementScmpApi->UpdateSCMP");
             }
 
             var localVarPath = $"/kms/v2/keys-scmp/{keyId}";
@@ -360,14 +360,14 @@ namespace CyberSource.Api
             // verify the required parameter 'keyId' is set
             if (keyId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeymanagementscmpApi->UpdateSCMP");
-                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeymanagementscmpApi->UpdateSCMP");
+                logger.Error("ApiException : Missing required parameter 'keyId' when calling KeyManagementScmpApi->UpdateSCMP");
+                throw new ApiException(400, "Missing required parameter 'keyId' when calling KeyManagementScmpApi->UpdateSCMP");
             }
             // verify the required parameter 'updatePGPKeysRequest' is set
             if (updatePGPKeysRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updatePGPKeysRequest' when calling KeymanagementscmpApi->UpdateSCMP");
-                throw new ApiException(400, "Missing required parameter 'updatePGPKeysRequest' when calling KeymanagementscmpApi->UpdateSCMP");
+                logger.Error("ApiException : Missing required parameter 'updatePGPKeysRequest' when calling KeyManagementScmpApi->UpdateSCMP");
+                throw new ApiException(400, "Missing required parameter 'updatePGPKeysRequest' when calling KeyManagementScmpApi->UpdateSCMP");
             }
 
             var localVarPath = $"/kms/v2/keys-scmp/{keyId}";

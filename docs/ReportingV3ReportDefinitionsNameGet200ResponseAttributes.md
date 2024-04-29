@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | [optional] 
 **Description** | **string** |  | [optional] 
 **FilterType** | **string** | Attribute Filter Type. | [optional] 
-**_Default** | **bool?** |  | [optional] 
+**Default** | **bool?** |  | [optional] 
 **Required** | **bool?** |  | [optional] 
 **SupportedType** | **string** | Valid values for the filter. | [optional] 
 

@@ -61,7 +61,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "corporatesavings")]
             Corporatesavings
         }
-
         /// <summary>
         /// Gets or Sets AccountType
         /// </summary>

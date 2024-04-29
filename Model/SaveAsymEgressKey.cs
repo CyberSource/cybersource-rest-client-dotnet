@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ClientRequestAction">Client request action.  (required).</param>
-        /// <param name="KeyInformation">KeyInformation.</param>
+        /// <param name="KeyInformation">KeyInformation (required).</param>
         public SaveAsymEgressKey(Kmsegressv2keysasymClientReferenceInformation ClientReferenceInformation = default(Kmsegressv2keysasymClientReferenceInformation), string ClientRequestAction = default(string), Kmsegressv2keysasymKeyInformation KeyInformation = default(Kmsegressv2keysasymKeyInformation))
         {
             // to ensure "ClientRequestAction" is required (not null)
@@ -52,8 +52,16 @@ namespace CyberSource.Model
             {
                 this.ClientRequestAction = ClientRequestAction;
             }
+            // to ensure "KeyInformation" is required (not null)
+            if (KeyInformation == null)
+            {
+                throw new InvalidDataException("KeyInformation is a required property for SaveAsymEgressKey and cannot be null");
+            }
+            else
+            {
+                this.KeyInformation = KeyInformation;
+            }
             this.ClientReferenceInformation = ClientReferenceInformation;
-            this.KeyInformation = KeyInformation;
         }
         
         /// <summary>

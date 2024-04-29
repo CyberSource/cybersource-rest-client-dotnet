@@ -44,9 +44,10 @@ namespace CyberSource.Model
         /// <param name="Phone">Merchant phone as contact information for CNP transactions .</param>
         /// <param name="Url">Address of company&#39;s website provided by merchant .</param>
         /// <param name="CountryOfOrigin">#### Visa Platform Connect This field will indicate merchant country of origin .</param>
+        /// <param name="StoreId">The identifier of the store. .</param>
+        /// <param name="StoreName">The name of the store. .</param>
         /// <param name="CustomerServicePhoneNumber">#### Visa Platform Connect Indicates customer service phone number of Merchant. .</param>
-        /// <param name="StoreId">The unique id of the merchant&#39;s shop which assigned by the merchant .</param>
-        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Phone = default(string), string Url = default(string), string CountryOfOrigin = default(string), string CustomerServicePhoneNumber = default(string), string StoreId = default(string))
+        public Ptsv2paymentsMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Address1 = default(string), string Locality = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Phone = default(string), string Url = default(string), string CountryOfOrigin = default(string), string StoreId = default(string), string StoreName = default(string), string CustomerServicePhoneNumber = default(string))
         {
             this.Name = Name;
             this.AlternateName = AlternateName;
@@ -59,8 +60,9 @@ namespace CyberSource.Model
             this.Phone = Phone;
             this.Url = Url;
             this.CountryOfOrigin = CountryOfOrigin;
-            this.CustomerServicePhoneNumber = CustomerServicePhoneNumber;
             this.StoreId = StoreId;
+            this.StoreName = StoreName;
+            this.CustomerServicePhoneNumber = CustomerServicePhoneNumber;
         }
         
         /// <summary>
@@ -141,18 +143,25 @@ namespace CyberSource.Model
         public string CountryOfOrigin { get; set; }
 
         /// <summary>
+        /// The identifier of the store. 
+        /// </summary>
+        /// <value>The identifier of the store. </value>
+        [DataMember(Name="storeId", EmitDefaultValue=false)]
+        public string StoreId { get; set; }
+
+        /// <summary>
+        /// The name of the store. 
+        /// </summary>
+        /// <value>The name of the store. </value>
+        [DataMember(Name="storeName", EmitDefaultValue=false)]
+        public string StoreName { get; set; }
+
+        /// <summary>
         /// #### Visa Platform Connect Indicates customer service phone number of Merchant. 
         /// </summary>
         /// <value>#### Visa Platform Connect Indicates customer service phone number of Merchant. </value>
         [DataMember(Name="customerServicePhoneNumber", EmitDefaultValue=false)]
         public string CustomerServicePhoneNumber { get; set; }
-
-        /// <summary>
-        /// The unique id of the merchant&#39;s shop which assigned by the merchant 
-        /// </summary>
-        /// <value>The unique id of the merchant&#39;s shop which assigned by the merchant </value>
-        [DataMember(Name="storeId", EmitDefaultValue=false)]
-        public string StoreId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -173,8 +182,9 @@ namespace CyberSource.Model
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  CountryOfOrigin: ").Append(CountryOfOrigin).Append("\n");
-            sb.Append("  CustomerServicePhoneNumber: ").Append(CustomerServicePhoneNumber).Append("\n");
             sb.Append("  StoreId: ").Append(StoreId).Append("\n");
+            sb.Append("  StoreName: ").Append(StoreName).Append("\n");
+            sb.Append("  CustomerServicePhoneNumber: ").Append(CustomerServicePhoneNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -267,14 +277,19 @@ namespace CyberSource.Model
                     this.CountryOfOrigin.Equals(other.CountryOfOrigin)
                 ) && 
                 (
-                    this.CustomerServicePhoneNumber == other.CustomerServicePhoneNumber ||
-                    this.CustomerServicePhoneNumber != null &&
-                    this.CustomerServicePhoneNumber.Equals(other.CustomerServicePhoneNumber)
-                ) && 
-                (
                     this.StoreId == other.StoreId ||
                     this.StoreId != null &&
                     this.StoreId.Equals(other.StoreId)
+                ) && 
+                (
+                    this.StoreName == other.StoreName ||
+                    this.StoreName != null &&
+                    this.StoreName.Equals(other.StoreName)
+                ) && 
+                (
+                    this.CustomerServicePhoneNumber == other.CustomerServicePhoneNumber ||
+                    this.CustomerServicePhoneNumber != null &&
+                    this.CustomerServicePhoneNumber.Equals(other.CustomerServicePhoneNumber)
                 );
         }
 
@@ -311,10 +326,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Url.GetHashCode();
                 if (this.CountryOfOrigin != null)
                     hash = hash * 59 + this.CountryOfOrigin.GetHashCode();
-                if (this.CustomerServicePhoneNumber != null)
-                    hash = hash * 59 + this.CustomerServicePhoneNumber.GetHashCode();
                 if (this.StoreId != null)
                     hash = hash * 59 + this.StoreId.GetHashCode();
+                if (this.StoreName != null)
+                    hash = hash * 59 + this.StoreName.GetHashCode();
+                if (this.CustomerServicePhoneNumber != null)
+                    hash = hash * 59 + this.CustomerServicePhoneNumber.GetHashCode();
                 return hash;
             }
         }

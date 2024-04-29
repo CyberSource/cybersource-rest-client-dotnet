@@ -97,6 +97,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'EnableAccuityForAvs'
         }
         /// <summary>
+        /// Test the property 'AccuityCheckType'
+        /// </summary>
+        [Test]
+        public void AccuityCheckTypeTest()
+        {
+            // TODO unit test for the property 'AccuityCheckType'
+        }
+        /// <summary>
         /// Test the property 'SetCompletedState'
         /// </summary>
         [Test]

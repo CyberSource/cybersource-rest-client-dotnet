@@ -30,7 +30,6 @@ namespace CyberSource.Model
     [DataContract]
     public partial class VTConfigCardNotPresentGlobalPaymentInformationPaymentInformation :  IEquatable<VTConfigCardNotPresentGlobalPaymentInformationPaymentInformation>, IValidatableObject
     {
-
         /// <summary>
         /// Gets or Sets DisplayCardVerificationValue
         /// </summary>
@@ -158,8 +157,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "ELO")]
             ELO
         }
-
-
         /// <summary>
         /// Gets or Sets RequireCardVerificationValue
         /// </summary>
@@ -287,8 +284,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "ELO")]
             ELO
         }
-
-
         /// <summary>
         /// Gets or Sets AcceptedCardTypes
         /// </summary>
@@ -416,7 +411,6 @@ namespace CyberSource.Model
             [EnumMember(Value = "ELO")]
             ELO
         }
-
         /// <summary>
         /// Gets or Sets DisplayCardVerificationValue
         /// </summary>
