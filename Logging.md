@@ -16,13 +16,11 @@ Refer this [document of NLog Configuration](https://nlog-project.org/config/) fo
 
 ## Setup
 
-In order to leverage the new logging framework, it is required to install the **`NLog.Config`** package into the .NET project. This can be done using the Package Manager, steps for which can be found on the [NuGet page for the package](https://www.nuget.org/packages/NLog.Config/).
+In order to leverage the new logging framework, it is required to install the **`NLog.Schema`**  package into the .NET project. This can be done using the Package Manager, steps for which can be found on the [NuGet page for the package](https://www.nuget.org/packages/NLog.Config/).
 
-When the **`NLog.Config`** package is installed, it will add two new files to the project &mdash; **`NLog.config`** and **`NLog.xsd`**.
+When the **`NLog.Schema`** package is installed, it will add new file to the project &mdash; **`NLog.xsd`**.
 
-<span style="color: red;">**Note that the package name is `NLog.Config` and the name of the newly added file is `NLog.config`.**</span>
-
-The **`Copy To Output Directory`** property of this `NLog.config` file needs to be set to **`Copy Always`**.
+Create and add the **`NLog.config`** file to main directory of your source project and sample for **`NLog.config`** file is given below:
 
 ## Sample NLog.config File
 
@@ -59,6 +57,16 @@ The **`Copy To Output Directory`** property of this `NLog.config` file needs to 
 </nlog>
 ```
 
+The **`Copy To Output Directory`** property of this `NLog.config` file needs to be set to **`Copy Always`**.
+Or this can be done by adding below lines to your **`Project.csproj`** file.
+```xml
+<ItemGroup>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+</ItemGroup>
+```
+
 ### Important Notes
 
 * The logger name in the rule must match the **'Logger name of the Logger object'**. It can include wildcard characters (`*`, `?`).
@@ -66,6 +74,7 @@ The **`Copy To Output Directory`** property of this `NLog.config` file needs to 
   * In case `name="*"` is used, all logging statements from all namespaces will be written to log. This will include logging statements from inside the SDK as well.
   * If logging statements from inside the SDK should not be logged, provide specific namespaces in the rules.
 * The `minlevel` field denotes the minimum level to log. In a production environment, this may be set to `Warn`.
+* The variable `globalThreshold` needs to be set to `Off` in case you want to turn off the logging in Nlog.config file.
 * The variable `enableMasking` needs to be set to `true` if sensitive data in the request/response should be hidden/masked.
   * Sensitive data fields are listed below:
     * Card Security Code
