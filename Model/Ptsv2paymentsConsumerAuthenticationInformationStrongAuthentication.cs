@@ -33,6 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication" /> class.
         /// </summary>
+        /// <param name="IssuerInformation">IssuerInformation.</param>
         /// <param name="LowValueExemptionIndicator">This field will contain the low value exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  ( low value exemption does not apply to the transaction) - &#x60;1&#x60; (Transaction exempt from SCA as the merchant/acquirer has determined it to be a low value payment) .</param>
         /// <param name="RiskAnalysisExemptionIndicator">This field will contain the transaction risk analysis exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (TRA exemption does not apply to the transaction) - &#x60;1&#x60; (Transaction exempt from SCA as the merchant/acquirer has determined it to be low risk in accordance with the criteria defined by PSD2/RTS) .</param>
         /// <param name="TrustedMerchantExemptionIndicator">Possible values: - &#x60;0&#x60;  (Trusted merchant exemption does not apply to the transaction) - &#x60;1&#x60; (Transaction exempt from SCA as it originated at a merchant trusted by the cardholder) .</param>
@@ -40,8 +41,9 @@ namespace CyberSource.Model
         /// <param name="DelegatedAuthenticationExemptionIndicator">This field will contain the delegated authentication exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (delegated Authentication exemption does not apply to the transaction) - &#x60;1&#x60; (Transaction exempt from SCA as authentication has been delegated to other provider (PSP,Acquirer)) .</param>
         /// <param name="OutageExemptionIndicator">This field will contain the outage exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (Outage Authentication exemption does not apply to the transaction) - &#x60;1&#x60; (Outage exempt from SCA as authentication could not be done due to outage) .</param>
         /// <param name="AuthenticationIndicator">Indicates the type of Authentication request  01 - Payment transaction  02 - Recurring transaction  03 - Installment transaction  04 - Add card  05 - Maintain card  06 - Cardholder verification as part of EMV token ID and V .</param>
-        public Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication(string LowValueExemptionIndicator = default(string), string RiskAnalysisExemptionIndicator = default(string), string TrustedMerchantExemptionIndicator = default(string), string SecureCorporatePaymentIndicator = default(string), string DelegatedAuthenticationExemptionIndicator = default(string), string OutageExemptionIndicator = default(string), string AuthenticationIndicator = default(string))
+        public Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication(Ptsv2paymentsConsumerAuthenticationInformationStrongAuthenticationIssuerInformation IssuerInformation = default(Ptsv2paymentsConsumerAuthenticationInformationStrongAuthenticationIssuerInformation), string LowValueExemptionIndicator = default(string), string RiskAnalysisExemptionIndicator = default(string), string TrustedMerchantExemptionIndicator = default(string), string SecureCorporatePaymentIndicator = default(string), string DelegatedAuthenticationExemptionIndicator = default(string), string OutageExemptionIndicator = default(string), string AuthenticationIndicator = default(string))
         {
+            this.IssuerInformation = IssuerInformation;
             this.LowValueExemptionIndicator = LowValueExemptionIndicator;
             this.RiskAnalysisExemptionIndicator = RiskAnalysisExemptionIndicator;
             this.TrustedMerchantExemptionIndicator = TrustedMerchantExemptionIndicator;
@@ -51,6 +53,12 @@ namespace CyberSource.Model
             this.AuthenticationIndicator = AuthenticationIndicator;
         }
         
+        /// <summary>
+        /// Gets or Sets IssuerInformation
+        /// </summary>
+        [DataMember(Name="issuerInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsConsumerAuthenticationInformationStrongAuthenticationIssuerInformation IssuerInformation { get; set; }
+
         /// <summary>
         /// This field will contain the low value exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  ( low value exemption does not apply to the transaction) - &#x60;1&#x60; (Transaction exempt from SCA as the merchant/acquirer has determined it to be a low value payment) 
         /// </summary>
@@ -108,6 +116,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication {\n");
+            sb.Append("  IssuerInformation: ").Append(IssuerInformation).Append("\n");
             sb.Append("  LowValueExemptionIndicator: ").Append(LowValueExemptionIndicator).Append("\n");
             sb.Append("  RiskAnalysisExemptionIndicator: ").Append(RiskAnalysisExemptionIndicator).Append("\n");
             sb.Append("  TrustedMerchantExemptionIndicator: ").Append(TrustedMerchantExemptionIndicator).Append("\n");
@@ -151,6 +160,11 @@ namespace CyberSource.Model
                 return false;
 
             return 
+                (
+                    this.IssuerInformation == other.IssuerInformation ||
+                    this.IssuerInformation != null &&
+                    this.IssuerInformation.Equals(other.IssuerInformation)
+                ) && 
                 (
                     this.LowValueExemptionIndicator == other.LowValueExemptionIndicator ||
                     this.LowValueExemptionIndicator != null &&
@@ -199,6 +213,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.IssuerInformation != null)
+                    hash = hash * 59 + this.IssuerInformation.GetHashCode();
                 if (this.LowValueExemptionIndicator != null)
                     hash = hash * 59 + this.LowValueExemptionIndicator.GetHashCode();
                 if (this.RiskAnalysisExemptionIndicator != null)

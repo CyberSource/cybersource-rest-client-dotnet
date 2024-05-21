@@ -241,6 +241,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'EffectiveAuthenticationType'
         }
         /// <summary>
+        /// Test the property 'ExemptionDataRaw'
+        /// </summary>
+        [Test]
+        public void ExemptionDataRawTest()
+        {
+            // TODO unit test for the property 'ExemptionDataRaw'
+        }
+        /// <summary>
         /// Test the property 'Ivr'
         /// </summary>
         [Test]

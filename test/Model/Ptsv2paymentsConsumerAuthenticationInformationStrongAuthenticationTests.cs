@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'IssuerInformation'
+        /// </summary>
+        [Test]
+        public void IssuerInformationTest()
+        {
+            // TODO unit test for the property 'IssuerInformation'
+        }
+        /// <summary>
         /// Test the property 'LowValueExemptionIndicator'
         /// </summary>
         [Test]

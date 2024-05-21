@@ -57,7 +57,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
         /// <returns>InvoicingV2InvoicesAllGet200Response</returns>
         InvoicingV2InvoicesAllGet200Response GetAllInvoices (int? offset, int? limit, string status = null);
 
@@ -70,7 +70,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
         /// <returns>ApiResponse of InvoicingV2InvoicesAllGet200Response</returns>
         ApiResponse<InvoicingV2InvoicesAllGet200Response> GetAllInvoicesWithHttpInfo (int? offset, int? limit, string status = null);
         /// <summary>
@@ -191,7 +191,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
         /// <returns>Task of InvoicingV2InvoicesAllGet200Response</returns>
         System.Threading.Tasks.Task<InvoicingV2InvoicesAllGet200Response> GetAllInvoicesAsync (int? offset, int? limit, string status = null);
 
@@ -204,7 +204,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
         /// <returns>Task of ApiResponse (InvoicingV2InvoicesAllGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesAllGet200Response>> GetAllInvoicesAsyncWithHttpInfo (int? offset, int? limit, string status = null);
         /// <summary>
@@ -645,7 +645,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
         /// <returns>InvoicingV2InvoicesAllGet200Response</returns>
         public InvoicingV2InvoicesAllGet200Response GetAllInvoices (int? offset, int? limit, string status = null)
         {
@@ -663,7 +663,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
         /// <returns>ApiResponse of InvoicingV2InvoicesAllGet200Response</returns>
         public ApiResponse< InvoicingV2InvoicesAllGet200Response > GetAllInvoicesWithHttpInfo (int? offset, int? limit, string status = null)
         {
@@ -762,7 +762,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
         /// <returns>Task of InvoicingV2InvoicesAllGet200Response</returns>
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesAllGet200Response> GetAllInvoicesAsync (int? offset, int? limit, string status = null)
         {
@@ -781,7 +781,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
         /// <returns>Task of ApiResponse (InvoicingV2InvoicesAllGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesAllGet200Response>> GetAllInvoicesAsyncWithHttpInfo (int? offset, int? limit, string status = null)
         {
