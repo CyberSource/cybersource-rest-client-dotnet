@@ -12,7 +12,7 @@ OpenAPI spec version: 0.0.1
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9265CCB9-365D-4F70-A584-12251858F8C0}</ProjectGuid>
+    <ProjectGuid>{1E8A86AA-98FB-4E77-A4F8-BAABCCCCA0DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CyberSource</RootNamespace>
@@ -87,7 +87,7 @@ OpenAPI spec version: 0.0.1
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="AuthenticationSdk">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.19\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.20\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

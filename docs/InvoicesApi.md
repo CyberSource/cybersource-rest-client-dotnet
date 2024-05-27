@@ -98,7 +98,7 @@ namespace Example
             var apiInstance = new InvoicesApi();
             var offset = 56;  // int? | Page offset number.
             var limit = 56;  // int? | Maximum number of items you would like returned.
-            var status = status_example;  // string | The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional) 
+            var status = status_example;  // string | The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional) 
 
             try
             {
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **int?**| Page offset number. | 
  **limit** | **int?**| Maximum number of items you would like returned. | 
- **status** | **string**| The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  | [optional] 
+ **status** | **string**| The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  | [optional] 
 
 ### Return type
 

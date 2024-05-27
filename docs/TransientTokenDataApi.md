@@ -4,13 +4,13 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetPaymentCredentialsForTransientToken**](TransientTokenDataApi.md#getpaymentcredentialsfortransienttoken) | **GET** /up/v1/payment-credentials/{jti} | Get Payment Credentials
+[**GetPaymentCredentialsForTransientToken**](TransientTokenDataApi.md#getpaymentcredentialsfortransienttoken) | **GET** /flex/v2/payment-credentials/{paymentCredentialsReference} | Get Payment Credentials
 [**GetTransactionForTransientToken**](TransientTokenDataApi.md#gettransactionfortransienttoken) | **GET** /up/v1/payment-details/{transientToken} | Get Transient Token Data
 
 
 <a name="getpaymentcredentialsfortransienttoken"></a>
 # **GetPaymentCredentialsForTransientToken**
-> string GetPaymentCredentialsForTransientToken (string jti)
+> string GetPaymentCredentialsForTransientToken (string paymentCredentialsReference)
 
 Get Payment Credentials
 
@@ -31,12 +31,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new TransientTokenDataApi();
-            var jti = jti_example;  // string | The jti field contained within the Transient token returned from a successful Unified Checkout transaction 
+            var paymentCredentialsReference = paymentCredentialsReference_example;  // string | The paymentCredentialsReference field contained within the Transient token returned from a successful Unified Checkout transaction 
 
             try
             {
                 // Get Payment Credentials
-                string result = apiInstance.GetPaymentCredentialsForTransientToken(jti);
+                string result = apiInstance.GetPaymentCredentialsForTransientToken(paymentCredentialsReference);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -52,7 +52,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **jti** | **string**| The jti field contained within the Transient token returned from a successful Unified Checkout transaction  | 
+ **paymentCredentialsReference** | **string**| The paymentCredentialsReference field contained within the Transient token returned from a successful Unified Checkout transaction  | 
 
 ### Return type
 
