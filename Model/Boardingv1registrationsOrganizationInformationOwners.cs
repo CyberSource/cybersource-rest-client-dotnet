@@ -341,69 +341,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // FirstName (string) pattern
-            Regex regexFirstName = new Regex(@"[À-ÖØ-öø-ǿÀ-ÖØ-öø-ǿa-zA-Z().\\-_#,;\/\\\\@$:&amp;!?%«»€₣«»€₣ ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexFirstName.Match(this.FirstName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, must match a pattern of " + regexFirstName, new [] { "FirstName" });
-            }
-
-            // MiddleName (string) pattern
-            Regex regexMiddleName = new Regex(@"[À-ÖØ-öø-ǿÀ-ÖØ-öø-ǿa-zA-Z().\\-_#,;\/\\\\@$:&amp;!?%«»€₣«»€₣ ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexMiddleName.Match(this.MiddleName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MiddleName, must match a pattern of " + regexMiddleName, new [] { "MiddleName" });
-            }
-
-            // LastName (string) pattern
-            Regex regexLastName = new Regex(@"[À-ÖØ-öø-ǿÀ-ÖØ-öø-ǿa-zA-Z().\\-_#,;\/\\\\@$:&amp;!?%«»€₣«»€₣ ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexLastName.Match(this.LastName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, must match a pattern of " + regexLastName, new [] { "LastName" });
-            }
-
-            // Ssn (string) pattern
-            Regex regexSsn = new Regex(@"^\\d{3}-\\d{2}-\\d{4}$|^\\d{9,9}$", RegexOptions.CultureInvariant);
-            if (false == regexSsn.Match(this.Ssn).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ssn, must match a pattern of " + regexSsn, new [] { "Ssn" });
-            }
-
-            // PassportNumber (string) pattern
-            Regex regexPassportNumber = new Regex(@"^(?!^0+$)[a-zA-Z0-9]{3,20}$", RegexOptions.CultureInvariant);
-            if (false == regexPassportNumber.Match(this.PassportNumber).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PassportNumber, must match a pattern of " + regexPassportNumber, new [] { "PassportNumber" });
-            }
-
-            // PassportCountry (string) pattern
-            Regex regexPassportCountry = new Regex(@"^[À-ÖØ-öø-ǿa-zA-Z0-9().\\-_#,;\/@$:!% ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexPassportCountry.Match(this.PassportCountry).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PassportCountry, must match a pattern of " + regexPassportCountry, new [] { "PassportCountry" });
-            }
-
-            // JobTitle (string) pattern
-            Regex regexJobTitle = new Regex(@"^[À-ÖØ-öø-ǿa-zA-Z0-9().\\-_#,;\/@$:!% ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexJobTitle.Match(this.JobTitle).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for JobTitle, must match a pattern of " + regexJobTitle, new [] { "JobTitle" });
-            }
-
-            // PhoneNumber (string) pattern
-            Regex regexPhoneNumber = new Regex(@"^[0-9a-zA-Z\\\\+\\\\-]+$", RegexOptions.CultureInvariant);
-            if (false == regexPhoneNumber.Match(this.PhoneNumber).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, must match a pattern of " + regexPhoneNumber, new [] { "PhoneNumber" });
-            }
-
-            // Email (string) pattern
-            Regex regexEmail = new Regex(@"^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,50}|[0-9]{1,3})(\\]?)$", RegexOptions.CultureInvariant);
-            if (false == regexEmail.Match(this.Email).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, must match a pattern of " + regexEmail, new [] { "Email" });
-            }
-
             yield break;
         }
     }

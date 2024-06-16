@@ -258,12 +258,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Sequence (int?) maximum
-            if(this.Sequence >= (int?)99)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sequence, must be a value less than or equal to 99.", new [] { "Sequence" });
-            }
-
             yield break;
         }
     }

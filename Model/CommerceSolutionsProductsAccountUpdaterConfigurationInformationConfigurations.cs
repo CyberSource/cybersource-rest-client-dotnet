@@ -185,30 +185,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PreferredDay (decimal?) maximum
-            if(this.PreferredDay >= (decimal?)28)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreferredDay, must be a value less than or equal to 28.", new [] { "PreferredDay" });
-            }
-
-            // PreferredDay (decimal?) minimum
-            if(this.PreferredDay <= (decimal?)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreferredDay, must be a value greater than or equal to 1.", new [] { "PreferredDay" });
-            }
-
-            // DaysWindow (decimal?) maximum
-            if(this.DaysWindow >= (decimal?)3650)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DaysWindow, must be a value less than or equal to 3650.", new [] { "DaysWindow" });
-            }
-
-            // DaysWindow (decimal?) minimum
-            if(this.DaysWindow <= (decimal?)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DaysWindow, must be a value greater than or equal to 1.", new [] { "DaysWindow" });
-            }
-
             yield break;
         }
     }

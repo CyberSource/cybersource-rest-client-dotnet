@@ -342,13 +342,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ReportInterval (string) pattern
-            Regex regexReportInterval = new Regex(@"^PT((([1-9]|1[0-9]|2[0-3])H(([1-9]|[1-4][0-9]|5[0-9])M)?)|((([1-9]|1[0-9]|2[0-3])H)?([1-9]|[1-4][0-9]|5[0-9])M))$", RegexOptions.CultureInvariant);
-            if (false == regexReportInterval.Match(this.ReportInterval).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportInterval, must match a pattern of " + regexReportInterval, new [] { "ReportInterval" });
-            }
-
             yield break;
         }
     }

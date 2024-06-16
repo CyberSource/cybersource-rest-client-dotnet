@@ -209,48 +209,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Country (string) pattern
-            Regex regexCountry = new Regex(@"^[À-ÖØ-öø-ǿa-zA-Z0-9().\\-_#,;\/@$:!% ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexCountry.Match(this.Country).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, must match a pattern of " + regexCountry, new [] { "Country" });
-            }
-
-            // Address1 (string) pattern
-            Regex regexAddress1 = new Regex(@"^[À-ÖØ-öø-ǿa-zA-Z0-9().\\-_#,;\/@$:!% ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexAddress1.Match(this.Address1).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address1, must match a pattern of " + regexAddress1, new [] { "Address1" });
-            }
-
-            // Address2 (string) pattern
-            Regex regexAddress2 = new Regex(@"^[À-ÖØ-öø-ǿa-zA-Z0-9().\\-_#,;\/@$:!% ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexAddress2.Match(this.Address2).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address2, must match a pattern of " + regexAddress2, new [] { "Address2" });
-            }
-
-            // Locality (string) pattern
-            Regex regexLocality = new Regex(@"^[0-9a-zA-Z _\\-¡-￿]+$", RegexOptions.CultureInvariant);
-            if (false == regexLocality.Match(this.Locality).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Locality, must match a pattern of " + regexLocality, new [] { "Locality" });
-            }
-
-            // AdministrativeArea (string) pattern
-            Regex regexAdministrativeArea = new Regex(@"^[0-9a-zA-Z¡-￿ ]*$", RegexOptions.CultureInvariant);
-            if (false == regexAdministrativeArea.Match(this.AdministrativeArea).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdministrativeArea, must match a pattern of " + regexAdministrativeArea, new [] { "AdministrativeArea" });
-            }
-
-            // PostalCode (string) pattern
-            Regex regexPostalCode = new Regex(@"^[0-9a-zA-Z ]*$", RegexOptions.CultureInvariant);
-            if (false == regexPostalCode.Match(this.PostalCode).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PostalCode, must match a pattern of " + regexPostalCode, new [] { "PostalCode" });
-            }
-
             yield break;
         }
     }

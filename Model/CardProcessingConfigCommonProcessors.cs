@@ -931,13 +931,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // MerchantTier (string) pattern
-            Regex regexMerchantTier = new Regex(@"^[0-9]+$", RegexOptions.CultureInvariant);
-            if (false == regexMerchantTier.Match(this.MerchantTier).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantTier, must match a pattern of " + regexMerchantTier, new [] { "MerchantTier" });
-            }
-
             yield break;
         }
     }

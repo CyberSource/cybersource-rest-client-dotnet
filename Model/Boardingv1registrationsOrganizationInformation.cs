@@ -316,20 +316,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // OrganizationId (string) pattern
-            Regex regexOrganizationId = new Regex(@"^[0-9a-zA-Z_]+$", RegexOptions.CultureInvariant);
-            if (false == regexOrganizationId.Match(this.OrganizationId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OrganizationId, must match a pattern of " + regexOrganizationId, new [] { "OrganizationId" });
-            }
-
-            // ParentOrganizationId (string) pattern
-            Regex regexParentOrganizationId = new Regex(@"^[0-9a-zA-Z_]+$", RegexOptions.CultureInvariant);
-            if (false == regexParentOrganizationId.Match(this.ParentOrganizationId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ParentOrganizationId, must match a pattern of " + regexParentOrganizationId, new [] { "ParentOrganizationId" });
-            }
-
             yield break;
         }
     }

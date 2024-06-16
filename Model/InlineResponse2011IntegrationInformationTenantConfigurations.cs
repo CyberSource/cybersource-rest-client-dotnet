@@ -197,20 +197,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // SolutionId (string) pattern
-            Regex regexSolutionId = new Regex(@"^[0-9a-zA-Z_]+$", RegexOptions.CultureInvariant);
-            if (false == regexSolutionId.Match(this.SolutionId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SolutionId, must match a pattern of " + regexSolutionId, new [] { "SolutionId" });
-            }
-
-            // TenantConfigurationId (string) pattern
-            Regex regexTenantConfigurationId = new Regex(@"^[0-9a-zA-Z_]+$", RegexOptions.CultureInvariant);
-            if (false == regexTenantConfigurationId.Match(this.TenantConfigurationId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TenantConfigurationId, must match a pattern of " + regexTenantConfigurationId, new [] { "TenantConfigurationId" });
-            }
-
             yield break;
         }
     }

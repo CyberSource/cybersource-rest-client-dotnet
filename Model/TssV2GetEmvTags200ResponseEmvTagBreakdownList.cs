@@ -139,13 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Tag (string) pattern
-            Regex regexTag = new Regex(@"^[0-9A-F]*$", RegexOptions.CultureInvariant);
-            if (false == regexTag.Match(this.Tag).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Tag, must match a pattern of " + regexTag, new [] { "Tag" });
-            }
-
             yield break;
         }
     }

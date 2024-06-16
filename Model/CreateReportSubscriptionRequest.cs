@@ -327,53 +327,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // OrganizationId (string) pattern
-            Regex regexOrganizationId = new Regex(@"[a-zA-Z0-9-_]+", RegexOptions.CultureInvariant);
-            if (false == regexOrganizationId.Match(this.OrganizationId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OrganizationId, must match a pattern of " + regexOrganizationId, new [] { "OrganizationId" });
-            }
-
-            // ReportDefinitionName (string) pattern
-            Regex regexReportDefinitionName = new Regex(@"[a-zA-Z0-9-]+", RegexOptions.CultureInvariant);
-            if (false == regexReportDefinitionName.Match(this.ReportDefinitionName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportDefinitionName, must match a pattern of " + regexReportDefinitionName, new [] { "ReportDefinitionName" });
-            }
-
-            // ReportInterval (string) pattern
-            Regex regexReportInterval = new Regex(@"^PT((([1-9]|1[0-9]|2[0-3])H(([1-9]|[1-4][0-9]|5[0-9])M)?)|((([1-9]|1[0-9]|2[0-3])H)?([1-9]|[1-4][0-9]|5[0-9])M))$", RegexOptions.CultureInvariant);
-            if (false == regexReportInterval.Match(this.ReportInterval).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportInterval, must match a pattern of " + regexReportInterval, new [] { "ReportInterval" });
-            }
-
-            // ReportName (string) pattern
-            Regex regexReportName = new Regex(@"[a-zA-Z0-9-_ ]+", RegexOptions.CultureInvariant);
-            if (false == regexReportName.Match(this.ReportName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportName, must match a pattern of " + regexReportName, new [] { "ReportName" });
-            }
-
-            // StartDay (int?) maximum
-            if(this.StartDay >= (int?)31)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value less than or equal to 31.", new [] { "StartDay" });
-            }
-
-            // StartDay (int?) minimum
-            if(this.StartDay <= (int?)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value greater than or equal to 1.", new [] { "StartDay" });
-            }
-
-            // GroupName (string) pattern
-            Regex regexGroupName = new Regex(@"[a-zA-Z0-9-_ ]+", RegexOptions.CultureInvariant);
-            if (false == regexGroupName.Match(this.GroupName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GroupName, must match a pattern of " + regexGroupName, new [] { "GroupName" });
-            }
-
             yield break;
         }
     }

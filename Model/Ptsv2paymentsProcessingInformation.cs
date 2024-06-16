@@ -734,12 +734,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TransactionTimeout (int?) maximum
-            if(this.TransactionTimeout >= (int?)99999)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTimeout, must be a value less than or equal to 99999.", new [] { "TransactionTimeout" });
-            }
-
             yield break;
         }
     }
