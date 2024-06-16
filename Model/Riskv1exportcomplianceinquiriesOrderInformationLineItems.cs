@@ -48,15 +48,7 @@ namespace CyberSource.Model
         /// <param name="ProductCode">Type of product. The value for this field is used to identify the product category (electronic, handling, physical, service, or shipping). The default value is &#x60;default&#x60;.  If you are performing an authorization transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;false&#x60;), and you set this field to a value other than &#x60;default&#x60; or one of the values related to shipping and/or handling, then &#x60;orderInformation.lineItems[].quantity&#x60;, &#x60;orderInformation.lineItems[].productName&#x60;, and &#x60;orderInformation.lineItems[].productSku&#x60; fields are required.  Optional field.  For details, see the &#x60;product_code&#x60; field description in the [Credit Card Services Using the SCMP API Guide](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/).  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes.  The Product Codes for the tax service are located in the Cybersource Tax Codes guide. Contact Customer Support to request the guide. If you don&#39;t send a tax service Product Code in your tax request, product-based rules or exemptions will not be applied and the transaction will default to fully taxable in the locations where you&#39;ve indicated you need to collect tax [by way of nexus, no nexus, or seller registration number fields]. .</param>
         public Riskv1exportcomplianceinquiriesOrderInformationLineItems(string UnitPrice = default(string), List<string> AllowedExportCountries = default(List<string>), List<string> RestrictedExportCountries = default(List<string>), int? Quantity = default(int?), string ProductSKU = default(string), string ProductRisk = default(string), string ProductName = default(string), string ProductCode = default(string))
         {
-            // to ensure "UnitPrice" is required (not null)
-            if (UnitPrice == null)
-            {
-                throw new InvalidDataException("UnitPrice is a required property for Riskv1exportcomplianceinquiriesOrderInformationLineItems and cannot be null");
-            }
-            else
-            {
-                this.UnitPrice = UnitPrice;
-            }
+            this.UnitPrice = UnitPrice;
             this.AllowedExportCountries = AllowedExportCountries;
             this.RestrictedExportCountries = RestrictedExportCountries;
             this.Quantity = Quantity;

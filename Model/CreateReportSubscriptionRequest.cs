@@ -53,71 +53,15 @@ namespace CyberSource.Model
         /// <param name="GroupName">Valid GroupName.</param>
         public CreateReportSubscriptionRequest(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), string ReportMimeType = default(string), string ReportFrequency = default(string), string ReportInterval = default(string), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupName = default(string))
         {
-            // to ensure "ReportDefinitionName" is required (not null)
-            if (ReportDefinitionName == null)
-            {
-                throw new InvalidDataException("ReportDefinitionName is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.ReportDefinitionName = ReportDefinitionName;
-            }
-            // to ensure "ReportFields" is required (not null)
-            if (ReportFields == null)
-            {
-                throw new InvalidDataException("ReportFields is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.ReportFields = ReportFields;
-            }
-            // to ensure "ReportMimeType" is required (not null)
-            if (ReportMimeType == null)
-            {
-                throw new InvalidDataException("ReportMimeType is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.ReportMimeType = ReportMimeType;
-            }
-            // to ensure "ReportFrequency" is required (not null)
-            if (ReportFrequency == null)
-            {
-                throw new InvalidDataException("ReportFrequency is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.ReportFrequency = ReportFrequency;
-            }
-            // to ensure "ReportName" is required (not null)
-            if (ReportName == null)
-            {
-                throw new InvalidDataException("ReportName is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.ReportName = ReportName;
-            }
-            // to ensure "Timezone" is required (not null)
-            if (Timezone == null)
-            {
-                throw new InvalidDataException("Timezone is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.Timezone = Timezone;
-            }
-            // to ensure "StartTime" is required (not null)
-            if (StartTime == null)
-            {
-                throw new InvalidDataException("StartTime is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.StartTime = StartTime;
-            }
             this.OrganizationId = OrganizationId;
+            this.ReportDefinitionName = ReportDefinitionName;
+            this.ReportFields = ReportFields;
+            this.ReportMimeType = ReportMimeType;
+            this.ReportFrequency = ReportFrequency;
             this.ReportInterval = ReportInterval;
+            this.ReportName = ReportName;
+            this.Timezone = Timezone;
+            this.StartTime = StartTime;
             this.StartDay = StartDay;
             this.ReportFilters = ReportFilters;
             this.ReportPreferences = ReportPreferences;

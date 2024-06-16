@@ -43,15 +43,7 @@ namespace CyberSource.Model
         /// <param name="Surcharge">Surcharge.</param>
         public Ptsv1pushfundstransferOrderInformation(Ptsv1pushfundstransferOrderInformationAmountDetails AmountDetails = default(Ptsv1pushfundstransferOrderInformationAmountDetails), string IsCryptocurrencyPurchase = default(string), Ptsv1pushfundstransferOrderInformationSurcharge Surcharge = default(Ptsv1pushfundstransferOrderInformationSurcharge))
         {
-            // to ensure "AmountDetails" is required (not null)
-            if (AmountDetails == null)
-            {
-                throw new InvalidDataException("AmountDetails is a required property for Ptsv1pushfundstransferOrderInformation and cannot be null");
-            }
-            else
-            {
-                this.AmountDetails = AmountDetails;
-            }
+            this.AmountDetails = AmountDetails;
             this.IsCryptocurrencyPurchase = IsCryptocurrencyPurchase;
             this.Surcharge = Surcharge;
         }

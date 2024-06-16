@@ -44,17 +44,9 @@ namespace CyberSource.Model
         /// <param name="WorkPhone">Cardholder&#39;s work phone number..</param>
         public Riskv1authenticationsBuyerInformation(string MerchantCustomerId = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), int? MobilePhone = default(int?), int? WorkPhone = default(int?))
         {
-            // to ensure "MobilePhone" is required (not null)
-            if (MobilePhone == null)
-            {
-                throw new InvalidDataException("MobilePhone is a required property for Riskv1authenticationsBuyerInformation and cannot be null");
-            }
-            else
-            {
-                this.MobilePhone = MobilePhone;
-            }
             this.MerchantCustomerId = MerchantCustomerId;
             this.PersonalIdentification = PersonalIdentification;
+            this.MobilePhone = MobilePhone;
             this.WorkPhone = WorkPhone;
         }
         

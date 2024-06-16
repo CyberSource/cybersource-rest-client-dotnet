@@ -47,69 +47,13 @@ namespace CyberSource.Model
         /// <param name="Number">Customer&#39;s payment network token value.  (required).</param>
         public Riskv1authenticationsPaymentInformationTokenizedCard(string TransactionType = default(string), string Type = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Cryptogram = default(string), string SecurityCode = default(string), string Number = default(string))
         {
-            // to ensure "TransactionType" is required (not null)
-            if (TransactionType == null)
-            {
-                throw new InvalidDataException("TransactionType is a required property for Riskv1authenticationsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.TransactionType = TransactionType;
-            }
-            // to ensure "Type" is required (not null)
-            if (Type == null)
-            {
-                throw new InvalidDataException("Type is a required property for Riskv1authenticationsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.Type = Type;
-            }
-            // to ensure "ExpirationMonth" is required (not null)
-            if (ExpirationMonth == null)
-            {
-                throw new InvalidDataException("ExpirationMonth is a required property for Riskv1authenticationsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.ExpirationMonth = ExpirationMonth;
-            }
-            // to ensure "ExpirationYear" is required (not null)
-            if (ExpirationYear == null)
-            {
-                throw new InvalidDataException("ExpirationYear is a required property for Riskv1authenticationsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.ExpirationYear = ExpirationYear;
-            }
-            // to ensure "Cryptogram" is required (not null)
-            if (Cryptogram == null)
-            {
-                throw new InvalidDataException("Cryptogram is a required property for Riskv1authenticationsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.Cryptogram = Cryptogram;
-            }
-            // to ensure "SecurityCode" is required (not null)
-            if (SecurityCode == null)
-            {
-                throw new InvalidDataException("SecurityCode is a required property for Riskv1authenticationsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.SecurityCode = SecurityCode;
-            }
-            // to ensure "Number" is required (not null)
-            if (Number == null)
-            {
-                throw new InvalidDataException("Number is a required property for Riskv1authenticationsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.Number = Number;
-            }
+            this.TransactionType = TransactionType;
+            this.Type = Type;
+            this.ExpirationMonth = ExpirationMonth;
+            this.ExpirationYear = ExpirationYear;
+            this.Cryptogram = Cryptogram;
+            this.SecurityCode = SecurityCode;
+            this.Number = Number;
         }
         
         /// <summary>

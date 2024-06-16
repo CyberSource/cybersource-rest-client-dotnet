@@ -48,16 +48,8 @@ namespace CyberSource.Model
         /// <param name="TransactionReason">Transaction reason code.  This field applies only to Visa Platform Connect .</param>
         public Ptsv1pushfundstransferProcessingInformation(string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string NetworkRoutingOrder = default(string), Ptsv1pushfundstransferProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv1pushfundstransferProcessingInformationPayoutsOptions), string PurposeOfPayment = default(string), string ReconciliationId = default(string), Ptsv1pushfundstransferProcessingInformationRecurringOptions RecurringOptions = default(Ptsv1pushfundstransferProcessingInformationRecurringOptions), string TransactionReason = default(string))
         {
-            // to ensure "CommerceIndicator" is required (not null)
-            if (CommerceIndicator == null)
-            {
-                throw new InvalidDataException("CommerceIndicator is a required property for Ptsv1pushfundstransferProcessingInformation and cannot be null");
-            }
-            else
-            {
-                this.CommerceIndicator = CommerceIndicator;
-            }
             this.BusinessApplicationId = BusinessApplicationId;
+            this.CommerceIndicator = CommerceIndicator;
             this.NetworkRoutingOrder = NetworkRoutingOrder;
             this.PayoutsOptions = PayoutsOptions;
             this.PurposeOfPayment = PurposeOfPayment;

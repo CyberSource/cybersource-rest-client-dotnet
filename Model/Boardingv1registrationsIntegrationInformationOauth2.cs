@@ -42,15 +42,7 @@ namespace CyberSource.Model
         /// <param name="State">State.</param>
         public Boardingv1registrationsIntegrationInformationOauth2(string ClientId = default(string), string State = default(string))
         {
-            // to ensure "ClientId" is required (not null)
-            if (ClientId == null)
-            {
-                throw new InvalidDataException("ClientId is a required property for Boardingv1registrationsIntegrationInformationOauth2 and cannot be null");
-            }
-            else
-            {
-                this.ClientId = ClientId;
-            }
+            this.ClientId = ClientId;
             this.State = State;
         }
         

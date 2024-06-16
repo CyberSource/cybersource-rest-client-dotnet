@@ -54,100 +54,20 @@ namespace CyberSource.Model
         /// <param name="Address">Address (required).</param>
         public Boardingv1registrationsOrganizationInformationOwners(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), DateTime? BirthDate = default(DateTime?), bool? IsPrimary = default(bool?), string Ssn = default(string), string PassportNumber = default(string), string PassportCountry = default(string), string JobTitle = default(string), bool? HasSignificantResponsability = default(bool?), decimal? OwnershipPercentage = default(decimal?), string PhoneNumber = default(string), string Email = default(string), Boardingv1registrationsOrganizationInformationBusinessInformationAddress Address = default(Boardingv1registrationsOrganizationInformationBusinessInformationAddress))
         {
-            // to ensure "FirstName" is required (not null)
-            if (FirstName == null)
-            {
-                throw new InvalidDataException("FirstName is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.FirstName = FirstName;
-            }
-            // to ensure "LastName" is required (not null)
-            if (LastName == null)
-            {
-                throw new InvalidDataException("LastName is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.LastName = LastName;
-            }
-            // to ensure "BirthDate" is required (not null)
-            if (BirthDate == null)
-            {
-                throw new InvalidDataException("BirthDate is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.BirthDate = BirthDate;
-            }
-            // to ensure "IsPrimary" is required (not null)
-            if (IsPrimary == null)
-            {
-                throw new InvalidDataException("IsPrimary is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.IsPrimary = IsPrimary;
-            }
-            // to ensure "JobTitle" is required (not null)
-            if (JobTitle == null)
-            {
-                throw new InvalidDataException("JobTitle is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.JobTitle = JobTitle;
-            }
-            // to ensure "HasSignificantResponsability" is required (not null)
-            if (HasSignificantResponsability == null)
-            {
-                throw new InvalidDataException("HasSignificantResponsability is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.HasSignificantResponsability = HasSignificantResponsability;
-            }
-            // to ensure "OwnershipPercentage" is required (not null)
-            if (OwnershipPercentage == null)
-            {
-                throw new InvalidDataException("OwnershipPercentage is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.OwnershipPercentage = OwnershipPercentage;
-            }
-            // to ensure "PhoneNumber" is required (not null)
-            if (PhoneNumber == null)
-            {
-                throw new InvalidDataException("PhoneNumber is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.PhoneNumber = PhoneNumber;
-            }
-            // to ensure "Email" is required (not null)
-            if (Email == null)
-            {
-                throw new InvalidDataException("Email is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.Email = Email;
-            }
-            // to ensure "Address" is required (not null)
-            if (Address == null)
-            {
-                throw new InvalidDataException("Address is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.Address = Address;
-            }
+            this.FirstName = FirstName;
             this.MiddleName = MiddleName;
+            this.LastName = LastName;
+            this.BirthDate = BirthDate;
+            this.IsPrimary = IsPrimary;
             this.Ssn = Ssn;
             this.PassportNumber = PassportNumber;
             this.PassportCountry = PassportCountry;
+            this.JobTitle = JobTitle;
+            this.HasSignificantResponsability = HasSignificantResponsability;
+            this.OwnershipPercentage = OwnershipPercentage;
+            this.PhoneNumber = PhoneNumber;
+            this.Email = Email;
+            this.Address = Address;
         }
         
         /// <summary>

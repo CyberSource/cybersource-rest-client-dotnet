@@ -43,24 +43,8 @@ namespace CyberSource.Model
         /// <param name="SetupFee">Subscription setup fee .</param>
         public Rbsv1plansOrderInformationAmountDetails(string Currency = default(string), string BillingAmount = default(string), string SetupFee = default(string))
         {
-            // to ensure "Currency" is required (not null)
-            if (Currency == null)
-            {
-                throw new InvalidDataException("Currency is a required property for Rbsv1plansOrderInformationAmountDetails and cannot be null");
-            }
-            else
-            {
-                this.Currency = Currency;
-            }
-            // to ensure "BillingAmount" is required (not null)
-            if (BillingAmount == null)
-            {
-                throw new InvalidDataException("BillingAmount is a required property for Rbsv1plansOrderInformationAmountDetails and cannot be null");
-            }
-            else
-            {
-                this.BillingAmount = BillingAmount;
-            }
+            this.Currency = Currency;
+            this.BillingAmount = BillingAmount;
             this.SetupFee = SetupFee;
         }
         

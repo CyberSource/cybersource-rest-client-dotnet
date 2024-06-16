@@ -45,43 +45,11 @@ namespace CyberSource.Model
         /// <param name="Email">Email (required).</param>
         public Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string PhoneNumber = default(string), string Email = default(string))
         {
-            // to ensure "FirstName" is required (not null)
-            if (FirstName == null)
-            {
-                throw new InvalidDataException("FirstName is a required property for Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact and cannot be null");
-            }
-            else
-            {
-                this.FirstName = FirstName;
-            }
-            // to ensure "LastName" is required (not null)
-            if (LastName == null)
-            {
-                throw new InvalidDataException("LastName is a required property for Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact and cannot be null");
-            }
-            else
-            {
-                this.LastName = LastName;
-            }
-            // to ensure "PhoneNumber" is required (not null)
-            if (PhoneNumber == null)
-            {
-                throw new InvalidDataException("PhoneNumber is a required property for Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact and cannot be null");
-            }
-            else
-            {
-                this.PhoneNumber = PhoneNumber;
-            }
-            // to ensure "Email" is required (not null)
-            if (Email == null)
-            {
-                throw new InvalidDataException("Email is a required property for Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact and cannot be null");
-            }
-            else
-            {
-                this.Email = Email;
-            }
+            this.FirstName = FirstName;
             this.MiddleName = MiddleName;
+            this.LastName = LastName;
+            this.PhoneNumber = PhoneNumber;
+            this.Email = Email;
         }
         
         /// <summary>

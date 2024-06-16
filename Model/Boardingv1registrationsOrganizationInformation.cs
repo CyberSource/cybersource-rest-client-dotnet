@@ -112,15 +112,6 @@ namespace CyberSource.Model
         /// <param name="Owners">Owners.</param>
         public Boardingv1registrationsOrganizationInformation(string OrganizationId = default(string), string ParentOrganizationId = default(string), TypeEnum? Type = default(TypeEnum?), StatusEnum? Status = default(StatusEnum?), bool? Configurable = false, Boardingv1registrationsOrganizationInformationBusinessInformation BusinessInformation = default(Boardingv1registrationsOrganizationInformationBusinessInformation), Boardingv1registrationsOrganizationInformationKYC KYC = default(Boardingv1registrationsOrganizationInformationKYC), List<Boardingv1registrationsOrganizationInformationOwners> Owners = default(List<Boardingv1registrationsOrganizationInformationOwners>))
         {
-            // to ensure "BusinessInformation" is required (not null)
-            if (BusinessInformation == null)
-            {
-                throw new InvalidDataException("BusinessInformation is a required property for Boardingv1registrationsOrganizationInformation and cannot be null");
-            }
-            else
-            {
-                this.BusinessInformation = BusinessInformation;
-            }
             this.OrganizationId = OrganizationId;
             this.ParentOrganizationId = ParentOrganizationId;
             this.Type = Type;
@@ -134,6 +125,7 @@ namespace CyberSource.Model
             {
                 this.Configurable = Configurable;
             }
+            this.BusinessInformation = BusinessInformation;
             this.KYC = KYC;
             this.Owners = Owners;
         }

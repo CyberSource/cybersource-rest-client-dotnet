@@ -46,15 +46,7 @@ namespace CyberSource.Model
         /// <param name="SetCompletedState">*Moved* When set to Yes we will automatically update transactions to a completed status X-number of days after the transaction comes through; if no failure notification is received. When set to No means we will not update transaction status in this manner. For BAMS/Bank of America merchants, they should be set to No unless we are explicitly asked to set a merchant to YES. (default to false).</param>
         public ECheckConfigCommonProcessors(string CompanyEntryDescription = default(string), string CompanyId = default(string), string BatchGroup = default(string), bool? EnableAccuityForAvs = true, Object AccuityCheckType = default(Object), bool? SetCompletedState = false)
         {
-            // to ensure "CompanyEntryDescription" is required (not null)
-            if (CompanyEntryDescription == null)
-            {
-                throw new InvalidDataException("CompanyEntryDescription is a required property for ECheckConfigCommonProcessors and cannot be null");
-            }
-            else
-            {
-                this.CompanyEntryDescription = CompanyEntryDescription;
-            }
+            this.CompanyEntryDescription = CompanyEntryDescription;
             this.CompanyId = CompanyId;
             this.BatchGroup = BatchGroup;
             // use default value if no "EnableAccuityForAvs" provided

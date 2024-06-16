@@ -43,24 +43,8 @@ namespace CyberSource.Model
         /// <param name="Active">Active.</param>
         public CommerceSolutionsProductsAccountUpdaterConfigurationInformationConfigurationsVisa(string MerchantId = default(string), string SegmentId = default(string), bool? Active = default(bool?))
         {
-            // to ensure "MerchantId" is required (not null)
-            if (MerchantId == null)
-            {
-                throw new InvalidDataException("MerchantId is a required property for CommerceSolutionsProductsAccountUpdaterConfigurationInformationConfigurationsVisa and cannot be null");
-            }
-            else
-            {
-                this.MerchantId = MerchantId;
-            }
-            // to ensure "SegmentId" is required (not null)
-            if (SegmentId == null)
-            {
-                throw new InvalidDataException("SegmentId is a required property for CommerceSolutionsProductsAccountUpdaterConfigurationInformationConfigurationsVisa and cannot be null");
-            }
-            else
-            {
-                this.SegmentId = SegmentId;
-            }
+            this.MerchantId = MerchantId;
+            this.SegmentId = SegmentId;
             this.Active = Active;
         }
         

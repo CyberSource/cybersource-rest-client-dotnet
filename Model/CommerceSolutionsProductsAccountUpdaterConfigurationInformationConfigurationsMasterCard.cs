@@ -43,24 +43,8 @@ namespace CyberSource.Model
         /// <param name="Active">Active.</param>
         public CommerceSolutionsProductsAccountUpdaterConfigurationInformationConfigurationsMasterCard(string MerchantId = default(string), string InterbankCardAssociationNumber = default(string), bool? Active = default(bool?))
         {
-            // to ensure "MerchantId" is required (not null)
-            if (MerchantId == null)
-            {
-                throw new InvalidDataException("MerchantId is a required property for CommerceSolutionsProductsAccountUpdaterConfigurationInformationConfigurationsMasterCard and cannot be null");
-            }
-            else
-            {
-                this.MerchantId = MerchantId;
-            }
-            // to ensure "InterbankCardAssociationNumber" is required (not null)
-            if (InterbankCardAssociationNumber == null)
-            {
-                throw new InvalidDataException("InterbankCardAssociationNumber is a required property for CommerceSolutionsProductsAccountUpdaterConfigurationInformationConfigurationsMasterCard and cannot be null");
-            }
-            else
-            {
-                this.InterbankCardAssociationNumber = InterbankCardAssociationNumber;
-            }
+            this.MerchantId = MerchantId;
+            this.InterbankCardAssociationNumber = InterbankCardAssociationNumber;
             this.Active = Active;
         }
         

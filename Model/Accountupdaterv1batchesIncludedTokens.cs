@@ -43,15 +43,7 @@ namespace CyberSource.Model
         /// <param name="ExpirationYear">ExpirationYear.</param>
         public Accountupdaterv1batchesIncludedTokens(string Id = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string))
         {
-            // to ensure "Id" is required (not null)
-            if (Id == null)
-            {
-                throw new InvalidDataException("Id is a required property for Accountupdaterv1batchesIncludedTokens and cannot be null");
-            }
-            else
-            {
-                this.Id = Id;
-            }
+            this.Id = Id;
             this.ExpirationMonth = ExpirationMonth;
             this.ExpirationYear = ExpirationYear;
         }

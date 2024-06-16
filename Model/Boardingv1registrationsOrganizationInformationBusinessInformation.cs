@@ -658,15 +658,7 @@ namespace CyberSource.Model
         /// <param name="MerchantCategoryCode">Industry standard Merchant Category Code (MCC).</param>
         public Boardingv1registrationsOrganizationInformationBusinessInformation(string Name = default(string), string DoingBusinessAs = default(string), string Description = default(string), DateTime? StartDate = default(DateTime?), Boardingv1registrationsOrganizationInformationBusinessInformationAddress Address = default(Boardingv1registrationsOrganizationInformationBusinessInformationAddress), TimeZoneEnum? TimeZone = default(TimeZoneEnum?), string WebsiteUrl = default(string), TypeEnum? Type = default(TypeEnum?), string TaxId = default(string), string PhoneNumber = default(string), Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact BusinessContact = default(Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact), Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact TechnicalContact = default(Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact), Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact EmergencyContact = default(Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact), string MerchantCategoryCode = default(string))
         {
-            // to ensure "Name" is required (not null)
-            if (Name == null)
-            {
-                throw new InvalidDataException("Name is a required property for Boardingv1registrationsOrganizationInformationBusinessInformation and cannot be null");
-            }
-            else
-            {
-                this.Name = Name;
-            }
+            this.Name = Name;
             this.DoingBusinessAs = DoingBusinessAs;
             this.Description = Description;
             this.StartDate = StartDate;

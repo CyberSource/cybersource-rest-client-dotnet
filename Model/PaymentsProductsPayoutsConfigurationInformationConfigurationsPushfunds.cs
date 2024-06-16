@@ -49,47 +49,15 @@ namespace CyberSource.Model
         /// <param name="ProcessorAccount">TBD (required).</param>
         public PaymentsProductsPayoutsConfigurationInformationConfigurationsPushfunds(int? AcquirerCountryCode = default(int?), int? AcquiringBIN = default(int?), bool? AllowCryptoCurrencyPurchase = default(bool?), string FinancialInstitutionId = default(string), string NetworkOrder = default(string), string NationalReimbursementFee = default(string), string OriginatorBusinessApplicationId = default(string), string OriginatorPseudoAbaNumber = default(string), List<PaymentsProductsPayoutsConfigurationInformationConfigurationsProcessorAccount> ProcessorAccount = default(List<PaymentsProductsPayoutsConfigurationInformationConfigurationsProcessorAccount>))
         {
-            // to ensure "AcquirerCountryCode" is required (not null)
-            if (AcquirerCountryCode == null)
-            {
-                throw new InvalidDataException("AcquirerCountryCode is a required property for PaymentsProductsPayoutsConfigurationInformationConfigurationsPushfunds and cannot be null");
-            }
-            else
-            {
-                this.AcquirerCountryCode = AcquirerCountryCode;
-            }
-            // to ensure "AcquiringBIN" is required (not null)
-            if (AcquiringBIN == null)
-            {
-                throw new InvalidDataException("AcquiringBIN is a required property for PaymentsProductsPayoutsConfigurationInformationConfigurationsPushfunds and cannot be null");
-            }
-            else
-            {
-                this.AcquiringBIN = AcquiringBIN;
-            }
-            // to ensure "OriginatorBusinessApplicationId" is required (not null)
-            if (OriginatorBusinessApplicationId == null)
-            {
-                throw new InvalidDataException("OriginatorBusinessApplicationId is a required property for PaymentsProductsPayoutsConfigurationInformationConfigurationsPushfunds and cannot be null");
-            }
-            else
-            {
-                this.OriginatorBusinessApplicationId = OriginatorBusinessApplicationId;
-            }
-            // to ensure "ProcessorAccount" is required (not null)
-            if (ProcessorAccount == null)
-            {
-                throw new InvalidDataException("ProcessorAccount is a required property for PaymentsProductsPayoutsConfigurationInformationConfigurationsPushfunds and cannot be null");
-            }
-            else
-            {
-                this.ProcessorAccount = ProcessorAccount;
-            }
+            this.AcquirerCountryCode = AcquirerCountryCode;
+            this.AcquiringBIN = AcquiringBIN;
             this.AllowCryptoCurrencyPurchase = AllowCryptoCurrencyPurchase;
             this.FinancialInstitutionId = FinancialInstitutionId;
             this.NetworkOrder = NetworkOrder;
             this.NationalReimbursementFee = NationalReimbursementFee;
+            this.OriginatorBusinessApplicationId = OriginatorBusinessApplicationId;
             this.OriginatorPseudoAbaNumber = OriginatorPseudoAbaNumber;
+            this.ProcessorAccount = ProcessorAccount;
         }
         
         /// <summary>

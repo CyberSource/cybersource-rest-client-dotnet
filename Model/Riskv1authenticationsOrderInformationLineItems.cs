@@ -60,16 +60,8 @@ namespace CyberSource.Model
         /// <param name="ShippingState">State where item will be shipped.</param>
         public Riskv1authenticationsOrderInformationLineItems(string TotalAmount = default(string), string UnitPrice = default(string), int? Quantity = default(int?), int? GiftCardCurrency = default(int?), string ProductSKU = default(string), string ProductDescription = default(string), string ProductName = default(string), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger), string ShippingDestinationTypes = default(string), string TaxAmount = default(string), string ShippingAddress1 = default(string), string ShippingAddress2 = default(string), string ShippingCity = default(string), string ShippingCountryCode = default(string), string ShippingFirstName = default(string), string ShippingLastName = default(string), string ShippingMiddleName = default(string), int? ShippingPhone = default(int?), int? ShippingPostalCode = default(int?), string ShippingState = default(string))
         {
-            // to ensure "UnitPrice" is required (not null)
-            if (UnitPrice == null)
-            {
-                throw new InvalidDataException("UnitPrice is a required property for Riskv1authenticationsOrderInformationLineItems and cannot be null");
-            }
-            else
-            {
-                this.UnitPrice = UnitPrice;
-            }
             this.TotalAmount = TotalAmount;
+            this.UnitPrice = UnitPrice;
             this.Quantity = Quantity;
             this.GiftCardCurrency = GiftCardCurrency;
             this.ProductSKU = ProductSKU;

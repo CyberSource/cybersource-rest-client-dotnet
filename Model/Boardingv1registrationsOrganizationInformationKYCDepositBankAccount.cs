@@ -80,42 +80,10 @@ namespace CyberSource.Model
         /// <param name="AccountNumber">AccountNumber (required).</param>
         public Boardingv1registrationsOrganizationInformationKYCDepositBankAccount(string AccountHolderName = default(string), AccountTypeEnum? AccountType = default(AccountTypeEnum?), string AccountRoutingNumber = default(string), string AccountNumber = default(string))
         {
-            // to ensure "AccountHolderName" is required (not null)
-            if (AccountHolderName == null)
-            {
-                throw new InvalidDataException("AccountHolderName is a required property for Boardingv1registrationsOrganizationInformationKYCDepositBankAccount and cannot be null");
-            }
-            else
-            {
-                this.AccountHolderName = AccountHolderName;
-            }
-            // to ensure "AccountType" is required (not null)
-            if (AccountType == null)
-            {
-                throw new InvalidDataException("AccountType is a required property for Boardingv1registrationsOrganizationInformationKYCDepositBankAccount and cannot be null");
-            }
-            else
-            {
-                this.AccountType = AccountType;
-            }
-            // to ensure "AccountRoutingNumber" is required (not null)
-            if (AccountRoutingNumber == null)
-            {
-                throw new InvalidDataException("AccountRoutingNumber is a required property for Boardingv1registrationsOrganizationInformationKYCDepositBankAccount and cannot be null");
-            }
-            else
-            {
-                this.AccountRoutingNumber = AccountRoutingNumber;
-            }
-            // to ensure "AccountNumber" is required (not null)
-            if (AccountNumber == null)
-            {
-                throw new InvalidDataException("AccountNumber is a required property for Boardingv1registrationsOrganizationInformationKYCDepositBankAccount and cannot be null");
-            }
-            else
-            {
-                this.AccountNumber = AccountNumber;
-            }
+            this.AccountHolderName = AccountHolderName;
+            this.AccountType = AccountType;
+            this.AccountRoutingNumber = AccountRoutingNumber;
+            this.AccountNumber = AccountNumber;
         }
         
         /// <summary>

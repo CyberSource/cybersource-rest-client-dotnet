@@ -50,24 +50,8 @@ namespace CyberSource.Model
         /// <param name="SubscriptionStatus">The status for subscription which is either created or updated. By default it is ACTIVE. Valid Values:   - ACTIVE   - INACTIVE .</param>
         public PredefinedSubscriptionRequestBean(string ReportDefinitionName = default(string), string SubscriptionType = default(string), string ReportName = default(string), string ReportMimeType = default(string), string ReportFrequency = default(string), string ReportInterval = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), string SubscriptionStatus = default(string))
         {
-            // to ensure "ReportDefinitionName" is required (not null)
-            if (ReportDefinitionName == null)
-            {
-                throw new InvalidDataException("ReportDefinitionName is a required property for PredefinedSubscriptionRequestBean and cannot be null");
-            }
-            else
-            {
-                this.ReportDefinitionName = ReportDefinitionName;
-            }
-            // to ensure "SubscriptionType" is required (not null)
-            if (SubscriptionType == null)
-            {
-                throw new InvalidDataException("SubscriptionType is a required property for PredefinedSubscriptionRequestBean and cannot be null");
-            }
-            else
-            {
-                this.SubscriptionType = SubscriptionType;
-            }
+            this.ReportDefinitionName = ReportDefinitionName;
+            this.SubscriptionType = SubscriptionType;
             this.ReportName = ReportName;
             this.ReportMimeType = ReportMimeType;
             this.ReportFrequency = ReportFrequency;

@@ -42,24 +42,8 @@ namespace CyberSource.Model
         /// <param name="Currency">Use a 3-character alpha currency code for currency of the sender.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf  Currency must be supported by the processor.  (required).</param>
         public Ptsv1pushfundstransferOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string))
         {
-            // to ensure "TotalAmount" is required (not null)
-            if (TotalAmount == null)
-            {
-                throw new InvalidDataException("TotalAmount is a required property for Ptsv1pushfundstransferOrderInformationAmountDetails and cannot be null");
-            }
-            else
-            {
-                this.TotalAmount = TotalAmount;
-            }
-            // to ensure "Currency" is required (not null)
-            if (Currency == null)
-            {
-                throw new InvalidDataException("Currency is a required property for Ptsv1pushfundstransferOrderInformationAmountDetails and cannot be null");
-            }
-            else
-            {
-                this.Currency = Currency;
-            }
+            this.TotalAmount = TotalAmount;
+            this.Currency = Currency;
         }
         
         /// <summary>

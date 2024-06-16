@@ -42,15 +42,7 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         public CaseManagementActionsRequest(Riskv1decisionsidactionsDecisionInformation DecisionInformation = default(Riskv1decisionsidactionsDecisionInformation), Riskv1decisionsidactionsProcessingInformation ProcessingInformation = default(Riskv1decisionsidactionsProcessingInformation))
         {
-            // to ensure "DecisionInformation" is required (not null)
-            if (DecisionInformation == null)
-            {
-                throw new InvalidDataException("DecisionInformation is a required property for CaseManagementActionsRequest and cannot be null");
-            }
-            else
-            {
-                this.DecisionInformation = DecisionInformation;
-            }
+            this.DecisionInformation = DecisionInformation;
             this.ProcessingInformation = ProcessingInformation;
         }
         

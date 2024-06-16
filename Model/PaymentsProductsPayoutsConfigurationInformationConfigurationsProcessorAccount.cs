@@ -43,24 +43,8 @@ namespace CyberSource.Model
         /// <param name="SupportedCurrencies">Three-character [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf).</param>
         public PaymentsProductsPayoutsConfigurationInformationConfigurationsProcessorAccount(string OriginatorMerchantId = default(string), List<string> OriginatorTerminalId = default(List<string>), List<string> SupportedCurrencies = default(List<string>))
         {
-            // to ensure "OriginatorMerchantId" is required (not null)
-            if (OriginatorMerchantId == null)
-            {
-                throw new InvalidDataException("OriginatorMerchantId is a required property for PaymentsProductsPayoutsConfigurationInformationConfigurationsProcessorAccount and cannot be null");
-            }
-            else
-            {
-                this.OriginatorMerchantId = OriginatorMerchantId;
-            }
-            // to ensure "OriginatorTerminalId" is required (not null)
-            if (OriginatorTerminalId == null)
-            {
-                throw new InvalidDataException("OriginatorTerminalId is a required property for PaymentsProductsPayoutsConfigurationInformationConfigurationsProcessorAccount and cannot be null");
-            }
-            else
-            {
-                this.OriginatorTerminalId = OriginatorTerminalId;
-            }
+            this.OriginatorMerchantId = OriginatorMerchantId;
+            this.OriginatorTerminalId = OriginatorTerminalId;
             this.SupportedCurrencies = SupportedCurrencies;
         }
         

@@ -44,26 +44,10 @@ namespace CyberSource.Model
         /// <param name="StartDate">Start date of the Subscription  Start date must be in UTC. Format: YYYY-MM-DDThh:mm:ssZ The T separates the date and the time. The Z indicates UTC.  Note: Subscription starts on the day provided in UTC.  **Example** 2022-08-11T22:47:57Z equals August 11, 2022, at 22:47:57 (10:47:57 p.m.). Subscription will start on August 11,2022.  (required).</param>
         public Rbsv1subscriptionsSubscriptionInformation(string Code = default(string), string PlanId = default(string), string Name = default(string), string StartDate = default(string))
         {
-            // to ensure "Name" is required (not null)
-            if (Name == null)
-            {
-                throw new InvalidDataException("Name is a required property for Rbsv1subscriptionsSubscriptionInformation and cannot be null");
-            }
-            else
-            {
-                this.Name = Name;
-            }
-            // to ensure "StartDate" is required (not null)
-            if (StartDate == null)
-            {
-                throw new InvalidDataException("StartDate is a required property for Rbsv1subscriptionsSubscriptionInformation and cannot be null");
-            }
-            else
-            {
-                this.StartDate = StartDate;
-            }
             this.Code = Code;
             this.PlanId = PlanId;
+            this.Name = Name;
+            this.StartDate = StartDate;
         }
         
         /// <summary>

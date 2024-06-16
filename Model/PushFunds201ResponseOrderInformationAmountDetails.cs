@@ -44,16 +44,8 @@ namespace CyberSource.Model
         /// <param name="SettlementCurrency">This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. This field is returned for OCT transactions. .</param>
         public PushFunds201ResponseOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string SettlementAmount = default(string), string SettlementCurrency = default(string))
         {
-            // to ensure "Currency" is required (not null)
-            if (Currency == null)
-            {
-                throw new InvalidDataException("Currency is a required property for PushFunds201ResponseOrderInformationAmountDetails and cannot be null");
-            }
-            else
-            {
-                this.Currency = Currency;
-            }
             this.TotalAmount = TotalAmount;
+            this.Currency = Currency;
             this.SettlementAmount = SettlementAmount;
             this.SettlementCurrency = SettlementCurrency;
         }

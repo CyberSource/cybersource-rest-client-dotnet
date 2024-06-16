@@ -46,34 +46,10 @@ namespace CyberSource.Model
         /// <param name="PostalCode">Postal code for the billing address. The postal code must consist of 5 to 9 digits. Required for United States and Canada..</param>
         public Boardingv1registrationsOrganizationInformationBusinessInformationAddress(string Country = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string))
         {
-            // to ensure "Country" is required (not null)
-            if (Country == null)
-            {
-                throw new InvalidDataException("Country is a required property for Boardingv1registrationsOrganizationInformationBusinessInformationAddress and cannot be null");
-            }
-            else
-            {
-                this.Country = Country;
-            }
-            // to ensure "Address1" is required (not null)
-            if (Address1 == null)
-            {
-                throw new InvalidDataException("Address1 is a required property for Boardingv1registrationsOrganizationInformationBusinessInformationAddress and cannot be null");
-            }
-            else
-            {
-                this.Address1 = Address1;
-            }
-            // to ensure "Locality" is required (not null)
-            if (Locality == null)
-            {
-                throw new InvalidDataException("Locality is a required property for Boardingv1registrationsOrganizationInformationBusinessInformationAddress and cannot be null");
-            }
-            else
-            {
-                this.Locality = Locality;
-            }
+            this.Country = Country;
+            this.Address1 = Address1;
             this.Address2 = Address2;
+            this.Locality = Locality;
             this.AdministrativeArea = AdministrativeArea;
             this.PostalCode = PostalCode;
         }

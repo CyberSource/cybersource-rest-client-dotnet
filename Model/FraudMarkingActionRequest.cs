@@ -42,15 +42,7 @@ namespace CyberSource.Model
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         public FraudMarkingActionRequest(Riskv1decisionsidmarkingRiskInformation RiskInformation = default(Riskv1decisionsidmarkingRiskInformation), Riskv1liststypeentriesClientReferenceInformation ClientReferenceInformation = default(Riskv1liststypeentriesClientReferenceInformation))
         {
-            // to ensure "RiskInformation" is required (not null)
-            if (RiskInformation == null)
-            {
-                throw new InvalidDataException("RiskInformation is a required property for FraudMarkingActionRequest and cannot be null");
-            }
-            else
-            {
-                this.RiskInformation = RiskInformation;
-            }
+            this.RiskInformation = RiskInformation;
             this.ClientReferenceInformation = ClientReferenceInformation;
         }
         

@@ -44,24 +44,6 @@ namespace CyberSource.Model
         /// <param name="NotificationEmail">Email used to notify the batch status. (required).</param>
         public Body(string Type = "oneOff", Accountupdaterv1batchesIncluded Included = default(Accountupdaterv1batchesIncluded), string MerchantReference = default(string), string NotificationEmail = default(string))
         {
-            // to ensure "Included" is required (not null)
-            if (Included == null)
-            {
-                throw new InvalidDataException("Included is a required property for Body and cannot be null");
-            }
-            else
-            {
-                this.Included = Included;
-            }
-            // to ensure "NotificationEmail" is required (not null)
-            if (NotificationEmail == null)
-            {
-                throw new InvalidDataException("NotificationEmail is a required property for Body and cannot be null");
-            }
-            else
-            {
-                this.NotificationEmail = NotificationEmail;
-            }
             // use default value if no "Type" provided
             if (Type == null)
             {
@@ -71,7 +53,9 @@ namespace CyberSource.Model
             {
                 this.Type = Type;
             }
+            this.Included = Included;
             this.MerchantReference = MerchantReference;
+            this.NotificationEmail = NotificationEmail;
         }
         
         /// <summary>
