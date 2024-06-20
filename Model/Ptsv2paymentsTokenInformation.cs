@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="PaymentInstrument">PaymentInstrument.</param>
         /// <param name="ShippingAddress">ShippingAddress.</param>
         /// <param name="NetworkTokenOption">Indicates whether a payment network token associated with a TMS token should be used for authorization. This field can contain one of following values:  - &#x60;ignore&#x60;: Use a tokenized card number for an authorization, even if the TMS token has an associated payment network token. - &#x60;prefer&#x60;: (Default) Use an associated payment network token for an authorization if the TMS token has one; otherwise, use the tokenized card number. .</param>
-        public Ptsv2paymentsTokenInformation(string Jti = default(string), string TransientTokenJwt = default(string), Ptsv2paymentsTokenInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsTokenInformationPaymentInstrument), Ptsv2paymentsTokenInformationShippingAddress ShippingAddress = default(Ptsv2paymentsTokenInformationShippingAddress), string NetworkTokenOption = default(string))
+        /// <param name="TokenProvisioningInformation">TokenProvisioningInformation.</param>
+        public Ptsv2paymentsTokenInformation(string Jti = default(string), string TransientTokenJwt = default(string), Ptsv2paymentsTokenInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsTokenInformationPaymentInstrument), Ptsv2paymentsTokenInformationShippingAddress ShippingAddress = default(Ptsv2paymentsTokenInformationShippingAddress), string NetworkTokenOption = default(string), Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation = default(Ptsv2paymentsTokenInformationTokenProvisioningInformation))
         {
             this.Jti = Jti;
             this.TransientTokenJwt = TransientTokenJwt;
             this.PaymentInstrument = PaymentInstrument;
             this.ShippingAddress = ShippingAddress;
             this.NetworkTokenOption = NetworkTokenOption;
+            this.TokenProvisioningInformation = TokenProvisioningInformation;
         }
         
         /// <summary>
@@ -81,6 +83,12 @@ namespace CyberSource.Model
         public string NetworkTokenOption { get; set; }
 
         /// <summary>
+        /// Gets or Sets TokenProvisioningInformation
+        /// </summary>
+        [DataMember(Name="tokenProvisioningInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +101,7 @@ namespace CyberSource.Model
             sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
             sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
             sb.Append("  NetworkTokenOption: ").Append(NetworkTokenOption).Append("\n");
+            sb.Append("  TokenProvisioningInformation: ").Append(TokenProvisioningInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +162,11 @@ namespace CyberSource.Model
                     this.NetworkTokenOption == other.NetworkTokenOption ||
                     this.NetworkTokenOption != null &&
                     this.NetworkTokenOption.Equals(other.NetworkTokenOption)
+                ) && 
+                (
+                    this.TokenProvisioningInformation == other.TokenProvisioningInformation ||
+                    this.TokenProvisioningInformation != null &&
+                    this.TokenProvisioningInformation.Equals(other.TokenProvisioningInformation)
                 );
         }
 
@@ -177,6 +191,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ShippingAddress.GetHashCode();
                 if (this.NetworkTokenOption != null)
                     hash = hash * 59 + this.NetworkTokenOption.GetHashCode();
+                if (this.TokenProvisioningInformation != null)
+                    hash = hash * 59 + this.TokenProvisioningInformation.GetHashCode();
                 return hash;
             }
         }

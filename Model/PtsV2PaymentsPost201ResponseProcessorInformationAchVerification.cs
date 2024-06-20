@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessorInformationAchVerification" /> class.
         /// </summary>
-        /// <param name="ResultCode">Results from the ACH verification service. For details about this service and the possible values for the results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). .</param>
-        /// <param name="ResultCodeRaw">Raw results from the ACH verification service. For details about this service and the possible values for the raw results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). .</param>
+        /// <param name="ResultCode">Results from the ACH verification service. .</param>
+        /// <param name="ResultCodeRaw">Raw results from the ACH verification service. .</param>
         public PtsV2PaymentsPost201ResponseProcessorInformationAchVerification(string ResultCode = default(string), string ResultCodeRaw = default(string))
         {
             this.ResultCode = ResultCode;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Results from the ACH verification service. For details about this service and the possible values for the results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). 
+        /// Results from the ACH verification service. 
         /// </summary>
-        /// <value>Results from the ACH verification service. For details about this service and the possible values for the results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). </value>
+        /// <value>Results from the ACH verification service. </value>
         [DataMember(Name="resultCode", EmitDefaultValue=false)]
         public string ResultCode { get; set; }
 
         /// <summary>
-        /// Raw results from the ACH verification service. For details about this service and the possible values for the raw results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). 
+        /// Raw results from the ACH verification service. 
         /// </summary>
-        /// <value>Raw results from the ACH verification service. For details about this service and the possible values for the raw results, see \&quot;ACH Verification\&quot; and \&quot;Verification Codes\&quot; in the [Electronic Check Services Using the SCMP API](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). </value>
+        /// <value>Raw results from the ACH verification service. </value>
         [DataMember(Name="resultCodeRaw", EmitDefaultValue=false)]
         public string ResultCodeRaw { get; set; }
 

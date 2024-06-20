@@ -25,17 +25,17 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation
+    /// Ptsv2paymentsTokenInformationTokenProvisioningInformation
     /// </summary>
     [DataContract]
-    public partial class TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation :  IEquatable<TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation>, IValidatableObject
+    public partial class Ptsv2paymentsTokenInformationTokenProvisioningInformation :  IEquatable<Ptsv2paymentsTokenInformationTokenProvisioningInformation>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation" /> class.
+        /// Initializes a new instance of the <see cref="Ptsv2paymentsTokenInformationTokenProvisioningInformation" /> class.
         /// </summary>
         /// <param name="ConsumerConsentObtained">Flag that indicates whether the user consented to the tokenization of their credentials. Required for card network tokenization in certain markets, such as India. Possible Values: - &#x60;true&#x60;: Consumer has consented to tokenization of their credentials. - &#x60;false&#x60;: Consumer has not consented to tokenization of their credentials. .</param>
         /// <param name="MultiFactorAuthenticated">Flag that indicates whether AFA (Additional Factor of Authentication) for the PAN was completed. Required for card network tokenization in certain markets, such as India. Possible Values: - &#x60;true&#x60;: Consumer has been authenticated by the issuer. - &#x60;false&#x60;: Consumer has not been authenticated by the issuer. .</param>
-        public TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation(bool? ConsumerConsentObtained = default(bool?), bool? MultiFactorAuthenticated = default(bool?))
+        public Ptsv2paymentsTokenInformationTokenProvisioningInformation(bool? ConsumerConsentObtained = default(bool?), bool? MultiFactorAuthenticated = default(bool?))
         {
             this.ConsumerConsentObtained = ConsumerConsentObtained;
             this.MultiFactorAuthenticated = MultiFactorAuthenticated;
@@ -62,7 +62,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation {\n");
+            sb.Append("class Ptsv2paymentsTokenInformationTokenProvisioningInformation {\n");
             sb.Append("  ConsumerConsentObtained: ").Append(ConsumerConsentObtained).Append("\n");
             sb.Append("  MultiFactorAuthenticated: ").Append(MultiFactorAuthenticated).Append("\n");
             sb.Append("}\n");
@@ -86,15 +86,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation);
+            return this.Equals(obj as Ptsv2paymentsTokenInformationTokenProvisioningInformation);
         }
 
         /// <summary>
-        /// Returns true if TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation instances are equal
+        /// Returns true if Ptsv2paymentsTokenInformationTokenProvisioningInformation instances are equal
         /// </summary>
-        /// <param name="other">Instance of TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation to be compared</param>
+        /// <param name="other">Instance of Ptsv2paymentsTokenInformationTokenProvisioningInformation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation other)
+        public bool Equals(Ptsv2paymentsTokenInformationTokenProvisioningInformation other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

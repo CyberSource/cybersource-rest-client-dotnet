@@ -47,6 +47,13 @@ namespace CyberSource.Model
         public string Type { get; private set; }
 
         /// <summary>
+        /// This enumeration value indicates the origin of the payment instrument (PAN) and the technique employed to supply the payment instrument data. Possible Values: - TOKEN - ISSUER - ONFILE 
+        /// </summary>
+        /// <value>This enumeration value indicates the origin of the payment instrument (PAN) and the technique employed to supply the payment instrument data. Possible Values: - TOKEN - ISSUER - ONFILE </value>
+        [DataMember(Name="source", EmitDefaultValue=false)]
+        public string Source { get; private set; }
+
+        /// <summary>
         /// State of the network token or network token provision Possible Values: - ACTIVE : Network token is active. - SUSPENDED : Network token is suspended. This state can change back to ACTIVE. - DELETED : This is a final state for a network token instance. - UNPROVISIONED : A previous network token provision was unsuccessful. 
         /// </summary>
         /// <value>State of the network token or network token provision Possible Values: - ACTIVE : Network token is active. - SUSPENDED : Network token is suspended. This state can change back to ACTIVE. - DELETED : This is a final state for a network token instance. - UNPROVISIONED : A previous network token provision was unsuccessful. </value>
@@ -117,6 +124,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class TmsEmbeddedInstrumentIdentifierTokenizedCard {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  EnrollmentId: ").Append(EnrollmentId).Append("\n");
             sb.Append("  TokenReferenceId: ").Append(TokenReferenceId).Append("\n");
@@ -166,6 +174,11 @@ namespace CyberSource.Model
                     this.Type == other.Type ||
                     this.Type != null &&
                     this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.Source == other.Source ||
+                    this.Source != null &&
+                    this.Source.Equals(other.Source)
                 ) && 
                 (
                     this.State == other.State ||
@@ -227,6 +240,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Source != null)
+                    hash = hash * 59 + this.Source.GetHashCode();
                 if (this.State != null)
                     hash = hash * 59 + this.State.GetHashCode();
                 if (this.EnrollmentId != null)

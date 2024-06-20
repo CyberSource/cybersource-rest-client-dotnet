@@ -35,17 +35,13 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="TransactionId">Network transaction identifier (TID). This value can be used to identify a specific transaction when you are discussing the transaction with your processor. .</param>
         /// <param name="ResponseCode">Transaction status from the processor. .</param>
-        /// <param name="ApprovalCode">Issuer-generated approval code for the transaction. .</param>
-        /// <param name="SystemTraceAuditNumber">System audit number. Returned by authorization and incremental authorization services.  Visa Platform Connect  System trace number that must be printed on the customer&#39;s receipt. .</param>
-        /// <param name="ResponseCodeSource">Used by Visa only and contains the response source/reason code that identifies the source of the response decision. .</param>
-        /// <param name="RetrievalReferenceNumber">Unique reference number returned by the processor that identifies the transaction at the network.  Supported by Mastercard Send .</param>
-        public PushFunds201ResponseProcessorInformation(int? TransactionId = default(int?), string ResponseCode = default(string), string ApprovalCode = default(string), string SystemTraceAuditNumber = default(string), string ResponseCodeSource = default(string), string RetrievalReferenceNumber = default(string))
+        /// <param name="SystemTraceAuditNumber">System audit number. Returned by authorization and incremental authorization services. .</param>
+        /// <param name="RetrievalReferenceNumber">Unique reference number returned by the processor that identifies the transaction at the network. .</param>
+        public PushFunds201ResponseProcessorInformation(int? TransactionId = default(int?), string ResponseCode = default(string), string SystemTraceAuditNumber = default(string), string RetrievalReferenceNumber = default(string))
         {
             this.TransactionId = TransactionId;
             this.ResponseCode = ResponseCode;
-            this.ApprovalCode = ApprovalCode;
             this.SystemTraceAuditNumber = SystemTraceAuditNumber;
-            this.ResponseCodeSource = ResponseCodeSource;
             this.RetrievalReferenceNumber = RetrievalReferenceNumber;
         }
         
@@ -64,30 +60,16 @@ namespace CyberSource.Model
         public string ResponseCode { get; set; }
 
         /// <summary>
-        /// Issuer-generated approval code for the transaction. 
+        /// System audit number. Returned by authorization and incremental authorization services. 
         /// </summary>
-        /// <value>Issuer-generated approval code for the transaction. </value>
-        [DataMember(Name="approvalCode", EmitDefaultValue=false)]
-        public string ApprovalCode { get; set; }
-
-        /// <summary>
-        /// System audit number. Returned by authorization and incremental authorization services.  Visa Platform Connect  System trace number that must be printed on the customer&#39;s receipt. 
-        /// </summary>
-        /// <value>System audit number. Returned by authorization and incremental authorization services.  Visa Platform Connect  System trace number that must be printed on the customer&#39;s receipt. </value>
+        /// <value>System audit number. Returned by authorization and incremental authorization services. </value>
         [DataMember(Name="systemTraceAuditNumber", EmitDefaultValue=false)]
         public string SystemTraceAuditNumber { get; set; }
 
         /// <summary>
-        /// Used by Visa only and contains the response source/reason code that identifies the source of the response decision. 
+        /// Unique reference number returned by the processor that identifies the transaction at the network. 
         /// </summary>
-        /// <value>Used by Visa only and contains the response source/reason code that identifies the source of the response decision. </value>
-        [DataMember(Name="responseCodeSource", EmitDefaultValue=false)]
-        public string ResponseCodeSource { get; set; }
-
-        /// <summary>
-        /// Unique reference number returned by the processor that identifies the transaction at the network.  Supported by Mastercard Send 
-        /// </summary>
-        /// <value>Unique reference number returned by the processor that identifies the transaction at the network.  Supported by Mastercard Send </value>
+        /// <value>Unique reference number returned by the processor that identifies the transaction at the network. </value>
         [DataMember(Name="retrievalReferenceNumber", EmitDefaultValue=false)]
         public string RetrievalReferenceNumber { get; set; }
 
@@ -101,9 +83,7 @@ namespace CyberSource.Model
             sb.Append("class PushFunds201ResponseProcessorInformation {\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
-            sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
             sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
-            sb.Append("  ResponseCodeSource: ").Append(ResponseCodeSource).Append("\n");
             sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -152,19 +132,9 @@ namespace CyberSource.Model
                     this.ResponseCode.Equals(other.ResponseCode)
                 ) && 
                 (
-                    this.ApprovalCode == other.ApprovalCode ||
-                    this.ApprovalCode != null &&
-                    this.ApprovalCode.Equals(other.ApprovalCode)
-                ) && 
-                (
                     this.SystemTraceAuditNumber == other.SystemTraceAuditNumber ||
                     this.SystemTraceAuditNumber != null &&
                     this.SystemTraceAuditNumber.Equals(other.SystemTraceAuditNumber)
-                ) && 
-                (
-                    this.ResponseCodeSource == other.ResponseCodeSource ||
-                    this.ResponseCodeSource != null &&
-                    this.ResponseCodeSource.Equals(other.ResponseCodeSource)
                 ) && 
                 (
                     this.RetrievalReferenceNumber == other.RetrievalReferenceNumber ||
@@ -188,12 +158,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionId.GetHashCode();
                 if (this.ResponseCode != null)
                     hash = hash * 59 + this.ResponseCode.GetHashCode();
-                if (this.ApprovalCode != null)
-                    hash = hash * 59 + this.ApprovalCode.GetHashCode();
                 if (this.SystemTraceAuditNumber != null)
                     hash = hash * 59 + this.SystemTraceAuditNumber.GetHashCode();
-                if (this.ResponseCodeSource != null)
-                    hash = hash * 59 + this.ResponseCodeSource.GetHashCode();
                 if (this.RetrievalReferenceNumber != null)
                     hash = hash * 59 + this.RetrievalReferenceNumber.GetHashCode();
                 return hash;

@@ -56,7 +56,7 @@ namespace CyberSource.Api
         /// Get Individual Batch File
         /// </summary>
         /// <remarks>
-        /// Provide the search range
+        /// This API provides details like upload date, completion date, transaction count and accepted and rejected transaction count of the individual batch file using the batch id
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
@@ -67,7 +67,7 @@ namespace CyberSource.Api
         /// Get Individual Batch File
         /// </summary>
         /// <remarks>
-        /// Provide the search range
+        /// This API provides details like upload date, completion date, transaction count and accepted and rejected transaction count of the individual batch file using the batch id
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
@@ -77,7 +77,7 @@ namespace CyberSource.Api
         /// Get a List of Batch Files
         /// </summary>
         /// <remarks>
-        /// Provide the search range
+        /// Provide the date and time search range to get a list of Batch Files ready for settlement
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
@@ -89,7 +89,7 @@ namespace CyberSource.Api
         /// Get a List of Batch Files
         /// </summary>
         /// <remarks>
-        /// Provide the search range
+        /// Provide the date and time search range to get a list of Batch Files ready for settlement
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
@@ -127,7 +127,7 @@ namespace CyberSource.Api
         /// Get Individual Batch File
         /// </summary>
         /// <remarks>
-        /// Provide the search range
+        /// This API provides details like upload date, completion date, transaction count and accepted and rejected transaction count of the individual batch file using the batch id
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
@@ -138,7 +138,7 @@ namespace CyberSource.Api
         /// Get Individual Batch File
         /// </summary>
         /// <remarks>
-        /// Provide the search range
+        /// This API provides details like upload date, completion date, transaction count and accepted and rejected transaction count of the individual batch file using the batch id
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
@@ -148,7 +148,7 @@ namespace CyberSource.Api
         /// Get a List of Batch Files
         /// </summary>
         /// <remarks>
-        /// Provide the search range
+        /// Provide the date and time search range to get a list of Batch Files ready for settlement
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
@@ -160,7 +160,7 @@ namespace CyberSource.Api
         /// Get a List of Batch Files
         /// </summary>
         /// <remarks>
-        /// Provide the search range
+        /// Provide the date and time search range to get a list of Batch Files ready for settlement
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
@@ -524,7 +524,7 @@ namespace CyberSource.Api
                 localVarResponse.Content); // Return statement
         }
         /// <summary>
-        /// Get Individual Batch File Provide the search range
+        /// Get Individual Batch File This API provides details like upload date, completion date, transaction count and accepted and rejected transaction count of the individual batch file using the batch id
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
@@ -540,7 +540,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Individual Batch File Provide the search range
+        /// Get Individual Batch File This API provides details like upload date, completion date, transaction count and accepted and rejected transaction count of the individual batch file using the batch id
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
@@ -618,7 +618,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Individual Batch File Provide the search range
+        /// Get Individual Batch File This API provides details like upload date, completion date, transaction count and accepted and rejected transaction count of the individual batch file using the batch id
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
@@ -635,7 +635,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get Individual Batch File Provide the search range
+        /// Get Individual Batch File This API provides details like upload date, completion date, transaction count and accepted and rejected transaction count of the individual batch file using the batch id
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The batch id assigned for the template.</param>
@@ -712,7 +712,7 @@ namespace CyberSource.Api
                 (PtsV1TransactionBatchesIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesIdGet200Response))); // Return statement
         }
         /// <summary>
-        /// Get a List of Batch Files Provide the search range
+        /// Get a List of Batch Files Provide the date and time search range to get a list of Batch Files ready for settlement
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
@@ -729,7 +729,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get a List of Batch Files Provide the search range
+        /// Get a List of Batch Files Provide the date and time search range to get a list of Batch Files ready for settlement
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
@@ -819,7 +819,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get a List of Batch Files Provide the search range
+        /// Get a List of Batch Files Provide the date and time search range to get a list of Batch Files ready for settlement
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
@@ -837,7 +837,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Get a List of Batch Files Provide the search range
+        /// Get a List of Batch Files Provide the date and time search range to get a list of Batch Files ready for settlement
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startTime">Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ </param>
