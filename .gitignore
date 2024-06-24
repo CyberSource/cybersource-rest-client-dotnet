@@ -191,3 +191,5 @@ build.bat
 git_push.sh
 mono_nunit_test.sh
 .vs/
+
+.DS_Store
