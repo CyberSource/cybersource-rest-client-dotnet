@@ -35,9 +35,9 @@ jobs:
             - name: Building the projects and running the Test Cases
               run: |
                 Get-Location
+                Get-ChildItem
                 # ls
                 # cd $CLIENT_FOLDER
-                # Get-Location
                 # (Get-Content ./cybersource-rest-client-dotnet.csproj) | ForEach-Object { \$_ -replace "(<HintPath>)(.)+(AuthenticationSdk.dll</HintPath>)", "<HintPath>..\\cybersource-rest-auth-dotnet\\AuthenticationSdk\\AuthenticationSdk\\bin\\Release\\AuthenticationSdk.dll</HintPath>" } | Set-Content ./cybersource-rest-client-dotnet.csproj
                 # nuget install packages.config -OutputDirectory packages
                 # nuget install ./test/packages.config -OutputDirectory packages
