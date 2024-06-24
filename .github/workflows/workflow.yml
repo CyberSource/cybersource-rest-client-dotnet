@@ -47,7 +47,7 @@ jobs:
                 Write-Output "Build Successful"
                 Set-Location ..
                 cd $Env:SAMPLE_FOLDER
-                (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { \$_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>..\\cybersource-rest-client-dotnet\\bin\\Release\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
+                (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>..\\cybersource-rest-client-dotnet\\bin\\Release\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
                 #Replaced the Dependency path to locally build cybersource-rest-client-dotnet.dll file 
                 nuget install packages.config -OutputDirectory packages
                 msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
