@@ -51,9 +51,14 @@ jobs:
                 #Replaced the Dependency path to locally build cybersource-rest-client-dotnet.dll file 
                 nuget install packages.config -OutputDirectory packages
                 msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
+                Write-Output "After Build"
                 cd bin/Release/net461
+                Write-Output "Changed Folder"
+                Write-Output "Before Running SampleCode.exe"
                 ./SampleCode.exe -RunAll > output.log
+                Write-Output "After Running SampleCode.exe"
                 Copy-Item ".\output.log" -Destination "..\..\..\"
+                Write-Output "Copied Output.log"
               shell: pwsh 
             - name: Setup Python v3.12 for report generation only
               uses: actions/setup-python@v5
