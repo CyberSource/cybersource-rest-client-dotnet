@@ -39,12 +39,12 @@ jobs:
                 Get-Location
                 Get-ChildItem
                 cd $Env:CLIENT_FOLDER
-                (Get-Content ./cybersource-rest-client-dotnet.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(AuthenticationSdk.dll</HintPath>)", "<HintPath>..\\cybersource-rest-auth-dotnet\\AuthenticationSdk\\AuthenticationSdk\\bin\\Release\\AuthenticationSdk.dll</HintPath>" } | Set-Content ./cybersource-rest-client-dotnet.csproj
                 nuget install packages.config -OutputDirectory packages
                 nuget install ./test/packages.config -OutputDirectory packages
                 Write-Output "Passed!!!"
                 msbuild -version
                 msbuild -property:Configuration=Release "cybersource-rest-client-dotnet.sln"
+                Write-Output "Build Successful"
               shell: pwsh 
             # - name: Setup Python v3.12 for report generation only
             #   uses: actions/setup-python@v5
