@@ -41,8 +41,8 @@ jobs:
                 nuget install packages.config -OutputDirectory packages
                 nuget install ./test/packages.config -OutputDirectory packages
                 Write-Output "Passed!!!"
-                $env:msBuildExe -version
-                $env:msBuildExe -property:Configuration=Release "cybersource-rest-client-dotnet.sln"
+                msbuild -version
+                msbuild -property:Configuration=Release "cybersource-rest-client-dotnet.sln"
               shell: pwsh 
             # - name: Setup Python v3.12 for report generation only
             #   uses: actions/setup-python@v5
