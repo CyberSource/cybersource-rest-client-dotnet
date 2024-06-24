@@ -32,6 +32,8 @@ jobs:
                 repository: 'CyberSource/cybersource-rest-samples-csharp'
                 ref: 'testing-branch' # this is used for checking out a particular branch in repo
                 path: ${{env.SAMPLE_FOLDER}}
+            - name: Setup MSBuild
+              uses: microsoft/setup-msbuild@v2
             - name: Building the projects and running the Test Cases
               run: |
                 Get-Location
