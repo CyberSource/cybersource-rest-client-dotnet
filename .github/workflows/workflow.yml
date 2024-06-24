@@ -45,30 +45,38 @@ jobs:
                 msbuild -version
                 msbuild -property:Configuration=Release "cybersource-rest-client-dotnet.sln"
                 Write-Output "Build Successful"
+                Set-Location ..
+                cd $Env:SAMPLE_FOLDER
+                (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { \$_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>..\\cybersource-rest-client-dotnet\\bin\\Release\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
+                #Replaced the Dependency path to locally build cybersource-rest-client-dotnet.dll file 
+                nuget install packages.config -OutputDirectory packages
+                msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
+                cd bin/Release/net461
+                ./SampleCode.exe -RunAll > output.log
+                Copy-Item ".\output.log" -Destination "..\..\..\"
               shell: pwsh 
-            # - name: Setup Python v3.12 for report generation only
-            #   uses: actions/setup-python@v5
-            #   with:
-            #     python-version: 3.12
-            # - name: Installing required python libraries and running the python programs to generate pdf report
-            #   run : |
-            #     echo $VIRTUAL_ENV
-            #     echo "Before Running Report Generation"
-            #     echo "PWD"
-            #     pwd
-            #     cd $SAMPLE_FOLDER
-            #     python -m pip install --upgrade pip
-            #     pip install json2html
-            #     pip install xhtml2pdf
-            #     pip install bs4
-            #     cd Validation
-            #     python sample_code_log_processor.py -l ../../$SAMPLE_FOLDER/output.log -o ../../$SAMPLE_FOLDER/python_actual_results.json
-            #     python response_code_validator.py -e ExpectedResults/python_expected_results.json -a ../../$SAMPLE_FOLDER/python_actual_results.json -o python_validation_results.json
-            #     python json_to_prettified_html.py -i python_validation_results.json -o python_validation_results.html
-            #     cp python_validation_results.pdf ../  #copying the file to flaatten the directory of the upload artifact,Github Actions doesn't support that as of jun 2024
-            # - name: Upload Test Reports
-            #   uses: actions/upload-artifact@v4
-            #   with:
-            #     name: log-files-${{matrix.operating-system}}-python-ver-${{matrix.pyth-version}}
-            #     path: |
-            #       ${{env.SAMPLE_FOLDER}}/python_validation_results.pdf
+            - name: Setup Python v3.12 for report generation only
+              uses: actions/setup-python@v5
+              with:
+                python-version: 3.12
+            - name: Installing required python libraries and running the python programs to generate pdf report
+              run : |
+                echo $VIRTUAL_ENV
+                echo "Before Running Report Generation"
+                echo "PWD"
+                pwd
+                cd $SAMPLE_FOLDER
+                python -m pip install --upgrade pip
+                pip install json2html
+                pip install xhtml2pdf
+                pip install bs4
+                cd Validation
+                python sample_code_log_processor.py -l ../../$SAMPLE_FOLDER/output.log -o ../../$SAMPLE_FOLDER/csharp_actual_results.json
+                python response_code_validator.py -e ExpectedResults/csharp_expected_results.json -a ../../$SAMPLE_FOLDER/csharp_actual_results.json -o csharp_validation_results.json
+                python json_to_prettified_html.py -i csharp_validation_results.json -o csharp_validation_results.html
+                cp csharp_validation_results.pdf ../  #copying the file to flaatten the directory of the upload artifact,Github Actions doesn't support that as of jun 2024
+            - name: Upload Test Reports
+              uses: actions/upload-artifact@v4
+              with:
+                path: |
+                  ${{env.SAMPLE_FOLDER}}/csharp_validation_results.pdf
