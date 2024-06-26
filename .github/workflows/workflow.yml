@@ -7,85 +7,95 @@ env:
   CLIENT_FOLDER: 'cybersource-rest-client-dotnet'
   SAMPLE_FOLDER: 'cybersource-rest-samples-csharp'
 jobs:
-    workflow-job:
+    build-the-dotnet-client:
         defaults:
             run:
               shell: bash
-        strategy:
-            fail-fast: false
-            matrix:
-              operating-system: [windows-2019]
-        runs-on: ${{matrix.operating-system}}
+        runs-on: windows-2019
         steps:
-            - name: Creating separate folders for checkout repos
-              run: |
-                rm -rf $CLIENT_FOLDER
-                rm -rf $SAMPLE_FOLDER
-                mkdir $CLIENT_FOLDER $SAMPLE_FOLDER
             - name: Checkout cybersource-rest-client-dotnet repo
               uses: actions/checkout@v4
               with:
                 path: ${{env.CLIENT_FOLDER}}
-            - name: Checkout cybersource-rest-samples-csharp repo
-              uses: actions/checkout@v4
-              with:
-                repository: 'CyberSource/cybersource-rest-samples-csharp'
-                ref: 'testing-branch' # this is used for checking out a particular branch in repo
-                path: ${{env.SAMPLE_FOLDER}}
             - name: Setup MSBuild
               uses: microsoft/setup-msbuild@v2
             - name: Building the projects and running the Test Cases
               run: |
-                Get-Location
-                Get-ChildItem
                 cd $Env:CLIENT_FOLDER
                 nuget install packages.config -OutputDirectory packages
                 nuget install ./test/packages.config -OutputDirectory packages
-                Write-Output "Passed!!!"
-                msbuild -version
                 msbuild -property:Configuration=Release "cybersource-rest-client-dotnet.sln"
                 Write-Output "Build Successful"
-                Set-Location ..
-                cd $Env:SAMPLE_FOLDER
-                (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>..\\cybersource-rest-client-dotnet\\bin\\Release\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
-                #Replaced the Dependency path to locally build cybersource-rest-client-dotnet.dll file
-                nuget install packages.config -OutputDirectory packages
-                msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
-                Write-Output "After Build"
-                cd bin/Release/net461
-                Write-Output "Changed Folder"
-                Write-Output "Before Running SampleCode.exe"
-                ./SampleCode.exe -RunAll > testing_dotnet.log
-                Write-Output "After Running SampleCode.exe"
-                Copy-Item ".\testing_dotnet.log" -Destination "..\..\..\"
-                Write-Output "Copied Output.log"
               shell: pwsh
-            - name: Setup Python v3.12 for report generation only
-              uses: actions/setup-python@v5
-              with:
-                python-version: 3.12
-            - name: Installing required python libraries and running the python programs to generate pdf report
-              run : |
-                echo $VIRTUAL_ENV
-                echo "Before Running Report Generation"
-                echo "PWD"
-                pwd
-                cd $SAMPLE_FOLDER
-                python -m pip install --upgrade pip
-                pip install json2html
-                pip install xhtml2pdf
-                pip install bs4
-                mv testing_dotnet.log output.log
-                cd Validation
-                python sample_code_log_processor.py -l ../../$SAMPLE_FOLDER/output.log -o ../../$SAMPLE_FOLDER/csharp_actual_results.json
-                python response_code_validator.py -e ExpectedResults/csharp_expected_results.json -a ../../$SAMPLE_FOLDER/csharp_actual_results.json -o csharp_validation_results.json
-                python json_to_prettified_html.py -i csharp_validation_results.json -o csharp_validation_results.html
-                cp csharp_validation_results.pdf ../  #copying the file to flaatten the directory of the upload artifact,Github Actions doesn't support that as of jun 2024
-            - name: Upload Test Reports
+            - name: Upload the DOTNET Rest Client Build
               uses: actions/upload-artifact@v4
               with:
+                name: dotnet-build
                 path: |
-                  ${{env.SAMPLE_FOLDER}}/csharp_validation_results.pdf
-                  ${{env.SAMPLE_FOLDER}}/output.log
-                  ${{env.CLIENT_FOLDER}}
-#adding comment
+                  ${{env.CLIENT_FOLDER}}/bin
+    build-the-samples-and-run-test:
+      defaults:
+        run:
+          shell: bash
+      strategy:
+        fail-fast: false
+        matrix:
+          operating-system: [windows-latest,windows-2019]
+          net-framework-version: [4.6.2,4.7,4.7.1,4.7.2,4.8,4.8.1]
+          include:
+            - operating-system: windows-2019
+              net-framework-version: 4.6.1
+          exclude:
+            - operating-system: windows-2019
+              net-framework-version: 4.8.1
+      needs: build-the-dotnet-client # to make sure these jobs only start once the already present jobs are done running
+      runs-on: ${{matrix.operating-system}}
+      steps:
+        - name: Download the Built Rest Client for Dotnet
+          uses: actions/download-artifact@v4
+          with:
+            name: dotnet-build
+            path: ${{env.CLIENT_FOLDER}}
+        - name: Checkout cybersource-rest-samples-csharp repo
+          uses: actions/checkout@v4
+          with:
+            repository: 'CyberSource/cybersource-rest-samples-csharp'
+            ref: 'testing-branch'
+            path: ${{env.SAMPLE_FOLDER}}
+        - name: Setup MSBuild
+          uses: microsoft/setup-msbuild@v2
+        - name: Building the samples and Running the Tests
+          run: |
+            (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>..\\cybersource-rest-client-dotnet\\bin\\Release\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
+            #Replaced the Dependency path to already built cybersource-rest-client-dotnet project which was downloaded to the runner
+            (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>", "<TargetFrameworkVersion>v${{matrix.net-framework-version}}</TargetFrameworkVersion>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
+            nuget install packages.config -OutputDirectory packages
+            msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
+            cd bin/Release/net461
+            Write-Output "Running Samples now"
+            ./SampleCode.exe -RunAll > testing_dotnet.log
+            Copy-Item ".\testing_dotnet.log" -Destination "..\..\..\"
+          shell: pwsh
+        - name: Setup Python v3.12 for Report Generation
+          uses: actions/setup-python@v5
+          with:
+            python-version: 3.12
+        - name: Installing required python libraries and running the python programs to generate pdf report
+          run : |
+            cd $SAMPLE_FOLDER
+            python -m pip install --upgrade pip
+            pip install json2html
+            pip install xhtml2pdf
+            pip install bs4
+            mv testing_dotnet.log output.log
+            cd Validation
+            python sample_code_log_processor.py -l ../../$SAMPLE_FOLDER/output.log -o ../../$SAMPLE_FOLDER/csharp_actual_results.json
+            python response_code_validator.py -e ExpectedResults/csharp_expected_results.json -a ../../$SAMPLE_FOLDER/csharp_actual_results.json -o csharp_validation_results.json
+            python json_to_prettified_html.py -i csharp_validation_results.json -o csharp_validation_results.html
+            cp csharp_validation_results.pdf ../  #copying the file to flatten the directory of the upload artifact,Github Actions doesn't support that as of jun 2024
+        - name: Upload the Test Reports
+          uses: actions/upload-artifact@v4
+          with:
+            name: result-files-${{matrix.operating-system}}-python-ver-${{matrix.net-framework-version}}
+            path: |
+              ${{env.SAMPLE_FOLDER}}/csharp_validation_results.pdf
