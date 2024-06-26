@@ -55,6 +55,7 @@ jobs:
           uses: actions/download-artifact@v4
           with:
             name: dotnet-build
+            path: ${{env.CLIENT_FOLDER}}
         - name: Checkout cybersource-rest-samples-csharp repo
           uses: actions/checkout@v4
           with:
