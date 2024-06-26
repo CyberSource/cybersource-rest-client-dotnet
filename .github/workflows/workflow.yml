@@ -87,4 +87,5 @@ jobs:
                 path: |
                   ${{env.SAMPLE_FOLDER}}/csharp_validation_results.pdf
                   ${{env.SAMPLE_FOLDER}}/output.log
+                  ${{env.CLIENT_FOLDER}}
 #adding comment
