@@ -66,6 +66,7 @@ jobs:
           uses: microsoft/setup-msbuild@v2
         - name: Building the samples and Running the Tests
           run: |
+            cd $Env:SAMPLE_FOLDER
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>..\\cybersource-rest-client-dotnet\\bin\\Release\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             #Replaced the Dependency path to already built cybersource-rest-client-dotnet project which was downloaded to the runner
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>", "<TargetFrameworkVersion>v${{matrix.net-framework-version}}</TargetFrameworkVersion>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
