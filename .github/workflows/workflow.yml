@@ -32,7 +32,7 @@ jobs:
               with:
                 name: dotnet-build
                 path: |
-                  ${{env.CLIENT_FOLDER}}/bin
+                  ${{env.CLIENT_FOLDER}}
     build-the-samples-and-run-test:
       defaults:
         run:
@@ -55,7 +55,6 @@ jobs:
           uses: actions/download-artifact@v4
           with:
             name: dotnet-build
-            path: ${{env.CLIENT_FOLDER}}
         - name: Checkout cybersource-rest-samples-csharp repo
           uses: actions/checkout@v4
           with:
@@ -66,6 +65,7 @@ jobs:
           uses: microsoft/setup-msbuild@v2
         - name: Building the samples and Running the Tests
           run: |
+            Get-ChildItem
             cd $Env:SAMPLE_FOLDER
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>..\\cybersource-rest-client-dotnet\\bin\\Release\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             #Replaced the Dependency path to already built cybersource-rest-client-dotnet project which was downloaded to the runner
