@@ -98,6 +98,6 @@ jobs:
         - name: Upload the Test Reports
           uses: actions/upload-artifact@v4
           with:
-            name: result-files-${{matrix.operating-system}}-python-ver-${{matrix.net-framework-version}}
+            name: result-files-${{matrix.operating-system}}-net-framework-ver-${{matrix.net-framework-version}}
             path: |
               ${{env.SAMPLE_FOLDER}}/csharp_validation_results.pdf
