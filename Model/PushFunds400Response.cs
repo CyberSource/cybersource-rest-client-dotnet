@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60;  **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
         /// <param name="Status">Possible values: - INVALID_REQUEST .</param>
         /// <param name="Reason">The reason of the status.  Possible values: - INVALID_DATA - MISSING_FIELD - INVALID_MERCHANT_CONFIGURATION - INVALID_REQUEST - INVALID_PAYMENT_ID .</param>
-        /// <param name="Message">The detail message related to the status and reason listed above.  Possible values: - Declined - One or more fields in the request contains invalid data - Declined - The request is missing one or more fields - Declined - There is a problem with your CyberSource merchant configuration. .</param>
+        /// <param name="Message">The detail message related to the status and reason listed above.  Possible values: - One or more fields in the request contains invalid data. - The request is missing one or more required fields. - Declined - There is a problem with your CyberSource merchant configuration. .</param>
         /// <param name="Details">Details.</param>
         public PushFunds400Response(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PushFunds400ResponseDetails> Details = default(List<PushFunds400ResponseDetails>))
         {
@@ -78,9 +78,9 @@ namespace CyberSource.Model
         public string Reason { get; set; }
 
         /// <summary>
-        /// The detail message related to the status and reason listed above.  Possible values: - Declined - One or more fields in the request contains invalid data - Declined - The request is missing one or more fields - Declined - There is a problem with your CyberSource merchant configuration. 
+        /// The detail message related to the status and reason listed above.  Possible values: - One or more fields in the request contains invalid data. - The request is missing one or more required fields. - Declined - There is a problem with your CyberSource merchant configuration. 
         /// </summary>
-        /// <value>The detail message related to the status and reason listed above.  Possible values: - Declined - One or more fields in the request contains invalid data - Declined - The request is missing one or more fields - Declined - There is a problem with your CyberSource merchant configuration. </value>
+        /// <value>The detail message related to the status and reason listed above.  Possible values: - One or more fields in the request contains invalid data. - The request is missing one or more required fields. - Declined - There is a problem with your CyberSource merchant configuration. </value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 

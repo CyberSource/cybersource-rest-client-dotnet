@@ -43,25 +43,9 @@ namespace CyberSource.Model
         /// <param name="Cert">Certificate Signing Request(csr), one needs to use the contents of the csr created for the same organizationId. Please extract string from &#39;\\n&#39; and &#39;- -- --BEGIN CERTIFICATE REQUEST- -- --&#39;,&#39;- -- --END CERTIFICATE REQUEST- -- --&#39;  (required).</param>
         public Kmsv2keysasymKeyInformation(string OrganizationId = default(string), string ReferenceNumber = default(string), string Cert = default(string))
         {
-            // to ensure "OrganizationId" is required (not null)
-            if (OrganizationId == null)
-            {
-                throw new InvalidDataException("OrganizationId is a required property for Kmsv2keysasymKeyInformation and cannot be null");
-            }
-            else
-            {
-                this.OrganizationId = OrganizationId;
-            }
-            // to ensure "Cert" is required (not null)
-            if (Cert == null)
-            {
-                throw new InvalidDataException("Cert is a required property for Kmsv2keysasymKeyInformation and cannot be null");
-            }
-            else
-            {
-                this.Cert = Cert;
-            }
+            this.OrganizationId = OrganizationId;
             this.ReferenceNumber = ReferenceNumber;
+            this.Cert = Cert;
         }
         
         /// <summary>

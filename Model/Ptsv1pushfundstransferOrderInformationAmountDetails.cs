@@ -38,43 +38,45 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferOrderInformationAmountDetails" /> class.
         /// </summary>
-        /// <param name="TotalAmount">Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  The disbursement amount. Numeric integer, 1-999999999999. The decimal point is implied based on the relevant currency exponent. For example, a US Dollar $53 amount is a value of 5300.  Processor Amount Ranges: Visa Platform Connect: .01-9999999999.99  Mastercard Send: 1-9999999999.99  FDC Compass: .01- 9999999999.99  Chase Paymentech: .01-9999999999.99  (required).</param>
-        /// <param name="Currency">Use a 3-character alpha currency code for currency of the sender.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf  Currency must be supported by the processor.  (required).</param>
-        public Ptsv1pushfundstransferOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string))
+        /// <param name="TotalAmount">Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  (required).</param>
+        /// <param name="Currency">Use a 3-character alpha currency code for currency of the funds transfer.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf  Currency must be supported by the processor.  (required).</param>
+        /// <param name="SourceCurrency">Use a 3-character alpha currency code for source currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf .</param>
+        /// <param name="DestinationCurrency">Use a 3-character alpha currency code for destination currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf NOTE: This field is supported only for Visa Platform Connect .</param>
+        public Ptsv1pushfundstransferOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string SourceCurrency = default(string), string DestinationCurrency = default(string))
         {
-            // to ensure "TotalAmount" is required (not null)
-            if (TotalAmount == null)
-            {
-                throw new InvalidDataException("TotalAmount is a required property for Ptsv1pushfundstransferOrderInformationAmountDetails and cannot be null");
-            }
-            else
-            {
-                this.TotalAmount = TotalAmount;
-            }
-            // to ensure "Currency" is required (not null)
-            if (Currency == null)
-            {
-                throw new InvalidDataException("Currency is a required property for Ptsv1pushfundstransferOrderInformationAmountDetails and cannot be null");
-            }
-            else
-            {
-                this.Currency = Currency;
-            }
+            this.TotalAmount = TotalAmount;
+            this.Currency = Currency;
+            this.SourceCurrency = SourceCurrency;
+            this.DestinationCurrency = DestinationCurrency;
         }
         
         /// <summary>
-        /// Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  The disbursement amount. Numeric integer, 1-999999999999. The decimal point is implied based on the relevant currency exponent. For example, a US Dollar $53 amount is a value of 5300.  Processor Amount Ranges: Visa Platform Connect: .01-9999999999.99  Mastercard Send: 1-9999999999.99  FDC Compass: .01- 9999999999.99  Chase Paymentech: .01-9999999999.99 
+        /// Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places. 
         /// </summary>
-        /// <value>Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  The disbursement amount. Numeric integer, 1-999999999999. The decimal point is implied based on the relevant currency exponent. For example, a US Dollar $53 amount is a value of 5300.  Processor Amount Ranges: Visa Platform Connect: .01-9999999999.99  Mastercard Send: 1-9999999999.99  FDC Compass: .01- 9999999999.99  Chase Paymentech: .01-9999999999.99 </value>
+        /// <value>Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places. </value>
         [DataMember(Name="totalAmount", EmitDefaultValue=false)]
         public string TotalAmount { get; set; }
 
         /// <summary>
-        /// Use a 3-character alpha currency code for currency of the sender.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf  Currency must be supported by the processor. 
+        /// Use a 3-character alpha currency code for currency of the funds transfer.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf  Currency must be supported by the processor. 
         /// </summary>
-        /// <value>Use a 3-character alpha currency code for currency of the sender.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf  Currency must be supported by the processor. </value>
+        /// <value>Use a 3-character alpha currency code for currency of the funds transfer.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf  Currency must be supported by the processor. </value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
+
+        /// <summary>
+        /// Use a 3-character alpha currency code for source currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf 
+        /// </summary>
+        /// <value>Use a 3-character alpha currency code for source currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf </value>
+        [DataMember(Name="sourceCurrency", EmitDefaultValue=false)]
+        public string SourceCurrency { get; set; }
+
+        /// <summary>
+        /// Use a 3-character alpha currency code for destination currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf NOTE: This field is supported only for Visa Platform Connect 
+        /// </summary>
+        /// <value>Use a 3-character alpha currency code for destination currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf NOTE: This field is supported only for Visa Platform Connect </value>
+        [DataMember(Name="destinationCurrency", EmitDefaultValue=false)]
+        public string DestinationCurrency { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,6 +88,8 @@ namespace CyberSource.Model
             sb.Append("class Ptsv1pushfundstransferOrderInformationAmountDetails {\n");
             sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  SourceCurrency: ").Append(SourceCurrency).Append("\n");
+            sb.Append("  DestinationCurrency: ").Append(DestinationCurrency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +135,16 @@ namespace CyberSource.Model
                     this.Currency == other.Currency ||
                     this.Currency != null &&
                     this.Currency.Equals(other.Currency)
+                ) && 
+                (
+                    this.SourceCurrency == other.SourceCurrency ||
+                    this.SourceCurrency != null &&
+                    this.SourceCurrency.Equals(other.SourceCurrency)
+                ) && 
+                (
+                    this.DestinationCurrency == other.DestinationCurrency ||
+                    this.DestinationCurrency != null &&
+                    this.DestinationCurrency.Equals(other.DestinationCurrency)
                 );
         }
 
@@ -149,6 +163,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TotalAmount.GetHashCode();
                 if (this.Currency != null)
                     hash = hash * 59 + this.Currency.GetHashCode();
+                if (this.SourceCurrency != null)
+                    hash = hash * 59 + this.SourceCurrency.GetHashCode();
+                if (this.DestinationCurrency != null)
+                    hash = hash * 59 + this.DestinationCurrency.GetHashCode();
                 return hash;
             }
         }

@@ -147,27 +147,11 @@ namespace CyberSource.Model
         /// <param name="Reason">Reason (required).</param>
         public InlineResponse4008(string CorrelationId = default(string), List<InlineResponse4008Details> Details = default(List<InlineResponse4008Details>), string InformationLink = default(string), string Message = default(string), ReasonEnum? Reason = default(ReasonEnum?))
         {
-            // to ensure "Message" is required (not null)
-            if (Message == null)
-            {
-                throw new InvalidDataException("Message is a required property for InlineResponse4008 and cannot be null");
-            }
-            else
-            {
-                this.Message = Message;
-            }
-            // to ensure "Reason" is required (not null)
-            if (Reason == null)
-            {
-                throw new InvalidDataException("Reason is a required property for InlineResponse4008 and cannot be null");
-            }
-            else
-            {
-                this.Reason = Reason;
-            }
             this.CorrelationId = CorrelationId;
             this.Details = Details;
             this.InformationLink = InformationLink;
+            this.Message = Message;
+            this.Reason = Reason;
         }
         
         /// <summary>

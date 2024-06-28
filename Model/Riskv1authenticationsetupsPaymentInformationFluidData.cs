@@ -44,15 +44,7 @@ namespace CyberSource.Model
         /// <param name="Encoding">Encoding method used to encrypt the payment data. Valid values: &#x60;Base64&#x60;, &#x60;HEX&#x60; If no value is provided, &#x60;Base64&#x60; is taken as the default value. And the &#x60;Base64&#x60; descriptor is used for paymentInformation.fluidData.encoding .</param>
         public Riskv1authenticationsetupsPaymentInformationFluidData(string Value = default(string), string KeySerialNumber = default(string), string Descriptor = default(string), string Encoding = default(string))
         {
-            // to ensure "Value" is required (not null)
-            if (Value == null)
-            {
-                throw new InvalidDataException("Value is a required property for Riskv1authenticationsetupsPaymentInformationFluidData and cannot be null");
-            }
-            else
-            {
-                this.Value = Value;
-            }
+            this.Value = Value;
             this.KeySerialNumber = KeySerialNumber;
             this.Descriptor = Descriptor;
             this.Encoding = Encoding;

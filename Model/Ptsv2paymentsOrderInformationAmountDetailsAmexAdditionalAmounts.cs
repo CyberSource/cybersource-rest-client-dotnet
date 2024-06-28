@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts" /> class.
         /// </summary>
-        /// <param name="Code">Additional amount type. This field is supported only for **American Express Direct**.  For processor-specific information, see the &#x60;additional_amount_type0&#x60; request-level field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="Code">Additional amount type. This field is supported only for **American Express Direct**. .</param>
         /// <param name="Amount">Additional amount. This field is supported only for **American Express Direct**. .</param>
         public Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts(string Code = default(string), string Amount = default(string))
         {
@@ -42,9 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Additional amount type. This field is supported only for **American Express Direct**.  For processor-specific information, see the &#x60;additional_amount_type0&#x60; request-level field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Additional amount type. This field is supported only for **American Express Direct**. 
         /// </summary>
-        /// <value>Additional amount type. This field is supported only for **American Express Direct**.  For processor-specific information, see the &#x60;additional_amount_type0&#x60; request-level field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Additional amount type. This field is supported only for **American Express Direct**. </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 

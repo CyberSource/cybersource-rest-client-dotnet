@@ -155,20 +155,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AcquirerId (string) pattern
-            Regex regexAcquirerId = new Regex(@"^[a-zA-Z0-9]{6,20}$", RegexOptions.CultureInvariant);
-            if (false == regexAcquirerId.Match(this.AcquirerId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcquirerId, must match a pattern of " + regexAcquirerId, new [] { "AcquirerId" });
-            }
-
-            // ProcessorMerchantId (string) pattern
-            Regex regexProcessorMerchantId = new Regex(@"^[a-zA-Z0-9]{6,35}$", RegexOptions.CultureInvariant);
-            if (false == regexProcessorMerchantId.Match(this.ProcessorMerchantId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProcessorMerchantId, must match a pattern of " + regexProcessorMerchantId, new [] { "ProcessorMerchantId" });
-            }
-
             yield break;
         }
     }

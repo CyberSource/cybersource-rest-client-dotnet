@@ -887,30 +887,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // NumberOfRooms (int?) maximum
-            if(this.NumberOfRooms >= (int?)99)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfRooms, must be a value less than or equal to 99.", new [] { "NumberOfRooms" });
-            }
-
-            // NumberOfRooms (int?) minimum
-            if(this.NumberOfRooms <= (int?)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfRooms, must be a value greater than or equal to 1.", new [] { "NumberOfRooms" });
-            }
-
-            // NumberOfGuests (int?) maximum
-            if(this.NumberOfGuests >= (int?)99)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfGuests, must be a value less than or equal to 99.", new [] { "NumberOfGuests" });
-            }
-
-            // NumberOfGuests (int?) minimum
-            if(this.NumberOfGuests <= (int?)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfGuests, must be a value greater than or equal to 1.", new [] { "NumberOfGuests" });
-            }
-
             yield break;
         }
     }

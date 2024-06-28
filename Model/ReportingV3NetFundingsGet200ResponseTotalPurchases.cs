@@ -42,24 +42,8 @@ namespace CyberSource.Model
         /// <param name="Value">Value (required).</param>
         public ReportingV3NetFundingsGet200ResponseTotalPurchases(string Currency = default(string), string Value = default(string))
         {
-            // to ensure "Currency" is required (not null)
-            if (Currency == null)
-            {
-                throw new InvalidDataException("Currency is a required property for ReportingV3NetFundingsGet200ResponseTotalPurchases and cannot be null");
-            }
-            else
-            {
-                this.Currency = Currency;
-            }
-            // to ensure "Value" is required (not null)
-            if (Value == null)
-            {
-                throw new InvalidDataException("Value is a required property for ReportingV3NetFundingsGet200ResponseTotalPurchases and cannot be null");
-            }
-            else
-            {
-                this.Value = Value;
-            }
+            this.Currency = Currency;
+            this.Value = Value;
         }
         
         /// <summary>

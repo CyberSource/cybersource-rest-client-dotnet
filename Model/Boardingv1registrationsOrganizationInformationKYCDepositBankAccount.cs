@@ -80,42 +80,10 @@ namespace CyberSource.Model
         /// <param name="AccountNumber">AccountNumber (required).</param>
         public Boardingv1registrationsOrganizationInformationKYCDepositBankAccount(string AccountHolderName = default(string), AccountTypeEnum? AccountType = default(AccountTypeEnum?), string AccountRoutingNumber = default(string), string AccountNumber = default(string))
         {
-            // to ensure "AccountHolderName" is required (not null)
-            if (AccountHolderName == null)
-            {
-                throw new InvalidDataException("AccountHolderName is a required property for Boardingv1registrationsOrganizationInformationKYCDepositBankAccount and cannot be null");
-            }
-            else
-            {
-                this.AccountHolderName = AccountHolderName;
-            }
-            // to ensure "AccountType" is required (not null)
-            if (AccountType == null)
-            {
-                throw new InvalidDataException("AccountType is a required property for Boardingv1registrationsOrganizationInformationKYCDepositBankAccount and cannot be null");
-            }
-            else
-            {
-                this.AccountType = AccountType;
-            }
-            // to ensure "AccountRoutingNumber" is required (not null)
-            if (AccountRoutingNumber == null)
-            {
-                throw new InvalidDataException("AccountRoutingNumber is a required property for Boardingv1registrationsOrganizationInformationKYCDepositBankAccount and cannot be null");
-            }
-            else
-            {
-                this.AccountRoutingNumber = AccountRoutingNumber;
-            }
-            // to ensure "AccountNumber" is required (not null)
-            if (AccountNumber == null)
-            {
-                throw new InvalidDataException("AccountNumber is a required property for Boardingv1registrationsOrganizationInformationKYCDepositBankAccount and cannot be null");
-            }
-            else
-            {
-                this.AccountNumber = AccountNumber;
-            }
+            this.AccountHolderName = AccountHolderName;
+            this.AccountType = AccountType;
+            this.AccountRoutingNumber = AccountRoutingNumber;
+            this.AccountNumber = AccountNumber;
         }
         
         /// <summary>
@@ -237,27 +205,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AccountHolderName (string) pattern
-            Regex regexAccountHolderName = new Regex(@"^[À-ÖØ-öø-ǿÀ-ÖØ-öø-ǿa-zA-Z0-9().\\-_#,;\/\\\\@$:&amp;!?%«»€₣«»€₣ ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexAccountHolderName.Match(this.AccountHolderName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountHolderName, must match a pattern of " + regexAccountHolderName, new [] { "AccountHolderName" });
-            }
-
-            // AccountRoutingNumber (string) pattern
-            Regex regexAccountRoutingNumber = new Regex(@"\\d{9}", RegexOptions.CultureInvariant);
-            if (false == regexAccountRoutingNumber.Match(this.AccountRoutingNumber).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountRoutingNumber, must match a pattern of " + regexAccountRoutingNumber, new [] { "AccountRoutingNumber" });
-            }
-
-            // AccountNumber (string) pattern
-            Regex regexAccountNumber = new Regex(@"^\\d{5,17}$", RegexOptions.CultureInvariant);
-            if (false == regexAccountNumber.Match(this.AccountNumber).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountNumber, must match a pattern of " + regexAccountNumber, new [] { "AccountNumber" });
-            }
-
             yield break;
         }
     }

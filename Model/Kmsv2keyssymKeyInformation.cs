@@ -42,15 +42,7 @@ namespace CyberSource.Model
         /// <param name="ReferenceNumber">Reference number is a unique identifier provided by the client along with the organization Id. This is an optional field provided solely for the client&#39;s convenience. If client specifies value for this field in the request, it is expected to be available in the response. .</param>
         public Kmsv2keyssymKeyInformation(string OrganizationId = default(string), string ReferenceNumber = default(string))
         {
-            // to ensure "OrganizationId" is required (not null)
-            if (OrganizationId == null)
-            {
-                throw new InvalidDataException("OrganizationId is a required property for Kmsv2keyssymKeyInformation and cannot be null");
-            }
-            else
-            {
-                this.OrganizationId = OrganizationId;
-            }
+            this.OrganizationId = OrganizationId;
             this.ReferenceNumber = ReferenceNumber;
         }
         

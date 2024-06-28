@@ -289,34 +289,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // OrganizationId (string) pattern
-            Regex regexOrganizationId = new Regex(@"[a-zA-Z0-9-_]+", RegexOptions.CultureInvariant);
-            if (false == regexOrganizationId.Match(this.OrganizationId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OrganizationId, must match a pattern of " + regexOrganizationId, new [] { "OrganizationId" });
-            }
-
-            // ReportDefinitionName (string) pattern
-            Regex regexReportDefinitionName = new Regex(@"[a-zA-Z0-9-]+", RegexOptions.CultureInvariant);
-            if (false == regexReportDefinitionName.Match(this.ReportDefinitionName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportDefinitionName, must match a pattern of " + regexReportDefinitionName, new [] { "ReportDefinitionName" });
-            }
-
-            // ReportName (string) pattern
-            Regex regexReportName = new Regex(@"[a-zA-Z0-9-_ ]+", RegexOptions.CultureInvariant);
-            if (false == regexReportName.Match(this.ReportName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportName, must match a pattern of " + regexReportName, new [] { "ReportName" });
-            }
-
-            // GroupName (string) pattern
-            Regex regexGroupName = new Regex(@"[0-9]*", RegexOptions.CultureInvariant);
-            if (false == regexGroupName.Match(this.GroupName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GroupName, must match a pattern of " + regexGroupName, new [] { "GroupName" });
-            }
-
             yield break;
         }
     }

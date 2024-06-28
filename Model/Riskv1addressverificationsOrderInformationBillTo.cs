@@ -48,46 +48,14 @@ namespace CyberSource.Model
         /// <param name="PostalCode">Postal code for the billing address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  **Example** &#x60;12345-6789&#x60;  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  **Example** &#x60;A1B 2C3&#x60;  **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.  #### SEPA Required for Create Mandate and Import Mandate  #### For Payouts:  This field may be sent only for FDC Compass.  #### American Express Direct Before sending the postal code to the processor, CyberSource removes all nonalphanumeric characters and, if the remaining value is longer than nine characters, truncates the value starting from the right side.  #### Atos This field must not contain colons (:).  #### CyberSource through VisaNet Credit card networks cannot process transactions that contain non-ASCII characters. CyberSource through VisaNet accepts and stores non-ASCII characters correctly and displays them correctly in reports. However, the limitations of the credit card networks prevent CyberSource through VisaNet from transmitting non-ASCII characters to the credit card networks. Therefore, CyberSource through VisaNet replaces non-ASCII characters with meaningless ASCII characters for transmission to the credit card networks.  #### FDMS Nashville Required if &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60; and the address is in the U.S. or Canada. Optional if &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60; and the address is **not** in the U.S. or Canada. Not used if swiped.  #### RBS WorldPay Atlanta: For best card-present keyed rates, send the postal code if &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;.  #### TSYS Acquiring Solutions Required when &#x60;processingInformation.billPaymentOptions.billPayment&#x3D;true&#x60; and &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;.  #### All other processors: Optional field.  (required).</param>
         public Riskv1addressverificationsOrderInformationBillTo(string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string AdministrativeArea = default(string), string Country = default(string), string Locality = default(string), string PostalCode = default(string))
         {
-            // to ensure "Address1" is required (not null)
-            if (Address1 == null)
-            {
-                throw new InvalidDataException("Address1 is a required property for Riskv1addressverificationsOrderInformationBillTo and cannot be null");
-            }
-            else
-            {
-                this.Address1 = Address1;
-            }
-            // to ensure "Country" is required (not null)
-            if (Country == null)
-            {
-                throw new InvalidDataException("Country is a required property for Riskv1addressverificationsOrderInformationBillTo and cannot be null");
-            }
-            else
-            {
-                this.Country = Country;
-            }
-            // to ensure "Locality" is required (not null)
-            if (Locality == null)
-            {
-                throw new InvalidDataException("Locality is a required property for Riskv1addressverificationsOrderInformationBillTo and cannot be null");
-            }
-            else
-            {
-                this.Locality = Locality;
-            }
-            // to ensure "PostalCode" is required (not null)
-            if (PostalCode == null)
-            {
-                throw new InvalidDataException("PostalCode is a required property for Riskv1addressverificationsOrderInformationBillTo and cannot be null");
-            }
-            else
-            {
-                this.PostalCode = PostalCode;
-            }
+            this.Address1 = Address1;
             this.Address2 = Address2;
             this.Address3 = Address3;
             this.Address4 = Address4;
             this.AdministrativeArea = AdministrativeArea;
+            this.Country = Country;
+            this.Locality = Locality;
+            this.PostalCode = PostalCode;
         }
         
         /// <summary>

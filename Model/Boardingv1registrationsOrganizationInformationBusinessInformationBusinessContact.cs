@@ -45,43 +45,11 @@ namespace CyberSource.Model
         /// <param name="Email">Email (required).</param>
         public Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string PhoneNumber = default(string), string Email = default(string))
         {
-            // to ensure "FirstName" is required (not null)
-            if (FirstName == null)
-            {
-                throw new InvalidDataException("FirstName is a required property for Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact and cannot be null");
-            }
-            else
-            {
-                this.FirstName = FirstName;
-            }
-            // to ensure "LastName" is required (not null)
-            if (LastName == null)
-            {
-                throw new InvalidDataException("LastName is a required property for Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact and cannot be null");
-            }
-            else
-            {
-                this.LastName = LastName;
-            }
-            // to ensure "PhoneNumber" is required (not null)
-            if (PhoneNumber == null)
-            {
-                throw new InvalidDataException("PhoneNumber is a required property for Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact and cannot be null");
-            }
-            else
-            {
-                this.PhoneNumber = PhoneNumber;
-            }
-            // to ensure "Email" is required (not null)
-            if (Email == null)
-            {
-                throw new InvalidDataException("Email is a required property for Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact and cannot be null");
-            }
-            else
-            {
-                this.Email = Email;
-            }
+            this.FirstName = FirstName;
             this.MiddleName = MiddleName;
+            this.LastName = LastName;
+            this.PhoneNumber = PhoneNumber;
+            this.Email = Email;
         }
         
         /// <summary>
@@ -222,41 +190,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // FirstName (string) pattern
-            //Regex regexFirstName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
-            //if (false == regexFirstName.Match(this.FirstName).Success)
-            //{
-            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, must match a pattern of " + regexFirstName, new [] { "FirstName" });
-            //}
-
-            // MiddleName (string) pattern
-            //Regex regexMiddleName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
-            //if (false == regexMiddleName.Match(this.MiddleName).Success)
-            //{
-            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MiddleName, must match a pattern of " + regexMiddleName, new [] { "MiddleName" });
-            //}
-
-            // LastName (string) pattern
-            //Regex regexLastName = new Regex(@"^[0-9a-zA-Z _\\-\\+\\.\\*\\\"\/'&\\,\\(\\)!$;:?@\\#¡-￿]+$", RegexOptions.CultureInvariant);
-            //if (false == regexLastName.Match(this.LastName).Success)
-            //{
-            //    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, must match a pattern of " + regexLastName, new [] { "LastName" });
-            //}
-
-            // PhoneNumber (string) pattern
-            Regex regexPhoneNumber = new Regex(@"^[0-9a-zA-Z\\\\+\\\\-]+$", RegexOptions.CultureInvariant);
-            if (false == regexPhoneNumber.Match(this.PhoneNumber).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, must match a pattern of " + regexPhoneNumber, new [] { "PhoneNumber" });
-            }
-
-            // Email (string) pattern
-            Regex regexEmail = new Regex(@"^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,50}|[0-9]{1,3})(\\]?)$", RegexOptions.CultureInvariant);
-            if (false == regexEmail.Match(this.Email).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, must match a pattern of " + regexEmail, new [] { "Email" });
-            }
-
             yield break;
         }
     }

@@ -80,6 +80,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Currency'
         }
+        /// <summary>
+        /// Test the property 'SourceCurrency'
+        /// </summary>
+        [Test]
+        public void SourceCurrencyTest()
+        {
+            // TODO unit test for the property 'SourceCurrency'
+        }
+        /// <summary>
+        /// Test the property 'DestinationCurrency'
+        /// </summary>
+        [Test]
+        public void DestinationCurrencyTest()
+        {
+            // TODO unit test for the property 'DestinationCurrency'
+        }
 
     }
 

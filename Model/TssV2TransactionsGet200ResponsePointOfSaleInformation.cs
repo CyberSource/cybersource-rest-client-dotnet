@@ -189,18 +189,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TerminalCapability (int?) maximum
-            if(this.TerminalCapability >= (int?)5)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCapability, must be a value less than or equal to 5.", new [] { "TerminalCapability" });
-            }
-
-            // TerminalCapability (int?) minimum
-            if(this.TerminalCapability <= (int?)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TerminalCapability, must be a value greater than or equal to 1.", new [] { "TerminalCapability" });
-            }
-
             yield break;
         }
     }

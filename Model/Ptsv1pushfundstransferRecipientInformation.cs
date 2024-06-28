@@ -34,20 +34,18 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferRecipientInformation" /> class.
         /// </summary>
         /// <param name="PaymentInformation">PaymentInformation.</param>
-        /// <param name="Address1">First line of the recipient&#39;s address.  Required for Mastercard Send. This field is not supported for Visa Platform Connect. .</param>
-        /// <param name="Address2">Second line of the recipient&#39;s address  Optional for Mastercard Send. This field is not supported for Visa Platform Connect. .</param>
-        /// <param name="Locality">Recipient city.  Required for Mastercard Send. .</param>
-        /// <param name="PostalCode">Recipient postal code.  For USA, this must be a valid value of 5 digits or 5 digits hyphen 4 digits, for example &#39;63368&#39;, &#39;63368-5555&#39;. For other regions, this can be alphanumeric, length 1-10.  Mastercard Send: Required for recipients in Canada and Canadian issued cards. .</param>
-        /// <param name="AdministrativeArea">The recipient&#39;s province, state or territory. Conditional, required if recipient&#39;s country is USA or CAN. Must be an ISO 3166-2 uppercase alpha 2 or 3 character country subdivision code. For example, Missouri is MO.  Required only for FDCCompass.  This field is not supported for Visa Platform Connect. .</param>
-        /// <param name="Country">Recipient country code. Use the ISO Standard Alpha Country Codes.  https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf  Required for Mastercard Send. .</param>
-        /// <param name="FirstName">First name of recipient.  Visa Platform Connect (14) Chase Paymentech (30) Mastercard Send (40)  This field is required for Mastercard Send. .</param>
+        /// <param name="Address1">First line of the recipient&#39;s address. Required for card payments .</param>
+        /// <param name="Address2">Second line of the recipient&#39;s address .</param>
+        /// <param name="Locality">Recipient city. .</param>
+        /// <param name="PostalCode">Recipient postal code.   For USA, this must be a valid value of 5 digits or 5 digits hyphen 4 digits, for example &#39;63368&#39;, &#39;63368-5555&#39;. For other regions, this can be alphanumeric, length 1-10.  Mandatory for card payments. .</param>
+        /// <param name="AdministrativeArea">The recipient&#39;s province, state or territory. Conditional, required if recipient&#39;s country is USA or CAN. Must be an ISO 3166-2 uppercase alpha 2 or 3 character country subdivision code. For example, Missouri is MO.  See https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf  Required for card payments. .</param>
+        /// <param name="Country">Recipient country code. Use the ISO Standard Alpha Country Codes.  https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf .</param>
+        /// <param name="FirstName">First name of recipient. .</param>
         /// <param name="MiddleName">Sender&#39;s middle name. This field is a passthrough, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
-        /// <param name="MiddleInitial">Middle Initial of recipient.  This field is supported by FDC Compass. .</param>
-        /// <param name="LastName">Last name of recipient.  Visa Platform Connect (14) Paymentech (30) Mastercard Send (40)  This field is required for Mastercard Send. .</param>
-        /// <param name="DateOfBirth">Recipient date of birth in YYYYMMDD format. .</param>
+        /// <param name="LastName">Last name of recipient. .</param>
         /// <param name="PhoneNumber">Recipient phone number.  This field is supported by FDC Compass.  Mastercard Send: Max length is 15 with no dashes or spaces. .</param>
         /// <param name="PersonalIdentification">PersonalIdentification.</param>
-        public Ptsv1pushfundstransferRecipientInformation(Ptsv1pushfundstransferRecipientInformationPaymentInformation PaymentInformation = default(Ptsv1pushfundstransferRecipientInformationPaymentInformation), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Country = default(string), string FirstName = default(string), string MiddleName = default(string), string MiddleInitial = default(string), string LastName = default(string), string DateOfBirth = default(string), string PhoneNumber = default(string), Ptsv1pushfundstransferRecipientInformationPersonalIdentification PersonalIdentification = default(Ptsv1pushfundstransferRecipientInformationPersonalIdentification))
+        public Ptsv1pushfundstransferRecipientInformation(Ptsv1pushfundstransferRecipientInformationPaymentInformation PaymentInformation = default(Ptsv1pushfundstransferRecipientInformationPaymentInformation), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Country = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string PhoneNumber = default(string), Ptsv1pushfundstransferRecipientInformationPersonalIdentification PersonalIdentification = default(Ptsv1pushfundstransferRecipientInformationPersonalIdentification))
         {
             this.PaymentInformation = PaymentInformation;
             this.Address1 = Address1;
@@ -58,9 +56,7 @@ namespace CyberSource.Model
             this.Country = Country;
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
-            this.MiddleInitial = MiddleInitial;
             this.LastName = LastName;
-            this.DateOfBirth = DateOfBirth;
             this.PhoneNumber = PhoneNumber;
             this.PersonalIdentification = PersonalIdentification;
         }
@@ -72,51 +68,51 @@ namespace CyberSource.Model
         public Ptsv1pushfundstransferRecipientInformationPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
-        /// First line of the recipient&#39;s address.  Required for Mastercard Send. This field is not supported for Visa Platform Connect. 
+        /// First line of the recipient&#39;s address. Required for card payments 
         /// </summary>
-        /// <value>First line of the recipient&#39;s address.  Required for Mastercard Send. This field is not supported for Visa Platform Connect. </value>
+        /// <value>First line of the recipient&#39;s address. Required for card payments </value>
         [DataMember(Name="address1", EmitDefaultValue=false)]
         public string Address1 { get; set; }
 
         /// <summary>
-        /// Second line of the recipient&#39;s address  Optional for Mastercard Send. This field is not supported for Visa Platform Connect. 
+        /// Second line of the recipient&#39;s address 
         /// </summary>
-        /// <value>Second line of the recipient&#39;s address  Optional for Mastercard Send. This field is not supported for Visa Platform Connect. </value>
+        /// <value>Second line of the recipient&#39;s address </value>
         [DataMember(Name="address2", EmitDefaultValue=false)]
         public string Address2 { get; set; }
 
         /// <summary>
-        /// Recipient city.  Required for Mastercard Send. 
+        /// Recipient city. 
         /// </summary>
-        /// <value>Recipient city.  Required for Mastercard Send. </value>
+        /// <value>Recipient city. </value>
         [DataMember(Name="locality", EmitDefaultValue=false)]
         public string Locality { get; set; }
 
         /// <summary>
-        /// Recipient postal code.  For USA, this must be a valid value of 5 digits or 5 digits hyphen 4 digits, for example &#39;63368&#39;, &#39;63368-5555&#39;. For other regions, this can be alphanumeric, length 1-10.  Mastercard Send: Required for recipients in Canada and Canadian issued cards. 
+        /// Recipient postal code.   For USA, this must be a valid value of 5 digits or 5 digits hyphen 4 digits, for example &#39;63368&#39;, &#39;63368-5555&#39;. For other regions, this can be alphanumeric, length 1-10.  Mandatory for card payments. 
         /// </summary>
-        /// <value>Recipient postal code.  For USA, this must be a valid value of 5 digits or 5 digits hyphen 4 digits, for example &#39;63368&#39;, &#39;63368-5555&#39;. For other regions, this can be alphanumeric, length 1-10.  Mastercard Send: Required for recipients in Canada and Canadian issued cards. </value>
+        /// <value>Recipient postal code.   For USA, this must be a valid value of 5 digits or 5 digits hyphen 4 digits, for example &#39;63368&#39;, &#39;63368-5555&#39;. For other regions, this can be alphanumeric, length 1-10.  Mandatory for card payments. </value>
         [DataMember(Name="postalCode", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// The recipient&#39;s province, state or territory. Conditional, required if recipient&#39;s country is USA or CAN. Must be an ISO 3166-2 uppercase alpha 2 or 3 character country subdivision code. For example, Missouri is MO.  Required only for FDCCompass.  This field is not supported for Visa Platform Connect. 
+        /// The recipient&#39;s province, state or territory. Conditional, required if recipient&#39;s country is USA or CAN. Must be an ISO 3166-2 uppercase alpha 2 or 3 character country subdivision code. For example, Missouri is MO.  See https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf  Required for card payments. 
         /// </summary>
-        /// <value>The recipient&#39;s province, state or territory. Conditional, required if recipient&#39;s country is USA or CAN. Must be an ISO 3166-2 uppercase alpha 2 or 3 character country subdivision code. For example, Missouri is MO.  Required only for FDCCompass.  This field is not supported for Visa Platform Connect. </value>
+        /// <value>The recipient&#39;s province, state or territory. Conditional, required if recipient&#39;s country is USA or CAN. Must be an ISO 3166-2 uppercase alpha 2 or 3 character country subdivision code. For example, Missouri is MO.  See https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf  Required for card payments. </value>
         [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
         public string AdministrativeArea { get; set; }
 
         /// <summary>
-        /// Recipient country code. Use the ISO Standard Alpha Country Codes.  https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf  Required for Mastercard Send. 
+        /// Recipient country code. Use the ISO Standard Alpha Country Codes.  https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf 
         /// </summary>
-        /// <value>Recipient country code. Use the ISO Standard Alpha Country Codes.  https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf  Required for Mastercard Send. </value>
+        /// <value>Recipient country code. Use the ISO Standard Alpha Country Codes.  https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf </value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 
         /// <summary>
-        /// First name of recipient.  Visa Platform Connect (14) Chase Paymentech (30) Mastercard Send (40)  This field is required for Mastercard Send. 
+        /// First name of recipient. 
         /// </summary>
-        /// <value>First name of recipient.  Visa Platform Connect (14) Chase Paymentech (30) Mastercard Send (40)  This field is required for Mastercard Send. </value>
+        /// <value>First name of recipient. </value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
@@ -128,25 +124,11 @@ namespace CyberSource.Model
         public string MiddleName { get; set; }
 
         /// <summary>
-        /// Middle Initial of recipient.  This field is supported by FDC Compass. 
+        /// Last name of recipient. 
         /// </summary>
-        /// <value>Middle Initial of recipient.  This field is supported by FDC Compass. </value>
-        [DataMember(Name="middleInitial", EmitDefaultValue=false)]
-        public string MiddleInitial { get; set; }
-
-        /// <summary>
-        /// Last name of recipient.  Visa Platform Connect (14) Paymentech (30) Mastercard Send (40)  This field is required for Mastercard Send. 
-        /// </summary>
-        /// <value>Last name of recipient.  Visa Platform Connect (14) Paymentech (30) Mastercard Send (40)  This field is required for Mastercard Send. </value>
+        /// <value>Last name of recipient. </value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
-
-        /// <summary>
-        /// Recipient date of birth in YYYYMMDD format. 
-        /// </summary>
-        /// <value>Recipient date of birth in YYYYMMDD format. </value>
-        [DataMember(Name="dateOfBirth", EmitDefaultValue=false)]
-        public string DateOfBirth { get; set; }
 
         /// <summary>
         /// Recipient phone number.  This field is supported by FDC Compass.  Mastercard Send: Max length is 15 with no dashes or spaces. 
@@ -178,9 +160,7 @@ namespace CyberSource.Model
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
-            sb.Append("  MiddleInitial: ").Append(MiddleInitial).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
             sb.Append("}\n");
@@ -265,19 +245,9 @@ namespace CyberSource.Model
                     this.MiddleName.Equals(other.MiddleName)
                 ) && 
                 (
-                    this.MiddleInitial == other.MiddleInitial ||
-                    this.MiddleInitial != null &&
-                    this.MiddleInitial.Equals(other.MiddleInitial)
-                ) && 
-                (
                     this.LastName == other.LastName ||
                     this.LastName != null &&
                     this.LastName.Equals(other.LastName)
-                ) && 
-                (
-                    this.DateOfBirth == other.DateOfBirth ||
-                    this.DateOfBirth != null &&
-                    this.DateOfBirth.Equals(other.DateOfBirth)
                 ) && 
                 (
                     this.PhoneNumber == other.PhoneNumber ||
@@ -320,12 +290,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FirstName.GetHashCode();
                 if (this.MiddleName != null)
                     hash = hash * 59 + this.MiddleName.GetHashCode();
-                if (this.MiddleInitial != null)
-                    hash = hash * 59 + this.MiddleInitial.GetHashCode();
                 if (this.LastName != null)
                     hash = hash * 59 + this.LastName.GetHashCode();
-                if (this.DateOfBirth != null)
-                    hash = hash * 59 + this.DateOfBirth.GetHashCode();
                 if (this.PhoneNumber != null)
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 if (this.PersonalIdentification != null)

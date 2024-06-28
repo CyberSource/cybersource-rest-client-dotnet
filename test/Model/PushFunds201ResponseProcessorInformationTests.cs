@@ -81,28 +81,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ResponseCode'
         }
         /// <summary>
-        /// Test the property 'ApprovalCode'
-        /// </summary>
-        [Test]
-        public void ApprovalCodeTest()
-        {
-            // TODO unit test for the property 'ApprovalCode'
-        }
-        /// <summary>
         /// Test the property 'SystemTraceAuditNumber'
         /// </summary>
         [Test]
         public void SystemTraceAuditNumberTest()
         {
             // TODO unit test for the property 'SystemTraceAuditNumber'
-        }
-        /// <summary>
-        /// Test the property 'ResponseCodeSource'
-        /// </summary>
-        [Test]
-        public void ResponseCodeSourceTest()
-        {
-            // TODO unit test for the property 'ResponseCodeSource'
         }
         /// <summary>
         /// Test the property 'RetrievalReferenceNumber'

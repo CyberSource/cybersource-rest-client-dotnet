@@ -44,34 +44,10 @@ namespace CyberSource.Model
         /// <param name="Number">The customer&#39;s payment card number, also known as the Primary Account Number (PAN). You can also use this field for encoded account numbers.  #### FDMS Nashville Required. String (19)  #### GPX Required if &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;. However, this field is optional if your account is configured for relaxed requirements for address data and expiration date. **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.  #### All other processors Required if &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;. However, this field is optional if your account is configured for relaxed requirements for address data and expiration date. **Important** It is your responsibility to determine whether a field is required for the transaction you are requesting.  (required).</param>
         public Riskv1authenticationsetupsPaymentInformationCard(string Type = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Number = default(string))
         {
-            // to ensure "ExpirationMonth" is required (not null)
-            if (ExpirationMonth == null)
-            {
-                throw new InvalidDataException("ExpirationMonth is a required property for Riskv1authenticationsetupsPaymentInformationCard and cannot be null");
-            }
-            else
-            {
-                this.ExpirationMonth = ExpirationMonth;
-            }
-            // to ensure "ExpirationYear" is required (not null)
-            if (ExpirationYear == null)
-            {
-                throw new InvalidDataException("ExpirationYear is a required property for Riskv1authenticationsetupsPaymentInformationCard and cannot be null");
-            }
-            else
-            {
-                this.ExpirationYear = ExpirationYear;
-            }
-            // to ensure "Number" is required (not null)
-            if (Number == null)
-            {
-                throw new InvalidDataException("Number is a required property for Riskv1authenticationsetupsPaymentInformationCard and cannot be null");
-            }
-            else
-            {
-                this.Number = Number;
-            }
             this.Type = Type;
+            this.ExpirationMonth = ExpirationMonth;
+            this.ExpirationYear = ExpirationYear;
+            this.Number = Number;
         }
         
         /// <summary>

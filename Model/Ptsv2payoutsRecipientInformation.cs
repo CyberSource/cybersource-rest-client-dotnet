@@ -34,7 +34,6 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2payoutsRecipientInformation" /> class.
         /// </summary>
         /// <param name="FirstName">First name of recipient. characters. * CTV (14) * Paymentech (30) .</param>
-        /// <param name="MiddleInitial">Middle Initial of recipient. Required only for FDCCompass. .</param>
         /// <param name="MiddleName">Recipient&#39;s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
         /// <param name="LastName">Last name of recipient. characters. * CTV (14) * Paymentech (30) .</param>
         /// <param name="Address1">Recipient address information. Required only for FDCCompass..</param>
@@ -43,11 +42,9 @@ namespace CyberSource.Model
         /// <param name="Country">Recipient country code. Required only for FDCCompass..</param>
         /// <param name="PostalCode">Recipient postal code. Required only for FDCCompass..</param>
         /// <param name="PhoneNumber">Recipient phone number. Required only for FDCCompass..</param>
-        /// <param name="DateOfBirth">Recipient date of birth in YYYYMMDD format. Required only for FDCCompass..</param>
-        public Ptsv2payoutsRecipientInformation(string FirstName = default(string), string MiddleInitial = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string Country = default(string), string PostalCode = default(string), string PhoneNumber = default(string), string DateOfBirth = default(string))
+        public Ptsv2payoutsRecipientInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string Country = default(string), string PostalCode = default(string), string PhoneNumber = default(string))
         {
             this.FirstName = FirstName;
-            this.MiddleInitial = MiddleInitial;
             this.MiddleName = MiddleName;
             this.LastName = LastName;
             this.Address1 = Address1;
@@ -56,7 +53,6 @@ namespace CyberSource.Model
             this.Country = Country;
             this.PostalCode = PostalCode;
             this.PhoneNumber = PhoneNumber;
-            this.DateOfBirth = DateOfBirth;
         }
         
         /// <summary>
@@ -65,13 +61,6 @@ namespace CyberSource.Model
         /// <value>First name of recipient. characters. * CTV (14) * Paymentech (30) </value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
-
-        /// <summary>
-        /// Middle Initial of recipient. Required only for FDCCompass. 
-        /// </summary>
-        /// <value>Middle Initial of recipient. Required only for FDCCompass. </value>
-        [DataMember(Name="middleInitial", EmitDefaultValue=false)]
-        public string MiddleInitial { get; set; }
 
         /// <summary>
         /// Recipient&#39;s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. 
@@ -130,13 +119,6 @@ namespace CyberSource.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Recipient date of birth in YYYYMMDD format. Required only for FDCCompass.
-        /// </summary>
-        /// <value>Recipient date of birth in YYYYMMDD format. Required only for FDCCompass.</value>
-        [DataMember(Name="dateOfBirth", EmitDefaultValue=false)]
-        public string DateOfBirth { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,7 +127,6 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2payoutsRecipientInformation {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  MiddleInitial: ").Append(MiddleInitial).Append("\n");
             sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Address1: ").Append(Address1).Append("\n");
@@ -154,7 +135,6 @@ namespace CyberSource.Model
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -197,11 +177,6 @@ namespace CyberSource.Model
                     this.FirstName.Equals(other.FirstName)
                 ) && 
                 (
-                    this.MiddleInitial == other.MiddleInitial ||
-                    this.MiddleInitial != null &&
-                    this.MiddleInitial.Equals(other.MiddleInitial)
-                ) && 
-                (
                     this.MiddleName == other.MiddleName ||
                     this.MiddleName != null &&
                     this.MiddleName.Equals(other.MiddleName)
@@ -240,11 +215,6 @@ namespace CyberSource.Model
                     this.PhoneNumber == other.PhoneNumber ||
                     this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(other.PhoneNumber)
-                ) && 
-                (
-                    this.DateOfBirth == other.DateOfBirth ||
-                    this.DateOfBirth != null &&
-                    this.DateOfBirth.Equals(other.DateOfBirth)
                 );
         }
 
@@ -261,8 +231,6 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.FirstName != null)
                     hash = hash * 59 + this.FirstName.GetHashCode();
-                if (this.MiddleInitial != null)
-                    hash = hash * 59 + this.MiddleInitial.GetHashCode();
                 if (this.MiddleName != null)
                     hash = hash * 59 + this.MiddleName.GetHashCode();
                 if (this.LastName != null)
@@ -279,8 +247,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.PhoneNumber != null)
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
-                if (this.DateOfBirth != null)
-                    hash = hash * 59 + this.DateOfBirth.GetHashCode();
                 return hash;
             }
         }

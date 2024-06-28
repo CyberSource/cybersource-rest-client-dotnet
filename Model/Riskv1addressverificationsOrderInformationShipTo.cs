@@ -48,28 +48,12 @@ namespace CyberSource.Model
         /// <param name="PostalCode">Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  #### American Express Direct Before sending the postal code to the processor, all nonalphanumeric characters are removed and, if the remaining value is longer than nine characters, the value is truncated starting from the right side. #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
         public Riskv1addressverificationsOrderInformationShipTo(string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string AdministrativeArea = default(string), string Country = default(string), string Locality = default(string), string PostalCode = default(string))
         {
-            // to ensure "Address1" is required (not null)
-            if (Address1 == null)
-            {
-                throw new InvalidDataException("Address1 is a required property for Riskv1addressverificationsOrderInformationShipTo and cannot be null");
-            }
-            else
-            {
-                this.Address1 = Address1;
-            }
-            // to ensure "Country" is required (not null)
-            if (Country == null)
-            {
-                throw new InvalidDataException("Country is a required property for Riskv1addressverificationsOrderInformationShipTo and cannot be null");
-            }
-            else
-            {
-                this.Country = Country;
-            }
+            this.Address1 = Address1;
             this.Address2 = Address2;
             this.Address3 = Address3;
             this.Address4 = Address4;
             this.AdministrativeArea = AdministrativeArea;
+            this.Country = Country;
             this.Locality = Locality;
             this.PostalCode = PostalCode;
         }

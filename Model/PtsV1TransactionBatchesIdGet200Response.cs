@@ -240,13 +240,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (string) pattern
-            Regex regexId = new Regex(@"^[a-zA-Z0-9_+-]*$", RegexOptions.CultureInvariant);
-            if (false == regexId.Match(this.Id).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must match a pattern of " + regexId, new [] { "Id" });
-            }
-
             yield break;
         }
     }

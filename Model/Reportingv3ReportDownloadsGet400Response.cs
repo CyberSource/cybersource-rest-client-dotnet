@@ -44,42 +44,10 @@ namespace CyberSource.Model
         /// <param name="Details">Error field list  (required).</param>
         public Reportingv3ReportDownloadsGet400Response(DateTime? SubmitTimeUtc = default(DateTime?), string Reason = default(string), string Message = default(string), List<Reportingv3ReportDownloadsGet400ResponseDetails> Details = default(List<Reportingv3ReportDownloadsGet400ResponseDetails>))
         {
-            // to ensure "SubmitTimeUtc" is required (not null)
-            if (SubmitTimeUtc == null)
-            {
-                throw new InvalidDataException("SubmitTimeUtc is a required property for Reportingv3ReportDownloadsGet400Response and cannot be null");
-            }
-            else
-            {
-                this.SubmitTimeUtc = SubmitTimeUtc;
-            }
-            // to ensure "Reason" is required (not null)
-            if (Reason == null)
-            {
-                throw new InvalidDataException("Reason is a required property for Reportingv3ReportDownloadsGet400Response and cannot be null");
-            }
-            else
-            {
-                this.Reason = Reason;
-            }
-            // to ensure "Message" is required (not null)
-            if (Message == null)
-            {
-                throw new InvalidDataException("Message is a required property for Reportingv3ReportDownloadsGet400Response and cannot be null");
-            }
-            else
-            {
-                this.Message = Message;
-            }
-            // to ensure "Details" is required (not null)
-            if (Details == null)
-            {
-                throw new InvalidDataException("Details is a required property for Reportingv3ReportDownloadsGet400Response and cannot be null");
-            }
-            else
-            {
-                this.Details = Details;
-            }
+            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Reason = Reason;
+            this.Message = Message;
+            this.Details = Details;
         }
         
         /// <summary>

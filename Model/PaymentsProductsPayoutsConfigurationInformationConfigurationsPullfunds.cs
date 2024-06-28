@@ -47,37 +47,13 @@ namespace CyberSource.Model
         /// <param name="CardTerminalId">This field contains a code that identifies a terminal at the card acceptor location. This field is used in all messages related to a transaction. If sending transactions from a card not present environment, use the same value for all transactions. (required).</param>
         public PaymentsProductsPayoutsConfigurationInformationConfigurationsPullfunds(string AcquirerOrganizationId = default(string), int? AcquiringBIN = default(int?), bool? AllowCryptoCurrencyPurchase = default(bool?), string CardAcceptorId = default(string), string OriginatorMvv = default(string), string OriginatorNameAbbreviation = default(string), string CardTerminalId = default(string))
         {
-            // to ensure "AcquiringBIN" is required (not null)
-            if (AcquiringBIN == null)
-            {
-                throw new InvalidDataException("AcquiringBIN is a required property for PaymentsProductsPayoutsConfigurationInformationConfigurationsPullfunds and cannot be null");
-            }
-            else
-            {
-                this.AcquiringBIN = AcquiringBIN;
-            }
-            // to ensure "CardAcceptorId" is required (not null)
-            if (CardAcceptorId == null)
-            {
-                throw new InvalidDataException("CardAcceptorId is a required property for PaymentsProductsPayoutsConfigurationInformationConfigurationsPullfunds and cannot be null");
-            }
-            else
-            {
-                this.CardAcceptorId = CardAcceptorId;
-            }
-            // to ensure "CardTerminalId" is required (not null)
-            if (CardTerminalId == null)
-            {
-                throw new InvalidDataException("CardTerminalId is a required property for PaymentsProductsPayoutsConfigurationInformationConfigurationsPullfunds and cannot be null");
-            }
-            else
-            {
-                this.CardTerminalId = CardTerminalId;
-            }
             this.AcquirerOrganizationId = AcquirerOrganizationId;
+            this.AcquiringBIN = AcquiringBIN;
             this.AllowCryptoCurrencyPurchase = AllowCryptoCurrencyPurchase;
+            this.CardAcceptorId = CardAcceptorId;
             this.OriginatorMvv = OriginatorMvv;
             this.OriginatorNameAbbreviation = OriginatorNameAbbreviation;
+            this.CardTerminalId = CardTerminalId;
         }
         
         /// <summary>

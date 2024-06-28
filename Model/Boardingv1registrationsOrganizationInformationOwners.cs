@@ -54,100 +54,20 @@ namespace CyberSource.Model
         /// <param name="Address">Address (required).</param>
         public Boardingv1registrationsOrganizationInformationOwners(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), DateTime? BirthDate = default(DateTime?), bool? IsPrimary = default(bool?), string Ssn = default(string), string PassportNumber = default(string), string PassportCountry = default(string), string JobTitle = default(string), bool? HasSignificantResponsability = default(bool?), decimal? OwnershipPercentage = default(decimal?), string PhoneNumber = default(string), string Email = default(string), Boardingv1registrationsOrganizationInformationBusinessInformationAddress Address = default(Boardingv1registrationsOrganizationInformationBusinessInformationAddress))
         {
-            // to ensure "FirstName" is required (not null)
-            if (FirstName == null)
-            {
-                throw new InvalidDataException("FirstName is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.FirstName = FirstName;
-            }
-            // to ensure "LastName" is required (not null)
-            if (LastName == null)
-            {
-                throw new InvalidDataException("LastName is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.LastName = LastName;
-            }
-            // to ensure "BirthDate" is required (not null)
-            if (BirthDate == null)
-            {
-                throw new InvalidDataException("BirthDate is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.BirthDate = BirthDate;
-            }
-            // to ensure "IsPrimary" is required (not null)
-            if (IsPrimary == null)
-            {
-                throw new InvalidDataException("IsPrimary is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.IsPrimary = IsPrimary;
-            }
-            // to ensure "JobTitle" is required (not null)
-            if (JobTitle == null)
-            {
-                throw new InvalidDataException("JobTitle is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.JobTitle = JobTitle;
-            }
-            // to ensure "HasSignificantResponsability" is required (not null)
-            if (HasSignificantResponsability == null)
-            {
-                throw new InvalidDataException("HasSignificantResponsability is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.HasSignificantResponsability = HasSignificantResponsability;
-            }
-            // to ensure "OwnershipPercentage" is required (not null)
-            if (OwnershipPercentage == null)
-            {
-                throw new InvalidDataException("OwnershipPercentage is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.OwnershipPercentage = OwnershipPercentage;
-            }
-            // to ensure "PhoneNumber" is required (not null)
-            if (PhoneNumber == null)
-            {
-                throw new InvalidDataException("PhoneNumber is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.PhoneNumber = PhoneNumber;
-            }
-            // to ensure "Email" is required (not null)
-            if (Email == null)
-            {
-                throw new InvalidDataException("Email is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.Email = Email;
-            }
-            // to ensure "Address" is required (not null)
-            if (Address == null)
-            {
-                throw new InvalidDataException("Address is a required property for Boardingv1registrationsOrganizationInformationOwners and cannot be null");
-            }
-            else
-            {
-                this.Address = Address;
-            }
+            this.FirstName = FirstName;
             this.MiddleName = MiddleName;
+            this.LastName = LastName;
+            this.BirthDate = BirthDate;
+            this.IsPrimary = IsPrimary;
             this.Ssn = Ssn;
             this.PassportNumber = PassportNumber;
             this.PassportCountry = PassportCountry;
+            this.JobTitle = JobTitle;
+            this.HasSignificantResponsability = HasSignificantResponsability;
+            this.OwnershipPercentage = OwnershipPercentage;
+            this.PhoneNumber = PhoneNumber;
+            this.Email = Email;
+            this.Address = Address;
         }
         
         /// <summary>
@@ -421,69 +341,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // FirstName (string) pattern
-            Regex regexFirstName = new Regex(@"[À-ÖØ-öø-ǿÀ-ÖØ-öø-ǿa-zA-Z().\\-_#,;\/\\\\@$:&amp;!?%«»€₣«»€₣ ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexFirstName.Match(this.FirstName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, must match a pattern of " + regexFirstName, new [] { "FirstName" });
-            }
-
-            // MiddleName (string) pattern
-            Regex regexMiddleName = new Regex(@"[À-ÖØ-öø-ǿÀ-ÖØ-öø-ǿa-zA-Z().\\-_#,;\/\\\\@$:&amp;!?%«»€₣«»€₣ ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexMiddleName.Match(this.MiddleName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MiddleName, must match a pattern of " + regexMiddleName, new [] { "MiddleName" });
-            }
-
-            // LastName (string) pattern
-            Regex regexLastName = new Regex(@"[À-ÖØ-öø-ǿÀ-ÖØ-öø-ǿa-zA-Z().\\-_#,;\/\\\\@$:&amp;!?%«»€₣«»€₣ ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexLastName.Match(this.LastName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, must match a pattern of " + regexLastName, new [] { "LastName" });
-            }
-
-            // Ssn (string) pattern
-            Regex regexSsn = new Regex(@"^\\d{3}-\\d{2}-\\d{4}$|^\\d{9,9}$", RegexOptions.CultureInvariant);
-            if (false == regexSsn.Match(this.Ssn).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ssn, must match a pattern of " + regexSsn, new [] { "Ssn" });
-            }
-
-            // PassportNumber (string) pattern
-            Regex regexPassportNumber = new Regex(@"^(?!^0+$)[a-zA-Z0-9]{3,20}$", RegexOptions.CultureInvariant);
-            if (false == regexPassportNumber.Match(this.PassportNumber).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PassportNumber, must match a pattern of " + regexPassportNumber, new [] { "PassportNumber" });
-            }
-
-            // PassportCountry (string) pattern
-            Regex regexPassportCountry = new Regex(@"^[À-ÖØ-öø-ǿa-zA-Z0-9().\\-_#,;\/@$:!% ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexPassportCountry.Match(this.PassportCountry).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PassportCountry, must match a pattern of " + regexPassportCountry, new [] { "PassportCountry" });
-            }
-
-            // JobTitle (string) pattern
-            Regex regexJobTitle = new Regex(@"^[À-ÖØ-öø-ǿa-zA-Z0-9().\\-_#,;\/@$:!% ]{1,}$", RegexOptions.CultureInvariant);
-            if (false == regexJobTitle.Match(this.JobTitle).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for JobTitle, must match a pattern of " + regexJobTitle, new [] { "JobTitle" });
-            }
-
-            // PhoneNumber (string) pattern
-            Regex regexPhoneNumber = new Regex(@"^[0-9a-zA-Z\\\\+\\\\-]+$", RegexOptions.CultureInvariant);
-            if (false == regexPhoneNumber.Match(this.PhoneNumber).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhoneNumber, must match a pattern of " + regexPhoneNumber, new [] { "PhoneNumber" });
-            }
-
-            // Email (string) pattern
-            Regex regexEmail = new Regex(@"^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,50}|[0-9]{1,3})(\\]?)$", RegexOptions.CultureInvariant);
-            if (false == regexEmail.Match(this.Email).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, must match a pattern of " + regexEmail, new [] { "Email" });
-            }
-
             yield break;
         }
     }
