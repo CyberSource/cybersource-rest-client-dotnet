@@ -31,7 +31,7 @@ jobs:
             - name: Upload the Dotnet Rest Client Build
               uses: actions/upload-artifact@v4
               with:
-                name: dotnet-build
+                name: dotnet-build # discuss with Gaurav and gabriel about naming of the dll artifacts
                 path: |
                   ${{env.CLIENT_FOLDER}}
     build-the-samples-and-run-tests:
@@ -42,13 +42,12 @@ jobs:
         fail-fast: false
         matrix:
           operating-system: [windows-latest,windows-2019]
-          net-framework-version: [4.6.2,4.7,4.7.1,4.7.2,4.8,4.8.1]
-          include:
-            - operating-system: windows-2019
-              net-framework-version: 4.6.1
+          net-framework-version: [4.6.1,4.6.2,4.7,4.7.1,4.7.2,4.8,4.8.1]
           exclude:
             - operating-system: windows-2019
               net-framework-version: 4.8.1
+            - operating-system: windows-latest
+              net-framework-version: 4.6.1
       needs: build-the-dotnet-client # to make sure these jobs only start once the already present jobs are done running
       runs-on: ${{matrix.operating-system}}
       steps:
