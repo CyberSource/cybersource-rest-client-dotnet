@@ -19,21 +19,22 @@ jobs:
                 path: ${{env.CLIENT_FOLDER}}
             - name: Setup MSBuild
               uses: microsoft/setup-msbuild@v2
-            - name: Building the projects and running the Test Cases
+            - name: Building the Dotnet Client
               run: |
                 cd $Env:CLIENT_FOLDER
                 nuget install packages.config -OutputDirectory packages
                 nuget install ./test/packages.config -OutputDirectory packages
+                msbuild -version
                 msbuild -property:Configuration=Release "cybersource-rest-client-dotnet.sln"
                 Write-Output "Build Successful"
               shell: pwsh
-            - name: Upload the DOTNET Rest Client Build
+            - name: Upload the Dotnet Rest Client Build
               uses: actions/upload-artifact@v4
               with:
                 name: dotnet-build
                 path: |
                   ${{env.CLIENT_FOLDER}}
-    build-the-samples-and-run-test:
+    build-the-samples-and-run-tests:
       defaults:
         run:
           shell: bash
@@ -51,7 +52,7 @@ jobs:
       needs: build-the-dotnet-client # to make sure these jobs only start once the already present jobs are done running
       runs-on: ${{matrix.operating-system}}
       steps:
-        - name: Download the Built Rest Client for Dotnet
+        - name: Download the Built Rest Client for Dotnet from previous Job
           uses: actions/download-artifact@v4
           with:
             name: dotnet-build
@@ -66,10 +67,10 @@ jobs:
           uses: microsoft/setup-msbuild@v2
         - name: Building the samples and Running the Tests
           run: |
-            Get-ChildItem
+            msbuild -version
             cd $Env:SAMPLE_FOLDER
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>..\\cybersource-rest-client-dotnet\\bin\\Release\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
-            #Replaced the Dependency path to already built cybersource-rest-client-dotnet project which was downloaded to the runner
+            #Replaced the Dependency path to already built cybersource-rest-client-dotnet dll file which was downloaded to the runner
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<TargetFrameworkVersion>)(.)+(</TargetFrameworkVersion>)", "<TargetFrameworkVersion>v${{matrix.net-framework-version}}</TargetFrameworkVersion>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             nuget install packages.config -OutputDirectory packages
             msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
@@ -92,12 +93,12 @@ jobs:
             mv testing_dotnet.log output.log
             cd Validation
             python sample_code_log_processor.py -l ../../$SAMPLE_FOLDER/output.log -o ../../$SAMPLE_FOLDER/csharp_actual_results.json
-            python response_code_validator.py -e ExpectedResults/csharp_expected_results.json -a ../../$SAMPLE_FOLDER/csharp_actual_results.json -o csharp_validation_results.json
-            python json_to_prettified_html.py -i csharp_validation_results.json -o csharp_validation_results.html
-            cp csharp_validation_results.pdf ../  #copying the file to flatten the directory of the upload artifact,Github Actions doesn't support that as of jun 2024
+            python response_code_validator.py -e ExpectedResults/csharp_expected_results.json -a ../../$SAMPLE_FOLDER/csharp_actual_results.json -o csharp_validation_results_dotnet.json
+            python json_to_prettified_html.py -i csharp_validation_results_dotnet.json -o csharp_validation_results_dotnet.html
+            cp csharp_validation_results_dotnet.pdf ../  #copying the file to flatten the directory of the upload artifact,Github Actions doesn't support that as of jun 2024
         - name: Upload the Test Reports
           uses: actions/upload-artifact@v4
           with:
             name: result-files-${{matrix.operating-system}}-net-framework-ver-${{matrix.net-framework-version}}
             path: |
-              ${{env.SAMPLE_FOLDER}}/csharp_validation_results.pdf
+              ${{env.SAMPLE_FOLDER}}/csharp_validation_results_dotnet.pdf
