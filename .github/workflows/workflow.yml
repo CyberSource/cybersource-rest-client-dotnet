@@ -77,27 +77,38 @@ jobs:
             Write-Output "Running Samples now"
             ./SampleCode.exe -RunAll > testing_dotnet.log
             Copy-Item ".\testing_dotnet.log" -Destination "..\..\..\"
+            Set-Location ..\..\..
+            Move-Item -Path .\testing_dotnet.log -Destination .\output.log
           shell: pwsh
-        - name: Setup Python v3.12 for Report Generation
-          uses: actions/setup-python@v5
+        - name: Using Report Generation Action
+          id: report-generation
+          uses: ./cybersource-rest-client-dotnet/.github/actions/generate-report
           with:
-            python-version: 3.12
-        - name: Installing required python libraries and running the python programs to generate pdf report
-          run : |
-            cd $SAMPLE_FOLDER
-            python -m pip install --upgrade pip
-            pip install json2html
-            pip install xhtml2pdf
-            pip install bs4
-            mv testing_dotnet.log output.log
-            cd Validation
-            python sample_code_log_processor.py -l ../../$SAMPLE_FOLDER/output.log -o ../../$SAMPLE_FOLDER/csharp_actual_results.json
-            python response_code_validator.py -e ExpectedResults/csharp_expected_results.json -a ../../$SAMPLE_FOLDER/csharp_actual_results.json -o csharp_validation_results_dotnet.json
-            python json_to_prettified_html.py -i csharp_validation_results_dotnet.json -o csharp_validation_results_dotnet.html
-            cp csharp_validation_results_dotnet.pdf ../  #copying the file to flatten the directory of the upload artifact,Github Actions doesn't support that as of jun 2024
-        - name: Upload the Test Reports
+            lang: dotnet
+            sample-folder-name: ${{env.SAMPLE_FOLDER}}
+            log-file-name: output.log
+        - name: Upload Test Reports
           uses: actions/upload-artifact@v4
           with:
-            name: result-files-${{matrix.operating-system}}-net-framework-ver-${{matrix.net-framework-version}}
+            name: sample-run-report-${{matrix.operating-system}}-dotnet-framework-ver-${{matrix.net-framework-version}}
             path: |
-              ${{env.SAMPLE_FOLDER}}/csharp_validation_results_dotnet.pdf
+              ${{env.SAMPLE_FOLDER}}/${{steps.report-generation.outputs.result-pdf-name}}
+
+
+# - name: Setup Python v3.12 for Report Generation
+#   uses: actions/setup-python@v5
+#   with:
+#     python-version: 3.12
+# - name: Installing required python libraries and running the python programs to generate pdf report
+#   run : |
+#     cd $SAMPLE_FOLDER
+#     python -m pip install --upgrade pip
+#     pip install json2html
+#     pip install xhtml2pdf
+#     pip install bs4
+    
+#     cd Validation
+#     python sample_code_log_processor.py -l ../../$SAMPLE_FOLDER/output.log -o ../../$SAMPLE_FOLDER/csharp_actual_results.json
+#     python response_code_validator.py -e ExpectedResults/csharp_expected_results.json -a ../../$SAMPLE_FOLDER/csharp_actual_results.json -o csharp_validation_results_dotnet.json
+#     python json_to_prettified_html.py -i csharp_validation_results_dotnet.json -o csharp_validation_results_dotnet.html
+#     cp csharp_validation_results_dotnet.pdf ../  #copying the file to flatten the directory of the upload artifact,Github Actions doesn't support that as of jun 2024
