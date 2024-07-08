@@ -42,15 +42,7 @@ namespace CyberSource.Model
         /// <param name="TenantInformation">TenantInformation.</param>
         public Boardingv1registrationsIntegrationInformationTenantConfigurations(string SolutionId = default(string), Boardingv1registrationsIntegrationInformationTenantInformation TenantInformation = default(Boardingv1registrationsIntegrationInformationTenantInformation))
         {
-            // to ensure "SolutionId" is required (not null)
-            if (SolutionId == null)
-            {
-                throw new InvalidDataException("SolutionId is a required property for Boardingv1registrationsIntegrationInformationTenantConfigurations and cannot be null");
-            }
-            else
-            {
-                this.SolutionId = SolutionId;
-            }
+            this.SolutionId = SolutionId;
             this.TenantInformation = TenantInformation;
         }
         
@@ -151,13 +143,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // SolutionId (string) pattern
-            Regex regexSolutionId = new Regex(@"^[0-9a-zA-Z_]+$", RegexOptions.CultureInvariant);
-            if (false == regexSolutionId.Match(this.SolutionId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SolutionId, must match a pattern of " + regexSolutionId, new [] { "SolutionId" });
-            }
-
             yield break;
         }
     }

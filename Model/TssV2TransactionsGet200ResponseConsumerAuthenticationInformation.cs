@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseConsumerAuthenticationInformation" /> class.
         /// </summary>
-        /// <param name="EciRaw">Raw electronic commerce indicator (ECI).  For details, see &#x60;eci_raw&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="EciRaw">Raw electronic commerce indicator (ECI). .</param>
         /// <param name="Cavv">Cardholder authentication verification value (CAVV)..</param>
-        /// <param name="Xid">Transaction identifier.  For details, see &#x60;xid&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="Xid">Transaction identifier. .</param>
         /// <param name="TransactionId">Payer auth Transaction identifier..</param>
         /// <param name="StrongAuthentication">StrongAuthentication.</param>
         public TssV2TransactionsGet200ResponseConsumerAuthenticationInformation(string EciRaw = default(string), string Cavv = default(string), string Xid = default(string), string TransactionId = default(string), TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication))
@@ -48,9 +48,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Raw electronic commerce indicator (ECI).  For details, see &#x60;eci_raw&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+        /// Raw electronic commerce indicator (ECI). 
         /// </summary>
-        /// <value>Raw electronic commerce indicator (ECI).  For details, see &#x60;eci_raw&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
+        /// <value>Raw electronic commerce indicator (ECI). </value>
         [DataMember(Name="eciRaw", EmitDefaultValue=false)]
         public string EciRaw { get; set; }
 
@@ -62,9 +62,9 @@ namespace CyberSource.Model
         public string Cavv { get; set; }
 
         /// <summary>
-        /// Transaction identifier.  For details, see &#x60;xid&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+        /// Transaction identifier. 
         /// </summary>
-        /// <value>Transaction identifier.  For details, see &#x60;xid&#x60; request field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
+        /// <value>Transaction identifier. </value>
         [DataMember(Name="xid", EmitDefaultValue=false)]
         public string Xid { get; set; }
 

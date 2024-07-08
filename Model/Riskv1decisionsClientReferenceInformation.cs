@@ -44,15 +44,7 @@ namespace CyberSource.Model
         /// <param name="Partner">Partner.</param>
         public Riskv1decisionsClientReferenceInformation(string Code = default(string), string PausedRequestId = default(string), string Comments = default(string), Riskv1decisionsClientReferenceInformationPartner Partner = default(Riskv1decisionsClientReferenceInformationPartner))
         {
-            // to ensure "Code" is required (not null)
-            if (Code == null)
-            {
-                throw new InvalidDataException("Code is a required property for Riskv1decisionsClientReferenceInformation and cannot be null");
-            }
-            else
-            {
-                this.Code = Code;
-            }
+            this.Code = Code;
             this.PausedRequestId = PausedRequestId;
             this.Comments = Comments;
             this.Partner = Partner;

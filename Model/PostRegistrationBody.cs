@@ -45,17 +45,9 @@ namespace CyberSource.Model
         /// <param name="DocumentInformation">DocumentInformation.</param>
         public PostRegistrationBody(Boardingv1registrationsRegistrationInformation RegistrationInformation = default(Boardingv1registrationsRegistrationInformation), Boardingv1registrationsIntegrationInformation IntegrationInformation = default(Boardingv1registrationsIntegrationInformation), Boardingv1registrationsOrganizationInformation OrganizationInformation = default(Boardingv1registrationsOrganizationInformation), Boardingv1registrationsProductInformation ProductInformation = default(Boardingv1registrationsProductInformation), Boardingv1registrationsDocumentInformation DocumentInformation = default(Boardingv1registrationsDocumentInformation))
         {
-            // to ensure "OrganizationInformation" is required (not null)
-            if (OrganizationInformation == null)
-            {
-                throw new InvalidDataException("OrganizationInformation is a required property for PostRegistrationBody and cannot be null");
-            }
-            else
-            {
-                this.OrganizationInformation = OrganizationInformation;
-            }
             this.RegistrationInformation = RegistrationInformation;
             this.IntegrationInformation = IntegrationInformation;
+            this.OrganizationInformation = OrganizationInformation;
             this.ProductInformation = ProductInformation;
             this.DocumentInformation = DocumentInformation;
         }

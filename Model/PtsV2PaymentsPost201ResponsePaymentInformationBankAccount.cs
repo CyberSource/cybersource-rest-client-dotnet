@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponsePaymentInformationBankAccount" /> class.
         /// </summary>
-        /// <param name="CorrectedAccountNumber">Corrected account number from the ACH verification service.  For details, see &#x60;ecp_debit_corrected_account_number&#x60; or &#x60;ecp_credit_corrected_account_number&#x60; field descriptions in [Electronic Check Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) .</param>
+        /// <param name="CorrectedAccountNumber">Corrected account number from the ACH verification service. .</param>
         public PtsV2PaymentsPost201ResponsePaymentInformationBankAccount(string CorrectedAccountNumber = default(string))
         {
             this.CorrectedAccountNumber = CorrectedAccountNumber;
         }
         
         /// <summary>
-        /// Corrected account number from the ACH verification service.  For details, see &#x60;ecp_debit_corrected_account_number&#x60; or &#x60;ecp_credit_corrected_account_number&#x60; field descriptions in [Electronic Check Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
+        /// Corrected account number from the ACH verification service. 
         /// </summary>
-        /// <value>Corrected account number from the ACH verification service.  For details, see &#x60;ecp_debit_corrected_account_number&#x60; or &#x60;ecp_credit_corrected_account_number&#x60; field descriptions in [Electronic Check Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) </value>
+        /// <value>Corrected account number from the ACH verification service. </value>
         [DataMember(Name="correctedAccountNumber", EmitDefaultValue=false)]
         public string CorrectedAccountNumber { get; set; }
 

@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Links">Links.</param>
         /// <param name="Id">The Id of the Instrument Identifier Token. .</param>
-        /// <param name="Type">The type of Instrument Identifier. Possible Values: - enrollable card .</param>
+        /// <param name="Type">The type of Instrument Identifier. Possible Values: - enrollable card - enrollable token .</param>
         /// <param name="TokenProvisioningInformation">TokenProvisioningInformation.</param>
         /// <param name="Card">Card.</param>
         /// <param name="BankAccount">BankAccount.</param>
@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="BillTo">BillTo.</param>
         /// <param name="Metadata">Metadata.</param>
-        public PatchInstrumentIdentifierRequest(TmsEmbeddedInstrumentIdentifierLinks Links = default(TmsEmbeddedInstrumentIdentifierLinks), string Id = default(string), string Type = default(string), TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation TokenProvisioningInformation = default(TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation), TmsEmbeddedInstrumentIdentifierCard Card = default(TmsEmbeddedInstrumentIdentifierCard), TmsEmbeddedInstrumentIdentifierBankAccount BankAccount = default(TmsEmbeddedInstrumentIdentifierBankAccount), TmsEmbeddedInstrumentIdentifierTokenizedCard TokenizedCard = default(TmsEmbeddedInstrumentIdentifierTokenizedCard), TmsEmbeddedInstrumentIdentifierIssuer Issuer = default(TmsEmbeddedInstrumentIdentifierIssuer), TmsEmbeddedInstrumentIdentifierProcessingInformation ProcessingInformation = default(TmsEmbeddedInstrumentIdentifierProcessingInformation), TmsEmbeddedInstrumentIdentifierBillTo BillTo = default(TmsEmbeddedInstrumentIdentifierBillTo), TmsEmbeddedInstrumentIdentifierMetadata Metadata = default(TmsEmbeddedInstrumentIdentifierMetadata))
+        public PatchInstrumentIdentifierRequest(TmsEmbeddedInstrumentIdentifierLinks Links = default(TmsEmbeddedInstrumentIdentifierLinks), string Id = default(string), string Type = default(string), Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation = default(Ptsv2paymentsTokenInformationTokenProvisioningInformation), TmsEmbeddedInstrumentIdentifierCard Card = default(TmsEmbeddedInstrumentIdentifierCard), TmsEmbeddedInstrumentIdentifierBankAccount BankAccount = default(TmsEmbeddedInstrumentIdentifierBankAccount), TmsEmbeddedInstrumentIdentifierTokenizedCard TokenizedCard = default(TmsEmbeddedInstrumentIdentifierTokenizedCard), TmsEmbeddedInstrumentIdentifierIssuer Issuer = default(TmsEmbeddedInstrumentIdentifierIssuer), TmsEmbeddedInstrumentIdentifierProcessingInformation ProcessingInformation = default(TmsEmbeddedInstrumentIdentifierProcessingInformation), TmsEmbeddedInstrumentIdentifierBillTo BillTo = default(TmsEmbeddedInstrumentIdentifierBillTo), TmsEmbeddedInstrumentIdentifierMetadata Metadata = default(TmsEmbeddedInstrumentIdentifierMetadata))
         {
             this.Links = Links;
             this.Id = Id;
@@ -87,9 +87,9 @@ namespace CyberSource.Model
         public string State { get; private set; }
 
         /// <summary>
-        /// The type of Instrument Identifier. Possible Values: - enrollable card 
+        /// The type of Instrument Identifier. Possible Values: - enrollable card - enrollable token 
         /// </summary>
-        /// <value>The type of Instrument Identifier. Possible Values: - enrollable card </value>
+        /// <value>The type of Instrument Identifier. Possible Values: - enrollable card - enrollable token </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -97,7 +97,7 @@ namespace CyberSource.Model
         /// Gets or Sets TokenProvisioningInformation
         /// </summary>
         [DataMember(Name="tokenProvisioningInformation", EmitDefaultValue=false)]
-        public TmsEmbeddedInstrumentIdentifierTokenProvisioningInformation TokenProvisioningInformation { get; set; }
+        public Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets Card

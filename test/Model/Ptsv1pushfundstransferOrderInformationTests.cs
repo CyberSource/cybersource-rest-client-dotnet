@@ -72,22 +72,6 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AmountDetails'
         }
-        /// <summary>
-        /// Test the property 'IsCryptocurrencyPurchase'
-        /// </summary>
-        [Test]
-        public void IsCryptocurrencyPurchaseTest()
-        {
-            // TODO unit test for the property 'IsCryptocurrencyPurchase'
-        }
-        /// <summary>
-        /// Test the property 'Surcharge'
-        /// </summary>
-        [Test]
-        public void SurchargeTest()
-        {
-            // TODO unit test for the property 'Surcharge'
-        }
 
     }
 

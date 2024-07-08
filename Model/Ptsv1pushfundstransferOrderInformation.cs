@@ -39,21 +39,9 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferOrderInformation" /> class.
         /// </summary>
         /// <param name="AmountDetails">AmountDetails (required).</param>
-        /// <param name="IsCryptocurrencyPurchase">This indicates that the funds transfer is for a crypto currency transaction. Optional Y/y, true N/n, false .</param>
-        /// <param name="Surcharge">Surcharge.</param>
-        public Ptsv1pushfundstransferOrderInformation(Ptsv1pushfundstransferOrderInformationAmountDetails AmountDetails = default(Ptsv1pushfundstransferOrderInformationAmountDetails), string IsCryptocurrencyPurchase = default(string), Ptsv1pushfundstransferOrderInformationSurcharge Surcharge = default(Ptsv1pushfundstransferOrderInformationSurcharge))
+        public Ptsv1pushfundstransferOrderInformation(Ptsv1pushfundstransferOrderInformationAmountDetails AmountDetails = default(Ptsv1pushfundstransferOrderInformationAmountDetails))
         {
-            // to ensure "AmountDetails" is required (not null)
-            if (AmountDetails == null)
-            {
-                throw new InvalidDataException("AmountDetails is a required property for Ptsv1pushfundstransferOrderInformation and cannot be null");
-            }
-            else
-            {
-                this.AmountDetails = AmountDetails;
-            }
-            this.IsCryptocurrencyPurchase = IsCryptocurrencyPurchase;
-            this.Surcharge = Surcharge;
+            this.AmountDetails = AmountDetails;
         }
         
         /// <summary>
@@ -61,19 +49,6 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="amountDetails", EmitDefaultValue=false)]
         public Ptsv1pushfundstransferOrderInformationAmountDetails AmountDetails { get; set; }
-
-        /// <summary>
-        /// This indicates that the funds transfer is for a crypto currency transaction. Optional Y/y, true N/n, false 
-        /// </summary>
-        /// <value>This indicates that the funds transfer is for a crypto currency transaction. Optional Y/y, true N/n, false </value>
-        [DataMember(Name="isCryptocurrencyPurchase", EmitDefaultValue=false)]
-        public string IsCryptocurrencyPurchase { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Surcharge
-        /// </summary>
-        [DataMember(Name="surcharge", EmitDefaultValue=false)]
-        public Ptsv1pushfundstransferOrderInformationSurcharge Surcharge { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,8 +59,6 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv1pushfundstransferOrderInformation {\n");
             sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
-            sb.Append("  IsCryptocurrencyPurchase: ").Append(IsCryptocurrencyPurchase).Append("\n");
-            sb.Append("  Surcharge: ").Append(Surcharge).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,16 +99,6 @@ namespace CyberSource.Model
                     this.AmountDetails == other.AmountDetails ||
                     this.AmountDetails != null &&
                     this.AmountDetails.Equals(other.AmountDetails)
-                ) && 
-                (
-                    this.IsCryptocurrencyPurchase == other.IsCryptocurrencyPurchase ||
-                    this.IsCryptocurrencyPurchase != null &&
-                    this.IsCryptocurrencyPurchase.Equals(other.IsCryptocurrencyPurchase)
-                ) && 
-                (
-                    this.Surcharge == other.Surcharge ||
-                    this.Surcharge != null &&
-                    this.Surcharge.Equals(other.Surcharge)
                 );
         }
 
@@ -152,10 +115,6 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.AmountDetails != null)
                     hash = hash * 59 + this.AmountDetails.GetHashCode();
-                if (this.IsCryptocurrencyPurchase != null)
-                    hash = hash * 59 + this.IsCryptocurrencyPurchase.GetHashCode();
-                if (this.Surcharge != null)
-                    hash = hash * 59 + this.Surcharge.GetHashCode();
                 return hash;
             }
         }

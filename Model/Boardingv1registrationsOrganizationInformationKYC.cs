@@ -124,65 +124,17 @@ namespace CyberSource.Model
         /// <param name="DepositBankAccount">DepositBankAccount.</param>
         public Boardingv1registrationsOrganizationInformationKYC(WhenIsCustomerChargedEnum? WhenIsCustomerCharged = default(WhenIsCustomerChargedEnum?), string WhenIsCustomerChargedDescription = default(string), bool? OfferSubscriptions = default(bool?), decimal? MonthlySubscriptionPercent = default(decimal?), decimal? QuarterlySubscriptionPercent = default(decimal?), decimal? SemiAnnualSubscriptionPercent = default(decimal?), decimal? AnnualSubscriptionPercent = default(decimal?), TimeToProductDeliveryEnum? TimeToProductDelivery = default(TimeToProductDeliveryEnum?), decimal? EstimatedMonthlySales = default(decimal?), decimal? AverageOrderAmount = default(decimal?), decimal? LargestExpectedOrderAmount = default(decimal?), Boardingv1registrationsOrganizationInformationKYCDepositBankAccount DepositBankAccount = default(Boardingv1registrationsOrganizationInformationKYCDepositBankAccount))
         {
-            // to ensure "WhenIsCustomerCharged" is required (not null)
-            if (WhenIsCustomerCharged == null)
-            {
-                throw new InvalidDataException("WhenIsCustomerCharged is a required property for Boardingv1registrationsOrganizationInformationKYC and cannot be null");
-            }
-            else
-            {
-                this.WhenIsCustomerCharged = WhenIsCustomerCharged;
-            }
-            // to ensure "OfferSubscriptions" is required (not null)
-            if (OfferSubscriptions == null)
-            {
-                throw new InvalidDataException("OfferSubscriptions is a required property for Boardingv1registrationsOrganizationInformationKYC and cannot be null");
-            }
-            else
-            {
-                this.OfferSubscriptions = OfferSubscriptions;
-            }
-            // to ensure "TimeToProductDelivery" is required (not null)
-            if (TimeToProductDelivery == null)
-            {
-                throw new InvalidDataException("TimeToProductDelivery is a required property for Boardingv1registrationsOrganizationInformationKYC and cannot be null");
-            }
-            else
-            {
-                this.TimeToProductDelivery = TimeToProductDelivery;
-            }
-            // to ensure "EstimatedMonthlySales" is required (not null)
-            if (EstimatedMonthlySales == null)
-            {
-                throw new InvalidDataException("EstimatedMonthlySales is a required property for Boardingv1registrationsOrganizationInformationKYC and cannot be null");
-            }
-            else
-            {
-                this.EstimatedMonthlySales = EstimatedMonthlySales;
-            }
-            // to ensure "AverageOrderAmount" is required (not null)
-            if (AverageOrderAmount == null)
-            {
-                throw new InvalidDataException("AverageOrderAmount is a required property for Boardingv1registrationsOrganizationInformationKYC and cannot be null");
-            }
-            else
-            {
-                this.AverageOrderAmount = AverageOrderAmount;
-            }
-            // to ensure "LargestExpectedOrderAmount" is required (not null)
-            if (LargestExpectedOrderAmount == null)
-            {
-                throw new InvalidDataException("LargestExpectedOrderAmount is a required property for Boardingv1registrationsOrganizationInformationKYC and cannot be null");
-            }
-            else
-            {
-                this.LargestExpectedOrderAmount = LargestExpectedOrderAmount;
-            }
+            this.WhenIsCustomerCharged = WhenIsCustomerCharged;
             this.WhenIsCustomerChargedDescription = WhenIsCustomerChargedDescription;
+            this.OfferSubscriptions = OfferSubscriptions;
             this.MonthlySubscriptionPercent = MonthlySubscriptionPercent;
             this.QuarterlySubscriptionPercent = QuarterlySubscriptionPercent;
             this.SemiAnnualSubscriptionPercent = SemiAnnualSubscriptionPercent;
             this.AnnualSubscriptionPercent = AnnualSubscriptionPercent;
+            this.TimeToProductDelivery = TimeToProductDelivery;
+            this.EstimatedMonthlySales = EstimatedMonthlySales;
+            this.AverageOrderAmount = AverageOrderAmount;
+            this.LargestExpectedOrderAmount = LargestExpectedOrderAmount;
             this.DepositBankAccount = DepositBankAccount;
         }
         

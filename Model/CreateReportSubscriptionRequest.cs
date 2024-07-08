@@ -53,71 +53,15 @@ namespace CyberSource.Model
         /// <param name="GroupName">Valid GroupName.</param>
         public CreateReportSubscriptionRequest(string OrganizationId = default(string), string ReportDefinitionName = default(string), List<string> ReportFields = default(List<string>), string ReportMimeType = default(string), string ReportFrequency = default(string), string ReportInterval = default(string), string ReportName = default(string), string Timezone = default(string), string StartTime = default(string), int? StartDay = default(int?), Dictionary<string, List<string>> ReportFilters = default(Dictionary<string, List<string>>), Reportingv3reportsReportPreferences ReportPreferences = default(Reportingv3reportsReportPreferences), string GroupName = default(string))
         {
-            // to ensure "ReportDefinitionName" is required (not null)
-            if (ReportDefinitionName == null)
-            {
-                throw new InvalidDataException("ReportDefinitionName is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.ReportDefinitionName = ReportDefinitionName;
-            }
-            // to ensure "ReportFields" is required (not null)
-            if (ReportFields == null)
-            {
-                throw new InvalidDataException("ReportFields is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.ReportFields = ReportFields;
-            }
-            // to ensure "ReportMimeType" is required (not null)
-            if (ReportMimeType == null)
-            {
-                throw new InvalidDataException("ReportMimeType is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.ReportMimeType = ReportMimeType;
-            }
-            // to ensure "ReportFrequency" is required (not null)
-            if (ReportFrequency == null)
-            {
-                throw new InvalidDataException("ReportFrequency is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.ReportFrequency = ReportFrequency;
-            }
-            // to ensure "ReportName" is required (not null)
-            if (ReportName == null)
-            {
-                throw new InvalidDataException("ReportName is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.ReportName = ReportName;
-            }
-            // to ensure "Timezone" is required (not null)
-            if (Timezone == null)
-            {
-                throw new InvalidDataException("Timezone is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.Timezone = Timezone;
-            }
-            // to ensure "StartTime" is required (not null)
-            if (StartTime == null)
-            {
-                throw new InvalidDataException("StartTime is a required property for CreateReportSubscriptionRequest and cannot be null");
-            }
-            else
-            {
-                this.StartTime = StartTime;
-            }
             this.OrganizationId = OrganizationId;
+            this.ReportDefinitionName = ReportDefinitionName;
+            this.ReportFields = ReportFields;
+            this.ReportMimeType = ReportMimeType;
+            this.ReportFrequency = ReportFrequency;
             this.ReportInterval = ReportInterval;
+            this.ReportName = ReportName;
+            this.Timezone = Timezone;
+            this.StartTime = StartTime;
             this.StartDay = StartDay;
             this.ReportFilters = ReportFilters;
             this.ReportPreferences = ReportPreferences;
@@ -383,53 +327,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // OrganizationId (string) pattern
-            Regex regexOrganizationId = new Regex(@"[a-zA-Z0-9-_]+", RegexOptions.CultureInvariant);
-            if (false == regexOrganizationId.Match(this.OrganizationId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OrganizationId, must match a pattern of " + regexOrganizationId, new [] { "OrganizationId" });
-            }
-
-            // ReportDefinitionName (string) pattern
-            Regex regexReportDefinitionName = new Regex(@"[a-zA-Z0-9-]+", RegexOptions.CultureInvariant);
-            if (false == regexReportDefinitionName.Match(this.ReportDefinitionName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportDefinitionName, must match a pattern of " + regexReportDefinitionName, new [] { "ReportDefinitionName" });
-            }
-
-            // ReportInterval (string) pattern
-            Regex regexReportInterval = new Regex(@"^PT((([1-9]|1[0-9]|2[0-3])H(([1-9]|[1-4][0-9]|5[0-9])M)?)|((([1-9]|1[0-9]|2[0-3])H)?([1-9]|[1-4][0-9]|5[0-9])M))$", RegexOptions.CultureInvariant);
-            if (false == regexReportInterval.Match(this.ReportInterval).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportInterval, must match a pattern of " + regexReportInterval, new [] { "ReportInterval" });
-            }
-
-            // ReportName (string) pattern
-            Regex regexReportName = new Regex(@"[a-zA-Z0-9-_ ]+", RegexOptions.CultureInvariant);
-            if (false == regexReportName.Match(this.ReportName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportName, must match a pattern of " + regexReportName, new [] { "ReportName" });
-            }
-
-            // StartDay (int?) maximum
-            if(this.StartDay >= (int?)31)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value less than or equal to 31.", new [] { "StartDay" });
-            }
-
-            // StartDay (int?) minimum
-            if(this.StartDay <= (int?)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDay, must be a value greater than or equal to 1.", new [] { "StartDay" });
-            }
-
-            // GroupName (string) pattern
-            Regex regexGroupName = new Regex(@"[a-zA-Z0-9-_ ]+", RegexOptions.CultureInvariant);
-            if (false == regexGroupName.Match(this.GroupName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GroupName, must match a pattern of " + regexGroupName, new [] { "GroupName" });
-            }
-
             yield break;
         }
     }

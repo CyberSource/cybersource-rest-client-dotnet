@@ -50,79 +50,31 @@ namespace CyberSource.Model
         /// <param name="SolutionOrganizationId">Solution organization id.</param>
         public ECheckConfigUnderwriting(string StandardEntryClassCodes = "CCD,PPD,TEL,WEB", bool? EnableHold = true, decimal? MonthlyTotalTransactionAmountLimit = default(decimal?), decimal? HoldingDays = default(decimal?), bool? EnableCredits = default(bool?), decimal? TransactionAmountLimit = default(decimal?), string RiskReserveMethod = default(string), decimal? RiskReserveRate = default(decimal?), decimal? RiskReserveTargetAmount = default(decimal?), string SolutionOrganizationId = default(string))
         {
-            // to ensure "StandardEntryClassCodes" is required (not null)
+            // use default value if no "StandardEntryClassCodes" provided
             if (StandardEntryClassCodes == null)
             {
-                throw new InvalidDataException("StandardEntryClassCodes is a required property for ECheckConfigUnderwriting and cannot be null");
+                this.StandardEntryClassCodes = "CCD,PPD,TEL,WEB";
             }
             else
             {
                 this.StandardEntryClassCodes = StandardEntryClassCodes;
             }
-            // to ensure "EnableHold" is required (not null)
+            // use default value if no "EnableHold" provided
             if (EnableHold == null)
             {
-                throw new InvalidDataException("EnableHold is a required property for ECheckConfigUnderwriting and cannot be null");
+                this.EnableHold = true;
             }
             else
             {
                 this.EnableHold = EnableHold;
             }
-            // to ensure "MonthlyTotalTransactionAmountLimit" is required (not null)
-            if (MonthlyTotalTransactionAmountLimit == null)
-            {
-                throw new InvalidDataException("MonthlyTotalTransactionAmountLimit is a required property for ECheckConfigUnderwriting and cannot be null");
-            }
-            else
-            {
-                this.MonthlyTotalTransactionAmountLimit = MonthlyTotalTransactionAmountLimit;
-            }
-            // to ensure "HoldingDays" is required (not null)
-            if (HoldingDays == null)
-            {
-                throw new InvalidDataException("HoldingDays is a required property for ECheckConfigUnderwriting and cannot be null");
-            }
-            else
-            {
-                this.HoldingDays = HoldingDays;
-            }
-            // to ensure "TransactionAmountLimit" is required (not null)
-            if (TransactionAmountLimit == null)
-            {
-                throw new InvalidDataException("TransactionAmountLimit is a required property for ECheckConfigUnderwriting and cannot be null");
-            }
-            else
-            {
-                this.TransactionAmountLimit = TransactionAmountLimit;
-            }
-            // to ensure "RiskReserveMethod" is required (not null)
-            if (RiskReserveMethod == null)
-            {
-                throw new InvalidDataException("RiskReserveMethod is a required property for ECheckConfigUnderwriting and cannot be null");
-            }
-            else
-            {
-                this.RiskReserveMethod = RiskReserveMethod;
-            }
-            // to ensure "RiskReserveRate" is required (not null)
-            if (RiskReserveRate == null)
-            {
-                throw new InvalidDataException("RiskReserveRate is a required property for ECheckConfigUnderwriting and cannot be null");
-            }
-            else
-            {
-                this.RiskReserveRate = RiskReserveRate;
-            }
-            // to ensure "RiskReserveTargetAmount" is required (not null)
-            if (RiskReserveTargetAmount == null)
-            {
-                throw new InvalidDataException("RiskReserveTargetAmount is a required property for ECheckConfigUnderwriting and cannot be null");
-            }
-            else
-            {
-                this.RiskReserveTargetAmount = RiskReserveTargetAmount;
-            }
+            this.MonthlyTotalTransactionAmountLimit = MonthlyTotalTransactionAmountLimit;
+            this.HoldingDays = HoldingDays;
             this.EnableCredits = EnableCredits;
+            this.TransactionAmountLimit = TransactionAmountLimit;
+            this.RiskReserveMethod = RiskReserveMethod;
+            this.RiskReserveRate = RiskReserveRate;
+            this.RiskReserveTargetAmount = RiskReserveTargetAmount;
             this.SolutionOrganizationId = SolutionOrganizationId;
         }
         

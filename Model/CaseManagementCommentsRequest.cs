@@ -41,15 +41,7 @@ namespace CyberSource.Model
         /// <param name="Comments">Comments to be added to case. (required).</param>
         public CaseManagementCommentsRequest(string Comments = default(string))
         {
-            // to ensure "Comments" is required (not null)
-            if (Comments == null)
-            {
-                throw new InvalidDataException("Comments is a required property for CaseManagementCommentsRequest and cannot be null");
-            }
-            else
-            {
-                this.Comments = Comments;
-            }
+            this.Comments = Comments;
         }
         
         /// <summary>

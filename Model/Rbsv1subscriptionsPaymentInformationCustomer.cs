@@ -41,15 +41,7 @@ namespace CyberSource.Model
         /// <param name="Id">Unique identifier for the Customer token used in the transaction. When you include this value in your request, many of the fields that are normally required for an authorization or credit become optional.  (required).</param>
         public Rbsv1subscriptionsPaymentInformationCustomer(string Id = default(string))
         {
-            // to ensure "Id" is required (not null)
-            if (Id == null)
-            {
-                throw new InvalidDataException("Id is a required property for Rbsv1subscriptionsPaymentInformationCustomer and cannot be null");
-            }
-            else
-            {
-                this.Id = Id;
-            }
+            this.Id = Id;
         }
         
         /// <summary>

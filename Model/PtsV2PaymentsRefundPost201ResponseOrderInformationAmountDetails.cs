@@ -35,8 +35,8 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="SettlementAmount">This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder&#39;s account. This field is returned for OCT transactions. .</param>
         /// <param name="SettlementCurrency">This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. This field is returned for OCT transactions. .</param>
-        /// <param name="ExchangeRate">Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places.  For details, see &#x60;exchange_rate&#x60; request-level field description in the [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf) .</param>
-        /// <param name="ForeignAmount">Set this field to the converted amount that was returned by the DCC provider. For processor-specific information, see the &#x60;foreign_amount&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) .</param>
+        /// <param name="ExchangeRate">Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places. .</param>
+        /// <param name="ForeignAmount">Set this field to the converted amount that was returned by the DCC provider. .</param>
         /// <param name="ForeignCurrency">Set this field to the converted amount that was returned by the DCC provider. .</param>
         public PtsV2PaymentsRefundPost201ResponseOrderInformationAmountDetails(string SettlementAmount = default(string), string SettlementCurrency = default(string), string ExchangeRate = default(string), string ForeignAmount = default(string), string ForeignCurrency = default(string))
         {
@@ -62,16 +62,16 @@ namespace CyberSource.Model
         public string SettlementCurrency { get; set; }
 
         /// <summary>
-        /// Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places.  For details, see &#x60;exchange_rate&#x60; request-level field description in the [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf) 
+        /// Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places. 
         /// </summary>
-        /// <value>Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places.  For details, see &#x60;exchange_rate&#x60; request-level field description in the [Dynamic Currency Conversion For First Data Using the SCMP API](http://apps.cybersource.com/library/documentation/dev_guides/DCC_FirstData_SCMP/DCC_FirstData_SCMP_API.pdf) </value>
+        /// <value>Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places. </value>
         [DataMember(Name="exchangeRate", EmitDefaultValue=false)]
         public string ExchangeRate { get; set; }
 
         /// <summary>
-        /// Set this field to the converted amount that was returned by the DCC provider. For processor-specific information, see the &#x60;foreign_amount&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) 
+        /// Set this field to the converted amount that was returned by the DCC provider. 
         /// </summary>
-        /// <value>Set this field to the converted amount that was returned by the DCC provider. For processor-specific information, see the &#x60;foreign_amount&#x60; field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/) </value>
+        /// <value>Set this field to the converted amount that was returned by the DCC provider. </value>
         [DataMember(Name="foreignAmount", EmitDefaultValue=false)]
         public string ForeignAmount { get; set; }
 

@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Kmsv2keyssymClientReferenceInformation" /> class.
         /// </summary>
         /// <param name="Code">Client-generated order reference or tracking number. CyberSource recommends that you send a unique value. .</param>
-        /// <param name="Comments">Comments.</param>
+        /// <param name="Comments">Brief description of the order or any comment you wish to add to the order..</param>
         /// <param name="Partner">Partner.</param>
         public Kmsv2keyssymClientReferenceInformation(string Code = default(string), string Comments = default(string), Riskv1decisionsClientReferenceInformationPartner Partner = default(Riskv1decisionsClientReferenceInformationPartner))
         {
@@ -51,9 +51,9 @@ namespace CyberSource.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// Comments
+        /// Brief description of the order or any comment you wish to add to the order.
         /// </summary>
-        /// <value>Comments</value>
+        /// <value>Brief description of the order or any comment you wish to add to the order.</value>
         [DataMember(Name="comments", EmitDefaultValue=false)]
         public string Comments { get; set; }
 

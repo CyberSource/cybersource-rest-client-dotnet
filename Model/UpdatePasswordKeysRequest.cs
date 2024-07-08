@@ -42,24 +42,8 @@ namespace CyberSource.Model
         /// <param name="OrganizationId">Organization Id (required).</param>
         public UpdatePasswordKeysRequest(string Status = default(string), string OrganizationId = default(string))
         {
-            // to ensure "Status" is required (not null)
-            if (Status == null)
-            {
-                throw new InvalidDataException("Status is a required property for UpdatePasswordKeysRequest and cannot be null");
-            }
-            else
-            {
-                this.Status = Status;
-            }
-            // to ensure "OrganizationId" is required (not null)
-            if (OrganizationId == null)
-            {
-                throw new InvalidDataException("OrganizationId is a required property for UpdatePasswordKeysRequest and cannot be null");
-            }
-            else
-            {
-                this.OrganizationId = OrganizationId;
-            }
+            this.Status = Status;
+            this.OrganizationId = OrganizationId;
         }
         
         /// <summary>

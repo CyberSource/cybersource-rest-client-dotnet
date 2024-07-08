@@ -43,25 +43,9 @@ namespace CyberSource.Model
         /// <param name="KeyId">Key Serial Number (required).</param>
         public Kmsv2keyssymdeletesKeyInformation(string OrganizationId = default(string), string ReferenceNumber = default(string), string KeyId = default(string))
         {
-            // to ensure "OrganizationId" is required (not null)
-            if (OrganizationId == null)
-            {
-                throw new InvalidDataException("OrganizationId is a required property for Kmsv2keyssymdeletesKeyInformation and cannot be null");
-            }
-            else
-            {
-                this.OrganizationId = OrganizationId;
-            }
-            // to ensure "KeyId" is required (not null)
-            if (KeyId == null)
-            {
-                throw new InvalidDataException("KeyId is a required property for Kmsv2keyssymdeletesKeyInformation and cannot be null");
-            }
-            else
-            {
-                this.KeyId = KeyId;
-            }
+            this.OrganizationId = OrganizationId;
             this.ReferenceNumber = ReferenceNumber;
+            this.KeyId = KeyId;
         }
         
         /// <summary>

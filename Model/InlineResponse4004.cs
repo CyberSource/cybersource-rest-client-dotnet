@@ -46,24 +46,8 @@ namespace CyberSource.Model
         /// <param name="Fields">Error fields List.</param>
         public InlineResponse4004(string Code = default(string), string Message = default(string), string LocalizationKey = default(string), string CorrelationId = default(string), string Detail = default(string), List<InlineResponse4004Fields> Fields = default(List<InlineResponse4004Fields>))
         {
-            // to ensure "Code" is required (not null)
-            if (Code == null)
-            {
-                throw new InvalidDataException("Code is a required property for InlineResponse4004 and cannot be null");
-            }
-            else
-            {
-                this.Code = Code;
-            }
-            // to ensure "Message" is required (not null)
-            if (Message == null)
-            {
-                throw new InvalidDataException("Message is a required property for InlineResponse4004 and cannot be null");
-            }
-            else
-            {
-                this.Message = Message;
-            }
+            this.Code = Code;
+            this.Message = Message;
             this.LocalizationKey = LocalizationKey;
             this.CorrelationId = CorrelationId;
             this.Detail = Detail;

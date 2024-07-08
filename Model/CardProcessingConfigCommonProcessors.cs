@@ -164,20 +164,12 @@ namespace CyberSource.Model
         /// <param name="MerchantTier">Merchant Tier defines the type of merchant, the numeric Merchant Tier value is allocated by EFTPOS. Applicable for EFTPOS processors..</param>
         public CardProcessingConfigCommonProcessors(string BatchGroup = default(string), string BusinessApplicationId = default(string), string MerchantVerificationValue = default(string), string AbaNumber = default(string), CardProcessingConfigCommonAcquirer Acquirer = default(CardProcessingConfigCommonAcquirer), string MerchantId = default(string), string TerminalId = default(string), Dictionary<string, CardProcessingConfigCommonPaymentTypes> PaymentTypes = default(Dictionary<string, CardProcessingConfigCommonPaymentTypes>), Dictionary<string, CardProcessingConfigCommonCurrencies1> Currencies = default(Dictionary<string, CardProcessingConfigCommonCurrencies1>), string SicCode = default(string), bool? AllowMultipleBills = default(bool?), bool? AllowMerchantDescriptorOverride = default(bool?), string EnhancedData = default(string), bool? FireSafetyIndicator = default(bool?), bool? QuasiCash = default(bool?), string AcquirerMerchantId = default(string), string AvsFormat = default(string), bool? EnableLongTransRefNo = default(bool?), bool? EnableLevel2 = default(bool?), bool? EnableMultipleTransactionAdviceAddendum = default(bool?), string AmexTransactionAdviceAddendum1 = default(string), bool? EnableMultiLineItems = default(bool?), bool? EnableTransactionReferenceNumber = default(bool?), bool? EnableAutoAuthReversalAfterVoid = default(bool?), bool? EnableExpresspayPanTranslation = default(bool?), bool? EnableCreditAuth = default(bool?), IndustryCodeEnum? IndustryCode = default(IndustryCodeEnum?), bool? SendAmexLevel2Data = default(bool?), string SoftDescriptorType = default(string), string VitalNumber = default(string), string BankNumber = default(string), string ChainNumber = default(string), string MerchantBinNumber = default(string), string MerchantLocationNumber = default(string), string StoreID = default(string), string TravelAgencyCode = default(string), string TravelAgencyName = default(string), string SettlementCurrency = default(string), bool? EnableLeastCostRouting = default(bool?), bool? EnableCVVResponseIndicator = default(bool?), string EnableMultiCurrencyProcessing = default(string), bool? EnablePosNetworkSwitching = default(bool?), bool? EnableDynamicCurrencyConversion = default(bool?), string MerchantTier = default(string))
         {
-            // to ensure "MerchantId" is required (not null)
-            if (MerchantId == null)
-            {
-                throw new InvalidDataException("MerchantId is a required property for CardProcessingConfigCommonProcessors and cannot be null");
-            }
-            else
-            {
-                this.MerchantId = MerchantId;
-            }
             this.BatchGroup = BatchGroup;
             this.BusinessApplicationId = BusinessApplicationId;
             this.MerchantVerificationValue = MerchantVerificationValue;
             this.AbaNumber = AbaNumber;
             this.Acquirer = Acquirer;
+            this.MerchantId = MerchantId;
             this.TerminalId = TerminalId;
             this.PaymentTypes = PaymentTypes;
             this.Currencies = Currencies;
@@ -939,13 +931,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // MerchantTier (string) pattern
-            Regex regexMerchantTier = new Regex(@"^[0-9]+$", RegexOptions.CultureInvariant);
-            if (false == regexMerchantTier.Match(this.MerchantTier).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantTier, must match a pattern of " + regexMerchantTier, new [] { "MerchantTier" });
-            }
-
             yield break;
         }
     }

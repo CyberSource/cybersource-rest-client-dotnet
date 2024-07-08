@@ -139,18 +139,6 @@ namespace CyberSource.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // NumberOfNights (int?) maximum
-            if(this.NumberOfNights >= (int?)9999)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfNights, must be a value less than or equal to 9999.", new [] { "NumberOfNights" });
-            }
-
-            // NumberOfNights (int?) minimum
-            if(this.NumberOfNights <= (int?)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfNights, must be a value greater than or equal to 1.", new [] { "NumberOfNights" });
-            }
-
             yield break;
         }
     }

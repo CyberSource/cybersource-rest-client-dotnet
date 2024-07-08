@@ -145,14 +145,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Country'
         }
         /// <summary>
-        /// Test the property 'VatRegistrationNumber'
-        /// </summary>
-        [Test]
-        public void VatRegistrationNumberTest()
-        {
-            // TODO unit test for the property 'VatRegistrationNumber'
-        }
-        /// <summary>
         /// Test the property 'DateOfBirth'
         /// </summary>
         [Test]

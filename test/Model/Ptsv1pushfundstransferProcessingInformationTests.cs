@@ -73,60 +73,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'BusinessApplicationId'
         }
         /// <summary>
-        /// Test the property 'CommerceIndicator'
-        /// </summary>
-        [Test]
-        public void CommerceIndicatorTest()
-        {
-            // TODO unit test for the property 'CommerceIndicator'
-        }
-        /// <summary>
-        /// Test the property 'NetworkRoutingOrder'
-        /// </summary>
-        [Test]
-        public void NetworkRoutingOrderTest()
-        {
-            // TODO unit test for the property 'NetworkRoutingOrder'
-        }
-        /// <summary>
         /// Test the property 'PayoutsOptions'
         /// </summary>
         [Test]
         public void PayoutsOptionsTest()
         {
             // TODO unit test for the property 'PayoutsOptions'
-        }
-        /// <summary>
-        /// Test the property 'PurposeOfPayment'
-        /// </summary>
-        [Test]
-        public void PurposeOfPaymentTest()
-        {
-            // TODO unit test for the property 'PurposeOfPayment'
-        }
-        /// <summary>
-        /// Test the property 'ReconciliationId'
-        /// </summary>
-        [Test]
-        public void ReconciliationIdTest()
-        {
-            // TODO unit test for the property 'ReconciliationId'
-        }
-        /// <summary>
-        /// Test the property 'RecurringOptions'
-        /// </summary>
-        [Test]
-        public void RecurringOptionsTest()
-        {
-            // TODO unit test for the property 'RecurringOptions'
-        }
-        /// <summary>
-        /// Test the property 'TransactionReason'
-        /// </summary>
-        [Test]
-        public void TransactionReasonTest()
-        {
-            // TODO unit test for the property 'TransactionReason'
         }
 
     }

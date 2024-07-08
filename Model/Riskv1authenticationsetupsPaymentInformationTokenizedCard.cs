@@ -45,51 +45,11 @@ namespace CyberSource.Model
         /// <param name="Number">Customer&#39;s payment network token value.  (required).</param>
         public Riskv1authenticationsetupsPaymentInformationTokenizedCard(string TransactionType = default(string), string Type = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Number = default(string))
         {
-            // to ensure "TransactionType" is required (not null)
-            if (TransactionType == null)
-            {
-                throw new InvalidDataException("TransactionType is a required property for Riskv1authenticationsetupsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.TransactionType = TransactionType;
-            }
-            // to ensure "Type" is required (not null)
-            if (Type == null)
-            {
-                throw new InvalidDataException("Type is a required property for Riskv1authenticationsetupsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.Type = Type;
-            }
-            // to ensure "ExpirationMonth" is required (not null)
-            if (ExpirationMonth == null)
-            {
-                throw new InvalidDataException("ExpirationMonth is a required property for Riskv1authenticationsetupsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.ExpirationMonth = ExpirationMonth;
-            }
-            // to ensure "ExpirationYear" is required (not null)
-            if (ExpirationYear == null)
-            {
-                throw new InvalidDataException("ExpirationYear is a required property for Riskv1authenticationsetupsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.ExpirationYear = ExpirationYear;
-            }
-            // to ensure "Number" is required (not null)
-            if (Number == null)
-            {
-                throw new InvalidDataException("Number is a required property for Riskv1authenticationsetupsPaymentInformationTokenizedCard and cannot be null");
-            }
-            else
-            {
-                this.Number = Number;
-            }
+            this.TransactionType = TransactionType;
+            this.Type = Type;
+            this.ExpirationMonth = ExpirationMonth;
+            this.ExpirationYear = ExpirationYear;
+            this.Number = Number;
         }
         
         /// <summary>

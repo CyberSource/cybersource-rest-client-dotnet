@@ -69,15 +69,7 @@ namespace CyberSource.Model
         /// <param name="DigestAlgorithm">Algorithm for message signature authentication  (default to DigestAlgorithmEnum.HMACSHA2).</param>
         public Kmsv2keyssymverifiKeyInformation(string OrganizationId = default(string), string ReferenceNumber = default(string), DigestAlgorithmEnum? DigestAlgorithm = DigestAlgorithmEnum.HMACSHA2)
         {
-            // to ensure "OrganizationId" is required (not null)
-            if (OrganizationId == null)
-            {
-                throw new InvalidDataException("OrganizationId is a required property for Kmsv2keyssymverifiKeyInformation and cannot be null");
-            }
-            else
-            {
-                this.OrganizationId = OrganizationId;
-            }
+            this.OrganizationId = OrganizationId;
             this.ReferenceNumber = ReferenceNumber;
             // use default value if no "DigestAlgorithm" provided
             if (DigestAlgorithm == null)

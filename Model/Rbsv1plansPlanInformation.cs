@@ -46,27 +46,11 @@ namespace CyberSource.Model
         /// <param name="BillingCycles">BillingCycles.</param>
         public Rbsv1plansPlanInformation(string Code = default(string), string Name = default(string), string Description = default(string), string Status = default(string), GetAllPlansResponsePlanInformationBillingPeriod BillingPeriod = default(GetAllPlansResponsePlanInformationBillingPeriod), Rbsv1plansPlanInformationBillingCycles BillingCycles = default(Rbsv1plansPlanInformationBillingCycles))
         {
-            // to ensure "Name" is required (not null)
-            if (Name == null)
-            {
-                throw new InvalidDataException("Name is a required property for Rbsv1plansPlanInformation and cannot be null");
-            }
-            else
-            {
-                this.Name = Name;
-            }
-            // to ensure "BillingPeriod" is required (not null)
-            if (BillingPeriod == null)
-            {
-                throw new InvalidDataException("BillingPeriod is a required property for Rbsv1plansPlanInformation and cannot be null");
-            }
-            else
-            {
-                this.BillingPeriod = BillingPeriod;
-            }
             this.Code = Code;
+            this.Name = Name;
             this.Description = Description;
             this.Status = Status;
+            this.BillingPeriod = BillingPeriod;
             this.BillingCycles = BillingCycles;
         }
         

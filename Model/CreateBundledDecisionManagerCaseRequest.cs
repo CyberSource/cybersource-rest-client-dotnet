@@ -56,19 +56,11 @@ namespace CyberSource.Model
         /// <param name="TokenInformation">TokenInformation.</param>
         public CreateBundledDecisionManagerCaseRequest(Riskv1decisionsClientReferenceInformation ClientReferenceInformation = default(Riskv1decisionsClientReferenceInformation), Riskv1decisionsProcessorInformation ProcessorInformation = default(Riskv1decisionsProcessorInformation), Riskv1decisionsProcessingInformation ProcessingInformation = default(Riskv1decisionsProcessingInformation), Riskv1decisionsPaymentInformation PaymentInformation = default(Riskv1decisionsPaymentInformation), Riskv1decisionsOrderInformation OrderInformation = default(Riskv1decisionsOrderInformation), Riskv1decisionsBuyerInformation BuyerInformation = default(Riskv1decisionsBuyerInformation), Riskv1decisionsDeviceInformation DeviceInformation = default(Riskv1decisionsDeviceInformation), Riskv1decisionsRiskInformation RiskInformation = default(Riskv1decisionsRiskInformation), Riskv1decisionsTravelInformation TravelInformation = default(Riskv1decisionsTravelInformation), List<Riskv1decisionsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Riskv1decisionsMerchantDefinedInformation>), Riskv1decisionsMerchantInformation MerchantInformation = default(Riskv1decisionsMerchantInformation), Riskv1decisionsAcquirerInformation AcquirerInformation = default(Riskv1decisionsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation), Riskv1decisionsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1decisionsConsumerAuthenticationInformation), Ptsv2paymentsWatchlistScreeningInformation WatchlistScreeningInformation = default(Ptsv2paymentsWatchlistScreeningInformation), Riskv1decisionsTokenInformation TokenInformation = default(Riskv1decisionsTokenInformation))
         {
-            // to ensure "OrderInformation" is required (not null)
-            if (OrderInformation == null)
-            {
-                throw new InvalidDataException("OrderInformation is a required property for CreateBundledDecisionManagerCaseRequest and cannot be null");
-            }
-            else
-            {
-                this.OrderInformation = OrderInformation;
-            }
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessorInformation = ProcessorInformation;
             this.ProcessingInformation = ProcessingInformation;
             this.PaymentInformation = PaymentInformation;
+            this.OrderInformation = OrderInformation;
             this.BuyerInformation = BuyerInformation;
             this.DeviceInformation = DeviceInformation;
             this.RiskInformation = RiskInformation;

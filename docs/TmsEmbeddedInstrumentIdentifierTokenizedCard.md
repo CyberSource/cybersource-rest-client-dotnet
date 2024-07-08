@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** | The network token card association brand Possible Values: - visa - mastercard - americanexpress  | [optional] 
+**Source** | **string** | This enumeration value indicates the origin of the payment instrument (PAN) and the technique employed to supply the payment instrument data. Possible Values: - TOKEN - ISSUER - ONFILE  | [optional] 
 **State** | **string** | State of the network token or network token provision Possible Values: - ACTIVE : Network token is active. - SUSPENDED : Network token is suspended. This state can change back to ACTIVE. - DELETED : This is a final state for a network token instance. - UNPROVISIONED : A previous network token provision was unsuccessful.  | [optional] 
 **EnrollmentId** | **string** | Unique Identifier for the enrolled PAN. This Id is provided by the card association when a network token is provisioned successfully.  | [optional] 
 **TokenReferenceId** | **string** | Unique Identifier for the network token. This Id is provided by the card association when a network token is provisioned successfully.  | [optional] 
