@@ -31,7 +31,7 @@ jobs:
             - name: Upload the Dotnet Rest Client Build
               uses: actions/upload-artifact@v4
               with:
-                name: dotnet-build # discuss with Gaurav and gabriel about naming of the dll artifacts
+                name: dotnet-build # discuss with Gaurav and Gabriel about naming of the dll artifacts
                 path: |
                   ${{env.CLIENT_FOLDER}}
     build-the-samples-and-run-tests:
