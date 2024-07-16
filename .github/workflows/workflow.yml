@@ -60,7 +60,7 @@ jobs:
           uses: actions/checkout@v4
           with:
             repository: 'CyberSource/cybersource-rest-samples-csharp'
-            ref: 'testing-branch'
+            ref: 'master'
             path: ${{env.SAMPLE_FOLDER}}
         - name: Setup MSBuild
           uses: microsoft/setup-msbuild@v2
