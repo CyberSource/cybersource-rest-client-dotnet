@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PayoutsOptions'
         }
+        /// <summary>
+        /// Test the property 'EnablerId'
+        /// </summary>
+        [Test]
+        public void EnablerIdTest()
+        {
+            // TODO unit test for the property 'EnablerId'
+        }
 
     }
 

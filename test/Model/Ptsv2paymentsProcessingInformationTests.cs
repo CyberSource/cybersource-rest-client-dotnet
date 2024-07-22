@@ -185,14 +185,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'IntentsId'
         }
         /// <summary>
-        /// Test the property 'PaymentId'
-        /// </summary>
-        [Test]
-        public void PaymentIdTest()
-        {
-            // TODO unit test for the property 'PaymentId'
-        }
-        /// <summary>
         /// Test the property 'ReportGroup'
         /// </summary>
         [Test]
@@ -359,6 +351,14 @@ namespace CyberSource.Test
         public void PaymentTypeTest()
         {
             // TODO unit test for the property 'PaymentType'
+        }
+        /// <summary>
+        /// Test the property 'EnablerId'
+        /// </summary>
+        [Test]
+        public void EnablerIdTest()
+        {
+            // TODO unit test for the property 'EnablerId'
         }
 
     }

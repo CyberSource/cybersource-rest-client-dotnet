@@ -288,6 +288,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Order'
         }
+        /// <summary>
+        /// Test the property 'AnticipatedAmount'
+        /// </summary>
+        [Test]
+        public void AnticipatedAmountTest()
+        {
+            // TODO unit test for the property 'AnticipatedAmount'
+        }
 
     }
 

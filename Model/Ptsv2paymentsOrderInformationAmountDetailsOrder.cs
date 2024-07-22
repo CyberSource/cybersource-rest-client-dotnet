@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="HandlingAmount">Aggregate handling charges for the transaction. If this amount has changed since the initial sessions request, you must include the new value in the order request. You must also include all additional amount fields that apply to the order and ensure the total amount equals the purchaseTotals_grandTotalAmount value. .</param>
         /// <param name="ShippingAmount">Aggregate shipping charges for the transaction If this amount has changed since the initial sessions request, you must include the new value in the order request. You must also include all additional amount fields that apply to the order and ensure the total amount equals the purchaseTotals_grandTotalAmount value. .</param>
         /// <param name="ShippingDiscountAmount">Shipping discount amount for the transaction. If this amount has changed since the initial sessions request, you must include the new value in the order request. You must also include all additional amount fields that apply to the order and ensure the total amount equals the purchaseTotals_grandTotalAmount value. .</param>
-        /// <param name="TaxAmount">Total tax amount. When the purchaseTotals_ taxAmount and ap_subtotalAmount fields are included in the request, do not include the tax amount as part of the subtotal amount calculation.  .</param>
+        /// <param name="TaxAmount">Total tax amount. When the purchaseTotals_ taxAmount and ap_subtotalAmount fields are included in the request, do not include the tax amount as part of the subtotal amount calculation. .</param>
         /// <param name="InsuranceAmount">Amount being charged for the insurance fee. Only supported when the payment_method is set to paypal. .</param>
         /// <param name="GiftWrapAmount">Amount being charged as gift wrap fee.            .</param>
         public Ptsv2paymentsOrderInformationAmountDetailsOrder(string TotalAmount = default(string), string Currency = default(string), string SubTotalAmount = default(string), string HandlingAmount = default(string), string ShippingAmount = default(string), string ShippingDiscountAmount = default(string), string TaxAmount = default(string), string InsuranceAmount = default(string), string GiftWrapAmount = default(string))
@@ -98,9 +98,9 @@ namespace CyberSource.Model
         public string ShippingDiscountAmount { get; set; }
 
         /// <summary>
-        /// Total tax amount. When the purchaseTotals_ taxAmount and ap_subtotalAmount fields are included in the request, do not include the tax amount as part of the subtotal amount calculation.  
+        /// Total tax amount. When the purchaseTotals_ taxAmount and ap_subtotalAmount fields are included in the request, do not include the tax amount as part of the subtotal amount calculation. 
         /// </summary>
-        /// <value>Total tax amount. When the purchaseTotals_ taxAmount and ap_subtotalAmount fields are included in the request, do not include the tax amount as part of the subtotal amount calculation.  </value>
+        /// <value>Total tax amount. When the purchaseTotals_ taxAmount and ap_subtotalAmount fields are included in the request, do not include the tax amount as part of the subtotal amount calculation. </value>
         [DataMember(Name="taxAmount", EmitDefaultValue=false)]
         public string TaxAmount { get; set; }
 

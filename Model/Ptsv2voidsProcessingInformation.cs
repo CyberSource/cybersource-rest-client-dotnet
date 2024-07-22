@@ -33,18 +33,18 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2voidsProcessingInformation" /> class.
         /// </summary>
-        /// <param name="PaymentId">This field is to accept the id of credit/capture in the body of L1 requests so the type of void can be identified and processed correctly downstream..</param>
-        public Ptsv2voidsProcessingInformation(string PaymentId = default(string))
+        /// <param name="PaymentId">This field is to accept the id of credit/capture in the body of the requests so the type of void can be identified and processed correctly..</param>
+        public Ptsv2voidsProcessingInformation(Object PaymentId = default(Object))
         {
             this.PaymentId = PaymentId;
         }
         
         /// <summary>
-        /// This field is to accept the id of credit/capture in the body of L1 requests so the type of void can be identified and processed correctly downstream.
+        /// This field is to accept the id of credit/capture in the body of the requests so the type of void can be identified and processed correctly.
         /// </summary>
-        /// <value>This field is to accept the id of credit/capture in the body of L1 requests so the type of void can be identified and processed correctly downstream.</value>
+        /// <value>This field is to accept the id of credit/capture in the body of the requests so the type of void can be identified and processed correctly.</value>
         [DataMember(Name="paymentId", EmitDefaultValue=false)]
-        public string PaymentId { get; set; }
+        public Object PaymentId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

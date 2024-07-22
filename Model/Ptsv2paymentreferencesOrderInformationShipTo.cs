@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="FirstName">First name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
         /// <param name="MiddleName">Middle name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
         /// <param name="LastName">Last name of the recipient.  #### Litle Maximum length: 25  #### All other processors Maximum length: 60  Optional field. .</param>
-        /// <param name="Company">Name of the customer&#39;s company.  For processor-specific information, see the company_name field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) .</param>
+        /// <param name="Company">Name of the customer&#39;s company. .</param>
         /// <param name="Address1">First line of the shipping address.  Required field for authorization if any shipping address information is included in the request; otherwise, optional.  #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
         /// <param name="Address2">Second line of the shipping address.  Optional field.  #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
         /// <param name="District">Neighborhood, community, or region within a city or municipality..</param>
@@ -109,9 +109,9 @@ namespace CyberSource.Model
         public string LastName { get; set; }
 
         /// <summary>
-        /// Name of the customer&#39;s company.  For processor-specific information, see the company_name field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        /// Name of the customer&#39;s company. 
         /// </summary>
-        /// <value>Name of the customer&#39;s company.  For processor-specific information, see the company_name field in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) </value>
+        /// <value>Name of the customer&#39;s company. </value>
         [DataMember(Name="company", EmitDefaultValue=false)]
         public string Company { get; set; }
 
