@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponsePaymentInsightsInformation" /> class.
         /// </summary>
         /// <param name="ResponseInsights">ResponseInsights.</param>
-        public PtsV2PaymentsPost201ResponsePaymentInsightsInformation(PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights ResponseInsights = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights))
+        /// <param name="Orchestration">Orchestration.</param>
+        public PtsV2PaymentsPost201ResponsePaymentInsightsInformation(PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights ResponseInsights = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights), PtsV2PaymentsPost201ResponsePaymentInsightsInformationOrchestration Orchestration = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformationOrchestration))
         {
             this.ResponseInsights = ResponseInsights;
+            this.Orchestration = Orchestration;
         }
         
         /// <summary>
@@ -44,6 +46,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="responseInsights", EmitDefaultValue=false)]
         public PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights ResponseInsights { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Orchestration
+        /// </summary>
+        [DataMember(Name="orchestration", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponsePaymentInsightsInformationOrchestration Orchestration { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +62,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponsePaymentInsightsInformation {\n");
             sb.Append("  ResponseInsights: ").Append(ResponseInsights).Append("\n");
+            sb.Append("  Orchestration: ").Append(Orchestration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +103,11 @@ namespace CyberSource.Model
                     this.ResponseInsights == other.ResponseInsights ||
                     this.ResponseInsights != null &&
                     this.ResponseInsights.Equals(other.ResponseInsights)
+                ) && 
+                (
+                    this.Orchestration == other.Orchestration ||
+                    this.Orchestration != null &&
+                    this.Orchestration.Equals(other.Orchestration)
                 );
         }
 
@@ -110,6 +124,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.ResponseInsights != null)
                     hash = hash * 59 + this.ResponseInsights.GetHashCode();
+                if (this.Orchestration != null)
+                    hash = hash * 59 + this.Orchestration.GetHashCode();
                 return hash;
             }
         }

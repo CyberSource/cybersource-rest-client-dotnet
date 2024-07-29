@@ -35,8 +35,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhookRequest">The webhook payload (optional)</param>
-        /// <returns>InlineResponse2013</returns>
-        InlineResponse2013 CreateWebhookSubscription (CreateWebhookRequest createWebhookRequest = null);
+        /// <returns>InlineResponse2014</returns>
+        InlineResponse2014 CreateWebhookSubscription (CreateWebhookRequest createWebhookRequest = null);
 
         /// <summary>
         /// Create a Webhook
@@ -46,8 +46,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhookRequest">The webhook payload (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2013</returns>
-        ApiResponse<InlineResponse2013> CreateWebhookSubscriptionWithHttpInfo (CreateWebhookRequest createWebhookRequest = null);
+        /// <returns>ApiResponse of InlineResponse2014</returns>
+        ApiResponse<InlineResponse2014> CreateWebhookSubscriptionWithHttpInfo (CreateWebhookRequest createWebhookRequest = null);
         /// <summary>
         /// Find Products You Can Subscribe To
         /// </summary>
@@ -80,8 +80,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>InlineResponse2012</returns>
-        InlineResponse2012 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>InlineResponse2013</returns>
+        InlineResponse2013 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
 
         /// <summary>
         /// Create Webhook Security Keys
@@ -94,8 +94,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2012</returns>
-        ApiResponse<InlineResponse2012> SaveSymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        ApiResponse<InlineResponse2013> SaveSymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -106,8 +106,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhookRequest">The webhook payload (optional)</param>
-        /// <returns>Task of InlineResponse2013</returns>
-        System.Threading.Tasks.Task<InlineResponse2013> CreateWebhookSubscriptionAsync (CreateWebhookRequest createWebhookRequest = null);
+        /// <returns>Task of InlineResponse2014</returns>
+        System.Threading.Tasks.Task<InlineResponse2014> CreateWebhookSubscriptionAsync (CreateWebhookRequest createWebhookRequest = null);
 
         /// <summary>
         /// Create a Webhook
@@ -117,8 +117,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhookRequest">The webhook payload (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> CreateWebhookSubscriptionAsyncWithHttpInfo (CreateWebhookRequest createWebhookRequest = null);
+        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> CreateWebhookSubscriptionAsyncWithHttpInfo (CreateWebhookRequest createWebhookRequest = null);
         /// <summary>
         /// Find Products You Can Subscribe To
         /// </summary>
@@ -151,8 +151,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of InlineResponse2012</returns>
-        System.Threading.Tasks.Task<InlineResponse2012> SaveSymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>Task of InlineResponse2013</returns>
+        System.Threading.Tasks.Task<InlineResponse2013> SaveSymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
 
         /// <summary>
         /// Create Webhook Security Keys
@@ -165,8 +165,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2012)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> SaveSymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> SaveSymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
         #endregion Asynchronous Operations
     }
 
@@ -312,13 +312,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhookRequest">The webhook payload (optional)</param>
-        /// <returns>InlineResponse2013</returns>
+        /// <returns>InlineResponse2014</returns>
         /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public InlineResponse2013 CreateWebhookSubscription (CreateWebhookRequest createWebhookRequest = null)
+        public InlineResponse2014 CreateWebhookSubscription (CreateWebhookRequest createWebhookRequest = null)
         {
             logger.Debug("CALLING API \"CreateWebhookSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2013> localVarResponse = CreateWebhookSubscriptionWithHttpInfo(createWebhookRequest);
+            ApiResponse<InlineResponse2014> localVarResponse = CreateWebhookSubscriptionWithHttpInfo(createWebhookRequest);
             logger.Debug("CALLING API \"CreateWebhookSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -329,8 +329,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhookRequest">The webhook payload (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2013</returns>
-        public ApiResponse< InlineResponse2013 > CreateWebhookSubscriptionWithHttpInfo (CreateWebhookRequest createWebhookRequest = null)
+        /// <returns>ApiResponse of InlineResponse2014</returns>
+        public ApiResponse< InlineResponse2014 > CreateWebhookSubscriptionWithHttpInfo (CreateWebhookRequest createWebhookRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -397,9 +397,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
+                (InlineResponse2014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
         }
 
         /// <summary>
@@ -407,12 +407,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhookRequest">The webhook payload (optional)</param>
-        /// <returns>Task of InlineResponse2013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2013> CreateWebhookSubscriptionAsync (CreateWebhookRequest createWebhookRequest = null)
+        /// <returns>Task of InlineResponse2014</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2014> CreateWebhookSubscriptionAsync (CreateWebhookRequest createWebhookRequest = null)
         {
             logger.Debug("CALLING API \"CreateWebhookSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2013> localVarResponse = await CreateWebhookSubscriptionAsyncWithHttpInfo(createWebhookRequest);
+            ApiResponse<InlineResponse2014> localVarResponse = await CreateWebhookSubscriptionAsyncWithHttpInfo(createWebhookRequest);
             logger.Debug("CALLING API \"CreateWebhookSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -424,8 +424,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhookRequest">The webhook payload (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> CreateWebhookSubscriptionAsyncWithHttpInfo (CreateWebhookRequest createWebhookRequest = null)
+        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> CreateWebhookSubscriptionAsyncWithHttpInfo (CreateWebhookRequest createWebhookRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -492,9 +492,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
+                (InlineResponse2014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
         }
         /// <summary>
         /// Find Products You Can Subscribe To Retrieve a list of products and event types that your account is eligible for. These products and events are the ones that you may subscribe to in the next step of creating webhooks.
@@ -693,13 +693,13 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>InlineResponse2012</returns>
+        /// <returns>InlineResponse2013</returns>
         /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public InlineResponse2012 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+        public InlineResponse2013 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             logger.Debug("CALLING API \"SaveSymEgressKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2012> localVarResponse = SaveSymEgressKeyWithHttpInfo(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
+            ApiResponse<InlineResponse2013> localVarResponse = SaveSymEgressKeyWithHttpInfo(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
             logger.Debug("CALLING API \"SaveSymEgressKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -713,8 +713,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2012</returns>
-        public ApiResponse< InlineResponse2012 > SaveSymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        public ApiResponse< InlineResponse2013 > SaveSymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -805,9 +805,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2012>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2012) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2012))); // Return statement
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
         }
 
         /// <summary>
@@ -818,12 +818,12 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of InlineResponse2012</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2012> SaveSymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+        /// <returns>Task of InlineResponse2013</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2013> SaveSymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             logger.Debug("CALLING API \"SaveSymEgressKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2012> localVarResponse = await SaveSymEgressKeyAsyncWithHttpInfo(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
+            ApiResponse<InlineResponse2013> localVarResponse = await SaveSymEgressKeyAsyncWithHttpInfo(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
             logger.Debug("CALLING API \"SaveSymEgressKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -838,8 +838,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2012)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> SaveSymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> SaveSymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -930,9 +930,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2012>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2012) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2012))); // Return statement
+                (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
         }
     }
 }

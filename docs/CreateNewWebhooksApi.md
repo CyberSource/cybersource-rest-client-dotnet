@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="createwebhooksubscription"></a>
 # **CreateWebhookSubscription**
-> InlineResponse2013 CreateWebhookSubscription (CreateWebhookRequest createWebhookRequest = null)
+> InlineResponse2014 CreateWebhookSubscription (CreateWebhookRequest createWebhookRequest = null)
 
 Create a Webhook
 
@@ -37,7 +37,7 @@ namespace Example
             try
             {
                 // Create a Webhook
-                InlineResponse2013 result = apiInstance.CreateWebhookSubscription(createWebhookRequest);
+                InlineResponse2014 result = apiInstance.CreateWebhookSubscription(createWebhookRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ No authorization required
 
 <a name="savesymegresskey"></a>
 # **SaveSymEgressKey**
-> InlineResponse2012 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+> InlineResponse2013 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
 
 Create Webhook Security Keys
 
@@ -162,7 +162,7 @@ namespace Example
             try
             {
                 // Create Webhook Security Keys
-                InlineResponse2012 result = apiInstance.SaveSymEgressKey(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
+                InlineResponse2013 result = apiInstance.SaveSymEgressKey(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**InlineResponse2013**](InlineResponse2013.md)
 
 ### Authorization
 

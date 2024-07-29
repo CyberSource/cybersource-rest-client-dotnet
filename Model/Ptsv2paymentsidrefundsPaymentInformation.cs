@@ -44,7 +44,8 @@ namespace CyberSource.Model
         /// <param name="LegacyToken">LegacyToken.</param>
         /// <param name="PaymentType">PaymentType.</param>
         /// <param name="EWallet">EWallet.</param>
-        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsidrefundsPaymentInformationBank Bank = default(Ptsv2paymentsidrefundsPaymentInformationBank), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsidrefundsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsidrefundsPaymentInformationPaymentType), Ptsv2paymentsidrefundsPaymentInformationEWallet EWallet = default(Ptsv2paymentsidrefundsPaymentInformationEWallet))
+        /// <param name="PaymentAccountReference">PaymentAccountReference.</param>
+        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsidrefundsPaymentInformationBank Bank = default(Ptsv2paymentsidrefundsPaymentInformationBank), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsidrefundsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsidrefundsPaymentInformationPaymentType), Ptsv2paymentsidrefundsPaymentInformationEWallet EWallet = default(Ptsv2paymentsidrefundsPaymentInformationEWallet), Ptsv2paymentsPaymentInformationPaymentAccountReference PaymentAccountReference = default(Ptsv2paymentsPaymentInformationPaymentAccountReference))
         {
             this.Card = Card;
             this.Bank = Bank;
@@ -57,6 +58,7 @@ namespace CyberSource.Model
             this.LegacyToken = LegacyToken;
             this.PaymentType = PaymentType;
             this.EWallet = EWallet;
+            this.PaymentAccountReference = PaymentAccountReference;
         }
         
         /// <summary>
@@ -126,6 +128,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsidrefundsPaymentInformationEWallet EWallet { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentAccountReference
+        /// </summary>
+        [DataMember(Name="paymentAccountReference", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationPaymentAccountReference PaymentAccountReference { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -144,6 +152,7 @@ namespace CyberSource.Model
             sb.Append("  LegacyToken: ").Append(LegacyToken).Append("\n");
             sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("  EWallet: ").Append(EWallet).Append("\n");
+            sb.Append("  PaymentAccountReference: ").Append(PaymentAccountReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -234,6 +243,11 @@ namespace CyberSource.Model
                     this.EWallet == other.EWallet ||
                     this.EWallet != null &&
                     this.EWallet.Equals(other.EWallet)
+                ) && 
+                (
+                    this.PaymentAccountReference == other.PaymentAccountReference ||
+                    this.PaymentAccountReference != null &&
+                    this.PaymentAccountReference.Equals(other.PaymentAccountReference)
                 );
         }
 
@@ -270,6 +284,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentType.GetHashCode();
                 if (this.EWallet != null)
                     hash = hash * 59 + this.EWallet.GetHashCode();
+                if (this.PaymentAccountReference != null)
+                    hash = hash * 59 + this.PaymentAccountReference.GetHashCode();
                 return hash;
             }
         }

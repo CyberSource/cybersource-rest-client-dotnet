@@ -42,13 +42,12 @@ namespace CyberSource.Model
         /// <param name="BusinessApplicationId">Payouts transaction type. Required for OCT transactions. This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. **Note** When the request includes this field, this value overrides the information in your CyberSource account. .</param>
         /// <param name="CommerceIndicator">Type of transaction. Some payment card companies use this information when determining discount rates.  #### Used by **Authorization** Required payer authentication transactions; otherwise, optional. **Credit** Required for standalone credits on Chase Paymentech solutions; otherwise, optional.  The list of valid values in this field depends on your processor.  #### Ingenico ePayments When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value   #### Card Present You must set this field to &#x60;retail&#x60;. This field is required for a card-present transaction. Note that this should ONLY be used when the cardholder and card are present at the time of the transaction. For all keyed transactions originated from a POS terminal where the cardholder and card are not present, commerceIndicator should be submitted as \&quot;moto\&quot; .</param>
         /// <param name="CommerceIndicatorLabel">Type of transaction. Some payment card companies use this information when determining discount rates.  #### Used by **Authorization** Required payer authentication transactions; otherwise, optional. **Credit** Required for standalone credits on Chase Paymentech solutions; otherwise, optional.  The list of valid values in this field depends on your processor.  #### Ingenico ePayments When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value   #### Card Present You must set this field to &#x60;retail&#x60;. This field is required for a card-present transaction. Note that this should ONLY be used when the cardholder and card are present at the time of the transaction. For all keyed transactions originated from a POS terminal where the cardholder and card are not present, commerceIndicator should be submitted as &#x60;moto&#x60; .</param>
-        /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. .</param>
+        /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the REST API.](https://developer.cybersource.com/content/dam/docs/cybs/en-us/apifields/reference/all/rest/api-fields.pdf)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct.   - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. .</param>
         /// <param name="ReconciliationId">Please check with Cybersource customer support to see if your merchant account is configured correctly so you can include this field in your request. * For Payouts: max length for FDCCompass is String (22). .</param>
         /// <param name="LinkId">Value that links the current authorization request to the original authorization request. Set this value to the ID that was returned in the reply message from the original authorization request.  This value is used for:  - Partial authorizations - Split shipments .</param>
         /// <param name="PurchaseLevel">Set this field to 3 to indicate that the request includes Level III data..</param>
         /// <param name="TransactionTimeout">The time-out limit in seconds for the transaction. The time-out limit starts when the customer is directed to the merchant URL that is included in the sale service response. The maximum value is 99999 (about 27 hours). When the transaction times out, the payment system changes the status to abandoned..</param>
         /// <param name="IntentsId">Set to the value of the requestID field returned in the order service response..</param>
-        /// <param name="PaymentId">This field is to accept the id of credit/capture in the body of L1 requests so the type of void can be identified and processed correctly downstream..</param>
         /// <param name="ReportGroup">Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**. .</param>
         /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. .</param>
         /// <param name="IndustryDataType">Indicates that the transaction includes industry-specific data.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; - &#x60;transit&#x60;  #### Card Present, Airlines and Auto Rental You must set this field to &#x60;airline&#x60; in order for airline data to be sent to the processor. For example, if this field is not set to &#x60;airline&#x60; or is not included in the request, no airline data is sent to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor. When this field is not set to &#x60;restaurant&#x60; or is not included in the request, no restaurant data is sent to the processor.  You must set this field to &#x60;auto_rental&#x60; in order for auto rental data to be sent to the processor. For example, if this field is not set to &#x60;auto_rental&#x60; or is not included in the request, no auto rental data is sent to the processor.  Restaurant data is supported only on CyberSource through VisaNet. .</param>
@@ -70,7 +69,8 @@ namespace CyberSource.Model
         /// <param name="IsReturnAuthRecordEnabled">Flag that indicates the functionality we are having for merchants for which auth is done through Cybersource but settlement is done by themselves. true: functionality is supported. Processor should send raw processor auth response to Merchant. false: functionality is not supported. Default: false .</param>
         /// <param name="NetworkPartnerId">Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction.  This field is supported for Visa Platform Connect. .</param>
         /// <param name="PaymentType">Identifier for the payment type. .</param>
-        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), int? TransactionTimeout = default(int?), string IntentsId = default(string), string PaymentId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), int? Timeout = default(int?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string), string PaymentType = default(string))
+        /// <param name="EnablerId">Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers. .</param>
+        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), int? TransactionTimeout = default(int?), string IntentsId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), int? Timeout = default(int?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string), string PaymentType = default(string), string EnablerId = default(string))
         {
             this.ActionList = ActionList;
             this.EnableEscrowOption = EnableEscrowOption;
@@ -95,7 +95,6 @@ namespace CyberSource.Model
             this.PurchaseLevel = PurchaseLevel;
             this.TransactionTimeout = TransactionTimeout;
             this.IntentsId = IntentsId;
-            this.PaymentId = PaymentId;
             this.ReportGroup = ReportGroup;
             this.VisaCheckoutId = VisaCheckoutId;
             this.IndustryDataType = IndustryDataType;
@@ -117,6 +116,7 @@ namespace CyberSource.Model
             this.IsReturnAuthRecordEnabled = IsReturnAuthRecordEnabled;
             this.NetworkPartnerId = NetworkPartnerId;
             this.PaymentType = PaymentType;
+            this.EnablerId = EnablerId;
         }
         
         /// <summary>
@@ -183,9 +183,9 @@ namespace CyberSource.Model
         public string CommerceIndicatorLabel { get; set; }
 
         /// <summary>
-        /// Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. 
+        /// Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the REST API.](https://developer.cybersource.com/content/dam/docs/cybs/en-us/apifields/reference/all/rest/api-fields.pdf)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct.   - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. 
         /// </summary>
-        /// <value>Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \&quot;Masterpass\&quot; in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. </value>
+        /// <value>Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the REST API.](https://developer.cybersource.com/content/dam/docs/cybs/en-us/apifields/reference/all/rest/api-fields.pdf)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct.   - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. </value>
         [DataMember(Name="paymentSolution", EmitDefaultValue=false)]
         public string PaymentSolution { get; set; }
 
@@ -223,13 +223,6 @@ namespace CyberSource.Model
         /// <value>Set to the value of the requestID field returned in the order service response.</value>
         [DataMember(Name="intentsId", EmitDefaultValue=false)]
         public string IntentsId { get; set; }
-
-        /// <summary>
-        /// This field is to accept the id of credit/capture in the body of L1 requests so the type of void can be identified and processed correctly downstream.
-        /// </summary>
-        /// <value>This field is to accept the id of credit/capture in the body of L1 requests so the type of void can be identified and processed correctly downstream.</value>
-        [DataMember(Name="paymentId", EmitDefaultValue=false)]
-        public string PaymentId { get; set; }
 
         /// <summary>
         /// Attribute that lets you define custom grouping for your processor reports. This field is supported only for **Worldpay VAP**. 
@@ -371,6 +364,13 @@ namespace CyberSource.Model
         public string PaymentType { get; set; }
 
         /// <summary>
+        /// Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers. 
+        /// </summary>
+        /// <value>Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers. </value>
+        [DataMember(Name="enablerId", EmitDefaultValue=false)]
+        public string EnablerId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -393,7 +393,6 @@ namespace CyberSource.Model
             sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
             sb.Append("  TransactionTimeout: ").Append(TransactionTimeout).Append("\n");
             sb.Append("  IntentsId: ").Append(IntentsId).Append("\n");
-            sb.Append("  PaymentId: ").Append(PaymentId).Append("\n");
             sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
             sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
             sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
@@ -415,6 +414,7 @@ namespace CyberSource.Model
             sb.Append("  IsReturnAuthRecordEnabled: ").Append(IsReturnAuthRecordEnabled).Append("\n");
             sb.Append("  NetworkPartnerId: ").Append(NetworkPartnerId).Append("\n");
             sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            sb.Append("  EnablerId: ").Append(EnablerId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -527,11 +527,6 @@ namespace CyberSource.Model
                     this.IntentsId.Equals(other.IntentsId)
                 ) && 
                 (
-                    this.PaymentId == other.PaymentId ||
-                    this.PaymentId != null &&
-                    this.PaymentId.Equals(other.PaymentId)
-                ) && 
-                (
                     this.ReportGroup == other.ReportGroup ||
                     this.ReportGroup != null &&
                     this.ReportGroup.Equals(other.ReportGroup)
@@ -635,6 +630,11 @@ namespace CyberSource.Model
                     this.PaymentType == other.PaymentType ||
                     this.PaymentType != null &&
                     this.PaymentType.Equals(other.PaymentType)
+                ) && 
+                (
+                    this.EnablerId == other.EnablerId ||
+                    this.EnablerId != null &&
+                    this.EnablerId.Equals(other.EnablerId)
                 );
         }
 
@@ -679,8 +679,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionTimeout.GetHashCode();
                 if (this.IntentsId != null)
                     hash = hash * 59 + this.IntentsId.GetHashCode();
-                if (this.PaymentId != null)
-                    hash = hash * 59 + this.PaymentId.GetHashCode();
                 if (this.ReportGroup != null)
                     hash = hash * 59 + this.ReportGroup.GetHashCode();
                 if (this.VisaCheckoutId != null)
@@ -723,6 +721,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.NetworkPartnerId.GetHashCode();
                 if (this.PaymentType != null)
                     hash = hash * 59 + this.PaymentType.GetHashCode();
+                if (this.EnablerId != null)
+                    hash = hash * 59 + this.EnablerId.GetHashCode();
                 return hash;
             }
         }

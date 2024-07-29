@@ -105,8 +105,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
-        /// <returns>InlineResponse2014</returns>
-        InlineResponse2014 SaveAsymEgressKey (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
+        /// <returns>InlineResponse2015</returns>
+        InlineResponse2015 SaveAsymEgressKey (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
 
         /// <summary>
         /// Message Level Encryption
@@ -119,8 +119,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2014</returns>
-        ApiResponse<InlineResponse2014> SaveAsymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
+        /// <returns>ApiResponse of InlineResponse2015</returns>
+        ApiResponse<InlineResponse2015> SaveAsymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
         /// <summary>
         /// Update a Webhook Subscription
         /// </summary>
@@ -224,8 +224,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
-        /// <returns>Task of InlineResponse2014</returns>
-        System.Threading.Tasks.Task<InlineResponse2014> SaveAsymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
+        /// <returns>Task of InlineResponse2015</returns>
+        System.Threading.Tasks.Task<InlineResponse2015> SaveAsymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
 
         /// <summary>
         /// Message Level Encryption
@@ -238,8 +238,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> SaveAsymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
+        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> SaveAsymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
         /// <summary>
         /// Update a Webhook Subscription
         /// </summary>
@@ -1026,13 +1026,13 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
-        /// <returns>InlineResponse2014</returns>
+        /// <returns>InlineResponse2015</returns>
         /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public InlineResponse2014 SaveAsymEgressKey (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
+        public InlineResponse2015 SaveAsymEgressKey (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
         {
             logger.Debug("CALLING API \"SaveAsymEgressKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2014> localVarResponse = SaveAsymEgressKeyWithHttpInfo(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
+            ApiResponse<InlineResponse2015> localVarResponse = SaveAsymEgressKeyWithHttpInfo(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
             logger.Debug("CALLING API \"SaveAsymEgressKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1046,8 +1046,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2014</returns>
-        public ApiResponse< InlineResponse2014 > SaveAsymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
+        /// <returns>ApiResponse of InlineResponse2015</returns>
+        public ApiResponse< InlineResponse2015 > SaveAsymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1144,9 +1144,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
+                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015))); // Return statement
         }
 
         /// <summary>
@@ -1157,12 +1157,12 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
-        /// <returns>Task of InlineResponse2014</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2014> SaveAsymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
+        /// <returns>Task of InlineResponse2015</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2015> SaveAsymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
         {
             logger.Debug("CALLING API \"SaveAsymEgressKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2014> localVarResponse = await SaveAsymEgressKeyAsyncWithHttpInfo(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
+            ApiResponse<InlineResponse2015> localVarResponse = await SaveAsymEgressKeyAsyncWithHttpInfo(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
             logger.Debug("CALLING API \"SaveAsymEgressKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1177,8 +1177,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> SaveAsymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
+        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> SaveAsymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1275,9 +1275,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
+                (InlineResponse2015) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015))); // Return statement
         }
         /// <summary>
         /// Update a Webhook Subscription Update the webhook subscription using PATCH.

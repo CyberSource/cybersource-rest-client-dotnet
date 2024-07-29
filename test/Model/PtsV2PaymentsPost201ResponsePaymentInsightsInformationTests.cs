@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ResponseInsights'
         }
+        /// <summary>
+        /// Test the property 'Orchestration'
+        /// </summary>
+        [Test]
+        public void OrchestrationTest()
+        {
+            // TODO unit test for the property 'Orchestration'
+        }
 
     }
 

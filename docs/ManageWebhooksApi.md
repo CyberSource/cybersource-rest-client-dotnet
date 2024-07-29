@@ -199,7 +199,7 @@ No authorization required
 
 <a name="saveasymegresskey"></a>
 # **SaveAsymEgressKey**
-> InlineResponse2014 SaveAsymEgressKey (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
+> InlineResponse2015 SaveAsymEgressKey (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
 
 Message Level Encryption
 
@@ -228,7 +228,7 @@ namespace Example
             try
             {
                 // Message Level Encryption
-                InlineResponse2014 result = apiInstance.SaveAsymEgressKey(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
+                InlineResponse2015 result = apiInstance.SaveAsymEgressKey(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2015**](InlineResponse2015.md)
 
 ### Authorization
 
