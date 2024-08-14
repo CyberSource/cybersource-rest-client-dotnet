@@ -320,7 +320,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ReportingV3NotificationofChangesGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ReportingV3NotificationofChangesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NotificationofChangesGet200Response))); // Return statement
         }
 
@@ -430,7 +430,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ReportingV3NotificationofChangesGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ReportingV3NotificationofChangesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NotificationofChangesGet200Response))); // Return statement
         }
     }

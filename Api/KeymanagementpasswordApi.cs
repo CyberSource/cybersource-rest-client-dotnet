@@ -324,7 +324,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object))); // Return statement
         }
 
@@ -438,7 +438,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object))); // Return statement
         }
     }

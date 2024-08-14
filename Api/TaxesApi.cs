@@ -353,7 +353,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<VasV2PaymentsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (VasV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VasV2PaymentsPost201Response))); // Return statement
         }
 
@@ -454,7 +454,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<VasV2PaymentsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (VasV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VasV2PaymentsPost201Response))); // Return statement
         }
         /// <summary>
@@ -566,7 +566,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<VasV2TaxVoid200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (VasV2TaxVoid200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VasV2TaxVoid200Response))); // Return statement
         }
 
@@ -680,7 +680,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<VasV2TaxVoid200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (VasV2TaxVoid200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VasV2TaxVoid200Response))); // Return statement
         }
     }

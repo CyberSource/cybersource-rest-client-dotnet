@@ -391,7 +391,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<RiskV1AuthenticationsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (RiskV1AuthenticationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationsPost201Response))); // Return statement
         }
 
@@ -492,7 +492,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<RiskV1AuthenticationsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (RiskV1AuthenticationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationsPost201Response))); // Return statement
         }
         /// <summary>
@@ -591,7 +591,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<RiskV1AuthenticationSetupsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (RiskV1AuthenticationSetupsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationSetupsPost201Response))); // Return statement
         }
 
@@ -692,7 +692,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<RiskV1AuthenticationSetupsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (RiskV1AuthenticationSetupsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationSetupsPost201Response))); // Return statement
         }
         /// <summary>
@@ -791,7 +791,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<RiskV1AuthenticationResultsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (RiskV1AuthenticationResultsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationResultsPost201Response))); // Return statement
         }
 
@@ -892,7 +892,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<RiskV1AuthenticationResultsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (RiskV1AuthenticationResultsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationResultsPost201Response))); // Return statement
         }
     }

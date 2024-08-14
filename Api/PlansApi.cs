@@ -614,7 +614,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
 
@@ -712,7 +712,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
         /// <summary>
@@ -814,7 +814,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<CreatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (CreatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse))); // Return statement
         }
 
@@ -918,7 +918,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<CreatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (CreatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse))); // Return statement
         }
         /// <summary>
@@ -1014,7 +1014,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
 
@@ -1112,7 +1112,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
         /// <summary>
@@ -1208,7 +1208,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<DeletePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (DeletePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse))); // Return statement
         }
 
@@ -1306,7 +1306,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<DeletePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (DeletePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse))); // Return statement
         }
         /// <summary>
@@ -1402,7 +1402,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetPlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (GetPlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse))); // Return statement
         }
 
@@ -1500,7 +1500,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetPlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (GetPlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse))); // Return statement
         }
         /// <summary>
@@ -1583,7 +1583,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetPlanCodeResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (GetPlanCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse))); // Return statement
         }
 
@@ -1668,7 +1668,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetPlanCodeResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (GetPlanCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse))); // Return statement
         }
         /// <summary>
@@ -1786,7 +1786,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetAllPlansResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (GetAllPlansResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse))); // Return statement
         }
 
@@ -1906,7 +1906,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetAllPlansResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (GetAllPlansResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse))); // Return statement
         }
         /// <summary>
@@ -2021,7 +2021,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<UpdatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (UpdatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse))); // Return statement
         }
 
@@ -2138,7 +2138,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<UpdatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (UpdatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse))); // Return statement
         }
     }

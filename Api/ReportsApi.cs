@@ -436,7 +436,7 @@ namespace CyberSource.Api
 
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 localVarResponse.Content); // Return statement
         }
 
@@ -542,7 +542,7 @@ namespace CyberSource.Api
 
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 localVarResponse.Content); // Return statement
         }
         /// <summary>
@@ -643,7 +643,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ReportingV3ReportsIdGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ReportingV3ReportsIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsIdGet200Response))); // Return statement
         }
 
@@ -746,7 +746,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ReportingV3ReportsIdGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ReportingV3ReportsIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsIdGet200Response))); // Return statement
         }
         /// <summary>
@@ -907,7 +907,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ReportingV3ReportsGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ReportingV3ReportsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsGet200Response))); // Return statement
         }
 
@@ -1070,7 +1070,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ReportingV3ReportsGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ReportingV3ReportsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportsGet200Response))); // Return statement
         }
     }

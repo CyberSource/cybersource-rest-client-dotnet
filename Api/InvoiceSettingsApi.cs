@@ -329,7 +329,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InvoicingV2InvoiceSettingsGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (InvoicingV2InvoiceSettingsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoiceSettingsGet200Response))); // Return statement
         }
 
@@ -414,7 +414,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InvoicingV2InvoiceSettingsGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (InvoicingV2InvoiceSettingsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoiceSettingsGet200Response))); // Return statement
         }
         /// <summary>
@@ -516,7 +516,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InvoicingV2InvoiceSettingsGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (InvoicingV2InvoiceSettingsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoiceSettingsGet200Response))); // Return statement
         }
 
@@ -620,7 +620,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InvoicingV2InvoiceSettingsGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (InvoicingV2InvoiceSettingsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoiceSettingsGet200Response))); // Return statement
         }
     }

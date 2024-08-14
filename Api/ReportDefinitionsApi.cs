@@ -380,7 +380,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ReportingV3ReportDefinitionsNameGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportDefinitionsNameGet200Response))); // Return statement
         }
 
@@ -496,7 +496,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ReportingV3ReportDefinitionsNameGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ReportingV3ReportDefinitionsNameGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportDefinitionsNameGet200Response))); // Return statement
         }
         /// <summary>
@@ -590,7 +590,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ReportingV3ReportDefinitionsGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ReportingV3ReportDefinitionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportDefinitionsGet200Response))); // Return statement
         }
 
@@ -686,7 +686,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ReportingV3ReportDefinitionsGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (ReportingV3ReportDefinitionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ReportDefinitionsGet200Response))); // Return statement
         }
     }

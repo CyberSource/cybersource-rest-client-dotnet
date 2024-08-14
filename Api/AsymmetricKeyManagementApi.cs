@@ -437,7 +437,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysAsymPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (KmsV2KeysAsymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymPost201Response))); // Return statement
         }
 
@@ -538,7 +538,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysAsymPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (KmsV2KeysAsymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymPost201Response))); // Return statement
         }
         /// <summary>
@@ -637,7 +637,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysAsymDeletesPost200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (KmsV2KeysAsymDeletesPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymDeletesPost200Response))); // Return statement
         }
 
@@ -738,7 +738,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysAsymDeletesPost200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (KmsV2KeysAsymDeletesPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymDeletesPost200Response))); // Return statement
         }
         /// <summary>
@@ -831,7 +831,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysAsymGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (KmsV2KeysAsymGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymGet200Response))); // Return statement
         }
 
@@ -926,7 +926,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysAsymGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (KmsV2KeysAsymGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysAsymGet200Response))); // Return statement
         }
         /// <summary>
@@ -1038,7 +1038,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object))); // Return statement
         }
 
@@ -1152,7 +1152,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object))); // Return statement
         }
     }

@@ -301,7 +301,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<TssV2TransactionsGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (TssV2TransactionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsGet200Response))); // Return statement
         }
 
@@ -396,7 +396,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<TssV2TransactionsGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.Select(x => new KeyValuePair<string, string>(x.Name, x.Value.ToString())).ToList(),
                 (TssV2TransactionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsGet200Response))); // Return statement
         }
     }
