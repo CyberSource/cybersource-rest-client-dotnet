@@ -437,7 +437,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysSymPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (KmsV2KeysSymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymPost201Response))); // Return statement
         }
 
@@ -538,7 +538,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysSymPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (KmsV2KeysSymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymPost201Response))); // Return statement
         }
         /// <summary>
@@ -649,7 +649,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysSymPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (KmsV2KeysSymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymPost201Response))); // Return statement
         }
 
@@ -762,7 +762,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysSymPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (KmsV2KeysSymPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymPost201Response))); // Return statement
         }
         /// <summary>
@@ -861,7 +861,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysSymDeletesPost200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (KmsV2KeysSymDeletesPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymDeletesPost200Response))); // Return statement
         }
 
@@ -962,7 +962,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysSymDeletesPost200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (KmsV2KeysSymDeletesPost200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymDeletesPost200Response))); // Return statement
         }
         /// <summary>
@@ -1055,7 +1055,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysSymGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (KmsV2KeysSymGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymGet200Response))); // Return statement
         }
 
@@ -1150,7 +1150,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<KmsV2KeysSymGet200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (KmsV2KeysSymGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(KmsV2KeysSymGet200Response))); // Return statement
         }
     }

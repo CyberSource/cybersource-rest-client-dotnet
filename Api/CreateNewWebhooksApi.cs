@@ -398,7 +398,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2014>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (InlineResponse2014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
         }
 
@@ -493,7 +493,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2014>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (InlineResponse2014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
         }
         /// <summary>
@@ -587,7 +587,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<List<InlineResponse2003>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (List<InlineResponse2003>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2003>))); // Return statement
         }
 
@@ -682,7 +682,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<List<InlineResponse2003>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (List<InlineResponse2003>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2003>))); // Return statement
         }
         /// <summary>
@@ -806,7 +806,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2013>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
         }
 
@@ -931,7 +931,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2013>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
         }
     }

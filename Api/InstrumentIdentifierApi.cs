@@ -559,7 +559,7 @@ namespace CyberSource.Api
 
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 localVarResponse.Content); // Return statement
         }
 
@@ -658,7 +658,7 @@ namespace CyberSource.Api
 
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 localVarResponse.Content); // Return statement
         }
         /// <summary>
@@ -757,7 +757,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PostInstrumentIdentifierRequest>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (PostInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostInstrumentIdentifierRequest))); // Return statement
         }
 
@@ -858,7 +858,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PostInstrumentIdentifierRequest>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (PostInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostInstrumentIdentifierRequest))); // Return statement
         }
         /// <summary>
@@ -971,7 +971,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PaymentInstrumentList1>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (PaymentInstrumentList1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList1))); // Return statement
         }
 
@@ -1086,7 +1086,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PaymentInstrumentList1>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (PaymentInstrumentList1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList1))); // Return statement
         }
         /// <summary>
@@ -1210,7 +1210,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PatchInstrumentIdentifierRequest>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (PatchInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchInstrumentIdentifierRequest))); // Return statement
         }
 
@@ -1336,7 +1336,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PatchInstrumentIdentifierRequest>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (PatchInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchInstrumentIdentifierRequest))); // Return statement
         }
         /// <summary>
@@ -1441,7 +1441,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PostInstrumentIdentifierRequest>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (PostInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostInstrumentIdentifierRequest))); // Return statement
         }
 
@@ -1548,7 +1548,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PostInstrumentIdentifierRequest>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (PostInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostInstrumentIdentifierRequest))); // Return statement
         }
         /// <summary>
@@ -1664,7 +1664,7 @@ namespace CyberSource.Api
 
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 localVarResponse.Content); // Return statement
         }
 
@@ -1782,7 +1782,7 @@ namespace CyberSource.Api
 
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 localVarResponse.Content); // Return statement
         }
     }

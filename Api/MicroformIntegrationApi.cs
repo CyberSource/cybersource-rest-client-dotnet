@@ -307,7 +307,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<string>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string))); // Return statement
         }
 
@@ -408,7 +408,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<string>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string))); // Return statement
         }
     }
