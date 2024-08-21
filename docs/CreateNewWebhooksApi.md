@@ -72,7 +72,7 @@ No authorization required
 
 <a name="findproductstosubscribe"></a>
 # **FindProductsToSubscribe**
-> List<InlineResponse2003> FindProductsToSubscribe (string organizationId)
+> List<InlineResponse2002> FindProductsToSubscribe (string organizationId)
 
 Find Products You Can Subscribe To
 
@@ -98,7 +98,7 @@ namespace Example
             try
             {
                 // Find Products You Can Subscribe To
-                List&lt;InlineResponse2003&gt; result = apiInstance.FindProductsToSubscribe(organizationId);
+                List&lt;InlineResponse2002&gt; result = apiInstance.FindProductsToSubscribe(organizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2003>**](InlineResponse2003.md)
+[**List<InlineResponse2002>**](InlineResponse2002.md)
 
 ### Authorization
 

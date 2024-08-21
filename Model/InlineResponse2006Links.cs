@@ -33,26 +33,25 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2006Links" /> class.
         /// </summary>
-        /// <param name="Rel">Valid Values:   * self   * first   * last   * prev   * next .</param>
-        /// <param name="Href">Href.</param>
-        public InlineResponse2006Links(string Rel = default(string), string Href = default(string))
+        /// <param name="Self">Self.</param>
+        /// <param name="Report">Report.</param>
+        public InlineResponse2006Links(InlineResponse202LinksStatus Self = default(InlineResponse202LinksStatus), List<InlineResponse2006LinksReport> Report = default(List<InlineResponse2006LinksReport>))
         {
-            this.Rel = Rel;
-            this.Href = Href;
+            this.Self = Self;
+            this.Report = Report;
         }
         
         /// <summary>
-        /// Valid Values:   * self   * first   * last   * prev   * next 
+        /// Gets or Sets Self
         /// </summary>
-        /// <value>Valid Values:   * self   * first   * last   * prev   * next </value>
-        [DataMember(Name="rel", EmitDefaultValue=false)]
-        public string Rel { get; set; }
+        [DataMember(Name="self", EmitDefaultValue=false)]
+        public InlineResponse202LinksStatus Self { get; set; }
 
         /// <summary>
-        /// Gets or Sets Href
+        /// Gets or Sets Report
         /// </summary>
-        [DataMember(Name="href", EmitDefaultValue=false)]
-        public string Href { get; set; }
+        [DataMember(Name="report", EmitDefaultValue=false)]
+        public List<InlineResponse2006LinksReport> Report { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2006Links {\n");
-            sb.Append("  Rel: ").Append(Rel).Append("\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  Self: ").Append(Self).Append("\n");
+            sb.Append("  Report: ").Append(Report).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,14 +100,14 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Rel == other.Rel ||
-                    this.Rel != null &&
-                    this.Rel.Equals(other.Rel)
+                    this.Self == other.Self ||
+                    this.Self != null &&
+                    this.Self.Equals(other.Self)
                 ) && 
                 (
-                    this.Href == other.Href ||
-                    this.Href != null &&
-                    this.Href.Equals(other.Href)
+                    this.Report == other.Report ||
+                    this.Report != null &&
+                    this.Report.SequenceEqual(other.Report)
                 );
         }
 
@@ -123,10 +122,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Rel != null)
-                    hash = hash * 59 + this.Rel.GetHashCode();
-                if (this.Href != null)
-                    hash = hash * 59 + this.Href.GetHashCode();
+                if (this.Self != null)
+                    hash = hash * 59 + this.Self.GetHashCode();
+                if (this.Report != null)
+                    hash = hash * 59 + this.Report.GetHashCode();
                 return hash;
             }
         }

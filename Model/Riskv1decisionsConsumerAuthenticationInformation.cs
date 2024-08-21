@@ -33,8 +33,12 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1decisionsConsumerAuthenticationInformation" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected Riskv1decisionsConsumerAuthenticationInformation() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Riskv1decisionsConsumerAuthenticationInformation" /> class.
+        /// </summary>
         /// <param name="StrongAuthentication">StrongAuthentication.</param>
-        /// <param name="AuthenticationType">Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled  20 - OTP hosted at merchant end. (Rupay S2S flow) **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. .</param>
         /// <param name="AcsWindowSize">An override field that a merchant can pass in to set the challenge window size to display to the end cardholder.  The ACS (Active Control Server) will reply with content that is formatted appropriately to this window size to allow for the best user experience.  The sizes are width x height in pixels of the window displayed in the cardholder browser window.  01 - 250x400  02 - 390x400  03 - 500x600  04 - 600x400  05 - Full page .</param>
         /// <param name="AlternateAuthenticationData">Data that documents and supports a specific authentication process. .</param>
         /// <param name="AlternateAuthenticationDate">Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM .</param>
@@ -49,7 +53,7 @@ namespace CyberSource.Model
         /// <param name="DecoupledAuthenticationIndicator">Indicates whether the 3DS Requestor requests the ACS to utilize Decoupled Authentication and agrees to utilize Decoupled Authentication if the ACS confirms its use.  Possible Values:  Y - Decoupled Authentication is supported and preferred if challenge is necessary  N - Do not use Decoupled Authentication  **Default Value**: N .</param>
         /// <param name="DecoupledAuthenticationMaxTime">Indicates the maximum amount of time that the 3DS Requestor will wait for an ACS (Active control server) to provide the results of a Decoupled Authentication transaction (in minutes). Possible Values: Numeric values between 1 and 10080 accepted. .</param>
         /// <param name="DefaultCard">Indicates that the card being used is the one designated as the primary payment card for purchase. Recommended for Discover ProtectBuy. .</param>
-        /// <param name="DeviceChannel">Determines the channel that the transaction came through. Possible Values: SDK/Browser/3RI. 3RI - 3DS request initiated. .</param>
+        /// <param name="DeviceChannel">Determines the channel that the transaction came through. Possible Values: SDK/Browser/3RI. 3RI - 3DS request initiated.  (required).</param>
         /// <param name="InstallmentTotalCount">An integer value greater than 1 indicating the max number of permitted authorizations for installment payments. **Note** This is required if the merchant and cardholder have agreed to installment payments. .</param>
         /// <param name="MerchantFraudRate">Calculated by merchants as per PSD2** RTS** (EEA** card fraud divided by all EEA card volumes). Possible Values: 1 &#x3D; Represents fraud rate &lt;&#x3D;1  2 &#x3D; Represents fraud rate &gt;1 and &lt;&#x3D;6  3 &#x3D; Represents fraud rate &gt;6 and &lt;&#x3D;13  4 &#x3D; Represents fraud rate &gt;13 and &lt;&#x3D;25  5 &#x3D; Represents fraud rate &gt;25  EEA** &#x3D; European Economic Area RTS** &#x3D; Regulatory Technical Standards PSD2** &#x3D; Payment Services Directive .</param>
         /// <param name="MarketingOptIn">Indicates whether the customer has opted in for marketing offers. Recommended for Discover ProtectBuy. .</param>
@@ -75,10 +79,9 @@ namespace CyberSource.Model
         /// <param name="TransactionMode">Transaction mode identifier. Identifies the channel from which the transaction originates. Possible values:  - &#x60;M&#x60;: MOTO (Mail Order Telephone Order) - &#x60;R&#x60;: Retail - &#x60;S&#x60;: eCommerce - &#x60;P&#x60;: Mobile Device - &#x60;T&#x60;: Tablet .</param>
         /// <param name="WhiteListStatus">Enables the communication of trusted beneficiary/whitelist status between the ACS, the DS and the 3DS Requestor.  Possible Values:  Y - 3DS Requestor is whitelisted by cardholder  N - 3DS Requestor is not whitelisted by cardholder .</param>
         /// <param name="ScoreRequest">Risk Assessment from Mastercard. This is to be sent by merchant if they would like to request a score.</param>
-        public Riskv1decisionsConsumerAuthenticationInformation(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication), string AuthenticationType = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), int? TransactionFlowIndicator = default(int?), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string ReturnUrl = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string), int? ScoreRequest = default(int?))
+        public Riskv1decisionsConsumerAuthenticationInformation(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), int? TransactionFlowIndicator = default(int?), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string ReturnUrl = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string), int? ScoreRequest = default(int?))
         {
             this.StrongAuthentication = StrongAuthentication;
-            this.AuthenticationType = AuthenticationType;
             this.AcsWindowSize = AcsWindowSize;
             this.AlternateAuthenticationData = AlternateAuthenticationData;
             this.AlternateAuthenticationDate = AlternateAuthenticationDate;
@@ -126,13 +129,6 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="strongAuthentication", EmitDefaultValue=false)]
         public Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication { get; set; }
-
-        /// <summary>
-        /// Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled  20 - OTP hosted at merchant end. (Rupay S2S flow) **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. 
-        /// </summary>
-        /// <value>Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled  20 - OTP hosted at merchant end. (Rupay S2S flow) **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time. </value>
-        [DataMember(Name="authenticationType", EmitDefaultValue=false)]
-        public string AuthenticationType { get; set; }
 
         /// <summary>
         /// An override field that a merchant can pass in to set the challenge window size to display to the end cardholder.  The ACS (Active Control Server) will reply with content that is formatted appropriately to this window size to allow for the best user experience.  The sizes are width x height in pixels of the window displayed in the cardholder browser window.  01 - 250x400  02 - 390x400  03 - 500x600  04 - 600x400  05 - Full page 
@@ -423,7 +419,6 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsConsumerAuthenticationInformation {\n");
             sb.Append("  StrongAuthentication: ").Append(StrongAuthentication).Append("\n");
-            sb.Append("  AuthenticationType: ").Append(AuthenticationType).Append("\n");
             sb.Append("  AcsWindowSize: ").Append(AcsWindowSize).Append("\n");
             sb.Append("  AlternateAuthenticationData: ").Append(AlternateAuthenticationData).Append("\n");
             sb.Append("  AlternateAuthenticationDate: ").Append(AlternateAuthenticationDate).Append("\n");
@@ -504,11 +499,6 @@ namespace CyberSource.Model
                     this.StrongAuthentication == other.StrongAuthentication ||
                     this.StrongAuthentication != null &&
                     this.StrongAuthentication.Equals(other.StrongAuthentication)
-                ) && 
-                (
-                    this.AuthenticationType == other.AuthenticationType ||
-                    this.AuthenticationType != null &&
-                    this.AuthenticationType.Equals(other.AuthenticationType)
                 ) && 
                 (
                     this.AcsWindowSize == other.AcsWindowSize ||
@@ -725,8 +715,6 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.StrongAuthentication != null)
                     hash = hash * 59 + this.StrongAuthentication.GetHashCode();
-                if (this.AuthenticationType != null)
-                    hash = hash * 59 + this.AuthenticationType.GetHashCode();
                 if (this.AcsWindowSize != null)
                     hash = hash * 59 + this.AcsWindowSize.GetHashCode();
                 if (this.AlternateAuthenticationData != null)

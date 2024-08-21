@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Rel** | **string** | Valid Values:   * self   * first   * last   * prev   * next  | [optional] 
-**Href** | **string** |  | [optional] 
+**Self** | [**InlineResponse202LinksStatus**](InlineResponse202LinksStatus.md) |  | [optional] 
+**Report** | [**List&lt;InlineResponse2006LinksReport&gt;**](InlineResponse2006LinksReport.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Successful searchKeysResponse
+    /// InlineResponse2001
     /// </summary>
     [DataContract]
     public partial class InlineResponse2001 :  IEquatable<InlineResponse2001>, IValidatableObject
@@ -33,62 +33,65 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="TotalCount">Specifies the total number of items found based on the request.</param>
-        /// <param name="Offset">Specifies the record offset from the records are returned part of the response.</param>
-        /// <param name="Limit">Specifies the maximum number of records requested part of the response.</param>
-        /// <param name="Sort">Specifies a comma separated list of field names based on which the result is sorted..</param>
-        /// <param name="Keys">Keys.</param>
-        public InlineResponse2001(string SubmitTimeUtc = default(string), int? TotalCount = default(int?), int? Offset = default(int?), int? Limit = default(int?), string Sort = default(string), List<InlineResponse2001Keys> Keys = default(List<InlineResponse2001Keys>))
+        /// <param name="RegistrationInformation">RegistrationInformation.</param>
+        /// <param name="IntegrationInformation">IntegrationInformation.</param>
+        /// <param name="OrganizationInformation">OrganizationInformation.</param>
+        /// <param name="ProductInformation">ProductInformation.</param>
+        /// <param name="ProductInformationSetups">ProductInformationSetups.</param>
+        /// <param name="DocumentInformation">DocumentInformation.</param>
+        /// <param name="Details">Details.</param>
+        public InlineResponse2001(Boardingv1registrationsRegistrationInformation RegistrationInformation = default(Boardingv1registrationsRegistrationInformation), InlineResponse2001IntegrationInformation IntegrationInformation = default(InlineResponse2001IntegrationInformation), Boardingv1registrationsOrganizationInformation OrganizationInformation = default(Boardingv1registrationsOrganizationInformation), Boardingv1registrationsProductInformation ProductInformation = default(Boardingv1registrationsProductInformation), List<InlineResponse2012ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2012ProductInformationSetups>), Boardingv1registrationsDocumentInformation DocumentInformation = default(Boardingv1registrationsDocumentInformation), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
         {
-            this.SubmitTimeUtc = SubmitTimeUtc;
-            this.TotalCount = TotalCount;
-            this.Offset = Offset;
-            this.Limit = Limit;
-            this.Sort = Sort;
-            this.Keys = Keys;
+            this.RegistrationInformation = RegistrationInformation;
+            this.IntegrationInformation = IntegrationInformation;
+            this.OrganizationInformation = OrganizationInformation;
+            this.ProductInformation = ProductInformation;
+            this.ProductInformationSetups = ProductInformationSetups;
+            this.DocumentInformation = DocumentInformation;
+            this.Details = Details;
         }
         
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// Gets or Sets RegistrationInformation
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
-        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
+        [DataMember(Name="registrationInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsRegistrationInformation RegistrationInformation { get; set; }
 
         /// <summary>
-        /// Specifies the total number of items found based on the request
+        /// Gets or Sets IntegrationInformation
         /// </summary>
-        /// <value>Specifies the total number of items found based on the request</value>
-        [DataMember(Name="totalCount", EmitDefaultValue=false)]
-        public int? TotalCount { get; set; }
+        [DataMember(Name="integrationInformation", EmitDefaultValue=false)]
+        public InlineResponse2001IntegrationInformation IntegrationInformation { get; set; }
 
         /// <summary>
-        /// Specifies the record offset from the records are returned part of the response
+        /// Gets or Sets OrganizationInformation
         /// </summary>
-        /// <value>Specifies the record offset from the records are returned part of the response</value>
-        [DataMember(Name="offset", EmitDefaultValue=false)]
-        public int? Offset { get; set; }
+        [DataMember(Name="organizationInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsOrganizationInformation OrganizationInformation { get; set; }
 
         /// <summary>
-        /// Specifies the maximum number of records requested part of the response
+        /// Gets or Sets ProductInformation
         /// </summary>
-        /// <value>Specifies the maximum number of records requested part of the response</value>
-        [DataMember(Name="limit", EmitDefaultValue=false)]
-        public int? Limit { get; set; }
+        [DataMember(Name="productInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsProductInformation ProductInformation { get; set; }
 
         /// <summary>
-        /// Specifies a comma separated list of field names based on which the result is sorted.
+        /// Gets or Sets ProductInformationSetups
         /// </summary>
-        /// <value>Specifies a comma separated list of field names based on which the result is sorted.</value>
-        [DataMember(Name="sort", EmitDefaultValue=false)]
-        public string Sort { get; set; }
+        [DataMember(Name="productInformationSetups", EmitDefaultValue=false)]
+        public List<InlineResponse2012ProductInformationSetups> ProductInformationSetups { get; set; }
 
         /// <summary>
-        /// Gets or Sets Keys
+        /// Gets or Sets DocumentInformation
         /// </summary>
-        [DataMember(Name="keys", EmitDefaultValue=false)]
-        public List<InlineResponse2001Keys> Keys { get; set; }
+        [DataMember(Name="documentInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsDocumentInformation DocumentInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Details
+        /// </summary>
+        [DataMember(Name="details", EmitDefaultValue=false)]
+        public Dictionary<string, List<Object>> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,12 +101,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2001 {\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
-            sb.Append("  Offset: ").Append(Offset).Append("\n");
-            sb.Append("  Limit: ").Append(Limit).Append("\n");
-            sb.Append("  Sort: ").Append(Sort).Append("\n");
-            sb.Append("  Keys: ").Append(Keys).Append("\n");
+            sb.Append("  RegistrationInformation: ").Append(RegistrationInformation).Append("\n");
+            sb.Append("  IntegrationInformation: ").Append(IntegrationInformation).Append("\n");
+            sb.Append("  OrganizationInformation: ").Append(OrganizationInformation).Append("\n");
+            sb.Append("  ProductInformation: ").Append(ProductInformation).Append("\n");
+            sb.Append("  ProductInformationSetups: ").Append(ProductInformationSetups).Append("\n");
+            sb.Append("  DocumentInformation: ").Append(DocumentInformation).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,34 +145,39 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.RegistrationInformation == other.RegistrationInformation ||
+                    this.RegistrationInformation != null &&
+                    this.RegistrationInformation.Equals(other.RegistrationInformation)
                 ) && 
                 (
-                    this.TotalCount == other.TotalCount ||
-                    this.TotalCount != null &&
-                    this.TotalCount.Equals(other.TotalCount)
+                    this.IntegrationInformation == other.IntegrationInformation ||
+                    this.IntegrationInformation != null &&
+                    this.IntegrationInformation.Equals(other.IntegrationInformation)
                 ) && 
                 (
-                    this.Offset == other.Offset ||
-                    this.Offset != null &&
-                    this.Offset.Equals(other.Offset)
+                    this.OrganizationInformation == other.OrganizationInformation ||
+                    this.OrganizationInformation != null &&
+                    this.OrganizationInformation.Equals(other.OrganizationInformation)
                 ) && 
                 (
-                    this.Limit == other.Limit ||
-                    this.Limit != null &&
-                    this.Limit.Equals(other.Limit)
+                    this.ProductInformation == other.ProductInformation ||
+                    this.ProductInformation != null &&
+                    this.ProductInformation.Equals(other.ProductInformation)
                 ) && 
                 (
-                    this.Sort == other.Sort ||
-                    this.Sort != null &&
-                    this.Sort.Equals(other.Sort)
+                    this.ProductInformationSetups == other.ProductInformationSetups ||
+                    this.ProductInformationSetups != null &&
+                    this.ProductInformationSetups.SequenceEqual(other.ProductInformationSetups)
                 ) && 
                 (
-                    this.Keys == other.Keys ||
-                    this.Keys != null &&
-                    this.Keys.SequenceEqual(other.Keys)
+                    this.DocumentInformation == other.DocumentInformation ||
+                    this.DocumentInformation != null &&
+                    this.DocumentInformation.Equals(other.DocumentInformation)
+                ) && 
+                (
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -183,18 +192,20 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.TotalCount != null)
-                    hash = hash * 59 + this.TotalCount.GetHashCode();
-                if (this.Offset != null)
-                    hash = hash * 59 + this.Offset.GetHashCode();
-                if (this.Limit != null)
-                    hash = hash * 59 + this.Limit.GetHashCode();
-                if (this.Sort != null)
-                    hash = hash * 59 + this.Sort.GetHashCode();
-                if (this.Keys != null)
-                    hash = hash * 59 + this.Keys.GetHashCode();
+                if (this.RegistrationInformation != null)
+                    hash = hash * 59 + this.RegistrationInformation.GetHashCode();
+                if (this.IntegrationInformation != null)
+                    hash = hash * 59 + this.IntegrationInformation.GetHashCode();
+                if (this.OrganizationInformation != null)
+                    hash = hash * 59 + this.OrganizationInformation.GetHashCode();
+                if (this.ProductInformation != null)
+                    hash = hash * 59 + this.ProductInformation.GetHashCode();
+                if (this.ProductInformationSetups != null)
+                    hash = hash * 59 + this.ProductInformationSetups.GetHashCode();
+                if (this.DocumentInformation != null)
+                    hash = hash * 59 + this.DocumentInformation.GetHashCode();
+                if (this.Details != null)
+                    hash = hash * 59 + this.Details.GetHashCode();
                 return hash;
             }
         }

@@ -89,14 +89,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'SubmitTimeUtc'
         }
         /// <summary>
-        /// Test the property 'SubmitTimeLocal'
-        /// </summary>
-        [Test]
-        public void SubmitTimeLocalTest()
-        {
-            // TODO unit test for the property 'SubmitTimeLocal'
-        }
-        /// <summary>
         /// Test the property 'Status'
         /// </summary>
         [Test]

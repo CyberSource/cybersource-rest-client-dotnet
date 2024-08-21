@@ -65,28 +65,116 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'ProductId'
+        /// Test the property 'WebhookId'
         /// </summary>
         [Test]
-        public void ProductIdTest()
+        public void WebhookIdTest()
         {
-            // TODO unit test for the property 'ProductId'
+            // TODO unit test for the property 'WebhookId'
         }
         /// <summary>
-        /// Test the property 'ProductName'
+        /// Test the property 'OrganizationId'
         /// </summary>
         [Test]
-        public void ProductNameTest()
+        public void OrganizationIdTest()
         {
-            // TODO unit test for the property 'ProductName'
+            // TODO unit test for the property 'OrganizationId'
         }
         /// <summary>
-        /// Test the property 'EventTypes'
+        /// Test the property 'Products'
         /// </summary>
         [Test]
-        public void EventTypesTest()
+        public void ProductsTest()
         {
-            // TODO unit test for the property 'EventTypes'
+            // TODO unit test for the property 'Products'
+        }
+        /// <summary>
+        /// Test the property 'WebhookUrl'
+        /// </summary>
+        [Test]
+        public void WebhookUrlTest()
+        {
+            // TODO unit test for the property 'WebhookUrl'
+        }
+        /// <summary>
+        /// Test the property 'HealthCheckUrl'
+        /// </summary>
+        [Test]
+        public void HealthCheckUrlTest()
+        {
+            // TODO unit test for the property 'HealthCheckUrl'
+        }
+        /// <summary>
+        /// Test the property 'NotificationScope'
+        /// </summary>
+        [Test]
+        public void NotificationScopeTest()
+        {
+            // TODO unit test for the property 'NotificationScope'
+        }
+        /// <summary>
+        /// Test the property 'Status'
+        /// </summary>
+        [Test]
+        public void StatusTest()
+        {
+            // TODO unit test for the property 'Status'
+        }
+        /// <summary>
+        /// Test the property 'Name'
+        /// </summary>
+        [Test]
+        public void NameTest()
+        {
+            // TODO unit test for the property 'Name'
+        }
+        /// <summary>
+        /// Test the property 'Description'
+        /// </summary>
+        [Test]
+        public void DescriptionTest()
+        {
+            // TODO unit test for the property 'Description'
+        }
+        /// <summary>
+        /// Test the property 'RetryPolicy'
+        /// </summary>
+        [Test]
+        public void RetryPolicyTest()
+        {
+            // TODO unit test for the property 'RetryPolicy'
+        }
+        /// <summary>
+        /// Test the property 'SecurityPolicy'
+        /// </summary>
+        [Test]
+        public void SecurityPolicyTest()
+        {
+            // TODO unit test for the property 'SecurityPolicy'
+        }
+        /// <summary>
+        /// Test the property 'CreatedOn'
+        /// </summary>
+        [Test]
+        public void CreatedOnTest()
+        {
+            // TODO unit test for the property 'CreatedOn'
+        }
+        /// <summary>
+        /// Test the property 'UpdatedOn'
+        /// </summary>
+        [Test]
+        public void UpdatedOnTest()
+        {
+            // TODO unit test for the property 'UpdatedOn'
+        }
+        /// <summary>
+        /// Test the property 'AdditionalAttributes'
+        /// </summary>
+        [Test]
+        public void AdditionalAttributesTest()
+        {
+            // TODO unit test for the property 'AdditionalAttributes'
         }
 
     }
