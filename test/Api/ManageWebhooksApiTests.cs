@@ -114,7 +114,7 @@ namespace CyberSource.Test
             //SaveAsymEgressKey saveAsymEgressKey = null;
             //string vCCorrelationId = null;
             //var response = instance.SaveAsymEgressKey(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
-            //Assert.IsInstanceOf<InlineResponse2014> (response, "response is InlineResponse2014");
+            //Assert.IsInstanceOf<InlineResponse2015> (response, "response is InlineResponse2015");
         }
         
         /// <summary>

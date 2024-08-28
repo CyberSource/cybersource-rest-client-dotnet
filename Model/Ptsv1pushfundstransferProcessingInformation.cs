@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="BusinessApplicationId">Payouts transaction type.  Business Application ID: - &#x60;PP&#x60;: Person to person. - &#x60;FD&#x60;: Funds disbursement (general) .</param>
         /// <param name="PayoutsOptions">PayoutsOptions.</param>
-        public Ptsv1pushfundstransferProcessingInformation(string BusinessApplicationId = default(string), Ptsv1pushfundstransferProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv1pushfundstransferProcessingInformationPayoutsOptions))
+        /// <param name="EnablerId">Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers. .</param>
+        public Ptsv1pushfundstransferProcessingInformation(string BusinessApplicationId = default(string), Ptsv1pushfundstransferProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv1pushfundstransferProcessingInformationPayoutsOptions), string EnablerId = default(string))
         {
             this.BusinessApplicationId = BusinessApplicationId;
             this.PayoutsOptions = PayoutsOptions;
+            this.EnablerId = EnablerId;
         }
         
         /// <summary>
@@ -55,6 +57,13 @@ namespace CyberSource.Model
         public Ptsv1pushfundstransferProcessingInformationPayoutsOptions PayoutsOptions { get; set; }
 
         /// <summary>
+        /// Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers. 
+        /// </summary>
+        /// <value>Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers. </value>
+        [DataMember(Name="enablerId", EmitDefaultValue=false)]
+        public string EnablerId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +73,7 @@ namespace CyberSource.Model
             sb.Append("class Ptsv1pushfundstransferProcessingInformation {\n");
             sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
             sb.Append("  PayoutsOptions: ").Append(PayoutsOptions).Append("\n");
+            sb.Append("  EnablerId: ").Append(EnablerId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +119,11 @@ namespace CyberSource.Model
                     this.PayoutsOptions == other.PayoutsOptions ||
                     this.PayoutsOptions != null &&
                     this.PayoutsOptions.Equals(other.PayoutsOptions)
+                ) && 
+                (
+                    this.EnablerId == other.EnablerId ||
+                    this.EnablerId != null &&
+                    this.EnablerId.Equals(other.EnablerId)
                 );
         }
 
@@ -127,6 +142,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BusinessApplicationId.GetHashCode();
                 if (this.PayoutsOptions != null)
                     hash = hash * 59 + this.PayoutsOptions.GetHashCode();
+                if (this.EnablerId != null)
+                    hash = hash * 59 + this.EnablerId.GetHashCode();
                 return hash;
             }
         }

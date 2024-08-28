@@ -86,7 +86,7 @@ namespace CyberSource.Test
             //PostRegistrationBody postRegistrationBody = null;
             //string vCIdempotencyId = null;
             //var response = instance.PostRegistration(postRegistrationBody, vCIdempotencyId);
-            //Assert.IsInstanceOf<InlineResponse2011> (response, "response is InlineResponse2011");
+            //Assert.IsInstanceOf<InlineResponse2012> (response, "response is InlineResponse2012");
         }
         
     }

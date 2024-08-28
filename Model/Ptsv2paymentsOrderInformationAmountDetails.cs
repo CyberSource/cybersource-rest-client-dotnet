@@ -61,7 +61,8 @@ namespace CyberSource.Model
         /// <param name="CashbackAmount">Cashback amount in the acquirer&#39;s currency. If a cashback amount is included in the request, it must be included in the &#x60;orderInformation.amountDetails.totalAmount&#x60; value.  This field is supported only on CyberSource through VisaNet.  #### Used by **Authorization** Optional. **Authorization Reversal** Optional.  #### PIN debit Optional field for PIN debit purchase, PIN debit credit or PIN debit reversal. .</param>
         /// <param name="CurrencyConversion">CurrencyConversion.</param>
         /// <param name="Order">Order.</param>
-        public Ptsv2paymentsOrderInformationAmountDetails(string GiftWrapAmount = default(string), string TotalAmount = default(string), string SubTotalAmount = default(string), string Currency = default(string), string DiscountAmount = default(string), string DutyAmount = default(string), string GratuityAmount = default(string), string TaxAmount = default(string), string NationalTaxIncluded = default(string), string TaxAppliedAfterDiscount = default(string), string TaxAppliedLevel = default(string), string TaxTypeCode = default(string), string FreightAmount = default(string), string ForeignAmount = default(string), string ForeignCurrency = default(string), string ExchangeRate = default(string), string ExchangeRateTimeStamp = default(string), Ptsv2paymentsOrderInformationAmountDetailsSurcharge Surcharge = default(Ptsv2paymentsOrderInformationAmountDetailsSurcharge), string SettlementAmount = default(string), string SettlementCurrency = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts> AmexAdditionalAmounts = default(List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts>), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string ServiceFeeAmount = default(string), string OriginalAmount = default(string), string OriginalCurrency = default(string), string CashbackAmount = default(string), Ptsv2paymentsOrderInformationAmountDetailsCurrencyConversion CurrencyConversion = default(Ptsv2paymentsOrderInformationAmountDetailsCurrencyConversion), Ptsv2paymentsOrderInformationAmountDetailsOrder Order = default(Ptsv2paymentsOrderInformationAmountDetailsOrder))
+        /// <param name="AnticipatedAmount">This API Field contains the anticipated amount details. This supports use cases where the Merchant does not wish to have funds held against the account, but needs to confirm an amount prior to authorization, such as for a trial subscription, reservation service, or loyalty program. In an account verification, the anticipated amount is used to confirm the account has availability to accept purchases. .</param>
+        public Ptsv2paymentsOrderInformationAmountDetails(string GiftWrapAmount = default(string), string TotalAmount = default(string), string SubTotalAmount = default(string), string Currency = default(string), string DiscountAmount = default(string), string DutyAmount = default(string), string GratuityAmount = default(string), string TaxAmount = default(string), string NationalTaxIncluded = default(string), string TaxAppliedAfterDiscount = default(string), string TaxAppliedLevel = default(string), string TaxTypeCode = default(string), string FreightAmount = default(string), string ForeignAmount = default(string), string ForeignCurrency = default(string), string ExchangeRate = default(string), string ExchangeRateTimeStamp = default(string), Ptsv2paymentsOrderInformationAmountDetailsSurcharge Surcharge = default(Ptsv2paymentsOrderInformationAmountDetailsSurcharge), string SettlementAmount = default(string), string SettlementCurrency = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts> AmexAdditionalAmounts = default(List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts>), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string ServiceFeeAmount = default(string), string OriginalAmount = default(string), string OriginalCurrency = default(string), string CashbackAmount = default(string), Ptsv2paymentsOrderInformationAmountDetailsCurrencyConversion CurrencyConversion = default(Ptsv2paymentsOrderInformationAmountDetailsCurrencyConversion), Ptsv2paymentsOrderInformationAmountDetailsOrder Order = default(Ptsv2paymentsOrderInformationAmountDetailsOrder), string AnticipatedAmount = default(string))
         {
             this.GiftWrapAmount = GiftWrapAmount;
             this.TotalAmount = TotalAmount;
@@ -91,6 +92,7 @@ namespace CyberSource.Model
             this.CashbackAmount = CashbackAmount;
             this.CurrencyConversion = CurrencyConversion;
             this.Order = Order;
+            this.AnticipatedAmount = AnticipatedAmount;
         }
         
         /// <summary>
@@ -285,6 +287,13 @@ namespace CyberSource.Model
         public Ptsv2paymentsOrderInformationAmountDetailsOrder Order { get; set; }
 
         /// <summary>
+        /// This API Field contains the anticipated amount details. This supports use cases where the Merchant does not wish to have funds held against the account, but needs to confirm an amount prior to authorization, such as for a trial subscription, reservation service, or loyalty program. In an account verification, the anticipated amount is used to confirm the account has availability to accept purchases. 
+        /// </summary>
+        /// <value>This API Field contains the anticipated amount details. This supports use cases where the Merchant does not wish to have funds held against the account, but needs to confirm an amount prior to authorization, such as for a trial subscription, reservation service, or loyalty program. In an account verification, the anticipated amount is used to confirm the account has availability to accept purchases. </value>
+        [DataMember(Name="anticipatedAmount", EmitDefaultValue=false)]
+        public string AnticipatedAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -320,6 +329,7 @@ namespace CyberSource.Model
             sb.Append("  CashbackAmount: ").Append(CashbackAmount).Append("\n");
             sb.Append("  CurrencyConversion: ").Append(CurrencyConversion).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
+            sb.Append("  AnticipatedAmount: ").Append(AnticipatedAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -495,6 +505,11 @@ namespace CyberSource.Model
                     this.Order == other.Order ||
                     this.Order != null &&
                     this.Order.Equals(other.Order)
+                ) && 
+                (
+                    this.AnticipatedAmount == other.AnticipatedAmount ||
+                    this.AnticipatedAmount != null &&
+                    this.AnticipatedAmount.Equals(other.AnticipatedAmount)
                 );
         }
 
@@ -565,6 +580,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CurrencyConversion.GetHashCode();
                 if (this.Order != null)
                     hash = hash * 59 + this.Order.GetHashCode();
+                if (this.AnticipatedAmount != null)
+                    hash = hash * 59 + this.AnticipatedAmount.GetHashCode();
                 return hash;
             }
         }
