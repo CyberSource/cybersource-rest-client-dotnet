@@ -349,7 +349,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<RiskV1ExportComplianceInquiriesPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (RiskV1ExportComplianceInquiriesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1ExportComplianceInquiriesPost201Response))); // Return statement
         }
 
@@ -450,7 +450,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<RiskV1ExportComplianceInquiriesPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (RiskV1ExportComplianceInquiriesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1ExportComplianceInquiriesPost201Response))); // Return statement
         }
         /// <summary>
@@ -549,7 +549,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<RiskV1AddressVerificationsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (RiskV1AddressVerificationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AddressVerificationsPost201Response))); // Return statement
         }
 
@@ -650,7 +650,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<RiskV1AddressVerificationsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (RiskV1AddressVerificationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AddressVerificationsPost201Response))); // Return statement
         }
     }

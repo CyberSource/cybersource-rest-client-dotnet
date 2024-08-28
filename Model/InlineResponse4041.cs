@@ -58,7 +58,7 @@ namespace CyberSource.Model
         /// <param name="Reason">Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; .</param>
         /// <param name="Message">Descriptive message for the error..</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse4041(DateTime? SubmitTimeUtc = default(DateTime?), string Status = default(string), ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string), List<InlineResponse4007Details> Details = default(List<InlineResponse4007Details>))
+        public InlineResponse4041(DateTime? SubmitTimeUtc = default(DateTime?), string Status = default(string), ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string), List<InlineResponse4005Details> Details = default(List<InlineResponse4005Details>))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
@@ -94,7 +94,7 @@ namespace CyberSource.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="details", EmitDefaultValue=false)]
-        public List<InlineResponse4007Details> Details { get; set; }
+        public List<InlineResponse4005Details> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

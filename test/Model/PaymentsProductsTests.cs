@@ -208,6 +208,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ReceivablesManager'
         }
+        /// <summary>
+        /// Test the property 'ServiceFee'
+        /// </summary>
+        [Test]
+        public void ServiceFeeTest()
+        {
+            // TODO unit test for the property 'ServiceFee'
+        }
 
     }
 

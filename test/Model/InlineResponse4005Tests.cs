@@ -97,12 +97,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Message'
         }
         /// <summary>
-        /// Test the property 'StatusCode'
+        /// Test the property 'Details'
         /// </summary>
         [Test]
-        public void StatusCodeTest()
+        public void DetailsTest()
         {
-            // TODO unit test for the property 'StatusCode'
+            // TODO unit test for the property 'Details'
         }
 
     }
