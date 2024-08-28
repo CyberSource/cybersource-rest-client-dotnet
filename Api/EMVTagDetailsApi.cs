@@ -326,7 +326,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<TssV2GetEmvTags200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (TssV2GetEmvTags200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2GetEmvTags200Response))); // Return statement
         }
 
@@ -408,7 +408,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<TssV2GetEmvTags200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (TssV2GetEmvTags200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2GetEmvTags200Response))); // Return statement
         }
         /// <summary>
@@ -507,7 +507,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<TssV2PostEmvTags200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (TssV2PostEmvTags200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2PostEmvTags200Response))); // Return statement
         }
 
@@ -608,7 +608,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<TssV2PostEmvTags200Response>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (TssV2PostEmvTags200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2PostEmvTags200Response))); // Return statement
         }
     }

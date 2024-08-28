@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AcsRenderingType'
         }
         /// <summary>
+        /// Test the property 'AcsReferenceNumber'
+        /// </summary>
+        [Test]
+        public void AcsReferenceNumberTest()
+        {
+            // TODO unit test for the property 'AcsReferenceNumber'
+        }
+        /// <summary>
         /// Test the property 'AcsTransactionId'
         /// </summary>
         [Test]
@@ -81,12 +89,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AcsTransactionId'
         }
         /// <summary>
+        /// Test the property 'AcsOperatorID'
+        /// </summary>
+        [Test]
+        public void AcsOperatorIDTest()
+        {
+            // TODO unit test for the property 'AcsOperatorID'
+        }
+        /// <summary>
         /// Test the property 'AuthenticationResult'
         /// </summary>
         [Test]
         public void AuthenticationResultTest()
         {
             // TODO unit test for the property 'AuthenticationResult'
+        }
+        /// <summary>
+        /// Test the property 'AuthenticationType'
+        /// </summary>
+        [Test]
+        public void AuthenticationTypeTest()
+        {
+            // TODO unit test for the property 'AuthenticationType'
         }
         /// <summary>
         /// Test the property 'AuthenticationStatusMsg'
@@ -145,6 +169,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CavvAlgorithm'
         }
         /// <summary>
+        /// Test the property 'ChallengeCancelCode'
+        /// </summary>
+        [Test]
+        public void ChallengeCancelCodeTest()
+        {
+            // TODO unit test for the property 'ChallengeCancelCode'
+        }
+        /// <summary>
         /// Test the property 'DirectoryServerErrorCode'
         /// </summary>
         [Test]
@@ -159,6 +191,14 @@ namespace CyberSource.Test
         public void DirectoryServerErrorDescriptionTest()
         {
             // TODO unit test for the property 'DirectoryServerErrorDescription'
+        }
+        /// <summary>
+        /// Test the property 'EffectiveAuthenticationType'
+        /// </summary>
+        [Test]
+        public void EffectiveAuthenticationTypeTest()
+        {
+            // TODO unit test for the property 'EffectiveAuthenticationType'
         }
         /// <summary>
         /// Test the property 'Indicator'

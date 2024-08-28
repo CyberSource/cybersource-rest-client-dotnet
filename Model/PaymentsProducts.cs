@@ -51,7 +51,8 @@ namespace CyberSource.Model
         /// <param name="PayByLink">PayByLink.</param>
         /// <param name="UnifiedCheckout">UnifiedCheckout.</param>
         /// <param name="ReceivablesManager">ReceivablesManager.</param>
-        public PaymentsProducts(PaymentsProductsCardProcessing CardProcessing = default(PaymentsProductsCardProcessing), PaymentsProductsCardPresentConnect CardPresentConnect = default(PaymentsProductsCardPresentConnect), PaymentsProductsCybsReadyTerminal CybsReadyTerminal = default(PaymentsProductsCybsReadyTerminal), PaymentsProductsECheck ECheck = default(PaymentsProductsECheck), PaymentsProductsPayerAuthentication PayerAuthentication = default(PaymentsProductsPayerAuthentication), PaymentsProductsDigitalPayments DigitalPayments = default(PaymentsProductsDigitalPayments), PaymentsProductsSecureAcceptance SecureAcceptance = default(PaymentsProductsSecureAcceptance), PaymentsProductsVirtualTerminal VirtualTerminal = default(PaymentsProductsVirtualTerminal), PaymentsProductsCurrencyConversion CurrencyConversion = default(PaymentsProductsCurrencyConversion), PaymentsProductsTax Tax = default(PaymentsProductsTax), PaymentsProductsTax CustomerInvoicing = default(PaymentsProductsTax), PaymentsProductsTax RecurringBilling = default(PaymentsProductsTax), PaymentsProductsTax PaymentOrchestration = default(PaymentsProductsTax), PaymentsProductsPayouts Payouts = default(PaymentsProductsPayouts), PaymentsProductsDifferentialFee DifferentialFee = default(PaymentsProductsDifferentialFee), PaymentsProductsTax PayByLink = default(PaymentsProductsTax), PaymentsProductsTax UnifiedCheckout = default(PaymentsProductsTax), PaymentsProductsTax ReceivablesManager = default(PaymentsProductsTax))
+        /// <param name="ServiceFee">ServiceFee.</param>
+        public PaymentsProducts(PaymentsProductsCardProcessing CardProcessing = default(PaymentsProductsCardProcessing), PaymentsProductsCardPresentConnect CardPresentConnect = default(PaymentsProductsCardPresentConnect), PaymentsProductsCybsReadyTerminal CybsReadyTerminal = default(PaymentsProductsCybsReadyTerminal), PaymentsProductsECheck ECheck = default(PaymentsProductsECheck), PaymentsProductsPayerAuthentication PayerAuthentication = default(PaymentsProductsPayerAuthentication), PaymentsProductsDigitalPayments DigitalPayments = default(PaymentsProductsDigitalPayments), PaymentsProductsSecureAcceptance SecureAcceptance = default(PaymentsProductsSecureAcceptance), PaymentsProductsVirtualTerminal VirtualTerminal = default(PaymentsProductsVirtualTerminal), PaymentsProductsCurrencyConversion CurrencyConversion = default(PaymentsProductsCurrencyConversion), PaymentsProductsTax Tax = default(PaymentsProductsTax), PaymentsProductsTax CustomerInvoicing = default(PaymentsProductsTax), PaymentsProductsTax RecurringBilling = default(PaymentsProductsTax), PaymentsProductsTax PaymentOrchestration = default(PaymentsProductsTax), PaymentsProductsPayouts Payouts = default(PaymentsProductsPayouts), PaymentsProductsDifferentialFee DifferentialFee = default(PaymentsProductsDifferentialFee), PaymentsProductsTax PayByLink = default(PaymentsProductsTax), PaymentsProductsTax UnifiedCheckout = default(PaymentsProductsTax), PaymentsProductsTax ReceivablesManager = default(PaymentsProductsTax), PaymentsProductsServiceFee ServiceFee = default(PaymentsProductsServiceFee))
         {
             this.CardProcessing = CardProcessing;
             this.CardPresentConnect = CardPresentConnect;
@@ -71,6 +72,7 @@ namespace CyberSource.Model
             this.PayByLink = PayByLink;
             this.UnifiedCheckout = UnifiedCheckout;
             this.ReceivablesManager = ReceivablesManager;
+            this.ServiceFee = ServiceFee;
         }
         
         /// <summary>
@@ -182,6 +184,12 @@ namespace CyberSource.Model
         public PaymentsProductsTax ReceivablesManager { get; set; }
 
         /// <summary>
+        /// Gets or Sets ServiceFee
+        /// </summary>
+        [DataMember(Name="serviceFee", EmitDefaultValue=false)]
+        public PaymentsProductsServiceFee ServiceFee { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -207,6 +215,7 @@ namespace CyberSource.Model
             sb.Append("  PayByLink: ").Append(PayByLink).Append("\n");
             sb.Append("  UnifiedCheckout: ").Append(UnifiedCheckout).Append("\n");
             sb.Append("  ReceivablesManager: ").Append(ReceivablesManager).Append("\n");
+            sb.Append("  ServiceFee: ").Append(ServiceFee).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -332,6 +341,11 @@ namespace CyberSource.Model
                     this.ReceivablesManager == other.ReceivablesManager ||
                     this.ReceivablesManager != null &&
                     this.ReceivablesManager.Equals(other.ReceivablesManager)
+                ) && 
+                (
+                    this.ServiceFee == other.ServiceFee ||
+                    this.ServiceFee != null &&
+                    this.ServiceFee.Equals(other.ServiceFee)
                 );
         }
 
@@ -382,6 +396,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.UnifiedCheckout.GetHashCode();
                 if (this.ReceivablesManager != null)
                     hash = hash * 59 + this.ReceivablesManager.GetHashCode();
+                if (this.ServiceFee != null)
+                    hash = hash * 59 + this.ServiceFee.GetHashCode();
                 return hash;
             }
         }

@@ -65,20 +65,20 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Rel'
+        /// Test the property 'Self'
         /// </summary>
         [Test]
-        public void RelTest()
+        public void SelfTest()
         {
-            // TODO unit test for the property 'Rel'
+            // TODO unit test for the property 'Self'
         }
         /// <summary>
-        /// Test the property 'Href'
+        /// Test the property 'Report'
         /// </summary>
         [Test]
-        public void HrefTest()
+        public void ReportTest()
         {
-            // TODO unit test for the property 'Href'
+            // TODO unit test for the property 'Report'
         }
 
     }
