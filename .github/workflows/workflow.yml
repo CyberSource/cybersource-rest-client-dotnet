@@ -31,7 +31,7 @@ jobs:
             - name: Upload the Dotnet Rest Client Build
               uses: actions/upload-artifact@v4
               with:
-                name:  cybersource-rest-client-dotnet-dll-and-action
+                name: cybersource-rest-client-dotnet-dll-and-action
                 path: |
                   ${{env.CLIENT_FOLDER}}/bin/Release/cybersource-rest-client-dotnet.dll
                   ${{env.CLIENT_FOLDER}}/.github/actions/generate-report
@@ -69,7 +69,7 @@ jobs:
           run: |
             msbuild -version
             cd $Env:SAMPLE_FOLDER
-            (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>dlls-and-action\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
+            (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>..\\dlls-and-action\\bin\\Release\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             #Replaced the Dependency path to already built cybersource-rest-client-dotnet dll file which was downloaded to the runner
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<TargetFrameworkVersion>)(.)+(</TargetFrameworkVersion>)", "<TargetFrameworkVersion>v${{matrix.net-framework-version}}</TargetFrameworkVersion>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             nuget install packages.config -OutputDirectory packages
@@ -83,7 +83,7 @@ jobs:
           shell: pwsh
         - name: Using Report Generation Action
           id: report-generation
-          uses: ./dlls-and-action/generate-report
+          uses: ./dlls-and-action/.github/actions/generate-report
           with:
             lang: dotnet
             sample-folder-name: ${{env.SAMPLE_FOLDER}}
