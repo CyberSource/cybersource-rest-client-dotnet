@@ -69,9 +69,11 @@ jobs:
         - name: Building the samples and Running the Tests
           run: |
             msbuild -version
-            $clientSdk = (Get-ChildItem -Path nupkg-and-action -Filter "*nupkg" | Select-Object -First 1).BaseName
+            $clientSdkFolderName = (Get-ChildItem -Path nupkg-and-action -Filter "*nupkg" | Select-Object -First 1).BaseName
+            $clientSdkVersion = $clientSdkFolderName.Substring(24)
             cd $Env:SAMPLE_FOLDER
-            (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>packages\\$clientSdk\\lib\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
+            (Get-Content ./packages.config) | ForEach-Object { $_ -replace '.*<package\s*id="CyberSource\.Rest\.Client".*\/>', "<package id=`"CyberSource.Rest.Client`" version=`"$clientSdkVersion`" targetFramework=`"net461`" />" } | Set-Content ./packages.config
+            (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>packages\\$clientSdkFolderName\\lib\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<TargetFrameworkVersion>)(.)+(</TargetFrameworkVersion>)", "<TargetFrameworkVersion>v${{matrix.net-framework-version}}</TargetFrameworkVersion>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             nuget install packages.config -OutputDirectory packages -Source "\\nupkg-and-action;https://api.nuget.org/v3/index.json"
             msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
