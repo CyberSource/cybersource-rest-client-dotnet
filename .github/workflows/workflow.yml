@@ -22,6 +22,8 @@ jobs:
             - name: Building the Dotnet Client
               run: |
                 cd $Env:CLIENT_FOLDER
+                nuget install packages.config -OutputDirectory packages
+                nuget install ./test/packages.config -OutputDirectory packages
                 msbuild -version
                 msbuild -property:Configuration=Release "cybersource-rest-client-dotnet.sln"
                 Write-Output "Build Successful"
@@ -54,7 +56,7 @@ jobs:
         - name: Download the Built Rest Client for Dotnet from previous Job
           uses: actions/download-artifact@v4
           with:
-            name: cybersource-rest-client-dotnet-dll-and-action
+            name: cybersource-rest-client-dotnet-nupkg-and-action
             path: nupkg-and-action
         - name: Checkout cybersource-rest-samples-csharp repo
           uses: actions/checkout@v4
@@ -67,10 +69,11 @@ jobs:
         - name: Building the samples and Running the Tests
           run: |
             msbuild -version
+            $clientSdk = (Get-ChildItem -Path nupkg-and-action -Filter "*nupkg" | Select-Object -First 1).BaseName
             cd $Env:SAMPLE_FOLDER
-            dotnet remove package cybersource-rest-client-dotnet
-            dotnet add package cybersource-rest-client-dotnet -s ..\\nupkg-and-action
+            (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>packagespackages\\$clientSdk\\lib\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<TargetFrameworkVersion>)(.)+(</TargetFrameworkVersion>)", "<TargetFrameworkVersion>v${{matrix.net-framework-version}}</TargetFrameworkVersion>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
+            nuget install packages.config -OutputDirectory packages
             msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
             cd bin/Release/net461
             Write-Output "Running Samples now"
