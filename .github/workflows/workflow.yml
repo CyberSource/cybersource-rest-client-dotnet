@@ -22,18 +22,17 @@ jobs:
             - name: Building the Dotnet Client
               run: |
                 cd $Env:CLIENT_FOLDER
-                nuget install packages.config -OutputDirectory packages
-                nuget install ./test/packages.config -OutputDirectory packages
                 msbuild -version
                 msbuild -property:Configuration=Release "cybersource-rest-client-dotnet.sln"
                 Write-Output "Build Successful"
+                nuget pack cybersource-rest-client-dotnet.nuspec
               shell: pwsh
             - name: Upload the Dotnet Rest Client Build
               uses: actions/upload-artifact@v4
               with:
-                name: cybersource-rest-client-dotnet-dll-and-action
+                name: cybersource-rest-client-dotnet-nupkg-and-action
                 path: |
-                  ${{env.CLIENT_FOLDER}}/bin/Release/cybersource-rest-client-dotnet.dll
+                  ${{env.CLIENT_FOLDER}}/*.nupkg
                   ${{env.CLIENT_FOLDER}}/.github/actions/generate-report
     build-the-samples-and-run-tests:
       defaults:
@@ -56,7 +55,7 @@ jobs:
           uses: actions/download-artifact@v4
           with:
             name: cybersource-rest-client-dotnet-dll-and-action
-            path: dlls-and-action
+            path: nupkg-and-action
         - name: Checkout cybersource-rest-samples-csharp repo
           uses: actions/checkout@v4
           with:
@@ -69,10 +68,9 @@ jobs:
           run: |
             msbuild -version
             cd $Env:SAMPLE_FOLDER
-            (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>..\\dlls-and-action\\bin\\Release\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
-            #Replaced the Dependency path to already built cybersource-rest-client-dotnet dll file which was downloaded to the runner
+            dotnet remove package cybersource-rest-client-dotnet
+            dotnet add package cybersource-rest-client-dotnet -s ..\\nupkg-and-action
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<TargetFrameworkVersion>)(.)+(</TargetFrameworkVersion>)", "<TargetFrameworkVersion>v${{matrix.net-framework-version}}</TargetFrameworkVersion>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
-            nuget install packages.config -OutputDirectory packages
             msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
             cd bin/Release/net461
             Write-Output "Running Samples now"
@@ -83,7 +81,7 @@ jobs:
           shell: pwsh
         - name: Using Report Generation Action
           id: report-generation
-          uses: ./dlls-and-action/.github/actions/generate-report
+          uses: ./nupkg-and-action/.github/actions/generate-report
           with:
             lang: dotnet
             sample-folder-name: ${{env.SAMPLE_FOLDER}}
