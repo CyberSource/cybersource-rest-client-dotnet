@@ -73,7 +73,7 @@ jobs:
             cd $Env:SAMPLE_FOLDER
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>packagespackages\\$clientSdk\\lib\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<TargetFrameworkVersion>)(.)+(</TargetFrameworkVersion>)", "<TargetFrameworkVersion>v${{matrix.net-framework-version}}</TargetFrameworkVersion>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
-            nuget install packages.config -OutputDirectory packages -s ..\\nupkg-and-action
+            nuget install packages.config -OutputDirectory packages -s ".\\nupkg-and-action;https://api.nuget.org/v3/index.json"
             msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
             cd bin/Release/net461
             Write-Output "Running Samples now"
