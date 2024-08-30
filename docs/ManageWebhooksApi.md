@@ -73,7 +73,7 @@ No authorization required
 
 <a name="getwebhooksubscriptionbyid"></a>
 # **GetWebhookSubscriptionById**
-> InlineResponse2005 GetWebhookSubscriptionById (string webhookId)
+> InlineResponse2004 GetWebhookSubscriptionById (string webhookId)
 
 Get Details On a Single Webhook
 
@@ -99,7 +99,7 @@ namespace Example
             try
             {
                 // Get Details On a Single Webhook
-                InlineResponse2005 result = apiInstance.GetWebhookSubscriptionById(webhookId);
+                InlineResponse2004 result = apiInstance.GetWebhookSubscriptionById(webhookId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ No authorization required
 
 <a name="getwebhooksubscriptionsbyorg"></a>
 # **GetWebhookSubscriptionsByOrg**
-> List<InlineResponse2004> GetWebhookSubscriptionsByOrg (string organizationId, string productId, string eventType)
+> List<InlineResponse2003> GetWebhookSubscriptionsByOrg (string organizationId, string productId, string eventType)
 
 Get Details On All Created Webhooks
 
@@ -162,7 +162,7 @@ namespace Example
             try
             {
                 // Get Details On All Created Webhooks
-                List&lt;InlineResponse2004&gt; result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
+                List&lt;InlineResponse2003&gt; result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2004>**](InlineResponse2004.md)
+[**List<InlineResponse2003>**](InlineResponse2003.md)
 
 ### Authorization
 

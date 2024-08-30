@@ -56,8 +56,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>List&lt;InlineResponse2003&gt;</returns>
-        List<InlineResponse2003> FindProductsToSubscribe (string organizationId);
+        /// <returns>List&lt;InlineResponse2002&gt;</returns>
+        List<InlineResponse2002> FindProductsToSubscribe (string organizationId);
 
         /// <summary>
         /// Find Products You Can Subscribe To
@@ -67,8 +67,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2003&gt;</returns>
-        ApiResponse<List<InlineResponse2003>> FindProductsToSubscribeWithHttpInfo (string organizationId);
+        /// <returns>ApiResponse of List&lt;InlineResponse2002&gt;</returns>
+        ApiResponse<List<InlineResponse2002>> FindProductsToSubscribeWithHttpInfo (string organizationId);
         /// <summary>
         /// Create Webhook Security Keys
         /// </summary>
@@ -127,8 +127,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of List&lt;InlineResponse2003&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2003>> FindProductsToSubscribeAsync (string organizationId);
+        /// <returns>Task of List&lt;InlineResponse2002&gt;</returns>
+        System.Threading.Tasks.Task<List<InlineResponse2002>> FindProductsToSubscribeAsync (string organizationId);
 
         /// <summary>
         /// Find Products You Can Subscribe To
@@ -138,8 +138,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2003&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2003>>> FindProductsToSubscribeAsyncWithHttpInfo (string organizationId);
+        /// <returns>Task of ApiResponse (List&lt;InlineResponse2002&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2002>>> FindProductsToSubscribeAsyncWithHttpInfo (string organizationId);
         /// <summary>
         /// Create Webhook Security Keys
         /// </summary>
@@ -398,7 +398,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2014>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (InlineResponse2014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
         }
 
@@ -493,7 +493,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2014>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (InlineResponse2014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
         }
         /// <summary>
@@ -501,13 +501,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>List&lt;InlineResponse2003&gt;</returns>
+        /// <returns>List&lt;InlineResponse2002&gt;</returns>
         /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public List<InlineResponse2003> FindProductsToSubscribe (string organizationId)
+        public List<InlineResponse2002> FindProductsToSubscribe (string organizationId)
         {
             logger.Debug("CALLING API \"FindProductsToSubscribe\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2003>> localVarResponse = FindProductsToSubscribeWithHttpInfo(organizationId);
+            ApiResponse<List<InlineResponse2002>> localVarResponse = FindProductsToSubscribeWithHttpInfo(organizationId);
             logger.Debug("CALLING API \"FindProductsToSubscribe\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -518,8 +518,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2003&gt;</returns>
-        public ApiResponse< List<InlineResponse2003> > FindProductsToSubscribeWithHttpInfo (string organizationId)
+        /// <returns>ApiResponse of List&lt;InlineResponse2002&gt;</returns>
+        public ApiResponse< List<InlineResponse2002> > FindProductsToSubscribeWithHttpInfo (string organizationId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -586,9 +586,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2003>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<InlineResponse2003>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2003>))); // Return statement
+            return new ApiResponse<List<InlineResponse2002>>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>))); // Return statement
         }
 
         /// <summary>
@@ -596,12 +596,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of List&lt;InlineResponse2003&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InlineResponse2003>> FindProductsToSubscribeAsync (string organizationId)
+        /// <returns>Task of List&lt;InlineResponse2002&gt;</returns>
+        public async System.Threading.Tasks.Task<List<InlineResponse2002>> FindProductsToSubscribeAsync (string organizationId)
         {
             logger.Debug("CALLING API \"FindProductsToSubscribeAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2003>> localVarResponse = await FindProductsToSubscribeAsyncWithHttpInfo(organizationId);
+            ApiResponse<List<InlineResponse2002>> localVarResponse = await FindProductsToSubscribeAsyncWithHttpInfo(organizationId);
             logger.Debug("CALLING API \"FindProductsToSubscribeAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -613,8 +613,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2003&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2003>>> FindProductsToSubscribeAsyncWithHttpInfo (string organizationId)
+        /// <returns>Task of ApiResponse (List&lt;InlineResponse2002&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2002>>> FindProductsToSubscribeAsyncWithHttpInfo (string organizationId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -681,9 +681,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2003>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<InlineResponse2003>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2003>))); // Return statement
+            return new ApiResponse<List<InlineResponse2002>>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>))); // Return statement
         }
         /// <summary>
         /// Create Webhook Security Keys Create security keys that CyberSource will use internally to connect to your servers and validate messages using a digital signature.  Select the CREATE example for CyberSource to generate the key on our server and maintain it for you as well. Remeber to save the key in the API response, so that you can use it to validate messages later. 
@@ -806,7 +806,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2013>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
         }
 
@@ -931,7 +931,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2013>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (InlineResponse2013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
         }
     }

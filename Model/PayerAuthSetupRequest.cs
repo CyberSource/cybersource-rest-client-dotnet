@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="TokenInformation">TokenInformation.</param>
-        public PayerAuthSetupRequest(Riskv1decisionsClientReferenceInformation ClientReferenceInformation = default(Riskv1decisionsClientReferenceInformation), Riskv1authenticationsetupsPaymentInformation PaymentInformation = default(Riskv1authenticationsetupsPaymentInformation), Riskv1authenticationsetupsProcessingInformation ProcessingInformation = default(Riskv1authenticationsetupsProcessingInformation), Riskv1authenticationsetupsTokenInformation TokenInformation = default(Riskv1authenticationsetupsTokenInformation))
+        public PayerAuthSetupRequest(Riskv1authenticationsetupsClientReferenceInformation ClientReferenceInformation = default(Riskv1authenticationsetupsClientReferenceInformation), Riskv1authenticationsetupsPaymentInformation PaymentInformation = default(Riskv1authenticationsetupsPaymentInformation), Riskv1authenticationsetupsProcessingInformation ProcessingInformation = default(Riskv1authenticationsetupsProcessingInformation), Riskv1authenticationsetupsTokenInformation TokenInformation = default(Riskv1authenticationsetupsTokenInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.PaymentInformation = PaymentInformation;
@@ -49,7 +49,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Riskv1decisionsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Riskv1authenticationsetupsClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentInformation

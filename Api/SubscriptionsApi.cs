@@ -610,7 +610,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ActivateSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (ActivateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateSubscriptionResponse))); // Return statement
         }
 
@@ -708,7 +708,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ActivateSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (ActivateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateSubscriptionResponse))); // Return statement
         }
         /// <summary>
@@ -804,7 +804,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<CancelSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (CancelSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CancelSubscriptionResponse))); // Return statement
         }
 
@@ -902,7 +902,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<CancelSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (CancelSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CancelSubscriptionResponse))); // Return statement
         }
         /// <summary>
@@ -1004,7 +1004,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<CreateSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (CreateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreateSubscriptionResponse))); // Return statement
         }
 
@@ -1108,7 +1108,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<CreateSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (CreateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreateSubscriptionResponse))); // Return statement
         }
         /// <summary>
@@ -1219,7 +1219,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetAllSubscriptionsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (GetAllSubscriptionsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllSubscriptionsResponse))); // Return statement
         }
 
@@ -1332,7 +1332,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetAllSubscriptionsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (GetAllSubscriptionsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllSubscriptionsResponse))); // Return statement
         }
         /// <summary>
@@ -1428,7 +1428,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (GetSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionResponse))); // Return statement
         }
 
@@ -1526,7 +1526,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (GetSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionResponse))); // Return statement
         }
         /// <summary>
@@ -1609,7 +1609,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetSubscriptionCodeResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (GetSubscriptionCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionCodeResponse))); // Return statement
         }
 
@@ -1694,7 +1694,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetSubscriptionCodeResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (GetSubscriptionCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionCodeResponse))); // Return statement
         }
         /// <summary>
@@ -1790,7 +1790,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<SuspendSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (SuspendSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SuspendSubscriptionResponse))); // Return statement
         }
 
@@ -1888,7 +1888,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<SuspendSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (SuspendSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SuspendSubscriptionResponse))); // Return statement
         }
         /// <summary>
@@ -2003,7 +2003,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<UpdateSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (UpdateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdateSubscriptionResponse))); // Return statement
         }
 
@@ -2120,7 +2120,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<UpdateSubscriptionResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (UpdateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdateSubscriptionResponse))); // Return statement
         }
     }

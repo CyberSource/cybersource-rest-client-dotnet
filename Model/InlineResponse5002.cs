@@ -31,13 +31,33 @@ namespace CyberSource.Model
     public partial class InlineResponse5002 :  IEquatable<InlineResponse5002>, IValidatableObject
     {
         /// <summary>
+        /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;SYSTEM_ERROR&#39; 
+        /// </summary>
+        /// <value>Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;SYSTEM_ERROR&#39; </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ReasonEnum
+        {
+            
+            /// <summary>
+            /// Enum SYSTEMERROR for "SYSTEM_ERROR"
+            /// </summary>
+            [EnumMember(Value = "SYSTEM_ERROR")]
+            SYSTEMERROR
+        }
+        /// <summary>
+        /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;SYSTEM_ERROR&#39; 
+        /// </summary>
+        /// <value>Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;SYSTEM_ERROR&#39; </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public ReasonEnum? Reason { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse5002" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
-        /// <param name="Status">The status of the submitted request.  Possible values:  - SERVER_ERROR .</param>
-        /// <param name="Reason">The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT .</param>
-        /// <param name="Message">The detail message related to the status and reason listed above..</param>
-        public InlineResponse5002(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string))
+        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        /// <param name="Status">The http status description of the submitted request..</param>
+        /// <param name="Reason">Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;SYSTEM_ERROR&#39; .</param>
+        /// <param name="Message">Descriptive message for the error..</param>
+        public InlineResponse5002(DateTime? SubmitTimeUtc = default(DateTime?), string Status = default(string), ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
@@ -46,30 +66,25 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
+        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
+        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
+        [JsonConverter(typeof(SwaggerDateConverter))]
+        public DateTime? SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The status of the submitted request.  Possible values:  - SERVER_ERROR 
+        /// The http status description of the submitted request.
         /// </summary>
-        /// <value>The status of the submitted request.  Possible values:  - SERVER_ERROR </value>
+        /// <value>The http status description of the submitted request.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
-        /// <summary>
-        /// The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:  - SYSTEM_ERROR  - SERVER_TIMEOUT  - SERVICE_TIMEOUT </value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public string Reason { get; set; }
 
         /// <summary>
-        /// The detail message related to the status and reason listed above.
+        /// Descriptive message for the error.
         /// </summary>
-        /// <value>The detail message related to the status and reason listed above.</value>
+        /// <value>Descriptive message for the error.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 

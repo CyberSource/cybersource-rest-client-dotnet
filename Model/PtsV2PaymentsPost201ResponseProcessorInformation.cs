@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// <param name="ResponseCategoryCode">Processor-defined response category code. The associated detail error code is in the &#x60;processorInformation.responseCode&#x60; or &#x60;issuerInformation.responseCode&#x60; field of the service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  #### Maximum length for processors   - Comercio Latino: 36  - All other processors: 3 .</param>
         /// <param name="ForwardedAcquirerCode">Name of the Japanese acquirer that processed the transaction. Returned only for JCN Gateway. Please contact the CyberSource Japan Support Group for more information. .</param>
         /// <param name="SettlementDate">Field contains a settlement date. The date is in mmdd format, where: mm &#x3D; month and dd &#x3D; day. .</param>
+        /// <param name="SequenceNumber">This field serves as a unique identifier for initial and subsequent recurring transactions, specific to the payment brand, and is crucial for transaction tracking and recurrence management. Not all processors provide this value. Returned by the authorization service. .</param>
         /// <param name="Avs">Avs.</param>
         /// <param name="CardVerification">CardVerification.</param>
         /// <param name="MerchantAdvice">MerchantAdvice.</param>
@@ -71,7 +72,7 @@ namespace CyberSource.Model
         /// <param name="CustomUrl">For merchants to declare customs Customs declaration service URL. .</param>
         /// <param name="SchemeAssignedId">Unique id assigned to a merchant by the APM and not PSP The merchant ID, as boarded with Alipay .</param>
         /// <param name="DeviceUrl">The QR code value. Convert this value into an image and send it to the POS terminal to be displayed. The terminal can also perform the conversion. The value is a URL like in the example below: https://qr.alipay.com/pmxabcka1ts5grar12. .</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), string TransactionExpiryDate = default(string), string CustomUrl = default(string), string SchemeAssignedId = default(string), string DeviceUrl = default(string))
+        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), string SequenceNumber = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), string TransactionExpiryDate = default(string), string CustomUrl = default(string), string SchemeAssignedId = default(string), string DeviceUrl = default(string))
         {
             this.AuthIndicator = AuthIndicator;
             this.ApprovalCode = ApprovalCode;
@@ -84,6 +85,7 @@ namespace CyberSource.Model
             this.ResponseCategoryCode = ResponseCategoryCode;
             this.ForwardedAcquirerCode = ForwardedAcquirerCode;
             this.SettlementDate = SettlementDate;
+            this.SequenceNumber = SequenceNumber;
             this.Avs = Avs;
             this.CardVerification = CardVerification;
             this.MerchantAdvice = MerchantAdvice;
@@ -189,6 +191,13 @@ namespace CyberSource.Model
         /// <value>Field contains a settlement date. The date is in mmdd format, where: mm &#x3D; month and dd &#x3D; day. </value>
         [DataMember(Name="settlementDate", EmitDefaultValue=false)]
         public string SettlementDate { get; set; }
+
+        /// <summary>
+        /// This field serves as a unique identifier for initial and subsequent recurring transactions, specific to the payment brand, and is crucial for transaction tracking and recurrence management. Not all processors provide this value. Returned by the authorization service. 
+        /// </summary>
+        /// <value>This field serves as a unique identifier for initial and subsequent recurring transactions, specific to the payment brand, and is crucial for transaction tracking and recurrence management. Not all processors provide this value. Returned by the authorization service. </value>
+        [DataMember(Name="sequenceNumber", EmitDefaultValue=false)]
+        public string SequenceNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets Avs
@@ -387,6 +396,7 @@ namespace CyberSource.Model
             sb.Append("  ResponseCategoryCode: ").Append(ResponseCategoryCode).Append("\n");
             sb.Append("  ForwardedAcquirerCode: ").Append(ForwardedAcquirerCode).Append("\n");
             sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
+            sb.Append("  SequenceNumber: ").Append(SequenceNumber).Append("\n");
             sb.Append("  Avs: ").Append(Avs).Append("\n");
             sb.Append("  CardVerification: ").Append(CardVerification).Append("\n");
             sb.Append("  MerchantAdvice: ").Append(MerchantAdvice).Append("\n");
@@ -504,6 +514,11 @@ namespace CyberSource.Model
                     this.SettlementDate == other.SettlementDate ||
                     this.SettlementDate != null &&
                     this.SettlementDate.Equals(other.SettlementDate)
+                ) && 
+                (
+                    this.SequenceNumber == other.SequenceNumber ||
+                    this.SequenceNumber != null &&
+                    this.SequenceNumber.Equals(other.SequenceNumber)
                 ) && 
                 (
                     this.Avs == other.Avs ||
@@ -675,6 +690,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ForwardedAcquirerCode.GetHashCode();
                 if (this.SettlementDate != null)
                     hash = hash * 59 + this.SettlementDate.GetHashCode();
+                if (this.SequenceNumber != null)
+                    hash = hash * 59 + this.SequenceNumber.GetHashCode();
                 if (this.Avs != null)
                     hash = hash * 59 + this.Avs.GetHashCode();
                 if (this.CardVerification != null)

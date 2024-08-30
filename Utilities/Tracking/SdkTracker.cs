@@ -29,44 +29,6 @@ namespace CyberSource.Utilities.Tracking
 
             switch (requestClass)
             {
-                case "CreateP12KeysRequest":
-                    CreateP12KeysRequest createP12KeysRequest = (CreateP12KeysRequest)requestObj;
-                    
-                    if (createP12KeysRequest.ClientReferenceInformation == null)
-                    {
-                        createP12KeysRequest.ClientReferenceInformation = new Kmsv2keyssymClientReferenceInformation();
-                    }
-
-                    if (createP12KeysRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        createP12KeysRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (createP12KeysRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        createP12KeysRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return createP12KeysRequest;
-                case "DeleteBulkP12KeysRequest":
-                    DeleteBulkP12KeysRequest deleteBulkP12KeysRequest = (DeleteBulkP12KeysRequest)requestObj;
-
-                    if (deleteBulkP12KeysRequest.ClientReferenceInformation == null)
-                    {
-                        deleteBulkP12KeysRequest.ClientReferenceInformation = new Kmsv2keyssymClientReferenceInformation();
-                    }
-
-                    if (deleteBulkP12KeysRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        deleteBulkP12KeysRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (deleteBulkP12KeysRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        deleteBulkP12KeysRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return deleteBulkP12KeysRequest;
                 case "CapturePaymentRequest":
                     CapturePaymentRequest capturePaymentRequest = (CapturePaymentRequest)requestObj;
 
@@ -167,7 +129,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (checkPayerAuthEnrollmentRequest.ClientReferenceInformation == null)
                     {
-                        checkPayerAuthEnrollmentRequest.ClientReferenceInformation = new Riskv1decisionsClientReferenceInformation();
+                        checkPayerAuthEnrollmentRequest.ClientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation();
                     }
 
                     if (checkPayerAuthEnrollmentRequest.ClientReferenceInformation.Partner == null)
@@ -186,7 +148,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (payerAuthSetupRequest.ClientReferenceInformation == null)
                     {
-                        payerAuthSetupRequest.ClientReferenceInformation = new Riskv1decisionsClientReferenceInformation();
+                        payerAuthSetupRequest.ClientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation();
                     }
 
                     if (payerAuthSetupRequest.ClientReferenceInformation.Partner == null)
@@ -205,7 +167,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (validateRequest.ClientReferenceInformation == null)
                     {
-                        validateRequest.ClientReferenceInformation = new Riskv1decisionsClientReferenceInformation();
+                        validateRequest.ClientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation();
                     }
 
                     if (validateRequest.ClientReferenceInformation.Partner == null)
@@ -390,63 +352,6 @@ namespace CyberSource.Utilities.Tracking
                     }
 
                     return updateSubscription;
-                case "CreateSharedSecretKeysRequest":
-                    CreateSharedSecretKeysRequest createSharedSecretKeysRequest = (CreateSharedSecretKeysRequest)requestObj;
-
-                    if (createSharedSecretKeysRequest.ClientReferenceInformation == null)
-                    {
-                        createSharedSecretKeysRequest.ClientReferenceInformation = new Kmsv2keyssymClientReferenceInformation();
-                    }
-
-                    if (createSharedSecretKeysRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        createSharedSecretKeysRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (createSharedSecretKeysRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        createSharedSecretKeysRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return createSharedSecretKeysRequest;
-                case "CreateSharedSecretKeysVerifiRequest":
-                    CreateSharedSecretKeysVerifiRequest createSharedSecretKeysVerifiRequest = (CreateSharedSecretKeysVerifiRequest)requestObj;
-
-                    if (createSharedSecretKeysVerifiRequest.ClientReferenceInformation == null)
-                    {
-                        createSharedSecretKeysVerifiRequest.ClientReferenceInformation = new Kmsv2keyssymClientReferenceInformation();
-                    }
-
-                    if (createSharedSecretKeysVerifiRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        createSharedSecretKeysVerifiRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (createSharedSecretKeysVerifiRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        createSharedSecretKeysVerifiRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return createSharedSecretKeysVerifiRequest;
-                case "DeleteBulkSymmetricKeysRequest":
-                    DeleteBulkSymmetricKeysRequest deleteBulkSymmetricKeysRequest = (DeleteBulkSymmetricKeysRequest)requestObj;
-
-                    if (deleteBulkSymmetricKeysRequest.ClientReferenceInformation == null)
-                    {
-                        deleteBulkSymmetricKeysRequest.ClientReferenceInformation = new Kmsv2keyssymClientReferenceInformation();
-                    }
-
-                    if (deleteBulkSymmetricKeysRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        deleteBulkSymmetricKeysRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (deleteBulkSymmetricKeysRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        deleteBulkSymmetricKeysRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return deleteBulkSymmetricKeysRequest;
                 case "TaxRequest":
                     TaxRequest taxRequest = (TaxRequest)requestObj;
 

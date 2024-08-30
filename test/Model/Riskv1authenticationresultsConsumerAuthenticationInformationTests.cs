@@ -89,22 +89,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'OtpToken'
         }
         /// <summary>
-        /// Test the property 'AuthenticationType'
-        /// </summary>
-        [Test]
-        public void AuthenticationTypeTest()
-        {
-            // TODO unit test for the property 'AuthenticationType'
-        }
-        /// <summary>
-        /// Test the property 'EffectiveAuthenticationType'
-        /// </summary>
-        [Test]
-        public void EffectiveAuthenticationTypeTest()
-        {
-            // TODO unit test for the property 'EffectiveAuthenticationType'
-        }
-        /// <summary>
         /// Test the property 'ResponseAccessToken'
         /// </summary>
         [Test]
