@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="RiskV1AuthenticationsPost400Response1" /> class.
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
-        /// <param name="Status">The status for payerAuthentication 201 enroll and validate calls. Value is: - &#x60;INVALID_REQUEST&#x60; .</param>
+        /// <param name="Status">The status for payerAuthentication 400 enroll and validate calls. Value is: - &#x60;INVALID_REQUEST&#x60; .</param>
         /// <param name="Reason">The reason of the status.  Possible Values: - &#x60;MISSING_FIELD&#x60; - &#x60;INVALID_DATA&#x60; .</param>
         /// <param name="Message">The message describing the reason of the status. Value is: - Encountered a Payer Authentication problem. Payer could not be authenticated. .</param>
         /// <param name="Details">Details.</param>
@@ -55,9 +55,9 @@ namespace CyberSource.Model
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The status for payerAuthentication 201 enroll and validate calls. Value is: - &#x60;INVALID_REQUEST&#x60; 
+        /// The status for payerAuthentication 400 enroll and validate calls. Value is: - &#x60;INVALID_REQUEST&#x60; 
         /// </summary>
-        /// <value>The status for payerAuthentication 201 enroll and validate calls. Value is: - &#x60;INVALID_REQUEST&#x60; </value>
+        /// <value>The status for payerAuthentication 400 enroll and validate calls. Value is: - &#x60;INVALID_REQUEST&#x60; </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 

@@ -240,6 +240,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CardVerificationIndicator'
         }
+        /// <summary>
+        /// Test the property 'AftIndicator'
+        /// </summary>
+        [Test]
+        public void AftIndicatorTest()
+        {
+            // TODO unit test for the property 'AftIndicator'
+        }
 
     }
 

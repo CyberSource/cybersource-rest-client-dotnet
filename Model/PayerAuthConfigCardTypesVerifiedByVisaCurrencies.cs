@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PayerAuthConfigCardTypesVerifiedByVisaCurrencies" /> class.
         /// </summary>
-        /// <param name="CurrencyCodes">CurrencyCodes.</param>
+        /// <param name="CurrencyCodes">Supported currency codes are numeric ISO 4217 codes, such as 840 for US Dollar and 978 for Euro.  For backward compatibility, we also support the &#39;ALL&#39; code, which represents all currencies.  In the UI, &#39;ALL&#39; is displayed as &#39;Default&#39;. .</param>
         /// <param name="AcquirerId">The Acquirer ID value, often referred to as the Acquirer BIN, is specific to an Acquirer. The value is created by Cardinal in their system and the Acquirer may not know that the Acquirer ID is different from their Acquiring BIN. It is most often the Acquiring BIN + \&quot;-1000\&quot; but the trailing character can be different. **Note** We will need to double check with Cardinal before setting up the Portfolio Template in production. .</param>
         /// <param name="ProcessorMerchantId">Processor Merchant ID is the Merchant ID assigned by your acquiring bank. This Merchant ID should also be used by your bank to register your account to the card scheme Directory Server for processing Payer Authentication services. .</param>
         public PayerAuthConfigCardTypesVerifiedByVisaCurrencies(List<string> CurrencyCodes = default(List<string>), string AcquirerId = default(string), string ProcessorMerchantId = default(string))
@@ -44,8 +44,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Gets or Sets CurrencyCodes
+        /// Supported currency codes are numeric ISO 4217 codes, such as 840 for US Dollar and 978 for Euro.  For backward compatibility, we also support the &#39;ALL&#39; code, which represents all currencies.  In the UI, &#39;ALL&#39; is displayed as &#39;Default&#39;. 
         /// </summary>
+        /// <value>Supported currency codes are numeric ISO 4217 codes, such as 840 for US Dollar and 978 for Euro.  For backward compatibility, we also support the &#39;ALL&#39; code, which represents all currencies.  In the UI, &#39;ALL&#39; is displayed as &#39;Default&#39;. </value>
         [DataMember(Name="currencyCodes", EmitDefaultValue=false)]
         public List<string> CurrencyCodes { get; set; }
 

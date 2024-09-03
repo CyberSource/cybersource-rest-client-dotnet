@@ -394,13 +394,13 @@ namespace {{packageName}}.{{apiPackage}}
 
             {{#returnType}}
             return new ApiResponse<{{{returnType}}}>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 ({{{returnType}}}) Configuration.ApiClient.Deserialize(localVarResponse, typeof({{#returnContainer}}{{{returnContainer}}}{{/returnContainer}}{{^returnContainer}}{{{returnType}}}{{/returnContainer}}))); // Return statement
             {{/returnType}}
             {{^returnType}}
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 localVarResponse.Content); // Return statement
             {{/returnType}}
         }
@@ -584,13 +584,13 @@ namespace {{packageName}}.{{apiPackage}}
 
             {{#returnType}}
             return new ApiResponse<{{{returnType}}}>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 ({{{returnType}}}) Configuration.ApiClient.Deserialize(localVarResponse, typeof({{#returnContainer}}{{{returnContainer}}}{{/returnContainer}}{{^returnContainer}}{{{returnType}}}{{/returnContainer}}))); // Return statement
             {{/returnType}}
             {{^returnType}}
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}, x => x.Value.ToString()),
+                localVarResponse.Headers.GroupBy(h => h.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 localVarResponse.Content); // Return statement
             {{/returnType}}
         }
