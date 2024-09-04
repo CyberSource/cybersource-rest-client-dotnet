@@ -34,8 +34,8 @@ jobs:
               with:
                 name: cybersource-rest-client-dotnet-nupkg-and-action
                 path: |
-                  ${{env.CLIENT_FOLDER}}/*.nupkg
                   ${{env.CLIENT_FOLDER}}/.github/actions/generate-report
+                  ${{env.CLIENT_FOLDER}}/*.nupkg
     build-the-samples-and-run-tests:
       defaults:
         run:
