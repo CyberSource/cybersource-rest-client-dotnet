@@ -33,18 +33,23 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1authenticationsDeviceInformation" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected Riskv1authenticationsDeviceInformation() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Riskv1authenticationsDeviceInformation" /> class.
+        /// </summary>
         /// <param name="IpAddress">IP address of the customer.  #### Used by **Authorization, Capture, and Credit** Optional field. .</param>
         /// <param name="RawData">RawData.</param>
         /// <param name="HttpAcceptBrowserValue">Value of the Accept header sent by the customer&#39;s web browser. **Note** If the customer&#39;s browser provides a value, you must include it in your request. .</param>
-        /// <param name="HttpAcceptContent">The exact content of the HTTP accept header. .</param>
-        /// <param name="HttpBrowserLanguage">Value represents the browser language as defined in IETF BCP47. Example:en-US, refer  https://en.wikipedia.org/wiki/IETF_language_tag for more details. .</param>
-        /// <param name="HttpBrowserJavaEnabled">A Boolean value that represents the ability of the cardholder browser to execute Java. Value is returned from the navigator.javaEnabled property. Possible Values:True/False .</param>
+        /// <param name="HttpAcceptContent">The exact content of the HTTP accept header.  (required).</param>
+        /// <param name="HttpBrowserLanguage">Value represents the browser language as defined in IETF BCP47. Example:en-US, refer  https://en.wikipedia.org/wiki/IETF_language_tag for more details.  (required).</param>
+        /// <param name="HttpBrowserJavaEnabled">A Boolean value that represents the ability of the cardholder browser to execute Java. Value is returned from the navigator.javaEnabled property. Possible Values:True/False  (required).</param>
         /// <param name="HttpBrowserJavaScriptEnabled">A Boolean value that represents the ability of the cardholder browser to execute JavaScript. Possible Values:True/False. **Note**: Merchants should be able to know the values from fingerprint details of cardholder&#39;s browser. .</param>
-        /// <param name="HttpBrowserColorDepth">Value represents the bit depth of the color palette for displaying images, in bits per pixel. Example : 24, refer https://en.wikipedia.org/wiki/Color_depth for more details .</param>
-        /// <param name="HttpBrowserScreenHeight">Total height of the Cardholder&#39;s scree in pixels, example: 864. .</param>
-        /// <param name="HttpBrowserScreenWidth">Total width of the cardholder&#39;s screen in pixels. Example: 1536. .</param>
-        /// <param name="HttpBrowserTimeDifference">Time difference between UTC time and the cardholder browser local time, in minutes, Example:300 .</param>
-        /// <param name="UserAgentBrowserValue">Value of the User-Agent header sent by the customer&#39;s web browser. Note If the customer&#39;s browser provides a value, you must include it in your request. .</param>
+        /// <param name="HttpBrowserColorDepth">Value represents the bit depth of the color palette for displaying images, in bits per pixel. Example : 24, refer https://en.wikipedia.org/wiki/Color_depth for more details  (required).</param>
+        /// <param name="HttpBrowserScreenHeight">Total height of the Cardholder&#39;s scree in pixels, example: 864.  (required).</param>
+        /// <param name="HttpBrowserScreenWidth">Total width of the cardholder&#39;s screen in pixels. Example: 1536.  (required).</param>
+        /// <param name="HttpBrowserTimeDifference">Time difference between UTC time and the cardholder browser local time, in minutes, Example:300  (required).</param>
+        /// <param name="UserAgentBrowserValue">Value of the User-Agent header sent by the customer&#39;s web browser. Note If the customer&#39;s browser provides a value, you must include it in your request.  (required).</param>
         public Riskv1authenticationsDeviceInformation(string IpAddress = default(string), List<Ptsv2paymentsDeviceInformationRawData> RawData = default(List<Ptsv2paymentsDeviceInformationRawData>), string HttpAcceptBrowserValue = default(string), string HttpAcceptContent = default(string), string HttpBrowserLanguage = default(string), bool? HttpBrowserJavaEnabled = default(bool?), bool? HttpBrowserJavaScriptEnabled = default(bool?), string HttpBrowserColorDepth = default(string), string HttpBrowserScreenHeight = default(string), string HttpBrowserScreenWidth = default(string), string HttpBrowserTimeDifference = default(string), string UserAgentBrowserValue = default(string))
         {
             this.IpAddress = IpAddress;

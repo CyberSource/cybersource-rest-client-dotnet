@@ -65,12 +65,20 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Links'
+        /// Test the property 'Version'
         /// </summary>
         [Test]
-        public void LinksTest()
+        public void VersionTest()
         {
-            // TODO unit test for the property 'Links'
+            // TODO unit test for the property 'Version'
+        }
+        /// <summary>
+        /// Test the property 'ReportCreatedDate'
+        /// </summary>
+        [Test]
+        public void ReportCreatedDateTest()
+        {
+            // TODO unit test for the property 'ReportCreatedDate'
         }
         /// <summary>
         /// Test the property 'BatchId'
@@ -81,28 +89,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'BatchId'
         }
         /// <summary>
-        /// Test the property 'BatchCreatedDate'
-        /// </summary>
-        [Test]
-        public void BatchCreatedDateTest()
-        {
-            // TODO unit test for the property 'BatchCreatedDate'
-        }
-        /// <summary>
         /// Test the property 'BatchSource'
         /// </summary>
         [Test]
         public void BatchSourceTest()
         {
             // TODO unit test for the property 'BatchSource'
-        }
-        /// <summary>
-        /// Test the property 'MerchantReference'
-        /// </summary>
-        [Test]
-        public void MerchantReferenceTest()
-        {
-            // TODO unit test for the property 'MerchantReference'
         }
         /// <summary>
         /// Test the property 'BatchCaEndpoints'
@@ -113,12 +105,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'BatchCaEndpoints'
         }
         /// <summary>
-        /// Test the property 'Status'
+        /// Test the property 'BatchCreatedDate'
         /// </summary>
         [Test]
-        public void StatusTest()
+        public void BatchCreatedDateTest()
         {
-            // TODO unit test for the property 'Status'
+            // TODO unit test for the property 'BatchCreatedDate'
+        }
+        /// <summary>
+        /// Test the property 'MerchantReference'
+        /// </summary>
+        [Test]
+        public void MerchantReferenceTest()
+        {
+            // TODO unit test for the property 'MerchantReference'
         }
         /// <summary>
         /// Test the property 'Totals'
@@ -137,12 +137,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Billing'
         }
         /// <summary>
-        /// Test the property 'Description'
+        /// Test the property 'Records'
         /// </summary>
         [Test]
-        public void DescriptionTest()
+        public void RecordsTest()
         {
-            // TODO unit test for the property 'Description'
+            // TODO unit test for the property 'Records'
         }
 
     }

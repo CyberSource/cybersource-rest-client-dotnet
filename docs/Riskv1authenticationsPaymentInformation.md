@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Card** | [**Riskv1authenticationsPaymentInformationCard**](Riskv1authenticationsPaymentInformationCard.md) |  | [optional] 
+**Card** | [**Riskv1authenticationsetupsPaymentInformationCard**](Riskv1authenticationsetupsPaymentInformationCard.md) |  | [optional] 
 **TokenizedCard** | [**Riskv1authenticationsPaymentInformationTokenizedCard**](Riskv1authenticationsPaymentInformationTokenizedCard.md) |  | [optional] 
 **FluidData** | [**Riskv1authenticationsetupsPaymentInformationFluidData**](Riskv1authenticationsetupsPaymentInformationFluidData.md) |  | [optional] 
 **Customer** | [**Ptsv2paymentsPaymentInformationCustomer**](Ptsv2paymentsPaymentInformationCustomer.md) |  | [optional] 

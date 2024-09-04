@@ -73,14 +73,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'StrongAuthentication'
         }
         /// <summary>
-        /// Test the property 'AuthenticationType'
-        /// </summary>
-        [Test]
-        public void AuthenticationTypeTest()
-        {
-            // TODO unit test for the property 'AuthenticationType'
-        }
-        /// <summary>
         /// Test the property 'AcsWindowSize'
         /// </summary>
         [Test]

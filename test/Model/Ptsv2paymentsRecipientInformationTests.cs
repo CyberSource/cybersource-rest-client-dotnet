@@ -73,6 +73,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AccountId'
         }
         /// <summary>
+        /// Test the property 'AccountType'
+        /// </summary>
+        [Test]
+        public void AccountTypeTest()
+        {
+            // TODO unit test for the property 'AccountType'
+        }
+        /// <summary>
+        /// Test the property 'FirstName'
+        /// </summary>
+        [Test]
+        public void FirstNameTest()
+        {
+            // TODO unit test for the property 'FirstName'
+        }
+        /// <summary>
         /// Test the property 'LastName'
         /// </summary>
         [Test]
@@ -89,12 +105,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'MiddleName'
         }
         /// <summary>
+        /// Test the property 'Address1'
+        /// </summary>
+        [Test]
+        public void Address1Test()
+        {
+            // TODO unit test for the property 'Address1'
+        }
+        /// <summary>
         /// Test the property 'PostalCode'
         /// </summary>
         [Test]
         public void PostalCodeTest()
         {
             // TODO unit test for the property 'PostalCode'
+        }
+        /// <summary>
+        /// Test the property 'Country'
+        /// </summary>
+        [Test]
+        public void CountryTest()
+        {
+            // TODO unit test for the property 'Country'
         }
         /// <summary>
         /// Test the property 'DateOfBirth'

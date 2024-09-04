@@ -153,6 +153,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'SettlementDate'
         }
         /// <summary>
+        /// Test the property 'SequenceNumber'
+        /// </summary>
+        [Test]
+        public void SequenceNumberTest()
+        {
+            // TODO unit test for the property 'SequenceNumber'
+        }
+        /// <summary>
         /// Test the property 'Avs'
         /// </summary>
         [Test]

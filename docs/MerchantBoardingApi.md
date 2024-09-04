@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getregistration"></a>
 # **GetRegistration**
-> InlineResponse2002 GetRegistration (string registrationId)
+> InlineResponse2001 GetRegistration (string registrationId)
 
 Gets all the information on a boarding registration
 
@@ -36,7 +36,7 @@ namespace Example
             try
             {
                 // Gets all the information on a boarding registration
-                InlineResponse2002 result = apiInstance.GetRegistration(registrationId);
+                InlineResponse2001 result = apiInstance.GetRegistration(registrationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

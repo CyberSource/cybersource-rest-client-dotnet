@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientReferenceInformation** | [**Riskv1decisionsClientReferenceInformation**](Riskv1decisionsClientReferenceInformation.md) |  | [optional] 
+**ClientReferenceInformation** | [**Riskv1authenticationsetupsClientReferenceInformation**](Riskv1authenticationsetupsClientReferenceInformation.md) |  | [optional] 
 **OrderInformation** | [**Riskv1authenticationsOrderInformation**](Riskv1authenticationsOrderInformation.md) |  | [optional] 
 **PaymentInformation** | [**Riskv1authenticationsPaymentInformation**](Riskv1authenticationsPaymentInformation.md) |  | [optional] 
 **ProcessingInformation** | [**Riskv1authenticationsetupsProcessingInformation**](Riskv1authenticationsetupsProcessingInformation.md) |  | [optional] 
