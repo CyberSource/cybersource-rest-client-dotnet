@@ -71,12 +71,13 @@ jobs:
             msbuild -version
             $clientSdkFolderName = (Get-ChildItem -Path nupkg-and-action -Filter "*nupkg" | Select-Object -First 1).BaseName
             $clientSdkVersion = $clientSdkFolderName.Substring(24)
+            nuget Sources Add -Name "temperory_nuget_source" -Source ((Get-Location).Path + "\nupkg-and-action")
             cd $Env:SAMPLE_FOLDER
             (Get-Content ./packages.config) | ForEach-Object { $_ -replace '.*<package\s*id="CyberSource\.Rest\.Client".*\/>', "<package id=`"CyberSource.Rest.Client`" version=`"$clientSdkVersion`" targetFramework=`"net461`" />" } | Set-Content ./packages.config
             Get-content ./packages.config
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>packages\\$clientSdkFolderName\\lib\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<TargetFrameworkVersion>)(.)+(</TargetFrameworkVersion>)", "<TargetFrameworkVersion>v${{matrix.net-framework-version}}</TargetFrameworkVersion>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
-            nuget install packages.config -OutputDirectory packages -Source "\\nupkg-and-action;https://api.nuget.org/v3/index.json"
+            nuget install packages.config -OutputDirectory packages -Source temperory_nuget_source
             msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
             cd bin/Release/net461
             Write-Output "Running Samples now"
