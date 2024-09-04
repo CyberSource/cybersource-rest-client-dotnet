@@ -29,13 +29,17 @@ jobs:
                 Write-Output "Build Successful"
                 nuget pack cybersource-rest-client-dotnet.nuspec
               shell: pwsh
-            - name: Upload the Dotnet Rest Client Build
+            - name: Upload Rest Client SDK Nupkg
               uses: actions/upload-artifact@v4
               with:
-                name: cybersource-rest-client-dotnet-nupkg-and-action
-                path: |
-                  ${{env.CLIENT_FOLDER}}/.github/actions/generate-report
-                  ${{env.CLIENT_FOLDER}}/*.nupkg
+                name: sdk-nupkg
+                path: ${{env.CLIENT_FOLDER}}/*.nupkg
+            # To be removed
+            - name: Upload Generate Report Action
+              uses: actions/upload-artifact@v4
+              with:
+                name: generate-action
+                path: ${{env.CLIENT_FOLDER}}/.github/actions/generate-report/action.yml
     build-the-samples-and-run-tests:
       defaults:
         run:
@@ -56,8 +60,13 @@ jobs:
         - name: Download the Built Rest Client for Dotnet from previous Job
           uses: actions/download-artifact@v4
           with:
-            name: cybersource-rest-client-dotnet-nupkg-and-action
-            path: nupkg-and-action
+            name: sdk-nupkg
+            path: sdk-nupkg
+        - name: Download the Generate Action
+          uses: actions/download-artifact@v4
+          with:
+            name: generate-action
+            path: generate-action
         - name: Checkout cybersource-rest-samples-csharp repo
           uses: actions/checkout@v4
           with:
@@ -69,12 +78,11 @@ jobs:
         - name: Building the samples and Running the Tests
           run: |
             msbuild -version
-            $clientSdkFolderName = (Get-ChildItem -Path nupkg-and-action -Filter "*nupkg" | Select-Object -First 1).BaseName
+            $clientSdkFolderName = (Get-ChildItem -Path sdk-nupkg -Filter "*nupkg" | Select-Object -First 1).BaseName
             $clientSdkVersion = $clientSdkFolderName.Substring(24)
-            nuget Sources Add -Name "temperory_nuget_source" -Source ((Get-Location).Path + "\nupkg-and-action")
+            nuget Sources Add -Name "temperory_nuget_source" -Source ((Get-Location).Path + "\sdk-nupkg")
             cd $Env:SAMPLE_FOLDER
             (Get-Content ./packages.config) | ForEach-Object { $_ -replace '.*<package\s*id="CyberSource\.Rest\.Client".*\/>', "<package id=`"CyberSource.Rest.Client`" version=`"$clientSdkVersion`" targetFramework=`"net461`" />" } | Set-Content ./packages.config
-            Get-content ./packages.config
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>packages\\$clientSdkFolderName\\lib\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<TargetFrameworkVersion>)(.)+(</TargetFrameworkVersion>)", "<TargetFrameworkVersion>v${{matrix.net-framework-version}}</TargetFrameworkVersion>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
             nuget install packages.config -OutputDirectory packages -Source temperory_nuget_source -Source https://api.nuget.org/v3/index.json
@@ -88,7 +96,7 @@ jobs:
           shell: pwsh
         - name: Using Report Generation Action
           id: report-generation
-          uses: ./nupkg-and-action/.github/actions/generate-report
+          uses: ./generate-action
           with:
             lang: dotnet
             sample-folder-name: ${{env.SAMPLE_FOLDER}}
