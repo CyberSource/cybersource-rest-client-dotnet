@@ -107,3 +107,4 @@ jobs:
             name: sample-run-report-${{matrix.operating-system}}-dotnet-framework-ver-${{matrix.net-framework-version}}
             path: |
               ${{env.SAMPLE_FOLDER}}/${{steps.report-generation.outputs.result-pdf-name}}
+              ${{env.SAMPLE_FOLDER}}/output.log
