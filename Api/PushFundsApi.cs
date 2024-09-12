@@ -367,7 +367,7 @@ namespace CyberSource.Api
             if (pushFundsRequest != null && pushFundsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                pushFundsRequest = (PushFundsRequest)sdkTracker.InsertDeveloperIdTracker(pushFundsRequest, pushFundsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                pushFundsRequest = (PushFundsRequest)sdkTracker.InsertDeveloperIdTracker(pushFundsRequest, pushFundsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(pushFundsRequest); // http body (model) parameter
             }
             else
@@ -540,7 +540,7 @@ namespace CyberSource.Api
             if (pushFundsRequest != null && pushFundsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                pushFundsRequest = (PushFundsRequest)sdkTracker.InsertDeveloperIdTracker(pushFundsRequest, pushFundsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                pushFundsRequest = (PushFundsRequest)sdkTracker.InsertDeveloperIdTracker(pushFundsRequest, pushFundsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(pushFundsRequest); // http body (model) parameter
             }
             else

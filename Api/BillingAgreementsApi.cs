@@ -376,7 +376,7 @@ namespace CyberSource.Api
             if (modifyBillingAgreement != null && modifyBillingAgreement.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                modifyBillingAgreement = (ModifyBillingAgreement)sdkTracker.InsertDeveloperIdTracker(modifyBillingAgreement, modifyBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                modifyBillingAgreement = (ModifyBillingAgreement)sdkTracker.InsertDeveloperIdTracker(modifyBillingAgreement, modifyBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(modifyBillingAgreement); // http body (model) parameter
             }
             else
@@ -490,7 +490,7 @@ namespace CyberSource.Api
             if (modifyBillingAgreement != null && modifyBillingAgreement.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                modifyBillingAgreement = (ModifyBillingAgreement)sdkTracker.InsertDeveloperIdTracker(modifyBillingAgreement, modifyBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                modifyBillingAgreement = (ModifyBillingAgreement)sdkTracker.InsertDeveloperIdTracker(modifyBillingAgreement, modifyBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(modifyBillingAgreement); // http body (model) parameter
             }
             else
@@ -602,7 +602,7 @@ namespace CyberSource.Api
             if (intimateBillingAgreement != null && intimateBillingAgreement.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                intimateBillingAgreement = (IntimateBillingAgreement)sdkTracker.InsertDeveloperIdTracker(intimateBillingAgreement, intimateBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                intimateBillingAgreement = (IntimateBillingAgreement)sdkTracker.InsertDeveloperIdTracker(intimateBillingAgreement, intimateBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(intimateBillingAgreement); // http body (model) parameter
             }
             else
@@ -716,7 +716,7 @@ namespace CyberSource.Api
             if (intimateBillingAgreement != null && intimateBillingAgreement.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                intimateBillingAgreement = (IntimateBillingAgreement)sdkTracker.InsertDeveloperIdTracker(intimateBillingAgreement, intimateBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                intimateBillingAgreement = (IntimateBillingAgreement)sdkTracker.InsertDeveloperIdTracker(intimateBillingAgreement, intimateBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(intimateBillingAgreement); // http body (model) parameter
             }
             else
@@ -815,7 +815,7 @@ namespace CyberSource.Api
             if (createBillingAgreement != null && createBillingAgreement.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createBillingAgreement = (CreateBillingAgreement)sdkTracker.InsertDeveloperIdTracker(createBillingAgreement, createBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createBillingAgreement = (CreateBillingAgreement)sdkTracker.InsertDeveloperIdTracker(createBillingAgreement, createBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createBillingAgreement); // http body (model) parameter
             }
             else
@@ -916,7 +916,7 @@ namespace CyberSource.Api
             if (createBillingAgreement != null && createBillingAgreement.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createBillingAgreement = (CreateBillingAgreement)sdkTracker.InsertDeveloperIdTracker(createBillingAgreement, createBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createBillingAgreement = (CreateBillingAgreement)sdkTracker.InsertDeveloperIdTracker(createBillingAgreement, createBillingAgreement.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createBillingAgreement); // http body (model) parameter
             }
             else

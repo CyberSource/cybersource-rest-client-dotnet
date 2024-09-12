@@ -513,7 +513,7 @@ namespace CyberSource.Api
             if (postRegistrationBody != null && postRegistrationBody.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postRegistrationBody = (PostRegistrationBody)sdkTracker.InsertDeveloperIdTracker(postRegistrationBody, postRegistrationBody.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                postRegistrationBody = (PostRegistrationBody)sdkTracker.InsertDeveloperIdTracker(postRegistrationBody, postRegistrationBody.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(postRegistrationBody); // http body (model) parameter
             }
             else
@@ -620,7 +620,7 @@ namespace CyberSource.Api
             if (postRegistrationBody != null && postRegistrationBody.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postRegistrationBody = (PostRegistrationBody)sdkTracker.InsertDeveloperIdTracker(postRegistrationBody, postRegistrationBody.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                postRegistrationBody = (PostRegistrationBody)sdkTracker.InsertDeveloperIdTracker(postRegistrationBody, postRegistrationBody.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(postRegistrationBody); // http body (model) parameter
             }
             else

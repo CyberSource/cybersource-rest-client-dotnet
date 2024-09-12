@@ -272,7 +272,7 @@ namespace CyberSource.Api
             if (createBinLookupRequest != null && createBinLookupRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createBinLookupRequest = (CreateBinLookupRequest)sdkTracker.InsertDeveloperIdTracker(createBinLookupRequest, createBinLookupRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createBinLookupRequest = (CreateBinLookupRequest)sdkTracker.InsertDeveloperIdTracker(createBinLookupRequest, createBinLookupRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createBinLookupRequest); // http body (model) parameter
             }
             else
@@ -373,7 +373,7 @@ namespace CyberSource.Api
             if (createBinLookupRequest != null && createBinLookupRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createBinLookupRequest = (CreateBinLookupRequest)sdkTracker.InsertDeveloperIdTracker(createBinLookupRequest, createBinLookupRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createBinLookupRequest = (CreateBinLookupRequest)sdkTracker.InsertDeveloperIdTracker(createBinLookupRequest, createBinLookupRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createBinLookupRequest); // http body (model) parameter
             }
             else

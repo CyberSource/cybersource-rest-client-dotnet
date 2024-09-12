@@ -842,7 +842,7 @@ namespace CyberSource.Api
             if (patchCustomerRequest != null && patchCustomerRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                patchCustomerRequest = (PatchCustomerRequest)sdkTracker.InsertDeveloperIdTracker(patchCustomerRequest, patchCustomerRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                patchCustomerRequest = (PatchCustomerRequest)sdkTracker.InsertDeveloperIdTracker(patchCustomerRequest, patchCustomerRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(patchCustomerRequest); // http body (model) parameter
             }
             else
@@ -968,7 +968,7 @@ namespace CyberSource.Api
             if (patchCustomerRequest != null && patchCustomerRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                patchCustomerRequest = (PatchCustomerRequest)sdkTracker.InsertDeveloperIdTracker(patchCustomerRequest, patchCustomerRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                patchCustomerRequest = (PatchCustomerRequest)sdkTracker.InsertDeveloperIdTracker(patchCustomerRequest, patchCustomerRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(patchCustomerRequest); // http body (model) parameter
             }
             else
@@ -1073,7 +1073,7 @@ namespace CyberSource.Api
             if (postCustomerRequest != null && postCustomerRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postCustomerRequest = (PostCustomerRequest)sdkTracker.InsertDeveloperIdTracker(postCustomerRequest, postCustomerRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                postCustomerRequest = (PostCustomerRequest)sdkTracker.InsertDeveloperIdTracker(postCustomerRequest, postCustomerRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(postCustomerRequest); // http body (model) parameter
             }
             else
@@ -1180,7 +1180,7 @@ namespace CyberSource.Api
             if (postCustomerRequest != null && postCustomerRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postCustomerRequest = (PostCustomerRequest)sdkTracker.InsertDeveloperIdTracker(postCustomerRequest, postCustomerRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                postCustomerRequest = (PostCustomerRequest)sdkTracker.InsertDeveloperIdTracker(postCustomerRequest, postCustomerRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(postCustomerRequest); // http body (model) parameter
             }
             else

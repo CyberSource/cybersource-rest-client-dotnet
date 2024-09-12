@@ -334,7 +334,7 @@ namespace CyberSource.Api
             if (refundCaptureRequest != null && refundCaptureRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                refundCaptureRequest = (RefundCaptureRequest)sdkTracker.InsertDeveloperIdTracker(refundCaptureRequest, refundCaptureRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                refundCaptureRequest = (RefundCaptureRequest)sdkTracker.InsertDeveloperIdTracker(refundCaptureRequest, refundCaptureRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(refundCaptureRequest); // http body (model) parameter
             }
             else
@@ -448,7 +448,7 @@ namespace CyberSource.Api
             if (refundCaptureRequest != null && refundCaptureRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                refundCaptureRequest = (RefundCaptureRequest)sdkTracker.InsertDeveloperIdTracker(refundCaptureRequest, refundCaptureRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                refundCaptureRequest = (RefundCaptureRequest)sdkTracker.InsertDeveloperIdTracker(refundCaptureRequest, refundCaptureRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(refundCaptureRequest); // http body (model) parameter
             }
             else
@@ -560,7 +560,7 @@ namespace CyberSource.Api
             if (refundPaymentRequest != null && refundPaymentRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                refundPaymentRequest = (RefundPaymentRequest)sdkTracker.InsertDeveloperIdTracker(refundPaymentRequest, refundPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                refundPaymentRequest = (RefundPaymentRequest)sdkTracker.InsertDeveloperIdTracker(refundPaymentRequest, refundPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(refundPaymentRequest); // http body (model) parameter
             }
             else
@@ -674,7 +674,7 @@ namespace CyberSource.Api
             if (refundPaymentRequest != null && refundPaymentRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                refundPaymentRequest = (RefundPaymentRequest)sdkTracker.InsertDeveloperIdTracker(refundPaymentRequest, refundPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                refundPaymentRequest = (RefundPaymentRequest)sdkTracker.InsertDeveloperIdTracker(refundPaymentRequest, refundPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(refundPaymentRequest); // http body (model) parameter
             }
             else

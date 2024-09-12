@@ -362,7 +362,7 @@ namespace CyberSource.Api
             if (createWebhookRequest != null && createWebhookRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createWebhookRequest = (CreateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(createWebhookRequest, createWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createWebhookRequest = (CreateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(createWebhookRequest, createWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createWebhookRequest); // http body (model) parameter
             }
             else
@@ -457,7 +457,7 @@ namespace CyberSource.Api
             if (createWebhookRequest != null && createWebhookRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createWebhookRequest = (CreateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(createWebhookRequest, createWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createWebhookRequest = (CreateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(createWebhookRequest, createWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createWebhookRequest); // http body (model) parameter
             }
             else
@@ -770,7 +770,7 @@ namespace CyberSource.Api
             if (saveSymEgressKey != null && saveSymEgressKey.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                saveSymEgressKey = (SaveSymEgressKey)sdkTracker.InsertDeveloperIdTracker(saveSymEgressKey, saveSymEgressKey.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                saveSymEgressKey = (SaveSymEgressKey)sdkTracker.InsertDeveloperIdTracker(saveSymEgressKey, saveSymEgressKey.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(saveSymEgressKey); // http body (model) parameter
             }
             else
@@ -895,7 +895,7 @@ namespace CyberSource.Api
             if (saveSymEgressKey != null && saveSymEgressKey.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                saveSymEgressKey = (SaveSymEgressKey)sdkTracker.InsertDeveloperIdTracker(saveSymEgressKey, saveSymEgressKey.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                saveSymEgressKey = (SaveSymEgressKey)sdkTracker.InsertDeveloperIdTracker(saveSymEgressKey, saveSymEgressKey.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(saveSymEgressKey); // http body (model) parameter
             }
             else

@@ -271,7 +271,7 @@ namespace CyberSource.Api
             if (createCreditRequest != null && createCreditRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createCreditRequest = (CreateCreditRequest)sdkTracker.InsertDeveloperIdTracker(createCreditRequest, createCreditRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createCreditRequest = (CreateCreditRequest)sdkTracker.InsertDeveloperIdTracker(createCreditRequest, createCreditRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createCreditRequest); // http body (model) parameter
             }
             else
@@ -372,7 +372,7 @@ namespace CyberSource.Api
             if (createCreditRequest != null && createCreditRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createCreditRequest = (CreateCreditRequest)sdkTracker.InsertDeveloperIdTracker(createCreditRequest, createCreditRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createCreditRequest = (CreateCreditRequest)sdkTracker.InsertDeveloperIdTracker(createCreditRequest, createCreditRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createCreditRequest); // http body (model) parameter
             }
             else
