@@ -232,6 +232,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'MerchantDescriptorInformation'
         }
+        /// <summary>
+        /// Test the property 'GovernmentControlled'
+        /// </summary>
+        [Test]
+        public void GovernmentControlledTest()
+        {
+            // TODO unit test for the property 'GovernmentControlled'
+        }
+        /// <summary>
+        /// Test the property 'DropBillingInfo'
+        /// </summary>
+        [Test]
+        public void DropBillingInfoTest()
+        {
+            // TODO unit test for the property 'DropBillingInfo'
+        }
 
     }
 
