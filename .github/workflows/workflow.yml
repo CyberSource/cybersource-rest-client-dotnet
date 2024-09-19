@@ -16,7 +16,7 @@ jobs:
             - name: Checkout cybersource-rest-client-dotnet repo
               uses: actions/checkout@v4
               with:
-                ref: 'release-sep24'
+                # ref: 'release-sep24'
                 path: ${{env.CLIENT_FOLDER}}
             - name: Setup MSBuild
               uses: microsoft/setup-msbuild@v2
