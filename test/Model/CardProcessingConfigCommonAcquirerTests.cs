@@ -89,6 +89,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'DiscoverInstitutionId'
         }
         /// <summary>
+        /// Test the property 'UnionPayInstitutionId'
+        /// </summary>
+        [Test]
+        public void UnionPayInstitutionIdTest()
+        {
+            // TODO unit test for the property 'UnionPayInstitutionId'
+        }
+        /// <summary>
+        /// Test the property 'DinersClubInstitutionId'
+        /// </summary>
+        [Test]
+        public void DinersClubInstitutionIdTest()
+        {
+            // TODO unit test for the property 'DinersClubInstitutionId'
+        }
+        /// <summary>
         /// Test the property 'CountryCode'
         /// </summary>
         [Test]

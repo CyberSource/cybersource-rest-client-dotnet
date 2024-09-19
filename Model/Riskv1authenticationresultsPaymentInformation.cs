@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="TokenizedCard">TokenizedCard.</param>
         /// <param name="FluidData">FluidData.</param>
         /// <param name="Customer">Customer.</param>
-        public Riskv1authenticationresultsPaymentInformation(Riskv1authenticationresultsPaymentInformationCard Card = default(Riskv1authenticationresultsPaymentInformationCard), Riskv1authenticationresultsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1authenticationresultsPaymentInformationTokenizedCard), Riskv1authenticationresultsPaymentInformationFluidData FluidData = default(Riskv1authenticationresultsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer))
+        public Riskv1authenticationresultsPaymentInformation(Riskv1authenticationresultsPaymentInformationCard Card = default(Riskv1authenticationresultsPaymentInformationCard), Riskv1authenticationresultsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1authenticationresultsPaymentInformationTokenizedCard), Riskv1authenticationresultsPaymentInformationFluidData FluidData = default(Riskv1authenticationresultsPaymentInformationFluidData), Riskv1authenticationsPaymentInformationCustomer Customer = default(Riskv1authenticationsPaymentInformationCustomer))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
@@ -67,7 +67,7 @@ namespace CyberSource.Model
         /// Gets or Sets Customer
         /// </summary>
         [DataMember(Name="customer", EmitDefaultValue=false)]
-        public Ptsv2paymentsPaymentInformationCustomer Customer { get; set; }
+        public Riskv1authenticationsPaymentInformationCustomer Customer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

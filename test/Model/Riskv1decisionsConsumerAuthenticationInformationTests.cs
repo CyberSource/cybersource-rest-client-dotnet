@@ -129,14 +129,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'TransactionFlowIndicator'
         }
         /// <summary>
-        /// Test the property 'ChallengeCancelCode'
-        /// </summary>
-        [Test]
-        public void ChallengeCancelCodeTest()
-        {
-            // TODO unit test for the property 'ChallengeCancelCode'
-        }
-        /// <summary>
         /// Test the property 'ChallengeCode'
         /// </summary>
         [Test]

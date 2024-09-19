@@ -127,6 +127,9 @@ namespace CyberSource.Model
         /// <param name="TerminalId">The &#39;Terminal Id&#39; aka TID, is an identifier used for with your payments processor. Depending on the processor and payment acceptance type this may also be the default Terminal ID used for Card Present and Virtual Terminal transactions.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;Barclays HISO&lt;/td&gt;&lt;td&gt;cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;16&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z]+$&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Barclays HISO&lt;/td&gt;&lt;td&gt;cp&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;16&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
         /// <param name="PaymentTypes">Valid values are: * VISA * MASTERCARD * AMERICAN_EXPRESS * CUP * EFTPOS * DINERS_CLUB * DISCOVER * JCB .</param>
         /// <param name="Currencies">Three-character [ISO 4217 ALPHA-3 Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf).</param>
+        /// <param name="VisaAggregatorId">This field is used as aggregator Id when Visa payment type is selected.</param>
+        /// <param name="AmexAggregatorId">This field is used as aggregator Id when Amex payment type is selected.</param>
+        /// <param name="MasterCardAggregatorId">This field is used as aggregator Id when Master Card payment type is selected.</param>
         /// <param name="SicCode">The Standard Industrial Classification (SIC) are four-digit codes that categorize the industries that companies belong to based on their business activities. Standard Industrial Classification codes were mostly replaced by the six-digit North American Industry Classification System (NAICS). Applicable for VPC and GPX (gpx) processors..</param>
         /// <param name="AllowMultipleBills">Allows multiple captures for a single authorization transaction. Applicable for Paymentech Tampa (paymentechtampa), VPC, American Express Direct (amexdirect) and GPX (gpx) processors.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Default Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cnp&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
         /// <param name="AllowMerchantDescriptorOverride">Enables partner to enable/disable merchant descriptors values. Applicable for VPC, EFTPOS and CUP processors..</param>
@@ -162,7 +165,7 @@ namespace CyberSource.Model
         /// <param name="EnablePosNetworkSwitching">&#39;POS Network Switching&#39; or &#39;Alternate Routing&#39; means merchant can process PIN Debit transactions without a PIN. Set the value to &#39;Yes&#39; if it is supported. Applicable for FDI Global (fdiglobal) processor..</param>
         /// <param name="EnableDynamicCurrencyConversion">Enable dynamic currency conversion for a merchant..</param>
         /// <param name="MerchantTier">Merchant Tier defines the type of merchant, the numeric Merchant Tier value is allocated by EFTPOS. Applicable for EFTPOS processors..</param>
-        public CardProcessingConfigCommonProcessors(string BatchGroup = default(string), string BusinessApplicationId = default(string), string MerchantVerificationValue = default(string), string AbaNumber = default(string), CardProcessingConfigCommonAcquirer Acquirer = default(CardProcessingConfigCommonAcquirer), string MerchantId = default(string), string TerminalId = default(string), Dictionary<string, CardProcessingConfigCommonPaymentTypes> PaymentTypes = default(Dictionary<string, CardProcessingConfigCommonPaymentTypes>), Dictionary<string, CardProcessingConfigCommonCurrencies1> Currencies = default(Dictionary<string, CardProcessingConfigCommonCurrencies1>), string SicCode = default(string), bool? AllowMultipleBills = default(bool?), bool? AllowMerchantDescriptorOverride = default(bool?), string EnhancedData = default(string), bool? FireSafetyIndicator = default(bool?), bool? QuasiCash = default(bool?), string AcquirerMerchantId = default(string), string AvsFormat = default(string), bool? EnableLongTransRefNo = default(bool?), bool? EnableLevel2 = default(bool?), bool? EnableMultipleTransactionAdviceAddendum = default(bool?), string AmexTransactionAdviceAddendum1 = default(string), bool? EnableMultiLineItems = default(bool?), bool? EnableTransactionReferenceNumber = default(bool?), bool? EnableAutoAuthReversalAfterVoid = default(bool?), bool? EnableExpresspayPanTranslation = default(bool?), bool? EnableCreditAuth = default(bool?), IndustryCodeEnum? IndustryCode = default(IndustryCodeEnum?), bool? SendAmexLevel2Data = default(bool?), string SoftDescriptorType = default(string), string VitalNumber = default(string), string BankNumber = default(string), string ChainNumber = default(string), string MerchantBinNumber = default(string), string MerchantLocationNumber = default(string), string StoreID = default(string), string TravelAgencyCode = default(string), string TravelAgencyName = default(string), string SettlementCurrency = default(string), bool? EnableLeastCostRouting = default(bool?), bool? EnableCVVResponseIndicator = default(bool?), string EnableMultiCurrencyProcessing = default(string), bool? EnablePosNetworkSwitching = default(bool?), bool? EnableDynamicCurrencyConversion = default(bool?), string MerchantTier = default(string))
+        public CardProcessingConfigCommonProcessors(string BatchGroup = default(string), string BusinessApplicationId = default(string), string MerchantVerificationValue = default(string), string AbaNumber = default(string), CardProcessingConfigCommonAcquirer Acquirer = default(CardProcessingConfigCommonAcquirer), string MerchantId = default(string), string TerminalId = default(string), Dictionary<string, CardProcessingConfigCommonPaymentTypes> PaymentTypes = default(Dictionary<string, CardProcessingConfigCommonPaymentTypes>), Dictionary<string, CardProcessingConfigCommonCurrencies1> Currencies = default(Dictionary<string, CardProcessingConfigCommonCurrencies1>), string VisaAggregatorId = default(string), string AmexAggregatorId = default(string), string MasterCardAggregatorId = default(string), string SicCode = default(string), bool? AllowMultipleBills = default(bool?), bool? AllowMerchantDescriptorOverride = default(bool?), string EnhancedData = default(string), bool? FireSafetyIndicator = default(bool?), bool? QuasiCash = default(bool?), string AcquirerMerchantId = default(string), string AvsFormat = default(string), bool? EnableLongTransRefNo = default(bool?), bool? EnableLevel2 = default(bool?), bool? EnableMultipleTransactionAdviceAddendum = default(bool?), string AmexTransactionAdviceAddendum1 = default(string), bool? EnableMultiLineItems = default(bool?), bool? EnableTransactionReferenceNumber = default(bool?), bool? EnableAutoAuthReversalAfterVoid = default(bool?), bool? EnableExpresspayPanTranslation = default(bool?), bool? EnableCreditAuth = default(bool?), IndustryCodeEnum? IndustryCode = default(IndustryCodeEnum?), bool? SendAmexLevel2Data = default(bool?), string SoftDescriptorType = default(string), string VitalNumber = default(string), string BankNumber = default(string), string ChainNumber = default(string), string MerchantBinNumber = default(string), string MerchantLocationNumber = default(string), string StoreID = default(string), string TravelAgencyCode = default(string), string TravelAgencyName = default(string), string SettlementCurrency = default(string), bool? EnableLeastCostRouting = default(bool?), bool? EnableCVVResponseIndicator = default(bool?), string EnableMultiCurrencyProcessing = default(string), bool? EnablePosNetworkSwitching = default(bool?), bool? EnableDynamicCurrencyConversion = default(bool?), string MerchantTier = default(string))
         {
             this.BatchGroup = BatchGroup;
             this.BusinessApplicationId = BusinessApplicationId;
@@ -173,6 +176,9 @@ namespace CyberSource.Model
             this.TerminalId = TerminalId;
             this.PaymentTypes = PaymentTypes;
             this.Currencies = Currencies;
+            this.VisaAggregatorId = VisaAggregatorId;
+            this.AmexAggregatorId = AmexAggregatorId;
+            this.MasterCardAggregatorId = MasterCardAggregatorId;
             this.SicCode = SicCode;
             this.AllowMultipleBills = AllowMultipleBills;
             this.AllowMerchantDescriptorOverride = AllowMerchantDescriptorOverride;
@@ -271,6 +277,27 @@ namespace CyberSource.Model
         /// <value>Three-character [ISO 4217 ALPHA-3 Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)</value>
         [DataMember(Name="currencies", EmitDefaultValue=false)]
         public Dictionary<string, CardProcessingConfigCommonCurrencies1> Currencies { get; set; }
+
+        /// <summary>
+        /// This field is used as aggregator Id when Visa payment type is selected
+        /// </summary>
+        /// <value>This field is used as aggregator Id when Visa payment type is selected</value>
+        [DataMember(Name="visaAggregatorId", EmitDefaultValue=false)]
+        public string VisaAggregatorId { get; set; }
+
+        /// <summary>
+        /// This field is used as aggregator Id when Amex payment type is selected
+        /// </summary>
+        /// <value>This field is used as aggregator Id when Amex payment type is selected</value>
+        [DataMember(Name="amexAggregatorId", EmitDefaultValue=false)]
+        public string AmexAggregatorId { get; set; }
+
+        /// <summary>
+        /// This field is used as aggregator Id when Master Card payment type is selected
+        /// </summary>
+        /// <value>This field is used as aggregator Id when Master Card payment type is selected</value>
+        [DataMember(Name="masterCardAggregatorId", EmitDefaultValue=false)]
+        public string MasterCardAggregatorId { get; set; }
 
         /// <summary>
         /// The Standard Industrial Classification (SIC) are four-digit codes that categorize the industries that companies belong to based on their business activities. Standard Industrial Classification codes were mostly replaced by the six-digit North American Industry Classification System (NAICS). Applicable for VPC and GPX (gpx) processors.
@@ -528,6 +555,9 @@ namespace CyberSource.Model
             sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
             sb.Append("  PaymentTypes: ").Append(PaymentTypes).Append("\n");
             sb.Append("  Currencies: ").Append(Currencies).Append("\n");
+            sb.Append("  VisaAggregatorId: ").Append(VisaAggregatorId).Append("\n");
+            sb.Append("  AmexAggregatorId: ").Append(AmexAggregatorId).Append("\n");
+            sb.Append("  MasterCardAggregatorId: ").Append(MasterCardAggregatorId).Append("\n");
             sb.Append("  SicCode: ").Append(SicCode).Append("\n");
             sb.Append("  AllowMultipleBills: ").Append(AllowMultipleBills).Append("\n");
             sb.Append("  AllowMerchantDescriptorOverride: ").Append(AllowMerchantDescriptorOverride).Append("\n");
@@ -643,6 +673,21 @@ namespace CyberSource.Model
                     this.Currencies == other.Currencies ||
                     this.Currencies != null &&
                     this.Currencies.SequenceEqual(other.Currencies)
+                ) && 
+                (
+                    this.VisaAggregatorId == other.VisaAggregatorId ||
+                    this.VisaAggregatorId != null &&
+                    this.VisaAggregatorId.Equals(other.VisaAggregatorId)
+                ) && 
+                (
+                    this.AmexAggregatorId == other.AmexAggregatorId ||
+                    this.AmexAggregatorId != null &&
+                    this.AmexAggregatorId.Equals(other.AmexAggregatorId)
+                ) && 
+                (
+                    this.MasterCardAggregatorId == other.MasterCardAggregatorId ||
+                    this.MasterCardAggregatorId != null &&
+                    this.MasterCardAggregatorId.Equals(other.MasterCardAggregatorId)
                 ) && 
                 (
                     this.SicCode == other.SicCode ||
@@ -850,6 +895,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentTypes.GetHashCode();
                 if (this.Currencies != null)
                     hash = hash * 59 + this.Currencies.GetHashCode();
+                if (this.VisaAggregatorId != null)
+                    hash = hash * 59 + this.VisaAggregatorId.GetHashCode();
+                if (this.AmexAggregatorId != null)
+                    hash = hash * 59 + this.AmexAggregatorId.GetHashCode();
+                if (this.MasterCardAggregatorId != null)
+                    hash = hash * 59 + this.MasterCardAggregatorId.GetHashCode();
                 if (this.SicCode != null)
                     hash = hash * 59 + this.SicCode.GetHashCode();
                 if (this.AllowMultipleBills != null)

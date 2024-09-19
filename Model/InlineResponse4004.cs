@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Error Bean
+    /// InlineResponse4004
     /// </summary>
     [DataContract]
     public partial class InlineResponse4004 :  IEquatable<InlineResponse4004>, IValidatableObject
@@ -33,68 +33,53 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4004" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InlineResponse4004() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse4004" /> class.
-        /// </summary>
-        /// <param name="Code">Error code (required).</param>
-        /// <param name="Message">Error message (required).</param>
-        /// <param name="LocalizationKey">Localization Key Name.</param>
-        /// <param name="CorrelationId">Correlation Id.</param>
-        /// <param name="Detail">Error Detail.</param>
-        /// <param name="Fields">Error fields List.</param>
-        public InlineResponse4004(string Code = default(string), string Message = default(string), string LocalizationKey = default(string), string CorrelationId = default(string), string Detail = default(string), List<InlineResponse4004Fields> Fields = default(List<InlineResponse4004Fields>))
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
+        /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_CARD_TYPE .</param>
+        /// <param name="Message">The detail message related to the status and reason listed above..</param>
+        /// <param name="Details">Details.</param>
+        public InlineResponse4004(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
-            this.Code = Code;
+            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Status = Status;
+            this.Reason = Reason;
             this.Message = Message;
-            this.LocalizationKey = LocalizationKey;
-            this.CorrelationId = CorrelationId;
-            this.Detail = Detail;
-            this.Fields = Fields;
+            this.Details = Details;
         }
         
         /// <summary>
-        /// Error code
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
         /// </summary>
-        /// <value>Error code</value>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public string Code { get; set; }
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
+        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
+        public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// Error message
+        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
         /// </summary>
-        /// <value>Error message</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_CARD_TYPE 
+        /// </summary>
+        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_CARD_TYPE </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
+
+        /// <summary>
+        /// The detail message related to the status and reason listed above.
+        /// </summary>
+        /// <value>The detail message related to the status and reason listed above.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Localization Key Name
+        /// Gets or Sets Details
         /// </summary>
-        /// <value>Localization Key Name</value>
-        [DataMember(Name="localizationKey", EmitDefaultValue=false)]
-        public string LocalizationKey { get; set; }
-
-        /// <summary>
-        /// Correlation Id
-        /// </summary>
-        /// <value>Correlation Id</value>
-        [DataMember(Name="correlationId", EmitDefaultValue=false)]
-        public string CorrelationId { get; set; }
-
-        /// <summary>
-        /// Error Detail
-        /// </summary>
-        /// <value>Error Detail</value>
-        [DataMember(Name="detail", EmitDefaultValue=false)]
-        public string Detail { get; set; }
-
-        /// <summary>
-        /// Error fields List
-        /// </summary>
-        /// <value>Error fields List</value>
-        [DataMember(Name="fields", EmitDefaultValue=false)]
-        public List<InlineResponse4004Fields> Fields { get; set; }
+        [DataMember(Name="details", EmitDefaultValue=false)]
+        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -104,12 +89,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4004 {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  LocalizationKey: ").Append(LocalizationKey).Append("\n");
-            sb.Append("  CorrelationId: ").Append(CorrelationId).Append("\n");
-            sb.Append("  Detail: ").Append(Detail).Append("\n");
-            sb.Append("  Fields: ").Append(Fields).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,9 +131,19 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Code == other.Code ||
-                    this.Code != null &&
-                    this.Code.Equals(other.Code)
+                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
+                    this.SubmitTimeUtc != null &&
+                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                ) && 
+                (
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
+                ) && 
+                (
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -157,24 +151,9 @@ namespace CyberSource.Model
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.LocalizationKey == other.LocalizationKey ||
-                    this.LocalizationKey != null &&
-                    this.LocalizationKey.Equals(other.LocalizationKey)
-                ) && 
-                (
-                    this.CorrelationId == other.CorrelationId ||
-                    this.CorrelationId != null &&
-                    this.CorrelationId.Equals(other.CorrelationId)
-                ) && 
-                (
-                    this.Detail == other.Detail ||
-                    this.Detail != null &&
-                    this.Detail.Equals(other.Detail)
-                ) && 
-                (
-                    this.Fields == other.Fields ||
-                    this.Fields != null &&
-                    this.Fields.SequenceEqual(other.Fields)
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -189,18 +168,16 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
+                if (this.SubmitTimeUtc != null)
+                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Reason != null)
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
-                if (this.LocalizationKey != null)
-                    hash = hash * 59 + this.LocalizationKey.GetHashCode();
-                if (this.CorrelationId != null)
-                    hash = hash * 59 + this.CorrelationId.GetHashCode();
-                if (this.Detail != null)
-                    hash = hash * 59 + this.Detail.GetHashCode();
-                if (this.Fields != null)
-                    hash = hash * 59 + this.Fields.GetHashCode();
+                if (this.Details != null)
+                    hash = hash * 59 + this.Details.GetHashCode();
                 return hash;
             }
         }

@@ -36,13 +36,17 @@ namespace CyberSource.Model
         /// <param name="InstitutionId">Identifier of the acquirer. This number is usually assigned by Visa. Applicable for VPC, GPX (gpx), CMCIC (cmcic), EFTPOS, CB2A, CUP, American Express Direct (amexdirect) and Six (six) processors.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;th&gt;Default Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cnp, cp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;13&lt;/td&gt;&lt;td&gt;^[0-9]+$&lt;/td&gt;&lt;td&gt;1111&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
         /// <param name="InterbankCardAssociationId">Number assigned by MasterCard to banks to identify the member in transactions. Applicable for VPC and GPX (gpx) processors..</param>
         /// <param name="DiscoverInstitutionId">Assigned by Discover to identify the acquirer. Applicable for VPC and GPX (gpx) processors..</param>
+        /// <param name="UnionPayInstitutionId">Assigned by China Union Pay to identify the acquirer. Applicable for VPC processors..</param>
+        /// <param name="DinersClubInstitutionId">Assigned by Diners Club to identify the acquirer. Applicable for VPC processors..</param>
         /// <param name="CountryCode">ISO 4217 format. Applicable for VPC, GPX (gpx), EFTPOS, RUPAY, Prisma (prisma) and CUP processors..</param>
         /// <param name="FileDestinationBin">The BIN to which this capturefile is sent. This field must contain a valid BIN. Applicable for VPC and GPX (gpx) processors..</param>
-        public CardProcessingConfigCommonAcquirer(string InstitutionId = default(string), string InterbankCardAssociationId = default(string), string DiscoverInstitutionId = default(string), string CountryCode = default(string), string FileDestinationBin = default(string))
+        public CardProcessingConfigCommonAcquirer(string InstitutionId = default(string), string InterbankCardAssociationId = default(string), string DiscoverInstitutionId = default(string), string UnionPayInstitutionId = default(string), string DinersClubInstitutionId = default(string), string CountryCode = default(string), string FileDestinationBin = default(string))
         {
             this.InstitutionId = InstitutionId;
             this.InterbankCardAssociationId = InterbankCardAssociationId;
             this.DiscoverInstitutionId = DiscoverInstitutionId;
+            this.UnionPayInstitutionId = UnionPayInstitutionId;
+            this.DinersClubInstitutionId = DinersClubInstitutionId;
             this.CountryCode = CountryCode;
             this.FileDestinationBin = FileDestinationBin;
         }
@@ -69,6 +73,20 @@ namespace CyberSource.Model
         public string DiscoverInstitutionId { get; set; }
 
         /// <summary>
+        /// Assigned by China Union Pay to identify the acquirer. Applicable for VPC processors.
+        /// </summary>
+        /// <value>Assigned by China Union Pay to identify the acquirer. Applicable for VPC processors.</value>
+        [DataMember(Name="unionPayInstitutionId", EmitDefaultValue=false)]
+        public string UnionPayInstitutionId { get; set; }
+
+        /// <summary>
+        /// Assigned by Diners Club to identify the acquirer. Applicable for VPC processors.
+        /// </summary>
+        /// <value>Assigned by Diners Club to identify the acquirer. Applicable for VPC processors.</value>
+        [DataMember(Name="dinersClubInstitutionId", EmitDefaultValue=false)]
+        public string DinersClubInstitutionId { get; set; }
+
+        /// <summary>
         /// ISO 4217 format. Applicable for VPC, GPX (gpx), EFTPOS, RUPAY, Prisma (prisma) and CUP processors.
         /// </summary>
         /// <value>ISO 4217 format. Applicable for VPC, GPX (gpx), EFTPOS, RUPAY, Prisma (prisma) and CUP processors.</value>
@@ -93,6 +111,8 @@ namespace CyberSource.Model
             sb.Append("  InstitutionId: ").Append(InstitutionId).Append("\n");
             sb.Append("  InterbankCardAssociationId: ").Append(InterbankCardAssociationId).Append("\n");
             sb.Append("  DiscoverInstitutionId: ").Append(DiscoverInstitutionId).Append("\n");
+            sb.Append("  UnionPayInstitutionId: ").Append(UnionPayInstitutionId).Append("\n");
+            sb.Append("  DinersClubInstitutionId: ").Append(DinersClubInstitutionId).Append("\n");
             sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("  FileDestinationBin: ").Append(FileDestinationBin).Append("\n");
             sb.Append("}\n");
@@ -147,6 +167,16 @@ namespace CyberSource.Model
                     this.DiscoverInstitutionId.Equals(other.DiscoverInstitutionId)
                 ) && 
                 (
+                    this.UnionPayInstitutionId == other.UnionPayInstitutionId ||
+                    this.UnionPayInstitutionId != null &&
+                    this.UnionPayInstitutionId.Equals(other.UnionPayInstitutionId)
+                ) && 
+                (
+                    this.DinersClubInstitutionId == other.DinersClubInstitutionId ||
+                    this.DinersClubInstitutionId != null &&
+                    this.DinersClubInstitutionId.Equals(other.DinersClubInstitutionId)
+                ) && 
+                (
                     this.CountryCode == other.CountryCode ||
                     this.CountryCode != null &&
                     this.CountryCode.Equals(other.CountryCode)
@@ -175,6 +205,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InterbankCardAssociationId.GetHashCode();
                 if (this.DiscoverInstitutionId != null)
                     hash = hash * 59 + this.DiscoverInstitutionId.GetHashCode();
+                if (this.UnionPayInstitutionId != null)
+                    hash = hash * 59 + this.UnionPayInstitutionId.GetHashCode();
+                if (this.DinersClubInstitutionId != null)
+                    hash = hash * 59 + this.DinersClubInstitutionId.GetHashCode();
                 if (this.CountryCode != null)
                     hash = hash * 59 + this.CountryCode.GetHashCode();
                 if (this.FileDestinationBin != null)

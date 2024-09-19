@@ -34,9 +34,9 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InlineResponse4002" /> class.
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
-        /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
-        /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION .</param>
-        /// <param name="Message">The detail message related to the status and reason listed above..</param>
+        /// <param name="Status">The status of the submitted transaction. Possible values: - &#x60;INVALID_REQUEST&#x60; .</param>
+        /// <param name="Reason">The reason of the status. Possible Values: - &#x60;INVALID_DATA&#x60; .</param>
+        /// <param name="Message">Input request error..</param>
         /// <param name="Details">Details.</param>
         public InlineResponse4002(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
@@ -55,23 +55,23 @@ namespace CyberSource.Model
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
+        /// The status of the submitted transaction. Possible values: - &#x60;INVALID_REQUEST&#x60; 
         /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
+        /// <value>The status of the submitted transaction. Possible values: - &#x60;INVALID_REQUEST&#x60; </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
         /// <summary>
-        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION 
+        /// The reason of the status. Possible Values: - &#x60;INVALID_DATA&#x60; 
         /// </summary>
-        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION </value>
+        /// <value>The reason of the status. Possible Values: - &#x60;INVALID_DATA&#x60; </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 
         /// <summary>
-        /// The detail message related to the status and reason listed above.
+        /// Input request error.
         /// </summary>
-        /// <value>The detail message related to the status and reason listed above.</value>
+        /// <value>Input request error.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 

@@ -41,7 +41,8 @@ namespace CyberSource.Model
         /// <param name="Street">Applicable for American Express Direct (amexdirect), TSYS (tsys) and Elavon Americas (elavonamericas) processors.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cnp, cp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z\\s]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
         /// <param name="Zip">Applicable for Elavon Americas (elavonamericas), RUPAY, American Express Direct (amexdirect) and TSYS (tsys) processors.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cnp, cp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z\\s]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
         /// <param name="Url">Applicable for RUPAY and American Express Direct (amexdirect) processors.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;40&lt;/td&gt;&lt;td&gt;URL&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cp&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;40&lt;/td&gt;&lt;td&gt;URL&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
-        public CardProcessingConfigCommonMerchantDescriptorInformation(string Name = default(string), string City = default(string), string Country = default(string), string Phone = default(string), string State = default(string), string Street = default(string), string Zip = default(string), string Url = default(string))
+        /// <param name="CountryOfOrigin">Country Cf Origin of merchant is applicable for VPC Processors and is dependent on governmentControlled attribute..</param>
+        public CardProcessingConfigCommonMerchantDescriptorInformation(string Name = default(string), string City = default(string), string Country = default(string), string Phone = default(string), string State = default(string), string Street = default(string), string Zip = default(string), string Url = default(string), string CountryOfOrigin = default(string))
         {
             this.Name = Name;
             this.City = City;
@@ -51,6 +52,7 @@ namespace CyberSource.Model
             this.Street = Street;
             this.Zip = Zip;
             this.Url = Url;
+            this.CountryOfOrigin = CountryOfOrigin;
         }
         
         /// <summary>
@@ -110,6 +112,13 @@ namespace CyberSource.Model
         public string Url { get; set; }
 
         /// <summary>
+        /// Country Cf Origin of merchant is applicable for VPC Processors and is dependent on governmentControlled attribute.
+        /// </summary>
+        /// <value>Country Cf Origin of merchant is applicable for VPC Processors and is dependent on governmentControlled attribute.</value>
+        [DataMember(Name="countryOfOrigin", EmitDefaultValue=false)]
+        public string CountryOfOrigin { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +134,7 @@ namespace CyberSource.Model
             sb.Append("  Street: ").Append(Street).Append("\n");
             sb.Append("  Zip: ").Append(Zip).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  CountryOfOrigin: ").Append(CountryOfOrigin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +210,11 @@ namespace CyberSource.Model
                     this.Url == other.Url ||
                     this.Url != null &&
                     this.Url.Equals(other.Url)
+                ) && 
+                (
+                    this.CountryOfOrigin == other.CountryOfOrigin ||
+                    this.CountryOfOrigin != null &&
+                    this.CountryOfOrigin.Equals(other.CountryOfOrigin)
                 );
         }
 
@@ -230,6 +245,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Zip.GetHashCode();
                 if (this.Url != null)
                     hash = hash * 59 + this.Url.GetHashCode();
+                if (this.CountryOfOrigin != null)
+                    hash = hash * 59 + this.CountryOfOrigin.GetHashCode();
                 return hash;
             }
         }
