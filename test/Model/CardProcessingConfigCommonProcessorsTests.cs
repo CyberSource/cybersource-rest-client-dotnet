@@ -137,6 +137,30 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Currencies'
         }
         /// <summary>
+        /// Test the property 'VisaAggregatorId'
+        /// </summary>
+        [Test]
+        public void VisaAggregatorIdTest()
+        {
+            // TODO unit test for the property 'VisaAggregatorId'
+        }
+        /// <summary>
+        /// Test the property 'AmexAggregatorId'
+        /// </summary>
+        [Test]
+        public void AmexAggregatorIdTest()
+        {
+            // TODO unit test for the property 'AmexAggregatorId'
+        }
+        /// <summary>
+        /// Test the property 'MasterCardAggregatorId'
+        /// </summary>
+        [Test]
+        public void MasterCardAggregatorIdTest()
+        {
+            // TODO unit test for the property 'MasterCardAggregatorId'
+        }
+        /// <summary>
         /// Test the property 'SicCode'
         /// </summary>
         [Test]
