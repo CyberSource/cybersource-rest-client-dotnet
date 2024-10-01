@@ -317,7 +317,7 @@ namespace CyberSource.Api
             if (taxRequest != null && taxRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                taxRequest = (TaxRequest)sdkTracker.InsertDeveloperIdTracker(taxRequest, taxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                taxRequest = (TaxRequest)sdkTracker.InsertDeveloperIdTracker(taxRequest, taxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(taxRequest); // http body (model) parameter
             }
             else
@@ -418,7 +418,7 @@ namespace CyberSource.Api
             if (taxRequest != null && taxRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                taxRequest = (TaxRequest)sdkTracker.InsertDeveloperIdTracker(taxRequest, taxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                taxRequest = (TaxRequest)sdkTracker.InsertDeveloperIdTracker(taxRequest, taxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(taxRequest); // http body (model) parameter
             }
             else
@@ -530,7 +530,7 @@ namespace CyberSource.Api
             if (voidTaxRequest != null && voidTaxRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                voidTaxRequest = (VoidTaxRequest)sdkTracker.InsertDeveloperIdTracker(voidTaxRequest, voidTaxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                voidTaxRequest = (VoidTaxRequest)sdkTracker.InsertDeveloperIdTracker(voidTaxRequest, voidTaxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(voidTaxRequest); // http body (model) parameter
             }
             else
@@ -644,7 +644,7 @@ namespace CyberSource.Api
             if (voidTaxRequest != null && voidTaxRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                voidTaxRequest = (VoidTaxRequest)sdkTracker.InsertDeveloperIdTracker(voidTaxRequest, voidTaxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                voidTaxRequest = (VoidTaxRequest)sdkTracker.InsertDeveloperIdTracker(voidTaxRequest, voidTaxRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(voidTaxRequest); // http body (model) parameter
             }
             else

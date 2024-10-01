@@ -480,7 +480,7 @@ namespace CyberSource.Api
             if (invoiceSettingsRequest != null && invoiceSettingsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                invoiceSettingsRequest = (InvoiceSettingsRequest)sdkTracker.InsertDeveloperIdTracker(invoiceSettingsRequest, invoiceSettingsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                invoiceSettingsRequest = (InvoiceSettingsRequest)sdkTracker.InsertDeveloperIdTracker(invoiceSettingsRequest, invoiceSettingsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(invoiceSettingsRequest); // http body (model) parameter
             }
             else
@@ -584,7 +584,7 @@ namespace CyberSource.Api
             if (invoiceSettingsRequest != null && invoiceSettingsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                invoiceSettingsRequest = (InvoiceSettingsRequest)sdkTracker.InsertDeveloperIdTracker(invoiceSettingsRequest, invoiceSettingsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                invoiceSettingsRequest = (InvoiceSettingsRequest)sdkTracker.InsertDeveloperIdTracker(invoiceSettingsRequest, invoiceSettingsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(invoiceSettingsRequest); // http body (model) parameter
             }
             else
