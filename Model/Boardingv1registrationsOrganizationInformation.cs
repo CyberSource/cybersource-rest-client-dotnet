@@ -31,70 +31,6 @@ namespace CyberSource.Model
     public partial class Boardingv1registrationsOrganizationInformation :  IEquatable<Boardingv1registrationsOrganizationInformation>, IValidatableObject
     {
         /// <summary>
-        /// Determines the type of organization in the hirarchy that this registration will use to onboard this Organization Possible Values:   - &#39;TRANSACTING&#39;   - &#39;STRUCTURAL&#39;   - &#39;MERCHANT&#39; 
-        /// </summary>
-        /// <value>Determines the type of organization in the hirarchy that this registration will use to onboard this Organization Possible Values:   - &#39;TRANSACTING&#39;   - &#39;STRUCTURAL&#39;   - &#39;MERCHANT&#39; </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
-        {
-            
-            /// <summary>
-            /// Enum TRANSACTING for "TRANSACTING"
-            /// </summary>
-            [EnumMember(Value = "TRANSACTING")]
-            TRANSACTING,
-            
-            /// <summary>
-            /// Enum STRUCTURAL for "STRUCTURAL"
-            /// </summary>
-            [EnumMember(Value = "STRUCTURAL")]
-            STRUCTURAL,
-            
-            /// <summary>
-            /// Enum MERCHANT for "MERCHANT"
-            /// </summary>
-            [EnumMember(Value = "MERCHANT")]
-            MERCHANT
-        }
-        /// <summary>
-        /// Determines the status that the organization will be after being onboarded Possible Values:             - &#39;LIVE&#39;             - &#39;TEST&#39;             - &#39;DRAFT&#39; 
-        /// </summary>
-        /// <value>Determines the status that the organization will be after being onboarded Possible Values:             - &#39;LIVE&#39;             - &#39;TEST&#39;             - &#39;DRAFT&#39; </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum LIVE for "LIVE"
-            /// </summary>
-            [EnumMember(Value = "LIVE")]
-            LIVE,
-            
-            /// <summary>
-            /// Enum TEST for "TEST"
-            /// </summary>
-            [EnumMember(Value = "TEST")]
-            TEST,
-            
-            /// <summary>
-            /// Enum DRAFT for "DRAFT"
-            /// </summary>
-            [EnumMember(Value = "DRAFT")]
-            DRAFT
-        }
-        /// <summary>
-        /// Determines the type of organization in the hirarchy that this registration will use to onboard this Organization Possible Values:   - &#39;TRANSACTING&#39;   - &#39;STRUCTURAL&#39;   - &#39;MERCHANT&#39; 
-        /// </summary>
-        /// <value>Determines the type of organization in the hirarchy that this registration will use to onboard this Organization Possible Values:   - &#39;TRANSACTING&#39;   - &#39;STRUCTURAL&#39;   - &#39;MERCHANT&#39; </value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeEnum? Type { get; set; }
-        /// <summary>
-        /// Determines the status that the organization will be after being onboarded Possible Values:             - &#39;LIVE&#39;             - &#39;TEST&#39;             - &#39;DRAFT&#39; 
-        /// </summary>
-        /// <value>Determines the status that the organization will be after being onboarded Possible Values:             - &#39;LIVE&#39;             - &#39;TEST&#39;             - &#39;DRAFT&#39; </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Boardingv1registrationsOrganizationInformation" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -110,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="BusinessInformation">BusinessInformation (required).</param>
         /// <param name="KYC">KYC.</param>
         /// <param name="Owners">Owners.</param>
-        public Boardingv1registrationsOrganizationInformation(string OrganizationId = default(string), string ParentOrganizationId = default(string), TypeEnum? Type = default(TypeEnum?), StatusEnum? Status = default(StatusEnum?), bool? Configurable = false, Boardingv1registrationsOrganizationInformationBusinessInformation BusinessInformation = default(Boardingv1registrationsOrganizationInformationBusinessInformation), Boardingv1registrationsOrganizationInformationKYC KYC = default(Boardingv1registrationsOrganizationInformationKYC), List<Boardingv1registrationsOrganizationInformationOwners> Owners = default(List<Boardingv1registrationsOrganizationInformationOwners>))
+        public Boardingv1registrationsOrganizationInformation(string OrganizationId = default(string), string ParentOrganizationId = default(string), string Type = default(string), string Status = default(string), bool? Configurable = false, Boardingv1registrationsOrganizationInformationBusinessInformation BusinessInformation = default(Boardingv1registrationsOrganizationInformationBusinessInformation), Boardingv1registrationsOrganizationInformationKYC KYC = default(Boardingv1registrationsOrganizationInformationKYC), List<Boardingv1registrationsOrganizationInformationOwners> Owners = default(List<Boardingv1registrationsOrganizationInformationOwners>))
         {
             this.OrganizationId = OrganizationId;
             this.ParentOrganizationId = ParentOrganizationId;
@@ -149,7 +85,19 @@ namespace CyberSource.Model
         [DataMember(Name="childOrganizations", EmitDefaultValue=false)]
         public List<string> ChildOrganizations { get; private set; }
 
+        /// <summary>
+        /// Determines the type of organization in the hirarchy that this registration will use to onboard this Organization Possible Values:   - &#39;TRANSACTING&#39;   - &#39;STRUCTURAL&#39;   - &#39;MERCHANT&#39; 
+        /// </summary>
+        /// <value>Determines the type of organization in the hirarchy that this registration will use to onboard this Organization Possible Values:   - &#39;TRANSACTING&#39;   - &#39;STRUCTURAL&#39;   - &#39;MERCHANT&#39; </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
+        /// <summary>
+        /// Determines the status that the organization will be after being onboarded Possible Values:             - &#39;LIVE&#39;             - &#39;TEST&#39;             - &#39;DRAFT&#39; 
+        /// </summary>
+        /// <value>Determines the status that the organization will be after being onboarded Possible Values:             - &#39;LIVE&#39;             - &#39;TEST&#39;             - &#39;DRAFT&#39; </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// This denotes the one organization, with exception to the TRANSACTING types, that is allowed to be used for configuration purposes against products.  Eventually this field will be deprecated and all organizations will be allowed for product configuration.

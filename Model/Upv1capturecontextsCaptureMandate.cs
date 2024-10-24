@@ -33,12 +33,12 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsCaptureMandate" /> class.
         /// </summary>
-        /// <param name="BillingType">This field defines the type of Billing Address information captured through the Manual card Entry UX. FULL, PARTIAL.</param>
-        /// <param name="RequestEmail">Capture email contact information in the manual card acceptance screens..</param>
-        /// <param name="RequestPhone">Capture email contact information in the manual card acceptance screens..</param>
-        /// <param name="RequestShipping">Capture email contact information in the manual card acceptance screens..</param>
-        /// <param name="ShipToCountries">List of countries available to ship to. Use the two- character ISO Standard Country Codes..</param>
-        /// <param name="ShowAcceptedNetworkIcons">Show the list of accepted payment icons in the payment button.</param>
+        /// <param name="BillingType">Configure Unified Checkout to capture billing address information.  Possible values: - FULL: Capture complete billing address information. - PARTIAL: Capture first name, last name, country and postal/zip code only. - NONE: Capture only first name and last name. .</param>
+        /// <param name="RequestEmail">Configure Unified Checkout to capture customer email address.  Possible values:  - True  - False .</param>
+        /// <param name="RequestPhone">Configure Unified Checkout to capture customer phone number.  Possible values: - True - False .</param>
+        /// <param name="RequestShipping">Configure Unified Checkout to capture customer shipping details.  Possible values: - True - False .</param>
+        /// <param name="ShipToCountries">List of countries available to ship to.   Use the two-character ISO Standard Country Codes. .</param>
+        /// <param name="ShowAcceptedNetworkIcons">Configure Unified Checkout to display the list of accepted card networks beneath the payment button  Possible values: - True - False .</param>
         public Upv1capturecontextsCaptureMandate(string BillingType = default(string), bool? RequestEmail = default(bool?), bool? RequestPhone = default(bool?), bool? RequestShipping = default(bool?), List<string> ShipToCountries = default(List<string>), bool? ShowAcceptedNetworkIcons = default(bool?))
         {
             this.BillingType = BillingType;
@@ -50,44 +50,44 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// This field defines the type of Billing Address information captured through the Manual card Entry UX. FULL, PARTIAL
+        /// Configure Unified Checkout to capture billing address information.  Possible values: - FULL: Capture complete billing address information. - PARTIAL: Capture first name, last name, country and postal/zip code only. - NONE: Capture only first name and last name. 
         /// </summary>
-        /// <value>This field defines the type of Billing Address information captured through the Manual card Entry UX. FULL, PARTIAL</value>
+        /// <value>Configure Unified Checkout to capture billing address information.  Possible values: - FULL: Capture complete billing address information. - PARTIAL: Capture first name, last name, country and postal/zip code only. - NONE: Capture only first name and last name. </value>
         [DataMember(Name="billingType", EmitDefaultValue=false)]
         public string BillingType { get; set; }
 
         /// <summary>
-        /// Capture email contact information in the manual card acceptance screens.
+        /// Configure Unified Checkout to capture customer email address.  Possible values:  - True  - False 
         /// </summary>
-        /// <value>Capture email contact information in the manual card acceptance screens.</value>
+        /// <value>Configure Unified Checkout to capture customer email address.  Possible values:  - True  - False </value>
         [DataMember(Name="requestEmail", EmitDefaultValue=false)]
         public bool? RequestEmail { get; set; }
 
         /// <summary>
-        /// Capture email contact information in the manual card acceptance screens.
+        /// Configure Unified Checkout to capture customer phone number.  Possible values: - True - False 
         /// </summary>
-        /// <value>Capture email contact information in the manual card acceptance screens.</value>
+        /// <value>Configure Unified Checkout to capture customer phone number.  Possible values: - True - False </value>
         [DataMember(Name="requestPhone", EmitDefaultValue=false)]
         public bool? RequestPhone { get; set; }
 
         /// <summary>
-        /// Capture email contact information in the manual card acceptance screens.
+        /// Configure Unified Checkout to capture customer shipping details.  Possible values: - True - False 
         /// </summary>
-        /// <value>Capture email contact information in the manual card acceptance screens.</value>
+        /// <value>Configure Unified Checkout to capture customer shipping details.  Possible values: - True - False </value>
         [DataMember(Name="requestShipping", EmitDefaultValue=false)]
         public bool? RequestShipping { get; set; }
 
         /// <summary>
-        /// List of countries available to ship to. Use the two- character ISO Standard Country Codes.
+        /// List of countries available to ship to.   Use the two-character ISO Standard Country Codes. 
         /// </summary>
-        /// <value>List of countries available to ship to. Use the two- character ISO Standard Country Codes.</value>
+        /// <value>List of countries available to ship to.   Use the two-character ISO Standard Country Codes. </value>
         [DataMember(Name="shipToCountries", EmitDefaultValue=false)]
         public List<string> ShipToCountries { get; set; }
 
         /// <summary>
-        /// Show the list of accepted payment icons in the payment button
+        /// Configure Unified Checkout to display the list of accepted card networks beneath the payment button  Possible values: - True - False 
         /// </summary>
-        /// <value>Show the list of accepted payment icons in the payment button</value>
+        /// <value>Configure Unified Checkout to display the list of accepted card networks beneath the payment button  Possible values: - True - False </value>
         [DataMember(Name="showAcceptedNetworkIcons", EmitDefaultValue=false)]
         public bool? ShowAcceptedNetworkIcons { get; set; }
 

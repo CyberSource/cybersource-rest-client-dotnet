@@ -31,36 +31,14 @@ namespace CyberSource.Model
     public partial class InlineResponse4041 :  IEquatable<InlineResponse4041>, IValidatableObject
     {
         /// <summary>
-        /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; 
-        /// </summary>
-        /// <value>Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReasonEnum
-        {
-            
-            /// <summary>
-            /// Enum RESOURCENOTFOUND for "RESOURCE_NOT_FOUND"
-            /// </summary>
-            [EnumMember(Value = "RESOURCE_NOT_FOUND")]
-            RESOURCENOTFOUND
-        }
-        /// <summary>
-        /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; 
-        /// </summary>
-        /// <value>Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; </value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public ReasonEnum? Reason { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4041" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
         /// <param name="Status">The http status description of the submitted request..</param>
         /// <param name="Reason">Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; .</param>
         /// <param name="Message">Descriptive message for the error..</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse4041(DateTime? SubmitTimeUtc = default(DateTime?), string Status = default(string), ReasonEnum? Reason = default(ReasonEnum?), string Message = default(string), List<InlineResponse4006Details> Details = default(List<InlineResponse4006Details>))
+        public InlineResponse4041(string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse4006Details> Details = default(List<InlineResponse4006Details>))
         {
-            this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
             this.Reason = Reason;
             this.Message = Message;
@@ -72,8 +50,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        [JsonConverter(typeof(SwaggerDateConverter))]
-        public DateTime? SubmitTimeUtc { get; set; }
+        public DateTime? SubmitTimeUtc { get; private set; }
 
         /// <summary>
         /// The http status description of the submitted request.
@@ -82,6 +59,12 @@ namespace CyberSource.Model
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
+        /// <summary>
+        /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; 
+        /// </summary>
+        /// <value>Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// Descriptive message for the error.

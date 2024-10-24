@@ -31,49 +31,17 @@ namespace CyberSource.Model
     public partial class PaymentsProductsPayerAuthenticationSubscriptionInformation :  IEquatable<PaymentsProductsPayerAuthenticationSubscriptionInformation>, IValidatableObject
     {
         /// <summary>
-        /// Indicates if the organization can enable this product using self service.
-        /// </summary>
-        /// <value>Indicates if the organization can enable this product using self service.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SelfServiceabilityEnum
-        {
-            
-            /// <summary>
-            /// Enum SELFSERVICEABLE for "SELF_SERVICEABLE"
-            /// </summary>
-            [EnumMember(Value = "SELF_SERVICEABLE")]
-            SELFSERVICEABLE,
-            
-            /// <summary>
-            /// Enum NOTSELFSERVICEABLE for "NOT_SELF_SERVICEABLE"
-            /// </summary>
-            [EnumMember(Value = "NOT_SELF_SERVICEABLE")]
-            NOTSELFSERVICEABLE,
-            
-            /// <summary>
-            /// Enum SELFSERVICEONLY for "SELF_SERVICE_ONLY"
-            /// </summary>
-            [EnumMember(Value = "SELF_SERVICE_ONLY")]
-            SELFSERVICEONLY
-        }
-        /// <summary>
-        /// Indicates if the organization can enable this product using self service.
-        /// </summary>
-        /// <value>Indicates if the organization can enable this product using self service.</value>
-        [DataMember(Name="selfServiceability", EmitDefaultValue=false)]
-        public SelfServiceabilityEnum? SelfServiceability { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsProductsPayerAuthenticationSubscriptionInformation" /> class.
         /// </summary>
         /// <param name="Enabled">Enabled.</param>
-        /// <param name="SelfServiceability">Indicates if the organization can enable this product using self service. (default to SelfServiceabilityEnum.NOTSELFSERVICEABLE).</param>
-        public PaymentsProductsPayerAuthenticationSubscriptionInformation(bool? Enabled = default(bool?), SelfServiceabilityEnum? SelfServiceability = SelfServiceabilityEnum.NOTSELFSERVICEABLE)
+        /// <param name="SelfServiceability">Indicates if the organization can enable this product using self service.  Possible values: - SELF_SERVICEABLE - NOT_SELF_SERVICEABLE - SELF_SERVICE_ONLY (default to &quot;NOT_SELF_SERVICEABLE&quot;).</param>
+        public PaymentsProductsPayerAuthenticationSubscriptionInformation(bool? Enabled = default(bool?), string SelfServiceability = "NOT_SELF_SERVICEABLE")
         {
             this.Enabled = Enabled;
             // use default value if no "SelfServiceability" provided
             if (SelfServiceability == null)
             {
-                this.SelfServiceability = SelfServiceabilityEnum.NOTSELFSERVICEABLE;
+                this.SelfServiceability = "NOT_SELF_SERVICEABLE";
             }
             else
             {
@@ -87,6 +55,12 @@ namespace CyberSource.Model
         [DataMember(Name="enabled", EmitDefaultValue=false)]
         public bool? Enabled { get; set; }
 
+        /// <summary>
+        /// Indicates if the organization can enable this product using self service.  Possible values: - SELF_SERVICEABLE - NOT_SELF_SERVICEABLE - SELF_SERVICE_ONLY
+        /// </summary>
+        /// <value>Indicates if the organization can enable this product using self service.  Possible values: - SELF_SERVICEABLE - NOT_SELF_SERVICEABLE - SELF_SERVICE_ONLY</value>
+        [DataMember(Name="selfServiceability", EmitDefaultValue=false)]
+        public string SelfServiceability { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

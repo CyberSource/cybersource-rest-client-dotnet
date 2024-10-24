@@ -25,16 +25,16 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// TssV2TransactionsPost201ResponseEmbeddedBuyerInformation
+    /// PtsV2CreateOrderPost201ResponseBuyerInformation
     /// </summary>
     [DataContract]
-    public partial class TssV2TransactionsPost201ResponseEmbeddedBuyerInformation :  IEquatable<TssV2TransactionsPost201ResponseEmbeddedBuyerInformation>, IValidatableObject
+    public partial class PtsV2CreateOrderPost201ResponseBuyerInformation :  IEquatable<PtsV2CreateOrderPost201ResponseBuyerInformation>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedBuyerInformation" /> class.
+        /// Initializes a new instance of the <see cref="PtsV2CreateOrderPost201ResponseBuyerInformation" /> class.
         /// </summary>
         /// <param name="MerchantCustomerId">Your identifier for the customer.  When a subscription or customer profile is being created, the maximum length for this field for most processors is 30. Otherwise, the maximum length is 100.  #### Comercio Latino For recurring payments in Mexico, the value is the customer&#39;s contract number. Note Before you request the authorization, you must inform the issuer of the customer contract numbers that will be used for recurring transactions.  #### Worldpay VAP For a follow-on credit with Worldpay VAP, CyberSource checks the following locations, in the order given, for a customer account ID value and uses the first value it finds: 1. &#x60;customer_account_id&#x60; value in the follow-on credit request 2. Customer account ID value that was used for the capture that is being credited 3. Customer account ID value that was used for the original authorization If a customer account ID value cannot be found in any of these locations, then no value is used. .</param>
-        public TssV2TransactionsPost201ResponseEmbeddedBuyerInformation(string MerchantCustomerId = default(string))
+        public PtsV2CreateOrderPost201ResponseBuyerInformation(string MerchantCustomerId = default(string))
         {
             this.MerchantCustomerId = MerchantCustomerId;
         }
@@ -53,7 +53,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TssV2TransactionsPost201ResponseEmbeddedBuyerInformation {\n");
+            sb.Append("class PtsV2CreateOrderPost201ResponseBuyerInformation {\n");
             sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -76,15 +76,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TssV2TransactionsPost201ResponseEmbeddedBuyerInformation);
+            return this.Equals(obj as PtsV2CreateOrderPost201ResponseBuyerInformation);
         }
 
         /// <summary>
-        /// Returns true if TssV2TransactionsPost201ResponseEmbeddedBuyerInformation instances are equal
+        /// Returns true if PtsV2CreateOrderPost201ResponseBuyerInformation instances are equal
         /// </summary>
-        /// <param name="other">Instance of TssV2TransactionsPost201ResponseEmbeddedBuyerInformation to be compared</param>
+        /// <param name="other">Instance of PtsV2CreateOrderPost201ResponseBuyerInformation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TssV2TransactionsPost201ResponseEmbeddedBuyerInformation other)
+        public bool Equals(PtsV2CreateOrderPost201ResponseBuyerInformation other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

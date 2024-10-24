@@ -33,20 +33,28 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferProcessingInformation" /> class.
         /// </summary>
-        /// <param name="BusinessApplicationId">Payouts transaction type.  Business Application ID: - &#x60;PP&#x60;: Person to person. - &#x60;FD&#x60;: Funds disbursement (general) .</param>
+        /// <param name="BusinessApplicationId">Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;TU&#x60;: Prepaid Card Loan - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer - &#x60;PP&#x60;: P2P Money Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay  - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service .</param>
         /// <param name="PayoutsOptions">PayoutsOptions.</param>
-        /// <param name="EnablerId">Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers. .</param>
-        public Ptsv1pushfundstransferProcessingInformation(string BusinessApplicationId = default(string), Ptsv1pushfundstransferProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv1pushfundstransferProcessingInformationPayoutsOptions), string EnablerId = default(string))
+        /// <param name="FeeProgramId">Fee Program Indicator. This field identifies the interchange fee program applicable to each financial transaction. Fee program indicator (FPI) values correspond to the fee descriptor and rate for each existing fee program. .</param>
+        /// <param name="NetworkPartnerId">Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction. .</param>
+        /// <param name="ProcessingCode">This field contains coding that identifies (1) the customer transaction type and (2) the customer account types affected by the transaction.  Default: 5402 (Original Credit Transaction)  Contains codes that combined with some other fields such as the BAI (Business Application Id) identify some unique use cases. For Sales Tax rebates this field should be populated with the value 5120 (Value-added tax/Sales Tax) along with the businessApplicationId field set to the value &#39;FD&#39; which indicates this push funds transfer is being conducted in order to facilitate a sales tax refund. .</param>
+        /// <param name="SharingGroupCode">This U.S.-only field is optionally used by PIN Debit Gateway Service participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for a network specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on issuer preference. If an preference exists for multiple specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on acquirer routing priorities.  Valid Values:  ACCEL_EXCHANGE_E  CU24_C  INTERLINK_G  MAESTRO_8  NYCE_Y  NYCE_F  PULSE_S  PULSE_L  PULSE_H  STAR_N  STAR_W  STAR_Z  STAR_Q  STAR_M  VISA_V .</param>
+        /// <param name="PurposeOfPayment">This will send purpose of funds code for original credit transactions (OCTs). .</param>
+        public Ptsv1pushfundstransferProcessingInformation(string BusinessApplicationId = default(string), Ptsv1pushfundstransferProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv1pushfundstransferProcessingInformationPayoutsOptions), string FeeProgramId = default(string), string NetworkPartnerId = default(string), string ProcessingCode = default(string), string SharingGroupCode = default(string), string PurposeOfPayment = default(string))
         {
             this.BusinessApplicationId = BusinessApplicationId;
             this.PayoutsOptions = PayoutsOptions;
-            this.EnablerId = EnablerId;
+            this.FeeProgramId = FeeProgramId;
+            this.NetworkPartnerId = NetworkPartnerId;
+            this.ProcessingCode = ProcessingCode;
+            this.SharingGroupCode = SharingGroupCode;
+            this.PurposeOfPayment = PurposeOfPayment;
         }
         
         /// <summary>
-        /// Payouts transaction type.  Business Application ID: - &#x60;PP&#x60;: Person to person. - &#x60;FD&#x60;: Funds disbursement (general) 
+        /// Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;TU&#x60;: Prepaid Card Loan - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer - &#x60;PP&#x60;: P2P Money Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay  - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service 
         /// </summary>
-        /// <value>Payouts transaction type.  Business Application ID: - &#x60;PP&#x60;: Person to person. - &#x60;FD&#x60;: Funds disbursement (general) </value>
+        /// <value>Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;TU&#x60;: Prepaid Card Loan - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer - &#x60;PP&#x60;: P2P Money Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay  - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service </value>
         [DataMember(Name="businessApplicationId", EmitDefaultValue=false)]
         public string BusinessApplicationId { get; set; }
 
@@ -57,11 +65,39 @@ namespace CyberSource.Model
         public Ptsv1pushfundstransferProcessingInformationPayoutsOptions PayoutsOptions { get; set; }
 
         /// <summary>
-        /// Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers. 
+        /// Fee Program Indicator. This field identifies the interchange fee program applicable to each financial transaction. Fee program indicator (FPI) values correspond to the fee descriptor and rate for each existing fee program. 
         /// </summary>
-        /// <value>Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers. </value>
-        [DataMember(Name="enablerId", EmitDefaultValue=false)]
-        public string EnablerId { get; set; }
+        /// <value>Fee Program Indicator. This field identifies the interchange fee program applicable to each financial transaction. Fee program indicator (FPI) values correspond to the fee descriptor and rate for each existing fee program. </value>
+        [DataMember(Name="feeProgramId", EmitDefaultValue=false)]
+        public string FeeProgramId { get; set; }
+
+        /// <summary>
+        /// Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction. 
+        /// </summary>
+        /// <value>Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction. </value>
+        [DataMember(Name="networkPartnerId", EmitDefaultValue=false)]
+        public string NetworkPartnerId { get; set; }
+
+        /// <summary>
+        /// This field contains coding that identifies (1) the customer transaction type and (2) the customer account types affected by the transaction.  Default: 5402 (Original Credit Transaction)  Contains codes that combined with some other fields such as the BAI (Business Application Id) identify some unique use cases. For Sales Tax rebates this field should be populated with the value 5120 (Value-added tax/Sales Tax) along with the businessApplicationId field set to the value &#39;FD&#39; which indicates this push funds transfer is being conducted in order to facilitate a sales tax refund. 
+        /// </summary>
+        /// <value>This field contains coding that identifies (1) the customer transaction type and (2) the customer account types affected by the transaction.  Default: 5402 (Original Credit Transaction)  Contains codes that combined with some other fields such as the BAI (Business Application Id) identify some unique use cases. For Sales Tax rebates this field should be populated with the value 5120 (Value-added tax/Sales Tax) along with the businessApplicationId field set to the value &#39;FD&#39; which indicates this push funds transfer is being conducted in order to facilitate a sales tax refund. </value>
+        [DataMember(Name="processingCode", EmitDefaultValue=false)]
+        public string ProcessingCode { get; set; }
+
+        /// <summary>
+        /// This U.S.-only field is optionally used by PIN Debit Gateway Service participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for a network specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on issuer preference. If an preference exists for multiple specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on acquirer routing priorities.  Valid Values:  ACCEL_EXCHANGE_E  CU24_C  INTERLINK_G  MAESTRO_8  NYCE_Y  NYCE_F  PULSE_S  PULSE_L  PULSE_H  STAR_N  STAR_W  STAR_Z  STAR_Q  STAR_M  VISA_V 
+        /// </summary>
+        /// <value>This U.S.-only field is optionally used by PIN Debit Gateway Service participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for a network specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on issuer preference. If an preference exists for multiple specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on acquirer routing priorities.  Valid Values:  ACCEL_EXCHANGE_E  CU24_C  INTERLINK_G  MAESTRO_8  NYCE_Y  NYCE_F  PULSE_S  PULSE_L  PULSE_H  STAR_N  STAR_W  STAR_Z  STAR_Q  STAR_M  VISA_V </value>
+        [DataMember(Name="sharingGroupCode", EmitDefaultValue=false)]
+        public string SharingGroupCode { get; set; }
+
+        /// <summary>
+        /// This will send purpose of funds code for original credit transactions (OCTs). 
+        /// </summary>
+        /// <value>This will send purpose of funds code for original credit transactions (OCTs). </value>
+        [DataMember(Name="purposeOfPayment", EmitDefaultValue=false)]
+        public string PurposeOfPayment { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,7 +109,11 @@ namespace CyberSource.Model
             sb.Append("class Ptsv1pushfundstransferProcessingInformation {\n");
             sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
             sb.Append("  PayoutsOptions: ").Append(PayoutsOptions).Append("\n");
-            sb.Append("  EnablerId: ").Append(EnablerId).Append("\n");
+            sb.Append("  FeeProgramId: ").Append(FeeProgramId).Append("\n");
+            sb.Append("  NetworkPartnerId: ").Append(NetworkPartnerId).Append("\n");
+            sb.Append("  ProcessingCode: ").Append(ProcessingCode).Append("\n");
+            sb.Append("  SharingGroupCode: ").Append(SharingGroupCode).Append("\n");
+            sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,9 +161,29 @@ namespace CyberSource.Model
                     this.PayoutsOptions.Equals(other.PayoutsOptions)
                 ) && 
                 (
-                    this.EnablerId == other.EnablerId ||
-                    this.EnablerId != null &&
-                    this.EnablerId.Equals(other.EnablerId)
+                    this.FeeProgramId == other.FeeProgramId ||
+                    this.FeeProgramId != null &&
+                    this.FeeProgramId.Equals(other.FeeProgramId)
+                ) && 
+                (
+                    this.NetworkPartnerId == other.NetworkPartnerId ||
+                    this.NetworkPartnerId != null &&
+                    this.NetworkPartnerId.Equals(other.NetworkPartnerId)
+                ) && 
+                (
+                    this.ProcessingCode == other.ProcessingCode ||
+                    this.ProcessingCode != null &&
+                    this.ProcessingCode.Equals(other.ProcessingCode)
+                ) && 
+                (
+                    this.SharingGroupCode == other.SharingGroupCode ||
+                    this.SharingGroupCode != null &&
+                    this.SharingGroupCode.Equals(other.SharingGroupCode)
+                ) && 
+                (
+                    this.PurposeOfPayment == other.PurposeOfPayment ||
+                    this.PurposeOfPayment != null &&
+                    this.PurposeOfPayment.Equals(other.PurposeOfPayment)
                 );
         }
 
@@ -142,8 +202,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BusinessApplicationId.GetHashCode();
                 if (this.PayoutsOptions != null)
                     hash = hash * 59 + this.PayoutsOptions.GetHashCode();
-                if (this.EnablerId != null)
-                    hash = hash * 59 + this.EnablerId.GetHashCode();
+                if (this.FeeProgramId != null)
+                    hash = hash * 59 + this.FeeProgramId.GetHashCode();
+                if (this.NetworkPartnerId != null)
+                    hash = hash * 59 + this.NetworkPartnerId.GetHashCode();
+                if (this.ProcessingCode != null)
+                    hash = hash * 59 + this.ProcessingCode.GetHashCode();
+                if (this.SharingGroupCode != null)
+                    hash = hash * 59 + this.SharingGroupCode.GetHashCode();
+                if (this.PurposeOfPayment != null)
+                    hash = hash * 59 + this.PurposeOfPayment.GetHashCode();
                 return hash;
             }
         }

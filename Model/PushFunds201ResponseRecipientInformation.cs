@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PushFunds201ResponseRecipientInformation" /> class.
         /// </summary>
         /// <param name="Card">Card.</param>
-        public PushFunds201ResponseRecipientInformation(PushFunds201ResponseRecipientInformationCard Card = default(PushFunds201ResponseRecipientInformationCard))
+        /// <param name="Email">Customer&#39;s email address, including the full domain name. .</param>
+        public PushFunds201ResponseRecipientInformation(PushFunds201ResponseRecipientInformationCard Card = default(PushFunds201ResponseRecipientInformationCard), string Email = default(string))
         {
             this.Card = Card;
+            this.Email = Email;
         }
         
         /// <summary>
@@ -44,6 +46,13 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
         public PushFunds201ResponseRecipientInformationCard Card { get; set; }
+
+        /// <summary>
+        /// Customer&#39;s email address, including the full domain name. 
+        /// </summary>
+        /// <value>Customer&#39;s email address, including the full domain name. </value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +63,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PushFunds201ResponseRecipientInformation {\n");
             sb.Append("  Card: ").Append(Card).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +104,11 @@ namespace CyberSource.Model
                     this.Card == other.Card ||
                     this.Card != null &&
                     this.Card.Equals(other.Card)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
                 );
         }
 
@@ -110,6 +125,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
                 return hash;
             }
         }

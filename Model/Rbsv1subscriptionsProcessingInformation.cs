@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Rbsv1subscriptionsProcessingInformation" /> class.
         /// </summary>
-        /// <param name="CommerceIndicator">Commerce Indicator is a way to identify the type of transaction. Some payment card companies use this information when determining discount rates.  Valid values: - &#x60;MOTO&#x60; - &#x60;RECURRING&#x60; .</param>
+        /// <param name="CommerceIndicator">Commerce Indicator is a way to identify the type of transaction. Some payment card companies use this information when determining discount rates.  Valid values: - &#x60;MOTO&#x60; - &#x60;RECURRING&#x60;  Please add the ecommerce indicator based on the rules defined by your gateway/processor. Some gateways may not accept the Commerce Indicator &#x60;RECURRING&#x60; with a Zero Dollar Authorization, that is done for subscriptions starting at a future date. .</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         public Rbsv1subscriptionsProcessingInformation(string CommerceIndicator = default(string), Rbsv1subscriptionsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Rbsv1subscriptionsProcessingInformationAuthorizationOptions))
         {
@@ -42,9 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Commerce Indicator is a way to identify the type of transaction. Some payment card companies use this information when determining discount rates.  Valid values: - &#x60;MOTO&#x60; - &#x60;RECURRING&#x60; 
+        /// Commerce Indicator is a way to identify the type of transaction. Some payment card companies use this information when determining discount rates.  Valid values: - &#x60;MOTO&#x60; - &#x60;RECURRING&#x60;  Please add the ecommerce indicator based on the rules defined by your gateway/processor. Some gateways may not accept the Commerce Indicator &#x60;RECURRING&#x60; with a Zero Dollar Authorization, that is done for subscriptions starting at a future date. 
         /// </summary>
-        /// <value>Commerce Indicator is a way to identify the type of transaction. Some payment card companies use this information when determining discount rates.  Valid values: - &#x60;MOTO&#x60; - &#x60;RECURRING&#x60; </value>
+        /// <value>Commerce Indicator is a way to identify the type of transaction. Some payment card companies use this information when determining discount rates.  Valid values: - &#x60;MOTO&#x60; - &#x60;RECURRING&#x60;  Please add the ecommerce indicator based on the rules defined by your gateway/processor. Some gateways may not accept the Commerce Indicator &#x60;RECURRING&#x60; with a Zero Dollar Authorization, that is done for subscriptions starting at a future date. </value>
         [DataMember(Name="commerceIndicator", EmitDefaultValue=false)]
         public string CommerceIndicator { get; set; }
 

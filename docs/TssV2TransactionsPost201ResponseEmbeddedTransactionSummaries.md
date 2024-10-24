@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **MerchantId** | **string** | Your CyberSource merchant ID. | [optional] 
 **Status** | **string** | The status of the submitted transaction. Note: This field may not be returned for all transactions.  | [optional] 
 **ApplicationInformation** | [**TssV2TransactionsPost201ResponseEmbeddedApplicationInformation**](TssV2TransactionsPost201ResponseEmbeddedApplicationInformation.md) |  | [optional] 
-**BuyerInformation** | [**TssV2TransactionsPost201ResponseEmbeddedBuyerInformation**](TssV2TransactionsPost201ResponseEmbeddedBuyerInformation.md) |  | [optional] 
+**BuyerInformation** | [**PtsV2CreateOrderPost201ResponseBuyerInformation**](PtsV2CreateOrderPost201ResponseBuyerInformation.md) |  | [optional] 
 **ClientReferenceInformation** | [**TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation**](TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation.md) |  | [optional] 
 **ConsumerAuthenticationInformation** | [**TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation**](TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation.md) |  | [optional] 
 **DeviceInformation** | [**Riskv1authenticationresultsDeviceInformation**](Riskv1authenticationresultsDeviceInformation.md) |  | [optional] 

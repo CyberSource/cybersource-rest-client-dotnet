@@ -81,6 +81,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Eligibility'
         }
         /// <summary>
+        /// Test the property 'DisputeCategories'
+        /// </summary>
+        [Test]
+        public void DisputeCategoriesTest()
+        {
+            // TODO unit test for the property 'DisputeCategories'
+        }
+        /// <summary>
         /// Test the property 'EligibilityType'
         /// </summary>
         [Test]

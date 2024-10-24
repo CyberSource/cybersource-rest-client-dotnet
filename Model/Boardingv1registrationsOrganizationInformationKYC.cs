@@ -31,78 +31,6 @@ namespace CyberSource.Model
     public partial class Boardingv1registrationsOrganizationInformationKYC :  IEquatable<Boardingv1registrationsOrganizationInformationKYC>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets WhenIsCustomerCharged
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum WhenIsCustomerChargedEnum
-        {
-            
-            /// <summary>
-            /// Enum ONETIMEBEFORE for "ONETIMEBEFORE"
-            /// </summary>
-            [EnumMember(Value = "ONETIMEBEFORE")]
-            ONETIMEBEFORE,
-            
-            /// <summary>
-            /// Enum ONETIMEAFTER for "ONETIMEAFTER"
-            /// </summary>
-            [EnumMember(Value = "ONETIMEAFTER")]
-            ONETIMEAFTER,
-            
-            /// <summary>
-            /// Enum OTHER for "OTHER"
-            /// </summary>
-            [EnumMember(Value = "OTHER")]
-            OTHER
-        }
-        /// <summary>
-        /// Gets or Sets TimeToProductDelivery
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TimeToProductDeliveryEnum
-        {
-            
-            /// <summary>
-            /// Enum INSTANT for "INSTANT"
-            /// </summary>
-            [EnumMember(Value = "INSTANT")]
-            INSTANT,
-            
-            /// <summary>
-            /// Enum UPTO2 for "UPTO2"
-            /// </summary>
-            [EnumMember(Value = "UPTO2")]
-            UPTO2,
-            
-            /// <summary>
-            /// Enum UPTO5 for "UPTO5"
-            /// </summary>
-            [EnumMember(Value = "UPTO5")]
-            UPTO5,
-            
-            /// <summary>
-            /// Enum UPTO10 for "UPTO10"
-            /// </summary>
-            [EnumMember(Value = "UPTO10")]
-            UPTO10,
-            
-            /// <summary>
-            /// Enum GREATERTHAN10 for "GREATERTHAN10"
-            /// </summary>
-            [EnumMember(Value = "GREATERTHAN10")]
-            GREATERTHAN10
-        }
-        /// <summary>
-        /// Gets or Sets WhenIsCustomerCharged
-        /// </summary>
-        [DataMember(Name="whenIsCustomerCharged", EmitDefaultValue=false)]
-        public WhenIsCustomerChargedEnum? WhenIsCustomerCharged { get; set; }
-        /// <summary>
-        /// Gets or Sets TimeToProductDelivery
-        /// </summary>
-        [DataMember(Name="timeToProductDelivery", EmitDefaultValue=false)]
-        public TimeToProductDeliveryEnum? TimeToProductDelivery { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Boardingv1registrationsOrganizationInformationKYC" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -110,19 +38,19 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Boardingv1registrationsOrganizationInformationKYC" /> class.
         /// </summary>
-        /// <param name="WhenIsCustomerCharged">WhenIsCustomerCharged (required).</param>
+        /// <param name="WhenIsCustomerCharged">Possible values: - ONETIMEBEFORE - ONETIMEAFTER - OTHER (required).</param>
         /// <param name="WhenIsCustomerChargedDescription">WhenIsCustomerChargedDescription.</param>
         /// <param name="OfferSubscriptions">OfferSubscriptions (required).</param>
         /// <param name="MonthlySubscriptionPercent">MonthlySubscriptionPercent.</param>
         /// <param name="QuarterlySubscriptionPercent">QuarterlySubscriptionPercent.</param>
         /// <param name="SemiAnnualSubscriptionPercent">SemiAnnualSubscriptionPercent.</param>
         /// <param name="AnnualSubscriptionPercent">AnnualSubscriptionPercent.</param>
-        /// <param name="TimeToProductDelivery">TimeToProductDelivery (required).</param>
+        /// <param name="TimeToProductDelivery">Possible values: - INSTANT - UPTO2 - UPTO5 - UPTO10 - GREATERTHAN10 (required).</param>
         /// <param name="EstimatedMonthlySales">EstimatedMonthlySales (required).</param>
         /// <param name="AverageOrderAmount">AverageOrderAmount (required).</param>
         /// <param name="LargestExpectedOrderAmount">LargestExpectedOrderAmount (required).</param>
         /// <param name="DepositBankAccount">DepositBankAccount.</param>
-        public Boardingv1registrationsOrganizationInformationKYC(WhenIsCustomerChargedEnum? WhenIsCustomerCharged = default(WhenIsCustomerChargedEnum?), string WhenIsCustomerChargedDescription = default(string), bool? OfferSubscriptions = default(bool?), decimal? MonthlySubscriptionPercent = default(decimal?), decimal? QuarterlySubscriptionPercent = default(decimal?), decimal? SemiAnnualSubscriptionPercent = default(decimal?), decimal? AnnualSubscriptionPercent = default(decimal?), TimeToProductDeliveryEnum? TimeToProductDelivery = default(TimeToProductDeliveryEnum?), decimal? EstimatedMonthlySales = default(decimal?), decimal? AverageOrderAmount = default(decimal?), decimal? LargestExpectedOrderAmount = default(decimal?), Boardingv1registrationsOrganizationInformationKYCDepositBankAccount DepositBankAccount = default(Boardingv1registrationsOrganizationInformationKYCDepositBankAccount))
+        public Boardingv1registrationsOrganizationInformationKYC(string WhenIsCustomerCharged = default(string), string WhenIsCustomerChargedDescription = default(string), bool? OfferSubscriptions = default(bool?), decimal? MonthlySubscriptionPercent = default(decimal?), decimal? QuarterlySubscriptionPercent = default(decimal?), decimal? SemiAnnualSubscriptionPercent = default(decimal?), decimal? AnnualSubscriptionPercent = default(decimal?), string TimeToProductDelivery = default(string), decimal? EstimatedMonthlySales = default(decimal?), decimal? AverageOrderAmount = default(decimal?), decimal? LargestExpectedOrderAmount = default(decimal?), Boardingv1registrationsOrganizationInformationKYCDepositBankAccount DepositBankAccount = default(Boardingv1registrationsOrganizationInformationKYCDepositBankAccount))
         {
             this.WhenIsCustomerCharged = WhenIsCustomerCharged;
             this.WhenIsCustomerChargedDescription = WhenIsCustomerChargedDescription;
@@ -138,6 +66,12 @@ namespace CyberSource.Model
             this.DepositBankAccount = DepositBankAccount;
         }
         
+        /// <summary>
+        /// Possible values: - ONETIMEBEFORE - ONETIMEAFTER - OTHER
+        /// </summary>
+        /// <value>Possible values: - ONETIMEBEFORE - ONETIMEAFTER - OTHER</value>
+        [DataMember(Name="whenIsCustomerCharged", EmitDefaultValue=false)]
+        public string WhenIsCustomerCharged { get; set; }
 
         /// <summary>
         /// Gets or Sets WhenIsCustomerChargedDescription
@@ -175,6 +109,12 @@ namespace CyberSource.Model
         [DataMember(Name="annualSubscriptionPercent", EmitDefaultValue=false)]
         public decimal? AnnualSubscriptionPercent { get; set; }
 
+        /// <summary>
+        /// Possible values: - INSTANT - UPTO2 - UPTO5 - UPTO10 - GREATERTHAN10
+        /// </summary>
+        /// <value>Possible values: - INSTANT - UPTO2 - UPTO5 - UPTO10 - GREATERTHAN10</value>
+        [DataMember(Name="timeToProductDelivery", EmitDefaultValue=false)]
+        public string TimeToProductDelivery { get; set; }
 
         /// <summary>
         /// Gets or Sets EstimatedMonthlySales

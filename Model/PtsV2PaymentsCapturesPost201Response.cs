@@ -43,7 +43,8 @@ namespace CyberSource.Model
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
-        public PtsV2PaymentsCapturesPost201Response(PtsV2PaymentsCapturesPost201ResponseLinks Links = default(PtsV2PaymentsCapturesPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsCapturesPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessorInformation), PtsV2PaymentsCapturesPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsCapturesPost201ResponseOrderInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation), PtsV2PaymentsCapturesPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessingInformation))
+        /// <param name="EmbeddedActions">EmbeddedActions.</param>
+        public PtsV2PaymentsCapturesPost201Response(PtsV2PaymentsCapturesPost201ResponseLinks Links = default(PtsV2PaymentsCapturesPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsCapturesPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessorInformation), PtsV2PaymentsCapturesPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsCapturesPost201ResponseOrderInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation), PtsV2PaymentsCapturesPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessingInformation), PtsV2PaymentsCapturesPost201ResponseEmbeddedActions EmbeddedActions = default(PtsV2PaymentsCapturesPost201ResponseEmbeddedActions))
         {
             this.Links = Links;
             this.Id = Id;
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             this.OrderInformation = OrderInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
             this.ProcessingInformation = ProcessingInformation;
+            this.EmbeddedActions = EmbeddedActions;
         }
         
         /// <summary>
@@ -122,6 +124,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsCapturesPost201ResponseProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets EmbeddedActions
+        /// </summary>
+        [DataMember(Name="embeddedActions", EmitDefaultValue=false)]
+        public PtsV2PaymentsCapturesPost201ResponseEmbeddedActions EmbeddedActions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -139,6 +147,7 @@ namespace CyberSource.Model
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
+            sb.Append("  EmbeddedActions: ").Append(EmbeddedActions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -224,6 +233,11 @@ namespace CyberSource.Model
                     this.ProcessingInformation == other.ProcessingInformation ||
                     this.ProcessingInformation != null &&
                     this.ProcessingInformation.Equals(other.ProcessingInformation)
+                ) && 
+                (
+                    this.EmbeddedActions == other.EmbeddedActions ||
+                    this.EmbeddedActions != null &&
+                    this.EmbeddedActions.Equals(other.EmbeddedActions)
                 );
         }
 
@@ -258,6 +272,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
                 if (this.ProcessingInformation != null)
                     hash = hash * 59 + this.ProcessingInformation.GetHashCode();
+                if (this.EmbeddedActions != null)
+                    hash = hash * 59 + this.EmbeddedActions.GetHashCode();
                 return hash;
             }
         }

@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **ErrorInformation** | [**PushFunds201ResponseErrorInformation**](PushFunds201ResponseErrorInformation.md) |  | [optional] 
 **ProcessorInformation** | [**PushFunds201ResponseProcessorInformation**](PushFunds201ResponseProcessorInformation.md) |  | [optional] 
 **OrderInformation** | [**PushFunds201ResponseOrderInformation**](PushFunds201ResponseOrderInformation.md) |  | [optional] 
+**PaymentInformation** | [**PushFunds201ResponsePaymentInformation**](PushFunds201ResponsePaymentInformation.md) |  | [optional] 
+**ProcessingInformation** | [**PushFunds201ResponseProcessingInformation**](PushFunds201ResponseProcessingInformation.md) |  | [optional] 
 **Links** | [**PushFunds201ResponseLinks**](PushFunds201ResponseLinks.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

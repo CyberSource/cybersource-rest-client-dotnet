@@ -376,6 +376,46 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'DeviceUrl'
         }
+        /// <summary>
+        /// Test the property 'DisbursementMode'
+        /// </summary>
+        [Test]
+        public void DisbursementModeTest()
+        {
+            // TODO unit test for the property 'DisbursementMode'
+        }
+        /// <summary>
+        /// Test the property 'UpdateTimeUtc'
+        /// </summary>
+        [Test]
+        public void UpdateTimeUtcTest()
+        {
+            // TODO unit test for the property 'UpdateTimeUtc'
+        }
+        /// <summary>
+        /// Test the property 'ExpirationTimeUtc'
+        /// </summary>
+        [Test]
+        public void ExpirationTimeUtcTest()
+        {
+            // TODO unit test for the property 'ExpirationTimeUtc'
+        }
+        /// <summary>
+        /// Test the property 'OrderId'
+        /// </summary>
+        [Test]
+        public void OrderIdTest()
+        {
+            // TODO unit test for the property 'OrderId'
+        }
+        /// <summary>
+        /// Test the property 'OrderStatus'
+        /// </summary>
+        [Test]
+        public void OrderStatusTest()
+        {
+            // TODO unit test for the property 'OrderStatus'
+        }
 
     }
 
