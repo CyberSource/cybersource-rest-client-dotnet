@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalAmount** | **string** |  | [optional] 
-**Currency** | **string** |  | [optional] 
+**TotalAmount** | **string** | This field defines the total order amount.  | [optional] 
+**Currency** | **string** | This field defines the currency applicable to the order.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -80,6 +80,30 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'DestinationCurrency'
         }
+        /// <summary>
+        /// Test the property 'SourceAmount'
+        /// </summary>
+        [Test]
+        public void SourceAmountTest()
+        {
+            // TODO unit test for the property 'SourceAmount'
+        }
+        /// <summary>
+        /// Test the property 'RetrievalReferenceNumber'
+        /// </summary>
+        [Test]
+        public void RetrievalReferenceNumberTest()
+        {
+            // TODO unit test for the property 'RetrievalReferenceNumber'
+        }
+        /// <summary>
+        /// Test the property 'AccountFundingReferenceId'
+        /// </summary>
+        [Test]
+        public void AccountFundingReferenceIdTest()
+        {
+            // TODO unit test for the property 'AccountFundingReferenceId'
+        }
 
     }
 

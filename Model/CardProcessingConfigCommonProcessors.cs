@@ -31,86 +31,6 @@ namespace CyberSource.Model
     public partial class CardProcessingConfigCommonProcessors :  IEquatable<CardProcessingConfigCommonProcessors>, IValidatableObject
     {
         /// <summary>
-        /// Field used to identify the industry type of the merchant submitting the authorization request.  Valid values: &#x60;0&#x60; – unknown or unsure &#x60;A&#x60; – auto rental (EMV supported) &#x60;B&#x60; – bank/financial institution (EMV supported) &#x60;D&#x60; – direct marketing &#x60;F&#x60; – food/restaurant (EMV supported) &#x60;G&#x60; – grocery store/super market (EMV supported) &#x60;H&#x60; – hotel (EMV supported) &#x60;L&#x60; – limited amount terminal (EMV supported) &#x60;O&#x60; – oil company/automated fueling system (EMV supported) &#x60;P&#x60; – passenger transport (EMV supported) &#x60;R&#x60; – retail (EMV supported) Applicable for TSYS (tsys), RUPAY and Elavon Americas (elavonamericas) processors. 
-        /// </summary>
-        /// <value>Field used to identify the industry type of the merchant submitting the authorization request.  Valid values: &#x60;0&#x60; – unknown or unsure &#x60;A&#x60; – auto rental (EMV supported) &#x60;B&#x60; – bank/financial institution (EMV supported) &#x60;D&#x60; – direct marketing &#x60;F&#x60; – food/restaurant (EMV supported) &#x60;G&#x60; – grocery store/super market (EMV supported) &#x60;H&#x60; – hotel (EMV supported) &#x60;L&#x60; – limited amount terminal (EMV supported) &#x60;O&#x60; – oil company/automated fueling system (EMV supported) &#x60;P&#x60; – passenger transport (EMV supported) &#x60;R&#x60; – retail (EMV supported) Applicable for TSYS (tsys), RUPAY and Elavon Americas (elavonamericas) processors. </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum IndustryCodeEnum
-        {
-            
-            /// <summary>
-            /// Enum _0 for "0"
-            /// </summary>
-            [EnumMember(Value = "0")]
-            _0,
-            
-            /// <summary>
-            /// Enum A for "A"
-            /// </summary>
-            [EnumMember(Value = "A")]
-            A,
-            
-            /// <summary>
-            /// Enum B for "B"
-            /// </summary>
-            [EnumMember(Value = "B")]
-            B,
-            
-            /// <summary>
-            /// Enum D for "D"
-            /// </summary>
-            [EnumMember(Value = "D")]
-            D,
-            
-            /// <summary>
-            /// Enum F for "F"
-            /// </summary>
-            [EnumMember(Value = "F")]
-            F,
-            
-            /// <summary>
-            /// Enum G for "G"
-            /// </summary>
-            [EnumMember(Value = "G")]
-            G,
-            
-            /// <summary>
-            /// Enum H for "H"
-            /// </summary>
-            [EnumMember(Value = "H")]
-            H,
-            
-            /// <summary>
-            /// Enum L for "L"
-            /// </summary>
-            [EnumMember(Value = "L")]
-            L,
-            
-            /// <summary>
-            /// Enum O for "O"
-            /// </summary>
-            [EnumMember(Value = "O")]
-            O,
-            
-            /// <summary>
-            /// Enum P for "P"
-            /// </summary>
-            [EnumMember(Value = "P")]
-            P,
-            
-            /// <summary>
-            /// Enum R for "R"
-            /// </summary>
-            [EnumMember(Value = "R")]
-            R
-        }
-        /// <summary>
-        /// Field used to identify the industry type of the merchant submitting the authorization request.  Valid values: &#x60;0&#x60; – unknown or unsure &#x60;A&#x60; – auto rental (EMV supported) &#x60;B&#x60; – bank/financial institution (EMV supported) &#x60;D&#x60; – direct marketing &#x60;F&#x60; – food/restaurant (EMV supported) &#x60;G&#x60; – grocery store/super market (EMV supported) &#x60;H&#x60; – hotel (EMV supported) &#x60;L&#x60; – limited amount terminal (EMV supported) &#x60;O&#x60; – oil company/automated fueling system (EMV supported) &#x60;P&#x60; – passenger transport (EMV supported) &#x60;R&#x60; – retail (EMV supported) Applicable for TSYS (tsys), RUPAY and Elavon Americas (elavonamericas) processors. 
-        /// </summary>
-        /// <value>Field used to identify the industry type of the merchant submitting the authorization request.  Valid values: &#x60;0&#x60; – unknown or unsure &#x60;A&#x60; – auto rental (EMV supported) &#x60;B&#x60; – bank/financial institution (EMV supported) &#x60;D&#x60; – direct marketing &#x60;F&#x60; – food/restaurant (EMV supported) &#x60;G&#x60; – grocery store/super market (EMV supported) &#x60;H&#x60; – hotel (EMV supported) &#x60;L&#x60; – limited amount terminal (EMV supported) &#x60;O&#x60; – oil company/automated fueling system (EMV supported) &#x60;P&#x60; – passenger transport (EMV supported) &#x60;R&#x60; – retail (EMV supported) Applicable for TSYS (tsys), RUPAY and Elavon Americas (elavonamericas) processors. </value>
-        [DataMember(Name="industryCode", EmitDefaultValue=false)]
-        public IndustryCodeEnum? IndustryCode { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="CardProcessingConfigCommonProcessors" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -147,7 +67,7 @@ namespace CyberSource.Model
         /// <param name="EnableAutoAuthReversalAfterVoid">Enables to meet the Visa mandate requirements to reverse unused authorizations, benefitting the customer by releasing the hold on unused credit card funds. Applicable for CB2A, Elavon Americas (elavonamericas), Six (six), VPC and American Express Direct (amexdirect) processors.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Default Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
         /// <param name="EnableExpresspayPanTranslation">When this is enabled, authorization responses from American Express expresspay transactions include the Primary Account Number (PAN) and expiration date of the card. Applicable for American Express Direct (amexdirect) processor..</param>
         /// <param name="EnableCreditAuth">Authorizes a credit. Reduces refund chargebacks and prevents customers from seeing the online update for credits which are otherwise offline settlements..</param>
-        /// <param name="IndustryCode">Field used to identify the industry type of the merchant submitting the authorization request.  Valid values: &#x60;0&#x60; – unknown or unsure &#x60;A&#x60; – auto rental (EMV supported) &#x60;B&#x60; – bank/financial institution (EMV supported) &#x60;D&#x60; – direct marketing &#x60;F&#x60; – food/restaurant (EMV supported) &#x60;G&#x60; – grocery store/super market (EMV supported) &#x60;H&#x60; – hotel (EMV supported) &#x60;L&#x60; – limited amount terminal (EMV supported) &#x60;O&#x60; – oil company/automated fueling system (EMV supported) &#x60;P&#x60; – passenger transport (EMV supported) &#x60;R&#x60; – retail (EMV supported) Applicable for TSYS (tsys), RUPAY and Elavon Americas (elavonamericas) processors. .</param>
+        /// <param name="IndustryCode">Field used to identify the industry type of the merchant submitting the authorization request.  Valid values: &#x60;0&#x60; – unknown or unsure &#x60;A&#x60; – auto rental (EMV supported) &#x60;B&#x60; – bank/financial institution (EMV supported) &#x60;D&#x60; – direct marketing &#x60;F&#x60; – food/restaurant (EMV supported) &#x60;G&#x60; – grocery store/super market (EMV supported) &#x60;H&#x60; – hotel (EMV supported) &#x60;L&#x60; – limited amount terminal (EMV supported) &#x60;O&#x60; – oil company/automated fueling system (EMV supported) &#x60;P&#x60; – passenger transport (EMV supported) &#x60;R&#x60; – retail (EMV supported) Applicable for TSYS (tsys), RUPAY and Elavon Americas (elavonamericas) processors.   Possible values: - 0 - A - B - D - F - G - H - L - O - P - R.</param>
         /// <param name="SendAmexLevel2Data">Field that indicates whether merchant will send level 2 data for Amex cards. Applicable for TSYS (tsys) processor..</param>
         /// <param name="SoftDescriptorType">A soft descriptor is a text, rendered on a cardholder&#39;s statement, describing a particular product or service, purchased by the cardholder. Descriptors are intended to help the cardholder identify the products or services purchased. Valid values: &#x60;1&#x60; - trans_ref_no &#x60;2&#x60; - merchant_descriptor &#x60;3&#x60; - trans_ref_no and merchant_descriptor Applicable for TSYS (tsys) processor. .</param>
         /// <param name="VitalNumber">V-number provided by TSYS info. The leading &#x60;V&#x60; must be replaced by a &#x60;7&#x60;. For example, replace &#x60;V1234567&#x60; with &#x60;71234567&#x60;. Applicable for TSYS (tsys) processor..</param>
@@ -165,7 +85,7 @@ namespace CyberSource.Model
         /// <param name="EnablePosNetworkSwitching">&#39;POS Network Switching&#39; or &#39;Alternate Routing&#39; means merchant can process PIN Debit transactions without a PIN. Set the value to &#39;Yes&#39; if it is supported. Applicable for FDI Global (fdiglobal) processor..</param>
         /// <param name="EnableDynamicCurrencyConversion">Enable dynamic currency conversion for a merchant..</param>
         /// <param name="MerchantTier">Merchant Tier defines the type of merchant, the numeric Merchant Tier value is allocated by EFTPOS. Applicable for EFTPOS processors..</param>
-        public CardProcessingConfigCommonProcessors(string BatchGroup = default(string), string BusinessApplicationId = default(string), string MerchantVerificationValue = default(string), string AbaNumber = default(string), CardProcessingConfigCommonAcquirer Acquirer = default(CardProcessingConfigCommonAcquirer), string MerchantId = default(string), string TerminalId = default(string), Dictionary<string, CardProcessingConfigCommonPaymentTypes> PaymentTypes = default(Dictionary<string, CardProcessingConfigCommonPaymentTypes>), Dictionary<string, CardProcessingConfigCommonCurrencies1> Currencies = default(Dictionary<string, CardProcessingConfigCommonCurrencies1>), string VisaAggregatorId = default(string), string AmexAggregatorId = default(string), string MasterCardAggregatorId = default(string), string SicCode = default(string), bool? AllowMultipleBills = default(bool?), bool? AllowMerchantDescriptorOverride = default(bool?), string EnhancedData = default(string), bool? FireSafetyIndicator = default(bool?), bool? QuasiCash = default(bool?), string AcquirerMerchantId = default(string), string AvsFormat = default(string), bool? EnableLongTransRefNo = default(bool?), bool? EnableLevel2 = default(bool?), bool? EnableMultipleTransactionAdviceAddendum = default(bool?), string AmexTransactionAdviceAddendum1 = default(string), bool? EnableMultiLineItems = default(bool?), bool? EnableTransactionReferenceNumber = default(bool?), bool? EnableAutoAuthReversalAfterVoid = default(bool?), bool? EnableExpresspayPanTranslation = default(bool?), bool? EnableCreditAuth = default(bool?), IndustryCodeEnum? IndustryCode = default(IndustryCodeEnum?), bool? SendAmexLevel2Data = default(bool?), string SoftDescriptorType = default(string), string VitalNumber = default(string), string BankNumber = default(string), string ChainNumber = default(string), string MerchantBinNumber = default(string), string MerchantLocationNumber = default(string), string StoreID = default(string), string TravelAgencyCode = default(string), string TravelAgencyName = default(string), string SettlementCurrency = default(string), bool? EnableLeastCostRouting = default(bool?), bool? EnableCVVResponseIndicator = default(bool?), string EnableMultiCurrencyProcessing = default(string), bool? EnablePosNetworkSwitching = default(bool?), bool? EnableDynamicCurrencyConversion = default(bool?), string MerchantTier = default(string))
+        public CardProcessingConfigCommonProcessors(string BatchGroup = default(string), string BusinessApplicationId = default(string), string MerchantVerificationValue = default(string), string AbaNumber = default(string), CardProcessingConfigCommonAcquirer Acquirer = default(CardProcessingConfigCommonAcquirer), string MerchantId = default(string), string TerminalId = default(string), Dictionary<string, CardProcessingConfigCommonPaymentTypes> PaymentTypes = default(Dictionary<string, CardProcessingConfigCommonPaymentTypes>), Dictionary<string, CardProcessingConfigCommonCurrencies1> Currencies = default(Dictionary<string, CardProcessingConfigCommonCurrencies1>), string VisaAggregatorId = default(string), string AmexAggregatorId = default(string), string MasterCardAggregatorId = default(string), string SicCode = default(string), bool? AllowMultipleBills = default(bool?), bool? AllowMerchantDescriptorOverride = default(bool?), string EnhancedData = default(string), bool? FireSafetyIndicator = default(bool?), bool? QuasiCash = default(bool?), string AcquirerMerchantId = default(string), string AvsFormat = default(string), bool? EnableLongTransRefNo = default(bool?), bool? EnableLevel2 = default(bool?), bool? EnableMultipleTransactionAdviceAddendum = default(bool?), string AmexTransactionAdviceAddendum1 = default(string), bool? EnableMultiLineItems = default(bool?), bool? EnableTransactionReferenceNumber = default(bool?), bool? EnableAutoAuthReversalAfterVoid = default(bool?), bool? EnableExpresspayPanTranslation = default(bool?), bool? EnableCreditAuth = default(bool?), string IndustryCode = default(string), bool? SendAmexLevel2Data = default(bool?), string SoftDescriptorType = default(string), string VitalNumber = default(string), string BankNumber = default(string), string ChainNumber = default(string), string MerchantBinNumber = default(string), string MerchantLocationNumber = default(string), string StoreID = default(string), string TravelAgencyCode = default(string), string TravelAgencyName = default(string), string SettlementCurrency = default(string), bool? EnableLeastCostRouting = default(bool?), bool? EnableCVVResponseIndicator = default(bool?), string EnableMultiCurrencyProcessing = default(string), bool? EnablePosNetworkSwitching = default(bool?), bool? EnableDynamicCurrencyConversion = default(bool?), string MerchantTier = default(string))
         {
             this.BatchGroup = BatchGroup;
             this.BusinessApplicationId = BusinessApplicationId;
@@ -418,6 +338,12 @@ namespace CyberSource.Model
         [DataMember(Name="enableCreditAuth", EmitDefaultValue=false)]
         public bool? EnableCreditAuth { get; set; }
 
+        /// <summary>
+        /// Field used to identify the industry type of the merchant submitting the authorization request.  Valid values: &#x60;0&#x60; – unknown or unsure &#x60;A&#x60; – auto rental (EMV supported) &#x60;B&#x60; – bank/financial institution (EMV supported) &#x60;D&#x60; – direct marketing &#x60;F&#x60; – food/restaurant (EMV supported) &#x60;G&#x60; – grocery store/super market (EMV supported) &#x60;H&#x60; – hotel (EMV supported) &#x60;L&#x60; – limited amount terminal (EMV supported) &#x60;O&#x60; – oil company/automated fueling system (EMV supported) &#x60;P&#x60; – passenger transport (EMV supported) &#x60;R&#x60; – retail (EMV supported) Applicable for TSYS (tsys), RUPAY and Elavon Americas (elavonamericas) processors.   Possible values: - 0 - A - B - D - F - G - H - L - O - P - R
+        /// </summary>
+        /// <value>Field used to identify the industry type of the merchant submitting the authorization request.  Valid values: &#x60;0&#x60; – unknown or unsure &#x60;A&#x60; – auto rental (EMV supported) &#x60;B&#x60; – bank/financial institution (EMV supported) &#x60;D&#x60; – direct marketing &#x60;F&#x60; – food/restaurant (EMV supported) &#x60;G&#x60; – grocery store/super market (EMV supported) &#x60;H&#x60; – hotel (EMV supported) &#x60;L&#x60; – limited amount terminal (EMV supported) &#x60;O&#x60; – oil company/automated fueling system (EMV supported) &#x60;P&#x60; – passenger transport (EMV supported) &#x60;R&#x60; – retail (EMV supported) Applicable for TSYS (tsys), RUPAY and Elavon Americas (elavonamericas) processors.   Possible values: - 0 - A - B - D - F - G - H - L - O - P - R</value>
+        [DataMember(Name="industryCode", EmitDefaultValue=false)]
+        public string IndustryCode { get; set; }
 
         /// <summary>
         /// Field that indicates whether merchant will send level 2 data for Amex cards. Applicable for TSYS (tsys) processor.

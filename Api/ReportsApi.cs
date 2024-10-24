@@ -399,7 +399,7 @@ namespace CyberSource.Api
             if (createAdhocReportRequest != null && createAdhocReportRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createAdhocReportRequest = (CreateAdhocReportRequest)sdkTracker.InsertDeveloperIdTracker(createAdhocReportRequest, createAdhocReportRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createAdhocReportRequest = (CreateAdhocReportRequest)sdkTracker.InsertDeveloperIdTracker(createAdhocReportRequest, createAdhocReportRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createAdhocReportRequest); // http body (model) parameter
             }
             else
@@ -505,7 +505,7 @@ namespace CyberSource.Api
             if (createAdhocReportRequest != null && createAdhocReportRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createAdhocReportRequest = (CreateAdhocReportRequest)sdkTracker.InsertDeveloperIdTracker(createAdhocReportRequest, createAdhocReportRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createAdhocReportRequest = (CreateAdhocReportRequest)sdkTracker.InsertDeveloperIdTracker(createAdhocReportRequest, createAdhocReportRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createAdhocReportRequest); // http body (model) parameter
             }
             else

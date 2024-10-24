@@ -33,27 +33,54 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferProcessingInformationPayoutsOptions" /> class.
         /// </summary>
-        /// <param name="SourceCurrency">Use a 3-character alpha currency code for source currency of the funds transfer.  Yellow Pepper Supported for cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf .</param>
-        /// <param name="DestinationCurrency">Use a 3-character alpha currency code for destination currency of the funds transfer.  Yellow Pepper Supported for cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf .</param>
-        public Ptsv1pushfundstransferProcessingInformationPayoutsOptions(string SourceCurrency = default(string), string DestinationCurrency = default(string))
+        /// <param name="SourceCurrency">Use a 3-character alpha currency code for source currency of the funds transfer.  Required if sending processingInformation.payoutsOptions.sourceAmount.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf .</param>
+        /// <param name="DestinationCurrency">Use a 3-character alpha currency code for destination currency of the funds transfer.  Yellow Pepper  Supported for cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf .</param>
+        /// <param name="SourceAmount">Source Amount is required in certain markets to identify the transaction amount entered in the sender&#39;s currency code prior to FX conversion by the originating entity.  Format:  Minimum Value: 0  Maximum value: 999999999.99  Allowed fractional digits: 2 .</param>
+        /// <param name="RetrievalReferenceNumber">Unique reference number returned by the processor that identifies the transaction at the network. .</param>
+        /// <param name="AccountFundingReferenceId">Visa-generated transaction identifier (TID) that is unique for each original authorization and financial request. .</param>
+        public Ptsv1pushfundstransferProcessingInformationPayoutsOptions(string SourceCurrency = default(string), string DestinationCurrency = default(string), string SourceAmount = default(string), string RetrievalReferenceNumber = default(string), string AccountFundingReferenceId = default(string))
         {
             this.SourceCurrency = SourceCurrency;
             this.DestinationCurrency = DestinationCurrency;
+            this.SourceAmount = SourceAmount;
+            this.RetrievalReferenceNumber = RetrievalReferenceNumber;
+            this.AccountFundingReferenceId = AccountFundingReferenceId;
         }
         
         /// <summary>
-        /// Use a 3-character alpha currency code for source currency of the funds transfer.  Yellow Pepper Supported for cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf 
+        /// Use a 3-character alpha currency code for source currency of the funds transfer.  Required if sending processingInformation.payoutsOptions.sourceAmount.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf 
         /// </summary>
-        /// <value>Use a 3-character alpha currency code for source currency of the funds transfer.  Yellow Pepper Supported for cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf </value>
+        /// <value>Use a 3-character alpha currency code for source currency of the funds transfer.  Required if sending processingInformation.payoutsOptions.sourceAmount.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf </value>
         [DataMember(Name="sourceCurrency", EmitDefaultValue=false)]
         public string SourceCurrency { get; set; }
 
         /// <summary>
-        /// Use a 3-character alpha currency code for destination currency of the funds transfer.  Yellow Pepper Supported for cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf 
+        /// Use a 3-character alpha currency code for destination currency of the funds transfer.  Yellow Pepper  Supported for cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf 
         /// </summary>
-        /// <value>Use a 3-character alpha currency code for destination currency of the funds transfer.  Yellow Pepper Supported for cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf </value>
+        /// <value>Use a 3-character alpha currency code for destination currency of the funds transfer.  Yellow Pepper  Supported for cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf </value>
         [DataMember(Name="destinationCurrency", EmitDefaultValue=false)]
         public string DestinationCurrency { get; set; }
+
+        /// <summary>
+        /// Source Amount is required in certain markets to identify the transaction amount entered in the sender&#39;s currency code prior to FX conversion by the originating entity.  Format:  Minimum Value: 0  Maximum value: 999999999.99  Allowed fractional digits: 2 
+        /// </summary>
+        /// <value>Source Amount is required in certain markets to identify the transaction amount entered in the sender&#39;s currency code prior to FX conversion by the originating entity.  Format:  Minimum Value: 0  Maximum value: 999999999.99  Allowed fractional digits: 2 </value>
+        [DataMember(Name="sourceAmount", EmitDefaultValue=false)]
+        public string SourceAmount { get; set; }
+
+        /// <summary>
+        /// Unique reference number returned by the processor that identifies the transaction at the network. 
+        /// </summary>
+        /// <value>Unique reference number returned by the processor that identifies the transaction at the network. </value>
+        [DataMember(Name="retrievalReferenceNumber", EmitDefaultValue=false)]
+        public string RetrievalReferenceNumber { get; set; }
+
+        /// <summary>
+        /// Visa-generated transaction identifier (TID) that is unique for each original authorization and financial request. 
+        /// </summary>
+        /// <value>Visa-generated transaction identifier (TID) that is unique for each original authorization and financial request. </value>
+        [DataMember(Name="accountFundingReferenceId", EmitDefaultValue=false)]
+        public string AccountFundingReferenceId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,6 +92,9 @@ namespace CyberSource.Model
             sb.Append("class Ptsv1pushfundstransferProcessingInformationPayoutsOptions {\n");
             sb.Append("  SourceCurrency: ").Append(SourceCurrency).Append("\n");
             sb.Append("  DestinationCurrency: ").Append(DestinationCurrency).Append("\n");
+            sb.Append("  SourceAmount: ").Append(SourceAmount).Append("\n");
+            sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
+            sb.Append("  AccountFundingReferenceId: ").Append(AccountFundingReferenceId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +140,21 @@ namespace CyberSource.Model
                     this.DestinationCurrency == other.DestinationCurrency ||
                     this.DestinationCurrency != null &&
                     this.DestinationCurrency.Equals(other.DestinationCurrency)
+                ) && 
+                (
+                    this.SourceAmount == other.SourceAmount ||
+                    this.SourceAmount != null &&
+                    this.SourceAmount.Equals(other.SourceAmount)
+                ) && 
+                (
+                    this.RetrievalReferenceNumber == other.RetrievalReferenceNumber ||
+                    this.RetrievalReferenceNumber != null &&
+                    this.RetrievalReferenceNumber.Equals(other.RetrievalReferenceNumber)
+                ) && 
+                (
+                    this.AccountFundingReferenceId == other.AccountFundingReferenceId ||
+                    this.AccountFundingReferenceId != null &&
+                    this.AccountFundingReferenceId.Equals(other.AccountFundingReferenceId)
                 );
         }
 
@@ -128,6 +173,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SourceCurrency.GetHashCode();
                 if (this.DestinationCurrency != null)
                     hash = hash * 59 + this.DestinationCurrency.GetHashCode();
+                if (this.SourceAmount != null)
+                    hash = hash * 59 + this.SourceAmount.GetHashCode();
+                if (this.RetrievalReferenceNumber != null)
+                    hash = hash * 59 + this.RetrievalReferenceNumber.GetHashCode();
+                if (this.AccountFundingReferenceId != null)
+                    hash = hash * 59 + this.AccountFundingReferenceId.GetHashCode();
                 return hash;
             }
         }

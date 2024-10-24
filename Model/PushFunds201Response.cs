@@ -43,8 +43,10 @@ namespace CyberSource.Model
         /// <param name="ErrorInformation">ErrorInformation.</param>
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
+        /// <param name="PaymentInformation">PaymentInformation.</param>
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="Links">Links.</param>
-        public PushFunds201Response(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PushFunds201ResponseClientReferenceInformation ClientReferenceInformation = default(PushFunds201ResponseClientReferenceInformation), PushFunds201ResponseRecipientInformation RecipientInformation = default(PushFunds201ResponseRecipientInformation), PushFunds201ResponseMerchantInformation MerchantInformation = default(PushFunds201ResponseMerchantInformation), PushFunds201ResponseErrorInformation ErrorInformation = default(PushFunds201ResponseErrorInformation), PushFunds201ResponseProcessorInformation ProcessorInformation = default(PushFunds201ResponseProcessorInformation), PushFunds201ResponseOrderInformation OrderInformation = default(PushFunds201ResponseOrderInformation), PushFunds201ResponseLinks Links = default(PushFunds201ResponseLinks))
+        public PushFunds201Response(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PushFunds201ResponseClientReferenceInformation ClientReferenceInformation = default(PushFunds201ResponseClientReferenceInformation), PushFunds201ResponseRecipientInformation RecipientInformation = default(PushFunds201ResponseRecipientInformation), PushFunds201ResponseMerchantInformation MerchantInformation = default(PushFunds201ResponseMerchantInformation), PushFunds201ResponseErrorInformation ErrorInformation = default(PushFunds201ResponseErrorInformation), PushFunds201ResponseProcessorInformation ProcessorInformation = default(PushFunds201ResponseProcessorInformation), PushFunds201ResponseOrderInformation OrderInformation = default(PushFunds201ResponseOrderInformation), PushFunds201ResponsePaymentInformation PaymentInformation = default(PushFunds201ResponsePaymentInformation), PushFunds201ResponseProcessingInformation ProcessingInformation = default(PushFunds201ResponseProcessingInformation), PushFunds201ResponseLinks Links = default(PushFunds201ResponseLinks))
         {
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
@@ -56,6 +58,8 @@ namespace CyberSource.Model
             this.ErrorInformation = ErrorInformation;
             this.ProcessorInformation = ProcessorInformation;
             this.OrderInformation = OrderInformation;
+            this.PaymentInformation = PaymentInformation;
+            this.ProcessingInformation = ProcessingInformation;
             this.Links = Links;
         }
         
@@ -124,6 +128,18 @@ namespace CyberSource.Model
         public PushFunds201ResponseOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentInformation
+        /// </summary>
+        [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
+        public PushFunds201ResponsePaymentInformation PaymentInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProcessingInformation
+        /// </summary>
+        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
+        public PushFunds201ResponseProcessingInformation ProcessingInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
@@ -147,6 +163,8 @@ namespace CyberSource.Model
             sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
             sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -235,6 +253,16 @@ namespace CyberSource.Model
                     this.OrderInformation.Equals(other.OrderInformation)
                 ) && 
                 (
+                    this.PaymentInformation == other.PaymentInformation ||
+                    this.PaymentInformation != null &&
+                    this.PaymentInformation.Equals(other.PaymentInformation)
+                ) && 
+                (
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
+                ) && 
+                (
                     this.Links == other.Links ||
                     this.Links != null &&
                     this.Links.Equals(other.Links)
@@ -272,6 +300,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProcessorInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.PaymentInformation != null)
+                    hash = hash * 59 + this.PaymentInformation.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.Links != null)
                     hash = hash * 59 + this.Links.GetHashCode();
                 return hash;

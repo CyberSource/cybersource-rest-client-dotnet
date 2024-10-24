@@ -778,7 +778,7 @@ namespace CyberSource.Api
             if (createPlanRequest != null && createPlanRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createPlanRequest = (CreatePlanRequest)sdkTracker.InsertDeveloperIdTracker(createPlanRequest, createPlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createPlanRequest = (CreatePlanRequest)sdkTracker.InsertDeveloperIdTracker(createPlanRequest, createPlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createPlanRequest); // http body (model) parameter
             }
             else
@@ -882,7 +882,7 @@ namespace CyberSource.Api
             if (createPlanRequest != null && createPlanRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createPlanRequest = (CreatePlanRequest)sdkTracker.InsertDeveloperIdTracker(createPlanRequest, createPlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createPlanRequest = (CreatePlanRequest)sdkTracker.InsertDeveloperIdTracker(createPlanRequest, createPlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createPlanRequest); // http body (model) parameter
             }
             else
@@ -1985,7 +1985,7 @@ namespace CyberSource.Api
             if (updatePlanRequest != null && updatePlanRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                updatePlanRequest = (UpdatePlanRequest)sdkTracker.InsertDeveloperIdTracker(updatePlanRequest, updatePlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                updatePlanRequest = (UpdatePlanRequest)sdkTracker.InsertDeveloperIdTracker(updatePlanRequest, updatePlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(updatePlanRequest); // http body (model) parameter
             }
             else
@@ -2102,7 +2102,7 @@ namespace CyberSource.Api
             if (updatePlanRequest != null && updatePlanRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                updatePlanRequest = (UpdatePlanRequest)sdkTracker.InsertDeveloperIdTracker(updatePlanRequest, updatePlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                updatePlanRequest = (UpdatePlanRequest)sdkTracker.InsertDeveloperIdTracker(updatePlanRequest, updatePlanRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(updatePlanRequest); // http body (model) parameter
             }
             else

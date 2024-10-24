@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'IssuingCountry'
         }
+        /// <summary>
+        /// Test the property 'PersonalIdType'
+        /// </summary>
+        [Test]
+        public void PersonalIdTypeTest()
+        {
+            // TODO unit test for the property 'PersonalIdType'
+        }
 
     }
 

@@ -96,6 +96,54 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'RetrievalReferenceNumber'
         }
+        /// <summary>
+        /// Test the property 'ActionCode'
+        /// </summary>
+        [Test]
+        public void ActionCodeTest()
+        {
+            // TODO unit test for the property 'ActionCode'
+        }
+        /// <summary>
+        /// Test the property 'ApprovalCode'
+        /// </summary>
+        [Test]
+        public void ApprovalCodeTest()
+        {
+            // TODO unit test for the property 'ApprovalCode'
+        }
+        /// <summary>
+        /// Test the property 'FeeProgramIndicator'
+        /// </summary>
+        [Test]
+        public void FeeProgramIndicatorTest()
+        {
+            // TODO unit test for the property 'FeeProgramIndicator'
+        }
+        /// <summary>
+        /// Test the property 'Name'
+        /// </summary>
+        [Test]
+        public void NameTest()
+        {
+            // TODO unit test for the property 'Name'
+        }
+        /// <summary>
+        /// Test the property 'Routing'
+        /// </summary>
+        [Test]
+        public void RoutingTest()
+        {
+            // TODO unit test for the property 'Routing'
+        }
+        /// <summary>
+        /// Test the property 'Settlement'
+        /// </summary>
+        [Test]
+        public void SettlementTest()
+        {
+            // TODO unit test for the property 'Settlement'
+        }
 
     }
 

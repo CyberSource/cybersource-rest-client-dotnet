@@ -96,6 +96,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'DestinationCurrency'
         }
+        /// <summary>
+        /// Test the property 'Surcharge'
+        /// </summary>
+        [Test]
+        public void SurchargeTest()
+        {
+            // TODO unit test for the property 'Surcharge'
+        }
 
     }
 

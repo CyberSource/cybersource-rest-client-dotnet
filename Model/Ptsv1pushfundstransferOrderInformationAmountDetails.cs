@@ -41,13 +41,15 @@ namespace CyberSource.Model
         /// <param name="TotalAmount">Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  (required).</param>
         /// <param name="Currency">Use a 3-character alpha currency code for currency of the funds transfer.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf  Currency must be supported by the processor.  (required).</param>
         /// <param name="SourceCurrency">Use a 3-character alpha currency code for source currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf .</param>
-        /// <param name="DestinationCurrency">Use a 3-character alpha currency code for destination currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf NOTE: This field is supported only for Visa Platform Connect .</param>
-        public Ptsv1pushfundstransferOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string SourceCurrency = default(string), string DestinationCurrency = default(string))
+        /// <param name="DestinationCurrency">Use a 3-character alpha currency code for destination currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf .</param>
+        /// <param name="Surcharge">Surcharge.</param>
+        public Ptsv1pushfundstransferOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string SourceCurrency = default(string), string DestinationCurrency = default(string), Ptsv2paymentsOrderInformationAmountDetailsOctsurcharge Surcharge = default(Ptsv2paymentsOrderInformationAmountDetailsOctsurcharge))
         {
             this.TotalAmount = TotalAmount;
             this.Currency = Currency;
             this.SourceCurrency = SourceCurrency;
             this.DestinationCurrency = DestinationCurrency;
+            this.Surcharge = Surcharge;
         }
         
         /// <summary>
@@ -72,11 +74,17 @@ namespace CyberSource.Model
         public string SourceCurrency { get; set; }
 
         /// <summary>
-        /// Use a 3-character alpha currency code for destination currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf NOTE: This field is supported only for Visa Platform Connect 
+        /// Use a 3-character alpha currency code for destination currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf 
         /// </summary>
-        /// <value>Use a 3-character alpha currency code for destination currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf NOTE: This field is supported only for Visa Platform Connect </value>
+        /// <value>Use a 3-character alpha currency code for destination currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf </value>
         [DataMember(Name="destinationCurrency", EmitDefaultValue=false)]
         public string DestinationCurrency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Surcharge
+        /// </summary>
+        [DataMember(Name="surcharge", EmitDefaultValue=false)]
+        public Ptsv2paymentsOrderInformationAmountDetailsOctsurcharge Surcharge { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -90,6 +98,7 @@ namespace CyberSource.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  SourceCurrency: ").Append(SourceCurrency).Append("\n");
             sb.Append("  DestinationCurrency: ").Append(DestinationCurrency).Append("\n");
+            sb.Append("  Surcharge: ").Append(Surcharge).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,6 +154,11 @@ namespace CyberSource.Model
                     this.DestinationCurrency == other.DestinationCurrency ||
                     this.DestinationCurrency != null &&
                     this.DestinationCurrency.Equals(other.DestinationCurrency)
+                ) && 
+                (
+                    this.Surcharge == other.Surcharge ||
+                    this.Surcharge != null &&
+                    this.Surcharge.Equals(other.Surcharge)
                 );
         }
 
@@ -167,6 +181,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SourceCurrency.GetHashCode();
                 if (this.DestinationCurrency != null)
                     hash = hash * 59 + this.DestinationCurrency.GetHashCode();
+                if (this.Surcharge != null)
+                    hash = hash * 59 + this.Surcharge.GetHashCode();
                 return hash;
             }
         }

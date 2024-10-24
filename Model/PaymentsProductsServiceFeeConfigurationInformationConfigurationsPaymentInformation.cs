@@ -31,96 +31,14 @@ namespace CyberSource.Model
     public partial class PaymentsProductsServiceFeeConfigurationInformationConfigurationsPaymentInformation :  IEquatable<PaymentsProductsServiceFeeConfigurationInformationConfigurationsPaymentInformation>, IValidatableObject
     {
         /// <summary>
-        /// Payment types accepted by this merchant. The supported values are: MASTERDEBIT, MASTERCREDIT, VISACREDIT, VISADEBIT, DISCOVERCREDIT, AMEXCREDIT, ECHECK
-        /// </summary>
-        /// <value>Payment types accepted by this merchant. The supported values are: MASTERDEBIT, MASTERCREDIT, VISACREDIT, VISADEBIT, DISCOVERCREDIT, AMEXCREDIT, ECHECK</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum PaymentTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum MASTERDEBIT for "MASTERDEBIT"
-            /// </summary>
-            [EnumMember(Value = "MASTERDEBIT")]
-            MASTERDEBIT,
-            
-            /// <summary>
-            /// Enum MASTERCREDIT for "MASTERCREDIT"
-            /// </summary>
-            [EnumMember(Value = "MASTERCREDIT")]
-            MASTERCREDIT,
-            
-            /// <summary>
-            /// Enum VISACREDIT for "VISACREDIT"
-            /// </summary>
-            [EnumMember(Value = "VISACREDIT")]
-            VISACREDIT,
-            
-            /// <summary>
-            /// Enum VISADEBIT for "VISADEBIT"
-            /// </summary>
-            [EnumMember(Value = "VISADEBIT")]
-            VISADEBIT,
-            
-            /// <summary>
-            /// Enum DISCOVERCREDIT for "DISCOVERCREDIT"
-            /// </summary>
-            [EnumMember(Value = "DISCOVERCREDIT")]
-            DISCOVERCREDIT,
-            
-            /// <summary>
-            /// Enum AMEXCREDIT for "AMEXCREDIT"
-            /// </summary>
-            [EnumMember(Value = "AMEXCREDIT")]
-            AMEXCREDIT,
-            
-            /// <summary>
-            /// Enum ECHECK for "ECHECK"
-            /// </summary>
-            [EnumMember(Value = "ECHECK")]
-            ECHECK
-        }
-        /// <summary>
-        /// Fee type for the selected payment type. Supported values are: Flat or Percentage. 
-        /// </summary>
-        /// <value>Fee type for the selected payment type. Supported values are: Flat or Percentage. </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum FeeTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum FLAT for "FLAT"
-            /// </summary>
-            [EnumMember(Value = "FLAT")]
-            FLAT,
-            
-            /// <summary>
-            /// Enum PERCENTAGE for "PERCENTAGE"
-            /// </summary>
-            [EnumMember(Value = "PERCENTAGE")]
-            PERCENTAGE
-        }
-        /// <summary>
-        /// Payment types accepted by this merchant. The supported values are: MASTERDEBIT, MASTERCREDIT, VISACREDIT, VISADEBIT, DISCOVERCREDIT, AMEXCREDIT, ECHECK
-        /// </summary>
-        /// <value>Payment types accepted by this merchant. The supported values are: MASTERDEBIT, MASTERCREDIT, VISACREDIT, VISADEBIT, DISCOVERCREDIT, AMEXCREDIT, ECHECK</value>
-        [DataMember(Name="paymentType", EmitDefaultValue=false)]
-        public PaymentTypeEnum? PaymentType { get; set; }
-        /// <summary>
-        /// Fee type for the selected payment type. Supported values are: Flat or Percentage. 
-        /// </summary>
-        /// <value>Fee type for the selected payment type. Supported values are: Flat or Percentage. </value>
-        [DataMember(Name="feeType", EmitDefaultValue=false)]
-        public FeeTypeEnum? FeeType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsProductsServiceFeeConfigurationInformationConfigurationsPaymentInformation" /> class.
         /// </summary>
-        /// <param name="PaymentType">Payment types accepted by this merchant. The supported values are: MASTERDEBIT, MASTERCREDIT, VISACREDIT, VISADEBIT, DISCOVERCREDIT, AMEXCREDIT, ECHECK.</param>
-        /// <param name="FeeType">Fee type for the selected payment type. Supported values are: Flat or Percentage. .</param>
+        /// <param name="PaymentType">Payment types accepted by this merchant. The supported values are: MASTERDEBIT, MASTERCREDIT, VISACREDIT, VISADEBIT, DISCOVERCREDIT, AMEXCREDIT, ECHECK  Possible values: - MASTERDEBIT - MASTERCREDIT - VISACREDIT - VISADEBIT - DISCOVERCREDIT - AMEXCREDIT - ECHECK.</param>
+        /// <param name="FeeType">Fee type for the selected payment type. Supported values are: Flat or Percentage.   Possible values: - FLAT - PERCENTAGE.</param>
         /// <param name="FeeAmount">Fee Amount of the selected payment type if you chose Flat fee type. .</param>
         /// <param name="Percentage">Percentage of the selected payment type if you chose Percentage Fee type. Supported values use numbers with decimals. For example, 1.0 .</param>
         /// <param name="FeeCap">Fee cap for the selected payment type. Supported values use numbers with decimals. For example, 1.0 .</param>
-        public PaymentsProductsServiceFeeConfigurationInformationConfigurationsPaymentInformation(PaymentTypeEnum? PaymentType = default(PaymentTypeEnum?), FeeTypeEnum? FeeType = default(FeeTypeEnum?), decimal? FeeAmount = default(decimal?), decimal? Percentage = default(decimal?), decimal? FeeCap = default(decimal?))
+        public PaymentsProductsServiceFeeConfigurationInformationConfigurationsPaymentInformation(string PaymentType = default(string), string FeeType = default(string), decimal? FeeAmount = default(decimal?), decimal? Percentage = default(decimal?), decimal? FeeCap = default(decimal?))
         {
             this.PaymentType = PaymentType;
             this.FeeType = FeeType;
@@ -129,7 +47,19 @@ namespace CyberSource.Model
             this.FeeCap = FeeCap;
         }
         
+        /// <summary>
+        /// Payment types accepted by this merchant. The supported values are: MASTERDEBIT, MASTERCREDIT, VISACREDIT, VISADEBIT, DISCOVERCREDIT, AMEXCREDIT, ECHECK  Possible values: - MASTERDEBIT - MASTERCREDIT - VISACREDIT - VISADEBIT - DISCOVERCREDIT - AMEXCREDIT - ECHECK
+        /// </summary>
+        /// <value>Payment types accepted by this merchant. The supported values are: MASTERDEBIT, MASTERCREDIT, VISACREDIT, VISADEBIT, DISCOVERCREDIT, AMEXCREDIT, ECHECK  Possible values: - MASTERDEBIT - MASTERCREDIT - VISACREDIT - VISADEBIT - DISCOVERCREDIT - AMEXCREDIT - ECHECK</value>
+        [DataMember(Name="paymentType", EmitDefaultValue=false)]
+        public string PaymentType { get; set; }
 
+        /// <summary>
+        /// Fee type for the selected payment type. Supported values are: Flat or Percentage.   Possible values: - FLAT - PERCENTAGE
+        /// </summary>
+        /// <value>Fee type for the selected payment type. Supported values are: Flat or Percentage.   Possible values: - FLAT - PERCENTAGE</value>
+        [DataMember(Name="feeType", EmitDefaultValue=false)]
+        public string FeeType { get; set; }
 
         /// <summary>
         /// Fee Amount of the selected payment type if you chose Flat fee type. 

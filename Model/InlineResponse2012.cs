@@ -31,70 +31,18 @@ namespace CyberSource.Model
     public partial class InlineResponse2012 :  IEquatable<InlineResponse2012>, IValidatableObject
     {
         /// <summary>
-        /// The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; 
-        /// </summary>
-        /// <value>The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum INITIALIZED for "INITIALIZED"
-            /// </summary>
-            [EnumMember(Value = "INITIALIZED")]
-            INITIALIZED,
-            
-            /// <summary>
-            /// Enum RECEIVED for "RECEIVED"
-            /// </summary>
-            [EnumMember(Value = "RECEIVED")]
-            RECEIVED,
-            
-            /// <summary>
-            /// Enum PROCESSING for "PROCESSING"
-            /// </summary>
-            [EnumMember(Value = "PROCESSING")]
-            PROCESSING,
-            
-            /// <summary>
-            /// Enum SUCCESS for "SUCCESS"
-            /// </summary>
-            [EnumMember(Value = "SUCCESS")]
-            SUCCESS,
-            
-            /// <summary>
-            /// Enum FAILURE for "FAILURE"
-            /// </summary>
-            [EnumMember(Value = "FAILURE")]
-            FAILURE,
-            
-            /// <summary>
-            /// Enum PARTIAL for "PARTIAL"
-            /// </summary>
-            [EnumMember(Value = "PARTIAL")]
-            PARTIAL
-        }
-        /// <summary>
-        /// The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; 
-        /// </summary>
-        /// <value>The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2012" /> class.
         /// </summary>
         /// <param name="Id">Id.</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
         /// <param name="RegistrationInformation">RegistrationInformation.</param>
         /// <param name="IntegrationInformation">IntegrationInformation.</param>
         /// <param name="OrganizationInformation">OrganizationInformation.</param>
         /// <param name="ProductInformationSetups">ProductInformationSetups.</param>
         /// <param name="Message">Message.</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse2012(string Id = default(string), DateTime? SubmitTimeUtc = default(DateTime?), InlineResponse2012RegistrationInformation RegistrationInformation = default(InlineResponse2012RegistrationInformation), InlineResponse2012IntegrationInformation IntegrationInformation = default(InlineResponse2012IntegrationInformation), InlineResponse2012OrganizationInformation OrganizationInformation = default(InlineResponse2012OrganizationInformation), List<InlineResponse2012ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2012ProductInformationSetups>), string Message = default(string), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
+        public InlineResponse2012(string Id = default(string), InlineResponse2012RegistrationInformation RegistrationInformation = default(InlineResponse2012RegistrationInformation), InlineResponse2012IntegrationInformation IntegrationInformation = default(InlineResponse2012IntegrationInformation), InlineResponse2012OrganizationInformation OrganizationInformation = default(InlineResponse2012OrganizationInformation), List<InlineResponse2012ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2012ProductInformationSetups>), string Message = default(string), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
         {
             this.Id = Id;
-            this.SubmitTimeUtc = SubmitTimeUtc;
             this.RegistrationInformation = RegistrationInformation;
             this.IntegrationInformation = IntegrationInformation;
             this.OrganizationInformation = OrganizationInformation;
@@ -114,9 +62,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        [JsonConverter(typeof(SwaggerDateConverter))]
-        public DateTime? SubmitTimeUtc { get; set; }
+        public DateTime? SubmitTimeUtc { get; private set; }
 
+        /// <summary>
+        /// The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; 
+        /// </summary>
+        /// <value>The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; private set; }
 
         /// <summary>
         /// Gets or Sets RegistrationInformation

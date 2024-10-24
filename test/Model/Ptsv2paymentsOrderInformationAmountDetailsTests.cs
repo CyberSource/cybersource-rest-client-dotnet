@@ -281,6 +281,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CurrencyConversion'
         }
         /// <summary>
+        /// Test the property 'OctSurcharge'
+        /// </summary>
+        [Test]
+        public void OctSurchargeTest()
+        {
+            // TODO unit test for the property 'OctSurcharge'
+        }
+        /// <summary>
         /// Test the property 'Order'
         /// </summary>
         [Test]

@@ -31,42 +31,6 @@ namespace CyberSource.Model
     public partial class Boardingv1registrationsOrganizationInformationKYCDepositBankAccount :  IEquatable<Boardingv1registrationsOrganizationInformationKYCDepositBankAccount>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets AccountType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum AccountTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum Checking for "checking"
-            /// </summary>
-            [EnumMember(Value = "checking")]
-            Checking,
-            
-            /// <summary>
-            /// Enum Savings for "savings"
-            /// </summary>
-            [EnumMember(Value = "savings")]
-            Savings,
-            
-            /// <summary>
-            /// Enum Corporatechecking for "corporatechecking"
-            /// </summary>
-            [EnumMember(Value = "corporatechecking")]
-            Corporatechecking,
-            
-            /// <summary>
-            /// Enum Corporatesavings for "corporatesavings"
-            /// </summary>
-            [EnumMember(Value = "corporatesavings")]
-            Corporatesavings
-        }
-        /// <summary>
-        /// Gets or Sets AccountType
-        /// </summary>
-        [DataMember(Name="accountType", EmitDefaultValue=false)]
-        public AccountTypeEnum? AccountType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Boardingv1registrationsOrganizationInformationKYCDepositBankAccount" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -75,10 +39,10 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Boardingv1registrationsOrganizationInformationKYCDepositBankAccount" /> class.
         /// </summary>
         /// <param name="AccountHolderName">AccountHolderName (required).</param>
-        /// <param name="AccountType">AccountType (required).</param>
+        /// <param name="AccountType">Possible values: - checking - savings - corporatechecking - corporatesavings (required).</param>
         /// <param name="AccountRoutingNumber">AccountRoutingNumber (required).</param>
         /// <param name="AccountNumber">AccountNumber (required).</param>
-        public Boardingv1registrationsOrganizationInformationKYCDepositBankAccount(string AccountHolderName = default(string), AccountTypeEnum? AccountType = default(AccountTypeEnum?), string AccountRoutingNumber = default(string), string AccountNumber = default(string))
+        public Boardingv1registrationsOrganizationInformationKYCDepositBankAccount(string AccountHolderName = default(string), string AccountType = default(string), string AccountRoutingNumber = default(string), string AccountNumber = default(string))
         {
             this.AccountHolderName = AccountHolderName;
             this.AccountType = AccountType;
@@ -92,6 +56,12 @@ namespace CyberSource.Model
         [DataMember(Name="accountHolderName", EmitDefaultValue=false)]
         public string AccountHolderName { get; set; }
 
+        /// <summary>
+        /// Possible values: - checking - savings - corporatechecking - corporatesavings
+        /// </summary>
+        /// <value>Possible values: - checking - savings - corporatechecking - corporatesavings</value>
+        [DataMember(Name="accountType", EmitDefaultValue=false)]
+        public string AccountType { get; set; }
 
         /// <summary>
         /// Gets or Sets AccountRoutingNumber

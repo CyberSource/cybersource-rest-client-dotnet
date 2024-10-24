@@ -288,7 +288,7 @@ namespace CyberSource.Api
             if (capturePaymentRequest != null && capturePaymentRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                capturePaymentRequest = (CapturePaymentRequest)sdkTracker.InsertDeveloperIdTracker(capturePaymentRequest, capturePaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                capturePaymentRequest = (CapturePaymentRequest)sdkTracker.InsertDeveloperIdTracker(capturePaymentRequest, capturePaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(capturePaymentRequest); // http body (model) parameter
             }
             else
@@ -402,7 +402,7 @@ namespace CyberSource.Api
             if (capturePaymentRequest != null && capturePaymentRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                capturePaymentRequest = (CapturePaymentRequest)sdkTracker.InsertDeveloperIdTracker(capturePaymentRequest, capturePaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                capturePaymentRequest = (CapturePaymentRequest)sdkTracker.InsertDeveloperIdTracker(capturePaymentRequest, capturePaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(capturePaymentRequest); // http body (model) parameter
             }
             else

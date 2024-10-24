@@ -360,6 +360,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'EnablerId'
         }
+        /// <summary>
+        /// Test the property 'ProcessingInstruction'
+        /// </summary>
+        [Test]
+        public void ProcessingInstructionTest()
+        {
+            // TODO unit test for the property 'ProcessingInstruction'
+        }
 
     }
 

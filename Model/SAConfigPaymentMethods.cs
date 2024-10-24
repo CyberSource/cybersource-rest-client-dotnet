@@ -31,50 +31,19 @@ namespace CyberSource.Model
     public partial class SAConfigPaymentMethods :  IEquatable<SAConfigPaymentMethods>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets EnabledPaymentMethods
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum EnabledPaymentMethodsEnum
-        {
-            
-            /// <summary>
-            /// Enum CARD for "CARD"
-            /// </summary>
-            [EnumMember(Value = "CARD")]
-            CARD,
-            
-            /// <summary>
-            /// Enum ECHECK for "ECHECK"
-            /// </summary>
-            [EnumMember(Value = "ECHECK")]
-            ECHECK,
-            
-            /// <summary>
-            /// Enum VISACHECKOUT for "VISACHECKOUT"
-            /// </summary>
-            [EnumMember(Value = "VISACHECKOUT")]
-            VISACHECKOUT,
-            
-            /// <summary>
-            /// Enum PAYPAL for "PAYPAL"
-            /// </summary>
-            [EnumMember(Value = "PAYPAL")]
-            PAYPAL
-        }
-        /// <summary>
-        /// Gets or Sets EnabledPaymentMethods
-        /// </summary>
-        [DataMember(Name="enabledPaymentMethods", EmitDefaultValue=false)]
-        public List<EnabledPaymentMethodsEnum> EnabledPaymentMethods { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="SAConfigPaymentMethods" /> class.
         /// </summary>
         /// <param name="EnabledPaymentMethods">EnabledPaymentMethods.</param>
-        public SAConfigPaymentMethods(List<EnabledPaymentMethodsEnum> EnabledPaymentMethods = default(List<EnabledPaymentMethodsEnum>))
+        public SAConfigPaymentMethods(List<string> EnabledPaymentMethods = default(List<string>))
         {
             this.EnabledPaymentMethods = EnabledPaymentMethods;
         }
         
+        /// <summary>
+        /// Gets or Sets EnabledPaymentMethods
+        /// </summary>
+        [DataMember(Name="enabledPaymentMethods", EmitDefaultValue=false)]
+        public List<string> EnabledPaymentMethods { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

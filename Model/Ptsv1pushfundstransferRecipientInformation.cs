@@ -43,9 +43,13 @@ namespace CyberSource.Model
         /// <param name="FirstName">First name of recipient. .</param>
         /// <param name="MiddleName">Sender&#39;s middle name. This field is a passthrough, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
         /// <param name="LastName">Last name of recipient. .</param>
-        /// <param name="PhoneNumber">Recipient phone number.  This field is supported by FDC Compass.  Mastercard Send: Max length is 15 with no dashes or spaces. .</param>
+        /// <param name="PhoneNumber">Customer&#39;s phone number.  It is recommended that you include the country code when the order is from outside the U.S. .</param>
+        /// <param name="Email">Customer&#39;s email address, including the full domain name. .</param>
         /// <param name="PersonalIdentification">PersonalIdentification.</param>
-        public Ptsv1pushfundstransferRecipientInformation(Ptsv1pushfundstransferRecipientInformationPaymentInformation PaymentInformation = default(Ptsv1pushfundstransferRecipientInformationPaymentInformation), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Country = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string PhoneNumber = default(string), Ptsv1pushfundstransferRecipientInformationPersonalIdentification PersonalIdentification = default(Ptsv1pushfundstransferRecipientInformationPersonalIdentification))
+        /// <param name="BuildingNumber">Building number in the street address.  For example, if the street address is: Rua da Quitanda 187 then the building number is 187.  Applicable to domestic Colombia transactions only. .</param>
+        /// <param name="StreetName">This field contains the street name of the recipient&#39;s address.  Applicable to domestic Colombia transactions only. .</param>
+        /// <param name="Type">&#x60;B&#x60; for Business or &#x60;I&#x60; for individual. .</param>
+        public Ptsv1pushfundstransferRecipientInformation(Ptsv1pushfundstransferRecipientInformationPaymentInformation PaymentInformation = default(Ptsv1pushfundstransferRecipientInformationPaymentInformation), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Country = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string PhoneNumber = default(string), string Email = default(string), Ptsv1pushfundstransferRecipientInformationPersonalIdentification PersonalIdentification = default(Ptsv1pushfundstransferRecipientInformationPersonalIdentification), string BuildingNumber = default(string), string StreetName = default(string), string Type = default(string))
         {
             this.PaymentInformation = PaymentInformation;
             this.Address1 = Address1;
@@ -58,7 +62,11 @@ namespace CyberSource.Model
             this.MiddleName = MiddleName;
             this.LastName = LastName;
             this.PhoneNumber = PhoneNumber;
+            this.Email = Email;
             this.PersonalIdentification = PersonalIdentification;
+            this.BuildingNumber = BuildingNumber;
+            this.StreetName = StreetName;
+            this.Type = Type;
         }
         
         /// <summary>
@@ -131,17 +139,45 @@ namespace CyberSource.Model
         public string LastName { get; set; }
 
         /// <summary>
-        /// Recipient phone number.  This field is supported by FDC Compass.  Mastercard Send: Max length is 15 with no dashes or spaces. 
+        /// Customer&#39;s phone number.  It is recommended that you include the country code when the order is from outside the U.S. 
         /// </summary>
-        /// <value>Recipient phone number.  This field is supported by FDC Compass.  Mastercard Send: Max length is 15 with no dashes or spaces. </value>
+        /// <value>Customer&#39;s phone number.  It is recommended that you include the country code when the order is from outside the U.S. </value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Customer&#39;s email address, including the full domain name. 
+        /// </summary>
+        /// <value>Customer&#39;s email address, including the full domain name. </value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Gets or Sets PersonalIdentification
         /// </summary>
         [DataMember(Name="personalIdentification", EmitDefaultValue=false)]
         public Ptsv1pushfundstransferRecipientInformationPersonalIdentification PersonalIdentification { get; set; }
+
+        /// <summary>
+        /// Building number in the street address.  For example, if the street address is: Rua da Quitanda 187 then the building number is 187.  Applicable to domestic Colombia transactions only. 
+        /// </summary>
+        /// <value>Building number in the street address.  For example, if the street address is: Rua da Quitanda 187 then the building number is 187.  Applicable to domestic Colombia transactions only. </value>
+        [DataMember(Name="buildingNumber", EmitDefaultValue=false)]
+        public string BuildingNumber { get; set; }
+
+        /// <summary>
+        /// This field contains the street name of the recipient&#39;s address.  Applicable to domestic Colombia transactions only. 
+        /// </summary>
+        /// <value>This field contains the street name of the recipient&#39;s address.  Applicable to domestic Colombia transactions only. </value>
+        [DataMember(Name="streetName", EmitDefaultValue=false)]
+        public string StreetName { get; set; }
+
+        /// <summary>
+        /// &#x60;B&#x60; for Business or &#x60;I&#x60; for individual. 
+        /// </summary>
+        /// <value>&#x60;B&#x60; for Business or &#x60;I&#x60; for individual. </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -162,7 +198,11 @@ namespace CyberSource.Model
             sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
+            sb.Append("  BuildingNumber: ").Append(BuildingNumber).Append("\n");
+            sb.Append("  StreetName: ").Append(StreetName).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -255,9 +295,29 @@ namespace CyberSource.Model
                     this.PhoneNumber.Equals(other.PhoneNumber)
                 ) && 
                 (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
+                ) && 
+                (
                     this.PersonalIdentification == other.PersonalIdentification ||
                     this.PersonalIdentification != null &&
                     this.PersonalIdentification.Equals(other.PersonalIdentification)
+                ) && 
+                (
+                    this.BuildingNumber == other.BuildingNumber ||
+                    this.BuildingNumber != null &&
+                    this.BuildingNumber.Equals(other.BuildingNumber)
+                ) && 
+                (
+                    this.StreetName == other.StreetName ||
+                    this.StreetName != null &&
+                    this.StreetName.Equals(other.StreetName)
+                ) && 
+                (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
                 );
         }
 
@@ -294,8 +354,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.LastName.GetHashCode();
                 if (this.PhoneNumber != null)
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
                 if (this.PersonalIdentification != null)
                     hash = hash * 59 + this.PersonalIdentification.GetHashCode();
+                if (this.BuildingNumber != null)
+                    hash = hash * 59 + this.BuildingNumber.GetHashCode();
+                if (this.StreetName != null)
+                    hash = hash * 59 + this.StreetName.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
                 return hash;
             }
         }

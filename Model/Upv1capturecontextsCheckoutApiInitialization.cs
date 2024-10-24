@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Upv1capturecontextsCheckoutApiInitialization
+    /// Use the [Digital Accept Checkout API](https://developer.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Checkout_API/Secure_Acceptance_Checkout_API.pdf) in conjunction with Unified Checkout to provide a cohesive PCI SAQ A embedded payment application within your merchant e-commerce page.   The Digital Accept Checkout API provides access to payment processing and additional value-added services directly from the browser. 
     /// </summary>
     [DataContract]
     public partial class Upv1capturecontextsCheckoutApiInitialization :  IEquatable<Upv1capturecontextsCheckoutApiInitialization>, IValidatableObject

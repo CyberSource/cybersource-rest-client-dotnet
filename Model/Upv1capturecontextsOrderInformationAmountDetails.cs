@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsOrderInformationAmountDetails" /> class.
         /// </summary>
-        /// <param name="TotalAmount">TotalAmount.</param>
-        /// <param name="Currency">Currency.</param>
+        /// <param name="TotalAmount">This field defines the total order amount. .</param>
+        /// <param name="Currency">This field defines the currency applicable to the order. .</param>
         public Upv1capturecontextsOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string))
         {
             this.TotalAmount = TotalAmount;
@@ -42,14 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Gets or Sets TotalAmount
+        /// This field defines the total order amount. 
         /// </summary>
+        /// <value>This field defines the total order amount. </value>
         [DataMember(Name="totalAmount", EmitDefaultValue=false)]
         public string TotalAmount { get; set; }
 
         /// <summary>
-        /// Gets or Sets Currency
+        /// This field defines the currency applicable to the order. 
         /// </summary>
+        /// <value>This field defines the currency applicable to the order. </value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
 

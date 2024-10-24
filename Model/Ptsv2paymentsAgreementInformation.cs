@@ -33,18 +33,27 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsAgreementInformation" /> class.
         /// </summary>
-        /// <param name="AgreementId">Identifier for the mandate being signed for. This mandate id is required for all the subsequent transactions.  .</param>
-        public Ptsv2paymentsAgreementInformation(string AgreementId = default(string))
+        /// <param name="AgreementId">Identifier for the mandate being signed for. This mandate id is required for all the subsequent transactions. .</param>
+        /// <param name="Id">The processor specific billing agreement ID. References an approved recurring payment for goods or services. This value is sent by merchant via Cybersource to processor. The value sent in this field is procured by the merchant from the processor. .</param>
+        public Ptsv2paymentsAgreementInformation(string AgreementId = default(string), string Id = default(string))
         {
             this.AgreementId = AgreementId;
+            this.Id = Id;
         }
         
         /// <summary>
-        /// Identifier for the mandate being signed for. This mandate id is required for all the subsequent transactions.  
+        /// Identifier for the mandate being signed for. This mandate id is required for all the subsequent transactions. 
         /// </summary>
-        /// <value>Identifier for the mandate being signed for. This mandate id is required for all the subsequent transactions.  </value>
+        /// <value>Identifier for the mandate being signed for. This mandate id is required for all the subsequent transactions. </value>
         [DataMember(Name="agreementId", EmitDefaultValue=false)]
         public string AgreementId { get; set; }
+
+        /// <summary>
+        /// The processor specific billing agreement ID. References an approved recurring payment for goods or services. This value is sent by merchant via Cybersource to processor. The value sent in this field is procured by the merchant from the processor. 
+        /// </summary>
+        /// <value>The processor specific billing agreement ID. References an approved recurring payment for goods or services. This value is sent by merchant via Cybersource to processor. The value sent in this field is procured by the merchant from the processor. </value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsAgreementInformation {\n");
             sb.Append("  AgreementId: ").Append(AgreementId).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.AgreementId == other.AgreementId ||
                     this.AgreementId != null &&
                     this.AgreementId.Equals(other.AgreementId)
+                ) && 
+                (
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.AgreementId != null)
                     hash = hash * 59 + this.AgreementId.GetHashCode();
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
                 return hash;
             }
         }

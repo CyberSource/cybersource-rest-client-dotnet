@@ -510,7 +510,7 @@ namespace CyberSource.Api
             if (orderPaymentRequest != null && orderPaymentRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                orderPaymentRequest = (OrderPaymentRequest)sdkTracker.InsertDeveloperIdTracker(orderPaymentRequest, orderPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                orderPaymentRequest = (OrderPaymentRequest)sdkTracker.InsertDeveloperIdTracker(orderPaymentRequest, orderPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(orderPaymentRequest); // http body (model) parameter
             }
             else
@@ -624,7 +624,7 @@ namespace CyberSource.Api
             if (orderPaymentRequest != null && orderPaymentRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                orderPaymentRequest = (OrderPaymentRequest)sdkTracker.InsertDeveloperIdTracker(orderPaymentRequest, orderPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                orderPaymentRequest = (OrderPaymentRequest)sdkTracker.InsertDeveloperIdTracker(orderPaymentRequest, orderPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(orderPaymentRequest); // http body (model) parameter
             }
             else
@@ -723,7 +723,7 @@ namespace CyberSource.Api
             if (createPaymentRequest != null && createPaymentRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createPaymentRequest = (CreatePaymentRequest)sdkTracker.InsertDeveloperIdTracker(createPaymentRequest, createPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createPaymentRequest = (CreatePaymentRequest)sdkTracker.InsertDeveloperIdTracker(createPaymentRequest, createPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createPaymentRequest); // http body (model) parameter
             }
             else
@@ -824,7 +824,7 @@ namespace CyberSource.Api
             if (createPaymentRequest != null && createPaymentRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createPaymentRequest = (CreatePaymentRequest)sdkTracker.InsertDeveloperIdTracker(createPaymentRequest, createPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createPaymentRequest = (CreatePaymentRequest)sdkTracker.InsertDeveloperIdTracker(createPaymentRequest, createPaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createPaymentRequest); // http body (model) parameter
             }
             else
@@ -923,7 +923,7 @@ namespace CyberSource.Api
             if (createSessionReq != null && createSessionReq.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createSessionReq = (CreateSessionReq)sdkTracker.InsertDeveloperIdTracker(createSessionReq, createSessionReq.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createSessionReq = (CreateSessionReq)sdkTracker.InsertDeveloperIdTracker(createSessionReq, createSessionReq.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createSessionReq); // http body (model) parameter
             }
             else
@@ -1024,7 +1024,7 @@ namespace CyberSource.Api
             if (createSessionReq != null && createSessionReq.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createSessionReq = (CreateSessionReq)sdkTracker.InsertDeveloperIdTracker(createSessionReq, createSessionReq.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createSessionReq = (CreateSessionReq)sdkTracker.InsertDeveloperIdTracker(createSessionReq, createSessionReq.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createSessionReq); // http body (model) parameter
             }
             else
@@ -1136,7 +1136,7 @@ namespace CyberSource.Api
             if (incrementAuthRequest != null && incrementAuthRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                incrementAuthRequest = (IncrementAuthRequest)sdkTracker.InsertDeveloperIdTracker(incrementAuthRequest, incrementAuthRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                incrementAuthRequest = (IncrementAuthRequest)sdkTracker.InsertDeveloperIdTracker(incrementAuthRequest, incrementAuthRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(incrementAuthRequest); // http body (model) parameter
             }
             else
@@ -1250,7 +1250,7 @@ namespace CyberSource.Api
             if (incrementAuthRequest != null && incrementAuthRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                incrementAuthRequest = (IncrementAuthRequest)sdkTracker.InsertDeveloperIdTracker(incrementAuthRequest, incrementAuthRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                incrementAuthRequest = (IncrementAuthRequest)sdkTracker.InsertDeveloperIdTracker(incrementAuthRequest, incrementAuthRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(incrementAuthRequest); // http body (model) parameter
             }
             else
@@ -1362,7 +1362,7 @@ namespace CyberSource.Api
             if (refreshPaymentStatusRequest != null && refreshPaymentStatusRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                refreshPaymentStatusRequest = (RefreshPaymentStatusRequest)sdkTracker.InsertDeveloperIdTracker(refreshPaymentStatusRequest, refreshPaymentStatusRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                refreshPaymentStatusRequest = (RefreshPaymentStatusRequest)sdkTracker.InsertDeveloperIdTracker(refreshPaymentStatusRequest, refreshPaymentStatusRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(refreshPaymentStatusRequest); // http body (model) parameter
             }
             else
@@ -1476,7 +1476,7 @@ namespace CyberSource.Api
             if (refreshPaymentStatusRequest != null && refreshPaymentStatusRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                refreshPaymentStatusRequest = (RefreshPaymentStatusRequest)sdkTracker.InsertDeveloperIdTracker(refreshPaymentStatusRequest, refreshPaymentStatusRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                refreshPaymentStatusRequest = (RefreshPaymentStatusRequest)sdkTracker.InsertDeveloperIdTracker(refreshPaymentStatusRequest, refreshPaymentStatusRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(refreshPaymentStatusRequest); // http body (model) parameter
             }
             else
@@ -1588,7 +1588,7 @@ namespace CyberSource.Api
             if (createSessionRequest != null && createSessionRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createSessionRequest = (CreateSessionRequest)sdkTracker.InsertDeveloperIdTracker(createSessionRequest, createSessionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createSessionRequest = (CreateSessionRequest)sdkTracker.InsertDeveloperIdTracker(createSessionRequest, createSessionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createSessionRequest); // http body (model) parameter
             }
             else
@@ -1702,7 +1702,7 @@ namespace CyberSource.Api
             if (createSessionRequest != null && createSessionRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createSessionRequest = (CreateSessionRequest)sdkTracker.InsertDeveloperIdTracker(createSessionRequest, createSessionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createSessionRequest = (CreateSessionRequest)sdkTracker.InsertDeveloperIdTracker(createSessionRequest, createSessionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createSessionRequest); // http body (model) parameter
             }
             else

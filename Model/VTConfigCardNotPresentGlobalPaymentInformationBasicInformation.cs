@@ -31,66 +31,18 @@ namespace CyberSource.Model
     public partial class VTConfigCardNotPresentGlobalPaymentInformationBasicInformation :  IEquatable<VTConfigCardNotPresentGlobalPaymentInformationBasicInformation>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets DefaultTransactionType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum DefaultTransactionTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum AUTHORIZATION for "AUTHORIZATION"
-            /// </summary>
-            [EnumMember(Value = "AUTHORIZATION")]
-            AUTHORIZATION,
-            
-            /// <summary>
-            /// Enum SALE for "SALE"
-            /// </summary>
-            [EnumMember(Value = "SALE")]
-            SALE
-        }
-        /// <summary>
-        /// Gets or Sets DefaultPaymentType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum DefaultPaymentTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum CREDITCARD for "CREDIT_CARD"
-            /// </summary>
-            [EnumMember(Value = "CREDIT_CARD")]
-            CREDITCARD,
-            
-            /// <summary>
-            /// Enum ECHECK for "ECHECK"
-            /// </summary>
-            [EnumMember(Value = "ECHECK")]
-            ECHECK
-        }
-        /// <summary>
-        /// Gets or Sets DefaultTransactionType
-        /// </summary>
-        [DataMember(Name="defaultTransactionType", EmitDefaultValue=false)]
-        public DefaultTransactionTypeEnum? DefaultTransactionType { get; set; }
-        /// <summary>
-        /// Gets or Sets DefaultPaymentType
-        /// </summary>
-        [DataMember(Name="defaultPaymentType", EmitDefaultValue=false)]
-        public DefaultPaymentTypeEnum? DefaultPaymentType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="VTConfigCardNotPresentGlobalPaymentInformationBasicInformation" /> class.
         /// </summary>
         /// <param name="DefaultStandardEntryClassCode">DefaultStandardEntryClassCode.</param>
         /// <param name="DefaultCountryCode">ISO 4217 format.</param>
         /// <param name="DefaultCurrencyCode">Three-character [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf).</param>
-        /// <param name="DefaultTransactionType">DefaultTransactionType.</param>
-        /// <param name="DefaultPaymentType">DefaultPaymentType.</param>
+        /// <param name="DefaultTransactionType">Possible values: - AUTHORIZATION - SALE.</param>
+        /// <param name="DefaultPaymentType">Possible values: - CREDIT_CARD - ECHECK.</param>
         /// <param name="DefaultTransactionSource">DefaultTransactionSource.</param>
         /// <param name="DisplayRetail">DisplayRetail.</param>
         /// <param name="DisplayMoto">DisplayMoto.</param>
         /// <param name="DisplayInternet">DisplayInternet.</param>
-        public VTConfigCardNotPresentGlobalPaymentInformationBasicInformation(string DefaultStandardEntryClassCode = default(string), string DefaultCountryCode = default(string), string DefaultCurrencyCode = default(string), DefaultTransactionTypeEnum? DefaultTransactionType = default(DefaultTransactionTypeEnum?), DefaultPaymentTypeEnum? DefaultPaymentType = default(DefaultPaymentTypeEnum?), string DefaultTransactionSource = default(string), bool? DisplayRetail = default(bool?), bool? DisplayMoto = default(bool?), bool? DisplayInternet = default(bool?))
+        public VTConfigCardNotPresentGlobalPaymentInformationBasicInformation(string DefaultStandardEntryClassCode = default(string), string DefaultCountryCode = default(string), string DefaultCurrencyCode = default(string), string DefaultTransactionType = default(string), string DefaultPaymentType = default(string), string DefaultTransactionSource = default(string), bool? DisplayRetail = default(bool?), bool? DisplayMoto = default(bool?), bool? DisplayInternet = default(bool?))
         {
             this.DefaultStandardEntryClassCode = DefaultStandardEntryClassCode;
             this.DefaultCountryCode = DefaultCountryCode;
@@ -123,7 +75,19 @@ namespace CyberSource.Model
         [DataMember(Name="defaultCurrencyCode", EmitDefaultValue=false)]
         public string DefaultCurrencyCode { get; set; }
 
+        /// <summary>
+        /// Possible values: - AUTHORIZATION - SALE
+        /// </summary>
+        /// <value>Possible values: - AUTHORIZATION - SALE</value>
+        [DataMember(Name="defaultTransactionType", EmitDefaultValue=false)]
+        public string DefaultTransactionType { get; set; }
 
+        /// <summary>
+        /// Possible values: - CREDIT_CARD - ECHECK
+        /// </summary>
+        /// <value>Possible values: - CREDIT_CARD - ECHECK</value>
+        [DataMember(Name="defaultPaymentType", EmitDefaultValue=false)]
+        public string DefaultPaymentType { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultTransactionSource
