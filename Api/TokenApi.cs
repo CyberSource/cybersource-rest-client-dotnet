@@ -298,7 +298,7 @@ namespace CyberSource.Api
             if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
             }
             else
@@ -418,7 +418,7 @@ namespace CyberSource.Api
             if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
             }
             else

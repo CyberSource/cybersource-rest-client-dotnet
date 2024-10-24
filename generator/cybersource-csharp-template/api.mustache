@@ -316,7 +316,7 @@ namespace {{packageName}}.{{apiPackage}}
             if ({{paramName}} != null && {{paramName}}.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                {{paramName}} = ({{{dataType}}})sdkTracker.InsertDeveloperIdTracker({{paramName}}, {{paramName}}.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                {{paramName}} = ({{{dataType}}})sdkTracker.InsertDeveloperIdTracker({{paramName}}, {{paramName}}.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize({{paramName}}); // http body (model) parameter
             }
             else
@@ -506,7 +506,7 @@ namespace {{packageName}}.{{apiPackage}}
             if ({{paramName}} != null && {{paramName}}.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                {{paramName}} = ({{{dataType}}})sdkTracker.InsertDeveloperIdTracker({{paramName}}, {{paramName}}.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                {{paramName}} = ({{{dataType}}})sdkTracker.InsertDeveloperIdTracker({{paramName}}, {{paramName}}.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize({{paramName}}); // http body (model) parameter
             }
             else

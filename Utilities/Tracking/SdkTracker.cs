@@ -10,12 +10,12 @@ namespace CyberSource.Utilities.Tracking
 {
     public interface ISdkTracker
     {
-        object InsertDeveloperIdTracker(object requestObj, string requestClass, string runEnvironment);
+        object InsertDeveloperIdTracker(object requestObj, string requestClass, string runEnvironment, string defaultMerchantConfigDeveloperId);
     }
 
     public partial class SdkTracker : ISdkTracker
     {
-        public object InsertDeveloperIdTracker(object requestObj, string requestClass, string runEnvironment)
+        public object InsertDeveloperIdTracker(object requestObj, string requestClass, string runEnvironment, string defaultMerchantConfigDeveloperId)
         {
             string developerIdValue;
             if (runEnvironment.Contains("apitest.cybersource.com"))
@@ -25,6 +25,12 @@ namespace CyberSource.Utilities.Tracking
             else
             {
                 developerIdValue = "JZKVPX48";
+            }
+
+            if (!string.IsNullOrEmpty(defaultMerchantConfigDeveloperId))
+            {
+                defaultMerchantConfigDeveloperId = defaultMerchantConfigDeveloperId.Trim();
+                developerIdValue = !string.IsNullOrEmpty(defaultMerchantConfigDeveloperId) ? defaultMerchantConfigDeveloperId : developerIdValue;
             }
 
             switch (requestClass)
