@@ -33,25 +33,27 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4006Details" /> class.
         /// </summary>
-        /// <param name="Location">Location.</param>
-        /// <param name="Message">Message.</param>
-        public InlineResponse4006Details(string Location = default(string), string Message = default(string))
+        /// <param name="Field">This is the flattened JSON object field name/path that is either missing or invalid..</param>
+        /// <param name="Reason">Possible reasons for the error..</param>
+        public InlineResponse4006Details(string Field = default(string), string Reason = default(string))
         {
-            this.Location = Location;
-            this.Message = Message;
+            this.Field = Field;
+            this.Reason = Reason;
         }
         
         /// <summary>
-        /// Gets or Sets Location
+        /// This is the flattened JSON object field name/path that is either missing or invalid.
         /// </summary>
-        [DataMember(Name="location", EmitDefaultValue=false)]
-        public string Location { get; set; }
+        /// <value>This is the flattened JSON object field name/path that is either missing or invalid.</value>
+        [DataMember(Name="field", EmitDefaultValue=false)]
+        public string Field { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Possible reasons for the error.
         /// </summary>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
+        /// <value>Possible reasons for the error.</value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4006Details {\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Field: ").Append(Field).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,14 +102,14 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Location == other.Location ||
-                    this.Location != null &&
-                    this.Location.Equals(other.Location)
+                    this.Field == other.Field ||
+                    this.Field != null &&
+                    this.Field.Equals(other.Field)
                 ) && 
                 (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
                 );
         }
 
@@ -122,10 +124,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Location != null)
-                    hash = hash * 59 + this.Location.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
+                if (this.Field != null)
+                    hash = hash * 59 + this.Field.GetHashCode();
+                if (this.Reason != null)
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 return hash;
             }
         }

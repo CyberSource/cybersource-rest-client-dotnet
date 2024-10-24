@@ -33,7 +33,12 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1authenticationsetupsPaymentInformationCustomer" /> class.
         /// </summary>
-        /// <param name="CustomerId">Unique identifier for the legacy Secure Storage token used in the transaction. When you include this value in your request, many of the fields that are normally required for an authorization or credit become optional. .</param>
+        [JsonConstructorAttribute]
+        protected Riskv1authenticationsetupsPaymentInformationCustomer() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Riskv1authenticationsetupsPaymentInformationCustomer" /> class.
+        /// </summary>
+        /// <param name="CustomerId">Unique identifier for the legacy Secure Storage token used in the transaction. When you include this value in your request, many of the fields that are normally required for an authorization or credit become optional.  (required).</param>
         public Riskv1authenticationsetupsPaymentInformationCustomer(string CustomerId = default(string))
         {
             this.CustomerId = CustomerId;
