@@ -12,7 +12,7 @@ OpenAPI spec version: 0.0.1
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5DF48666-0ABC-4928-ACC5-C7502B7D871B}</ProjectGuid>
+    <ProjectGuid>{9FBF2564-5592-40E2-A669-87A3C66BC8C7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CyberSource</RootNamespace>
@@ -44,7 +44,7 @@ OpenAPI spec version: 0.0.1
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+	 <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\NLog.5.0.0\lib\net46\NLog.dll</HintPath>
     </Reference>

@@ -280,7 +280,6 @@ namespace CyberSource.Client
                 clientOptions.Proxy = Configuration.Proxy;
             }
             clientOptions.UserAgent = Configuration.UserAgent;
-
             RestClient = new RestClient(clientOptions);
 
             // Add Header Parameter, if any
@@ -451,6 +450,7 @@ namespace CyberSource.Client
             {
                 Timeout = TimeSpan.FromMilliseconds(Configuration.Timeout),
             };
+
             // RestClient.ClearHandlers();
 
             if (Configuration.Proxy != null)
@@ -476,7 +476,6 @@ namespace CyberSource.Client
                 clientOptions.ClientCertificates = new X509CertificateCollection { certificate };
             }
             clientOptions.UserAgent = Configuration.UserAgent;
-
             RestClient = new RestClient(clientOptions);
 
             // Logging Request Headers
@@ -590,6 +589,7 @@ namespace CyberSource.Client
             {
                 logger.Debug($"HTTP Request Headers :\n{headerPrintOutput.ToString()}");
             }
+
             clientOptions.UserAgent = Configuration.UserAgent;
             RestClient = new RestClient(clientOptions);
 
