@@ -31,94 +31,16 @@ namespace CyberSource.Model
     public partial class InlineResponse2012SetupsPaymentsCardProcessingConfigurationStatus :  IEquatable<InlineResponse2012SetupsPaymentsCardProcessingConfigurationStatus>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum SUCCESS for "SUCCESS"
-            /// </summary>
-            [EnumMember(Value = "SUCCESS")]
-            SUCCESS,
-            
-            /// <summary>
-            /// Enum PARTIAL for "PARTIAL"
-            /// </summary>
-            [EnumMember(Value = "PARTIAL")]
-            PARTIAL,
-            
-            /// <summary>
-            /// Enum PENDING for "PENDING"
-            /// </summary>
-            [EnumMember(Value = "PENDING")]
-            PENDING,
-            
-            /// <summary>
-            /// Enum NOTSETUP for "NOT_SETUP"
-            /// </summary>
-            [EnumMember(Value = "NOT_SETUP")]
-            NOTSETUP
-        }
-        /// <summary>
-        /// Gets or Sets Reason
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReasonEnum
-        {
-            
-            /// <summary>
-            /// Enum PENDINGPROVISIONINGPROCESS for "PENDING_PROVISIONING_PROCESS"
-            /// </summary>
-            [EnumMember(Value = "PENDING_PROVISIONING_PROCESS")]
-            PENDINGPROVISIONINGPROCESS,
-            
-            /// <summary>
-            /// Enum MISSINGDATA for "MISSING_DATA"
-            /// </summary>
-            [EnumMember(Value = "MISSING_DATA")]
-            MISSINGDATA,
-            
-            /// <summary>
-            /// Enum INVALIDDATA for "INVALID_DATA"
-            /// </summary>
-            [EnumMember(Value = "INVALID_DATA")]
-            INVALIDDATA,
-            
-            /// <summary>
-            /// Enum DUPLICATEFIELD for "DUPLICATE_FIELD"
-            /// </summary>
-            [EnumMember(Value = "DUPLICATE_FIELD")]
-            DUPLICATEFIELD,
-            
-            /// <summary>
-            /// Enum NOTAPPLICABLE for "NOT_APPLICABLE"
-            /// </summary>
-            [EnumMember(Value = "NOT_APPLICABLE")]
-            NOTAPPLICABLE
-        }
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
-        /// Gets or Sets Reason
-        /// </summary>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public ReasonEnum? Reason { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2012SetupsPaymentsCardProcessingConfigurationStatus" /> class.
         /// </summary>
         /// <param name="ConfigurationId">This is NOT for MVP.</param>
         /// <param name="Version">Version.</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="Status">Status.</param>
-        /// <param name="Reason">Reason.</param>
+        /// <param name="Status">Possible values: - SUCCESS - PARTIAL - PENDING - NOT_SETUP.</param>
+        /// <param name="Reason">Possible values: - PENDING_PROVISIONING_PROCESS - MISSING_DATA - INVALID_DATA - DUPLICATE_FIELD - NOT_APPLICABLE.</param>
         /// <param name="Details">Details.</param>
         /// <param name="Message">Message.</param>
-        public InlineResponse2012SetupsPaymentsCardProcessingConfigurationStatus(Guid? ConfigurationId = default(Guid?), string Version = default(string), string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), ReasonEnum? Reason = default(ReasonEnum?), List<Dictionary<string, string>> Details = default(List<Dictionary<string, string>>), string Message = default(string))
+        public InlineResponse2012SetupsPaymentsCardProcessingConfigurationStatus(Guid? ConfigurationId = default(Guid?), string Version = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), List<Dictionary<string, string>> Details = default(List<Dictionary<string, string>>), string Message = default(string))
         {
             this.ConfigurationId = ConfigurationId;
             this.Version = Version;
@@ -149,7 +71,19 @@ namespace CyberSource.Model
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
+        /// <summary>
+        /// Possible values: - SUCCESS - PARTIAL - PENDING - NOT_SETUP
+        /// </summary>
+        /// <value>Possible values: - SUCCESS - PARTIAL - PENDING - NOT_SETUP</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
+        /// <summary>
+        /// Possible values: - PENDING_PROVISIONING_PROCESS - MISSING_DATA - INVALID_DATA - DUPLICATE_FIELD - NOT_APPLICABLE
+        /// </summary>
+        /// <value>Possible values: - PENDING_PROVISIONING_PROCESS - MISSING_DATA - INVALID_DATA - DUPLICATE_FIELD - NOT_APPLICABLE</value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// Gets or Sets Details

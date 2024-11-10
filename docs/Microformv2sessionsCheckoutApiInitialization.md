@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **TransactionType** | **string** |  | [optional] 
 **Currency** | **string** |  | [optional] 
 **Amount** | **string** |  | [optional] 
-**Locale** | **string** |  | [optional] 
+**Locale** | **string** | Locale where application is being used.  This field controls aspects of the application such as the language it will be rendered in.  | [optional] 
 **OverrideCustomReceiptPage** | **string** |  | [optional] 
 **UnsignedFieldNames** | **string** |  | [optional] 
 

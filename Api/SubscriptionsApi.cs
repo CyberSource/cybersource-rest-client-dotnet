@@ -968,7 +968,7 @@ namespace CyberSource.Api
             if (createSubscriptionRequest != null && createSubscriptionRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createSubscriptionRequest = (CreateSubscriptionRequest)sdkTracker.InsertDeveloperIdTracker(createSubscriptionRequest, createSubscriptionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createSubscriptionRequest = (CreateSubscriptionRequest)sdkTracker.InsertDeveloperIdTracker(createSubscriptionRequest, createSubscriptionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createSubscriptionRequest); // http body (model) parameter
             }
             else
@@ -1072,7 +1072,7 @@ namespace CyberSource.Api
             if (createSubscriptionRequest != null && createSubscriptionRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createSubscriptionRequest = (CreateSubscriptionRequest)sdkTracker.InsertDeveloperIdTracker(createSubscriptionRequest, createSubscriptionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createSubscriptionRequest = (CreateSubscriptionRequest)sdkTracker.InsertDeveloperIdTracker(createSubscriptionRequest, createSubscriptionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createSubscriptionRequest); // http body (model) parameter
             }
             else
@@ -1967,7 +1967,7 @@ namespace CyberSource.Api
             if (updateSubscription != null && updateSubscription.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                updateSubscription = (UpdateSubscription)sdkTracker.InsertDeveloperIdTracker(updateSubscription, updateSubscription.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                updateSubscription = (UpdateSubscription)sdkTracker.InsertDeveloperIdTracker(updateSubscription, updateSubscription.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(updateSubscription); // http body (model) parameter
             }
             else
@@ -2084,7 +2084,7 @@ namespace CyberSource.Api
             if (updateSubscription != null && updateSubscription.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                updateSubscription = (UpdateSubscription)sdkTracker.InsertDeveloperIdTracker(updateSubscription, updateSubscription.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                updateSubscription = (UpdateSubscription)sdkTracker.InsertDeveloperIdTracker(updateSubscription, updateSubscription.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(updateSubscription); // http body (model) parameter
             }
             else

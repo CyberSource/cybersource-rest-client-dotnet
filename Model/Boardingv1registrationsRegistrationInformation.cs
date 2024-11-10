@@ -31,109 +31,13 @@ namespace CyberSource.Model
     public partial class Boardingv1registrationsRegistrationInformation :  IEquatable<Boardingv1registrationsRegistrationInformation>, IValidatableObject
     {
         /// <summary>
-        /// The status of Registration request Possible Values:   - &#39;PROCESSING&#39;: This status is for Registrations that are still in Progress, you can get the latest status by calling the GET endpoint using the Registration Id   - &#39;SUCCESS&#39;: This status is for Registrations that were successfull on every step of the on boarding process.   - &#39;FAILURE&#39;: This status is for Registrations that fail before the Organization was created; please refer to the details section in the reponse for more information.   - &#39;PARTIAL&#39;: This status is for Registrations that created the Organization successfully but fail in at least on step while configuring it; please refer to the details section in the response for more information. 
-        /// </summary>
-        /// <value>The status of Registration request Possible Values:   - &#39;PROCESSING&#39;: This status is for Registrations that are still in Progress, you can get the latest status by calling the GET endpoint using the Registration Id   - &#39;SUCCESS&#39;: This status is for Registrations that were successfull on every step of the on boarding process.   - &#39;FAILURE&#39;: This status is for Registrations that fail before the Organization was created; please refer to the details section in the reponse for more information.   - &#39;PARTIAL&#39;: This status is for Registrations that created the Organization successfully but fail in at least on step while configuring it; please refer to the details section in the response for more information. </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum PROCESSING for "PROCESSING"
-            /// </summary>
-            [EnumMember(Value = "PROCESSING")]
-            PROCESSING,
-            
-            /// <summary>
-            /// Enum SUCCESS for "SUCCESS"
-            /// </summary>
-            [EnumMember(Value = "SUCCESS")]
-            SUCCESS,
-            
-            /// <summary>
-            /// Enum FAILURE for "FAILURE"
-            /// </summary>
-            [EnumMember(Value = "FAILURE")]
-            FAILURE,
-            
-            /// <summary>
-            /// Enum PARTIAL for "PARTIAL"
-            /// </summary>
-            [EnumMember(Value = "PARTIAL")]
-            PARTIAL
-        }
-        /// <summary>
-        /// Determines the boarding flow for this registration. Possible Values:   - &#39;ENTERPRISE&#39;   - &#39;SMB&#39;   - &#39;ADDPRODUCT&#39; 
-        /// </summary>
-        /// <value>Determines the boarding flow for this registration. Possible Values:   - &#39;ENTERPRISE&#39;   - &#39;SMB&#39;   - &#39;ADDPRODUCT&#39; </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum BoardingFlowEnum
-        {
-            
-            /// <summary>
-            /// Enum ENTERPRISE for "ENTERPRISE"
-            /// </summary>
-            [EnumMember(Value = "ENTERPRISE")]
-            ENTERPRISE,
-            
-            /// <summary>
-            /// Enum SMB for "SMB"
-            /// </summary>
-            [EnumMember(Value = "SMB")]
-            SMB,
-            
-            /// <summary>
-            /// Enum ADDPRODUCT for "ADDPRODUCT"
-            /// </summary>
-            [EnumMember(Value = "ADDPRODUCT")]
-            ADDPRODUCT
-        }
-        /// <summary>
-        /// In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; 
-        /// </summary>
-        /// <value>In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ModeEnum
-        {
-            
-            /// <summary>
-            /// Enum COMPLETE for "COMPLETE"
-            /// </summary>
-            [EnumMember(Value = "COMPLETE")]
-            COMPLETE,
-            
-            /// <summary>
-            /// Enum PARTIAL for "PARTIAL"
-            /// </summary>
-            [EnumMember(Value = "PARTIAL")]
-            PARTIAL
-        }
-        /// <summary>
-        /// The status of Registration request Possible Values:   - &#39;PROCESSING&#39;: This status is for Registrations that are still in Progress, you can get the latest status by calling the GET endpoint using the Registration Id   - &#39;SUCCESS&#39;: This status is for Registrations that were successfull on every step of the on boarding process.   - &#39;FAILURE&#39;: This status is for Registrations that fail before the Organization was created; please refer to the details section in the reponse for more information.   - &#39;PARTIAL&#39;: This status is for Registrations that created the Organization successfully but fail in at least on step while configuring it; please refer to the details section in the response for more information. 
-        /// </summary>
-        /// <value>The status of Registration request Possible Values:   - &#39;PROCESSING&#39;: This status is for Registrations that are still in Progress, you can get the latest status by calling the GET endpoint using the Registration Id   - &#39;SUCCESS&#39;: This status is for Registrations that were successfull on every step of the on boarding process.   - &#39;FAILURE&#39;: This status is for Registrations that fail before the Organization was created; please refer to the details section in the reponse for more information.   - &#39;PARTIAL&#39;: This status is for Registrations that created the Organization successfully but fail in at least on step while configuring it; please refer to the details section in the response for more information. </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
-        /// Determines the boarding flow for this registration. Possible Values:   - &#39;ENTERPRISE&#39;   - &#39;SMB&#39;   - &#39;ADDPRODUCT&#39; 
-        /// </summary>
-        /// <value>Determines the boarding flow for this registration. Possible Values:   - &#39;ENTERPRISE&#39;   - &#39;SMB&#39;   - &#39;ADDPRODUCT&#39; </value>
-        [DataMember(Name="boardingFlow", EmitDefaultValue=false)]
-        public BoardingFlowEnum? BoardingFlow { get; set; }
-        /// <summary>
-        /// In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; 
-        /// </summary>
-        /// <value>In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; </value>
-        [DataMember(Name="mode", EmitDefaultValue=false)]
-        public ModeEnum? Mode { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Boardingv1registrationsRegistrationInformation" /> class.
         /// </summary>
         /// <param name="BoardingPackageId">BoardingPackageId.</param>
         /// <param name="BoardingFlow">Determines the boarding flow for this registration. Possible Values:   - &#39;ENTERPRISE&#39;   - &#39;SMB&#39;   - &#39;ADDPRODUCT&#39; .</param>
         /// <param name="Mode">In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; .</param>
         /// <param name="SalesRepId">SalesRepId.</param>
-        public Boardingv1registrationsRegistrationInformation(string BoardingPackageId = default(string), BoardingFlowEnum? BoardingFlow = default(BoardingFlowEnum?), ModeEnum? Mode = default(ModeEnum?), string SalesRepId = default(string))
+        public Boardingv1registrationsRegistrationInformation(string BoardingPackageId = default(string), string BoardingFlow = default(string), string Mode = default(string), string SalesRepId = default(string))
         {
             this.BoardingPackageId = BoardingPackageId;
             this.BoardingFlow = BoardingFlow;
@@ -152,9 +56,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        [JsonConverter(typeof(SwaggerDateConverter))]
         public DateTime? SubmitTimeUtc { get; private set; }
 
+        /// <summary>
+        /// The status of Registration request Possible Values:   - &#39;PROCESSING&#39;: This status is for Registrations that are still in Progress, you can get the latest status by calling the GET endpoint using the Registration Id   - &#39;SUCCESS&#39;: This status is for Registrations that were successfull on every step of the on boarding process.   - &#39;FAILURE&#39;: This status is for Registrations that fail before the Organization was created; please refer to the details section in the reponse for more information.   - &#39;PARTIAL&#39;: This status is for Registrations that created the Organization successfully but fail in at least on step while configuring it; please refer to the details section in the response for more information. 
+        /// </summary>
+        /// <value>The status of Registration request Possible Values:   - &#39;PROCESSING&#39;: This status is for Registrations that are still in Progress, you can get the latest status by calling the GET endpoint using the Registration Id   - &#39;SUCCESS&#39;: This status is for Registrations that were successfull on every step of the on boarding process.   - &#39;FAILURE&#39;: This status is for Registrations that fail before the Organization was created; please refer to the details section in the reponse for more information.   - &#39;PARTIAL&#39;: This status is for Registrations that created the Organization successfully but fail in at least on step while configuring it; please refer to the details section in the response for more information. </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; private set; }
 
         /// <summary>
         /// Gets or Sets BoardingPackageId
@@ -162,7 +71,19 @@ namespace CyberSource.Model
         [DataMember(Name="boardingPackageId", EmitDefaultValue=false)]
         public string BoardingPackageId { get; set; }
 
+        /// <summary>
+        /// Determines the boarding flow for this registration. Possible Values:   - &#39;ENTERPRISE&#39;   - &#39;SMB&#39;   - &#39;ADDPRODUCT&#39; 
+        /// </summary>
+        /// <value>Determines the boarding flow for this registration. Possible Values:   - &#39;ENTERPRISE&#39;   - &#39;SMB&#39;   - &#39;ADDPRODUCT&#39; </value>
+        [DataMember(Name="boardingFlow", EmitDefaultValue=false)]
+        public string BoardingFlow { get; set; }
 
+        /// <summary>
+        /// In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; 
+        /// </summary>
+        /// <value>In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; </value>
+        [DataMember(Name="mode", EmitDefaultValue=false)]
+        public string Mode { get; set; }
 
         /// <summary>
         /// Gets or Sets SalesRepId

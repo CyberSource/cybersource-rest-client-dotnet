@@ -33,9 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerateCaptureContextRequest" /> class.
         /// </summary>
-        /// <param name="TargetOrigins">The merchant origin domain (e.g. https://example.com) used to initiate microform Integration. Required to comply with CORS and CSP standards..</param>
-        /// <param name="AllowedCardNetworks">AllowedCardNetworks.</param>
-        /// <param name="ClientVersion">ClientVersion.</param>
+        /// <param name="TargetOrigins">The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Microform is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] .</param>
+        /// <param name="AllowedCardNetworks">The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MAESTRO - MASTERCARD - AMEX - DISCOVER - DINERSCLUB - JCB - CUP - CARTESBANCAIRES - CARNET .</param>
+        /// <param name="ClientVersion">Specify the version of Microform that you want to use. .</param>
         /// <param name="CheckoutApiInitialization">CheckoutApiInitialization.</param>
         public GenerateCaptureContextRequest(List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), string ClientVersion = default(string), Microformv2sessionsCheckoutApiInitialization CheckoutApiInitialization = default(Microformv2sessionsCheckoutApiInitialization))
         {
@@ -46,21 +46,23 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The merchant origin domain (e.g. https://example.com) used to initiate microform Integration. Required to comply with CORS and CSP standards.
+        /// The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Microform is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] 
         /// </summary>
-        /// <value>The merchant origin domain (e.g. https://example.com) used to initiate microform Integration. Required to comply with CORS and CSP standards.</value>
+        /// <value>The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Microform is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] </value>
         [DataMember(Name="targetOrigins", EmitDefaultValue=false)]
         public List<string> TargetOrigins { get; set; }
 
         /// <summary>
-        /// Gets or Sets AllowedCardNetworks
+        /// The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MAESTRO - MASTERCARD - AMEX - DISCOVER - DINERSCLUB - JCB - CUP - CARTESBANCAIRES - CARNET 
         /// </summary>
+        /// <value>The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MAESTRO - MASTERCARD - AMEX - DISCOVER - DINERSCLUB - JCB - CUP - CARTESBANCAIRES - CARNET </value>
         [DataMember(Name="allowedCardNetworks", EmitDefaultValue=false)]
         public List<string> AllowedCardNetworks { get; set; }
 
         /// <summary>
-        /// Gets or Sets ClientVersion
+        /// Specify the version of Microform that you want to use. 
         /// </summary>
+        /// <value>Specify the version of Microform that you want to use. </value>
         [DataMember(Name="clientVersion", EmitDefaultValue=false)]
         public string ClientVersion { get; set; }
 

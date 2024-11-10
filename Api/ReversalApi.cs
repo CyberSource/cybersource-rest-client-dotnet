@@ -330,7 +330,7 @@ namespace CyberSource.Api
             if (authReversalRequest != null && authReversalRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                authReversalRequest = (AuthReversalRequest)sdkTracker.InsertDeveloperIdTracker(authReversalRequest, authReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                authReversalRequest = (AuthReversalRequest)sdkTracker.InsertDeveloperIdTracker(authReversalRequest, authReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(authReversalRequest); // http body (model) parameter
             }
             else
@@ -444,7 +444,7 @@ namespace CyberSource.Api
             if (authReversalRequest != null && authReversalRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                authReversalRequest = (AuthReversalRequest)sdkTracker.InsertDeveloperIdTracker(authReversalRequest, authReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                authReversalRequest = (AuthReversalRequest)sdkTracker.InsertDeveloperIdTracker(authReversalRequest, authReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(authReversalRequest); // http body (model) parameter
             }
             else
@@ -543,7 +543,7 @@ namespace CyberSource.Api
             if (mitReversalRequest != null && mitReversalRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                mitReversalRequest = (MitReversalRequest)sdkTracker.InsertDeveloperIdTracker(mitReversalRequest, mitReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                mitReversalRequest = (MitReversalRequest)sdkTracker.InsertDeveloperIdTracker(mitReversalRequest, mitReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(mitReversalRequest); // http body (model) parameter
             }
             else
@@ -644,7 +644,7 @@ namespace CyberSource.Api
             if (mitReversalRequest != null && mitReversalRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                mitReversalRequest = (MitReversalRequest)sdkTracker.InsertDeveloperIdTracker(mitReversalRequest, mitReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                mitReversalRequest = (MitReversalRequest)sdkTracker.InsertDeveloperIdTracker(mitReversalRequest, mitReversalRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(mitReversalRequest); // http body (model) parameter
             }
             else

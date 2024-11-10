@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="CaptureSequenceNumber">Capture number when requesting multiple partial captures for one authorization. Used along with &#x60;totalCaptureCount&#x60; to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber_ &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; .</param>
         /// <param name="TotalCaptureCount">Total number of captures when requesting multiple partial captures for one payment. Used along with &#x60;captureSequenceNumber&#x60; field to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; .</param>
         /// <param name="IsFinal">Indicates whether to release the authorization hold on the remaining funds.   Possible Values: - &#x60;true&#x60; - &#x60;false&#x60; .</param>
-        public Ptsv2paymentsidcapturesProcessingInformationCaptureOptions(int? CaptureSequenceNumber = default(int?), int? TotalCaptureCount = default(int?), string IsFinal = default(string))
+        /// <param name="Notes">An informational note about this settlement. Appears in both the payer&#39;s transaction history and the emails that the payer receives. .</param>
+        public Ptsv2paymentsidcapturesProcessingInformationCaptureOptions(int? CaptureSequenceNumber = default(int?), int? TotalCaptureCount = default(int?), string IsFinal = default(string), string Notes = default(string))
         {
             this.CaptureSequenceNumber = CaptureSequenceNumber;
             this.TotalCaptureCount = TotalCaptureCount;
             this.IsFinal = IsFinal;
+            this.Notes = Notes;
         }
         
         /// <summary>
@@ -65,6 +67,13 @@ namespace CyberSource.Model
         public string IsFinal { get; set; }
 
         /// <summary>
+        /// An informational note about this settlement. Appears in both the payer&#39;s transaction history and the emails that the payer receives. 
+        /// </summary>
+        /// <value>An informational note about this settlement. Appears in both the payer&#39;s transaction history and the emails that the payer receives. </value>
+        [DataMember(Name="notes", EmitDefaultValue=false)]
+        public string Notes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +84,7 @@ namespace CyberSource.Model
             sb.Append("  CaptureSequenceNumber: ").Append(CaptureSequenceNumber).Append("\n");
             sb.Append("  TotalCaptureCount: ").Append(TotalCaptureCount).Append("\n");
             sb.Append("  IsFinal: ").Append(IsFinal).Append("\n");
+            sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +135,11 @@ namespace CyberSource.Model
                     this.IsFinal == other.IsFinal ||
                     this.IsFinal != null &&
                     this.IsFinal.Equals(other.IsFinal)
+                ) && 
+                (
+                    this.Notes == other.Notes ||
+                    this.Notes != null &&
+                    this.Notes.Equals(other.Notes)
                 );
         }
 
@@ -145,6 +160,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TotalCaptureCount.GetHashCode();
                 if (this.IsFinal != null)
                     hash = hash * 59 + this.IsFinal.GetHashCode();
+                if (this.Notes != null)
+                    hash = hash * 59 + this.Notes.GetHashCode();
                 return hash;
             }
         }

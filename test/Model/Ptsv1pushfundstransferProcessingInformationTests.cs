@@ -81,12 +81,44 @@ namespace CyberSource.Test
             // TODO unit test for the property 'PayoutsOptions'
         }
         /// <summary>
-        /// Test the property 'EnablerId'
+        /// Test the property 'FeeProgramId'
         /// </summary>
         [Test]
-        public void EnablerIdTest()
+        public void FeeProgramIdTest()
         {
-            // TODO unit test for the property 'EnablerId'
+            // TODO unit test for the property 'FeeProgramId'
+        }
+        /// <summary>
+        /// Test the property 'NetworkPartnerId'
+        /// </summary>
+        [Test]
+        public void NetworkPartnerIdTest()
+        {
+            // TODO unit test for the property 'NetworkPartnerId'
+        }
+        /// <summary>
+        /// Test the property 'ProcessingCode'
+        /// </summary>
+        [Test]
+        public void ProcessingCodeTest()
+        {
+            // TODO unit test for the property 'ProcessingCode'
+        }
+        /// <summary>
+        /// Test the property 'SharingGroupCode'
+        /// </summary>
+        [Test]
+        public void SharingGroupCodeTest()
+        {
+            // TODO unit test for the property 'SharingGroupCode'
+        }
+        /// <summary>
+        /// Test the property 'PurposeOfPayment'
+        /// </summary>
+        [Test]
+        public void PurposeOfPaymentTest()
+        {
+            // TODO unit test for the property 'PurposeOfPayment'
         }
 
     }

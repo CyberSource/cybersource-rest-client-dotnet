@@ -31,92 +31,14 @@ namespace CyberSource.Model
     public partial class InlineResponse2012SetupsPaymentsCardProcessingSubscriptionStatus :  IEquatable<InlineResponse2012SetupsPaymentsCardProcessingSubscriptionStatus>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum SUCCESS for "SUCCESS"
-            /// </summary>
-            [EnumMember(Value = "SUCCESS")]
-            SUCCESS,
-            
-            /// <summary>
-            /// Enum FAILURE for "FAILURE"
-            /// </summary>
-            [EnumMember(Value = "FAILURE")]
-            FAILURE,
-            
-            /// <summary>
-            /// Enum PARTIAL for "PARTIAL"
-            /// </summary>
-            [EnumMember(Value = "PARTIAL")]
-            PARTIAL,
-            
-            /// <summary>
-            /// Enum PENDING for "PENDING"
-            /// </summary>
-            [EnumMember(Value = "PENDING")]
-            PENDING
-        }
-        /// <summary>
-        /// Gets or Sets Reason
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReasonEnum
-        {
-            
-            /// <summary>
-            /// Enum DEPENDENTPRODUCTNOTCONTRACTED for "DEPENDENT_PRODUCT_NOT_CONTRACTED"
-            /// </summary>
-            [EnumMember(Value = "DEPENDENT_PRODUCT_NOT_CONTRACTED")]
-            DEPENDENTPRODUCTNOTCONTRACTED,
-            
-            /// <summary>
-            /// Enum DEPENDENTFEATURENOTCHOSEN for "DEPENDENT_FEATURE_NOT_CHOSEN"
-            /// </summary>
-            [EnumMember(Value = "DEPENDENT_FEATURE_NOT_CHOSEN")]
-            DEPENDENTFEATURENOTCHOSEN,
-            
-            /// <summary>
-            /// Enum MISSINGDATA for "MISSING_DATA"
-            /// </summary>
-            [EnumMember(Value = "MISSING_DATA")]
-            MISSINGDATA,
-            
-            /// <summary>
-            /// Enum INVALIDDATA for "INVALID_DATA"
-            /// </summary>
-            [EnumMember(Value = "INVALID_DATA")]
-            INVALIDDATA,
-            
-            /// <summary>
-            /// Enum DUPLICATEFIELD for "DUPLICATE_FIELD"
-            /// </summary>
-            [EnumMember(Value = "DUPLICATE_FIELD")]
-            DUPLICATEFIELD
-        }
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
-        /// Gets or Sets Reason
-        /// </summary>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public ReasonEnum? Reason { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2012SetupsPaymentsCardProcessingSubscriptionStatus" /> class.
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="Status">Status.</param>
-        /// <param name="Reason">Reason.</param>
+        /// <param name="Status">Possible values: - SUCCESS - FAILURE - PARTIAL - PENDING.</param>
+        /// <param name="Reason">Possible values: - DEPENDENT_PRODUCT_NOT_CONTRACTED - DEPENDENT_FEATURE_NOT_CHOSEN - MISSING_DATA - INVALID_DATA - DUPLICATE_FIELD.</param>
         /// <param name="Details">Details.</param>
         /// <param name="Message">Message.</param>
-        public InlineResponse2012SetupsPaymentsCardProcessingSubscriptionStatus(string SubmitTimeUtc = default(string), StatusEnum? Status = default(StatusEnum?), ReasonEnum? Reason = default(ReasonEnum?), List<Dictionary<string, string>> Details = default(List<Dictionary<string, string>>), string Message = default(string))
+        public InlineResponse2012SetupsPaymentsCardProcessingSubscriptionStatus(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), List<Dictionary<string, string>> Details = default(List<Dictionary<string, string>>), string Message = default(string))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
@@ -132,7 +54,19 @@ namespace CyberSource.Model
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
+        /// <summary>
+        /// Possible values: - SUCCESS - FAILURE - PARTIAL - PENDING
+        /// </summary>
+        /// <value>Possible values: - SUCCESS - FAILURE - PARTIAL - PENDING</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
+        /// <summary>
+        /// Possible values: - DEPENDENT_PRODUCT_NOT_CONTRACTED - DEPENDENT_FEATURE_NOT_CHOSEN - MISSING_DATA - INVALID_DATA - DUPLICATE_FIELD
+        /// </summary>
+        /// <value>Possible values: - DEPENDENT_PRODUCT_NOT_CONTRACTED - DEPENDENT_FEATURE_NOT_CHOSEN - MISSING_DATA - INVALID_DATA - DUPLICATE_FIELD</value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// Gets or Sets Details

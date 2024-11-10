@@ -31,108 +31,6 @@ namespace CyberSource.Model
     public partial class InlineResponse4001 :  IEquatable<InlineResponse4001>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Reason
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ReasonEnum
-        {
-            
-            /// <summary>
-            /// Enum INVALIDAPIKEY for "INVALID_APIKEY"
-            /// </summary>
-            [EnumMember(Value = "INVALID_APIKEY")]
-            INVALIDAPIKEY,
-            
-            /// <summary>
-            /// Enum INVALIDSHIPPINGINPUTPARAMS for "INVALID_SHIPPING_INPUT_PARAMS"
-            /// </summary>
-            [EnumMember(Value = "INVALID_SHIPPING_INPUT_PARAMS")]
-            INVALIDSHIPPINGINPUTPARAMS,
-            
-            /// <summary>
-            /// Enum CAPTURECONTEXTINVALID for "CAPTURE_CONTEXT_INVALID"
-            /// </summary>
-            [EnumMember(Value = "CAPTURE_CONTEXT_INVALID")]
-            CAPTURECONTEXTINVALID,
-            
-            /// <summary>
-            /// Enum CAPTURECONTEXTEXPIRED for "CAPTURE_CONTEXT_EXPIRED"
-            /// </summary>
-            [EnumMember(Value = "CAPTURE_CONTEXT_EXPIRED")]
-            CAPTURECONTEXTEXPIRED,
-            
-            /// <summary>
-            /// Enum SDKXHRERROR for "SDK_XHR_ERROR"
-            /// </summary>
-            [EnumMember(Value = "SDK_XHR_ERROR")]
-            SDKXHRERROR,
-            
-            /// <summary>
-            /// Enum UNIFIEDPAYMENTSVALIDATIONPARAMS for "UNIFIEDPAYMENTS_VALIDATION_PARAMS"
-            /// </summary>
-            [EnumMember(Value = "UNIFIEDPAYMENTS_VALIDATION_PARAMS")]
-            UNIFIEDPAYMENTSVALIDATIONPARAMS,
-            
-            /// <summary>
-            /// Enum UNIFIEDPAYMENTSVALIDATIONFIELDS for "UNIFIEDPAYMENTS_VALIDATION_FIELDS"
-            /// </summary>
-            [EnumMember(Value = "UNIFIEDPAYMENTS_VALIDATION_FIELDS")]
-            UNIFIEDPAYMENTSVALIDATIONFIELDS,
-            
-            /// <summary>
-            /// Enum UNIFIEDPAYMENTPAYMENTPARAMITERS for "UNIFIEDPAYMENT_PAYMENT_PARAMITERS"
-            /// </summary>
-            [EnumMember(Value = "UNIFIEDPAYMENT_PAYMENT_PARAMITERS")]
-            UNIFIEDPAYMENTPAYMENTPARAMITERS,
-            
-            /// <summary>
-            /// Enum CREATETOKENTIMEOUT for "CREATE_TOKEN_TIMEOUT"
-            /// </summary>
-            [EnumMember(Value = "CREATE_TOKEN_TIMEOUT")]
-            CREATETOKENTIMEOUT,
-            
-            /// <summary>
-            /// Enum CREATETOKENXHRERROR for "CREATE_TOKEN_XHR_ERROR"
-            /// </summary>
-            [EnumMember(Value = "CREATE_TOKEN_XHR_ERROR")]
-            CREATETOKENXHRERROR,
-            
-            /// <summary>
-            /// Enum SHOWLOADCONTAINERSELECTOR for "SHOW_LOAD_CONTAINER_SELECTOR"
-            /// </summary>
-            [EnumMember(Value = "SHOW_LOAD_CONTAINER_SELECTOR")]
-            SHOWLOADCONTAINERSELECTOR,
-            
-            /// <summary>
-            /// Enum SHOWLOADINVALIDCONTAINER for "SHOW_LOAD_INVALID_CONTAINER"
-            /// </summary>
-            [EnumMember(Value = "SHOW_LOAD_INVALID_CONTAINER")]
-            SHOWLOADINVALIDCONTAINER,
-            
-            /// <summary>
-            /// Enum SHOWTOKENTIMEOUT for "SHOW_TOKEN_TIMEOUT"
-            /// </summary>
-            [EnumMember(Value = "SHOW_TOKEN_TIMEOUT")]
-            SHOWTOKENTIMEOUT,
-            
-            /// <summary>
-            /// Enum SHOWTOKENXHRERROR for "SHOW_TOKEN_XHR_ERROR"
-            /// </summary>
-            [EnumMember(Value = "SHOW_TOKEN_XHR_ERROR")]
-            SHOWTOKENXHRERROR,
-            
-            /// <summary>
-            /// Enum SHOWPAYMENTTIMEOUT for "SHOW_PAYMENT_TIMEOUT"
-            /// </summary>
-            [EnumMember(Value = "SHOW_PAYMENT_TIMEOUT")]
-            SHOWPAYMENTTIMEOUT
-        }
-        /// <summary>
-        /// Gets or Sets Reason
-        /// </summary>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public ReasonEnum? Reason { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4001" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -144,8 +42,8 @@ namespace CyberSource.Model
         /// <param name="Details">Details.</param>
         /// <param name="InformationLink">InformationLink.</param>
         /// <param name="Message">Message (required).</param>
-        /// <param name="Reason">Reason (required).</param>
-        public InlineResponse4001(string CorrelationId = default(string), List<InlineResponse4001Details> Details = default(List<InlineResponse4001Details>), string InformationLink = default(string), string Message = default(string), ReasonEnum? Reason = default(ReasonEnum?))
+        /// <param name="Reason">Possible values: - INVALID_APIKEY - INVALID_SHIPPING_INPUT_PARAMS - CAPTURE_CONTEXT_INVALID - CAPTURE_CONTEXT_EXPIRED - SDK_XHR_ERROR - UNIFIEDPAYMENTS_VALIDATION_PARAMS - UNIFIEDPAYMENTS_VALIDATION_FIELDS - UNIFIEDPAYMENT_PAYMENT_PARAMITERS - CREATE_TOKEN_TIMEOUT - CREATE_TOKEN_XHR_ERROR - SHOW_LOAD_CONTAINER_SELECTOR - SHOW_LOAD_INVALID_CONTAINER - SHOW_TOKEN_TIMEOUT - SHOW_TOKEN_XHR_ERROR - SHOW_PAYMENT_TIMEOUT (required).</param>
+        public InlineResponse4001(string CorrelationId = default(string), List<InlineResponse4001Details> Details = default(List<InlineResponse4001Details>), string InformationLink = default(string), string Message = default(string), string Reason = default(string))
         {
             this.CorrelationId = CorrelationId;
             this.Details = Details;
@@ -178,6 +76,12 @@ namespace CyberSource.Model
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 
+        /// <summary>
+        /// Possible values: - INVALID_APIKEY - INVALID_SHIPPING_INPUT_PARAMS - CAPTURE_CONTEXT_INVALID - CAPTURE_CONTEXT_EXPIRED - SDK_XHR_ERROR - UNIFIEDPAYMENTS_VALIDATION_PARAMS - UNIFIEDPAYMENTS_VALIDATION_FIELDS - UNIFIEDPAYMENT_PAYMENT_PARAMITERS - CREATE_TOKEN_TIMEOUT - CREATE_TOKEN_XHR_ERROR - SHOW_LOAD_CONTAINER_SELECTOR - SHOW_LOAD_INVALID_CONTAINER - SHOW_TOKEN_TIMEOUT - SHOW_TOKEN_XHR_ERROR - SHOW_PAYMENT_TIMEOUT
+        /// </summary>
+        /// <value>Possible values: - INVALID_APIKEY - INVALID_SHIPPING_INPUT_PARAMS - CAPTURE_CONTEXT_INVALID - CAPTURE_CONTEXT_EXPIRED - SDK_XHR_ERROR - UNIFIEDPAYMENTS_VALIDATION_PARAMS - UNIFIEDPAYMENTS_VALIDATION_FIELDS - UNIFIEDPAYMENT_PAYMENT_PARAMITERS - CREATE_TOKEN_TIMEOUT - CREATE_TOKEN_XHR_ERROR - SHOW_LOAD_CONTAINER_SELECTOR - SHOW_LOAD_INVALID_CONTAINER - SHOW_TOKEN_TIMEOUT - SHOW_TOKEN_XHR_ERROR - SHOW_PAYMENT_TIMEOUT</value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

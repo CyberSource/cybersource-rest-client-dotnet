@@ -459,7 +459,7 @@ namespace CyberSource.Api
             if (predefinedSubscriptionRequestBean != null && predefinedSubscriptionRequestBean.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                predefinedSubscriptionRequestBean = (PredefinedSubscriptionRequestBean)sdkTracker.InsertDeveloperIdTracker(predefinedSubscriptionRequestBean, predefinedSubscriptionRequestBean.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                predefinedSubscriptionRequestBean = (PredefinedSubscriptionRequestBean)sdkTracker.InsertDeveloperIdTracker(predefinedSubscriptionRequestBean, predefinedSubscriptionRequestBean.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(predefinedSubscriptionRequestBean); // http body (model) parameter
             }
             else
@@ -565,7 +565,7 @@ namespace CyberSource.Api
             if (predefinedSubscriptionRequestBean != null && predefinedSubscriptionRequestBean.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                predefinedSubscriptionRequestBean = (PredefinedSubscriptionRequestBean)sdkTracker.InsertDeveloperIdTracker(predefinedSubscriptionRequestBean, predefinedSubscriptionRequestBean.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                predefinedSubscriptionRequestBean = (PredefinedSubscriptionRequestBean)sdkTracker.InsertDeveloperIdTracker(predefinedSubscriptionRequestBean, predefinedSubscriptionRequestBean.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(predefinedSubscriptionRequestBean); // http body (model) parameter
             }
             else
@@ -669,7 +669,7 @@ namespace CyberSource.Api
             if (createReportSubscriptionRequest != null && createReportSubscriptionRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createReportSubscriptionRequest = (CreateReportSubscriptionRequest)sdkTracker.InsertDeveloperIdTracker(createReportSubscriptionRequest, createReportSubscriptionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createReportSubscriptionRequest = (CreateReportSubscriptionRequest)sdkTracker.InsertDeveloperIdTracker(createReportSubscriptionRequest, createReportSubscriptionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createReportSubscriptionRequest); // http body (model) parameter
             }
             else
@@ -775,7 +775,7 @@ namespace CyberSource.Api
             if (createReportSubscriptionRequest != null && createReportSubscriptionRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                createReportSubscriptionRequest = (CreateReportSubscriptionRequest)sdkTracker.InsertDeveloperIdTracker(createReportSubscriptionRequest, createReportSubscriptionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                createReportSubscriptionRequest = (CreateReportSubscriptionRequest)sdkTracker.InsertDeveloperIdTracker(createReportSubscriptionRequest, createReportSubscriptionRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(createReportSubscriptionRequest); // http body (model) parameter
             }
             else

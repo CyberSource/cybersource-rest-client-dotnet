@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Name'
         }
         /// <summary>
+        /// Test the property 'Email'
+        /// </summary>
+        [Test]
+        public void EmailTest()
+        {
+            // TODO unit test for the property 'Email'
+        }
+        /// <summary>
         /// Test the property 'FirstName'
         /// </summary>
         [Test]
@@ -103,6 +111,22 @@ namespace CyberSource.Test
         public void PostalCodeTest()
         {
             // TODO unit test for the property 'PostalCode'
+        }
+        /// <summary>
+        /// Test the property 'BuildingNumber'
+        /// </summary>
+        [Test]
+        public void BuildingNumberTest()
+        {
+            // TODO unit test for the property 'BuildingNumber'
+        }
+        /// <summary>
+        /// Test the property 'StreetName'
+        /// </summary>
+        [Test]
+        public void StreetNameTest()
+        {
+            // TODO unit test for the property 'StreetName'
         }
         /// <summary>
         /// Test the property 'Address1'
@@ -191,6 +215,22 @@ namespace CyberSource.Test
         public void PersonalIdentificationTest()
         {
             // TODO unit test for the property 'PersonalIdentification'
+        }
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'VatRegistrationNumber'
+        /// </summary>
+        [Test]
+        public void VatRegistrationNumberTest()
+        {
+            // TODO unit test for the property 'VatRegistrationNumber'
         }
 
     }

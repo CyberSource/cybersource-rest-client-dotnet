@@ -34,13 +34,15 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferRecipientInformationPersonalIdentification" /> class.
         /// </summary>
         /// <param name="Id">The ID number/value. Processor(35) .</param>
-        /// <param name="Type">This tag will contain the type of sender identification. .</param>
+        /// <param name="Type">This tag will contain the type of sender identification. The valid values are: - &#x60;BTHD&#x60;: (Date of birth) - &#x60;CUID&#x60;: (Customer identification (unspecified)) - &#x60;NTID&#x60;: (National identification) - &#x60;PASN&#x60;: (Passport number) - &#x60;DRLN&#x60;: (Driver license) - &#x60;TXIN&#x60;: (Tax identification) - &#x60;CPNY&#x60;: (Company registration number) - &#x60;PRXY&#x60;: (Proxy identification) - &#x60;SSNB&#x60;: (Social security number) - &#x60;ARNB&#x60;: (Alien registration number) - &#x60;LAWE&#x60;: (Law enforcement identification) - &#x60;MILI&#x60;: (Military identification) - &#x60;TRVL&#x60;: (Travel identification (non-passport)) - &#x60;EMAL&#x60;: (Email) - &#x60;PHON&#x60;: (Phone number) .</param>
         /// <param name="IssuingCountry">Issuing country of the identification. The field format should be a 2 character ISO 3166-1 alpha-2 country code. .</param>
-        public Ptsv1pushfundstransferRecipientInformationPersonalIdentification(string Id = default(string), string Type = default(string), string IssuingCountry = default(string))
+        /// <param name="PersonalIdType">This tag will denote whether the tax ID is a business or individual tax ID when personal ID Type contains the value of TXIN (Tax identification).  The valid values are:  - &#x60;B&#x60; (Business) - &#x60;I&#x60; (Individual) .</param>
+        public Ptsv1pushfundstransferRecipientInformationPersonalIdentification(string Id = default(string), string Type = default(string), string IssuingCountry = default(string), string PersonalIdType = default(string))
         {
             this.Id = Id;
             this.Type = Type;
             this.IssuingCountry = IssuingCountry;
+            this.PersonalIdType = PersonalIdType;
         }
         
         /// <summary>
@@ -51,9 +53,9 @@ namespace CyberSource.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// This tag will contain the type of sender identification. 
+        /// This tag will contain the type of sender identification. The valid values are: - &#x60;BTHD&#x60;: (Date of birth) - &#x60;CUID&#x60;: (Customer identification (unspecified)) - &#x60;NTID&#x60;: (National identification) - &#x60;PASN&#x60;: (Passport number) - &#x60;DRLN&#x60;: (Driver license) - &#x60;TXIN&#x60;: (Tax identification) - &#x60;CPNY&#x60;: (Company registration number) - &#x60;PRXY&#x60;: (Proxy identification) - &#x60;SSNB&#x60;: (Social security number) - &#x60;ARNB&#x60;: (Alien registration number) - &#x60;LAWE&#x60;: (Law enforcement identification) - &#x60;MILI&#x60;: (Military identification) - &#x60;TRVL&#x60;: (Travel identification (non-passport)) - &#x60;EMAL&#x60;: (Email) - &#x60;PHON&#x60;: (Phone number) 
         /// </summary>
-        /// <value>This tag will contain the type of sender identification. </value>
+        /// <value>This tag will contain the type of sender identification. The valid values are: - &#x60;BTHD&#x60;: (Date of birth) - &#x60;CUID&#x60;: (Customer identification (unspecified)) - &#x60;NTID&#x60;: (National identification) - &#x60;PASN&#x60;: (Passport number) - &#x60;DRLN&#x60;: (Driver license) - &#x60;TXIN&#x60;: (Tax identification) - &#x60;CPNY&#x60;: (Company registration number) - &#x60;PRXY&#x60;: (Proxy identification) - &#x60;SSNB&#x60;: (Social security number) - &#x60;ARNB&#x60;: (Alien registration number) - &#x60;LAWE&#x60;: (Law enforcement identification) - &#x60;MILI&#x60;: (Military identification) - &#x60;TRVL&#x60;: (Travel identification (non-passport)) - &#x60;EMAL&#x60;: (Email) - &#x60;PHON&#x60;: (Phone number) </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -63,6 +65,13 @@ namespace CyberSource.Model
         /// <value>Issuing country of the identification. The field format should be a 2 character ISO 3166-1 alpha-2 country code. </value>
         [DataMember(Name="issuingCountry", EmitDefaultValue=false)]
         public string IssuingCountry { get; set; }
+
+        /// <summary>
+        /// This tag will denote whether the tax ID is a business or individual tax ID when personal ID Type contains the value of TXIN (Tax identification).  The valid values are:  - &#x60;B&#x60; (Business) - &#x60;I&#x60; (Individual) 
+        /// </summary>
+        /// <value>This tag will denote whether the tax ID is a business or individual tax ID when personal ID Type contains the value of TXIN (Tax identification).  The valid values are:  - &#x60;B&#x60; (Business) - &#x60;I&#x60; (Individual) </value>
+        [DataMember(Name="personalIdType", EmitDefaultValue=false)]
+        public string PersonalIdType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,6 +84,7 @@ namespace CyberSource.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  IssuingCountry: ").Append(IssuingCountry).Append("\n");
+            sb.Append("  PersonalIdType: ").Append(PersonalIdType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +135,11 @@ namespace CyberSource.Model
                     this.IssuingCountry == other.IssuingCountry ||
                     this.IssuingCountry != null &&
                     this.IssuingCountry.Equals(other.IssuingCountry)
+                ) && 
+                (
+                    this.PersonalIdType == other.PersonalIdType ||
+                    this.PersonalIdType != null &&
+                    this.PersonalIdType.Equals(other.PersonalIdType)
                 );
         }
 
@@ -145,6 +160,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.IssuingCountry != null)
                     hash = hash * 59 + this.IssuingCountry.GetHashCode();
+                if (this.PersonalIdType != null)
+                    hash = hash * 59 + this.PersonalIdType.GetHashCode();
                 return hash;
             }
         }

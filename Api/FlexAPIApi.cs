@@ -271,7 +271,7 @@ namespace CyberSource.Api
             if (generateFlexAPICaptureContextRequest != null && generateFlexAPICaptureContextRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                generateFlexAPICaptureContextRequest = (GenerateFlexAPICaptureContextRequest)sdkTracker.InsertDeveloperIdTracker(generateFlexAPICaptureContextRequest, generateFlexAPICaptureContextRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                generateFlexAPICaptureContextRequest = (GenerateFlexAPICaptureContextRequest)sdkTracker.InsertDeveloperIdTracker(generateFlexAPICaptureContextRequest, generateFlexAPICaptureContextRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(generateFlexAPICaptureContextRequest); // http body (model) parameter
             }
             else
@@ -372,7 +372,7 @@ namespace CyberSource.Api
             if (generateFlexAPICaptureContextRequest != null && generateFlexAPICaptureContextRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                generateFlexAPICaptureContextRequest = (GenerateFlexAPICaptureContextRequest)sdkTracker.InsertDeveloperIdTracker(generateFlexAPICaptureContextRequest, generateFlexAPICaptureContextRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                generateFlexAPICaptureContextRequest = (GenerateFlexAPICaptureContextRequest)sdkTracker.InsertDeveloperIdTracker(generateFlexAPICaptureContextRequest, generateFlexAPICaptureContextRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(generateFlexAPICaptureContextRequest); // http body (model) parameter
             }
             else

@@ -31,37 +31,11 @@ namespace CyberSource.Model
     public partial class InlineResponse2012RegistrationInformation :  IEquatable<InlineResponse2012RegistrationInformation>, IValidatableObject
     {
         /// <summary>
-        /// In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; 
-        /// </summary>
-        /// <value>In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ModeEnum
-        {
-            
-            /// <summary>
-            /// Enum COMPLETE for "COMPLETE"
-            /// </summary>
-            [EnumMember(Value = "COMPLETE")]
-            COMPLETE,
-            
-            /// <summary>
-            /// Enum PARTIAL for "PARTIAL"
-            /// </summary>
-            [EnumMember(Value = "PARTIAL")]
-            PARTIAL
-        }
-        /// <summary>
-        /// In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; 
-        /// </summary>
-        /// <value>In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; </value>
-        [DataMember(Name="mode", EmitDefaultValue=false)]
-        public ModeEnum? Mode { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2012RegistrationInformation" /> class.
         /// </summary>
         /// <param name="Mode">In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; .</param>
         /// <param name="SalesRepId">SalesRepId.</param>
-        public InlineResponse2012RegistrationInformation(ModeEnum? Mode = default(ModeEnum?), string SalesRepId = default(string))
+        public InlineResponse2012RegistrationInformation(string Mode = default(string), string SalesRepId = default(string))
         {
             this.Mode = Mode;
             this.SalesRepId = SalesRepId;
@@ -73,6 +47,12 @@ namespace CyberSource.Model
         [DataMember(Name="boardingPackageId", EmitDefaultValue=false)]
         public string BoardingPackageId { get; private set; }
 
+        /// <summary>
+        /// In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; 
+        /// </summary>
+        /// <value>In case mode is not provided the API will use COMPLETE as default Possible Values:   - &#39;COMPLETE&#39;   - &#39;PARTIAL&#39; </value>
+        [DataMember(Name="mode", EmitDefaultValue=false)]
+        public string Mode { get; set; }
 
         /// <summary>
         /// Gets or Sets SalesRepId

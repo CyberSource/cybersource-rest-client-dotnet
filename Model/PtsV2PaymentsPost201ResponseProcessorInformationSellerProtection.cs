@@ -34,12 +34,14 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection" /> class.
         /// </summary>
         /// <param name="Type">The kind of seller protection in force for the transaction. This field is returned only when the protection eligibility value is set to ELIGIBLE or PARTIALLY_ELIGIBLE. Possible values - ITEM_NOT_RECEIVED_ELIGIBLE: Sellers are protected against claims for items not received. - UNAUTHORIZED_PAYMENT_ELIGIBLE: Sellers are protected against claims for unauthorized payments. One or both values can be returned. .</param>
-        /// <param name="Eligibility">The level of seller protection in force for the transaction. Possible values: - &#x60;ELIGIBLE&#x60; - &#x60;PARTIALLY_ELIGIBLE&#x60; - &#x60;INELIGIBLE&#x60; .</param>
+        /// <param name="Eligibility">Indicates whether the transaction is eligible for seller protection. The values returned are described below. Possible values: - &#x60;ELIGIBLE&#x60; - &#x60;PARTIALLY_ELIGIBLE&#x60; - &#x60;INELIGIBLE&#x60; - &#x60;NOT_ELIGIBLE&#x60; .</param>
+        /// <param name="DisputeCategories">An array of conditions that are covered for the transaction. .</param>
         /// <param name="EligibilityType">The kind of seller protection in force for the transaction. This field is returned only when the protection_eligibility property is set to ELIGIBLE or PARTIALLY_ELIGIBLE. Possible values: - &#x60;ITEM_NOT_RECEIVED_ELIGIBLE: Sellers are protected against claims for items not received.&#x60; - &#x60;UNAUTHORIZED_PAYMENT_ELIGIBLE: Sellers are protected against claims for unauthorized payments.&#x60; One or both values can be returned. .</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection(string Type = default(string), string Eligibility = default(string), string EligibilityType = default(string))
+        public PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection(string Type = default(string), string Eligibility = default(string), List<string> DisputeCategories = default(List<string>), string EligibilityType = default(string))
         {
             this.Type = Type;
             this.Eligibility = Eligibility;
+            this.DisputeCategories = DisputeCategories;
             this.EligibilityType = EligibilityType;
         }
         
@@ -51,11 +53,18 @@ namespace CyberSource.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// The level of seller protection in force for the transaction. Possible values: - &#x60;ELIGIBLE&#x60; - &#x60;PARTIALLY_ELIGIBLE&#x60; - &#x60;INELIGIBLE&#x60; 
+        /// Indicates whether the transaction is eligible for seller protection. The values returned are described below. Possible values: - &#x60;ELIGIBLE&#x60; - &#x60;PARTIALLY_ELIGIBLE&#x60; - &#x60;INELIGIBLE&#x60; - &#x60;NOT_ELIGIBLE&#x60; 
         /// </summary>
-        /// <value>The level of seller protection in force for the transaction. Possible values: - &#x60;ELIGIBLE&#x60; - &#x60;PARTIALLY_ELIGIBLE&#x60; - &#x60;INELIGIBLE&#x60; </value>
+        /// <value>Indicates whether the transaction is eligible for seller protection. The values returned are described below. Possible values: - &#x60;ELIGIBLE&#x60; - &#x60;PARTIALLY_ELIGIBLE&#x60; - &#x60;INELIGIBLE&#x60; - &#x60;NOT_ELIGIBLE&#x60; </value>
         [DataMember(Name="eligibility", EmitDefaultValue=false)]
         public string Eligibility { get; set; }
+
+        /// <summary>
+        /// An array of conditions that are covered for the transaction. 
+        /// </summary>
+        /// <value>An array of conditions that are covered for the transaction. </value>
+        [DataMember(Name="disputeCategories", EmitDefaultValue=false)]
+        public List<string> DisputeCategories { get; set; }
 
         /// <summary>
         /// The kind of seller protection in force for the transaction. This field is returned only when the protection_eligibility property is set to ELIGIBLE or PARTIALLY_ELIGIBLE. Possible values: - &#x60;ITEM_NOT_RECEIVED_ELIGIBLE: Sellers are protected against claims for items not received.&#x60; - &#x60;UNAUTHORIZED_PAYMENT_ELIGIBLE: Sellers are protected against claims for unauthorized payments.&#x60; One or both values can be returned. 
@@ -74,6 +83,7 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Eligibility: ").Append(Eligibility).Append("\n");
+            sb.Append("  DisputeCategories: ").Append(DisputeCategories).Append("\n");
             sb.Append("  EligibilityType: ").Append(EligibilityType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -122,6 +132,11 @@ namespace CyberSource.Model
                     this.Eligibility.Equals(other.Eligibility)
                 ) && 
                 (
+                    this.DisputeCategories == other.DisputeCategories ||
+                    this.DisputeCategories != null &&
+                    this.DisputeCategories.SequenceEqual(other.DisputeCategories)
+                ) && 
+                (
                     this.EligibilityType == other.EligibilityType ||
                     this.EligibilityType != null &&
                     this.EligibilityType.Equals(other.EligibilityType)
@@ -143,6 +158,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Eligibility != null)
                     hash = hash * 59 + this.Eligibility.GetHashCode();
+                if (this.DisputeCategories != null)
+                    hash = hash * 59 + this.DisputeCategories.GetHashCode();
                 if (this.EligibilityType != null)
                     hash = hash * 59 + this.EligibilityType.GetHashCode();
                 return hash;

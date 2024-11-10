@@ -25,19 +25,19 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// BinLookupv400Response
+    /// PtsV2CreateOrderPost400Response
     /// </summary>
     [DataContract]
-    public partial class BinLookupv400Response :  IEquatable<BinLookupv400Response>, IValidatableObject
+    public partial class PtsV2CreateOrderPost400Response :  IEquatable<PtsV2CreateOrderPost400Response>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BinLookupv400Response" /> class.
+        /// Initializes a new instance of the <see cref="PtsV2CreateOrderPost400Response" /> class.
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
         /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
-        public BinLookupv400Response(string SubmitTimeUtc = default(string), string Status = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
+        public PtsV2CreateOrderPost400Response(string SubmitTimeUtc = default(string), string Status = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
@@ -79,7 +79,7 @@ namespace CyberSource.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class BinLookupv400Response {\n");
+            sb.Append("class PtsV2CreateOrderPost400Response {\n");
             sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -105,15 +105,15 @@ namespace CyberSource.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as BinLookupv400Response);
+            return this.Equals(obj as PtsV2CreateOrderPost400Response);
         }
 
         /// <summary>
-        /// Returns true if BinLookupv400Response instances are equal
+        /// Returns true if PtsV2CreateOrderPost400Response instances are equal
         /// </summary>
-        /// <param name="other">Instance of BinLookupv400Response to be compared</param>
+        /// <param name="other">Instance of PtsV2CreateOrderPost400Response to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(BinLookupv400Response other)
+        public bool Equals(PtsV2CreateOrderPost400Response other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

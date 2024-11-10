@@ -1109,7 +1109,7 @@ namespace CyberSource.Api
             if (saveAsymEgressKey != null && saveAsymEgressKey.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                saveAsymEgressKey = (SaveAsymEgressKey)sdkTracker.InsertDeveloperIdTracker(saveAsymEgressKey, saveAsymEgressKey.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                saveAsymEgressKey = (SaveAsymEgressKey)sdkTracker.InsertDeveloperIdTracker(saveAsymEgressKey, saveAsymEgressKey.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(saveAsymEgressKey); // http body (model) parameter
             }
             else
@@ -1240,7 +1240,7 @@ namespace CyberSource.Api
             if (saveAsymEgressKey != null && saveAsymEgressKey.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                saveAsymEgressKey = (SaveAsymEgressKey)sdkTracker.InsertDeveloperIdTracker(saveAsymEgressKey, saveAsymEgressKey.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                saveAsymEgressKey = (SaveAsymEgressKey)sdkTracker.InsertDeveloperIdTracker(saveAsymEgressKey, saveAsymEgressKey.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(saveAsymEgressKey); // http body (model) parameter
             }
             else
@@ -1344,7 +1344,7 @@ namespace CyberSource.Api
             if (updateWebhookRequest != null && updateWebhookRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                updateWebhookRequest = (UpdateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(updateWebhookRequest, updateWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                updateWebhookRequest = (UpdateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(updateWebhookRequest, updateWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(updateWebhookRequest); // http body (model) parameter
             }
             else
@@ -1450,7 +1450,7 @@ namespace CyberSource.Api
             if (updateWebhookRequest != null && updateWebhookRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                updateWebhookRequest = (UpdateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(updateWebhookRequest, updateWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                updateWebhookRequest = (UpdateWebhookRequest)sdkTracker.InsertDeveloperIdTracker(updateWebhookRequest, updateWebhookRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(updateWebhookRequest); // http body (model) parameter
             }
             else

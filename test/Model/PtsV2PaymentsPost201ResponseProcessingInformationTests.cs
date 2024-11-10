@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'EnhancedDataEnabled'
         }
+        /// <summary>
+        /// Test the property 'CaptureOptions'
+        /// </summary>
+        [Test]
+        public void CaptureOptionsTest()
+        {
+            // TODO unit test for the property 'CaptureOptions'
+        }
 
     }
 

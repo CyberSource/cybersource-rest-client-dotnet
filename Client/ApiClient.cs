@@ -270,15 +270,17 @@ namespace CyberSource.Client
             }
 
             RestRequest requestT = new RestRequest(path);
-            RestClientOptions clientOptions = RestClient.Options;
+            RestClientOptions clientOptions = new RestClientOptions(RestClient.Options.BaseUrl)
+            {
+                Timeout = TimeSpan.FromMilliseconds(Configuration.Timeout),
+            };
 
             if (Configuration.Proxy != null)
             {
                 clientOptions.Proxy = Configuration.Proxy;
             }
-
+            clientOptions.UserAgent = Configuration.UserAgent;
             RestClient = new RestClient(clientOptions);
-            RestClient.Options.UserAgent = Configuration.UserAgent;
 
             // Add Header Parameter, if any
             // Passed to this function
@@ -444,8 +446,10 @@ namespace CyberSource.Client
                 pathParams, contentType);
 
             // set timeout
-            request.Timeout = Configuration.Timeout;
-            RestClientOptions clientOptions = RestClient.Options;
+            RestClientOptions clientOptions = new RestClientOptions(RestClient.Options.BaseUrl)
+            {
+                Timeout = TimeSpan.FromMilliseconds(Configuration.Timeout),
+            };
 
             // RestClient.ClearHandlers();
 
@@ -471,9 +475,8 @@ namespace CyberSource.Client
                 clientCertPassword.Dispose();
                 clientOptions.ClientCertificates = new X509CertificateCollection { certificate };
             }
-
+            clientOptions.UserAgent = Configuration.UserAgent;
             RestClient = new RestClient(clientOptions);
-            RestClient.Options.UserAgent = Configuration.UserAgent;
 
             // Logging Request Headers
             var headerPrintOutput = new StringBuilder();
@@ -572,10 +575,11 @@ namespace CyberSource.Client
                 }
             }
 
-            // set timeout
-            request.Timeout = Configuration.Timeout;
             // set user agent
-            RestClientOptions clientOptions = RestClient.Options;
+            RestClientOptions clientOptions = new RestClientOptions(RestClient.Options.BaseUrl)
+            {
+                Timeout = TimeSpan.FromMilliseconds(Configuration.Timeout)
+            };
 
             if (logUtility.IsMaskingEnabled(logger))
             {
@@ -586,8 +590,8 @@ namespace CyberSource.Client
                 logger.Debug($"HTTP Request Headers :\n{headerPrintOutput.ToString()}");
             }
 
+            clientOptions.UserAgent = Configuration.UserAgent;
             RestClient = new RestClient(clientOptions);
-            RestClient.Options.UserAgent = Configuration.UserAgent;
 
             InterceptRequest(request);
             var response = await RestClient.ExecuteAsync(request);
@@ -999,7 +1003,11 @@ namespace CyberSource.Client
                 RestClient = new RestClient("https://" + merchantConfig.HostName);
             }
 
-            RestClientOptions clientOptions = RestClient.Options;
+            RestClientOptions clientOptions = new RestClientOptions(RestClient.Options.BaseUrl)
+            {
+                Proxy = RestClient.Options.Proxy,
+                UserAgent = RestClient.Options.UserAgent,
+            };
             if (Configuration.Proxy != null)
             {
                 clientOptions.Proxy = Configuration.Proxy;

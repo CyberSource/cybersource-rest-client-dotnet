@@ -313,7 +313,7 @@ namespace CyberSource.Api
             if (validateExportComplianceRequest != null && validateExportComplianceRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                validateExportComplianceRequest = (ValidateExportComplianceRequest)sdkTracker.InsertDeveloperIdTracker(validateExportComplianceRequest, validateExportComplianceRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                validateExportComplianceRequest = (ValidateExportComplianceRequest)sdkTracker.InsertDeveloperIdTracker(validateExportComplianceRequest, validateExportComplianceRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(validateExportComplianceRequest); // http body (model) parameter
             }
             else
@@ -414,7 +414,7 @@ namespace CyberSource.Api
             if (validateExportComplianceRequest != null && validateExportComplianceRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                validateExportComplianceRequest = (ValidateExportComplianceRequest)sdkTracker.InsertDeveloperIdTracker(validateExportComplianceRequest, validateExportComplianceRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                validateExportComplianceRequest = (ValidateExportComplianceRequest)sdkTracker.InsertDeveloperIdTracker(validateExportComplianceRequest, validateExportComplianceRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(validateExportComplianceRequest); // http body (model) parameter
             }
             else
@@ -513,7 +513,7 @@ namespace CyberSource.Api
             if (verifyCustomerAddressRequest != null && verifyCustomerAddressRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                verifyCustomerAddressRequest = (VerifyCustomerAddressRequest)sdkTracker.InsertDeveloperIdTracker(verifyCustomerAddressRequest, verifyCustomerAddressRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                verifyCustomerAddressRequest = (VerifyCustomerAddressRequest)sdkTracker.InsertDeveloperIdTracker(verifyCustomerAddressRequest, verifyCustomerAddressRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(verifyCustomerAddressRequest); // http body (model) parameter
             }
             else
@@ -614,7 +614,7 @@ namespace CyberSource.Api
             if (verifyCustomerAddressRequest != null && verifyCustomerAddressRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                verifyCustomerAddressRequest = (VerifyCustomerAddressRequest)sdkTracker.InsertDeveloperIdTracker(verifyCustomerAddressRequest, verifyCustomerAddressRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                verifyCustomerAddressRequest = (VerifyCustomerAddressRequest)sdkTracker.InsertDeveloperIdTracker(verifyCustomerAddressRequest, verifyCustomerAddressRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(verifyCustomerAddressRequest); // http body (model) parameter
             }
             else

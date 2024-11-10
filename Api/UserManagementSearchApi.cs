@@ -271,7 +271,7 @@ namespace CyberSource.Api
             if (searchRequest != null && searchRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                searchRequest = (SearchRequest)sdkTracker.InsertDeveloperIdTracker(searchRequest, searchRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                searchRequest = (SearchRequest)sdkTracker.InsertDeveloperIdTracker(searchRequest, searchRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(searchRequest); // http body (model) parameter
             }
             else
@@ -372,7 +372,7 @@ namespace CyberSource.Api
             if (searchRequest != null && searchRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                searchRequest = (SearchRequest)sdkTracker.InsertDeveloperIdTracker(searchRequest, searchRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                searchRequest = (SearchRequest)sdkTracker.InsertDeveloperIdTracker(searchRequest, searchRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(searchRequest); // http body (model) parameter
             }
             else

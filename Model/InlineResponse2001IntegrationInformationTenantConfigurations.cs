@@ -31,44 +31,14 @@ namespace CyberSource.Model
     public partial class InlineResponse2001IntegrationInformationTenantConfigurations :  IEquatable<InlineResponse2001IntegrationInformationTenantConfigurations>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            
-            /// <summary>
-            /// Enum LIVE for "LIVE"
-            /// </summary>
-            [EnumMember(Value = "LIVE")]
-            LIVE,
-            
-            /// <summary>
-            /// Enum INACTIVE for "INACTIVE"
-            /// </summary>
-            [EnumMember(Value = "INACTIVE")]
-            INACTIVE,
-            
-            /// <summary>
-            /// Enum TEST for "TEST"
-            /// </summary>
-            [EnumMember(Value = "TEST")]
-            TEST
-        }
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2001IntegrationInformationTenantConfigurations" /> class.
         /// </summary>
         /// <param name="SolutionId">The solutionId is the unique identifier for this system resource. Partner can use it to reference the specific solution through out the system. .</param>
         /// <param name="TenantConfigurationId">The tenantConfigurationId is the unique identifier for this system resource. You will see various places where it must be referenced in the URI path, or when querying the hierarchy for ancestors or descendants. .</param>
-        /// <param name="Status">Status.</param>
+        /// <param name="Status">Possible values: - LIVE - INACTIVE - TEST.</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC..</param>
         /// <param name="TenantInformation">TenantInformation.</param>
-        public InlineResponse2001IntegrationInformationTenantConfigurations(string SolutionId = default(string), string TenantConfigurationId = default(string), StatusEnum? Status = default(StatusEnum?), DateTime? SubmitTimeUtc = default(DateTime?), Boardingv1registrationsIntegrationInformationTenantInformation TenantInformation = default(Boardingv1registrationsIntegrationInformationTenantInformation))
+        public InlineResponse2001IntegrationInformationTenantConfigurations(string SolutionId = default(string), string TenantConfigurationId = default(string), string Status = default(string), DateTime? SubmitTimeUtc = default(DateTime?), Boardingv1registrationsIntegrationInformationTenantInformation TenantInformation = default(Boardingv1registrationsIntegrationInformationTenantInformation))
         {
             this.SolutionId = SolutionId;
             this.TenantConfigurationId = TenantConfigurationId;
@@ -91,6 +61,12 @@ namespace CyberSource.Model
         [DataMember(Name="tenantConfigurationId", EmitDefaultValue=false)]
         public string TenantConfigurationId { get; set; }
 
+        /// <summary>
+        /// Possible values: - LIVE - INACTIVE - TEST
+        /// </summary>
+        /// <value>Possible values: - LIVE - INACTIVE - TEST</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Time of request in UTC.

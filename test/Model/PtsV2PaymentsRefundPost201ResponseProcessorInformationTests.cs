@@ -128,6 +128,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'SettlementDate'
         }
+        /// <summary>
+        /// Test the property 'UpdateTimeUtc'
+        /// </summary>
+        [Test]
+        public void UpdateTimeUtcTest()
+        {
+            // TODO unit test for the property 'UpdateTimeUtc'
+        }
 
     }
 

@@ -271,7 +271,7 @@ namespace CyberSource.Api
             if (octCreatePaymentRequest != null && octCreatePaymentRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                octCreatePaymentRequest = (OctCreatePaymentRequest)sdkTracker.InsertDeveloperIdTracker(octCreatePaymentRequest, octCreatePaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                octCreatePaymentRequest = (OctCreatePaymentRequest)sdkTracker.InsertDeveloperIdTracker(octCreatePaymentRequest, octCreatePaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(octCreatePaymentRequest); // http body (model) parameter
             }
             else
@@ -372,7 +372,7 @@ namespace CyberSource.Api
             if (octCreatePaymentRequest != null && octCreatePaymentRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                octCreatePaymentRequest = (OctCreatePaymentRequest)sdkTracker.InsertDeveloperIdTracker(octCreatePaymentRequest, octCreatePaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"]);
+                octCreatePaymentRequest = (OctCreatePaymentRequest)sdkTracker.InsertDeveloperIdTracker(octCreatePaymentRequest, octCreatePaymentRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(octCreatePaymentRequest); // http body (model) parameter
             }
             else

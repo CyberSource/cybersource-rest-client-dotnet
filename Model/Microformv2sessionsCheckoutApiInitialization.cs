@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Microformv2sessionsCheckoutApiInitialization
+    /// Use the [Digital Accept Checkout API](https://developer.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Checkout_API/Secure_Acceptance_Checkout_API.pdf) in conjunction with Microform to provide a cohesive PCI SAQ A embedded payment application within your merchant e-commerce page.   The Digital Accept Checkout API provides access to payment processing and additional value-added services directly from the browser. 
     /// </summary>
     [DataContract]
     public partial class Microformv2sessionsCheckoutApiInitialization :  IEquatable<Microformv2sessionsCheckoutApiInitialization>, IValidatableObject
@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="TransactionType">TransactionType.</param>
         /// <param name="Currency">Currency.</param>
         /// <param name="Amount">Amount.</param>
-        /// <param name="Locale">Locale.</param>
+        /// <param name="Locale">Locale where application is being used.  This field controls aspects of the application such as the language it will be rendered in. .</param>
         /// <param name="OverrideCustomReceiptPage">OverrideCustomReceiptPage.</param>
         /// <param name="UnsignedFieldNames">UnsignedFieldNames.</param>
         public Microformv2sessionsCheckoutApiInitialization(string ProfileId = default(string), string AccessKey = default(string), string ReferenceNumber = default(string), string TransactionUuid = default(string), string TransactionType = default(string), string Currency = default(string), string Amount = default(string), string Locale = default(string), string OverrideCustomReceiptPage = default(string), string UnsignedFieldNames = default(string))
@@ -100,8 +100,9 @@ namespace CyberSource.Model
         public string Amount { get; set; }
 
         /// <summary>
-        /// Gets or Sets Locale
+        /// Locale where application is being used.  This field controls aspects of the application such as the language it will be rendered in. 
         /// </summary>
+        /// <value>Locale where application is being used.  This field controls aspects of the application such as the language it will be rendered in. </value>
         [DataMember(Name="locale", EmitDefaultValue=false)]
         public string Locale { get; set; }
 

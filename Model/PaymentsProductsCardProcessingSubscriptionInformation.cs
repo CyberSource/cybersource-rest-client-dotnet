@@ -31,50 +31,18 @@ namespace CyberSource.Model
     public partial class PaymentsProductsCardProcessingSubscriptionInformation :  IEquatable<PaymentsProductsCardProcessingSubscriptionInformation>, IValidatableObject
     {
         /// <summary>
-        /// Indicates if the organization can enable this product using self service.
-        /// </summary>
-        /// <value>Indicates if the organization can enable this product using self service.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SelfServiceabilityEnum
-        {
-            
-            /// <summary>
-            /// Enum SELFSERVICEABLE for "SELF_SERVICEABLE"
-            /// </summary>
-            [EnumMember(Value = "SELF_SERVICEABLE")]
-            SELFSERVICEABLE,
-            
-            /// <summary>
-            /// Enum NOTSELFSERVICEABLE for "NOT_SELF_SERVICEABLE"
-            /// </summary>
-            [EnumMember(Value = "NOT_SELF_SERVICEABLE")]
-            NOTSELFSERVICEABLE,
-            
-            /// <summary>
-            /// Enum SELFSERVICEONLY for "SELF_SERVICE_ONLY"
-            /// </summary>
-            [EnumMember(Value = "SELF_SERVICE_ONLY")]
-            SELFSERVICEONLY
-        }
-        /// <summary>
-        /// Indicates if the organization can enable this product using self service.
-        /// </summary>
-        /// <value>Indicates if the organization can enable this product using self service.</value>
-        [DataMember(Name="selfServiceability", EmitDefaultValue=false)]
-        public SelfServiceabilityEnum? SelfServiceability { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsProductsCardProcessingSubscriptionInformation" /> class.
         /// </summary>
         /// <param name="Enabled">Enabled.</param>
-        /// <param name="SelfServiceability">Indicates if the organization can enable this product using self service. (default to SelfServiceabilityEnum.NOTSELFSERVICEABLE).</param>
+        /// <param name="SelfServiceability">Indicates if the organization can enable this product using self service.  Possible values: - SELF_SERVICEABLE - NOT_SELF_SERVICEABLE - SELF_SERVICE_ONLY (default to &quot;NOT_SELF_SERVICEABLE&quot;).</param>
         /// <param name="Features">This is a map. The allowed keys are below. Value should be an object containing a sole boolean property - enabled. &lt;table&gt;    &lt;tr&gt;       &lt;td&gt;cardPresent&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;       &lt;td&gt;cardNotPresent&lt;/td&gt;    &lt;/tr&gt; &lt;/table&gt; .</param>
-        public PaymentsProductsCardProcessingSubscriptionInformation(bool? Enabled = default(bool?), SelfServiceabilityEnum? SelfServiceability = SelfServiceabilityEnum.NOTSELFSERVICEABLE, Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures> Features = default(Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures>))
+        public PaymentsProductsCardProcessingSubscriptionInformation(bool? Enabled = default(bool?), string SelfServiceability = "NOT_SELF_SERVICEABLE", Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures> Features = default(Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures>))
         {
             this.Enabled = Enabled;
             // use default value if no "SelfServiceability" provided
             if (SelfServiceability == null)
             {
-                this.SelfServiceability = SelfServiceabilityEnum.NOTSELFSERVICEABLE;
+                this.SelfServiceability = "NOT_SELF_SERVICEABLE";
             }
             else
             {
@@ -89,6 +57,12 @@ namespace CyberSource.Model
         [DataMember(Name="enabled", EmitDefaultValue=false)]
         public bool? Enabled { get; set; }
 
+        /// <summary>
+        /// Indicates if the organization can enable this product using self service.  Possible values: - SELF_SERVICEABLE - NOT_SELF_SERVICEABLE - SELF_SERVICE_ONLY
+        /// </summary>
+        /// <value>Indicates if the organization can enable this product using self service.  Possible values: - SELF_SERVICEABLE - NOT_SELF_SERVICEABLE - SELF_SERVICE_ONLY</value>
+        [DataMember(Name="selfServiceability", EmitDefaultValue=false)]
+        public string SelfServiceability { get; set; }
 
         /// <summary>
         /// This is a map. The allowed keys are below. Value should be an object containing a sole boolean property - enabled. &lt;table&gt;    &lt;tr&gt;       &lt;td&gt;cardPresent&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;       &lt;td&gt;cardNotPresent&lt;/td&gt;    &lt;/tr&gt; &lt;/table&gt; 
