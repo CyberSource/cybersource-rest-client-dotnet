@@ -14,7 +14,7 @@
       <dependency id="Newtonsoft.Json" version="13.0.3"></dependency>
       <dependency id="RestSharp" version="[112.1.0]"></dependency>
       <dependency id="NLog" version="5.0.0"></dependency>
-      <dependency id="CyberSource.Authentication" version="[0.0.0.20]"></dependency>
+      <dependency id="CyberSource.Authentication" version="[0.0.0.21]"></dependency>
     </dependencies>
   </metadata>
   <files>
