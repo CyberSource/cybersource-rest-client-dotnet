@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ParentProfileId'
         }
+        /// <summary>
+        /// Test the property 'Vault'
+        /// </summary>
+        [Test]
+        public void VaultTest()
+        {
+            // TODO unit test for the property 'Vault'
+        }
 
     }
 
