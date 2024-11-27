@@ -42,9 +42,9 @@ namespace CyberSource.Model
         /// <param name="CompanyId">*EXISTING* company ID assigned to merchant by Acquiring bank. This field is alphanumeric.</param>
         /// <param name="BatchGroup">*EXISTING* Capture requests are grouped into a batch bound for your payment processor. The batch time can be identified by reading the last 2-digits as military time. E.g., &lt;processor&gt;_16 &#x3D; your processing cutoff is 4PM PST. Please note if you are in a different location you may then need to convert time zone as well..</param>
         /// <param name="EnableAccuityForAvs">*NEW* Accuity is the original validation service that checks the account/routing number for formatting issues. Used by WF and set to \&quot;Yes\&quot; unless told otherwise (default to true).</param>
-        /// <param name="AccuityCheckType">*NEW*.</param>
+        /// <param name="AccuityCheckType">*NEW*  Possible values: - ALWAYS (default to &quot;ALWAYS&quot;).</param>
         /// <param name="SetCompletedState">*Moved* When set to Yes we will automatically update transactions to a completed status X-number of days after the transaction comes through; if no failure notification is received. When set to No means we will not update transaction status in this manner. For BAMS/Bank of America merchants, they should be set to No unless we are explicitly asked to set a merchant to YES. (default to false).</param>
-        public ECheckConfigCommonProcessors(string CompanyEntryDescription = default(string), string CompanyId = default(string), string BatchGroup = default(string), bool? EnableAccuityForAvs = true, Object AccuityCheckType = default(Object), bool? SetCompletedState = false)
+        public ECheckConfigCommonProcessors(string CompanyEntryDescription = default(string), string CompanyId = default(string), string BatchGroup = default(string), bool? EnableAccuityForAvs = true, string AccuityCheckType = "ALWAYS", bool? SetCompletedState = false)
         {
             this.CompanyEntryDescription = CompanyEntryDescription;
             this.CompanyId = CompanyId;
@@ -58,7 +58,15 @@ namespace CyberSource.Model
             {
                 this.EnableAccuityForAvs = EnableAccuityForAvs;
             }
-            this.AccuityCheckType = AccuityCheckType;
+            // use default value if no "AccuityCheckType" provided
+            if (AccuityCheckType == null)
+            {
+                this.AccuityCheckType = "ALWAYS";
+            }
+            else
+            {
+                this.AccuityCheckType = AccuityCheckType;
+            }
             // use default value if no "SetCompletedState" provided
             if (SetCompletedState == null)
             {
@@ -99,11 +107,11 @@ namespace CyberSource.Model
         public bool? EnableAccuityForAvs { get; set; }
 
         /// <summary>
-        /// *NEW*
+        /// *NEW*  Possible values: - ALWAYS
         /// </summary>
-        /// <value>*NEW*</value>
+        /// <value>*NEW*  Possible values: - ALWAYS</value>
         [DataMember(Name="accuityCheckType", EmitDefaultValue=false)]
-        public Object AccuityCheckType { get; set; }
+        public string AccuityCheckType { get; set; }
 
         /// <summary>
         /// *Moved* When set to Yes we will automatically update transactions to a completed status X-number of days after the transaction comes through; if no failure notification is received. When set to No means we will not update transaction status in this manner. For BAMS/Bank of America merchants, they should be set to No unless we are explicitly asked to set a merchant to YES.

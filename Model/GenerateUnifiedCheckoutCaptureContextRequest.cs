@@ -33,19 +33,19 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerateUnifiedCheckoutCaptureContextRequest" /> class.
         /// </summary>
-        /// <param name="TargetOrigins">The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Unified Checkout is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] .</param>
         /// <param name="ClientVersion">Specify the version of Unified Checkout that you want to use..</param>
-        /// <param name="AllowedCardNetworks">The list of card networks you want to use for this Unified Checkout transaction.  Unified Checkout currently supports the following card networks:   - VISA   - MASTERCARD   - AMEX   - DISCOVER   - DINERSCLUB   - JCB .</param>
+        /// <param name="TargetOrigins">The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Unified Checkout is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] .</param>
+        /// <param name="AllowedCardNetworks">The list of card networks you want to use for this Unified Checkout transaction.  Unified Checkout currently supports the following card networks:     - VISA     - MASTERCARD     - AMEX     - CARNET     - CARTESBANCAIRES     - CUP     - DINERSCLUB     - DISCOVER     - EFTPOS     - ELO     - JCB     - JCREW     - MADA     - MAESTRO     - MEEZA .</param>
         /// <param name="AllowedPaymentTypes">The payment types that are allowed for the merchant.    Possible values when launching Unified Checkout:   - PANENTRY                 - GOOGLEPAY   - SRC   - CHECK &lt;br&gt;&lt;br&gt;  Possible values when launching Unified Checkout with Checkout API: - PANENTRY               - SRC &lt;br&gt;&lt;br&gt;  Possible values when launching Click To Pay Drop-In UI: - CLICKTOPAY &lt;br&gt;&lt;br&gt;  **Important:**    - SRC and CLICKTOPAY are only available for Visa, Mastercard and AMEX. .</param>
         /// <param name="Country">Country the purchase is originating from (e.g. country of the merchant).  Use the two-character ISO Standard .</param>
         /// <param name="Locale">Localization of the User experience conforming to the ISO 639-1 language standards and two-character ISO Standard Country Code.  Please refer to list of [supported locales through Unified Checkout](https://developer.cybersource.com/docs/cybs/en-us/unified-checkout/developer/all/rest/unified-checkout/uc-appendix-languages.html) .</param>
         /// <param name="CaptureMandate">CaptureMandate.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="CheckoutApiInitialization">CheckoutApiInitialization.</param>
-        public GenerateUnifiedCheckoutCaptureContextRequest(List<string> TargetOrigins = default(List<string>), string ClientVersion = default(string), List<string> AllowedCardNetworks = default(List<string>), List<string> AllowedPaymentTypes = default(List<string>), string Country = default(string), string Locale = default(string), Upv1capturecontextsCaptureMandate CaptureMandate = default(Upv1capturecontextsCaptureMandate), Upv1capturecontextsOrderInformation OrderInformation = default(Upv1capturecontextsOrderInformation), Upv1capturecontextsCheckoutApiInitialization CheckoutApiInitialization = default(Upv1capturecontextsCheckoutApiInitialization))
+        public GenerateUnifiedCheckoutCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), List<string> AllowedPaymentTypes = default(List<string>), string Country = default(string), string Locale = default(string), Upv1capturecontextsCaptureMandate CaptureMandate = default(Upv1capturecontextsCaptureMandate), Upv1capturecontextsOrderInformation OrderInformation = default(Upv1capturecontextsOrderInformation), Upv1capturecontextsCheckoutApiInitialization CheckoutApiInitialization = default(Upv1capturecontextsCheckoutApiInitialization))
         {
-            this.TargetOrigins = TargetOrigins;
             this.ClientVersion = ClientVersion;
+            this.TargetOrigins = TargetOrigins;
             this.AllowedCardNetworks = AllowedCardNetworks;
             this.AllowedPaymentTypes = AllowedPaymentTypes;
             this.Country = Country;
@@ -56,13 +56,6 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Unified Checkout is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] 
-        /// </summary>
-        /// <value>The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Unified Checkout is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] </value>
-        [DataMember(Name="targetOrigins", EmitDefaultValue=false)]
-        public List<string> TargetOrigins { get; set; }
-
-        /// <summary>
         /// Specify the version of Unified Checkout that you want to use.
         /// </summary>
         /// <value>Specify the version of Unified Checkout that you want to use.</value>
@@ -70,9 +63,16 @@ namespace CyberSource.Model
         public string ClientVersion { get; set; }
 
         /// <summary>
-        /// The list of card networks you want to use for this Unified Checkout transaction.  Unified Checkout currently supports the following card networks:   - VISA   - MASTERCARD   - AMEX   - DISCOVER   - DINERSCLUB   - JCB 
+        /// The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Unified Checkout is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] 
         /// </summary>
-        /// <value>The list of card networks you want to use for this Unified Checkout transaction.  Unified Checkout currently supports the following card networks:   - VISA   - MASTERCARD   - AMEX   - DISCOVER   - DINERSCLUB   - JCB </value>
+        /// <value>The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Unified Checkout is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] </value>
+        [DataMember(Name="targetOrigins", EmitDefaultValue=false)]
+        public List<string> TargetOrigins { get; set; }
+
+        /// <summary>
+        /// The list of card networks you want to use for this Unified Checkout transaction.  Unified Checkout currently supports the following card networks:     - VISA     - MASTERCARD     - AMEX     - CARNET     - CARTESBANCAIRES     - CUP     - DINERSCLUB     - DISCOVER     - EFTPOS     - ELO     - JCB     - JCREW     - MADA     - MAESTRO     - MEEZA 
+        /// </summary>
+        /// <value>The list of card networks you want to use for this Unified Checkout transaction.  Unified Checkout currently supports the following card networks:     - VISA     - MASTERCARD     - AMEX     - CARNET     - CARTESBANCAIRES     - CUP     - DINERSCLUB     - DISCOVER     - EFTPOS     - ELO     - JCB     - JCREW     - MADA     - MAESTRO     - MEEZA </value>
         [DataMember(Name="allowedCardNetworks", EmitDefaultValue=false)]
         public List<string> AllowedCardNetworks { get; set; }
 
@@ -123,8 +123,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GenerateUnifiedCheckoutCaptureContextRequest {\n");
-            sb.Append("  TargetOrigins: ").Append(TargetOrigins).Append("\n");
             sb.Append("  ClientVersion: ").Append(ClientVersion).Append("\n");
+            sb.Append("  TargetOrigins: ").Append(TargetOrigins).Append("\n");
             sb.Append("  AllowedCardNetworks: ").Append(AllowedCardNetworks).Append("\n");
             sb.Append("  AllowedPaymentTypes: ").Append(AllowedPaymentTypes).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
@@ -169,14 +169,14 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.TargetOrigins == other.TargetOrigins ||
-                    this.TargetOrigins != null &&
-                    this.TargetOrigins.SequenceEqual(other.TargetOrigins)
-                ) && 
-                (
                     this.ClientVersion == other.ClientVersion ||
                     this.ClientVersion != null &&
                     this.ClientVersion.Equals(other.ClientVersion)
+                ) && 
+                (
+                    this.TargetOrigins == other.TargetOrigins ||
+                    this.TargetOrigins != null &&
+                    this.TargetOrigins.SequenceEqual(other.TargetOrigins)
                 ) && 
                 (
                     this.AllowedCardNetworks == other.AllowedCardNetworks ||
@@ -226,10 +226,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.TargetOrigins != null)
-                    hash = hash * 59 + this.TargetOrigins.GetHashCode();
                 if (this.ClientVersion != null)
                     hash = hash * 59 + this.ClientVersion.GetHashCode();
+                if (this.TargetOrigins != null)
+                    hash = hash * 59 + this.TargetOrigins.GetHashCode();
                 if (this.AllowedCardNetworks != null)
                     hash = hash * 59 + this.AllowedCardNetworks.GetHashCode();
                 if (this.AllowedPaymentTypes != null)

@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurations" /> class.
         /// </summary>
         /// <param name="ParentProfileId">Specify the Vault ID to which transacting MID needs to be assigned.Provide Vault ID as seen on EBC Vault management page. If not provided , transacting MID will be assigned to the existing default Vault at merchant&#39;s level. If there are no Vaults at merchant level , a new Vault will be created and transacting MID will be assigned to it..</param>
-        public CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurations(string ParentProfileId = default(string))
+        /// <param name="Vault">Vault.</param>
+        public CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurations(string ParentProfileId = default(string), CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurationsVault Vault = default(CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurationsVault))
         {
             this.ParentProfileId = ParentProfileId;
+            this.Vault = Vault;
         }
         
         /// <summary>
@@ -47,6 +49,12 @@ namespace CyberSource.Model
         public string ParentProfileId { get; set; }
 
         /// <summary>
+        /// Gets or Sets Vault
+        /// </summary>
+        [DataMember(Name="vault", EmitDefaultValue=false)]
+        public CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurationsVault Vault { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +63,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurations {\n");
             sb.Append("  ParentProfileId: ").Append(ParentProfileId).Append("\n");
+            sb.Append("  Vault: ").Append(Vault).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +104,11 @@ namespace CyberSource.Model
                     this.ParentProfileId == other.ParentProfileId ||
                     this.ParentProfileId != null &&
                     this.ParentProfileId.Equals(other.ParentProfileId)
+                ) && 
+                (
+                    this.Vault == other.Vault ||
+                    this.Vault != null &&
+                    this.Vault.Equals(other.Vault)
                 );
         }
 
@@ -111,6 +125,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.ParentProfileId != null)
                     hash = hash * 59 + this.ParentProfileId.GetHashCode();
+                if (this.Vault != null)
+                    hash = hash * 59 + this.Vault.GetHashCode();
                 return hash;
             }
         }

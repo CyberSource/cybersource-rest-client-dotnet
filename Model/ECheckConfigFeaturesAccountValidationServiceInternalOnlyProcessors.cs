@@ -33,18 +33,26 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ECheckConfigFeaturesAccountValidationServiceInternalOnlyProcessors" /> class.
         /// </summary>
-        /// <param name="AvsVersion">*NEW*.</param>
-        public ECheckConfigFeaturesAccountValidationServiceInternalOnlyProcessors(Object AvsVersion = default(Object))
+        /// <param name="AvsVersion">*NEW*  Possible values: - 2 (default to &quot;2&quot;).</param>
+        public ECheckConfigFeaturesAccountValidationServiceInternalOnlyProcessors(string AvsVersion = "2")
         {
-            this.AvsVersion = AvsVersion;
+            // use default value if no "AvsVersion" provided
+            if (AvsVersion == null)
+            {
+                this.AvsVersion = "2";
+            }
+            else
+            {
+                this.AvsVersion = AvsVersion;
+            }
         }
         
         /// <summary>
-        /// *NEW*
+        /// *NEW*  Possible values: - 2
         /// </summary>
-        /// <value>*NEW*</value>
+        /// <value>*NEW*  Possible values: - 2</value>
         [DataMember(Name="avsVersion", EmitDefaultValue=false)]
-        public Object AvsVersion { get; set; }
+        public string AvsVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

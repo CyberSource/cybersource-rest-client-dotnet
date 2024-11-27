@@ -33,18 +33,25 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerateCaptureContextRequest" /> class.
         /// </summary>
-        /// <param name="TargetOrigins">The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Microform is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] .</param>
-        /// <param name="AllowedCardNetworks">The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MAESTRO - MASTERCARD - AMEX - DISCOVER - DINERSCLUB - JCB - CUP - CARTESBANCAIRES - CARNET .</param>
         /// <param name="ClientVersion">Specify the version of Microform that you want to use. .</param>
+        /// <param name="TargetOrigins">The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Microform is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] .</param>
+        /// <param name="AllowedCardNetworks">The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA .</param>
         /// <param name="CheckoutApiInitialization">CheckoutApiInitialization.</param>
-        public GenerateCaptureContextRequest(List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), string ClientVersion = default(string), Microformv2sessionsCheckoutApiInitialization CheckoutApiInitialization = default(Microformv2sessionsCheckoutApiInitialization))
+        public GenerateCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), Microformv2sessionsCheckoutApiInitialization CheckoutApiInitialization = default(Microformv2sessionsCheckoutApiInitialization))
         {
+            this.ClientVersion = ClientVersion;
             this.TargetOrigins = TargetOrigins;
             this.AllowedCardNetworks = AllowedCardNetworks;
-            this.ClientVersion = ClientVersion;
             this.CheckoutApiInitialization = CheckoutApiInitialization;
         }
         
+        /// <summary>
+        /// Specify the version of Microform that you want to use. 
+        /// </summary>
+        /// <value>Specify the version of Microform that you want to use. </value>
+        [DataMember(Name="clientVersion", EmitDefaultValue=false)]
+        public string ClientVersion { get; set; }
+
         /// <summary>
         /// The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Microform is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] 
         /// </summary>
@@ -53,18 +60,11 @@ namespace CyberSource.Model
         public List<string> TargetOrigins { get; set; }
 
         /// <summary>
-        /// The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MAESTRO - MASTERCARD - AMEX - DISCOVER - DINERSCLUB - JCB - CUP - CARTESBANCAIRES - CARNET 
+        /// The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA 
         /// </summary>
-        /// <value>The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MAESTRO - MASTERCARD - AMEX - DISCOVER - DINERSCLUB - JCB - CUP - CARTESBANCAIRES - CARNET </value>
+        /// <value>The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA </value>
         [DataMember(Name="allowedCardNetworks", EmitDefaultValue=false)]
         public List<string> AllowedCardNetworks { get; set; }
-
-        /// <summary>
-        /// Specify the version of Microform that you want to use. 
-        /// </summary>
-        /// <value>Specify the version of Microform that you want to use. </value>
-        [DataMember(Name="clientVersion", EmitDefaultValue=false)]
-        public string ClientVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets CheckoutApiInitialization
@@ -80,9 +80,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GenerateCaptureContextRequest {\n");
+            sb.Append("  ClientVersion: ").Append(ClientVersion).Append("\n");
             sb.Append("  TargetOrigins: ").Append(TargetOrigins).Append("\n");
             sb.Append("  AllowedCardNetworks: ").Append(AllowedCardNetworks).Append("\n");
-            sb.Append("  ClientVersion: ").Append(ClientVersion).Append("\n");
             sb.Append("  CheckoutApiInitialization: ").Append(CheckoutApiInitialization).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -121,6 +121,11 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.ClientVersion == other.ClientVersion ||
+                    this.ClientVersion != null &&
+                    this.ClientVersion.Equals(other.ClientVersion)
+                ) && 
+                (
                     this.TargetOrigins == other.TargetOrigins ||
                     this.TargetOrigins != null &&
                     this.TargetOrigins.SequenceEqual(other.TargetOrigins)
@@ -129,11 +134,6 @@ namespace CyberSource.Model
                     this.AllowedCardNetworks == other.AllowedCardNetworks ||
                     this.AllowedCardNetworks != null &&
                     this.AllowedCardNetworks.SequenceEqual(other.AllowedCardNetworks)
-                ) && 
-                (
-                    this.ClientVersion == other.ClientVersion ||
-                    this.ClientVersion != null &&
-                    this.ClientVersion.Equals(other.ClientVersion)
                 ) && 
                 (
                     this.CheckoutApiInitialization == other.CheckoutApiInitialization ||
@@ -153,12 +153,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.ClientVersion != null)
+                    hash = hash * 59 + this.ClientVersion.GetHashCode();
                 if (this.TargetOrigins != null)
                     hash = hash * 59 + this.TargetOrigins.GetHashCode();
                 if (this.AllowedCardNetworks != null)
                     hash = hash * 59 + this.AllowedCardNetworks.GetHashCode();
-                if (this.ClientVersion != null)
-                    hash = hash * 59 + this.ClientVersion.GetHashCode();
                 if (this.CheckoutApiInitialization != null)
                     hash = hash * 59 + this.CheckoutApiInitialization.GetHashCode();
                 return hash;

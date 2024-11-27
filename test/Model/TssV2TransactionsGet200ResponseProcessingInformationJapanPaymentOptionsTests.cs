@@ -96,6 +96,46 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'BusinessNameKatakana'
         }
+        /// <summary>
+        /// Test the property 'BusinessNameEnglish'
+        /// </summary>
+        [Test]
+        public void BusinessNameEnglishTest()
+        {
+            // TODO unit test for the property 'BusinessNameEnglish'
+        }
+        /// <summary>
+        /// Test the property 'Bonuses'
+        /// </summary>
+        [Test]
+        public void BonusesTest()
+        {
+            // TODO unit test for the property 'Bonuses'
+        }
+        /// <summary>
+        /// Test the property 'FirstBillingMonth'
+        /// </summary>
+        [Test]
+        public void FirstBillingMonthTest()
+        {
+            // TODO unit test for the property 'FirstBillingMonth'
+        }
+        /// <summary>
+        /// Test the property 'NumberOfInstallments'
+        /// </summary>
+        [Test]
+        public void NumberOfInstallmentsTest()
+        {
+            // TODO unit test for the property 'NumberOfInstallments'
+        }
+        /// <summary>
+        /// Test the property 'PreApprovalType'
+        /// </summary>
+        [Test]
+        public void PreApprovalTypeTest()
+        {
+            // TODO unit test for the property 'PreApprovalType'
+        }
 
     }
 
