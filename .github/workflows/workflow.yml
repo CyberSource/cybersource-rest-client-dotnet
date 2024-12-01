@@ -1,0 +1,96 @@
+name: DOTNET BUILDS
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+env:
+  CLIENT_FOLDER: 'cybersource-rest-client-dotnet'
+  SAMPLE_FOLDER: 'cybersource-rest-samples-csharp'
+jobs:
+    build-the-dotnet-client:
+        defaults:
+            run:
+              shell: bash
+        runs-on: windows-2019
+        steps:
+            - name: Checkout cybersource-rest-client-dotnet repo
+              uses: actions/checkout@v4
+              with:
+                path: ${{env.CLIENT_FOLDER}}
+            - name: Setup MSBuild
+              uses: microsoft/setup-msbuild@v2
+            - name: Building the Dotnet Client
+              run: |
+                cd $Env:CLIENT_FOLDER
+                nuget install packages.config -OutputDirectory packages
+                nuget install ./test/packages.config -OutputDirectory packages
+                msbuild -version
+                msbuild -property:Configuration=Release "cybersource-rest-client-dotnet.sln"
+                Write-Output "Build Successful"
+              shell: pwsh
+            - name: Upload the Dotnet Rest Client Build
+              uses: actions/upload-artifact@v4
+              with:
+                name: cybersource-rest-client-dotnet-dll-and-action
+                path: |
+                  ${{env.CLIENT_FOLDER}}/bin/Release/cybersource-rest-client-dotnet.dll
+                  ${{env.CLIENT_FOLDER}}/.github/actions/generate-report
+    build-the-samples-and-run-tests:
+      defaults:
+        run:
+          shell: bash
+      strategy:
+        fail-fast: false
+        matrix:
+          operating-system: [windows-latest,windows-2019]
+          net-framework-version: [4.6.1,4.6.2,4.7,4.7.1,4.7.2,4.8,4.8.1]
+          exclude:
+            - operating-system: windows-2019
+              net-framework-version: 4.8.1
+            - operating-system: windows-latest
+              net-framework-version: 4.6.1
+      needs: build-the-dotnet-client # to make sure these jobs only start once the already present jobs are done running
+      runs-on: ${{matrix.operating-system}}
+      steps:
+        - name: Download the Built Rest Client for Dotnet from previous Job
+          uses: actions/download-artifact@v4
+          with:
+            name: cybersource-rest-client-dotnet-dll-and-action
+            path: dlls-and-action
+        - name: Checkout cybersource-rest-samples-csharp repo
+          uses: actions/checkout@v4
+          with:
+            repository: 'CyberSource/cybersource-rest-samples-csharp'
+            ref: 'master'
+            path: ${{env.SAMPLE_FOLDER}}
+        - name: Setup MSBuild
+          uses: microsoft/setup-msbuild@v2
+        - name: Building the samples and Running the Tests
+          run: |
+            msbuild -version
+            cd $Env:SAMPLE_FOLDER
+            (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<HintPath>)(.)+(cybersource-rest-client-dotnet.dll</HintPath>)", "<HintPath>..\\dlls-and-action\\bin\\Release\\cybersource-rest-client-dotnet.dll</HintPath>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
+            #Replaced the Dependency path to already built cybersource-rest-client-dotnet dll file which was downloaded to the runner
+            (Get-Content ./cybersource-rest-samples-csharp.csproj) | ForEach-Object { $_ -replace "(<TargetFrameworkVersion>)(.)+(</TargetFrameworkVersion>)", "<TargetFrameworkVersion>v${{matrix.net-framework-version}}</TargetFrameworkVersion>" } | Set-Content ./cybersource-rest-samples-csharp.csproj
+            nuget install packages.config -OutputDirectory packages
+            msbuild -property:Configuration=Release "cybersource-rest-samples-csharp.sln"
+            cd bin/Release/net461
+            Write-Output "Running Samples now"
+            ./SampleCode.exe -RunAll > testing_dotnet.log
+            Copy-Item ".\testing_dotnet.log" -Destination "..\..\..\"
+            Set-Location ..\..\..
+            Move-Item -Path .\testing_dotnet.log -Destination .\output.log
+          shell: pwsh
+        - name: Using Report Generation Action
+          id: report-generation
+          uses: ./dlls-and-action/.github/actions/generate-report
+          with:
+            lang: dotnet
+            sample-folder-name: ${{env.SAMPLE_FOLDER}}
+            log-file-name: output.log
+        - name: Upload Test Reports
+          uses: actions/upload-artifact@v4
+          with:
+            name: sample-run-report-${{matrix.operating-system}}-dotnet-framework-ver-${{matrix.net-framework-version}}
+            path: |
+              ${{env.SAMPLE_FOLDER}}/${{steps.report-generation.outputs.result-pdf-name}}
