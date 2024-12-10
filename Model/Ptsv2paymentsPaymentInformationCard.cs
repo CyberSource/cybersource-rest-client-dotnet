@@ -47,8 +47,9 @@ namespace CyberSource.Model
         /// <param name="StartMonth">Month of the start of the Maestro (UK Domestic) card validity period. Do not include the field, even with a blank value, if the card is not a Maestro (UK Domestic) card. &#x60;Format: MM&#x60;. Possible values: 01 through 12.  **Note** The start date is not required for Maestro (UK Domestic) transactions. .</param>
         /// <param name="StartYear">Year of the start of the Maestro (UK Domestic) card validity period. Do not include the field, even with a blank value, if the card is not a Maestro (UK Domestic) card. &#x60;Format: YYYY&#x60;.  **Note** The start date is not required for Maestro (UK Domestic) transactions. .</param>
         /// <param name="ProductName">Name of the card product.  Possible value: - BNDES  This field is supported only for BNDES transactions on CyberSource through VisaNet.  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR4 - Position: 115-120 - Field: Brazil Country Data .</param>
+        /// <param name="ProductSubtype">This field would contain the indicator for transaction type  Possible values: - AC: Agriculture Maintenance Account - AE: Agriculture Debit Account/Electron  - AG: Agriculture  - AI: Agriculture Investment Loan - CG: Brazil Cargo - CS: Construction  - DS: Distribution  - HC: Healthcare - LP: Visa Large Purchase Advantage - MA: Visa Mobile Agent - MB: Interoperable Mobile Branchless Banking - MG: Visa Mobile General - VA: Visa Vale - Supermarket - VF: Visa Vale - Fuel - VR: Visa Vale - Restaurant .</param>
         /// <param name="TypeSelectionIndicator">Flag that identifies how the card type was selected.  Possible values: - 0: Card type was selected based on default acquirer settings. - 1: Customer selected the card type. .</param>
-        public Ptsv2paymentsPaymentInformationCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), string UseAs = default(string), string SourceAccountType = default(string), string SourceAccountTypeDetails = default(string), string SecurityCode = default(string), string SecurityCodeIndicator = default(string), string AccountEncoderId = default(string), string IssueNumber = default(string), string StartMonth = default(string), string StartYear = default(string), string ProductName = default(string), string TypeSelectionIndicator = default(string))
+        public Ptsv2paymentsPaymentInformationCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), string UseAs = default(string), string SourceAccountType = default(string), string SourceAccountTypeDetails = default(string), string SecurityCode = default(string), string SecurityCodeIndicator = default(string), string AccountEncoderId = default(string), string IssueNumber = default(string), string StartMonth = default(string), string StartYear = default(string), string ProductName = default(string), string ProductSubtype = default(string), string TypeSelectionIndicator = default(string))
         {
             this.Number = Number;
             this.ExpirationMonth = ExpirationMonth;
@@ -64,6 +65,7 @@ namespace CyberSource.Model
             this.StartMonth = StartMonth;
             this.StartYear = StartYear;
             this.ProductName = ProductName;
+            this.ProductSubtype = ProductSubtype;
             this.TypeSelectionIndicator = TypeSelectionIndicator;
         }
         
@@ -166,6 +168,13 @@ namespace CyberSource.Model
         public string ProductName { get; set; }
 
         /// <summary>
+        /// This field would contain the indicator for transaction type  Possible values: - AC: Agriculture Maintenance Account - AE: Agriculture Debit Account/Electron  - AG: Agriculture  - AI: Agriculture Investment Loan - CG: Brazil Cargo - CS: Construction  - DS: Distribution  - HC: Healthcare - LP: Visa Large Purchase Advantage - MA: Visa Mobile Agent - MB: Interoperable Mobile Branchless Banking - MG: Visa Mobile General - VA: Visa Vale - Supermarket - VF: Visa Vale - Fuel - VR: Visa Vale - Restaurant 
+        /// </summary>
+        /// <value>This field would contain the indicator for transaction type  Possible values: - AC: Agriculture Maintenance Account - AE: Agriculture Debit Account/Electron  - AG: Agriculture  - AI: Agriculture Investment Loan - CG: Brazil Cargo - CS: Construction  - DS: Distribution  - HC: Healthcare - LP: Visa Large Purchase Advantage - MA: Visa Mobile Agent - MB: Interoperable Mobile Branchless Banking - MG: Visa Mobile General - VA: Visa Vale - Supermarket - VF: Visa Vale - Fuel - VR: Visa Vale - Restaurant </value>
+        [DataMember(Name="productSubtype", EmitDefaultValue=false)]
+        public string ProductSubtype { get; set; }
+
+        /// <summary>
         /// Flag that identifies how the card type was selected.  Possible values: - 0: Card type was selected based on default acquirer settings. - 1: Customer selected the card type. 
         /// </summary>
         /// <value>Flag that identifies how the card type was selected.  Possible values: - 0: Card type was selected based on default acquirer settings. - 1: Customer selected the card type. </value>
@@ -194,6 +203,7 @@ namespace CyberSource.Model
             sb.Append("  StartMonth: ").Append(StartMonth).Append("\n");
             sb.Append("  StartYear: ").Append(StartYear).Append("\n");
             sb.Append("  ProductName: ").Append(ProductName).Append("\n");
+            sb.Append("  ProductSubtype: ").Append(ProductSubtype).Append("\n");
             sb.Append("  TypeSelectionIndicator: ").Append(TypeSelectionIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -302,6 +312,11 @@ namespace CyberSource.Model
                     this.ProductName.Equals(other.ProductName)
                 ) && 
                 (
+                    this.ProductSubtype == other.ProductSubtype ||
+                    this.ProductSubtype != null &&
+                    this.ProductSubtype.Equals(other.ProductSubtype)
+                ) && 
+                (
                     this.TypeSelectionIndicator == other.TypeSelectionIndicator ||
                     this.TypeSelectionIndicator != null &&
                     this.TypeSelectionIndicator.Equals(other.TypeSelectionIndicator)
@@ -347,6 +362,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.StartYear.GetHashCode();
                 if (this.ProductName != null)
                     hash = hash * 59 + this.ProductName.GetHashCode();
+                if (this.ProductSubtype != null)
+                    hash = hash * 59 + this.ProductSubtype.GetHashCode();
                 if (this.TypeSelectionIndicator != null)
                     hash = hash * 59 + this.TypeSelectionIndicator.GetHashCode();
                 return hash;

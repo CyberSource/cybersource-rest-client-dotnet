@@ -37,10 +37,10 @@ namespace CyberSource.Model
         /// <param name="TerminalId">*NEW* The &#39;Terminal Id&#39; aka TID, is an identifier used for with your payments processor. Depending on the processor and payment acceptance type this may also be the default Terminal ID used for Card Present and Virtual Terminal transactions. Applicable for VPC processors. .</param>
         /// <param name="Enable15anTransactionReferenceNumber">*NEW* This ensures the transaction reference # contains an identifier that can be viewed in CYBS (default to true).</param>
         /// <param name="PortalSupportedPaytypes">*NEW* This is used by the EBC2 application (default to &quot;CHECK&quot;).</param>
-        /// <param name="SettlementMethod">*NEW*.</param>
-        /// <param name="VerificationLevel">*NEW*.</param>
+        /// <param name="SettlementMethod">*NEW*  Possible values: - BEST_GUESS (default to &quot;BEST_GUESS&quot;).</param>
+        /// <param name="VerificationLevel">*NEW*  Possible values: - VALIDATION (default to &quot;VALIDATION&quot;).</param>
         /// <param name="SetCompletedState">*Moved* When set to Yes we will automatically update transactions to a completed status X-number of days after the transaction comes through; if no failure notification is received. When set to No means we will not update transaction status in this manner. For BAMS/Bank of America merchants, they should be set to No unless we are explicitly asked to set a merchant to YES. (default to false).</param>
-        public ECheckConfigCommonInternalOnlyProcessors(bool? EnableCCS = default(bool?), string TerminalId = default(string), bool? Enable15anTransactionReferenceNumber = true, string PortalSupportedPaytypes = "CHECK", Object SettlementMethod = default(Object), Object VerificationLevel = default(Object), bool? SetCompletedState = false)
+        public ECheckConfigCommonInternalOnlyProcessors(bool? EnableCCS = default(bool?), string TerminalId = default(string), bool? Enable15anTransactionReferenceNumber = true, string PortalSupportedPaytypes = "CHECK", string SettlementMethod = "BEST_GUESS", string VerificationLevel = "VALIDATION", bool? SetCompletedState = false)
         {
             this.EnableCCS = EnableCCS;
             this.TerminalId = TerminalId;
@@ -62,8 +62,24 @@ namespace CyberSource.Model
             {
                 this.PortalSupportedPaytypes = PortalSupportedPaytypes;
             }
-            this.SettlementMethod = SettlementMethod;
-            this.VerificationLevel = VerificationLevel;
+            // use default value if no "SettlementMethod" provided
+            if (SettlementMethod == null)
+            {
+                this.SettlementMethod = "BEST_GUESS";
+            }
+            else
+            {
+                this.SettlementMethod = SettlementMethod;
+            }
+            // use default value if no "VerificationLevel" provided
+            if (VerificationLevel == null)
+            {
+                this.VerificationLevel = "VALIDATION";
+            }
+            else
+            {
+                this.VerificationLevel = VerificationLevel;
+            }
             // use default value if no "SetCompletedState" provided
             if (SetCompletedState == null)
             {
@@ -104,18 +120,18 @@ namespace CyberSource.Model
         public string PortalSupportedPaytypes { get; set; }
 
         /// <summary>
-        /// *NEW*
+        /// *NEW*  Possible values: - BEST_GUESS
         /// </summary>
-        /// <value>*NEW*</value>
+        /// <value>*NEW*  Possible values: - BEST_GUESS</value>
         [DataMember(Name="settlementMethod", EmitDefaultValue=false)]
-        public Object SettlementMethod { get; set; }
+        public string SettlementMethod { get; set; }
 
         /// <summary>
-        /// *NEW*
+        /// *NEW*  Possible values: - VALIDATION
         /// </summary>
-        /// <value>*NEW*</value>
+        /// <value>*NEW*  Possible values: - VALIDATION</value>
         [DataMember(Name="verificationLevel", EmitDefaultValue=false)]
-        public Object VerificationLevel { get; set; }
+        public string VerificationLevel { get; set; }
 
         /// <summary>
         /// *Moved* When set to Yes we will automatically update transactions to a completed status X-number of days after the transaction comes through; if no failure notification is received. When set to No means we will not update transaction status in this manner. For BAMS/Bank of America merchants, they should be set to No unless we are explicitly asked to set a merchant to YES.

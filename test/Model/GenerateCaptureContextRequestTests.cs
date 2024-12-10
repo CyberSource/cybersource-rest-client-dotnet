@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'ClientVersion'
+        /// </summary>
+        [Test]
+        public void ClientVersionTest()
+        {
+            // TODO unit test for the property 'ClientVersion'
+        }
+        /// <summary>
         /// Test the property 'TargetOrigins'
         /// </summary>
         [Test]
@@ -79,14 +87,6 @@ namespace CyberSource.Test
         public void AllowedCardNetworksTest()
         {
             // TODO unit test for the property 'AllowedCardNetworks'
-        }
-        /// <summary>
-        /// Test the property 'ClientVersion'
-        /// </summary>
-        [Test]
-        public void ClientVersionTest()
-        {
-            // TODO unit test for the property 'ClientVersion'
         }
         /// <summary>
         /// Test the property 'CheckoutApiInitialization'

@@ -37,12 +37,22 @@ namespace CyberSource.Model
         /// <param name="TerminalId">Unique Japan Credit Card Association (JCCA) terminal identifier.  The difference between this field and the &#x60;pointOfSaleInformation.terminalID&#x60; field is that you can define &#x60;pointOfSaleInformation.terminalID&#x60;, but &#x60;processingInformation.japanPaymentOptions.terminalId&#x60; is defined by the JCCA and is used only in Japan.  This field is supported only on CyberSource through VisaNet and JCN Gateway.  Optional field. .</param>
         /// <param name="BusinessName">Business name in Japanese characters. This field is supported only on JCN Gateway and for the Sumitomo Mitsui Card Co. acquirer on CyberSource through VisaNet. .</param>
         /// <param name="BusinessNameKatakana">Business name in Katakana characters. This field is supported only on JCN Gateway and for the Sumitomo Mitsui Card Co. acquirer on CyberSource through VisaNet. .</param>
-        public TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions(string PaymentMethod = default(string), string TerminalId = default(string), string BusinessName = default(string), string BusinessNameKatakana = default(string))
+        /// <param name="BusinessNameEnglish">Business name in English characters. This field is supported only on JCN Gateway and for the Sumitomo Mitsui Card Co. acquirer on CyberSource through VisaNet. .</param>
+        /// <param name="Bonuses">An array of objects, each of which contains a bonus month and bonus amount.  Length of bonuses array is equal to the number of bonuses.  Max length &#x3D; 6.  In case of bonus month and amount not specified, null objects to be returned in the array. Example: bonuses : [ {\&quot;month\&quot;: \&quot;1\&quot;,\&quot;amount\&quot;: \&quot;200\&quot;}, {\&quot;month\&quot;: \&quot;3\&quot;,\&quot;amount\&quot;: \&quot;2500\&quot;}, null] .</param>
+        /// <param name="FirstBillingMonth">Billing month in MM format. .</param>
+        /// <param name="NumberOfInstallments">Number of Installments. .</param>
+        /// <param name="PreApprovalType">This will contain the details of the kind of transaction that has been processe. Used only for Japan. Possible Values: - 0 &#x3D; Normal (authorization with amount and clearing/settlement; data capture or paper draft) - 1 &#x3D; Negative card authorization (authorization-only with 0 or 1 amount) - 2 &#x3D; Reservation of authorization (authorization-only with amount) - 3 &#x3D; Cancel transaction - 4 &#x3D; Merchant-initiated reversal/refund transactions - 5 &#x3D; Cancel reservation of authorization - 6 &#x3D; Post authorization .</param>
+        public TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions(string PaymentMethod = default(string), string TerminalId = default(string), string BusinessName = default(string), string BusinessNameKatakana = default(string), string BusinessNameEnglish = default(string), List<Ptsv2paymentsProcessingInformationJapanPaymentOptionsBonuses> Bonuses = default(List<Ptsv2paymentsProcessingInformationJapanPaymentOptionsBonuses>), string FirstBillingMonth = default(string), string NumberOfInstallments = default(string), string PreApprovalType = default(string))
         {
             this.PaymentMethod = PaymentMethod;
             this.TerminalId = TerminalId;
             this.BusinessName = BusinessName;
             this.BusinessNameKatakana = BusinessNameKatakana;
+            this.BusinessNameEnglish = BusinessNameEnglish;
+            this.Bonuses = Bonuses;
+            this.FirstBillingMonth = FirstBillingMonth;
+            this.NumberOfInstallments = NumberOfInstallments;
+            this.PreApprovalType = PreApprovalType;
         }
         
         /// <summary>
@@ -74,6 +84,41 @@ namespace CyberSource.Model
         public string BusinessNameKatakana { get; set; }
 
         /// <summary>
+        /// Business name in English characters. This field is supported only on JCN Gateway and for the Sumitomo Mitsui Card Co. acquirer on CyberSource through VisaNet. 
+        /// </summary>
+        /// <value>Business name in English characters. This field is supported only on JCN Gateway and for the Sumitomo Mitsui Card Co. acquirer on CyberSource through VisaNet. </value>
+        [DataMember(Name="businessNameEnglish", EmitDefaultValue=false)]
+        public string BusinessNameEnglish { get; set; }
+
+        /// <summary>
+        /// An array of objects, each of which contains a bonus month and bonus amount.  Length of bonuses array is equal to the number of bonuses.  Max length &#x3D; 6.  In case of bonus month and amount not specified, null objects to be returned in the array. Example: bonuses : [ {\&quot;month\&quot;: \&quot;1\&quot;,\&quot;amount\&quot;: \&quot;200\&quot;}, {\&quot;month\&quot;: \&quot;3\&quot;,\&quot;amount\&quot;: \&quot;2500\&quot;}, null] 
+        /// </summary>
+        /// <value>An array of objects, each of which contains a bonus month and bonus amount.  Length of bonuses array is equal to the number of bonuses.  Max length &#x3D; 6.  In case of bonus month and amount not specified, null objects to be returned in the array. Example: bonuses : [ {\&quot;month\&quot;: \&quot;1\&quot;,\&quot;amount\&quot;: \&quot;200\&quot;}, {\&quot;month\&quot;: \&quot;3\&quot;,\&quot;amount\&quot;: \&quot;2500\&quot;}, null] </value>
+        [DataMember(Name="bonuses", EmitDefaultValue=false)]
+        public List<Ptsv2paymentsProcessingInformationJapanPaymentOptionsBonuses> Bonuses { get; set; }
+
+        /// <summary>
+        /// Billing month in MM format. 
+        /// </summary>
+        /// <value>Billing month in MM format. </value>
+        [DataMember(Name="firstBillingMonth", EmitDefaultValue=false)]
+        public string FirstBillingMonth { get; set; }
+
+        /// <summary>
+        /// Number of Installments. 
+        /// </summary>
+        /// <value>Number of Installments. </value>
+        [DataMember(Name="numberOfInstallments", EmitDefaultValue=false)]
+        public string NumberOfInstallments { get; set; }
+
+        /// <summary>
+        /// This will contain the details of the kind of transaction that has been processe. Used only for Japan. Possible Values: - 0 &#x3D; Normal (authorization with amount and clearing/settlement; data capture or paper draft) - 1 &#x3D; Negative card authorization (authorization-only with 0 or 1 amount) - 2 &#x3D; Reservation of authorization (authorization-only with amount) - 3 &#x3D; Cancel transaction - 4 &#x3D; Merchant-initiated reversal/refund transactions - 5 &#x3D; Cancel reservation of authorization - 6 &#x3D; Post authorization 
+        /// </summary>
+        /// <value>This will contain the details of the kind of transaction that has been processe. Used only for Japan. Possible Values: - 0 &#x3D; Normal (authorization with amount and clearing/settlement; data capture or paper draft) - 1 &#x3D; Negative card authorization (authorization-only with 0 or 1 amount) - 2 &#x3D; Reservation of authorization (authorization-only with amount) - 3 &#x3D; Cancel transaction - 4 &#x3D; Merchant-initiated reversal/refund transactions - 5 &#x3D; Cancel reservation of authorization - 6 &#x3D; Post authorization </value>
+        [DataMember(Name="preApprovalType", EmitDefaultValue=false)]
+        public string PreApprovalType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +130,11 @@ namespace CyberSource.Model
             sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
             sb.Append("  BusinessName: ").Append(BusinessName).Append("\n");
             sb.Append("  BusinessNameKatakana: ").Append(BusinessNameKatakana).Append("\n");
+            sb.Append("  BusinessNameEnglish: ").Append(BusinessNameEnglish).Append("\n");
+            sb.Append("  Bonuses: ").Append(Bonuses).Append("\n");
+            sb.Append("  FirstBillingMonth: ").Append(FirstBillingMonth).Append("\n");
+            sb.Append("  NumberOfInstallments: ").Append(NumberOfInstallments).Append("\n");
+            sb.Append("  PreApprovalType: ").Append(PreApprovalType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +190,31 @@ namespace CyberSource.Model
                     this.BusinessNameKatakana == other.BusinessNameKatakana ||
                     this.BusinessNameKatakana != null &&
                     this.BusinessNameKatakana.Equals(other.BusinessNameKatakana)
+                ) && 
+                (
+                    this.BusinessNameEnglish == other.BusinessNameEnglish ||
+                    this.BusinessNameEnglish != null &&
+                    this.BusinessNameEnglish.Equals(other.BusinessNameEnglish)
+                ) && 
+                (
+                    this.Bonuses == other.Bonuses ||
+                    this.Bonuses != null &&
+                    this.Bonuses.SequenceEqual(other.Bonuses)
+                ) && 
+                (
+                    this.FirstBillingMonth == other.FirstBillingMonth ||
+                    this.FirstBillingMonth != null &&
+                    this.FirstBillingMonth.Equals(other.FirstBillingMonth)
+                ) && 
+                (
+                    this.NumberOfInstallments == other.NumberOfInstallments ||
+                    this.NumberOfInstallments != null &&
+                    this.NumberOfInstallments.Equals(other.NumberOfInstallments)
+                ) && 
+                (
+                    this.PreApprovalType == other.PreApprovalType ||
+                    this.PreApprovalType != null &&
+                    this.PreApprovalType.Equals(other.PreApprovalType)
                 );
         }
 
@@ -162,6 +237,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BusinessName.GetHashCode();
                 if (this.BusinessNameKatakana != null)
                     hash = hash * 59 + this.BusinessNameKatakana.GetHashCode();
+                if (this.BusinessNameEnglish != null)
+                    hash = hash * 59 + this.BusinessNameEnglish.GetHashCode();
+                if (this.Bonuses != null)
+                    hash = hash * 59 + this.Bonuses.GetHashCode();
+                if (this.FirstBillingMonth != null)
+                    hash = hash * 59 + this.FirstBillingMonth.GetHashCode();
+                if (this.NumberOfInstallments != null)
+                    hash = hash * 59 + this.NumberOfInstallments.GetHashCode();
+                if (this.PreApprovalType != null)
+                    hash = hash * 59 + this.PreApprovalType.GetHashCode();
                 return hash;
             }
         }

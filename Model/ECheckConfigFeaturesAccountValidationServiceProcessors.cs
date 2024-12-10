@@ -36,18 +36,26 @@ namespace CyberSource.Model
         /// <param name="AvsAccountOwnershipService">*NEW* Determined in WF eTicket if account has opted into the Account Ownership Service..</param>
         /// <param name="AvsAccountStatusService">*NEW* Determined in WF eTicket if account has opted into the Account Status Service..</param>
         /// <param name="AvsSignedAgreement">*NEW* Taken from Addendum Agreement Column in boarding form..</param>
-        /// <param name="AvsCalculatedResponseBehavior">*NEW*.</param>
+        /// <param name="AvsCalculatedResponseBehavior">*NEW*  Possible values: - continue (default to &quot;continue&quot;).</param>
         /// <param name="AvsAdditionalId">*NEW* Also known as the Additional ID. Taken from the boarding form..</param>
         /// <param name="EnableAvs">*NEW* (default to true).</param>
         /// <param name="AvsEntityId">*NEW* Also known as the AVS Gateway Entity ID..</param>
-        /// <param name="AvsResultMode">*NEW*.</param>
+        /// <param name="AvsResultMode">*NEW*  Possible values: - FULL_RESPONSE - LOGIC_BOX.</param>
         /// <param name="EnableAvsTokenCreation">*NEW* Applicable if the merchant wants to run AVS on token creation requests only. (default to false).</param>
-        public ECheckConfigFeaturesAccountValidationServiceProcessors(bool? AvsAccountOwnershipService = default(bool?), bool? AvsAccountStatusService = default(bool?), bool? AvsSignedAgreement = default(bool?), Object AvsCalculatedResponseBehavior = default(Object), string AvsAdditionalId = default(string), bool? EnableAvs = true, string AvsEntityId = default(string), Object AvsResultMode = default(Object), bool? EnableAvsTokenCreation = false)
+        public ECheckConfigFeaturesAccountValidationServiceProcessors(bool? AvsAccountOwnershipService = default(bool?), bool? AvsAccountStatusService = default(bool?), bool? AvsSignedAgreement = default(bool?), string AvsCalculatedResponseBehavior = "continue", string AvsAdditionalId = default(string), bool? EnableAvs = true, string AvsEntityId = default(string), string AvsResultMode = default(string), bool? EnableAvsTokenCreation = false)
         {
             this.AvsAccountOwnershipService = AvsAccountOwnershipService;
             this.AvsAccountStatusService = AvsAccountStatusService;
             this.AvsSignedAgreement = AvsSignedAgreement;
-            this.AvsCalculatedResponseBehavior = AvsCalculatedResponseBehavior;
+            // use default value if no "AvsCalculatedResponseBehavior" provided
+            if (AvsCalculatedResponseBehavior == null)
+            {
+                this.AvsCalculatedResponseBehavior = "continue";
+            }
+            else
+            {
+                this.AvsCalculatedResponseBehavior = AvsCalculatedResponseBehavior;
+            }
             this.AvsAdditionalId = AvsAdditionalId;
             // use default value if no "EnableAvs" provided
             if (EnableAvs == null)
@@ -93,11 +101,11 @@ namespace CyberSource.Model
         public bool? AvsSignedAgreement { get; set; }
 
         /// <summary>
-        /// *NEW*
+        /// *NEW*  Possible values: - continue
         /// </summary>
-        /// <value>*NEW*</value>
+        /// <value>*NEW*  Possible values: - continue</value>
         [DataMember(Name="avsCalculatedResponseBehavior", EmitDefaultValue=false)]
-        public Object AvsCalculatedResponseBehavior { get; set; }
+        public string AvsCalculatedResponseBehavior { get; set; }
 
         /// <summary>
         /// *NEW* Also known as the Additional ID. Taken from the boarding form.
@@ -121,11 +129,11 @@ namespace CyberSource.Model
         public string AvsEntityId { get; set; }
 
         /// <summary>
-        /// *NEW*
+        /// *NEW*  Possible values: - FULL_RESPONSE - LOGIC_BOX
         /// </summary>
-        /// <value>*NEW*</value>
+        /// <value>*NEW*  Possible values: - FULL_RESPONSE - LOGIC_BOX</value>
         [DataMember(Name="avsResultMode", EmitDefaultValue=false)]
-        public Object AvsResultMode { get; set; }
+        public string AvsResultMode { get; set; }
 
         /// <summary>
         /// *NEW* Applicable if the merchant wants to run AVS on token creation requests only.

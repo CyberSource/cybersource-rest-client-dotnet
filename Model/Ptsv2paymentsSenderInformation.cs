@@ -33,18 +33,18 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsSenderInformation" /> class.
         /// </summary>
-        /// <param name="FirstName">First name of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.   Only alpha numeric values are supported.  Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to Barclays.  For Visa, the maximum length of First Name, Middle Name and Last Name is 30 characters.         Values exceeding the above limits will be truncated. .</param>
-        /// <param name="LastName">Last name of the sender.  **Applicable for Barclays AFT transactions only.** This field is optional for Visa and not applicable for Mastercard AFT.  Only alpha numeric values are supported.  Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to Barclays.  For Visa, the maximum length of First Name, Middle Name and Last Name is 30 characters.  Values exceeding these limits will be truncated. .</param>
-        /// <param name="MiddleName">Middle name of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.   Only alpha numeric values are supported.  Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to Barclays.  For Visa, the maximum length of First Name, Middle Name and Last Name is 30 characters.        Values exceeding these limits will be truncated. .</param>
-        /// <param name="Address1">The street address of the sender.    **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.     Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to Barclays.             The field has a maximum length of 35 characters.  Values exceeding these limits will be truncated. .</param>
-        /// <param name="Locality">The city or locality of the sender.in  **Applicable for Barclays AFT transactions only.** The field is optional for Visa and not applicable for Mastercard AFT.   Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to Barclays.  The field has a maximum length of 25 characters.  Values exceeding these limits will be truncated. .</param>
-        /// <param name="AdministrativeArea">The state or province of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa AFT when the sender country is US or CA else it is optional for Visa AFT. This field is not applicable for Mastercard AFT.  Must be a two character value .</param>
-        /// <param name="CountryCode">The country associated with the address of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.   Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) .</param>
-        public Ptsv2paymentsSenderInformation(string FirstName = default(string), string LastName = default(string), string MiddleName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string))
+        /// <param name="FirstName">First name of the sender. This field is applicable for AFT and OCT transactions.   Only alpha numeric values are supported.Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to the processor. .</param>
+        /// <param name="MiddleName">Middle name of the sender. This field is applicable for AFT and OCT transactions.   Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="LastName">Last name of the sender. This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="Address1">The street address of the sender. This field is applicable for AFT transactions.     Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="Locality">The city or locality of the sender. This field is applicable for AFT transactions.  Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="AdministrativeArea">The state or province of the sender. This field is applicable for AFT transactions when the sender country is US or CA. Else it is optional.  Must be a two character value .</param>
+        /// <param name="CountryCode">The country associated with the address of the sender. This field is applicable for AFT transactions.   Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) .</param>
+        public Ptsv2paymentsSenderInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string))
         {
             this.FirstName = FirstName;
-            this.LastName = LastName;
             this.MiddleName = MiddleName;
+            this.LastName = LastName;
             this.Address1 = Address1;
             this.Locality = Locality;
             this.AdministrativeArea = AdministrativeArea;
@@ -52,51 +52,51 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// First name of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.   Only alpha numeric values are supported.  Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to Barclays.  For Visa, the maximum length of First Name, Middle Name and Last Name is 30 characters.         Values exceeding the above limits will be truncated. 
+        /// First name of the sender. This field is applicable for AFT and OCT transactions.   Only alpha numeric values are supported.Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to the processor. 
         /// </summary>
-        /// <value>First name of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.   Only alpha numeric values are supported.  Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to Barclays.  For Visa, the maximum length of First Name, Middle Name and Last Name is 30 characters.         Values exceeding the above limits will be truncated. </value>
+        /// <value>First name of the sender. This field is applicable for AFT and OCT transactions.   Only alpha numeric values are supported.Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to the processor. </value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Last name of the sender.  **Applicable for Barclays AFT transactions only.** This field is optional for Visa and not applicable for Mastercard AFT.  Only alpha numeric values are supported.  Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to Barclays.  For Visa, the maximum length of First Name, Middle Name and Last Name is 30 characters.  Values exceeding these limits will be truncated. 
+        /// Middle name of the sender. This field is applicable for AFT and OCT transactions.   Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. 
         /// </summary>
-        /// <value>Last name of the sender.  **Applicable for Barclays AFT transactions only.** This field is optional for Visa and not applicable for Mastercard AFT.  Only alpha numeric values are supported.  Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to Barclays.  For Visa, the maximum length of First Name, Middle Name and Last Name is 30 characters.  Values exceeding these limits will be truncated. </value>
-        [DataMember(Name="lastName", EmitDefaultValue=false)]
-        public string LastName { get; set; }
-
-        /// <summary>
-        /// Middle name of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.   Only alpha numeric values are supported.  Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to Barclays.  For Visa, the maximum length of First Name, Middle Name and Last Name is 30 characters.        Values exceeding these limits will be truncated. 
-        /// </summary>
-        /// <value>Middle name of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.   Only alpha numeric values are supported.  Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to Barclays.  For Visa, the maximum length of First Name, Middle Name and Last Name is 30 characters.        Values exceeding these limits will be truncated. </value>
+        /// <value>Middle name of the sender. This field is applicable for AFT and OCT transactions.   Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. </value>
         [DataMember(Name="middleName", EmitDefaultValue=false)]
         public string MiddleName { get; set; }
 
         /// <summary>
-        /// The street address of the sender.    **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.     Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to Barclays.             The field has a maximum length of 35 characters.  Values exceeding these limits will be truncated. 
+        /// Last name of the sender. This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. 
         /// </summary>
-        /// <value>The street address of the sender.    **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.     Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to Barclays.             The field has a maximum length of 35 characters.  Values exceeding these limits will be truncated. </value>
+        /// <value>Last name of the sender. This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. </value>
+        [DataMember(Name="lastName", EmitDefaultValue=false)]
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// The street address of the sender. This field is applicable for AFT transactions.     Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. 
+        /// </summary>
+        /// <value>The street address of the sender. This field is applicable for AFT transactions.     Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. </value>
         [DataMember(Name="address1", EmitDefaultValue=false)]
         public string Address1 { get; set; }
 
         /// <summary>
-        /// The city or locality of the sender.in  **Applicable for Barclays AFT transactions only.** The field is optional for Visa and not applicable for Mastercard AFT.   Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to Barclays.  The field has a maximum length of 25 characters.  Values exceeding these limits will be truncated. 
+        /// The city or locality of the sender. This field is applicable for AFT transactions.  Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. 
         /// </summary>
-        /// <value>The city or locality of the sender.in  **Applicable for Barclays AFT transactions only.** The field is optional for Visa and not applicable for Mastercard AFT.   Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to Barclays.  The field has a maximum length of 25 characters.  Values exceeding these limits will be truncated. </value>
+        /// <value>The city or locality of the sender. This field is applicable for AFT transactions.  Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. </value>
         [DataMember(Name="locality", EmitDefaultValue=false)]
         public string Locality { get; set; }
 
         /// <summary>
-        /// The state or province of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa AFT when the sender country is US or CA else it is optional for Visa AFT. This field is not applicable for Mastercard AFT.  Must be a two character value 
+        /// The state or province of the sender. This field is applicable for AFT transactions when the sender country is US or CA. Else it is optional.  Must be a two character value 
         /// </summary>
-        /// <value>The state or province of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa AFT when the sender country is US or CA else it is optional for Visa AFT. This field is not applicable for Mastercard AFT.  Must be a two character value </value>
+        /// <value>The state or province of the sender. This field is applicable for AFT transactions when the sender country is US or CA. Else it is optional.  Must be a two character value </value>
         [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
         public string AdministrativeArea { get; set; }
 
         /// <summary>
-        /// The country associated with the address of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.   Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) 
+        /// The country associated with the address of the sender. This field is applicable for AFT transactions.   Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) 
         /// </summary>
-        /// <value>The country associated with the address of the sender.  **Applicable for Barclays AFT transactions only.** The field is mandatory for Visa and not applicable for Mastercard AFT.   Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) </value>
+        /// <value>The country associated with the address of the sender. This field is applicable for AFT transactions.   Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) </value>
         [DataMember(Name="countryCode", EmitDefaultValue=false)]
         public string CountryCode { get; set; }
 
@@ -109,8 +109,8 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsSenderInformation {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
+            sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Address1: ").Append(Address1).Append("\n");
             sb.Append("  Locality: ").Append(Locality).Append("\n");
             sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
@@ -157,14 +157,14 @@ namespace CyberSource.Model
                     this.FirstName.Equals(other.FirstName)
                 ) && 
                 (
-                    this.LastName == other.LastName ||
-                    this.LastName != null &&
-                    this.LastName.Equals(other.LastName)
-                ) && 
-                (
                     this.MiddleName == other.MiddleName ||
                     this.MiddleName != null &&
                     this.MiddleName.Equals(other.MiddleName)
+                ) && 
+                (
+                    this.LastName == other.LastName ||
+                    this.LastName != null &&
+                    this.LastName.Equals(other.LastName)
                 ) && 
                 (
                     this.Address1 == other.Address1 ||
@@ -201,10 +201,10 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.FirstName != null)
                     hash = hash * 59 + this.FirstName.GetHashCode();
-                if (this.LastName != null)
-                    hash = hash * 59 + this.LastName.GetHashCode();
                 if (this.MiddleName != null)
                     hash = hash * 59 + this.MiddleName.GetHashCode();
+                if (this.LastName != null)
+                    hash = hash * 59 + this.LastName.GetHashCode();
                 if (this.Address1 != null)
                     hash = hash * 59 + this.Address1.GetHashCode();
                 if (this.Locality != null)
