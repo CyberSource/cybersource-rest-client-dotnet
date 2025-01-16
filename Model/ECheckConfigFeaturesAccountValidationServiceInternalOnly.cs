@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ECheckConfigFeaturesAccountValidationServiceInternalOnly {\n");
-            sb.Append("  Processors: ").Append(Processors).Append("\n");
+            if (Processors != null) sb.Append("  Processors: ").Append(Processors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

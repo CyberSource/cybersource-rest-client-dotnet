@@ -127,16 +127,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2007ResponseRecord {\n");
-            sb.Append("  Response: ").Append(Response).Append("\n");
-            sb.Append("  Reason: ").Append(Reason).Append("\n");
-            sb.Append("  Token: ").Append(Token).Append("\n");
-            sb.Append("  InstrumentIdentifierId: ").Append(InstrumentIdentifierId).Append("\n");
-            sb.Append("  InstrumentIdentifierCreated: ").Append(InstrumentIdentifierCreated).Append("\n");
-            sb.Append("  CardNumber: ").Append(CardNumber).Append("\n");
-            sb.Append("  CardExpiryMonth: ").Append(CardExpiryMonth).Append("\n");
-            sb.Append("  CardExpiryYear: ").Append(CardExpiryYear).Append("\n");
-            sb.Append("  CardType: ").Append(CardType).Append("\n");
-            sb.Append("  AdditionalUpdates: ").Append(AdditionalUpdates).Append("\n");
+            if (Response != null) sb.Append("  Response: ").Append(Response).Append("\n");
+            if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
+            if (Token != null) sb.Append("  Token: ").Append(Token).Append("\n");
+            if (InstrumentIdentifierId != null) sb.Append("  InstrumentIdentifierId: ").Append(InstrumentIdentifierId).Append("\n");
+            if (InstrumentIdentifierCreated != null) sb.Append("  InstrumentIdentifierCreated: ").Append(InstrumentIdentifierCreated).Append("\n");
+            if (CardNumber != null) sb.Append("  CardNumber: ").Append(CardNumber).Append("\n");
+            if (CardExpiryMonth != null) sb.Append("  CardExpiryMonth: ").Append(CardExpiryMonth).Append("\n");
+            if (CardExpiryYear != null) sb.Append("  CardExpiryYear: ").Append(CardExpiryYear).Append("\n");
+            if (CardType != null) sb.Append("  CardType: ").Append(CardType).Append("\n");
+            if (AdditionalUpdates != null) sb.Append("  AdditionalUpdates: ").Append(AdditionalUpdates).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

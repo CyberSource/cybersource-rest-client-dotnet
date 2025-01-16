@@ -132,15 +132,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Boardingv1registrationsOrganizationInformation {\n");
-            sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
-            sb.Append("  ParentOrganizationId: ").Append(ParentOrganizationId).Append("\n");
-            sb.Append("  ChildOrganizations: ").Append(ChildOrganizations).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Configurable: ").Append(Configurable).Append("\n");
-            sb.Append("  BusinessInformation: ").Append(BusinessInformation).Append("\n");
-            sb.Append("  KYC: ").Append(KYC).Append("\n");
-            sb.Append("  Owners: ").Append(Owners).Append("\n");
+            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
+            if (ParentOrganizationId != null) sb.Append("  ParentOrganizationId: ").Append(ParentOrganizationId).Append("\n");
+            if (ChildOrganizations != null) sb.Append("  ChildOrganizations: ").Append(ChildOrganizations).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (Configurable != null) sb.Append("  Configurable: ").Append(Configurable).Append("\n");
+            if (BusinessInformation != null) sb.Append("  BusinessInformation: ").Append(BusinessInformation).Append("\n");
+            if (KYC != null) sb.Append("  KYC: ").Append(KYC).Append("\n");
+            if (Owners != null) sb.Append("  Owners: ").Append(Owners).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

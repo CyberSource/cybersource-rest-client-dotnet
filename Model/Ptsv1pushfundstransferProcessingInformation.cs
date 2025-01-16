@@ -107,13 +107,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv1pushfundstransferProcessingInformation {\n");
-            sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
-            sb.Append("  PayoutsOptions: ").Append(PayoutsOptions).Append("\n");
-            sb.Append("  FeeProgramId: ").Append(FeeProgramId).Append("\n");
-            sb.Append("  NetworkPartnerId: ").Append(NetworkPartnerId).Append("\n");
-            sb.Append("  ProcessingCode: ").Append(ProcessingCode).Append("\n");
-            sb.Append("  SharingGroupCode: ").Append(SharingGroupCode).Append("\n");
-            sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
+            if (BusinessApplicationId != null) sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
+            if (PayoutsOptions != null) sb.Append("  PayoutsOptions: ").Append(PayoutsOptions).Append("\n");
+            if (FeeProgramId != null) sb.Append("  FeeProgramId: ").Append(FeeProgramId).Append("\n");
+            if (NetworkPartnerId != null) sb.Append("  NetworkPartnerId: ").Append(NetworkPartnerId).Append("\n");
+            if (ProcessingCode != null) sb.Append("  ProcessingCode: ").Append(ProcessingCode).Append("\n");
+            if (SharingGroupCode != null) sb.Append("  SharingGroupCode: ").Append(SharingGroupCode).Append("\n");
+            if (PurposeOfPayment != null) sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

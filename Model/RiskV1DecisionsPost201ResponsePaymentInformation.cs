@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RiskV1DecisionsPost201ResponsePaymentInformation {\n");
-            sb.Append("  BinCountry: ").Append(BinCountry).Append("\n");
-            sb.Append("  AccountType: ").Append(AccountType).Append("\n");
-            sb.Append("  Issuer: ").Append(Issuer).Append("\n");
-            sb.Append("  Scheme: ").Append(Scheme).Append("\n");
-            sb.Append("  Bin: ").Append(Bin).Append("\n");
+            if (BinCountry != null) sb.Append("  BinCountry: ").Append(BinCountry).Append("\n");
+            if (AccountType != null) sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            if (Issuer != null) sb.Append("  Issuer: ").Append(Issuer).Append("\n");
+            if (Scheme != null) sb.Append("  Scheme: ").Append(Scheme).Append("\n");
+            if (Bin != null) sb.Append("  Bin: ").Append(Bin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

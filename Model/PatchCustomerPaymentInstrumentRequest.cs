@@ -164,21 +164,21 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PatchCustomerPaymentInstrumentRequest {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Object: ").Append(Object).Append("\n");
-            sb.Append("  Default: ").Append(Default).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
-            sb.Append("  Card: ").Append(Card).Append("\n");
-            sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
-            sb.Append("  BillTo: ").Append(BillTo).Append("\n");
-            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
-            sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
-            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  Embedded: ").Append(Embedded).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (Object != null) sb.Append("  Object: ").Append(Object).Append("\n");
+            if (Default != null) sb.Append("  Default: ").Append(Default).Append("\n");
+            if (State != null) sb.Append("  State: ").Append(State).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (BankAccount != null) sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
+            if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
+            if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
+            if (BillTo != null) sb.Append("  BillTo: ").Append(BillTo).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
+            if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
+            if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            if (Metadata != null) sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

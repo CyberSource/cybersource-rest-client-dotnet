@@ -109,14 +109,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Vasv2taxOrderInformation {\n");
-            sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
-            sb.Append("  BillTo: ").Append(BillTo).Append("\n");
-            sb.Append("  ShippingDetails: ").Append(ShippingDetails).Append("\n");
-            sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
-            sb.Append("  LineItems: ").Append(LineItems).Append("\n");
-            sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
-            sb.Append("  OrderAcceptance: ").Append(OrderAcceptance).Append("\n");
-            sb.Append("  OrderOrigin: ").Append(OrderOrigin).Append("\n");
+            if (AmountDetails != null) sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
+            if (BillTo != null) sb.Append("  BillTo: ").Append(BillTo).Append("\n");
+            if (ShippingDetails != null) sb.Append("  ShippingDetails: ").Append(ShippingDetails).Append("\n");
+            if (ShipTo != null) sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
+            if (LineItems != null) sb.Append("  LineItems: ").Append(LineItems).Append("\n");
+            if (InvoiceDetails != null) sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
+            if (OrderAcceptance != null) sb.Append("  OrderAcceptance: ").Append(OrderAcceptance).Append("\n");
+            if (OrderOrigin != null) sb.Append("  OrderOrigin: ").Append(OrderOrigin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

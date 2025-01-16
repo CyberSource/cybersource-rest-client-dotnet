@@ -180,21 +180,21 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsInstallmentInformation {\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Frequency: ").Append(Frequency).Append("\n");
-            sb.Append("  PlanType: ").Append(PlanType).Append("\n");
-            sb.Append("  Sequence: ").Append(Sequence).Append("\n");
-            sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
-            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
-            sb.Append("  FirstInstallmentDate: ").Append(FirstInstallmentDate).Append("\n");
-            sb.Append("  InvoiceData: ").Append(InvoiceData).Append("\n");
-            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
-            sb.Append("  EligibilityInquiry: ").Append(EligibilityInquiry).Append("\n");
-            sb.Append("  GracePeriodDuration: ").Append(GracePeriodDuration).Append("\n");
-            sb.Append("  GracePeriodDurationType: ").Append(GracePeriodDurationType).Append("\n");
-            sb.Append("  FirstInstallmentAmount: ").Append(FirstInstallmentAmount).Append("\n");
-            sb.Append("  ValidationIndicator: ").Append(ValidationIndicator).Append("\n");
-            sb.Append("  Identifier: ").Append(Identifier).Append("\n");
+            if (Amount != null) sb.Append("  Amount: ").Append(Amount).Append("\n");
+            if (Frequency != null) sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            if (PlanType != null) sb.Append("  PlanType: ").Append(PlanType).Append("\n");
+            if (Sequence != null) sb.Append("  Sequence: ").Append(Sequence).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
+            if (TotalCount != null) sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
+            if (FirstInstallmentDate != null) sb.Append("  FirstInstallmentDate: ").Append(FirstInstallmentDate).Append("\n");
+            if (InvoiceData != null) sb.Append("  InvoiceData: ").Append(InvoiceData).Append("\n");
+            if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (EligibilityInquiry != null) sb.Append("  EligibilityInquiry: ").Append(EligibilityInquiry).Append("\n");
+            if (GracePeriodDuration != null) sb.Append("  GracePeriodDuration: ").Append(GracePeriodDuration).Append("\n");
+            if (GracePeriodDurationType != null) sb.Append("  GracePeriodDurationType: ").Append(GracePeriodDurationType).Append("\n");
+            if (FirstInstallmentAmount != null) sb.Append("  FirstInstallmentAmount: ").Append(FirstInstallmentAmount).Append("\n");
+            if (ValidationIndicator != null) sb.Append("  ValidationIndicator: ").Append(ValidationIndicator).Append("\n");
+            if (Identifier != null) sb.Append("  Identifier: ").Append(Identifier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

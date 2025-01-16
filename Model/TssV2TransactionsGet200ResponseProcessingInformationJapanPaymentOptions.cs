@@ -126,15 +126,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessingInformationJapanPaymentOptions {\n");
-            sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
-            sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
-            sb.Append("  BusinessName: ").Append(BusinessName).Append("\n");
-            sb.Append("  BusinessNameKatakana: ").Append(BusinessNameKatakana).Append("\n");
-            sb.Append("  BusinessNameEnglish: ").Append(BusinessNameEnglish).Append("\n");
-            sb.Append("  Bonuses: ").Append(Bonuses).Append("\n");
-            sb.Append("  FirstBillingMonth: ").Append(FirstBillingMonth).Append("\n");
-            sb.Append("  NumberOfInstallments: ").Append(NumberOfInstallments).Append("\n");
-            sb.Append("  PreApprovalType: ").Append(PreApprovalType).Append("\n");
+            if (PaymentMethod != null) sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
+            if (TerminalId != null) sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
+            if (BusinessName != null) sb.Append("  BusinessName: ").Append(BusinessName).Append("\n");
+            if (BusinessNameKatakana != null) sb.Append("  BusinessNameKatakana: ").Append(BusinessNameKatakana).Append("\n");
+            if (BusinessNameEnglish != null) sb.Append("  BusinessNameEnglish: ").Append(BusinessNameEnglish).Append("\n");
+            if (Bonuses != null) sb.Append("  Bonuses: ").Append(Bonuses).Append("\n");
+            if (FirstBillingMonth != null) sb.Append("  FirstBillingMonth: ").Append(FirstBillingMonth).Append("\n");
+            if (NumberOfInstallments != null) sb.Append("  NumberOfInstallments: ").Append(NumberOfInstallments).Append("\n");
+            if (PreApprovalType != null) sb.Append("  PreApprovalType: ").Append(PreApprovalType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

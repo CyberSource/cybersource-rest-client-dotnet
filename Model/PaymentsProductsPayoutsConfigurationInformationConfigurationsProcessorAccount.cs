@@ -77,9 +77,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsPayoutsConfigurationInformationConfigurationsProcessorAccount {\n");
-            sb.Append("  OriginatorMerchantId: ").Append(OriginatorMerchantId).Append("\n");
-            sb.Append("  OriginatorTerminalId: ").Append(OriginatorTerminalId).Append("\n");
-            sb.Append("  SupportedCurrencies: ").Append(SupportedCurrencies).Append("\n");
+            if (OriginatorMerchantId != null) sb.Append("  OriginatorMerchantId: ").Append(OriginatorMerchantId).Append("\n");
+            if (OriginatorTerminalId != null) sb.Append("  OriginatorTerminalId: ").Append(OriginatorTerminalId).Append("\n");
+            if (SupportedCurrencies != null) sb.Append("  SupportedCurrencies: ").Append(SupportedCurrencies).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

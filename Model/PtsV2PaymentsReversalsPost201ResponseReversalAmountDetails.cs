@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails {\n");
-            sb.Append("  ReversedAmount: ").Append(ReversedAmount).Append("\n");
-            sb.Append("  OriginalTransactionAmount: ").Append(OriginalTransactionAmount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (ReversedAmount != null) sb.Append("  ReversedAmount: ").Append(ReversedAmount).Append("\n");
+            if (OriginalTransactionAmount != null) sb.Append("  OriginalTransactionAmount: ").Append(OriginalTransactionAmount).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

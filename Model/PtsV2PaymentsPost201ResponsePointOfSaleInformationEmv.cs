@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv {\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  ChipValidationType: ").Append(ChipValidationType).Append("\n");
-            sb.Append("  ChipValidationResult: ").Append(ChipValidationResult).Append("\n");
+            if (Tags != null) sb.Append("  Tags: ").Append(Tags).Append("\n");
+            if (ChipValidationType != null) sb.Append("  ChipValidationType: ").Append(ChipValidationType).Append("\n");
+            if (ChipValidationResult != null) sb.Append("  ChipValidationResult: ").Append(ChipValidationResult).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

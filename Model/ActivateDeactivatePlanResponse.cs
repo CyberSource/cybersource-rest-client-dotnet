@@ -88,11 +88,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ActivateDeactivatePlanResponse {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  PlanInformation: ").Append(PlanInformation).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (PlanInformation != null) sb.Append("  PlanInformation: ").Append(PlanInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

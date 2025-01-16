@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SAConfigNotificationsCustomerNotifications {\n");
-            sb.Append("  CustomReceiptPageEnabled: ").Append(CustomReceiptPageEnabled).Append("\n");
-            sb.Append("  ReceiptEmailAddress: ").Append(ReceiptEmailAddress).Append("\n");
-            sb.Append("  CustomerReceiptEmailEnabled: ").Append(CustomerReceiptEmailEnabled).Append("\n");
-            sb.Append("  CustomCancelPage: ").Append(CustomCancelPage).Append("\n");
-            sb.Append("  CustomReceiptPage: ").Append(CustomReceiptPage).Append("\n");
-            sb.Append("  CustomCancelPageEnabled: ").Append(CustomCancelPageEnabled).Append("\n");
-            sb.Append("  NotificationReceiptEmailEnabled: ").Append(NotificationReceiptEmailEnabled).Append("\n");
+            if (CustomReceiptPageEnabled != null) sb.Append("  CustomReceiptPageEnabled: ").Append(CustomReceiptPageEnabled).Append("\n");
+            if (ReceiptEmailAddress != null) sb.Append("  ReceiptEmailAddress: ").Append(ReceiptEmailAddress).Append("\n");
+            if (CustomerReceiptEmailEnabled != null) sb.Append("  CustomerReceiptEmailEnabled: ").Append(CustomerReceiptEmailEnabled).Append("\n");
+            if (CustomCancelPage != null) sb.Append("  CustomCancelPage: ").Append(CustomCancelPage).Append("\n");
+            if (CustomReceiptPage != null) sb.Append("  CustomReceiptPage: ").Append(CustomReceiptPage).Append("\n");
+            if (CustomCancelPageEnabled != null) sb.Append("  CustomCancelPageEnabled: ").Append(CustomCancelPageEnabled).Append("\n");
+            if (NotificationReceiptEmailEnabled != null) sb.Append("  NotificationReceiptEmailEnabled: ").Append(NotificationReceiptEmailEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

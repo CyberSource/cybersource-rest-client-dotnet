@@ -116,14 +116,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV1TransactionBatchesIdGet200Response {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  UploadDate: ").Append(UploadDate).Append("\n");
-            sb.Append("  CompletionDate: ").Append(CompletionDate).Append("\n");
-            sb.Append("  TransactionCount: ").Append(TransactionCount).Append("\n");
-            sb.Append("  AcceptedTransactionCount: ").Append(AcceptedTransactionCount).Append("\n");
-            sb.Append("  RejectedTransactionCount: ").Append(RejectedTransactionCount).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (UploadDate != null) sb.Append("  UploadDate: ").Append(UploadDate).Append("\n");
+            if (CompletionDate != null) sb.Append("  CompletionDate: ").Append(CompletionDate).Append("\n");
+            if (TransactionCount != null) sb.Append("  TransactionCount: ").Append(TransactionCount).Append("\n");
+            if (AcceptedTransactionCount != null) sb.Append("  AcceptedTransactionCount: ").Append(AcceptedTransactionCount).Append("\n");
+            if (RejectedTransactionCount != null) sb.Append("  RejectedTransactionCount: ").Append(RejectedTransactionCount).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

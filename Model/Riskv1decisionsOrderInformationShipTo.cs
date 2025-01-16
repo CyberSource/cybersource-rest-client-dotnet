@@ -171,20 +171,20 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsOrderInformationShipTo {\n");
-            sb.Append("  Address1: ").Append(Address1).Append("\n");
-            sb.Append("  Address2: ").Append(Address2).Append("\n");
-            sb.Append("  Address3: ").Append(Address3).Append("\n");
-            sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  DestinationTypes: ").Append(DestinationTypes).Append("\n");
-            sb.Append("  Locality: ").Append(Locality).Append("\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
-            sb.Append("  DestinationCode: ").Append(DestinationCode).Append("\n");
-            sb.Append("  Method: ").Append(Method).Append("\n");
+            if (Address1 != null) sb.Append("  Address1: ").Append(Address1).Append("\n");
+            if (Address2 != null) sb.Append("  Address2: ").Append(Address2).Append("\n");
+            if (Address3 != null) sb.Append("  Address3: ").Append(Address3).Append("\n");
+            if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (DestinationTypes != null) sb.Append("  DestinationTypes: ").Append(DestinationTypes).Append("\n");
+            if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
+            if (FirstName != null) sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            if (LastName != null) sb.Append("  LastName: ").Append(LastName).Append("\n");
+            if (MiddleName != null) sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (DestinationCode != null) sb.Append("  DestinationCode: ").Append(DestinationCode).Append("\n");
+            if (Method != null) sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

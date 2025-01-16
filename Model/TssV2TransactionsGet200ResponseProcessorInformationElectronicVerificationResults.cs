@@ -135,16 +135,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults {\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
-            sb.Append("  EmailRaw: ").Append(EmailRaw).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  NameRaw: ").Append(NameRaw).Append("\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  PhoneNumberRaw: ").Append(PhoneNumberRaw).Append("\n");
-            sb.Append("  Street: ").Append(Street).Append("\n");
-            sb.Append("  StreetRaw: ").Append(StreetRaw).Append("\n");
-            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
-            sb.Append("  PostalCodeRaw: ").Append(PostalCodeRaw).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
+            if (EmailRaw != null) sb.Append("  EmailRaw: ").Append(EmailRaw).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (NameRaw != null) sb.Append("  NameRaw: ").Append(NameRaw).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (PhoneNumberRaw != null) sb.Append("  PhoneNumberRaw: ").Append(PhoneNumberRaw).Append("\n");
+            if (Street != null) sb.Append("  Street: ").Append(Street).Append("\n");
+            if (StreetRaw != null) sb.Append("  StreetRaw: ").Append(StreetRaw).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (PostalCodeRaw != null) sb.Append("  PostalCodeRaw: ").Append(PostalCodeRaw).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -115,14 +115,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1exportcomplianceinquiriesOrderInformationLineItems {\n");
-            sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
-            sb.Append("  AllowedExportCountries: ").Append(AllowedExportCountries).Append("\n");
-            sb.Append("  RestrictedExportCountries: ").Append(RestrictedExportCountries).Append("\n");
-            sb.Append("  Quantity: ").Append(Quantity).Append("\n");
-            sb.Append("  ProductSKU: ").Append(ProductSKU).Append("\n");
-            sb.Append("  ProductRisk: ").Append(ProductRisk).Append("\n");
-            sb.Append("  ProductName: ").Append(ProductName).Append("\n");
-            sb.Append("  ProductCode: ").Append(ProductCode).Append("\n");
+            if (UnitPrice != null) sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
+            if (AllowedExportCountries != null) sb.Append("  AllowedExportCountries: ").Append(AllowedExportCountries).Append("\n");
+            if (RestrictedExportCountries != null) sb.Append("  RestrictedExportCountries: ").Append(RestrictedExportCountries).Append("\n");
+            if (Quantity != null) sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            if (ProductSKU != null) sb.Append("  ProductSKU: ").Append(ProductSKU).Append("\n");
+            if (ProductRisk != null) sb.Append("  ProductRisk: ").Append(ProductRisk).Append("\n");
+            if (ProductName != null) sb.Append("  ProductName: ").Append(ProductName).Append("\n");
+            if (ProductCode != null) sb.Append("  ProductCode: ").Append(ProductCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

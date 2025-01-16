@@ -99,12 +99,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsPointOfSaleInformationEmv {\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  CardholderVerificationMethodUsed: ").Append(CardholderVerificationMethodUsed).Append("\n");
-            sb.Append("  CardSequenceNumber: ").Append(CardSequenceNumber).Append("\n");
-            sb.Append("  Fallback: ").Append(Fallback).Append("\n");
-            sb.Append("  FallbackCondition: ").Append(FallbackCondition).Append("\n");
-            sb.Append("  IsRepeat: ").Append(IsRepeat).Append("\n");
+            if (Tags != null) sb.Append("  Tags: ").Append(Tags).Append("\n");
+            if (CardholderVerificationMethodUsed != null) sb.Append("  CardholderVerificationMethodUsed: ").Append(CardholderVerificationMethodUsed).Append("\n");
+            if (CardSequenceNumber != null) sb.Append("  CardSequenceNumber: ").Append(CardSequenceNumber).Append("\n");
+            if (Fallback != null) sb.Append("  Fallback: ").Append(Fallback).Append("\n");
+            if (FallbackCondition != null) sb.Append("  FallbackCondition: ").Append(FallbackCondition).Append("\n");
+            if (IsRepeat != null) sb.Append("  IsRepeat: ").Append(IsRepeat).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidOrderInformationAmountDetails {\n");
-            sb.Append("  AdditionalAmount: ").Append(AdditionalAmount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (AdditionalAmount != null) sb.Append("  AdditionalAmount: ").Append(AdditionalAmount).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

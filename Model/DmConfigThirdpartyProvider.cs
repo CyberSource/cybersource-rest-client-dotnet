@@ -101,13 +101,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DmConfigThirdpartyProvider {\n");
-            sb.Append("  Accurint: ").Append(Accurint).Append("\n");
-            sb.Append("  Credilink: ").Append(Credilink).Append("\n");
-            sb.Append("  Ekata: ").Append(Ekata).Append("\n");
-            sb.Append("  Emailage: ").Append(Emailage).Append("\n");
-            sb.Append("  Perseuss: ").Append(Perseuss).Append("\n");
-            sb.Append("  Signifyd: ").Append(Signifyd).Append("\n");
-            sb.Append("  Targus: ").Append(Targus).Append("\n");
+            if (Accurint != null) sb.Append("  Accurint: ").Append(Accurint).Append("\n");
+            if (Credilink != null) sb.Append("  Credilink: ").Append(Credilink).Append("\n");
+            if (Ekata != null) sb.Append("  Ekata: ").Append(Ekata).Append("\n");
+            if (Emailage != null) sb.Append("  Emailage: ").Append(Emailage).Append("\n");
+            if (Perseuss != null) sb.Append("  Perseuss: ").Append(Perseuss).Append("\n");
+            if (Signifyd != null) sb.Append("  Signifyd: ").Append(Signifyd).Append("\n");
+            if (Targus != null) sb.Append("  Targus: ").Append(Targus).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

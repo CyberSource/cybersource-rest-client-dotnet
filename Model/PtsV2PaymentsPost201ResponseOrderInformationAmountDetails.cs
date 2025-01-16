@@ -153,18 +153,18 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseOrderInformationAmountDetails {\n");
-            sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
-            sb.Append("  AuthorizedAmount: ").Append(AuthorizedAmount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  SettlementAmount: ").Append(SettlementAmount).Append("\n");
-            sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
-            sb.Append("  OriginalAmount: ").Append(OriginalAmount).Append("\n");
-            sb.Append("  OriginalCurrency: ").Append(OriginalCurrency).Append("\n");
-            sb.Append("  ProcessorTransactionFee: ").Append(ProcessorTransactionFee).Append("\n");
-            sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
-            sb.Append("  ForeignCurrency: ").Append(ForeignCurrency).Append("\n");
-            sb.Append("  ForeignAmount: ").Append(ForeignAmount).Append("\n");
-            sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
+            if (AuthorizedAmount != null) sb.Append("  AuthorizedAmount: ").Append(AuthorizedAmount).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (SettlementAmount != null) sb.Append("  SettlementAmount: ").Append(SettlementAmount).Append("\n");
+            if (SettlementCurrency != null) sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
+            if (OriginalAmount != null) sb.Append("  OriginalAmount: ").Append(OriginalAmount).Append("\n");
+            if (OriginalCurrency != null) sb.Append("  OriginalCurrency: ").Append(OriginalCurrency).Append("\n");
+            if (ProcessorTransactionFee != null) sb.Append("  ProcessorTransactionFee: ").Append(ProcessorTransactionFee).Append("\n");
+            if (ExchangeRate != null) sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
+            if (ForeignCurrency != null) sb.Append("  ForeignCurrency: ").Append(ForeignCurrency).Append("\n");
+            if (ForeignAmount != null) sb.Append("  ForeignAmount: ").Append(ForeignAmount).Append("\n");
+            if (DiscountAmount != null) sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

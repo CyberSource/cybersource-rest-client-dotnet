@@ -121,15 +121,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VTConfigCardNotPresentGlobalPaymentInformationBasicInformation {\n");
-            sb.Append("  DefaultStandardEntryClassCode: ").Append(DefaultStandardEntryClassCode).Append("\n");
-            sb.Append("  DefaultCountryCode: ").Append(DefaultCountryCode).Append("\n");
-            sb.Append("  DefaultCurrencyCode: ").Append(DefaultCurrencyCode).Append("\n");
-            sb.Append("  DefaultTransactionType: ").Append(DefaultTransactionType).Append("\n");
-            sb.Append("  DefaultPaymentType: ").Append(DefaultPaymentType).Append("\n");
-            sb.Append("  DefaultTransactionSource: ").Append(DefaultTransactionSource).Append("\n");
-            sb.Append("  DisplayRetail: ").Append(DisplayRetail).Append("\n");
-            sb.Append("  DisplayMoto: ").Append(DisplayMoto).Append("\n");
-            sb.Append("  DisplayInternet: ").Append(DisplayInternet).Append("\n");
+            if (DefaultStandardEntryClassCode != null) sb.Append("  DefaultStandardEntryClassCode: ").Append(DefaultStandardEntryClassCode).Append("\n");
+            if (DefaultCountryCode != null) sb.Append("  DefaultCountryCode: ").Append(DefaultCountryCode).Append("\n");
+            if (DefaultCurrencyCode != null) sb.Append("  DefaultCurrencyCode: ").Append(DefaultCurrencyCode).Append("\n");
+            if (DefaultTransactionType != null) sb.Append("  DefaultTransactionType: ").Append(DefaultTransactionType).Append("\n");
+            if (DefaultPaymentType != null) sb.Append("  DefaultPaymentType: ").Append(DefaultPaymentType).Append("\n");
+            if (DefaultTransactionSource != null) sb.Append("  DefaultTransactionSource: ").Append(DefaultTransactionSource).Append("\n");
+            if (DisplayRetail != null) sb.Append("  DisplayRetail: ").Append(DisplayRetail).Append("\n");
+            if (DisplayMoto != null) sb.Append("  DisplayMoto: ").Append(DisplayMoto).Append("\n");
+            if (DisplayInternet != null) sb.Append("  DisplayInternet: ").Append(DisplayInternet).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

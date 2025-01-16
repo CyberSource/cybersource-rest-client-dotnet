@@ -66,8 +66,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Boardingv1registrationsIntegrationInformationOauth2 {\n");
-            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
+            if (ClientId != null) sb.Append("  ClientId: ").Append(ClientId).Append("\n");
+            if (State != null) sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

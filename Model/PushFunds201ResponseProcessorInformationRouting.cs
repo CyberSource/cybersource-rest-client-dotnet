@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PushFunds201ResponseProcessorInformationRouting {\n");
-            sb.Append("  Network: ").Append(Network).Append("\n");
+            if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

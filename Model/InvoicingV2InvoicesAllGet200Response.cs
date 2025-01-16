@@ -78,10 +78,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InvoicingV2InvoicesAllGet200Response {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            sb.Append("  TotalInvoices: ").Append(TotalInvoices).Append("\n");
-            sb.Append("  Invoices: ").Append(Invoices).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (TotalInvoices != null) sb.Append("  TotalInvoices: ").Append(TotalInvoices).Append("\n");
+            if (Invoices != null) sb.Append("  Invoices: ").Append(Invoices).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

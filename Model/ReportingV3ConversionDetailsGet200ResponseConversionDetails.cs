@@ -134,16 +134,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3ConversionDetailsGet200ResponseConversionDetails {\n");
-            sb.Append("  MerchantReferenceNumber: ").Append(MerchantReferenceNumber).Append("\n");
-            sb.Append("  ConversionTime: ").Append(ConversionTime).Append("\n");
-            sb.Append("  RequestId: ").Append(RequestId).Append("\n");
-            sb.Append("  OriginalDecision: ").Append(OriginalDecision).Append("\n");
-            sb.Append("  NewDecision: ").Append(NewDecision).Append("\n");
-            sb.Append("  Reviewer: ").Append(Reviewer).Append("\n");
-            sb.Append("  ReviewerComments: ").Append(ReviewerComments).Append("\n");
-            sb.Append("  Queue: ").Append(Queue).Append("\n");
-            sb.Append("  Profile: ").Append(Profile).Append("\n");
-            sb.Append("  Notes: ").Append(Notes).Append("\n");
+            if (MerchantReferenceNumber != null) sb.Append("  MerchantReferenceNumber: ").Append(MerchantReferenceNumber).Append("\n");
+            if (ConversionTime != null) sb.Append("  ConversionTime: ").Append(ConversionTime).Append("\n");
+            if (RequestId != null) sb.Append("  RequestId: ").Append(RequestId).Append("\n");
+            if (OriginalDecision != null) sb.Append("  OriginalDecision: ").Append(OriginalDecision).Append("\n");
+            if (NewDecision != null) sb.Append("  NewDecision: ").Append(NewDecision).Append("\n");
+            if (Reviewer != null) sb.Append("  Reviewer: ").Append(Reviewer).Append("\n");
+            if (ReviewerComments != null) sb.Append("  ReviewerComments: ").Append(ReviewerComments).Append("\n");
+            if (Queue != null) sb.Append("  Queue: ").Append(Queue).Append("\n");
+            if (Profile != null) sb.Append("  Profile: ").Append(Profile).Append("\n");
+            if (Notes != null) sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

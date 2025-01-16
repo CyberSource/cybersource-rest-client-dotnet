@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PushFunds201ResponsePaymentInformationTokenizedCard {\n");
-            sb.Append("  AssuranceMethod: ").Append(AssuranceMethod).Append("\n");
+            if (AssuranceMethod != null) sb.Append("  AssuranceMethod: ").Append(AssuranceMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

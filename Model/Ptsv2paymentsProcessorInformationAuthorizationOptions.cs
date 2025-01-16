@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsProcessorInformationAuthorizationOptions {\n");
-            sb.Append("  PanReturnIndicator: ").Append(PanReturnIndicator).Append("\n");
+            if (PanReturnIndicator != null) sb.Append("  PanReturnIndicator: ").Append(PanReturnIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

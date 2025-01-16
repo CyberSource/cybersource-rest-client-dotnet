@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentreferencesTravelInformation {\n");
-            sb.Append("  AutoRental: ").Append(AutoRental).Append("\n");
+            if (AutoRental != null) sb.Append("  AutoRental: ").Append(AutoRental).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3ChargebackDetailsGet200Response {\n");
-            sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
-            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
-            sb.Append("  EndTime: ").Append(EndTime).Append("\n");
-            sb.Append("  ChargebackDetails: ").Append(ChargebackDetails).Append("\n");
+            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
+            if (StartTime != null) sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            if (EndTime != null) sb.Append("  EndTime: ").Append(EndTime).Append("\n");
+            if (ChargebackDetails != null) sb.Append("  ChargebackDetails: ").Append(ChargebackDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

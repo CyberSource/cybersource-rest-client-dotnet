@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation {\n");
-            sb.Append("  Xid: ").Append(Xid).Append("\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
-            sb.Append("  EciRaw: ").Append(EciRaw).Append("\n");
+            if (Xid != null) sb.Append("  Xid: ").Append(Xid).Append("\n");
+            if (TransactionId != null) sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            if (EciRaw != null) sb.Append("  EciRaw: ").Append(EciRaw).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

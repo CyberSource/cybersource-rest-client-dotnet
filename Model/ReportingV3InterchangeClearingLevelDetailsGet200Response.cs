@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3InterchangeClearingLevelDetailsGet200Response {\n");
-            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
-            sb.Append("  InterchangeClearingLevelDetails: ").Append(InterchangeClearingLevelDetails).Append("\n");
+            if (StartDate != null) sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            if (EndDate != null) sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+            if (InterchangeClearingLevelDetails != null) sb.Append("  InterchangeClearingLevelDetails: ").Append(InterchangeClearingLevelDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -99,12 +99,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3PurchaseRefundDetailsGet200ResponseRequestDetails {\n");
-            sb.Append("  RequestId: ").Append(RequestId).Append("\n");
-            sb.Append("  CybersourceMerchantId: ").Append(CybersourceMerchantId).Append("\n");
-            sb.Append("  ProcessorMerchantId: ").Append(ProcessorMerchantId).Append("\n");
-            sb.Append("  GroupName: ").Append(GroupName).Append("\n");
-            sb.Append("  TransactionReferenceNumber: ").Append(TransactionReferenceNumber).Append("\n");
-            sb.Append("  MerchantReferenceNumber: ").Append(MerchantReferenceNumber).Append("\n");
+            if (RequestId != null) sb.Append("  RequestId: ").Append(RequestId).Append("\n");
+            if (CybersourceMerchantId != null) sb.Append("  CybersourceMerchantId: ").Append(CybersourceMerchantId).Append("\n");
+            if (ProcessorMerchantId != null) sb.Append("  ProcessorMerchantId: ").Append(ProcessorMerchantId).Append("\n");
+            if (GroupName != null) sb.Append("  GroupName: ").Append(GroupName).Append("\n");
+            if (TransactionReferenceNumber != null) sb.Append("  TransactionReferenceNumber: ").Append(TransactionReferenceNumber).Append("\n");
+            if (MerchantReferenceNumber != null) sb.Append("  MerchantReferenceNumber: ").Append(MerchantReferenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

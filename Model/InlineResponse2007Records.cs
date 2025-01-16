@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2007Records {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  SourceRecord: ").Append(SourceRecord).Append("\n");
-            sb.Append("  ResponseRecord: ").Append(ResponseRecord).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (SourceRecord != null) sb.Append("  SourceRecord: ").Append(SourceRecord).Append("\n");
+            if (ResponseRecord != null) sb.Append("  ResponseRecord: ").Append(ResponseRecord).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

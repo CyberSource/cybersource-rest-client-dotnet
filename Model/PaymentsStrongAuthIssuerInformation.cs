@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsStrongAuthIssuerInformation {\n");
-            sb.Append("  RiskAnalysisExemptionResult: ").Append(RiskAnalysisExemptionResult).Append("\n");
-            sb.Append("  TrustedMerchantExemptionResult: ").Append(TrustedMerchantExemptionResult).Append("\n");
-            sb.Append("  LowValueExemptionResult: ").Append(LowValueExemptionResult).Append("\n");
-            sb.Append("  SecureCorporatePaymentResult: ").Append(SecureCorporatePaymentResult).Append("\n");
-            sb.Append("  TransactionRiskAnalysisExemptionResult: ").Append(TransactionRiskAnalysisExemptionResult).Append("\n");
+            if (RiskAnalysisExemptionResult != null) sb.Append("  RiskAnalysisExemptionResult: ").Append(RiskAnalysisExemptionResult).Append("\n");
+            if (TrustedMerchantExemptionResult != null) sb.Append("  TrustedMerchantExemptionResult: ").Append(TrustedMerchantExemptionResult).Append("\n");
+            if (LowValueExemptionResult != null) sb.Append("  LowValueExemptionResult: ").Append(LowValueExemptionResult).Append("\n");
+            if (SecureCorporatePaymentResult != null) sb.Append("  SecureCorporatePaymentResult: ").Append(SecureCorporatePaymentResult).Append("\n");
+            if (TransactionRiskAnalysisExemptionResult != null) sb.Append("  TransactionRiskAnalysisExemptionResult: ").Append(TransactionRiskAnalysisExemptionResult).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

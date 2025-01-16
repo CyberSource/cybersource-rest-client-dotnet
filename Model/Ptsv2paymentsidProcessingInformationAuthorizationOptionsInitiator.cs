@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidProcessingInformationAuthorizationOptionsInitiator {\n");
-            sb.Append("  StoredCredentialUsed: ").Append(StoredCredentialUsed).Append("\n");
+            if (StoredCredentialUsed != null) sb.Append("  StoredCredentialUsed: ").Append(StoredCredentialUsed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

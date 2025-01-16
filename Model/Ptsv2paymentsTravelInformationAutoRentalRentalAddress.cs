@@ -117,14 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsTravelInformationAutoRentalRentalAddress {\n");
-            sb.Append("  City: ").Append(City).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  LocationId: ").Append(LocationId).Append("\n");
-            sb.Append("  Address1: ").Append(Address1).Append("\n");
-            sb.Append("  Address2: ").Append(Address2).Append("\n");
-            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
+            if (City != null) sb.Append("  City: ").Append(City).Append("\n");
+            if (State != null) sb.Append("  State: ").Append(State).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (LocationId != null) sb.Append("  LocationId: ").Append(LocationId).Append("\n");
+            if (Address1 != null) sb.Append("  Address1: ").Append(Address1).Append("\n");
+            if (Address2 != null) sb.Append("  Address2: ").Append(Address2).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (Location != null) sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Binv1binlookupProcessingInformation {\n");
-            sb.Append("  BinSource: ").Append(BinSource).Append("\n");
-            sb.Append("  PayoutOptions: ").Append(PayoutOptions).Append("\n");
+            if (BinSource != null) sb.Append("  BinSource: ").Append(BinSource).Append("\n");
+            if (PayoutOptions != null) sb.Append("  PayoutOptions: ").Append(PayoutOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

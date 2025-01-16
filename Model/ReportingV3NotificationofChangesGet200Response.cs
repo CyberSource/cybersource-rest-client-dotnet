@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3NotificationofChangesGet200Response {\n");
-            sb.Append("  NotificationOfChanges: ").Append(NotificationOfChanges).Append("\n");
+            if (NotificationOfChanges != null) sb.Append("  NotificationOfChanges: ").Append(NotificationOfChanges).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

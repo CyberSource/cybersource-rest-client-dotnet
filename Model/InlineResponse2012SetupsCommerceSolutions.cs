@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2012SetupsCommerceSolutions {\n");
-            sb.Append("  TokenManagement: ").Append(TokenManagement).Append("\n");
-            sb.Append("  AccountUpdater: ").Append(AccountUpdater).Append("\n");
-            sb.Append("  BinLookup: ").Append(BinLookup).Append("\n");
+            if (TokenManagement != null) sb.Append("  TokenManagement: ").Append(TokenManagement).Append("\n");
+            if (AccountUpdater != null) sb.Append("  AccountUpdater: ").Append(AccountUpdater).Append("\n");
+            if (BinLookup != null) sb.Append("  BinLookup: ").Append(BinLookup).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

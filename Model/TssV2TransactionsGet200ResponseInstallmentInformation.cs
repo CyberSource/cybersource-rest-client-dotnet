@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseInstallmentInformation {\n");
-            sb.Append("  NumberOfInstallments: ").Append(NumberOfInstallments).Append("\n");
-            sb.Append("  Identifier: ").Append(Identifier).Append("\n");
+            if (NumberOfInstallments != null) sb.Append("  NumberOfInstallments: ").Append(NumberOfInstallments).Append("\n");
+            if (Identifier != null) sb.Append("  Identifier: ").Append(Identifier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

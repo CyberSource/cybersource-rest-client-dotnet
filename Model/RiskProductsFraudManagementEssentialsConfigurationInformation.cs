@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RiskProductsFraudManagementEssentialsConfigurationInformation {\n");
-            sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
+            if (TemplateId != null) sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

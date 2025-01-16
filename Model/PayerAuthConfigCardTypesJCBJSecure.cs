@@ -78,9 +78,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PayerAuthConfigCardTypesJCBJSecure {\n");
-            sb.Append("  SecurePasswordForJCB: ").Append(SecurePasswordForJCB).Append("\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  Currencies: ").Append(Currencies).Append("\n");
+            if (SecurePasswordForJCB != null) sb.Append("  SecurePasswordForJCB: ").Append(SecurePasswordForJCB).Append("\n");
+            if (Enabled != null) sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            if (Currencies != null) sb.Append("  Currencies: ").Append(Currencies).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

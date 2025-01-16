@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2005EmbeddedLinks {\n");
-            sb.Append("  Reports: ").Append(Reports).Append("\n");
+            if (Reports != null) sb.Append("  Reports: ").Append(Reports).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

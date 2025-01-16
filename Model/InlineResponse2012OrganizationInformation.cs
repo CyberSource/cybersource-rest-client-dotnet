@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2012OrganizationInformation {\n");
-            sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
-            sb.Append("  ParentOrganizationId: ").Append(ParentOrganizationId).Append("\n");
-            sb.Append("  ChildOrganizations: ").Append(ChildOrganizations).Append("\n");
+            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
+            if (ParentOrganizationId != null) sb.Append("  ParentOrganizationId: ").Append(ParentOrganizationId).Append("\n");
+            if (ChildOrganizations != null) sb.Append("  ChildOrganizations: ").Append(ChildOrganizations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

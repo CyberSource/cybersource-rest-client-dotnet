@@ -117,14 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard {\n");
-            sb.Append("  Prefix: ").Append(Prefix).Append("\n");
-            sb.Append("  Suffix: ").Append(Suffix).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  AssuranceLevel: ").Append(AssuranceLevel).Append("\n");
-            sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
-            sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
-            sb.Append("  RequestorId: ").Append(RequestorId).Append("\n");
-            sb.Append("  AssuranceMethod: ").Append(AssuranceMethod).Append("\n");
+            if (Prefix != null) sb.Append("  Prefix: ").Append(Prefix).Append("\n");
+            if (Suffix != null) sb.Append("  Suffix: ").Append(Suffix).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (AssuranceLevel != null) sb.Append("  AssuranceLevel: ").Append(AssuranceLevel).Append("\n");
+            if (ExpirationMonth != null) sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
+            if (ExpirationYear != null) sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
+            if (RequestorId != null) sb.Append("  RequestorId: ").Append(RequestorId).Append("\n");
+            if (AssuranceMethod != null) sb.Append("  AssuranceMethod: ").Append(AssuranceMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

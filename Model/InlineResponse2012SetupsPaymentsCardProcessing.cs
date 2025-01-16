@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2012SetupsPaymentsCardProcessing {\n");
-            sb.Append("  SubscriptionStatus: ").Append(SubscriptionStatus).Append("\n");
-            sb.Append("  ConfigurationStatus: ").Append(ConfigurationStatus).Append("\n");
+            if (SubscriptionStatus != null) sb.Append("  SubscriptionStatus: ").Append(SubscriptionStatus).Append("\n");
+            if (ConfigurationStatus != null) sb.Append("  ConfigurationStatus: ").Append(ConfigurationStatus).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

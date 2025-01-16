@@ -117,14 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsReversalsPost201ResponseProcessorInformation {\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
-            sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
-            sb.Append("  ResponseCategoryCode: ").Append(ResponseCategoryCode).Append("\n");
-            sb.Append("  ForwardedAcquirerCode: ").Append(ForwardedAcquirerCode).Append("\n");
-            sb.Append("  MasterCardServiceCode: ").Append(MasterCardServiceCode).Append("\n");
-            sb.Append("  MasterCardServiceReplyCode: ").Append(MasterCardServiceReplyCode).Append("\n");
-            sb.Append("  ResponseDetails: ").Append(ResponseDetails).Append("\n");
-            sb.Append("  ProviderResponse: ").Append(ProviderResponse).Append("\n");
+            if (TransactionId != null) sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            if (ResponseCode != null) sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+            if (ResponseCategoryCode != null) sb.Append("  ResponseCategoryCode: ").Append(ResponseCategoryCode).Append("\n");
+            if (ForwardedAcquirerCode != null) sb.Append("  ForwardedAcquirerCode: ").Append(ForwardedAcquirerCode).Append("\n");
+            if (MasterCardServiceCode != null) sb.Append("  MasterCardServiceCode: ").Append(MasterCardServiceCode).Append("\n");
+            if (MasterCardServiceReplyCode != null) sb.Append("  MasterCardServiceReplyCode: ").Append(MasterCardServiceReplyCode).Append("\n");
+            if (ResponseDetails != null) sb.Append("  ResponseDetails: ").Append(ResponseDetails).Append("\n");
+            if (ProviderResponse != null) sb.Append("  ProviderResponse: ").Append(ProviderResponse).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

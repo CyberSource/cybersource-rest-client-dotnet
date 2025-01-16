@@ -77,10 +77,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2006Billing {\n");
-            sb.Append("  Nan: ").Append(Nan).Append("\n");
-            sb.Append("  Ned: ").Append(Ned).Append("\n");
-            sb.Append("  Acl: ").Append(Acl).Append("\n");
-            sb.Append("  Cch: ").Append(Cch).Append("\n");
+            if (Nan != null) sb.Append("  Nan: ").Append(Nan).Append("\n");
+            if (Ned != null) sb.Append("  Ned: ").Append(Ned).Append("\n");
+            if (Acl != null) sb.Append("  Acl: ").Append(Acl).Append("\n");
+            if (Cch != null) sb.Append("  Cch: ").Append(Cch).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

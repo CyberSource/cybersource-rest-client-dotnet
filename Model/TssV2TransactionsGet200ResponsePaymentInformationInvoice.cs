@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformationInvoice {\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
-            sb.Append("  BarcodeNumber: ").Append(BarcodeNumber).Append("\n");
-            sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
+            if (Number != null) sb.Append("  Number: ").Append(Number).Append("\n");
+            if (BarcodeNumber != null) sb.Append("  BarcodeNumber: ").Append(BarcodeNumber).Append("\n");
+            if (ExpirationDate != null) sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

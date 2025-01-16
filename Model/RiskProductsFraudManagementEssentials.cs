@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RiskProductsFraudManagementEssentials {\n");
-            sb.Append("  SubscriptionInformation: ").Append(SubscriptionInformation).Append("\n");
-            sb.Append("  ConfigurationInformation: ").Append(ConfigurationInformation).Append("\n");
+            if (SubscriptionInformation != null) sb.Append("  SubscriptionInformation: ").Append(SubscriptionInformation).Append("\n");
+            if (ConfigurationInformation != null) sb.Append("  ConfigurationInformation: ").Append(ConfigurationInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

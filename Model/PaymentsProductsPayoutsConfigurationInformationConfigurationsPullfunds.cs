@@ -113,13 +113,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsPayoutsConfigurationInformationConfigurationsPullfunds {\n");
-            sb.Append("  AcquirerOrganizationId: ").Append(AcquirerOrganizationId).Append("\n");
-            sb.Append("  AcquiringBIN: ").Append(AcquiringBIN).Append("\n");
-            sb.Append("  AllowCryptoCurrencyPurchase: ").Append(AllowCryptoCurrencyPurchase).Append("\n");
-            sb.Append("  CardAcceptorId: ").Append(CardAcceptorId).Append("\n");
-            sb.Append("  OriginatorMvv: ").Append(OriginatorMvv).Append("\n");
-            sb.Append("  OriginatorNameAbbreviation: ").Append(OriginatorNameAbbreviation).Append("\n");
-            sb.Append("  CardTerminalId: ").Append(CardTerminalId).Append("\n");
+            if (AcquirerOrganizationId != null) sb.Append("  AcquirerOrganizationId: ").Append(AcquirerOrganizationId).Append("\n");
+            if (AcquiringBIN != null) sb.Append("  AcquiringBIN: ").Append(AcquiringBIN).Append("\n");
+            if (AllowCryptoCurrencyPurchase != null) sb.Append("  AllowCryptoCurrencyPurchase: ").Append(AllowCryptoCurrencyPurchase).Append("\n");
+            if (CardAcceptorId != null) sb.Append("  CardAcceptorId: ").Append(CardAcceptorId).Append("\n");
+            if (OriginatorMvv != null) sb.Append("  OriginatorMvv: ").Append(OriginatorMvv).Append("\n");
+            if (OriginatorNameAbbreviation != null) sb.Append("  OriginatorNameAbbreviation: ").Append(OriginatorNameAbbreviation).Append("\n");
+            if (CardTerminalId != null) sb.Append("  CardTerminalId: ").Append(CardTerminalId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

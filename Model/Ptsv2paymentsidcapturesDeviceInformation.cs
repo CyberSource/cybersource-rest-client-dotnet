@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidcapturesDeviceInformation {\n");
-            sb.Append("  HostName: ").Append(HostName).Append("\n");
-            sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
-            sb.Append("  UserAgent: ").Append(UserAgent).Append("\n");
+            if (HostName != null) sb.Append("  HostName: ").Append(HostName).Append("\n");
+            if (IpAddress != null) sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
+            if (UserAgent != null) sb.Append("  UserAgent: ").Append(UserAgent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

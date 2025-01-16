@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2001IntegrationInformation {\n");
-            sb.Append("  Oauth2: ").Append(Oauth2).Append("\n");
-            sb.Append("  TenantConfigurations: ").Append(TenantConfigurations).Append("\n");
+            if (Oauth2 != null) sb.Append("  Oauth2: ").Append(Oauth2).Append("\n");
+            if (TenantConfigurations != null) sb.Append("  TenantConfigurations: ").Append(TenantConfigurations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

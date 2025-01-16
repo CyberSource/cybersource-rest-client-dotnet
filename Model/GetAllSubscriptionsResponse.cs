@@ -79,10 +79,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetAllSubscriptionsResponse {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
-            sb.Append("  Subscriptions: ").Append(Subscriptions).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (TotalCount != null) sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
+            if (Subscriptions != null) sb.Append("  Subscriptions: ").Append(Subscriptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -85,11 +85,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CommerceSolutionsProductsAccountUpdaterConfigurationInformationConfigurations {\n");
-            sb.Append("  MasterCard: ").Append(MasterCard).Append("\n");
-            sb.Append("  Visa: ").Append(Visa).Append("\n");
-            sb.Append("  Amex: ").Append(Amex).Append("\n");
-            sb.Append("  PreferredDay: ").Append(PreferredDay).Append("\n");
-            sb.Append("  DaysWindow: ").Append(DaysWindow).Append("\n");
+            if (MasterCard != null) sb.Append("  MasterCard: ").Append(MasterCard).Append("\n");
+            if (Visa != null) sb.Append("  Visa: ").Append(Visa).Append("\n");
+            if (Amex != null) sb.Append("  Amex: ").Append(Amex).Append("\n");
+            if (PreferredDay != null) sb.Append("  PreferredDay: ").Append(PreferredDay).Append("\n");
+            if (DaysWindow != null) sb.Append("  DaysWindow: ").Append(DaysWindow).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

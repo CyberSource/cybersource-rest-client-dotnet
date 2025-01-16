@@ -78,10 +78,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1liststypeentriesOrderInformation {\n");
-            sb.Append("  Address: ").Append(Address).Append("\n");
-            sb.Append("  BillTo: ").Append(BillTo).Append("\n");
-            sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
-            sb.Append("  LineItems: ").Append(LineItems).Append("\n");
+            if (Address != null) sb.Append("  Address: ").Append(Address).Append("\n");
+            if (BillTo != null) sb.Append("  BillTo: ").Append(BillTo).Append("\n");
+            if (ShipTo != null) sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
+            if (LineItems != null) sb.Append("  LineItems: ").Append(LineItems).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

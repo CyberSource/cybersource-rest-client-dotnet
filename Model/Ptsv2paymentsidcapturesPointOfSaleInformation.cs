@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidcapturesPointOfSaleInformation {\n");
-            sb.Append("  Emv: ").Append(Emv).Append("\n");
-            sb.Append("  AmexCapnData: ").Append(AmexCapnData).Append("\n");
+            if (Emv != null) sb.Append("  Emv: ").Append(Emv).Append("\n");
+            if (AmexCapnData != null) sb.Append("  AmexCapnData: ").Append(AmexCapnData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

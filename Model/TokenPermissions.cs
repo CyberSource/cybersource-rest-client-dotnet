@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TokenPermissions {\n");
-            sb.Append("  Create: ").Append(Create).Append("\n");
-            sb.Append("  Read: ").Append(Read).Append("\n");
-            sb.Append("  Update: ").Append(Update).Append("\n");
-            sb.Append("  Delete: ").Append(Delete).Append("\n");
+            if (Create != null) sb.Append("  Create: ").Append(Create).Append("\n");
+            if (Read != null) sb.Append("  Read: ").Append(Read).Append("\n");
+            if (Update != null) sb.Append("  Update: ").Append(Update).Append("\n");
+            if (Delete != null) sb.Append("  Delete: ").Append(Delete).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

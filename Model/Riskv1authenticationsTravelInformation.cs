@@ -70,9 +70,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1authenticationsTravelInformation {\n");
-            sb.Append("  Legs: ").Append(Legs).Append("\n");
-            sb.Append("  NumberOfPassengers: ").Append(NumberOfPassengers).Append("\n");
-            sb.Append("  Passengers: ").Append(Passengers).Append("\n");
+            if (Legs != null) sb.Append("  Legs: ").Append(Legs).Append("\n");
+            if (NumberOfPassengers != null) sb.Append("  NumberOfPassengers: ").Append(NumberOfPassengers).Append("\n");
+            if (Passengers != null) sb.Append("  Passengers: ").Append(Passengers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

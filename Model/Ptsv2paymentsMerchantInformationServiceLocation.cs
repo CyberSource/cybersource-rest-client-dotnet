@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsMerchantInformationServiceLocation {\n");
-            sb.Append("  Locality: ").Append(Locality).Append("\n");
-            sb.Append("  CountrySubdivisionCode: ").Append(CountrySubdivisionCode).Append("\n");
-            sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
-            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
+            if (CountrySubdivisionCode != null) sb.Append("  CountrySubdivisionCode: ").Append(CountrySubdivisionCode).Append("\n");
+            if (CountryCode != null) sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

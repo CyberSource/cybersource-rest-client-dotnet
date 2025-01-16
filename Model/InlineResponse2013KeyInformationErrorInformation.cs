@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2013KeyInformationErrorInformation {\n");
-            sb.Append("  Reason: ").Append(Reason).Append("\n");
-            sb.Append("  Details: ").Append(Details).Append("\n");
+            if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
+            if (Details != null) sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

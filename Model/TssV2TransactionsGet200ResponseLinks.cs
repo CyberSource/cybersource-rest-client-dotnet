@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseLinks {\n");
-            sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  RelatedTransactions: ").Append(RelatedTransactions).Append("\n");
+            if (Self != null) sb.Append("  Self: ").Append(Self).Append("\n");
+            if (RelatedTransactions != null) sb.Append("  RelatedTransactions: ").Append(RelatedTransactions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

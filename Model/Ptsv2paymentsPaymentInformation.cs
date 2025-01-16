@@ -174,22 +174,22 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsPaymentInformation {\n");
-            sb.Append("  Card: ").Append(Card).Append("\n");
-            sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
-            sb.Append("  DirectDebit: ").Append(DirectDebit).Append("\n");
-            sb.Append("  FluidData: ").Append(FluidData).Append("\n");
-            sb.Append("  Customer: ").Append(Customer).Append("\n");
-            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
-            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
-            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
-            sb.Append("  LegacyToken: ").Append(LegacyToken).Append("\n");
-            sb.Append("  Bank: ").Append(Bank).Append("\n");
-            sb.Append("  Options: ").Append(Options).Append("\n");
-            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
-            sb.Append("  InitiationChannel: ").Append(InitiationChannel).Append("\n");
-            sb.Append("  Sepa: ").Append(Sepa).Append("\n");
-            sb.Append("  EWallet: ").Append(EWallet).Append("\n");
-            sb.Append("  PaymentAccountReference: ").Append(PaymentAccountReference).Append("\n");
+            if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
+            if (TokenizedCard != null) sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
+            if (DirectDebit != null) sb.Append("  DirectDebit: ").Append(DirectDebit).Append("\n");
+            if (FluidData != null) sb.Append("  FluidData: ").Append(FluidData).Append("\n");
+            if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
+            if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            if (ShippingAddress != null) sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            if (LegacyToken != null) sb.Append("  LegacyToken: ").Append(LegacyToken).Append("\n");
+            if (Bank != null) sb.Append("  Bank: ").Append(Bank).Append("\n");
+            if (Options != null) sb.Append("  Options: ").Append(Options).Append("\n");
+            if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (InitiationChannel != null) sb.Append("  InitiationChannel: ").Append(InitiationChannel).Append("\n");
+            if (Sepa != null) sb.Append("  Sepa: ").Append(Sepa).Append("\n");
+            if (EWallet != null) sb.Append("  EWallet: ").Append(EWallet).Append("\n");
+            if (PaymentAccountReference != null) sb.Append("  PaymentAccountReference: ").Append(PaymentAccountReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

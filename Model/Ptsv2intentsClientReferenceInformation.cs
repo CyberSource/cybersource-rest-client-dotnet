@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2intentsClientReferenceInformation {\n");
-            sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

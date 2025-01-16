@@ -186,22 +186,22 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsOrderInformationLineItems {\n");
-            sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
-            sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
-            sb.Append("  Quantity: ").Append(Quantity).Append("\n");
-            sb.Append("  GiftCardCurrency: ").Append(GiftCardCurrency).Append("\n");
-            sb.Append("  ProductSKU: ").Append(ProductSKU).Append("\n");
-            sb.Append("  ProductRisk: ").Append(ProductRisk).Append("\n");
-            sb.Append("  ProductDescription: ").Append(ProductDescription).Append("\n");
-            sb.Append("  ProductName: ").Append(ProductName).Append("\n");
-            sb.Append("  ProductCode: ").Append(ProductCode).Append("\n");
-            sb.Append("  Gift: ").Append(Gift).Append("\n");
-            sb.Append("  DistributorProductSku: ").Append(DistributorProductSku).Append("\n");
-            sb.Append("  Passenger: ").Append(Passenger).Append("\n");
-            sb.Append("  ShippingDestinationTypes: ").Append(ShippingDestinationTypes).Append("\n");
-            sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
-            sb.Append("  AllowedExportCountries: ").Append(AllowedExportCountries).Append("\n");
-            sb.Append("  RestrictedExportCountries: ").Append(RestrictedExportCountries).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
+            if (UnitPrice != null) sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
+            if (Quantity != null) sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            if (GiftCardCurrency != null) sb.Append("  GiftCardCurrency: ").Append(GiftCardCurrency).Append("\n");
+            if (ProductSKU != null) sb.Append("  ProductSKU: ").Append(ProductSKU).Append("\n");
+            if (ProductRisk != null) sb.Append("  ProductRisk: ").Append(ProductRisk).Append("\n");
+            if (ProductDescription != null) sb.Append("  ProductDescription: ").Append(ProductDescription).Append("\n");
+            if (ProductName != null) sb.Append("  ProductName: ").Append(ProductName).Append("\n");
+            if (ProductCode != null) sb.Append("  ProductCode: ").Append(ProductCode).Append("\n");
+            if (Gift != null) sb.Append("  Gift: ").Append(Gift).Append("\n");
+            if (DistributorProductSku != null) sb.Append("  DistributorProductSku: ").Append(DistributorProductSku).Append("\n");
+            if (Passenger != null) sb.Append("  Passenger: ").Append(Passenger).Append("\n");
+            if (ShippingDestinationTypes != null) sb.Append("  ShippingDestinationTypes: ").Append(ShippingDestinationTypes).Append("\n");
+            if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (AllowedExportCountries != null) sb.Append("  AllowedExportCountries: ").Append(AllowedExportCountries).Append("\n");
+            if (RestrictedExportCountries != null) sb.Append("  RestrictedExportCountries: ").Append(RestrictedExportCountries).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsTokenInformationTokenProvisioningInformation {\n");
-            sb.Append("  ConsumerConsentObtained: ").Append(ConsumerConsentObtained).Append("\n");
-            sb.Append("  MultiFactorAuthenticated: ").Append(MultiFactorAuthenticated).Append("\n");
+            if (ConsumerConsentObtained != null) sb.Append("  ConsumerConsentObtained: ").Append(ConsumerConsentObtained).Append("\n");
+            if (MultiFactorAuthenticated != null) sb.Append("  MultiFactorAuthenticated: ").Append(MultiFactorAuthenticated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

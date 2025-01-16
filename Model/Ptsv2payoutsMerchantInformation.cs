@@ -80,10 +80,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2payoutsMerchantInformation {\n");
-            sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
-            sb.Append("  SubmitLocalDateTime: ").Append(SubmitLocalDateTime).Append("\n");
-            sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
-            sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
+            if (CategoryCode != null) sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
+            if (SubmitLocalDateTime != null) sb.Append("  SubmitLocalDateTime: ").Append(SubmitLocalDateTime).Append("\n");
+            if (VatRegistrationNumber != null) sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
+            if (MerchantDescriptor != null) sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

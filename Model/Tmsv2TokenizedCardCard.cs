@@ -67,9 +67,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2TokenizedCardCard {\n");
-            sb.Append("  Suffix: ").Append(Suffix).Append("\n");
-            sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
-            sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
+            if (Suffix != null) sb.Append("  Suffix: ").Append(Suffix).Append("\n");
+            if (ExpirationMonth != null) sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
+            if (ExpirationYear != null) sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

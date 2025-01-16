@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2IncrementalAuthorizationPatch201ResponsePaymentInformation {\n");
-            sb.Append("  AccountFeatures: ").Append(AccountFeatures).Append("\n");
+            if (AccountFeatures != null) sb.Append("  AccountFeatures: ").Append(AccountFeatures).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

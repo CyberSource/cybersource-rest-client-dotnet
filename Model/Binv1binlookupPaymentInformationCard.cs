@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Binv1binlookupPaymentInformationCard {\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
+            if (Number != null) sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

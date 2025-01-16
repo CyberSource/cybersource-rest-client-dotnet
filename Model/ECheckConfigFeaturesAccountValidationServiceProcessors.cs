@@ -150,15 +150,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ECheckConfigFeaturesAccountValidationServiceProcessors {\n");
-            sb.Append("  AvsAccountOwnershipService: ").Append(AvsAccountOwnershipService).Append("\n");
-            sb.Append("  AvsAccountStatusService: ").Append(AvsAccountStatusService).Append("\n");
-            sb.Append("  AvsSignedAgreement: ").Append(AvsSignedAgreement).Append("\n");
-            sb.Append("  AvsCalculatedResponseBehavior: ").Append(AvsCalculatedResponseBehavior).Append("\n");
-            sb.Append("  AvsAdditionalId: ").Append(AvsAdditionalId).Append("\n");
-            sb.Append("  EnableAvs: ").Append(EnableAvs).Append("\n");
-            sb.Append("  AvsEntityId: ").Append(AvsEntityId).Append("\n");
-            sb.Append("  AvsResultMode: ").Append(AvsResultMode).Append("\n");
-            sb.Append("  EnableAvsTokenCreation: ").Append(EnableAvsTokenCreation).Append("\n");
+            if (AvsAccountOwnershipService != null) sb.Append("  AvsAccountOwnershipService: ").Append(AvsAccountOwnershipService).Append("\n");
+            if (AvsAccountStatusService != null) sb.Append("  AvsAccountStatusService: ").Append(AvsAccountStatusService).Append("\n");
+            if (AvsSignedAgreement != null) sb.Append("  AvsSignedAgreement: ").Append(AvsSignedAgreement).Append("\n");
+            if (AvsCalculatedResponseBehavior != null) sb.Append("  AvsCalculatedResponseBehavior: ").Append(AvsCalculatedResponseBehavior).Append("\n");
+            if (AvsAdditionalId != null) sb.Append("  AvsAdditionalId: ").Append(AvsAdditionalId).Append("\n");
+            if (EnableAvs != null) sb.Append("  EnableAvs: ").Append(EnableAvs).Append("\n");
+            if (AvsEntityId != null) sb.Append("  AvsEntityId: ").Append(AvsEntityId).Append("\n");
+            if (AvsResultMode != null) sb.Append("  AvsResultMode: ").Append(AvsResultMode).Append("\n");
+            if (EnableAvsTokenCreation != null) sb.Append("  EnableAvsTokenCreation: ").Append(EnableAvsTokenCreation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

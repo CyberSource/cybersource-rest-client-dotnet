@@ -88,11 +88,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VasV2PaymentsPost201ResponseOrderInformationLineItems {\n");
-            sb.Append("  TaxDetails: ").Append(TaxDetails).Append("\n");
-            sb.Append("  Jurisdiction: ").Append(Jurisdiction).Append("\n");
-            sb.Append("  ExemptAmount: ").Append(ExemptAmount).Append("\n");
-            sb.Append("  TaxableAmount: ").Append(TaxableAmount).Append("\n");
-            sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (TaxDetails != null) sb.Append("  TaxDetails: ").Append(TaxDetails).Append("\n");
+            if (Jurisdiction != null) sb.Append("  Jurisdiction: ").Append(Jurisdiction).Append("\n");
+            if (ExemptAmount != null) sb.Append("  ExemptAmount: ").Append(ExemptAmount).Append("\n");
+            if (TaxableAmount != null) sb.Append("  TaxableAmount: ").Append(TaxableAmount).Append("\n");
+            if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2CreateBillingAgreementPost201ResponseRiskInformation {\n");
-            sb.Append("  ProcessorResults: ").Append(ProcessorResults).Append("\n");
+            if (ProcessorResults != null) sb.Append("  ProcessorResults: ").Append(ProcessorResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

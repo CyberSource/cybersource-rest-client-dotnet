@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsECheckConfigurationInformation {\n");
-            sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
-            sb.Append("  Configurations: ").Append(Configurations).Append("\n");
+            if (TemplateId != null) sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
+            if (Configurations != null) sb.Append("  Configurations: ").Append(Configurations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

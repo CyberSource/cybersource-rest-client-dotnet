@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsTokenFormats {\n");
-            sb.Append("  Customer: ").Append(Customer).Append("\n");
-            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
-            sb.Append("  InstrumentIdentifierCard: ").Append(InstrumentIdentifierCard).Append("\n");
-            sb.Append("  InstrumentIdentifierBankAccount: ").Append(InstrumentIdentifierBankAccount).Append("\n");
+            if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
+            if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            if (InstrumentIdentifierCard != null) sb.Append("  InstrumentIdentifierCard: ").Append(InstrumentIdentifierCard).Append("\n");
+            if (InstrumentIdentifierBankAccount != null) sb.Append("  InstrumentIdentifierBankAccount: ").Append(InstrumentIdentifierBankAccount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

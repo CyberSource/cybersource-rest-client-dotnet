@@ -55,7 +55,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InvoicingV2InvoicesAllGet200ResponseInvoiceInformation {\n");
-            sb.Append("  DueDate: ").Append(DueDate).Append("\n");
+            if (DueDate != null) sb.Append("  DueDate: ").Append(DueDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

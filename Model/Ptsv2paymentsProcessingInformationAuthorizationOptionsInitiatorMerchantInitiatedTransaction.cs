@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction {\n");
-            sb.Append("  Reason: ").Append(Reason).Append("\n");
-            sb.Append("  PreviousTransactionId: ").Append(PreviousTransactionId).Append("\n");
-            sb.Append("  OriginalAuthorizedAmount: ").Append(OriginalAuthorizedAmount).Append("\n");
+            if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
+            if (PreviousTransactionId != null) sb.Append("  PreviousTransactionId: ").Append(PreviousTransactionId).Append("\n");
+            if (OriginalAuthorizedAmount != null) sb.Append("  OriginalAuthorizedAmount: ").Append(OriginalAuthorizedAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

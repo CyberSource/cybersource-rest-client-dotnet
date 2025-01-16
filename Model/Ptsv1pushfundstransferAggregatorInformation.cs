@@ -80,10 +80,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv1pushfundstransferAggregatorInformation {\n");
-            sb.Append("  AggregatorId: ").Append(AggregatorId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  IndependentSalesOrganizationID: ").Append(IndependentSalesOrganizationID).Append("\n");
-            sb.Append("  SubMerchant: ").Append(SubMerchant).Append("\n");
+            if (AggregatorId != null) sb.Append("  AggregatorId: ").Append(AggregatorId).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (IndependentSalesOrganizationID != null) sb.Append("  IndependentSalesOrganizationID: ").Append(IndependentSalesOrganizationID).Append("\n");
+            if (SubMerchant != null) sb.Append("  SubMerchant: ").Append(SubMerchant).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

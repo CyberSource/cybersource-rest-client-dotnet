@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VTConfigCardNotPresentGlobalPaymentInformation {\n");
-            sb.Append("  BasicInformation: ").Append(BasicInformation).Append("\n");
-            sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
-            sb.Append("  MerchantDefinedDataFields: ").Append(MerchantDefinedDataFields).Append("\n");
+            if (BasicInformation != null) sb.Append("  BasicInformation: ").Append(BasicInformation).Append("\n");
+            if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            if (MerchantDefinedDataFields != null) sb.Append("  MerchantDefinedDataFields: ").Append(MerchantDefinedDataFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

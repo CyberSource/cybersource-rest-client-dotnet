@@ -71,9 +71,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedProcessorInformation {\n");
-            sb.Append("  Processor: ").Append(Processor).Append("\n");
-            sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
-            sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
+            if (Processor != null) sb.Append("  Processor: ").Append(Processor).Append("\n");
+            if (ApprovalCode != null) sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
+            if (RetrievalReferenceNumber != null) sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

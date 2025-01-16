@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VasV2TaxVoid200ResponseVoidAmountDetails {\n");
-            sb.Append("  VoidAmount: ").Append(VoidAmount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (VoidAmount != null) sb.Append("  VoidAmount: ").Append(VoidAmount).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

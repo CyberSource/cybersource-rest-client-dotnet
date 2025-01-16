@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VTConfig {\n");
-            sb.Append("  CardNotPresent: ").Append(CardNotPresent).Append("\n");
-            sb.Append("  CardPresent: ").Append(CardPresent).Append("\n");
+            if (CardNotPresent != null) sb.Append("  CardNotPresent: ").Append(CardNotPresent).Append("\n");
+            if (CardPresent != null) sb.Append("  CardPresent: ").Append(CardPresent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

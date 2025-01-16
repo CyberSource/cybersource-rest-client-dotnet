@@ -70,9 +70,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsProcessorInformation {\n");
-            sb.Append("  PreApprovalToken: ").Append(PreApprovalToken).Append("\n");
-            sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
-            sb.Append("  Reversal: ").Append(Reversal).Append("\n");
+            if (PreApprovalToken != null) sb.Append("  PreApprovalToken: ").Append(PreApprovalToken).Append("\n");
+            if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
+            if (Reversal != null) sb.Append("  Reversal: ").Append(Reversal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

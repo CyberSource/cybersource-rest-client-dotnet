@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ValueAddedServicesProducts {\n");
-            sb.Append("  Reporting: ").Append(Reporting).Append("\n");
-            sb.Append("  TransactionSearch: ").Append(TransactionSearch).Append("\n");
+            if (Reporting != null) sb.Append("  Reporting: ").Append(Reporting).Append("\n");
+            if (TransactionSearch != null) sb.Append("  TransactionSearch: ").Append(TransactionSearch).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

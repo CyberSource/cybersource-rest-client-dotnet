@@ -80,10 +80,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GenerateCaptureContextRequest {\n");
-            sb.Append("  ClientVersion: ").Append(ClientVersion).Append("\n");
-            sb.Append("  TargetOrigins: ").Append(TargetOrigins).Append("\n");
-            sb.Append("  AllowedCardNetworks: ").Append(AllowedCardNetworks).Append("\n");
-            sb.Append("  CheckoutApiInitialization: ").Append(CheckoutApiInitialization).Append("\n");
+            if (ClientVersion != null) sb.Append("  ClientVersion: ").Append(ClientVersion).Append("\n");
+            if (TargetOrigins != null) sb.Append("  TargetOrigins: ").Append(TargetOrigins).Append("\n");
+            if (AllowedCardNetworks != null) sb.Append("  AllowedCardNetworks: ").Append(AllowedCardNetworks).Append("\n");
+            if (CheckoutApiInitialization != null) sb.Append("  CheckoutApiInitialization: ").Append(CheckoutApiInitialization).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

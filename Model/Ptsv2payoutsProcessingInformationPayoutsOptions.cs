@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2payoutsProcessingInformationPayoutsOptions {\n");
-            sb.Append("  AcquirerMerchantId: ").Append(AcquirerMerchantId).Append("\n");
-            sb.Append("  AcquirerBin: ").Append(AcquirerBin).Append("\n");
-            sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
-            sb.Append("  AccountFundingReferenceId: ").Append(AccountFundingReferenceId).Append("\n");
-            sb.Append("  DeferredDateTime: ").Append(DeferredDateTime).Append("\n");
+            if (AcquirerMerchantId != null) sb.Append("  AcquirerMerchantId: ").Append(AcquirerMerchantId).Append("\n");
+            if (AcquirerBin != null) sb.Append("  AcquirerBin: ").Append(AcquirerBin).Append("\n");
+            if (RetrievalReferenceNumber != null) sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
+            if (AccountFundingReferenceId != null) sb.Append("  AccountFundingReferenceId: ").Append(AccountFundingReferenceId).Append("\n");
+            if (DeferredDateTime != null) sb.Append("  DeferredDateTime: ").Append(DeferredDateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

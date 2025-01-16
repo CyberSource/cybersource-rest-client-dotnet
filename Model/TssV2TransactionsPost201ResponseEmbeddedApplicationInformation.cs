@@ -89,11 +89,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedApplicationInformation {\n");
-            sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
-            sb.Append("  RCode: ").Append(RCode).Append("\n");
-            sb.Append("  RFlag: ").Append(RFlag).Append("\n");
-            sb.Append("  Applications: ").Append(Applications).Append("\n");
-            sb.Append("  ReturnCode: ").Append(ReturnCode).Append("\n");
+            if (ReasonCode != null) sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
+            if (RCode != null) sb.Append("  RCode: ").Append(RCode).Append("\n");
+            if (RFlag != null) sb.Append("  RFlag: ").Append(RFlag).Append("\n");
+            if (Applications != null) sb.Append("  Applications: ").Append(Applications).Append("\n");
+            if (ReturnCode != null) sb.Append("  ReturnCode: ").Append(ReturnCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

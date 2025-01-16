@@ -125,16 +125,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Upv1capturecontextsCheckoutApiInitialization {\n");
-            sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
-            sb.Append("  AccessKey: ").Append(AccessKey).Append("\n");
-            sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
-            sb.Append("  TransactionUuid: ").Append(TransactionUuid).Append("\n");
-            sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Locale: ").Append(Locale).Append("\n");
-            sb.Append("  OverrideCustomReceiptPage: ").Append(OverrideCustomReceiptPage).Append("\n");
-            sb.Append("  UnsignedFieldNames: ").Append(UnsignedFieldNames).Append("\n");
+            if (ProfileId != null) sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
+            if (AccessKey != null) sb.Append("  AccessKey: ").Append(AccessKey).Append("\n");
+            if (ReferenceNumber != null) sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
+            if (TransactionUuid != null) sb.Append("  TransactionUuid: ").Append(TransactionUuid).Append("\n");
+            if (TransactionType != null) sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (Amount != null) sb.Append("  Amount: ").Append(Amount).Append("\n");
+            if (Locale != null) sb.Append("  Locale: ").Append(Locale).Append("\n");
+            if (OverrideCustomReceiptPage != null) sb.Append("  OverrideCustomReceiptPage: ").Append(OverrideCustomReceiptPage).Append("\n");
+            if (UnsignedFieldNames != null) sb.Append("  UnsignedFieldNames: ").Append(UnsignedFieldNames).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

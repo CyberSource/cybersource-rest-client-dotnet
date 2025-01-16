@@ -135,16 +135,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsProcessingInformationJapanPaymentOptions {\n");
-            sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
-            sb.Append("  Bonuses: ").Append(Bonuses).Append("\n");
-            sb.Append("  PreapprovalType: ").Append(PreapprovalType).Append("\n");
-            sb.Append("  Installments: ").Append(Installments).Append("\n");
-            sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
-            sb.Append("  FirstBillingMonth: ").Append(FirstBillingMonth).Append("\n");
-            sb.Append("  BusinessName: ").Append(BusinessName).Append("\n");
-            sb.Append("  BusinessNameKatakana: ").Append(BusinessNameKatakana).Append("\n");
-            sb.Append("  Jis2TrackData: ").Append(Jis2TrackData).Append("\n");
-            sb.Append("  BusinessNameAlphaNumeric: ").Append(BusinessNameAlphaNumeric).Append("\n");
+            if (PaymentMethod != null) sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
+            if (Bonuses != null) sb.Append("  Bonuses: ").Append(Bonuses).Append("\n");
+            if (PreapprovalType != null) sb.Append("  PreapprovalType: ").Append(PreapprovalType).Append("\n");
+            if (Installments != null) sb.Append("  Installments: ").Append(Installments).Append("\n");
+            if (TerminalId != null) sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
+            if (FirstBillingMonth != null) sb.Append("  FirstBillingMonth: ").Append(FirstBillingMonth).Append("\n");
+            if (BusinessName != null) sb.Append("  BusinessName: ").Append(BusinessName).Append("\n");
+            if (BusinessNameKatakana != null) sb.Append("  BusinessNameKatakana: ").Append(BusinessNameKatakana).Append("\n");
+            if (Jis2TrackData != null) sb.Append("  Jis2TrackData: ").Append(Jis2TrackData).Append("\n");
+            if (BusinessNameAlphaNumeric != null) sb.Append("  BusinessNameAlphaNumeric: ").Append(BusinessNameAlphaNumeric).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

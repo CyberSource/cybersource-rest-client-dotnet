@@ -169,20 +169,20 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Vasv2taxOrderInformationLineItems {\n");
-            sb.Append("  ProductSKU: ").Append(ProductSKU).Append("\n");
-            sb.Append("  ProductCode: ").Append(ProductCode).Append("\n");
-            sb.Append("  Quantity: ").Append(Quantity).Append("\n");
-            sb.Append("  ProductName: ").Append(ProductName).Append("\n");
-            sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
-            sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
-            sb.Append("  OrderAcceptance: ").Append(OrderAcceptance).Append("\n");
-            sb.Append("  OrderOrigin: ").Append(OrderOrigin).Append("\n");
-            sb.Append("  ShipFromCountry: ").Append(ShipFromCountry).Append("\n");
-            sb.Append("  ShipFromAdministrativeArea: ").Append(ShipFromAdministrativeArea).Append("\n");
-            sb.Append("  ShipFromLocality: ").Append(ShipFromLocality).Append("\n");
-            sb.Append("  ShipFromPostalCode: ").Append(ShipFromPostalCode).Append("\n");
-            sb.Append("  BuyerVatRegistrationNumber: ").Append(BuyerVatRegistrationNumber).Append("\n");
-            sb.Append("  SellerVatRegistrationNumber: ").Append(SellerVatRegistrationNumber).Append("\n");
+            if (ProductSKU != null) sb.Append("  ProductSKU: ").Append(ProductSKU).Append("\n");
+            if (ProductCode != null) sb.Append("  ProductCode: ").Append(ProductCode).Append("\n");
+            if (Quantity != null) sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            if (ProductName != null) sb.Append("  ProductName: ").Append(ProductName).Append("\n");
+            if (UnitPrice != null) sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
+            if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (OrderAcceptance != null) sb.Append("  OrderAcceptance: ").Append(OrderAcceptance).Append("\n");
+            if (OrderOrigin != null) sb.Append("  OrderOrigin: ").Append(OrderOrigin).Append("\n");
+            if (ShipFromCountry != null) sb.Append("  ShipFromCountry: ").Append(ShipFromCountry).Append("\n");
+            if (ShipFromAdministrativeArea != null) sb.Append("  ShipFromAdministrativeArea: ").Append(ShipFromAdministrativeArea).Append("\n");
+            if (ShipFromLocality != null) sb.Append("  ShipFromLocality: ").Append(ShipFromLocality).Append("\n");
+            if (ShipFromPostalCode != null) sb.Append("  ShipFromPostalCode: ").Append(ShipFromPostalCode).Append("\n");
+            if (BuyerVatRegistrationNumber != null) sb.Append("  BuyerVatRegistrationNumber: ").Append(BuyerVatRegistrationNumber).Append("\n");
+            if (SellerVatRegistrationNumber != null) sb.Append("  SellerVatRegistrationNumber: ").Append(SellerVatRegistrationNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsServiceFeeConfigurationInformationConfigurationsProducts {\n");
-            sb.Append("  ServiceFeeEnabled: ").Append(ServiceFeeEnabled).Append("\n");
+            if (ServiceFeeEnabled != null) sb.Append("  ServiceFeeEnabled: ").Append(ServiceFeeEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

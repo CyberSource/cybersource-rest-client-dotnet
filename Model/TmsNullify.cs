@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsNullify {\n");
-            sb.Append("  InstrumentIdentifierCardNumber: ").Append(InstrumentIdentifierCardNumber).Append("\n");
-            sb.Append("  InstrumentIdentifierCardExpiration: ").Append(InstrumentIdentifierCardExpiration).Append("\n");
-            sb.Append("  PaymentInstrumentCardDetails: ").Append(PaymentInstrumentCardDetails).Append("\n");
+            if (InstrumentIdentifierCardNumber != null) sb.Append("  InstrumentIdentifierCardNumber: ").Append(InstrumentIdentifierCardNumber).Append("\n");
+            if (InstrumentIdentifierCardExpiration != null) sb.Append("  InstrumentIdentifierCardExpiration: ").Append(InstrumentIdentifierCardExpiration).Append("\n");
+            if (PaymentInstrumentCardDetails != null) sb.Append("  PaymentInstrumentCardDetails: ").Append(PaymentInstrumentCardDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -99,12 +99,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseOrderInformationRewardPointsDetails {\n");
-            sb.Append("  PointsBeforeRedemption: ").Append(PointsBeforeRedemption).Append("\n");
-            sb.Append("  PointsValueBeforeRedemption: ").Append(PointsValueBeforeRedemption).Append("\n");
-            sb.Append("  PointsRedeemed: ").Append(PointsRedeemed).Append("\n");
-            sb.Append("  PointsValueRedeemed: ").Append(PointsValueRedeemed).Append("\n");
-            sb.Append("  PointsAfterRedemption: ").Append(PointsAfterRedemption).Append("\n");
-            sb.Append("  PointsValueAfterRedemption: ").Append(PointsValueAfterRedemption).Append("\n");
+            if (PointsBeforeRedemption != null) sb.Append("  PointsBeforeRedemption: ").Append(PointsBeforeRedemption).Append("\n");
+            if (PointsValueBeforeRedemption != null) sb.Append("  PointsValueBeforeRedemption: ").Append(PointsValueBeforeRedemption).Append("\n");
+            if (PointsRedeemed != null) sb.Append("  PointsRedeemed: ").Append(PointsRedeemed).Append("\n");
+            if (PointsValueRedeemed != null) sb.Append("  PointsValueRedeemed: ").Append(PointsValueRedeemed).Append("\n");
+            if (PointsAfterRedemption != null) sb.Append("  PointsAfterRedemption: ").Append(PointsAfterRedemption).Append("\n");
+            if (PointsValueAfterRedemption != null) sb.Append("  PointsValueAfterRedemption: ").Append(PointsValueAfterRedemption).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

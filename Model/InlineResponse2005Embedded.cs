@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2005Embedded {\n");
-            sb.Append("  Batches: ").Append(Batches).Append("\n");
+            if (Batches != null) sb.Append("  Batches: ").Append(Batches).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

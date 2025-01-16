@@ -77,10 +77,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseRiskInformationTravel {\n");
-            sb.Append("  ActualFinalDestination: ").Append(ActualFinalDestination).Append("\n");
-            sb.Append("  FirstDeparture: ").Append(FirstDeparture).Append("\n");
-            sb.Append("  FirstDestination: ").Append(FirstDestination).Append("\n");
-            sb.Append("  LastDestination: ").Append(LastDestination).Append("\n");
+            if (ActualFinalDestination != null) sb.Append("  ActualFinalDestination: ").Append(ActualFinalDestination).Append("\n");
+            if (FirstDeparture != null) sb.Append("  FirstDeparture: ").Append(FirstDeparture).Append("\n");
+            if (FirstDestination != null) sb.Append("  FirstDestination: ").Append(FirstDestination).Append("\n");
+            if (LastDestination != null) sb.Append("  LastDestination: ").Append(LastDestination).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

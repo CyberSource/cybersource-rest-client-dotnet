@@ -95,12 +95,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseTokenInformation {\n");
-            sb.Append("  Customer: ").Append(Customer).Append("\n");
-            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
-            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
-            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
-            sb.Append("  Jti: ").Append(Jti).Append("\n");
-            sb.Append("  TransientTokenJwt: ").Append(TransientTokenJwt).Append("\n");
+            if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
+            if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            if (ShippingAddress != null) sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            if (Jti != null) sb.Append("  Jti: ").Append(Jti).Append("\n");
+            if (TransientTokenJwt != null) sb.Append("  TransientTokenJwt: ").Append(TransientTokenJwt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

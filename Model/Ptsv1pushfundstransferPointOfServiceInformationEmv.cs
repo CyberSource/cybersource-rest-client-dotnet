@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv1pushfundstransferPointOfServiceInformationEmv {\n");
-            sb.Append("  CardSequenceNumber: ").Append(CardSequenceNumber).Append("\n");
+            if (CardSequenceNumber != null) sb.Append("  CardSequenceNumber: ").Append(CardSequenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

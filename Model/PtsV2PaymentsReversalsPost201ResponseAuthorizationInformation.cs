@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation {\n");
-            sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
-            sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
-            sb.Append("  ReversalSubmitted: ").Append(ReversalSubmitted).Append("\n");
+            if (ApprovalCode != null) sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
+            if (ReasonCode != null) sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
+            if (ReversalSubmitted != null) sb.Append("  ReversalSubmitted: ").Append(ReversalSubmitted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

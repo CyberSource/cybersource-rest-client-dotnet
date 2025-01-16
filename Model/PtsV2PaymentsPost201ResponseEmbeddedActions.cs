@@ -85,11 +85,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseEmbeddedActions {\n");
-            sb.Append("  CAPTURE: ").Append(CAPTURE).Append("\n");
-            sb.Append("  DECISION: ").Append(DECISION).Append("\n");
-            sb.Append("  CONSUMER_AUTHENTICATION: ").Append(CONSUMER_AUTHENTICATION).Append("\n");
-            sb.Append("  VALIDATE_CONSUMER_AUTHENTICATION: ").Append(VALIDATE_CONSUMER_AUTHENTICATION).Append("\n");
-            sb.Append("  WATCHLIST_SCREENING: ").Append(WATCHLIST_SCREENING).Append("\n");
+            if (CAPTURE != null) sb.Append("  CAPTURE: ").Append(CAPTURE).Append("\n");
+            if (DECISION != null) sb.Append("  DECISION: ").Append(DECISION).Append("\n");
+            if (CONSUMER_AUTHENTICATION != null) sb.Append("  CONSUMER_AUTHENTICATION: ").Append(CONSUMER_AUTHENTICATION).Append("\n");
+            if (VALIDATE_CONSUMER_AUTHENTICATION != null) sb.Append("  VALIDATE_CONSUMER_AUTHENTICATION: ").Append(VALIDATE_CONSUMER_AUTHENTICATION).Append("\n");
+            if (WATCHLIST_SCREENING != null) sb.Append("  WATCHLIST_SCREENING: ").Append(WATCHLIST_SCREENING).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Notificationsubscriptionsv1webhooksSecurityPolicyConfig {\n");
-            sb.Append("  OAuthTokenExpiry: ").Append(OAuthTokenExpiry).Append("\n");
-            sb.Append("  OAuthURL: ").Append(OAuthURL).Append("\n");
-            sb.Append("  OAuthTokenType: ").Append(OAuthTokenType).Append("\n");
+            if (OAuthTokenExpiry != null) sb.Append("  OAuthTokenExpiry: ").Append(OAuthTokenExpiry).Append("\n");
+            if (OAuthURL != null) sb.Append("  OAuthURL: ").Append(OAuthURL).Append("\n");
+            if (OAuthTokenType != null) sb.Append("  OAuthTokenType: ").Append(OAuthTokenType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

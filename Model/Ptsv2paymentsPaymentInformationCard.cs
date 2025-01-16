@@ -189,22 +189,22 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsPaymentInformationCard {\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
-            sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
-            sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  UseAs: ").Append(UseAs).Append("\n");
-            sb.Append("  SourceAccountType: ").Append(SourceAccountType).Append("\n");
-            sb.Append("  SourceAccountTypeDetails: ").Append(SourceAccountTypeDetails).Append("\n");
-            sb.Append("  SecurityCode: ").Append(SecurityCode).Append("\n");
-            sb.Append("  SecurityCodeIndicator: ").Append(SecurityCodeIndicator).Append("\n");
-            sb.Append("  AccountEncoderId: ").Append(AccountEncoderId).Append("\n");
-            sb.Append("  IssueNumber: ").Append(IssueNumber).Append("\n");
-            sb.Append("  StartMonth: ").Append(StartMonth).Append("\n");
-            sb.Append("  StartYear: ").Append(StartYear).Append("\n");
-            sb.Append("  ProductName: ").Append(ProductName).Append("\n");
-            sb.Append("  ProductSubtype: ").Append(ProductSubtype).Append("\n");
-            sb.Append("  TypeSelectionIndicator: ").Append(TypeSelectionIndicator).Append("\n");
+            if (Number != null) sb.Append("  Number: ").Append(Number).Append("\n");
+            if (ExpirationMonth != null) sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
+            if (ExpirationYear != null) sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (UseAs != null) sb.Append("  UseAs: ").Append(UseAs).Append("\n");
+            if (SourceAccountType != null) sb.Append("  SourceAccountType: ").Append(SourceAccountType).Append("\n");
+            if (SourceAccountTypeDetails != null) sb.Append("  SourceAccountTypeDetails: ").Append(SourceAccountTypeDetails).Append("\n");
+            if (SecurityCode != null) sb.Append("  SecurityCode: ").Append(SecurityCode).Append("\n");
+            if (SecurityCodeIndicator != null) sb.Append("  SecurityCodeIndicator: ").Append(SecurityCodeIndicator).Append("\n");
+            if (AccountEncoderId != null) sb.Append("  AccountEncoderId: ").Append(AccountEncoderId).Append("\n");
+            if (IssueNumber != null) sb.Append("  IssueNumber: ").Append(IssueNumber).Append("\n");
+            if (StartMonth != null) sb.Append("  StartMonth: ").Append(StartMonth).Append("\n");
+            if (StartYear != null) sb.Append("  StartYear: ").Append(StartYear).Append("\n");
+            if (ProductName != null) sb.Append("  ProductName: ").Append(ProductName).Append("\n");
+            if (ProductSubtype != null) sb.Append("  ProductSubtype: ").Append(ProductSubtype).Append("\n");
+            if (TypeSelectionIndicator != null) sb.Append("  TypeSelectionIndicator: ").Append(TypeSelectionIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

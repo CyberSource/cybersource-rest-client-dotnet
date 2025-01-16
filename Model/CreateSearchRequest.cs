@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CreateSearchRequest {\n");
-            sb.Append("  Save: ").Append(Save).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
-            sb.Append("  Query: ").Append(Query).Append("\n");
-            sb.Append("  Offset: ").Append(Offset).Append("\n");
-            sb.Append("  Limit: ").Append(Limit).Append("\n");
-            sb.Append("  Sort: ").Append(Sort).Append("\n");
+            if (Save != null) sb.Append("  Save: ").Append(Save).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Timezone != null) sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            if (Query != null) sb.Append("  Query: ").Append(Query).Append("\n");
+            if (Offset != null) sb.Append("  Offset: ").Append(Offset).Append("\n");
+            if (Limit != null) sb.Append("  Limit: ").Append(Limit).Append("\n");
+            if (Sort != null) sb.Append("  Sort: ").Append(Sort).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SAConfigPaymentMethods {\n");
-            sb.Append("  EnabledPaymentMethods: ").Append(EnabledPaymentMethods).Append("\n");
+            if (EnabledPaymentMethods != null) sb.Append("  EnabledPaymentMethods: ").Append(EnabledPaymentMethods).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

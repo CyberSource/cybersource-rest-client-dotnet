@@ -100,12 +100,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Invoicingv2invoicesInvoiceInformation {\n");
-            sb.Append("  InvoiceNumber: ").Append(InvoiceNumber).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  DueDate: ").Append(DueDate).Append("\n");
-            sb.Append("  SendImmediately: ").Append(SendImmediately).Append("\n");
-            sb.Append("  AllowPartialPayments: ").Append(AllowPartialPayments).Append("\n");
-            sb.Append("  DeliveryMode: ").Append(DeliveryMode).Append("\n");
+            if (InvoiceNumber != null) sb.Append("  InvoiceNumber: ").Append(InvoiceNumber).Append("\n");
+            if (Description != null) sb.Append("  Description: ").Append(Description).Append("\n");
+            if (DueDate != null) sb.Append("  DueDate: ").Append(DueDate).Append("\n");
+            if (SendImmediately != null) sb.Append("  SendImmediately: ").Append(SendImmediately).Append("\n");
+            if (AllowPartialPayments != null) sb.Append("  AllowPartialPayments: ").Append(AllowPartialPayments).Append("\n");
+            if (DeliveryMode != null) sb.Append("  DeliveryMode: ").Append(DeliveryMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

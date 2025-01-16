@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardProcessingConfigFeaturesCardPresentProcessors {\n");
-            sb.Append("  DefaultPointOfSaleTerminalId: ").Append(DefaultPointOfSaleTerminalId).Append("\n");
-            sb.Append("  PointOfSaleTerminalIds: ").Append(PointOfSaleTerminalIds).Append("\n");
-            sb.Append("  DisablePointOfSaleTerminalIdValidation: ").Append(DisablePointOfSaleTerminalIdValidation).Append("\n");
-            sb.Append("  PinDebitNetworkOrder: ").Append(PinDebitNetworkOrder).Append("\n");
-            sb.Append("  PinDebitReimbursementCode: ").Append(PinDebitReimbursementCode).Append("\n");
-            sb.Append("  FinancialInstitutionId: ").Append(FinancialInstitutionId).Append("\n");
-            sb.Append("  EnablePinTranslation: ").Append(EnablePinTranslation).Append("\n");
+            if (DefaultPointOfSaleTerminalId != null) sb.Append("  DefaultPointOfSaleTerminalId: ").Append(DefaultPointOfSaleTerminalId).Append("\n");
+            if (PointOfSaleTerminalIds != null) sb.Append("  PointOfSaleTerminalIds: ").Append(PointOfSaleTerminalIds).Append("\n");
+            if (DisablePointOfSaleTerminalIdValidation != null) sb.Append("  DisablePointOfSaleTerminalIdValidation: ").Append(DisablePointOfSaleTerminalIdValidation).Append("\n");
+            if (PinDebitNetworkOrder != null) sb.Append("  PinDebitNetworkOrder: ").Append(PinDebitNetworkOrder).Append("\n");
+            if (PinDebitReimbursementCode != null) sb.Append("  PinDebitReimbursementCode: ").Append(PinDebitReimbursementCode).Append("\n");
+            if (FinancialInstitutionId != null) sb.Append("  FinancialInstitutionId: ").Append(FinancialInstitutionId).Append("\n");
+            if (EnablePinTranslation != null) sb.Append("  EnablePinTranslation: ").Append(EnablePinTranslation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -126,15 +126,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2billingagreementsInstallmentInformation {\n");
-            sb.Append("  AlertPreference: ").Append(AlertPreference).Append("\n");
-            sb.Append("  FirstInstallmentDate: ").Append(FirstInstallmentDate).Append("\n");
-            sb.Append("  Identifier: ").Append(Identifier).Append("\n");
-            sb.Append("  LastInstallmentDate: ").Append(LastInstallmentDate).Append("\n");
-            sb.Append("  MaxAmount: ").Append(MaxAmount).Append("\n");
-            sb.Append("  MinAmount: ").Append(MinAmount).Append("\n");
-            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
-            sb.Append("  PreferredDay: ").Append(PreferredDay).Append("\n");
-            sb.Append("  Sequence: ").Append(Sequence).Append("\n");
+            if (AlertPreference != null) sb.Append("  AlertPreference: ").Append(AlertPreference).Append("\n");
+            if (FirstInstallmentDate != null) sb.Append("  FirstInstallmentDate: ").Append(FirstInstallmentDate).Append("\n");
+            if (Identifier != null) sb.Append("  Identifier: ").Append(Identifier).Append("\n");
+            if (LastInstallmentDate != null) sb.Append("  LastInstallmentDate: ").Append(LastInstallmentDate).Append("\n");
+            if (MaxAmount != null) sb.Append("  MaxAmount: ").Append(MaxAmount).Append("\n");
+            if (MinAmount != null) sb.Append("  MinAmount: ").Append(MinAmount).Append("\n");
+            if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (PreferredDay != null) sb.Append("  PreferredDay: ").Append(PreferredDay).Append("\n");
+            if (Sequence != null) sb.Append("  Sequence: ").Append(Sequence).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

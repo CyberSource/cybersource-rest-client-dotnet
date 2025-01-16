@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2012SetupsRisk {\n");
-            sb.Append("  FraudManagementEssentials: ").Append(FraudManagementEssentials).Append("\n");
-            sb.Append("  DecisionManager: ").Append(DecisionManager).Append("\n");
+            if (FraudManagementEssentials != null) sb.Append("  FraudManagementEssentials: ").Append(FraudManagementEssentials).Append("\n");
+            if (DecisionManager != null) sb.Append("  DecisionManager: ").Append(DecisionManager).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1authenticationresultsDeviceInformation {\n");
-            sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
+            if (IpAddress != null) sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

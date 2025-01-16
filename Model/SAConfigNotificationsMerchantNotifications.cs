@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SAConfigNotificationsMerchantNotifications {\n");
-            sb.Append("  BackofficePostEnabled: ").Append(BackofficePostEnabled).Append("\n");
-            sb.Append("  BackofficeEmailAddress: ").Append(BackofficeEmailAddress).Append("\n");
-            sb.Append("  BackofficeEmailEnabled: ").Append(BackofficeEmailEnabled).Append("\n");
-            sb.Append("  BackofficePostUrl: ").Append(BackofficePostUrl).Append("\n");
-            sb.Append("  CardNumberFormat: ").Append(CardNumberFormat).Append("\n");
+            if (BackofficePostEnabled != null) sb.Append("  BackofficePostEnabled: ").Append(BackofficePostEnabled).Append("\n");
+            if (BackofficeEmailAddress != null) sb.Append("  BackofficeEmailAddress: ").Append(BackofficeEmailAddress).Append("\n");
+            if (BackofficeEmailEnabled != null) sb.Append("  BackofficeEmailEnabled: ").Append(BackofficeEmailEnabled).Append("\n");
+            if (BackofficePostUrl != null) sb.Append("  BackofficePostUrl: ").Append(BackofficePostUrl).Append("\n");
+            if (CardNumberFormat != null) sb.Append("  CardNumberFormat: ").Append(CardNumberFormat).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

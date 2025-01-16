@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3PurchaseRefundDetailsGet200ResponseOthers {\n");
-            sb.Append("  RequestId: ").Append(RequestId).Append("\n");
-            sb.Append("  MerchantData1: ").Append(MerchantData1).Append("\n");
-            sb.Append("  MerchantData2: ").Append(MerchantData2).Append("\n");
-            sb.Append("  MerchantData3: ").Append(MerchantData3).Append("\n");
-            sb.Append("  MerchantData4: ").Append(MerchantData4).Append("\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
+            if (RequestId != null) sb.Append("  RequestId: ").Append(RequestId).Append("\n");
+            if (MerchantData1 != null) sb.Append("  MerchantData1: ").Append(MerchantData1).Append("\n");
+            if (MerchantData2 != null) sb.Append("  MerchantData2: ").Append(MerchantData2).Append("\n");
+            if (MerchantData3 != null) sb.Append("  MerchantData3: ").Append(MerchantData3).Append("\n");
+            if (MerchantData4 != null) sb.Append("  MerchantData4: ").Append(MerchantData4).Append("\n");
+            if (FirstName != null) sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            if (LastName != null) sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

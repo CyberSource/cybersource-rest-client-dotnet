@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PostPaymentCredentialsRequest {\n");
-            sb.Append("  PaymentCredentialType: ").Append(PaymentCredentialType).Append("\n");
+            if (PaymentCredentialType != null) sb.Append("  PaymentCredentialType: ").Append(PaymentCredentialType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

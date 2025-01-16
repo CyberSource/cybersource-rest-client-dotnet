@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsMerchantInformationMerchantDescriptor {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Url != null) sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

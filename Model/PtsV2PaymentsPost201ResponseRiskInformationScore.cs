@@ -71,9 +71,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseRiskInformationScore {\n");
-            sb.Append("  FactorCodes: ").Append(FactorCodes).Append("\n");
-            sb.Append("  ModelUsed: ").Append(ModelUsed).Append("\n");
-            sb.Append("  Result: ").Append(Result).Append("\n");
+            if (FactorCodes != null) sb.Append("  FactorCodes: ").Append(FactorCodes).Append("\n");
+            if (ModelUsed != null) sb.Append("  ModelUsed: ").Append(ModelUsed).Append("\n");
+            if (Result != null) sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

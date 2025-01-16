@@ -115,14 +115,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2payoutsProcessingInformation {\n");
-            sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
-            sb.Append("  NetworkRoutingOrder: ").Append(NetworkRoutingOrder).Append("\n");
-            sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
-            sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
-            sb.Append("  PayoutsOptions: ").Append(PayoutsOptions).Append("\n");
-            sb.Append("  TransactionReason: ").Append(TransactionReason).Append("\n");
-            sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
-            sb.Append("  FundingOptions: ").Append(FundingOptions).Append("\n");
+            if (BusinessApplicationId != null) sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
+            if (NetworkRoutingOrder != null) sb.Append("  NetworkRoutingOrder: ").Append(NetworkRoutingOrder).Append("\n");
+            if (CommerceIndicator != null) sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
+            if (PayoutsOptions != null) sb.Append("  PayoutsOptions: ").Append(PayoutsOptions).Append("\n");
+            if (TransactionReason != null) sb.Append("  TransactionReason: ").Append(TransactionReason).Append("\n");
+            if (PurposeOfPayment != null) sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
+            if (FundingOptions != null) sb.Append("  FundingOptions: ").Append(FundingOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

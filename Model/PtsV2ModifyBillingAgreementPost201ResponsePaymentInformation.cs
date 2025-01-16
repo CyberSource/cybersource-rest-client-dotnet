@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2ModifyBillingAgreementPost201ResponsePaymentInformation {\n");
-            sb.Append("  EWallet: ").Append(EWallet).Append("\n");
-            sb.Append("  Bank: ").Append(Bank).Append("\n");
+            if (EWallet != null) sb.Append("  EWallet: ").Append(EWallet).Append("\n");
+            if (Bank != null) sb.Append("  Bank: ").Append(Bank).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

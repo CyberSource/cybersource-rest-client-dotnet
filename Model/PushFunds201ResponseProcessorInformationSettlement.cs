@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PushFunds201ResponseProcessorInformationSettlement {\n");
-            sb.Append("  ResponsibilityFlag: ").Append(ResponsibilityFlag).Append("\n");
-            sb.Append("  ServiceFlag: ").Append(ServiceFlag).Append("\n");
+            if (ResponsibilityFlag != null) sb.Append("  ResponsibilityFlag: ").Append(ResponsibilityFlag).Append("\n");
+            if (ServiceFlag != null) sb.Append("  ServiceFlag: ").Append(ServiceFlag).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

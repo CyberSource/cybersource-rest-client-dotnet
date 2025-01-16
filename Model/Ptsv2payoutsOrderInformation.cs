@@ -70,9 +70,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2payoutsOrderInformation {\n");
-            sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
-            sb.Append("  BillTo: ").Append(BillTo).Append("\n");
-            sb.Append("  IsCryptocurrencyPurchase: ").Append(IsCryptocurrencyPurchase).Append("\n");
+            if (AmountDetails != null) sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
+            if (BillTo != null) sb.Append("  BillTo: ").Append(BillTo).Append("\n");
+            if (IsCryptocurrencyPurchase != null) sb.Append("  IsCryptocurrencyPurchase: ").Append(IsCryptocurrencyPurchase).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

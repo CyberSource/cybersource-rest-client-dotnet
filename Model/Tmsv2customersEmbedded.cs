@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2customersEmbedded {\n");
-            sb.Append("  DefaultPaymentInstrument: ").Append(DefaultPaymentInstrument).Append("\n");
-            sb.Append("  DefaultShippingAddress: ").Append(DefaultShippingAddress).Append("\n");
+            if (DefaultPaymentInstrument != null) sb.Append("  DefaultPaymentInstrument: ").Append(DefaultPaymentInstrument).Append("\n");
+            if (DefaultShippingAddress != null) sb.Append("  DefaultShippingAddress: ").Append(DefaultShippingAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

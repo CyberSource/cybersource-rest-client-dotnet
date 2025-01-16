@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsPaymentInstrumentProcessingInfo {\n");
-            sb.Append("  BillPaymentProgramEnabled: ").Append(BillPaymentProgramEnabled).Append("\n");
-            sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
+            if (BillPaymentProgramEnabled != null) sb.Append("  BillPaymentProgramEnabled: ").Append(BillPaymentProgramEnabled).Append("\n");
+            if (BankTransferOptions != null) sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

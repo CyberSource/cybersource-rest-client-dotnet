@@ -148,18 +148,18 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Boardingv1registrationsOrganizationInformationKYC {\n");
-            sb.Append("  WhenIsCustomerCharged: ").Append(WhenIsCustomerCharged).Append("\n");
-            sb.Append("  WhenIsCustomerChargedDescription: ").Append(WhenIsCustomerChargedDescription).Append("\n");
-            sb.Append("  OfferSubscriptions: ").Append(OfferSubscriptions).Append("\n");
-            sb.Append("  MonthlySubscriptionPercent: ").Append(MonthlySubscriptionPercent).Append("\n");
-            sb.Append("  QuarterlySubscriptionPercent: ").Append(QuarterlySubscriptionPercent).Append("\n");
-            sb.Append("  SemiAnnualSubscriptionPercent: ").Append(SemiAnnualSubscriptionPercent).Append("\n");
-            sb.Append("  AnnualSubscriptionPercent: ").Append(AnnualSubscriptionPercent).Append("\n");
-            sb.Append("  TimeToProductDelivery: ").Append(TimeToProductDelivery).Append("\n");
-            sb.Append("  EstimatedMonthlySales: ").Append(EstimatedMonthlySales).Append("\n");
-            sb.Append("  AverageOrderAmount: ").Append(AverageOrderAmount).Append("\n");
-            sb.Append("  LargestExpectedOrderAmount: ").Append(LargestExpectedOrderAmount).Append("\n");
-            sb.Append("  DepositBankAccount: ").Append(DepositBankAccount).Append("\n");
+            if (WhenIsCustomerCharged != null) sb.Append("  WhenIsCustomerCharged: ").Append(WhenIsCustomerCharged).Append("\n");
+            if (WhenIsCustomerChargedDescription != null) sb.Append("  WhenIsCustomerChargedDescription: ").Append(WhenIsCustomerChargedDescription).Append("\n");
+            if (OfferSubscriptions != null) sb.Append("  OfferSubscriptions: ").Append(OfferSubscriptions).Append("\n");
+            if (MonthlySubscriptionPercent != null) sb.Append("  MonthlySubscriptionPercent: ").Append(MonthlySubscriptionPercent).Append("\n");
+            if (QuarterlySubscriptionPercent != null) sb.Append("  QuarterlySubscriptionPercent: ").Append(QuarterlySubscriptionPercent).Append("\n");
+            if (SemiAnnualSubscriptionPercent != null) sb.Append("  SemiAnnualSubscriptionPercent: ").Append(SemiAnnualSubscriptionPercent).Append("\n");
+            if (AnnualSubscriptionPercent != null) sb.Append("  AnnualSubscriptionPercent: ").Append(AnnualSubscriptionPercent).Append("\n");
+            if (TimeToProductDelivery != null) sb.Append("  TimeToProductDelivery: ").Append(TimeToProductDelivery).Append("\n");
+            if (EstimatedMonthlySales != null) sb.Append("  EstimatedMonthlySales: ").Append(EstimatedMonthlySales).Append("\n");
+            if (AverageOrderAmount != null) sb.Append("  AverageOrderAmount: ").Append(AverageOrderAmount).Append("\n");
+            if (LargestExpectedOrderAmount != null) sb.Append("  LargestExpectedOrderAmount: ").Append(LargestExpectedOrderAmount).Append("\n");
+            if (DepositBankAccount != null) sb.Append("  DepositBankAccount: ").Append(DepositBankAccount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

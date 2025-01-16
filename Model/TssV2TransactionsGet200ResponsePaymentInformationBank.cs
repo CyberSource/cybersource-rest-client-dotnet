@@ -106,13 +106,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformationBank {\n");
-            sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
-            sb.Append("  BranchCode: ").Append(BranchCode).Append("\n");
-            sb.Append("  SwiftCode: ").Append(SwiftCode).Append("\n");
-            sb.Append("  BankCode: ").Append(BankCode).Append("\n");
-            sb.Append("  Iban: ").Append(Iban).Append("\n");
-            sb.Append("  Account: ").Append(Account).Append("\n");
-            sb.Append("  Mandate: ").Append(Mandate).Append("\n");
+            if (RoutingNumber != null) sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
+            if (BranchCode != null) sb.Append("  BranchCode: ").Append(BranchCode).Append("\n");
+            if (SwiftCode != null) sb.Append("  SwiftCode: ").Append(SwiftCode).Append("\n");
+            if (BankCode != null) sb.Append("  BankCode: ").Append(BankCode).Append("\n");
+            if (Iban != null) sb.Append("  Iban: ").Append(Iban).Append("\n");
+            if (Account != null) sb.Append("  Account: ").Append(Account).Append("\n");
+            if (Mandate != null) sb.Append("  Mandate: ").Append(Mandate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

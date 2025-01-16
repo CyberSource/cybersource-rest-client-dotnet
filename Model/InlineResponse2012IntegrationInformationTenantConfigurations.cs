@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2012IntegrationInformationTenantConfigurations {\n");
-            sb.Append("  SolutionId: ").Append(SolutionId).Append("\n");
-            sb.Append("  TenantConfigurationId: ").Append(TenantConfigurationId).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (SolutionId != null) sb.Append("  SolutionId: ").Append(SolutionId).Append("\n");
+            if (TenantConfigurationId != null) sb.Append("  TenantConfigurationId: ").Append(TenantConfigurationId).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

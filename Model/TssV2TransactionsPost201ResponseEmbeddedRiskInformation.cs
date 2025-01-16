@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedRiskInformation {\n");
-            sb.Append("  Providers: ").Append(Providers).Append("\n");
+            if (Providers != null) sb.Append("  Providers: ").Append(Providers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

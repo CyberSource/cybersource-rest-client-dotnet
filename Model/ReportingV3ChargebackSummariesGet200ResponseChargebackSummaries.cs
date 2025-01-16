@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3ChargebackSummariesGet200ResponseChargebackSummaries {\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
-            sb.Append("  Time: ").Append(Time).Append("\n");
-            sb.Append("  AccountId: ").Append(AccountId).Append("\n");
+            if (Count != null) sb.Append("  Count: ").Append(Count).Append("\n");
+            if (Time != null) sb.Append("  Time: ").Append(Time).Append("\n");
+            if (AccountId != null) sb.Append("  AccountId: ").Append(AccountId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

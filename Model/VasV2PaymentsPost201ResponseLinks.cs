@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VasV2PaymentsPost201ResponseLinks {\n");
-            sb.Append("  Void: ").Append(Void).Append("\n");
+            if (Void != null) sb.Append("  Void: ").Append(Void).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

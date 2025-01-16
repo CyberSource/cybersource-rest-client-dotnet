@@ -107,13 +107,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidreversalsProcessingInformation {\n");
-            sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
-            sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
-            sb.Append("  LinkId: ").Append(LinkId).Append("\n");
-            sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
-            sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
-            sb.Append("  Issuer: ").Append(Issuer).Append("\n");
-            sb.Append("  ActionList: ").Append(ActionList).Append("\n");
+            if (PaymentSolution != null) sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
+            if (LinkId != null) sb.Append("  LinkId: ").Append(LinkId).Append("\n");
+            if (ReportGroup != null) sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
+            if (VisaCheckoutId != null) sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
+            if (Issuer != null) sb.Append("  Issuer: ").Append(Issuer).Append("\n");
+            if (ActionList != null) sb.Append("  ActionList: ").Append(ActionList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

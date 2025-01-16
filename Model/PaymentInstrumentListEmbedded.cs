@@ -52,7 +52,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentInstrumentListEmbedded {\n");
-            sb.Append("  PaymentInstruments: ").Append(PaymentInstruments).Append("\n");
+            if (PaymentInstruments != null) sb.Append("  PaymentInstruments: ").Append(PaymentInstruments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

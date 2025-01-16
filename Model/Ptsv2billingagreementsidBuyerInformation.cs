@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2billingagreementsidBuyerInformation {\n");
-            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
-            sb.Append("  Gender: ").Append(Gender).Append("\n");
-            sb.Append("  Language: ").Append(Language).Append("\n");
+            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            if (Gender != null) sb.Append("  Gender: ").Append(Gender).Append("\n");
+            if (Language != null) sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

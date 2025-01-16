@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePayoutOptions {\n");
-            sb.Append("  PayoutInquiry: ").Append(PayoutInquiry).Append("\n");
+            if (PayoutInquiry != null) sb.Append("  PayoutInquiry: ").Append(PayoutInquiry).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

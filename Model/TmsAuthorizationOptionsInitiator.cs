@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsAuthorizationOptionsInitiator {\n");
-            sb.Append("  MerchantInitiatedTransaction: ").Append(MerchantInitiatedTransaction).Append("\n");
+            if (MerchantInitiatedTransaction != null) sb.Append("  MerchantInitiatedTransaction: ").Append(MerchantInitiatedTransaction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsServiceFeeConfigurationInformationConfigurationsPaymentInformation {\n");
-            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
-            sb.Append("  FeeType: ").Append(FeeType).Append("\n");
-            sb.Append("  FeeAmount: ").Append(FeeAmount).Append("\n");
-            sb.Append("  Percentage: ").Append(Percentage).Append("\n");
-            sb.Append("  FeeCap: ").Append(FeeCap).Append("\n");
+            if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (FeeType != null) sb.Append("  FeeType: ").Append(FeeType).Append("\n");
+            if (FeeAmount != null) sb.Append("  FeeAmount: ").Append(FeeAmount).Append("\n");
+            if (Percentage != null) sb.Append("  Percentage: ").Append(Percentage).Append("\n");
+            if (FeeCap != null) sb.Append("  FeeCap: ").Append(FeeCap).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

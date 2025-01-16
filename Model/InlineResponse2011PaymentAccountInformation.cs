@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2011PaymentAccountInformation {\n");
-            sb.Append("  Card: ").Append(Card).Append("\n");
-            sb.Append("  Features: ").Append(Features).Append("\n");
-            sb.Append("  Network: ").Append(Network).Append("\n");
+            if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
+            if (Features != null) sb.Append("  Features: ").Append(Features).Append("\n");
+            if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

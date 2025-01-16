@@ -79,10 +79,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsOrderPost201ResponseProcessorInformation {\n");
-            sb.Append("  SellerProtection: ").Append(SellerProtection).Append("\n");
-            sb.Append("  Avs: ").Append(Avs).Append("\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
-            sb.Append("  ResponseDetails: ").Append(ResponseDetails).Append("\n");
+            if (SellerProtection != null) sb.Append("  SellerProtection: ").Append(SellerProtection).Append("\n");
+            if (Avs != null) sb.Append("  Avs: ").Append(Avs).Append("\n");
+            if (TransactionId != null) sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            if (ResponseDetails != null) sb.Append("  ResponseDetails: ").Append(ResponseDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

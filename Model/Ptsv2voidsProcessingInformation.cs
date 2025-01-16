@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2voidsProcessingInformation {\n");
-            sb.Append("  PaymentId: ").Append(PaymentId).Append("\n");
+            if (PaymentId != null) sb.Append("  PaymentId: ").Append(PaymentId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

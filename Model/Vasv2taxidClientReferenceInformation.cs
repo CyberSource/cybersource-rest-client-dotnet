@@ -71,9 +71,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Vasv2taxidClientReferenceInformation {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Comments: ").Append(Comments).Append("\n");
-            sb.Append("  Partner: ").Append(Partner).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (Comments != null) sb.Append("  Comments: ").Append(Comments).Append("\n");
+            if (Partner != null) sb.Append("  Partner: ").Append(Partner).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

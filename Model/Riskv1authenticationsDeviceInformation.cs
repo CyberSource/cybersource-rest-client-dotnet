@@ -157,18 +157,18 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1authenticationsDeviceInformation {\n");
-            sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
-            sb.Append("  RawData: ").Append(RawData).Append("\n");
-            sb.Append("  HttpAcceptBrowserValue: ").Append(HttpAcceptBrowserValue).Append("\n");
-            sb.Append("  HttpAcceptContent: ").Append(HttpAcceptContent).Append("\n");
-            sb.Append("  HttpBrowserLanguage: ").Append(HttpBrowserLanguage).Append("\n");
-            sb.Append("  HttpBrowserJavaEnabled: ").Append(HttpBrowserJavaEnabled).Append("\n");
-            sb.Append("  HttpBrowserJavaScriptEnabled: ").Append(HttpBrowserJavaScriptEnabled).Append("\n");
-            sb.Append("  HttpBrowserColorDepth: ").Append(HttpBrowserColorDepth).Append("\n");
-            sb.Append("  HttpBrowserScreenHeight: ").Append(HttpBrowserScreenHeight).Append("\n");
-            sb.Append("  HttpBrowserScreenWidth: ").Append(HttpBrowserScreenWidth).Append("\n");
-            sb.Append("  HttpBrowserTimeDifference: ").Append(HttpBrowserTimeDifference).Append("\n");
-            sb.Append("  UserAgentBrowserValue: ").Append(UserAgentBrowserValue).Append("\n");
+            if (IpAddress != null) sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
+            if (RawData != null) sb.Append("  RawData: ").Append(RawData).Append("\n");
+            if (HttpAcceptBrowserValue != null) sb.Append("  HttpAcceptBrowserValue: ").Append(HttpAcceptBrowserValue).Append("\n");
+            if (HttpAcceptContent != null) sb.Append("  HttpAcceptContent: ").Append(HttpAcceptContent).Append("\n");
+            if (HttpBrowserLanguage != null) sb.Append("  HttpBrowserLanguage: ").Append(HttpBrowserLanguage).Append("\n");
+            if (HttpBrowserJavaEnabled != null) sb.Append("  HttpBrowserJavaEnabled: ").Append(HttpBrowserJavaEnabled).Append("\n");
+            if (HttpBrowserJavaScriptEnabled != null) sb.Append("  HttpBrowserJavaScriptEnabled: ").Append(HttpBrowserJavaScriptEnabled).Append("\n");
+            if (HttpBrowserColorDepth != null) sb.Append("  HttpBrowserColorDepth: ").Append(HttpBrowserColorDepth).Append("\n");
+            if (HttpBrowserScreenHeight != null) sb.Append("  HttpBrowserScreenHeight: ").Append(HttpBrowserScreenHeight).Append("\n");
+            if (HttpBrowserScreenWidth != null) sb.Append("  HttpBrowserScreenWidth: ").Append(HttpBrowserScreenWidth).Append("\n");
+            if (HttpBrowserTimeDifference != null) sb.Append("  HttpBrowserTimeDifference: ").Append(HttpBrowserTimeDifference).Append("\n");
+            if (UserAgentBrowserValue != null) sb.Append("  UserAgentBrowserValue: ").Append(UserAgentBrowserValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

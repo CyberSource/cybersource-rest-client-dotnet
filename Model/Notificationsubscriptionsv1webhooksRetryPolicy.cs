@@ -117,14 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Notificationsubscriptionsv1webhooksRetryPolicy {\n");
-            sb.Append("  Algorithm: ").Append(Algorithm).Append("\n");
-            sb.Append("  FirstRetry: ").Append(FirstRetry).Append("\n");
-            sb.Append("  Interval: ").Append(Interval).Append("\n");
-            sb.Append("  NumberOfRetries: ").Append(NumberOfRetries).Append("\n");
-            sb.Append("  DeactivateFlag: ").Append(DeactivateFlag).Append("\n");
-            sb.Append("  RepeatSequenceCount: ").Append(RepeatSequenceCount).Append("\n");
-            sb.Append("  RepeatSequenceWaitTime: ").Append(RepeatSequenceWaitTime).Append("\n");
-            sb.Append("  AdditionalAttributes: ").Append(AdditionalAttributes).Append("\n");
+            if (Algorithm != null) sb.Append("  Algorithm: ").Append(Algorithm).Append("\n");
+            if (FirstRetry != null) sb.Append("  FirstRetry: ").Append(FirstRetry).Append("\n");
+            if (Interval != null) sb.Append("  Interval: ").Append(Interval).Append("\n");
+            if (NumberOfRetries != null) sb.Append("  NumberOfRetries: ").Append(NumberOfRetries).Append("\n");
+            if (DeactivateFlag != null) sb.Append("  DeactivateFlag: ").Append(DeactivateFlag).Append("\n");
+            if (RepeatSequenceCount != null) sb.Append("  RepeatSequenceCount: ").Append(RepeatSequenceCount).Append("\n");
+            if (RepeatSequenceWaitTime != null) sb.Append("  RepeatSequenceWaitTime: ").Append(RepeatSequenceWaitTime).Append("\n");
+            if (AdditionalAttributes != null) sb.Append("  AdditionalAttributes: ").Append(AdditionalAttributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

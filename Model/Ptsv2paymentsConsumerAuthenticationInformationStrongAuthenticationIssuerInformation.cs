@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsConsumerAuthenticationInformationStrongAuthenticationIssuerInformation {\n");
-            sb.Append("  ExemptionDataRaw: ").Append(ExemptionDataRaw).Append("\n");
+            if (ExemptionDataRaw != null) sb.Append("  ExemptionDataRaw: ").Append(ExemptionDataRaw).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

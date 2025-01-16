@@ -174,22 +174,22 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CreateCreditRequest {\n");
-            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
-            sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
-            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
-            sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
-            sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
-            sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
-            sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
-            sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
-            sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
-            sb.Append("  MerchantDefinedSecureInformation: ").Append(MerchantDefinedSecureInformation).Append("\n");
-            sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
-            sb.Append("  TravelInformation: ").Append(TravelInformation).Append("\n");
-            sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
-            sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
-            sb.Append("  PromotionInformation: ").Append(PromotionInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
+            if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
+            if (DeviceInformation != null) sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
+            if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
+            if (AggregatorInformation != null) sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
+            if (PointOfSaleInformation != null) sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
+            if (MerchantDefinedInformation != null) sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
+            if (MerchantDefinedSecureInformation != null) sb.Append("  MerchantDefinedSecureInformation: ").Append(MerchantDefinedSecureInformation).Append("\n");
+            if (InstallmentInformation != null) sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
+            if (TravelInformation != null) sb.Append("  TravelInformation: ").Append(TravelInformation).Append("\n");
+            if (RecipientInformation != null) sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
+            if (SenderInformation != null) sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
+            if (PromotionInformation != null) sb.Append("  PromotionInformation: ").Append(PromotionInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

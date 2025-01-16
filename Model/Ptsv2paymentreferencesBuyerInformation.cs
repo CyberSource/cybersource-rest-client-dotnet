@@ -89,11 +89,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentreferencesBuyerInformation {\n");
-            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
-            sb.Append("  Gender: ").Append(Gender).Append("\n");
-            sb.Append("  Language: ").Append(Language).Append("\n");
-            sb.Append("  NoteToSeller: ").Append(NoteToSeller).Append("\n");
-            sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
+            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            if (Gender != null) sb.Append("  Gender: ").Append(Gender).Append("\n");
+            if (Language != null) sb.Append("  Language: ").Append(Language).Append("\n");
+            if (NoteToSeller != null) sb.Append("  NoteToSeller: ").Append(NoteToSeller).Append("\n");
+            if (PersonalIdentification != null) sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

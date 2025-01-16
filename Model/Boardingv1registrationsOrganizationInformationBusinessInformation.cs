@@ -167,20 +167,20 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Boardingv1registrationsOrganizationInformationBusinessInformation {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  DoingBusinessAs: ").Append(DoingBusinessAs).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-            sb.Append("  Address: ").Append(Address).Append("\n");
-            sb.Append("  TimeZone: ").Append(TimeZone).Append("\n");
-            sb.Append("  WebsiteUrl: ").Append(WebsiteUrl).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  TaxId: ").Append(TaxId).Append("\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  BusinessContact: ").Append(BusinessContact).Append("\n");
-            sb.Append("  TechnicalContact: ").Append(TechnicalContact).Append("\n");
-            sb.Append("  EmergencyContact: ").Append(EmergencyContact).Append("\n");
-            sb.Append("  MerchantCategoryCode: ").Append(MerchantCategoryCode).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (DoingBusinessAs != null) sb.Append("  DoingBusinessAs: ").Append(DoingBusinessAs).Append("\n");
+            if (Description != null) sb.Append("  Description: ").Append(Description).Append("\n");
+            if (StartDate != null) sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            if (Address != null) sb.Append("  Address: ").Append(Address).Append("\n");
+            if (TimeZone != null) sb.Append("  TimeZone: ").Append(TimeZone).Append("\n");
+            if (WebsiteUrl != null) sb.Append("  WebsiteUrl: ").Append(WebsiteUrl).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (TaxId != null) sb.Append("  TaxId: ").Append(TaxId).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (BusinessContact != null) sb.Append("  BusinessContact: ").Append(BusinessContact).Append("\n");
+            if (TechnicalContact != null) sb.Append("  TechnicalContact: ").Append(TechnicalContact).Append("\n");
+            if (EmergencyContact != null) sb.Append("  EmergencyContact: ").Append(EmergencyContact).Append("\n");
+            if (MerchantCategoryCode != null) sb.Append("  MerchantCategoryCode: ").Append(MerchantCategoryCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

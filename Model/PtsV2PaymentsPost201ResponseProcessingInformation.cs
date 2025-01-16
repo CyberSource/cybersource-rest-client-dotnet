@@ -79,10 +79,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseProcessingInformation {\n");
-            sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
-            sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
-            sb.Append("  EnhancedDataEnabled: ").Append(EnhancedDataEnabled).Append("\n");
-            sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
+            if (BankTransferOptions != null) sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
+            if (PaymentSolution != null) sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
+            if (EnhancedDataEnabled != null) sb.Append("  EnhancedDataEnabled: ").Append(EnhancedDataEnabled).Append("\n");
+            if (CaptureOptions != null) sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

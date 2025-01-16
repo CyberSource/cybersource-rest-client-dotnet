@@ -77,10 +77,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UmsV1UsersGet200ResponseUsers {\n");
-            sb.Append("  AccountInformation: ").Append(AccountInformation).Append("\n");
-            sb.Append("  OrganizationInformation: ").Append(OrganizationInformation).Append("\n");
-            sb.Append("  ContactInformation: ").Append(ContactInformation).Append("\n");
-            sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
+            if (AccountInformation != null) sb.Append("  AccountInformation: ").Append(AccountInformation).Append("\n");
+            if (OrganizationInformation != null) sb.Append("  OrganizationInformation: ").Append(OrganizationInformation).Append("\n");
+            if (ContactInformation != null) sb.Append("  ContactInformation: ").Append(ContactInformation).Append("\n");
+            if (CustomFields != null) sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

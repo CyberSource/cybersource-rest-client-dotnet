@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2customersObjectInformation {\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Comment: ").Append(Comment).Append("\n");
+            if (Title != null) sb.Append("  Title: ").Append(Title).Append("\n");
+            if (Comment != null) sb.Append("  Comment: ").Append(Comment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

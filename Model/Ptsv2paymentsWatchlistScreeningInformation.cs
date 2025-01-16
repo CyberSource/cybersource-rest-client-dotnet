@@ -80,10 +80,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsWatchlistScreeningInformation {\n");
-            sb.Append("  AddressOperator: ").Append(AddressOperator).Append("\n");
-            sb.Append("  Weights: ").Append(Weights).Append("\n");
-            sb.Append("  SanctionLists: ").Append(SanctionLists).Append("\n");
-            sb.Append("  ProceedOnMatch: ").Append(ProceedOnMatch).Append("\n");
+            if (AddressOperator != null) sb.Append("  AddressOperator: ").Append(AddressOperator).Append("\n");
+            if (Weights != null) sb.Append("  Weights: ").Append(Weights).Append("\n");
+            if (SanctionLists != null) sb.Append("  SanctionLists: ").Append(SanctionLists).Append("\n");
+            if (ProceedOnMatch != null) sb.Append("  ProceedOnMatch: ").Append(ProceedOnMatch).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

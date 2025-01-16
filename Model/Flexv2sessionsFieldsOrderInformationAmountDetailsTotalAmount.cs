@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Flexv2sessionsFieldsOrderInformationAmountDetailsTotalAmount {\n");
-            sb.Append("  Required: ").Append(Required).Append("\n");
+            if (Required != null) sb.Append("  Required: ").Append(Required).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

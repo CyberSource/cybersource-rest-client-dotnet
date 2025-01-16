@@ -124,15 +124,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsRiskInformationBuyerHistory {\n");
-            sb.Append("  CustomerAccount: ").Append(CustomerAccount).Append("\n");
-            sb.Append("  AccountHistory: ").Append(AccountHistory).Append("\n");
-            sb.Append("  AccountPurchases: ").Append(AccountPurchases).Append("\n");
-            sb.Append("  AddCardAttempts: ").Append(AddCardAttempts).Append("\n");
-            sb.Append("  PriorSuspiciousActivity: ").Append(PriorSuspiciousActivity).Append("\n");
-            sb.Append("  PaymentAccountHistory: ").Append(PaymentAccountHistory).Append("\n");
-            sb.Append("  PaymentAccountDate: ").Append(PaymentAccountDate).Append("\n");
-            sb.Append("  TransactionCountDay: ").Append(TransactionCountDay).Append("\n");
-            sb.Append("  TransactionCountYear: ").Append(TransactionCountYear).Append("\n");
+            if (CustomerAccount != null) sb.Append("  CustomerAccount: ").Append(CustomerAccount).Append("\n");
+            if (AccountHistory != null) sb.Append("  AccountHistory: ").Append(AccountHistory).Append("\n");
+            if (AccountPurchases != null) sb.Append("  AccountPurchases: ").Append(AccountPurchases).Append("\n");
+            if (AddCardAttempts != null) sb.Append("  AddCardAttempts: ").Append(AddCardAttempts).Append("\n");
+            if (PriorSuspiciousActivity != null) sb.Append("  PriorSuspiciousActivity: ").Append(PriorSuspiciousActivity).Append("\n");
+            if (PaymentAccountHistory != null) sb.Append("  PaymentAccountHistory: ").Append(PaymentAccountHistory).Append("\n");
+            if (PaymentAccountDate != null) sb.Append("  PaymentAccountDate: ").Append(PaymentAccountDate).Append("\n");
+            if (TransactionCountDay != null) sb.Append("  TransactionCountDay: ").Append(TransactionCountDay).Append("\n");
+            if (TransactionCountYear != null) sb.Append("  TransactionCountYear: ").Append(TransactionCountYear).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -117,14 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2ModifyBillingAgreementPost201ResponseAgreementInformation {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  DateSigned: ").Append(DateSigned).Append("\n");
-            sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
-            sb.Append("  DateRevoked: ").Append(DateRevoked).Append("\n");
-            sb.Append("  EncodedHtml: ").Append(EncodedHtml).Append("\n");
-            sb.Append("  EncodedHtmlPopup: ").Append(EncodedHtmlPopup).Append("\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (DateSigned != null) sb.Append("  DateSigned: ").Append(DateSigned).Append("\n");
+            if (DateCreated != null) sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
+            if (DateRevoked != null) sb.Append("  DateRevoked: ").Append(DateRevoked).Append("\n");
+            if (EncodedHtml != null) sb.Append("  EncodedHtml: ").Append(EncodedHtml).Append("\n");
+            if (EncodedHtmlPopup != null) sb.Append("  EncodedHtmlPopup: ").Append(EncodedHtmlPopup).Append("\n");
+            if (Url != null) sb.Append("  Url: ").Append(Url).Append("\n");
+            if (TransactionId != null) sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

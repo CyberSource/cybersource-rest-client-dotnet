@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InvoiceSettingsRequest {\n");
-            sb.Append("  InvoiceSettingsInformation: ").Append(InvoiceSettingsInformation).Append("\n");
+            if (InvoiceSettingsInformation != null) sb.Append("  InvoiceSettingsInformation: ").Append(InvoiceSettingsInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RiskV1AuthenticationSetupsPost201ResponseConsumerAuthenticationInformation {\n");
-            sb.Append("  AccessToken: ").Append(AccessToken).Append("\n");
-            sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
-            sb.Append("  DeviceDataCollectionUrl: ").Append(DeviceDataCollectionUrl).Append("\n");
+            if (AccessToken != null) sb.Append("  AccessToken: ").Append(AccessToken).Append("\n");
+            if (ReferenceId != null) sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
+            if (DeviceDataCollectionUrl != null) sb.Append("  DeviceDataCollectionUrl: ").Append(DeviceDataCollectionUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

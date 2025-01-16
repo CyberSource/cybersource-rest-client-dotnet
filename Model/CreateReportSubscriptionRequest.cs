@@ -163,19 +163,19 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CreateReportSubscriptionRequest {\n");
-            sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
-            sb.Append("  ReportDefinitionName: ").Append(ReportDefinitionName).Append("\n");
-            sb.Append("  ReportFields: ").Append(ReportFields).Append("\n");
-            sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
-            sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
-            sb.Append("  ReportInterval: ").Append(ReportInterval).Append("\n");
-            sb.Append("  ReportName: ").Append(ReportName).Append("\n");
-            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
-            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
-            sb.Append("  StartDay: ").Append(StartDay).Append("\n");
-            sb.Append("  ReportFilters: ").Append(ReportFilters).Append("\n");
-            sb.Append("  ReportPreferences: ").Append(ReportPreferences).Append("\n");
-            sb.Append("  GroupName: ").Append(GroupName).Append("\n");
+            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
+            if (ReportDefinitionName != null) sb.Append("  ReportDefinitionName: ").Append(ReportDefinitionName).Append("\n");
+            if (ReportFields != null) sb.Append("  ReportFields: ").Append(ReportFields).Append("\n");
+            if (ReportMimeType != null) sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
+            if (ReportFrequency != null) sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
+            if (ReportInterval != null) sb.Append("  ReportInterval: ").Append(ReportInterval).Append("\n");
+            if (ReportName != null) sb.Append("  ReportName: ").Append(ReportName).Append("\n");
+            if (Timezone != null) sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            if (StartTime != null) sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            if (StartDay != null) sb.Append("  StartDay: ").Append(StartDay).Append("\n");
+            if (ReportFilters != null) sb.Append("  ReportFilters: ").Append(ReportFilters).Append("\n");
+            if (ReportPreferences != null) sb.Append("  ReportPreferences: ").Append(ReportPreferences).Append("\n");
+            if (GroupName != null) sb.Append("  GroupName: ").Append(GroupName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

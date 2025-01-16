@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PayerAuthConfig {\n");
-            sb.Append("  CardTypes: ").Append(CardTypes).Append("\n");
+            if (CardTypes != null) sb.Append("  CardTypes: ").Append(CardTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

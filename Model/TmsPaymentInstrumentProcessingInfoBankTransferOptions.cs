@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsPaymentInstrumentProcessingInfoBankTransferOptions {\n");
-            sb.Append("  SECCode: ").Append(SECCode).Append("\n");
+            if (SECCode != null) sb.Append("  SECCode: ").Append(SECCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

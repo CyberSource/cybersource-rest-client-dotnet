@@ -105,13 +105,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SAConfigPaymentTypesCardTypesDiscover {\n");
-            sb.Append("  CardVerificationNumberSupported: ").Append(CardVerificationNumberSupported).Append("\n");
-            sb.Append("  CardVerificationNumberDisplay: ").Append(CardVerificationNumberDisplay).Append("\n");
-            sb.Append("  PayerAuthenticationSupported: ").Append(PayerAuthenticationSupported).Append("\n");
-            sb.Append("  SupportedCurrencies: ").Append(SupportedCurrencies).Append("\n");
-            sb.Append("  Method: ").Append(Method).Append("\n");
-            sb.Append("  CardVerificationNumberRequired: ").Append(CardVerificationNumberRequired).Append("\n");
-            sb.Append("  PayerAuthenticationEnabled: ").Append(PayerAuthenticationEnabled).Append("\n");
+            if (CardVerificationNumberSupported != null) sb.Append("  CardVerificationNumberSupported: ").Append(CardVerificationNumberSupported).Append("\n");
+            if (CardVerificationNumberDisplay != null) sb.Append("  CardVerificationNumberDisplay: ").Append(CardVerificationNumberDisplay).Append("\n");
+            if (PayerAuthenticationSupported != null) sb.Append("  PayerAuthenticationSupported: ").Append(PayerAuthenticationSupported).Append("\n");
+            if (SupportedCurrencies != null) sb.Append("  SupportedCurrencies: ").Append(SupportedCurrencies).Append("\n");
+            if (Method != null) sb.Append("  Method: ").Append(Method).Append("\n");
+            if (CardVerificationNumberRequired != null) sb.Append("  CardVerificationNumberRequired: ").Append(CardVerificationNumberRequired).Append("\n");
+            if (PayerAuthenticationEnabled != null) sb.Append("  PayerAuthenticationEnabled: ").Append(PayerAuthenticationEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

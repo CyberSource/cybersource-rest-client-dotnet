@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsTokenInformation {\n");
-            sb.Append("  Jti: ").Append(Jti).Append("\n");
+            if (Jti != null) sb.Append("  Jti: ").Append(Jti).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

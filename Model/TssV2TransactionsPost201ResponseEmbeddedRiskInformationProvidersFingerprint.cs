@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedRiskInformationProvidersFingerprint {\n");
-            sb.Append("  TrueIpaddress: ").Append(TrueIpaddress).Append("\n");
-            sb.Append("  Hash: ").Append(Hash).Append("\n");
-            sb.Append("  SmartId: ").Append(SmartId).Append("\n");
+            if (TrueIpaddress != null) sb.Append("  TrueIpaddress: ").Append(TrueIpaddress).Append("\n");
+            if (Hash != null) sb.Append("  Hash: ").Append(Hash).Append("\n");
+            if (SmartId != null) sb.Append("  SmartId: ").Append(SmartId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

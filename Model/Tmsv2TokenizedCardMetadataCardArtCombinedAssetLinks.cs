@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2TokenizedCardMetadataCardArtCombinedAssetLinks {\n");
-            sb.Append("  Self: ").Append(Self).Append("\n");
+            if (Self != null) sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

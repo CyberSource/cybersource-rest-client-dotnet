@@ -156,16 +156,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ECheckConfigUnderwriting {\n");
-            sb.Append("  StandardEntryClassCodes: ").Append(StandardEntryClassCodes).Append("\n");
-            sb.Append("  EnableHold: ").Append(EnableHold).Append("\n");
-            sb.Append("  MonthlyTotalTransactionAmountLimit: ").Append(MonthlyTotalTransactionAmountLimit).Append("\n");
-            sb.Append("  HoldingDays: ").Append(HoldingDays).Append("\n");
-            sb.Append("  EnableCredits: ").Append(EnableCredits).Append("\n");
-            sb.Append("  TransactionAmountLimit: ").Append(TransactionAmountLimit).Append("\n");
-            sb.Append("  RiskReserveMethod: ").Append(RiskReserveMethod).Append("\n");
-            sb.Append("  RiskReserveRate: ").Append(RiskReserveRate).Append("\n");
-            sb.Append("  RiskReserveTargetAmount: ").Append(RiskReserveTargetAmount).Append("\n");
-            sb.Append("  SolutionOrganizationId: ").Append(SolutionOrganizationId).Append("\n");
+            if (StandardEntryClassCodes != null) sb.Append("  StandardEntryClassCodes: ").Append(StandardEntryClassCodes).Append("\n");
+            if (EnableHold != null) sb.Append("  EnableHold: ").Append(EnableHold).Append("\n");
+            if (MonthlyTotalTransactionAmountLimit != null) sb.Append("  MonthlyTotalTransactionAmountLimit: ").Append(MonthlyTotalTransactionAmountLimit).Append("\n");
+            if (HoldingDays != null) sb.Append("  HoldingDays: ").Append(HoldingDays).Append("\n");
+            if (EnableCredits != null) sb.Append("  EnableCredits: ").Append(EnableCredits).Append("\n");
+            if (TransactionAmountLimit != null) sb.Append("  TransactionAmountLimit: ").Append(TransactionAmountLimit).Append("\n");
+            if (RiskReserveMethod != null) sb.Append("  RiskReserveMethod: ").Append(RiskReserveMethod).Append("\n");
+            if (RiskReserveRate != null) sb.Append("  RiskReserveRate: ").Append(RiskReserveRate).Append("\n");
+            if (RiskReserveTargetAmount != null) sb.Append("  RiskReserveTargetAmount: ").Append(RiskReserveTargetAmount).Append("\n");
+            if (SolutionOrganizationId != null) sb.Append("  SolutionOrganizationId: ").Append(SolutionOrganizationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

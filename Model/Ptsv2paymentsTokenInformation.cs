@@ -96,12 +96,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsTokenInformation {\n");
-            sb.Append("  Jti: ").Append(Jti).Append("\n");
-            sb.Append("  TransientTokenJwt: ").Append(TransientTokenJwt).Append("\n");
-            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
-            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
-            sb.Append("  NetworkTokenOption: ").Append(NetworkTokenOption).Append("\n");
-            sb.Append("  TokenProvisioningInformation: ").Append(TokenProvisioningInformation).Append("\n");
+            if (Jti != null) sb.Append("  Jti: ").Append(Jti).Append("\n");
+            if (TransientTokenJwt != null) sb.Append("  TransientTokenJwt: ").Append(TransientTokenJwt).Append("\n");
+            if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            if (ShippingAddress != null) sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            if (NetworkTokenOption != null) sb.Append("  NetworkTokenOption: ").Append(NetworkTokenOption).Append("\n");
+            if (TokenProvisioningInformation != null) sb.Append("  TokenProvisioningInformation: ").Append(TokenProvisioningInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -126,15 +126,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentreferencesUserInterfaceColor {\n");
-            sb.Append("  Border: ").Append(Border).Append("\n");
-            sb.Append("  BorderSelected: ").Append(BorderSelected).Append("\n");
-            sb.Append("  Button: ").Append(Button).Append("\n");
-            sb.Append("  ButtonText: ").Append(ButtonText).Append("\n");
-            sb.Append("  Checkbox: ").Append(Checkbox).Append("\n");
-            sb.Append("  CheckboxCheckMark: ").Append(CheckboxCheckMark).Append("\n");
-            sb.Append("  Header: ").Append(Header).Append("\n");
-            sb.Append("  Link: ").Append(Link).Append("\n");
-            sb.Append("  Text: ").Append(Text).Append("\n");
+            if (Border != null) sb.Append("  Border: ").Append(Border).Append("\n");
+            if (BorderSelected != null) sb.Append("  BorderSelected: ").Append(BorderSelected).Append("\n");
+            if (Button != null) sb.Append("  Button: ").Append(Button).Append("\n");
+            if (ButtonText != null) sb.Append("  ButtonText: ").Append(ButtonText).Append("\n");
+            if (Checkbox != null) sb.Append("  Checkbox: ").Append(Checkbox).Append("\n");
+            if (CheckboxCheckMark != null) sb.Append("  CheckboxCheckMark: ").Append(CheckboxCheckMark).Append("\n");
+            if (Header != null) sb.Append("  Header: ").Append(Header).Append("\n");
+            if (Link != null) sb.Append("  Link: ").Append(Link).Append("\n");
+            if (Text != null) sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -114,14 +114,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1authenticationsOrderInformation {\n");
-            sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
-            sb.Append("  PreOrder: ").Append(PreOrder).Append("\n");
-            sb.Append("  PreOrderDate: ").Append(PreOrderDate).Append("\n");
-            sb.Append("  Reordered: ").Append(Reordered).Append("\n");
-            sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
-            sb.Append("  LineItems: ").Append(LineItems).Append("\n");
-            sb.Append("  BillTo: ").Append(BillTo).Append("\n");
-            sb.Append("  TotalOffersCount: ").Append(TotalOffersCount).Append("\n");
+            if (AmountDetails != null) sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
+            if (PreOrder != null) sb.Append("  PreOrder: ").Append(PreOrder).Append("\n");
+            if (PreOrderDate != null) sb.Append("  PreOrderDate: ").Append(PreOrderDate).Append("\n");
+            if (Reordered != null) sb.Append("  Reordered: ").Append(Reordered).Append("\n");
+            if (ShipTo != null) sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
+            if (LineItems != null) sb.Append("  LineItems: ").Append(LineItems).Append("\n");
+            if (BillTo != null) sb.Append("  BillTo: ").Append(BillTo).Append("\n");
+            if (TotalOffersCount != null) sb.Append("  TotalOffersCount: ").Append(TotalOffersCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VasV2PaymentsPost201ResponseTaxInformation {\n");
-            sb.Append("  CommitIndicator: ").Append(CommitIndicator).Append("\n");
-            sb.Append("  RefundIndicator: ").Append(RefundIndicator).Append("\n");
+            if (CommitIndicator != null) sb.Append("  CommitIndicator: ").Append(CommitIndicator).Append("\n");
+            if (RefundIndicator != null) sb.Append("  RefundIndicator: ").Append(RefundIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

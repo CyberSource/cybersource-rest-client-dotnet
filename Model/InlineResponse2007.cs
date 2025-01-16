@@ -130,16 +130,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2007 {\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
-            sb.Append("  ReportCreatedDate: ").Append(ReportCreatedDate).Append("\n");
-            sb.Append("  BatchId: ").Append(BatchId).Append("\n");
-            sb.Append("  BatchSource: ").Append(BatchSource).Append("\n");
-            sb.Append("  BatchCaEndpoints: ").Append(BatchCaEndpoints).Append("\n");
-            sb.Append("  BatchCreatedDate: ").Append(BatchCreatedDate).Append("\n");
-            sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
-            sb.Append("  Totals: ").Append(Totals).Append("\n");
-            sb.Append("  Billing: ").Append(Billing).Append("\n");
-            sb.Append("  Records: ").Append(Records).Append("\n");
+            if (Version != null) sb.Append("  Version: ").Append(Version).Append("\n");
+            if (ReportCreatedDate != null) sb.Append("  ReportCreatedDate: ").Append(ReportCreatedDate).Append("\n");
+            if (BatchId != null) sb.Append("  BatchId: ").Append(BatchId).Append("\n");
+            if (BatchSource != null) sb.Append("  BatchSource: ").Append(BatchSource).Append("\n");
+            if (BatchCaEndpoints != null) sb.Append("  BatchCaEndpoints: ").Append(BatchCaEndpoints).Append("\n");
+            if (BatchCreatedDate != null) sb.Append("  BatchCreatedDate: ").Append(BatchCreatedDate).Append("\n");
+            if (MerchantReference != null) sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
+            if (Totals != null) sb.Append("  Totals: ").Append(Totals).Append("\n");
+            if (Billing != null) sb.Append("  Billing: ").Append(Billing).Append("\n");
+            if (Records != null) sb.Append("  Records: ").Append(Records).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

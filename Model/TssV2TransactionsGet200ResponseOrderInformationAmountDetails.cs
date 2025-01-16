@@ -107,13 +107,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseOrderInformationAmountDetails {\n");
-            sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
-            sb.Append("  AuthorizedAmount: ").Append(AuthorizedAmount).Append("\n");
-            sb.Append("  SettlementAmount: ").Append(SettlementAmount).Append("\n");
-            sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
-            sb.Append("  Surcharge: ").Append(Surcharge).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (AuthorizedAmount != null) sb.Append("  AuthorizedAmount: ").Append(AuthorizedAmount).Append("\n");
+            if (SettlementAmount != null) sb.Append("  SettlementAmount: ").Append(SettlementAmount).Append("\n");
+            if (SettlementCurrency != null) sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
+            if (Surcharge != null) sb.Append("  Surcharge: ").Append(Surcharge).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

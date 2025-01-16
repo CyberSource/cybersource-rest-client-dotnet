@@ -77,10 +77,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DmConfig {\n");
-            sb.Append("  ProcessingOptions: ").Append(ProcessingOptions).Append("\n");
-            sb.Append("  Organization: ").Append(Organization).Append("\n");
-            sb.Append("  PortfolioControls: ").Append(PortfolioControls).Append("\n");
-            sb.Append("  Thirdparty: ").Append(Thirdparty).Append("\n");
+            if (ProcessingOptions != null) sb.Append("  ProcessingOptions: ").Append(ProcessingOptions).Append("\n");
+            if (Organization != null) sb.Append("  Organization: ").Append(Organization).Append("\n");
+            if (PortfolioControls != null) sb.Append("  PortfolioControls: ").Append(PortfolioControls).Append("\n");
+            if (Thirdparty != null) sb.Append("  Thirdparty: ").Append(Thirdparty).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

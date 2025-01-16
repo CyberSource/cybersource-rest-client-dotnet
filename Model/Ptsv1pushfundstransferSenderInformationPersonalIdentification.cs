@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv1pushfundstransferSenderInformationPersonalIdentification {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  PersonalIdType: ").Append(PersonalIdType).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  IssuingCountry: ").Append(IssuingCountry).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (PersonalIdType != null) sb.Append("  PersonalIdType: ").Append(PersonalIdType).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (IssuingCountry != null) sb.Append("  IssuingCountry: ").Append(IssuingCountry).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

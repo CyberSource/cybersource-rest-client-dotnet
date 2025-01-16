@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VTConfigCardNotPresentReceiptInformationEmailReceipt {\n");
-            sb.Append("  SendersEmailAddress: ").Append(SendersEmailAddress).Append("\n");
+            if (SendersEmailAddress != null) sb.Append("  SendersEmailAddress: ").Append(SendersEmailAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

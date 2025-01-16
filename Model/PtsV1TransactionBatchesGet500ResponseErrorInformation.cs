@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV1TransactionBatchesGet500ResponseErrorInformation {\n");
-            sb.Append("  Reason: ").Append(Reason).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
+            if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

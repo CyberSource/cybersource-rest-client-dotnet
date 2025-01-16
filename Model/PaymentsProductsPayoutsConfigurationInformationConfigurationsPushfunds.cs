@@ -131,15 +131,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsPayoutsConfigurationInformationConfigurationsPushfunds {\n");
-            sb.Append("  AcquirerCountryCode: ").Append(AcquirerCountryCode).Append("\n");
-            sb.Append("  AcquiringBIN: ").Append(AcquiringBIN).Append("\n");
-            sb.Append("  AllowCryptoCurrencyPurchase: ").Append(AllowCryptoCurrencyPurchase).Append("\n");
-            sb.Append("  FinancialInstitutionId: ").Append(FinancialInstitutionId).Append("\n");
-            sb.Append("  NetworkOrder: ").Append(NetworkOrder).Append("\n");
-            sb.Append("  NationalReimbursementFee: ").Append(NationalReimbursementFee).Append("\n");
-            sb.Append("  OriginatorBusinessApplicationId: ").Append(OriginatorBusinessApplicationId).Append("\n");
-            sb.Append("  OriginatorPseudoAbaNumber: ").Append(OriginatorPseudoAbaNumber).Append("\n");
-            sb.Append("  ProcessorAccount: ").Append(ProcessorAccount).Append("\n");
+            if (AcquirerCountryCode != null) sb.Append("  AcquirerCountryCode: ").Append(AcquirerCountryCode).Append("\n");
+            if (AcquiringBIN != null) sb.Append("  AcquiringBIN: ").Append(AcquiringBIN).Append("\n");
+            if (AllowCryptoCurrencyPurchase != null) sb.Append("  AllowCryptoCurrencyPurchase: ").Append(AllowCryptoCurrencyPurchase).Append("\n");
+            if (FinancialInstitutionId != null) sb.Append("  FinancialInstitutionId: ").Append(FinancialInstitutionId).Append("\n");
+            if (NetworkOrder != null) sb.Append("  NetworkOrder: ").Append(NetworkOrder).Append("\n");
+            if (NationalReimbursementFee != null) sb.Append("  NationalReimbursementFee: ").Append(NationalReimbursementFee).Append("\n");
+            if (OriginatorBusinessApplicationId != null) sb.Append("  OriginatorBusinessApplicationId: ").Append(OriginatorBusinessApplicationId).Append("\n");
+            if (OriginatorPseudoAbaNumber != null) sb.Append("  OriginatorPseudoAbaNumber: ").Append(OriginatorPseudoAbaNumber).Append("\n");
+            if (ProcessorAccount != null) sb.Append("  ProcessorAccount: ").Append(ProcessorAccount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

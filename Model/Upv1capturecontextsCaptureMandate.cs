@@ -99,12 +99,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Upv1capturecontextsCaptureMandate {\n");
-            sb.Append("  BillingType: ").Append(BillingType).Append("\n");
-            sb.Append("  RequestEmail: ").Append(RequestEmail).Append("\n");
-            sb.Append("  RequestPhone: ").Append(RequestPhone).Append("\n");
-            sb.Append("  RequestShipping: ").Append(RequestShipping).Append("\n");
-            sb.Append("  ShipToCountries: ").Append(ShipToCountries).Append("\n");
-            sb.Append("  ShowAcceptedNetworkIcons: ").Append(ShowAcceptedNetworkIcons).Append("\n");
+            if (BillingType != null) sb.Append("  BillingType: ").Append(BillingType).Append("\n");
+            if (RequestEmail != null) sb.Append("  RequestEmail: ").Append(RequestEmail).Append("\n");
+            if (RequestPhone != null) sb.Append("  RequestPhone: ").Append(RequestPhone).Append("\n");
+            if (RequestShipping != null) sb.Append("  RequestShipping: ").Append(RequestShipping).Append("\n");
+            if (ShipToCountries != null) sb.Append("  ShipToCountries: ").Append(ShipToCountries).Append("\n");
+            if (ShowAcceptedNetworkIcons != null) sb.Append("  ShowAcceptedNetworkIcons: ").Append(ShowAcceptedNetworkIcons).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -109,14 +109,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2007SourceRecord {\n");
-            sb.Append("  Token: ").Append(Token).Append("\n");
-            sb.Append("  CustomerId: ").Append(CustomerId).Append("\n");
-            sb.Append("  PaymentInstrumentId: ").Append(PaymentInstrumentId).Append("\n");
-            sb.Append("  InstrumentIdentifierId: ").Append(InstrumentIdentifierId).Append("\n");
-            sb.Append("  CardNumber: ").Append(CardNumber).Append("\n");
-            sb.Append("  CardExpiryMonth: ").Append(CardExpiryMonth).Append("\n");
-            sb.Append("  CardExpiryYear: ").Append(CardExpiryYear).Append("\n");
-            sb.Append("  CardType: ").Append(CardType).Append("\n");
+            if (Token != null) sb.Append("  Token: ").Append(Token).Append("\n");
+            if (CustomerId != null) sb.Append("  CustomerId: ").Append(CustomerId).Append("\n");
+            if (PaymentInstrumentId != null) sb.Append("  PaymentInstrumentId: ").Append(PaymentInstrumentId).Append("\n");
+            if (InstrumentIdentifierId != null) sb.Append("  InstrumentIdentifierId: ").Append(InstrumentIdentifierId).Append("\n");
+            if (CardNumber != null) sb.Append("  CardNumber: ").Append(CardNumber).Append("\n");
+            if (CardExpiryMonth != null) sb.Append("  CardExpiryMonth: ").Append(CardExpiryMonth).Append("\n");
+            if (CardExpiryYear != null) sb.Append("  CardExpiryYear: ").Append(CardExpiryYear).Append("\n");
+            if (CardType != null) sb.Append("  CardType: ").Append(CardType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

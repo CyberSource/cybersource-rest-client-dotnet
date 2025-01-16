@@ -68,9 +68,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2012RegistrationInformation {\n");
-            sb.Append("  BoardingPackageId: ").Append(BoardingPackageId).Append("\n");
-            sb.Append("  Mode: ").Append(Mode).Append("\n");
-            sb.Append("  SalesRepId: ").Append(SalesRepId).Append("\n");
+            if (BoardingPackageId != null) sb.Append("  BoardingPackageId: ").Append(BoardingPackageId).Append("\n");
+            if (Mode != null) sb.Append("  Mode: ").Append(Mode).Append("\n");
+            if (SalesRepId != null) sb.Append("  SalesRepId: ").Append(SalesRepId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

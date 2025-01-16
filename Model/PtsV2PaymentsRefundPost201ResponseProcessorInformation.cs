@@ -125,15 +125,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsRefundPost201ResponseProcessorInformation {\n");
-            sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
-            sb.Append("  ForwardedAcquirerCode: ").Append(ForwardedAcquirerCode).Append("\n");
-            sb.Append("  MerchantNumber: ").Append(MerchantNumber).Append("\n");
-            sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
-            sb.Append("  AchVerification: ").Append(AchVerification).Append("\n");
-            sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
-            sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
-            sb.Append("  UpdateTimeUtc: ").Append(UpdateTimeUtc).Append("\n");
+            if (ApprovalCode != null) sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
+            if (TransactionId != null) sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            if (ForwardedAcquirerCode != null) sb.Append("  ForwardedAcquirerCode: ").Append(ForwardedAcquirerCode).Append("\n");
+            if (MerchantNumber != null) sb.Append("  MerchantNumber: ").Append(MerchantNumber).Append("\n");
+            if (ResponseCode != null) sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+            if (AchVerification != null) sb.Append("  AchVerification: ").Append(AchVerification).Append("\n");
+            if (NetworkTransactionId != null) sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
+            if (SettlementDate != null) sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
+            if (UpdateTimeUtc != null) sb.Append("  UpdateTimeUtc: ").Append(UpdateTimeUtc).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsRefundPost201ResponseClientReferenceInformation {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  SubmitLocalDateTime: ").Append(SubmitLocalDateTime).Append("\n");
-            sb.Append("  OwnerMerchantId: ").Append(OwnerMerchantId).Append("\n");
-            sb.Append("  ReturnReconciliationId: ").Append(ReturnReconciliationId).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (SubmitLocalDateTime != null) sb.Append("  SubmitLocalDateTime: ").Append(SubmitLocalDateTime).Append("\n");
+            if (OwnerMerchantId != null) sb.Append("  OwnerMerchantId: ").Append(OwnerMerchantId).Append("\n");
+            if (ReturnReconciliationId != null) sb.Append("  ReturnReconciliationId: ").Append(ReturnReconciliationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

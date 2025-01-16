@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv1pushfundstransferProcessingInformationPayoutsOptions {\n");
-            sb.Append("  SourceCurrency: ").Append(SourceCurrency).Append("\n");
-            sb.Append("  DestinationCurrency: ").Append(DestinationCurrency).Append("\n");
-            sb.Append("  SourceAmount: ").Append(SourceAmount).Append("\n");
-            sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
-            sb.Append("  AccountFundingReferenceId: ").Append(AccountFundingReferenceId).Append("\n");
+            if (SourceCurrency != null) sb.Append("  SourceCurrency: ").Append(SourceCurrency).Append("\n");
+            if (DestinationCurrency != null) sb.Append("  DestinationCurrency: ").Append(DestinationCurrency).Append("\n");
+            if (SourceAmount != null) sb.Append("  SourceAmount: ").Append(SourceAmount).Append("\n");
+            if (RetrievalReferenceNumber != null) sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
+            if (AccountFundingReferenceId != null) sb.Append("  AccountFundingReferenceId: ").Append(AccountFundingReferenceId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

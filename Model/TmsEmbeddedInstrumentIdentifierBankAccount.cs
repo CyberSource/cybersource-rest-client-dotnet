@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsEmbeddedInstrumentIdentifierBankAccount {\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
-            sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
+            if (Number != null) sb.Append("  Number: ").Append(Number).Append("\n");
+            if (RoutingNumber != null) sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2TokenizedCardMetadata {\n");
-            sb.Append("  CardArt: ").Append(CardArt).Append("\n");
+            if (CardArt != null) sb.Append("  CardArt: ").Append(CardArt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

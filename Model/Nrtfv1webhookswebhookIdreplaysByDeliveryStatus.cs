@@ -97,12 +97,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Nrtfv1webhookswebhookIdreplaysByDeliveryStatus {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
-            sb.Append("  EndTime: ").Append(EndTime).Append("\n");
-            sb.Append("  HoursBack: ").Append(HoursBack).Append("\n");
-            sb.Append("  ProductId: ").Append(ProductId).Append("\n");
-            sb.Append("  EventType: ").Append(EventType).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (StartTime != null) sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            if (EndTime != null) sb.Append("  EndTime: ").Append(EndTime).Append("\n");
+            if (HoursBack != null) sb.Append("  HoursBack: ").Append(HoursBack).Append("\n");
+            if (ProductId != null) sb.Append("  ProductId: ").Append(ProductId).Append("\n");
+            if (EventType != null) sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

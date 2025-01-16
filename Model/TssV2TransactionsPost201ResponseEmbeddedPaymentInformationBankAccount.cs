@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedPaymentInformationBankAccount {\n");
-            sb.Append("  Suffix: ").Append(Suffix).Append("\n");
-            sb.Append("  Prefix: ").Append(Prefix).Append("\n");
+            if (Suffix != null) sb.Append("  Suffix: ").Append(Suffix).Append("\n");
+            if (Prefix != null) sb.Append("  Prefix: ").Append(Prefix).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

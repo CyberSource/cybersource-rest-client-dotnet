@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsSensitivePrivileges {\n");
-            sb.Append("  CardNumberMaskingFormat: ").Append(CardNumberMaskingFormat).Append("\n");
+            if (CardNumberMaskingFormat != null) sb.Append("  CardNumberMaskingFormat: ").Append(CardNumberMaskingFormat).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

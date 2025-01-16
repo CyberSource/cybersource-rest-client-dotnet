@@ -133,16 +133,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PushFunds201ResponseProcessorInformation {\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
-            sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
-            sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
-            sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
-            sb.Append("  ActionCode: ").Append(ActionCode).Append("\n");
-            sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
-            sb.Append("  FeeProgramIndicator: ").Append(FeeProgramIndicator).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Routing: ").Append(Routing).Append("\n");
-            sb.Append("  Settlement: ").Append(Settlement).Append("\n");
+            if (TransactionId != null) sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            if (ResponseCode != null) sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+            if (SystemTraceAuditNumber != null) sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
+            if (RetrievalReferenceNumber != null) sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
+            if (ActionCode != null) sb.Append("  ActionCode: ").Append(ActionCode).Append("\n");
+            if (ApprovalCode != null) sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
+            if (FeeProgramIndicator != null) sb.Append("  FeeProgramIndicator: ").Append(FeeProgramIndicator).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Routing != null) sb.Append("  Routing: ").Append(Routing).Append("\n");
+            if (Settlement != null) sb.Append("  Settlement: ").Append(Settlement).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

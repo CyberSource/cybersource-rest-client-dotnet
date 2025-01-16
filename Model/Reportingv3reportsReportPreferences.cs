@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Reportingv3reportsReportPreferences {\n");
-            sb.Append("  SignedAmounts: ").Append(SignedAmounts).Append("\n");
-            sb.Append("  FieldNameConvention: ").Append(FieldNameConvention).Append("\n");
+            if (SignedAmounts != null) sb.Append("  SignedAmounts: ").Append(SignedAmounts).Append("\n");
+            if (FieldNameConvention != null) sb.Append("  FieldNameConvention: ").Append(FieldNameConvention).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

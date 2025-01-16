@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseBuyerInformation {\n");
-            sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
-            sb.Append("  HashedPassword: ").Append(HashedPassword).Append("\n");
+            if (MerchantCustomerId != null) sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
+            if (HashedPassword != null) sb.Append("  HashedPassword: ").Append(HashedPassword).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

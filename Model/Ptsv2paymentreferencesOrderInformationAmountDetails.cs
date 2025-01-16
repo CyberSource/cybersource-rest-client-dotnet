@@ -162,19 +162,19 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentreferencesOrderInformationAmountDetails {\n");
-            sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
-            sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
-            sb.Append("  DutyAmount: ").Append(DutyAmount).Append("\n");
-            sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
-            sb.Append("  ExchangeRateTimeStamp: ").Append(ExchangeRateTimeStamp).Append("\n");
-            sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
-            sb.Append("  GiftwrapAmount: ").Append(GiftwrapAmount).Append("\n");
-            sb.Append("  HandlingAmount: ").Append(HandlingAmount).Append("\n");
-            sb.Append("  ShippingAmount: ").Append(ShippingAmount).Append("\n");
-            sb.Append("  ShippingDiscountAmount: ").Append(ShippingDiscountAmount).Append("\n");
-            sb.Append("  InsuranceAmount: ").Append(InsuranceAmount).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (DiscountAmount != null) sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
+            if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (DutyAmount != null) sb.Append("  DutyAmount: ").Append(DutyAmount).Append("\n");
+            if (ExchangeRate != null) sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
+            if (ExchangeRateTimeStamp != null) sb.Append("  ExchangeRateTimeStamp: ").Append(ExchangeRateTimeStamp).Append("\n");
+            if (SettlementCurrency != null) sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
+            if (GiftwrapAmount != null) sb.Append("  GiftwrapAmount: ").Append(GiftwrapAmount).Append("\n");
+            if (HandlingAmount != null) sb.Append("  HandlingAmount: ").Append(HandlingAmount).Append("\n");
+            if (ShippingAmount != null) sb.Append("  ShippingAmount: ").Append(ShippingAmount).Append("\n");
+            if (ShippingDiscountAmount != null) sb.Append("  ShippingDiscountAmount: ").Append(ShippingDiscountAmount).Append("\n");
+            if (InsuranceAmount != null) sb.Append("  InsuranceAmount: ").Append(InsuranceAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Vasv2taxOrderInformationShippingDetails {\n");
-            sb.Append("  ShipFromLocality: ").Append(ShipFromLocality).Append("\n");
-            sb.Append("  ShipFromCountry: ").Append(ShipFromCountry).Append("\n");
-            sb.Append("  ShipFromPostalCode: ").Append(ShipFromPostalCode).Append("\n");
-            sb.Append("  ShipFromAdministrativeArea: ").Append(ShipFromAdministrativeArea).Append("\n");
+            if (ShipFromLocality != null) sb.Append("  ShipFromLocality: ").Append(ShipFromLocality).Append("\n");
+            if (ShipFromCountry != null) sb.Append("  ShipFromCountry: ").Append(ShipFromCountry).Append("\n");
+            if (ShipFromPostalCode != null) sb.Append("  ShipFromPostalCode: ").Append(ShipFromPostalCode).Append("\n");
+            if (ShipFromAdministrativeArea != null) sb.Append("  ShipFromAdministrativeArea: ").Append(ShipFromAdministrativeArea).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

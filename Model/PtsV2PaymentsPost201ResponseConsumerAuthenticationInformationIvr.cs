@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationIvr {\n");
-            sb.Append("  EnabledMessage: ").Append(EnabledMessage).Append("\n");
-            sb.Append("  EncryptionKey: ").Append(EncryptionKey).Append("\n");
-            sb.Append("  EncryptionMandatory: ").Append(EncryptionMandatory).Append("\n");
-            sb.Append("  EncryptionType: ").Append(EncryptionType).Append("\n");
-            sb.Append("  Label: ").Append(Label).Append("\n");
-            sb.Append("  Prompt: ").Append(Prompt).Append("\n");
-            sb.Append("  StatusMessage: ").Append(StatusMessage).Append("\n");
+            if (EnabledMessage != null) sb.Append("  EnabledMessage: ").Append(EnabledMessage).Append("\n");
+            if (EncryptionKey != null) sb.Append("  EncryptionKey: ").Append(EncryptionKey).Append("\n");
+            if (EncryptionMandatory != null) sb.Append("  EncryptionMandatory: ").Append(EncryptionMandatory).Append("\n");
+            if (EncryptionType != null) sb.Append("  EncryptionType: ").Append(EncryptionType).Append("\n");
+            if (Label != null) sb.Append("  Label: ").Append(Label).Append("\n");
+            if (Prompt != null) sb.Append("  Prompt: ").Append(Prompt).Append("\n");
+            if (StatusMessage != null) sb.Append("  StatusMessage: ").Append(StatusMessage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -153,18 +153,18 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsRecipientInformation {\n");
-            sb.Append("  AccountId: ").Append(AccountId).Append("\n");
-            sb.Append("  AccountType: ").Append(AccountType).Append("\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  Address1: ").Append(Address1).Append("\n");
-            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
-            sb.Append("  BeneficiaryId: ").Append(BeneficiaryId).Append("\n");
-            sb.Append("  BeneficiaryName: ").Append(BeneficiaryName).Append("\n");
-            sb.Append("  BeneficiaryAddress: ").Append(BeneficiaryAddress).Append("\n");
+            if (AccountId != null) sb.Append("  AccountId: ").Append(AccountId).Append("\n");
+            if (AccountType != null) sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            if (FirstName != null) sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            if (MiddleName != null) sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
+            if (LastName != null) sb.Append("  LastName: ").Append(LastName).Append("\n");
+            if (Address1 != null) sb.Append("  Address1: ").Append(Address1).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            if (BeneficiaryId != null) sb.Append("  BeneficiaryId: ").Append(BeneficiaryId).Append("\n");
+            if (BeneficiaryName != null) sb.Append("  BeneficiaryName: ").Append(BeneficiaryName).Append("\n");
+            if (BeneficiaryAddress != null) sb.Append("  BeneficiaryAddress: ").Append(BeneficiaryAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

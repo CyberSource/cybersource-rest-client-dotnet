@@ -89,11 +89,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePointOfSaleInformation {\n");
-            sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
-            sb.Append("  EntryMode: ").Append(EntryMode).Append("\n");
-            sb.Append("  TerminalCapability: ").Append(TerminalCapability).Append("\n");
-            sb.Append("  CardholderVerificationMethodUsed: ").Append(CardholderVerificationMethodUsed).Append("\n");
-            sb.Append("  Emv: ").Append(Emv).Append("\n");
+            if (TerminalId != null) sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
+            if (EntryMode != null) sb.Append("  EntryMode: ").Append(EntryMode).Append("\n");
+            if (TerminalCapability != null) sb.Append("  TerminalCapability: ").Append(TerminalCapability).Append("\n");
+            if (CardholderVerificationMethodUsed != null) sb.Append("  CardholderVerificationMethodUsed: ").Append(CardholderVerificationMethodUsed).Append("\n");
+            if (Emv != null) sb.Append("  Emv: ").Append(Emv).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

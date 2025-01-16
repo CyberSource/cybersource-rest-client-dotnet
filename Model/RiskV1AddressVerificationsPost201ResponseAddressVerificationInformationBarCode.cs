@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationBarCode {\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("  CheckDigit: ").Append(CheckDigit).Append("\n");
+            if (Value != null) sb.Append("  Value: ").Append(Value).Append("\n");
+            if (CheckDigit != null) sb.Append("  CheckDigit: ").Append(CheckDigit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

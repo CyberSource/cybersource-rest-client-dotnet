@@ -100,13 +100,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2TokenizedCardMetadataCardArt {\n");
-            sb.Append("  CombinedAsset: ").Append(CombinedAsset).Append("\n");
-            sb.Append("  BrandLogoAsset: ").Append(BrandLogoAsset).Append("\n");
-            sb.Append("  CoBrandLogoAsset: ").Append(CoBrandLogoAsset).Append("\n");
-            sb.Append("  IssuerLogoAsset: ").Append(IssuerLogoAsset).Append("\n");
-            sb.Append("  IconAsset: ").Append(IconAsset).Append("\n");
-            sb.Append("  ForegroundColor: ").Append(ForegroundColor).Append("\n");
-            sb.Append("  BackgroundAsset: ").Append(BackgroundAsset).Append("\n");
+            if (CombinedAsset != null) sb.Append("  CombinedAsset: ").Append(CombinedAsset).Append("\n");
+            if (BrandLogoAsset != null) sb.Append("  BrandLogoAsset: ").Append(BrandLogoAsset).Append("\n");
+            if (CoBrandLogoAsset != null) sb.Append("  CoBrandLogoAsset: ").Append(CoBrandLogoAsset).Append("\n");
+            if (IssuerLogoAsset != null) sb.Append("  IssuerLogoAsset: ").Append(IssuerLogoAsset).Append("\n");
+            if (IconAsset != null) sb.Append("  IconAsset: ").Append(IconAsset).Append("\n");
+            if (ForegroundColor != null) sb.Append("  ForegroundColor: ").Append(ForegroundColor).Append("\n");
+            if (BackgroundAsset != null) sb.Append("  BackgroundAsset: ").Append(BackgroundAsset).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

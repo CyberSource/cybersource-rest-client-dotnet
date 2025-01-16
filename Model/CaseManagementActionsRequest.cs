@@ -66,8 +66,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CaseManagementActionsRequest {\n");
-            sb.Append("  DecisionInformation: ").Append(DecisionInformation).Append("\n");
-            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
+            if (DecisionInformation != null) sb.Append("  DecisionInformation: ").Append(DecisionInformation).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

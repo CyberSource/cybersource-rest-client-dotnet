@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2011IssuerInformation {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  BinLength: ").Append(BinLength).Append("\n");
-            sb.Append("  AccountPrefix: ").Append(AccountPrefix).Append("\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (BinLength != null) sb.Append("  BinLength: ").Append(BinLength).Append("\n");
+            if (AccountPrefix != null) sb.Append("  AccountPrefix: ").Append(AccountPrefix).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

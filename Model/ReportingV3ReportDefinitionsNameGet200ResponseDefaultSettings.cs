@@ -116,14 +116,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3ReportDefinitionsNameGet200ResponseDefaultSettings {\n");
-            sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
-            sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
-            sb.Append("  ReportName: ").Append(ReportName).Append("\n");
-            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
-            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
-            sb.Append("  StartDay: ").Append(StartDay).Append("\n");
-            sb.Append("  ReportFilters: ").Append(ReportFilters).Append("\n");
-            sb.Append("  ReportPreferences: ").Append(ReportPreferences).Append("\n");
+            if (ReportMimeType != null) sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
+            if (ReportFrequency != null) sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
+            if (ReportName != null) sb.Append("  ReportName: ").Append(ReportName).Append("\n");
+            if (Timezone != null) sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            if (StartTime != null) sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            if (StartDay != null) sb.Append("  StartDay: ").Append(StartDay).Append("\n");
+            if (ReportFilters != null) sb.Append("  ReportFilters: ").Append(ReportFilters).Append("\n");
+            if (ReportPreferences != null) sb.Append("  ReportPreferences: ").Append(ReportPreferences).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -99,12 +99,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2011PaymentAccountInformationCard {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  BrandName: ").Append(BrandName).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  MaxLength: ").Append(MaxLength).Append("\n");
-            sb.Append("  CredentialType: ").Append(CredentialType).Append("\n");
-            sb.Append("  Brands: ").Append(Brands).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (BrandName != null) sb.Append("  BrandName: ").Append(BrandName).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (MaxLength != null) sb.Append("  MaxLength: ").Append(MaxLength).Append("\n");
+            if (CredentialType != null) sb.Append("  CredentialType: ").Append(CredentialType).Append("\n");
+            if (Brands != null) sb.Append("  Brands: ").Append(Brands).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

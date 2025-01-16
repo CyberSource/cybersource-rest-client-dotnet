@@ -162,19 +162,19 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3PurchaseRefundDetailsGet200ResponseFeeAndFundingDetails {\n");
-            sb.Append("  RequestId: ").Append(RequestId).Append("\n");
-            sb.Append("  InterchangePerItemFee: ").Append(InterchangePerItemFee).Append("\n");
-            sb.Append("  InterchangeDescription: ").Append(InterchangeDescription).Append("\n");
-            sb.Append("  InterchangePercentage: ").Append(InterchangePercentage).Append("\n");
-            sb.Append("  InterchangePercentageAmount: ").Append(InterchangePercentageAmount).Append("\n");
-            sb.Append("  DiscountPercentage: ").Append(DiscountPercentage).Append("\n");
-            sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
-            sb.Append("  DiscountPerItemFee: ").Append(DiscountPerItemFee).Append("\n");
-            sb.Append("  TotalFee: ").Append(TotalFee).Append("\n");
-            sb.Append("  FeeCurrency: ").Append(FeeCurrency).Append("\n");
-            sb.Append("  DuesAssessments: ").Append(DuesAssessments).Append("\n");
-            sb.Append("  FundingAmount: ").Append(FundingAmount).Append("\n");
-            sb.Append("  FundingCurrency: ").Append(FundingCurrency).Append("\n");
+            if (RequestId != null) sb.Append("  RequestId: ").Append(RequestId).Append("\n");
+            if (InterchangePerItemFee != null) sb.Append("  InterchangePerItemFee: ").Append(InterchangePerItemFee).Append("\n");
+            if (InterchangeDescription != null) sb.Append("  InterchangeDescription: ").Append(InterchangeDescription).Append("\n");
+            if (InterchangePercentage != null) sb.Append("  InterchangePercentage: ").Append(InterchangePercentage).Append("\n");
+            if (InterchangePercentageAmount != null) sb.Append("  InterchangePercentageAmount: ").Append(InterchangePercentageAmount).Append("\n");
+            if (DiscountPercentage != null) sb.Append("  DiscountPercentage: ").Append(DiscountPercentage).Append("\n");
+            if (DiscountAmount != null) sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
+            if (DiscountPerItemFee != null) sb.Append("  DiscountPerItemFee: ").Append(DiscountPerItemFee).Append("\n");
+            if (TotalFee != null) sb.Append("  TotalFee: ").Append(TotalFee).Append("\n");
+            if (FeeCurrency != null) sb.Append("  FeeCurrency: ").Append(FeeCurrency).Append("\n");
+            if (DuesAssessments != null) sb.Append("  DuesAssessments: ").Append(DuesAssessments).Append("\n");
+            if (FundingAmount != null) sb.Append("  FundingAmount: ").Append(FundingAmount).Append("\n");
+            if (FundingCurrency != null) sb.Append("  FundingCurrency: ").Append(FundingCurrency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

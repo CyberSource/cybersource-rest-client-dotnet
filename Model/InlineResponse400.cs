@@ -52,7 +52,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse400 {\n");
-            sb.Append("  Errors: ").Append(Errors).Append("\n");
+            if (Errors != null) sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

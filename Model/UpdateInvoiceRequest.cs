@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UpdateInvoiceRequest {\n");
-            sb.Append("  CustomerInformation: ").Append(CustomerInformation).Append("\n");
-            sb.Append("  InvoiceInformation: ").Append(InvoiceInformation).Append("\n");
-            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (CustomerInformation != null) sb.Append("  CustomerInformation: ").Append(CustomerInformation).Append("\n");
+            if (InvoiceInformation != null) sb.Append("  InvoiceInformation: ").Append(InvoiceInformation).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

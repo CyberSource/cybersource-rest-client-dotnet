@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsAcquirerInformation {\n");
-            sb.Append("  AcquirerBin: ").Append(AcquirerBin).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  Password: ").Append(Password).Append("\n");
-            sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            if (AcquirerBin != null) sb.Append("  AcquirerBin: ").Append(AcquirerBin).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (Password != null) sb.Append("  Password: ").Append(Password).Append("\n");
+            if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

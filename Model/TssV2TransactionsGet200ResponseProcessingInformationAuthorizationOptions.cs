@@ -89,11 +89,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptions {\n");
-            sb.Append("  AuthType: ").Append(AuthType).Append("\n");
-            sb.Append("  AuthIndicator: ").Append(AuthIndicator).Append("\n");
-            sb.Append("  ExtendAuthIndicator: ").Append(ExtendAuthIndicator).Append("\n");
-            sb.Append("  CardVerificationIndicator: ").Append(CardVerificationIndicator).Append("\n");
-            sb.Append("  Initiator: ").Append(Initiator).Append("\n");
+            if (AuthType != null) sb.Append("  AuthType: ").Append(AuthType).Append("\n");
+            if (AuthIndicator != null) sb.Append("  AuthIndicator: ").Append(AuthIndicator).Append("\n");
+            if (ExtendAuthIndicator != null) sb.Append("  ExtendAuthIndicator: ").Append(ExtendAuthIndicator).Append("\n");
+            if (CardVerificationIndicator != null) sb.Append("  CardVerificationIndicator: ").Append(CardVerificationIndicator).Append("\n");
+            if (Initiator != null) sb.Append("  Initiator: ").Append(Initiator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

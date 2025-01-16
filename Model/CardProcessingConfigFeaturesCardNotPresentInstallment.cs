@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardProcessingConfigFeaturesCardNotPresentInstallment {\n");
-            sb.Append("  EnableInstallment: ").Append(EnableInstallment).Append("\n");
-            sb.Append("  InstallmentPlan: ").Append(InstallmentPlan).Append("\n");
+            if (EnableInstallment != null) sb.Append("  EnableInstallment: ").Append(EnableInstallment).Append("\n");
+            if (InstallmentPlan != null) sb.Append("  InstallmentPlan: ").Append(InstallmentPlan).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

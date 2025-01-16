@@ -94,12 +94,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseRiskInformation {\n");
-            sb.Append("  Profile: ").Append(Profile).Append("\n");
-            sb.Append("  Rules: ").Append(Rules).Append("\n");
-            sb.Append("  PassiveProfile: ").Append(PassiveProfile).Append("\n");
-            sb.Append("  PassiveRules: ").Append(PassiveRules).Append("\n");
-            sb.Append("  Score: ").Append(Score).Append("\n");
-            sb.Append("  LocalTime: ").Append(LocalTime).Append("\n");
+            if (Profile != null) sb.Append("  Profile: ").Append(Profile).Append("\n");
+            if (Rules != null) sb.Append("  Rules: ").Append(Rules).Append("\n");
+            if (PassiveProfile != null) sb.Append("  PassiveProfile: ").Append(PassiveProfile).Append("\n");
+            if (PassiveRules != null) sb.Append("  PassiveRules: ").Append(PassiveRules).Append("\n");
+            if (Score != null) sb.Append("  Score: ").Append(Score).Append("\n");
+            if (LocalTime != null) sb.Append("  LocalTime: ").Append(LocalTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

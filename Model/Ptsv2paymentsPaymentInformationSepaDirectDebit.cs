@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsPaymentInformationSepaDirectDebit {\n");
-            sb.Append("  Reference: ").Append(Reference).Append("\n");
-            sb.Append("  SignatureDate: ").Append(SignatureDate).Append("\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Reference != null) sb.Append("  Reference: ").Append(Reference).Append("\n");
+            if (SignatureDate != null) sb.Append("  SignatureDate: ").Append(SignatureDate).Append("\n");
+            if (Url != null) sb.Append("  Url: ").Append(Url).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

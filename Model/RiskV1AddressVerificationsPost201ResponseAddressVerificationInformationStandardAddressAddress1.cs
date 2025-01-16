@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1 {\n");
-            sb.Append("  WithApartment: ").Append(WithApartment).Append("\n");
-            sb.Append("  WithoutApartment: ").Append(WithoutApartment).Append("\n");
+            if (WithApartment != null) sb.Append("  WithApartment: ").Append(WithApartment).Append("\n");
+            if (WithoutApartment != null) sb.Append("  WithoutApartment: ").Append(WithoutApartment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetAllPlansResponseLinks {\n");
-            sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  Next: ").Append(Next).Append("\n");
-            sb.Append("  Previous: ").Append(Previous).Append("\n");
+            if (Self != null) sb.Append("  Self: ").Append(Self).Append("\n");
+            if (Next != null) sb.Append("  Next: ").Append(Next).Append("\n");
+            if (Previous != null) sb.Append("  Previous: ").Append(Previous).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SAConfigService {\n");
-            sb.Append("  DecisionManagerVerboseEnabled: ").Append(DecisionManagerVerboseEnabled).Append("\n");
-            sb.Append("  DeclinedRetryLimit: ").Append(DeclinedRetryLimit).Append("\n");
-            sb.Append("  DecisionManagerEnabled: ").Append(DecisionManagerEnabled).Append("\n");
-            sb.Append("  TokenizationEnabled: ").Append(TokenizationEnabled).Append("\n");
-            sb.Append("  ReverseAuthOnAddressVerificationSystemFailure: ").Append(ReverseAuthOnAddressVerificationSystemFailure).Append("\n");
-            sb.Append("  DeviceFingerprintEnabled: ").Append(DeviceFingerprintEnabled).Append("\n");
-            sb.Append("  ReverseAuthOnCardVerificationNumberFailure: ").Append(ReverseAuthOnCardVerificationNumberFailure).Append("\n");
+            if (DecisionManagerVerboseEnabled != null) sb.Append("  DecisionManagerVerboseEnabled: ").Append(DecisionManagerVerboseEnabled).Append("\n");
+            if (DeclinedRetryLimit != null) sb.Append("  DeclinedRetryLimit: ").Append(DeclinedRetryLimit).Append("\n");
+            if (DecisionManagerEnabled != null) sb.Append("  DecisionManagerEnabled: ").Append(DecisionManagerEnabled).Append("\n");
+            if (TokenizationEnabled != null) sb.Append("  TokenizationEnabled: ").Append(TokenizationEnabled).Append("\n");
+            if (ReverseAuthOnAddressVerificationSystemFailure != null) sb.Append("  ReverseAuthOnAddressVerificationSystemFailure: ").Append(ReverseAuthOnAddressVerificationSystemFailure).Append("\n");
+            if (DeviceFingerprintEnabled != null) sb.Append("  DeviceFingerprintEnabled: ").Append(DeviceFingerprintEnabled).Append("\n");
+            if (ReverseAuthOnCardVerificationNumberFailure != null) sb.Append("  ReverseAuthOnCardVerificationNumberFailure: ").Append(ReverseAuthOnCardVerificationNumberFailure).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

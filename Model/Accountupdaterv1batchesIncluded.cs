@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Accountupdaterv1batchesIncluded {\n");
-            sb.Append("  Tokens: ").Append(Tokens).Append("\n");
+            if (Tokens != null) sb.Append("  Tokens: ").Append(Tokens).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

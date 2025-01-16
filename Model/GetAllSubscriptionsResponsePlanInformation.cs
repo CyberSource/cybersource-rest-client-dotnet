@@ -79,10 +79,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetAllSubscriptionsResponsePlanInformation {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  BillingPeriod: ").Append(BillingPeriod).Append("\n");
-            sb.Append("  BillingCycles: ").Append(BillingCycles).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (BillingPeriod != null) sb.Append("  BillingPeriod: ").Append(BillingPeriod).Append("\n");
+            if (BillingCycles != null) sb.Append("  BillingCycles: ").Append(BillingCycles).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

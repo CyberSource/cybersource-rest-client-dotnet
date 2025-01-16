@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformationService {\n");
-            sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
-            sb.Append("  SubCategoryCode: ").Append(SubCategoryCode).Append("\n");
+            if (CategoryCode != null) sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
+            if (SubCategoryCode != null) sb.Append("  SubCategoryCode: ").Append(SubCategoryCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

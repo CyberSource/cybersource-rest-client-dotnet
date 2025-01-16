@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsDifferentialFeeSubscriptionInformationFeatures {\n");
-            sb.Append("  Surcharge: ").Append(Surcharge).Append("\n");
+            if (Surcharge != null) sb.Append("  Surcharge: ").Append(Surcharge).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

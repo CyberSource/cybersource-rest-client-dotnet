@@ -71,9 +71,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2002 {\n");
-            sb.Append("  ProductId: ").Append(ProductId).Append("\n");
-            sb.Append("  ProductName: ").Append(ProductName).Append("\n");
-            sb.Append("  EventTypes: ").Append(EventTypes).Append("\n");
+            if (ProductId != null) sb.Append("  ProductId: ").Append(ProductId).Append("\n");
+            if (ProductName != null) sb.Append("  ProductName: ").Append(ProductName).Append("\n");
+            if (EventTypes != null) sb.Append("  EventTypes: ").Append(EventTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

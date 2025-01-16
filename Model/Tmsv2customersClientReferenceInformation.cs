@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2customersClientReferenceInformation {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

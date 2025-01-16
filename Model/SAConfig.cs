@@ -102,13 +102,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SAConfig {\n");
-            sb.Append("  ParentProfileId: ").Append(ParentProfileId).Append("\n");
-            sb.Append("  ContactInformation: ").Append(ContactInformation).Append("\n");
-            sb.Append("  Notifications: ").Append(Notifications).Append("\n");
-            sb.Append("  Service: ").Append(Service).Append("\n");
-            sb.Append("  PaymentMethods: ").Append(PaymentMethods).Append("\n");
-            sb.Append("  Checkout: ").Append(Checkout).Append("\n");
-            sb.Append("  PaymentTypes: ").Append(PaymentTypes).Append("\n");
+            if (ParentProfileId != null) sb.Append("  ParentProfileId: ").Append(ParentProfileId).Append("\n");
+            if (ContactInformation != null) sb.Append("  ContactInformation: ").Append(ContactInformation).Append("\n");
+            if (Notifications != null) sb.Append("  Notifications: ").Append(Notifications).Append("\n");
+            if (Service != null) sb.Append("  Service: ").Append(Service).Append("\n");
+            if (PaymentMethods != null) sb.Append("  PaymentMethods: ").Append(PaymentMethods).Append("\n");
+            if (Checkout != null) sb.Append("  Checkout: ").Append(Checkout).Append("\n");
+            if (PaymentTypes != null) sb.Append("  PaymentTypes: ").Append(PaymentTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

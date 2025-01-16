@@ -142,17 +142,17 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidrefundsProcessingInformation {\n");
-            sb.Append("  ActionList: ").Append(ActionList).Append("\n");
-            sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
-            sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
-            sb.Append("  LinkId: ").Append(LinkId).Append("\n");
-            sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
-            sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
-            sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
-            sb.Append("  RecurringOptions: ").Append(RecurringOptions).Append("\n");
-            sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
-            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
-            sb.Append("  RefundOptions: ").Append(RefundOptions).Append("\n");
+            if (ActionList != null) sb.Append("  ActionList: ").Append(ActionList).Append("\n");
+            if (PaymentSolution != null) sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
+            if (LinkId != null) sb.Append("  LinkId: ").Append(LinkId).Append("\n");
+            if (ReportGroup != null) sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
+            if (VisaCheckoutId != null) sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
+            if (PurchaseLevel != null) sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
+            if (RecurringOptions != null) sb.Append("  RecurringOptions: ").Append(RecurringOptions).Append("\n");
+            if (IndustryDataType != null) sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
+            if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (RefundOptions != null) sb.Append("  RefundOptions: ").Append(RefundOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

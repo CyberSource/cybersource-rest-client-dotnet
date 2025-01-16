@@ -123,15 +123,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2customersEmbeddedDefaultPaymentInstrumentCard {\n");
-            sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
-            sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  IssueNumber: ").Append(IssueNumber).Append("\n");
-            sb.Append("  StartMonth: ").Append(StartMonth).Append("\n");
-            sb.Append("  StartYear: ").Append(StartYear).Append("\n");
-            sb.Append("  UseAs: ").Append(UseAs).Append("\n");
-            sb.Append("  Hash: ").Append(Hash).Append("\n");
-            sb.Append("  TokenizedInformation: ").Append(TokenizedInformation).Append("\n");
+            if (ExpirationMonth != null) sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
+            if (ExpirationYear != null) sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (IssueNumber != null) sb.Append("  IssueNumber: ").Append(IssueNumber).Append("\n");
+            if (StartMonth != null) sb.Append("  StartMonth: ").Append(StartMonth).Append("\n");
+            if (StartYear != null) sb.Append("  StartYear: ").Append(StartYear).Append("\n");
+            if (UseAs != null) sb.Append("  UseAs: ").Append(UseAs).Append("\n");
+            if (Hash != null) sb.Append("  Hash: ").Append(Hash).Append("\n");
+            if (TokenizedInformation != null) sb.Append("  TokenizedInformation: ").Append(TokenizedInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -115,14 +115,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RiskV1AddressVerificationsPost201ResponseAddressVerificationInformation {\n");
-            sb.Append("  AddressType: ").Append(AddressType).Append("\n");
-            sb.Append("  BarCode: ").Append(BarCode).Append("\n");
-            sb.Append("  ApplicableRegion: ").Append(ApplicableRegion).Append("\n");
-            sb.Append("  ErrorCode: ").Append(ErrorCode).Append("\n");
-            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
-            sb.Append("  CareOf: ").Append(CareOf).Append("\n");
-            sb.Append("  MatchScore: ").Append(MatchScore).Append("\n");
-            sb.Append("  StandardAddress: ").Append(StandardAddress).Append("\n");
+            if (AddressType != null) sb.Append("  AddressType: ").Append(AddressType).Append("\n");
+            if (BarCode != null) sb.Append("  BarCode: ").Append(BarCode).Append("\n");
+            if (ApplicableRegion != null) sb.Append("  ApplicableRegion: ").Append(ApplicableRegion).Append("\n");
+            if (ErrorCode != null) sb.Append("  ErrorCode: ").Append(ErrorCode).Append("\n");
+            if (StatusCode != null) sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
+            if (CareOf != null) sb.Append("  CareOf: ").Append(CareOf).Append("\n");
+            if (MatchScore != null) sb.Append("  MatchScore: ").Append(MatchScore).Append("\n");
+            if (StandardAddress != null) sb.Append("  StandardAddress: ").Append(StandardAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

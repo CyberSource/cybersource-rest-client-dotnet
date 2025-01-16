@@ -60,8 +60,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse400Details {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Location != null) sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

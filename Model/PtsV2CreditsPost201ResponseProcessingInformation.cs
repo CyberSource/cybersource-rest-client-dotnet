@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2CreditsPost201ResponseProcessingInformation {\n");
-            sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
-            sb.Append("  EnhancedDataEnabled: ").Append(EnhancedDataEnabled).Append("\n");
+            if (BankTransferOptions != null) sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
+            if (EnhancedDataEnabled != null) sb.Append("  EnhancedDataEnabled: ").Append(EnhancedDataEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

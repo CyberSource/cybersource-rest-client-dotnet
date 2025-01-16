@@ -59,7 +59,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1authenticationsetupsPaymentInformationCustomer {\n");
-            sb.Append("  CustomerId: ").Append(CustomerId).Append("\n");
+            if (CustomerId != null) sb.Append("  CustomerId: ").Append(CustomerId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

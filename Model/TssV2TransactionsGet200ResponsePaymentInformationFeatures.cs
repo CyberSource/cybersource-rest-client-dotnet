@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformationFeatures {\n");
-            sb.Append("  AccountFundingSource: ").Append(AccountFundingSource).Append("\n");
-            sb.Append("  AccountFundingSourceSubType: ").Append(AccountFundingSourceSubType).Append("\n");
-            sb.Append("  CardProduct: ").Append(CardProduct).Append("\n");
-            sb.Append("  MessageType: ").Append(MessageType).Append("\n");
-            sb.Append("  AcceptanceLevel: ").Append(AcceptanceLevel).Append("\n");
-            sb.Append("  CardPlatform: ").Append(CardPlatform).Append("\n");
-            sb.Append("  ComboCard: ").Append(ComboCard).Append("\n");
+            if (AccountFundingSource != null) sb.Append("  AccountFundingSource: ").Append(AccountFundingSource).Append("\n");
+            if (AccountFundingSourceSubType != null) sb.Append("  AccountFundingSourceSubType: ").Append(AccountFundingSourceSubType).Append("\n");
+            if (CardProduct != null) sb.Append("  CardProduct: ").Append(CardProduct).Append("\n");
+            if (MessageType != null) sb.Append("  MessageType: ").Append(MessageType).Append("\n");
+            if (AcceptanceLevel != null) sb.Append("  AcceptanceLevel: ").Append(AcceptanceLevel).Append("\n");
+            if (CardPlatform != null) sb.Append("  CardPlatform: ").Append(CardPlatform).Append("\n");
+            if (ComboCard != null) sb.Append("  ComboCard: ").Append(ComboCard).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

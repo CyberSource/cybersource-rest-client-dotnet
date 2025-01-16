@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessingInformationBankTransferOptions {\n");
-            sb.Append("  SecCode: ").Append(SecCode).Append("\n");
+            if (SecCode != null) sb.Append("  SecCode: ").Append(SecCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

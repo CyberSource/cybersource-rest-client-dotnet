@@ -133,16 +133,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CreateWebhookRequest {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
-            sb.Append("  ProductId: ").Append(ProductId).Append("\n");
-            sb.Append("  EventTypes: ").Append(EventTypes).Append("\n");
-            sb.Append("  WebhookUrl: ").Append(WebhookUrl).Append("\n");
-            sb.Append("  HealthCheckUrl: ").Append(HealthCheckUrl).Append("\n");
-            sb.Append("  NotificationScope: ").Append(NotificationScope).Append("\n");
-            sb.Append("  RetryPolicy: ").Append(RetryPolicy).Append("\n");
-            sb.Append("  SecurityPolicy: ").Append(SecurityPolicy).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Description != null) sb.Append("  Description: ").Append(Description).Append("\n");
+            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
+            if (ProductId != null) sb.Append("  ProductId: ").Append(ProductId).Append("\n");
+            if (EventTypes != null) sb.Append("  EventTypes: ").Append(EventTypes).Append("\n");
+            if (WebhookUrl != null) sb.Append("  WebhookUrl: ").Append(WebhookUrl).Append("\n");
+            if (HealthCheckUrl != null) sb.Append("  HealthCheckUrl: ").Append(HealthCheckUrl).Append("\n");
+            if (NotificationScope != null) sb.Append("  NotificationScope: ").Append(NotificationScope).Append("\n");
+            if (RetryPolicy != null) sb.Append("  RetryPolicy: ").Append(RetryPolicy).Append("\n");
+            if (SecurityPolicy != null) sb.Append("  SecurityPolicy: ").Append(SecurityPolicy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

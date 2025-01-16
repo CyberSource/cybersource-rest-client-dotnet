@@ -67,8 +67,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3NetFundingsGet200ResponseTotalPurchases {\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (Value != null) sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

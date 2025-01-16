@@ -107,13 +107,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidcapturesOrderInformationInvoiceDetails {\n");
-            sb.Append("  PurchaseOrderNumber: ").Append(PurchaseOrderNumber).Append("\n");
-            sb.Append("  PurchaseOrderDate: ").Append(PurchaseOrderDate).Append("\n");
-            sb.Append("  PurchaseContactName: ").Append(PurchaseContactName).Append("\n");
-            sb.Append("  Taxable: ").Append(Taxable).Append("\n");
-            sb.Append("  VatInvoiceReferenceNumber: ").Append(VatInvoiceReferenceNumber).Append("\n");
-            sb.Append("  CommodityCode: ").Append(CommodityCode).Append("\n");
-            sb.Append("  TransactionAdviceAddendum: ").Append(TransactionAdviceAddendum).Append("\n");
+            if (PurchaseOrderNumber != null) sb.Append("  PurchaseOrderNumber: ").Append(PurchaseOrderNumber).Append("\n");
+            if (PurchaseOrderDate != null) sb.Append("  PurchaseOrderDate: ").Append(PurchaseOrderDate).Append("\n");
+            if (PurchaseContactName != null) sb.Append("  PurchaseContactName: ").Append(PurchaseContactName).Append("\n");
+            if (Taxable != null) sb.Append("  Taxable: ").Append(Taxable).Append("\n");
+            if (VatInvoiceReferenceNumber != null) sb.Append("  VatInvoiceReferenceNumber: ").Append(VatInvoiceReferenceNumber).Append("\n");
+            if (CommodityCode != null) sb.Append("  CommodityCode: ").Append(CommodityCode).Append("\n");
+            if (TransactionAdviceAddendum != null) sb.Append("  TransactionAdviceAddendum: ").Append(TransactionAdviceAddendum).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -97,12 +97,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Rbsv1plansidPlanInformation {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  BillingPeriod: ").Append(BillingPeriod).Append("\n");
-            sb.Append("  BillingCycles: ").Append(BillingCycles).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Description != null) sb.Append("  Description: ").Append(Description).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (BillingPeriod != null) sb.Append("  BillingPeriod: ").Append(BillingPeriod).Append("\n");
+            if (BillingCycles != null) sb.Append("  BillingCycles: ").Append(BillingCycles).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

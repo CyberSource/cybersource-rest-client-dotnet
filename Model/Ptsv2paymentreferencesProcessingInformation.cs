@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentreferencesProcessingInformation {\n");
-            sb.Append("  SessionType: ").Append(SessionType).Append("\n");
-            sb.Append("  PaymentFlowMode: ").Append(PaymentFlowMode).Append("\n");
-            sb.Append("  ActionList: ").Append(ActionList).Append("\n");
+            if (SessionType != null) sb.Append("  SessionType: ").Append(SessionType).Append("\n");
+            if (PaymentFlowMode != null) sb.Append("  PaymentFlowMode: ").Append(PaymentFlowMode).Append("\n");
+            if (ActionList != null) sb.Append("  ActionList: ").Append(ActionList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

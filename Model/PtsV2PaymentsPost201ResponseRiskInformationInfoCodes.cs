@@ -126,15 +126,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseRiskInformationInfoCodes {\n");
-            sb.Append("  Velocity: ").Append(Velocity).Append("\n");
-            sb.Append("  Address: ").Append(Address).Append("\n");
-            sb.Append("  CustomerList: ").Append(CustomerList).Append("\n");
-            sb.Append("  DeviceBehavior: ").Append(DeviceBehavior).Append("\n");
-            sb.Append("  IdentityChange: ").Append(IdentityChange).Append("\n");
-            sb.Append("  Internet: ").Append(Internet).Append("\n");
-            sb.Append("  Phone: ").Append(Phone).Append("\n");
-            sb.Append("  Suspicious: ").Append(Suspicious).Append("\n");
-            sb.Append("  GlobalVelocity: ").Append(GlobalVelocity).Append("\n");
+            if (Velocity != null) sb.Append("  Velocity: ").Append(Velocity).Append("\n");
+            if (Address != null) sb.Append("  Address: ").Append(Address).Append("\n");
+            if (CustomerList != null) sb.Append("  CustomerList: ").Append(CustomerList).Append("\n");
+            if (DeviceBehavior != null) sb.Append("  DeviceBehavior: ").Append(DeviceBehavior).Append("\n");
+            if (IdentityChange != null) sb.Append("  IdentityChange: ").Append(IdentityChange).Append("\n");
+            if (Internet != null) sb.Append("  Internet: ").Append(Internet).Append("\n");
+            if (Phone != null) sb.Append("  Phone: ").Append(Phone).Append("\n");
+            if (Suspicious != null) sb.Append("  Suspicious: ").Append(Suspicious).Append("\n");
+            if (GlobalVelocity != null) sb.Append("  GlobalVelocity: ").Append(GlobalVelocity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

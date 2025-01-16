@@ -105,13 +105,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2012SetupsPaymentsCardProcessingConfigurationStatus {\n");
-            sb.Append("  ConfigurationId: ").Append(ConfigurationId).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Reason: ").Append(Reason).Append("\n");
-            sb.Append("  Details: ").Append(Details).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            if (ConfigurationId != null) sb.Append("  ConfigurationId: ").Append(ConfigurationId).Append("\n");
+            if (Version != null) sb.Append("  Version: ").Append(Version).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
+            if (Details != null) sb.Append("  Details: ").Append(Details).Append("\n");
+            if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

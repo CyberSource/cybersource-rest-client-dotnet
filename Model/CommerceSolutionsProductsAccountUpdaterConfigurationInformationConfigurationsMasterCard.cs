@@ -76,9 +76,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CommerceSolutionsProductsAccountUpdaterConfigurationInformationConfigurationsMasterCard {\n");
-            sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
-            sb.Append("  InterbankCardAssociationNumber: ").Append(InterbankCardAssociationNumber).Append("\n");
-            sb.Append("  Active: ").Append(Active).Append("\n");
+            if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            if (InterbankCardAssociationNumber != null) sb.Append("  InterbankCardAssociationNumber: ").Append(InterbankCardAssociationNumber).Append("\n");
+            if (Active != null) sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

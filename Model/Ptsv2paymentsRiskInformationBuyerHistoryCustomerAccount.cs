@@ -99,12 +99,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount {\n");
-            sb.Append("  LastChangeDate: ").Append(LastChangeDate).Append("\n");
-            sb.Append("  CreationHistory: ").Append(CreationHistory).Append("\n");
-            sb.Append("  ModificationHistory: ").Append(ModificationHistory).Append("\n");
-            sb.Append("  PasswordHistory: ").Append(PasswordHistory).Append("\n");
-            sb.Append("  CreateDate: ").Append(CreateDate).Append("\n");
-            sb.Append("  PasswordChangeDate: ").Append(PasswordChangeDate).Append("\n");
+            if (LastChangeDate != null) sb.Append("  LastChangeDate: ").Append(LastChangeDate).Append("\n");
+            if (CreationHistory != null) sb.Append("  CreationHistory: ").Append(CreationHistory).Append("\n");
+            if (ModificationHistory != null) sb.Append("  ModificationHistory: ").Append(ModificationHistory).Append("\n");
+            if (PasswordHistory != null) sb.Append("  PasswordHistory: ").Append(PasswordHistory).Append("\n");
+            if (CreateDate != null) sb.Append("  CreateDate: ").Append(CreateDate).Append("\n");
+            if (PasswordChangeDate != null) sb.Append("  PasswordChangeDate: ").Append(PasswordChangeDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

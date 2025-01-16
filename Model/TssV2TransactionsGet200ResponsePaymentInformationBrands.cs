@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformationBrands {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  BrandName: ").Append(BrandName).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (BrandName != null) sb.Append("  BrandName: ").Append(BrandName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

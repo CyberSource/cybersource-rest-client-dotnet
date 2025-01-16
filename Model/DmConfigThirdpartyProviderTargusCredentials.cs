@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DmConfigThirdpartyProviderTargusCredentials {\n");
-            sb.Append("  Username: ").Append(Username).Append("\n");
-            sb.Append("  Password: ").Append(Password).Append("\n");
-            sb.Append("  ServiceId: ").Append(ServiceId).Append("\n");
+            if (Username != null) sb.Append("  Username: ").Append(Username).Append("\n");
+            if (Password != null) sb.Append("  Password: ").Append(Password).Append("\n");
+            if (ServiceId != null) sb.Append("  ServiceId: ").Append(ServiceId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

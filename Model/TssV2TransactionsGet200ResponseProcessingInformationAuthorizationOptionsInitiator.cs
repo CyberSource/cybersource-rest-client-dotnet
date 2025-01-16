@@ -80,10 +80,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptionsInitiator {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  CredentialStoredOnFile: ").Append(CredentialStoredOnFile).Append("\n");
-            sb.Append("  StoredCredentialUsed: ").Append(StoredCredentialUsed).Append("\n");
-            sb.Append("  MerchantInitiatedTransaction: ").Append(MerchantInitiatedTransaction).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (CredentialStoredOnFile != null) sb.Append("  CredentialStoredOnFile: ").Append(CredentialStoredOnFile).Append("\n");
+            if (StoredCredentialUsed != null) sb.Append("  StoredCredentialUsed: ").Append(StoredCredentialUsed).Append("\n");
+            if (MerchantInitiatedTransaction != null) sb.Append("  MerchantInitiatedTransaction: ").Append(MerchantInitiatedTransaction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

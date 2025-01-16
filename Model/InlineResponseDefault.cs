@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponseDefault {\n");
-            sb.Append("  ResponseStatus: ").Append(ResponseStatus).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            if (ResponseStatus != null) sb.Append("  ResponseStatus: ").Append(ResponseStatus).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

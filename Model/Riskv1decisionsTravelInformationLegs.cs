@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsTravelInformationLegs {\n");
-            sb.Append("  Origination: ").Append(Origination).Append("\n");
-            sb.Append("  Destination: ").Append(Destination).Append("\n");
-            sb.Append("  CarrierCode: ").Append(CarrierCode).Append("\n");
-            sb.Append("  DepartureDate: ").Append(DepartureDate).Append("\n");
+            if (Origination != null) sb.Append("  Origination: ").Append(Origination).Append("\n");
+            if (Destination != null) sb.Append("  Destination: ").Append(Destination).Append("\n");
+            if (CarrierCode != null) sb.Append("  CarrierCode: ").Append(CarrierCode).Append("\n");
+            if (DepartureDate != null) sb.Append("  DepartureDate: ").Append(DepartureDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -133,16 +133,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2005EmbeddedBatches {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  BatchId: ").Append(BatchId).Append("\n");
-            sb.Append("  BatchCreatedDate: ").Append(BatchCreatedDate).Append("\n");
-            sb.Append("  BatchModifiedDate: ").Append(BatchModifiedDate).Append("\n");
-            sb.Append("  BatchSource: ").Append(BatchSource).Append("\n");
-            sb.Append("  TokenSource: ").Append(TokenSource).Append("\n");
-            sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
-            sb.Append("  BatchCaEndpoints: ").Append(BatchCaEndpoints).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Totals: ").Append(Totals).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (BatchId != null) sb.Append("  BatchId: ").Append(BatchId).Append("\n");
+            if (BatchCreatedDate != null) sb.Append("  BatchCreatedDate: ").Append(BatchCreatedDate).Append("\n");
+            if (BatchModifiedDate != null) sb.Append("  BatchModifiedDate: ").Append(BatchModifiedDate).Append("\n");
+            if (BatchSource != null) sb.Append("  BatchSource: ").Append(BatchSource).Append("\n");
+            if (TokenSource != null) sb.Append("  TokenSource: ").Append(TokenSource).Append("\n");
+            if (MerchantReference != null) sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
+            if (BatchCaEndpoints != null) sb.Append("  BatchCaEndpoints: ").Append(BatchCaEndpoints).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (Totals != null) sb.Append("  Totals: ").Append(Totals).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

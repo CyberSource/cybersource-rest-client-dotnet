@@ -115,14 +115,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2IncrementalAuthorizationPatch201ResponseProcessorInformation {\n");
-            sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
-            sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
-            sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
-            sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
-            sb.Append("  ResponseDetails: ").Append(ResponseDetails).Append("\n");
-            sb.Append("  MerchantAdvice: ").Append(MerchantAdvice).Append("\n");
-            sb.Append("  SellerProtection: ").Append(SellerProtection).Append("\n");
+            if (ApprovalCode != null) sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
+            if (TransactionId != null) sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            if (NetworkTransactionId != null) sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
+            if (ResponseCode != null) sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+            if (SystemTraceAuditNumber != null) sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
+            if (ResponseDetails != null) sb.Append("  ResponseDetails: ").Append(ResponseDetails).Append("\n");
+            if (MerchantAdvice != null) sb.Append("  MerchantAdvice: ").Append(MerchantAdvice).Append("\n");
+            if (SellerProtection != null) sb.Append("  SellerProtection: ").Append(SellerProtection).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

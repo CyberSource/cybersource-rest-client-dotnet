@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseRiskInformationVelocityMorphing {\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
-            sb.Append("  FieldName: ").Append(FieldName).Append("\n");
-            sb.Append("  InformationCode: ").Append(InformationCode).Append("\n");
+            if (Count != null) sb.Append("  Count: ").Append(Count).Append("\n");
+            if (FieldName != null) sb.Append("  FieldName: ").Append(FieldName).Append("\n");
+            if (InformationCode != null) sb.Append("  InformationCode: ").Append(InformationCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

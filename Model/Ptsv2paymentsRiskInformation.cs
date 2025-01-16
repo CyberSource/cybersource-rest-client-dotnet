@@ -78,10 +78,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsRiskInformation {\n");
-            sb.Append("  Profile: ").Append(Profile).Append("\n");
-            sb.Append("  EventType: ").Append(EventType).Append("\n");
-            sb.Append("  BuyerHistory: ").Append(BuyerHistory).Append("\n");
-            sb.Append("  AuxiliaryData: ").Append(AuxiliaryData).Append("\n");
+            if (Profile != null) sb.Append("  Profile: ").Append(Profile).Append("\n");
+            if (EventType != null) sb.Append("  EventType: ").Append(EventType).Append("\n");
+            if (BuyerHistory != null) sb.Append("  BuyerHistory: ").Append(BuyerHistory).Append("\n");
+            if (AuxiliaryData != null) sb.Append("  AuxiliaryData: ").Append(AuxiliaryData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

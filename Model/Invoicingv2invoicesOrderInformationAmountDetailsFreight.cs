@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Invoicingv2invoicesOrderInformationAmountDetailsFreight {\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Taxable: ").Append(Taxable).Append("\n");
-            sb.Append("  TaxRate: ").Append(TaxRate).Append("\n");
+            if (Amount != null) sb.Append("  Amount: ").Append(Amount).Append("\n");
+            if (Taxable != null) sb.Append("  Taxable: ").Append(Taxable).Append("\n");
+            if (TaxRate != null) sb.Append("  TaxRate: ").Append(TaxRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

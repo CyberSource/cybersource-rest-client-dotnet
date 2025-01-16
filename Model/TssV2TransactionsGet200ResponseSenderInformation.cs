@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseSenderInformation {\n");
-            sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
+            if (ReferenceNumber != null) sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
