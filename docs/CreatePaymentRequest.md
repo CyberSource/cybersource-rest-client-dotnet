@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **RiskInformation** | [**Ptsv2paymentsRiskInformation**](Ptsv2paymentsRiskInformation.md) |  | [optional] 
 **AcquirerInformation** | [**Ptsv2paymentsAcquirerInformation**](Ptsv2paymentsAcquirerInformation.md) |  | [optional] 
 **RecurringPaymentInformation** | [**Ptsv2paymentsRecurringPaymentInformation**](Ptsv2paymentsRecurringPaymentInformation.md) |  | [optional] 
+**UnscheduledPaymentInformation** | [**Ptsv2paymentsUnscheduledPaymentInformation**](Ptsv2paymentsUnscheduledPaymentInformation.md) |  | [optional] 
 **HostedPaymentInformation** | [**Ptsv2paymentsHostedPaymentInformation**](Ptsv2paymentsHostedPaymentInformation.md) |  | [optional] 
 **WatchlistScreeningInformation** | [**Ptsv2paymentsWatchlistScreeningInformation**](Ptsv2paymentsWatchlistScreeningInformation.md) |  | [optional] 
 

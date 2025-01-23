@@ -128,14 +128,6 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'OrderInformation'
         }
-        /// <summary>
-        /// Test the property 'CheckoutApiInitialization'
-        /// </summary>
-        [Test]
-        public void CheckoutApiInitializationTest()
-        {
-            // TODO unit test for the property 'CheckoutApiInitialization'
-        }
 
     }
 

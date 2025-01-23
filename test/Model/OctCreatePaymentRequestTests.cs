@@ -120,6 +120,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PaymentInformation'
         }
+        /// <summary>
+        /// Test the property 'AggregatorInformation'
+        /// </summary>
+        [Test]
+        public void AggregatorInformationTest()
+        {
+            // TODO unit test for the property 'AggregatorInformation'
+        }
 
     }
 

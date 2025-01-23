@@ -497,6 +497,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'WhiteListStatus'
         }
         /// <summary>
+        /// Test the property 'AuthenticationBrand'
+        /// </summary>
+        [Test]
+        public void AuthenticationBrandTest()
+        {
+            // TODO unit test for the property 'AuthenticationBrand'
+        }
+        /// <summary>
         /// Test the property 'EffectiveAuthenticationType'
         /// </summary>
         [Test]
@@ -519,6 +527,22 @@ namespace CyberSource.Test
         public void SignedParesTest()
         {
             // TODO unit test for the property 'SignedPares'
+        }
+        /// <summary>
+        /// Test the property 'AcsReferenceNumber'
+        /// </summary>
+        [Test]
+        public void AcsReferenceNumberTest()
+        {
+            // TODO unit test for the property 'AcsReferenceNumber'
+        }
+        /// <summary>
+        /// Test the property 'DsReferenceNumber'
+        /// </summary>
+        [Test]
+        public void DsReferenceNumberTest()
+        {
+            // TODO unit test for the property 'DsReferenceNumber'
         }
 
     }

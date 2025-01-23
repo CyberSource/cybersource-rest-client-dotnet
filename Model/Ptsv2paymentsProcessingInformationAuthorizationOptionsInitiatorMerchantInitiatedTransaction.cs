@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="Reason">Reason for the merchant-initiated transaction or incremental authorization. Possible values: - &#x60;1&#x60;: Resubmission - &#x60;2&#x60;: Delayed charge - &#x60;3&#x60;: Reauthorization for split shipment - &#x60;4&#x60;: No show - &#x60;5&#x60;: Account top up This field is required only for the five kinds of transactions in the preceding list. This field is supported only for merchant-initiated transactions and incremental authorizations.  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR0 - Position: 160-163 - Field: Message Reason Code .</param>
         /// <param name="PreviousTransactionId">Network transaction identifier that was returned in the payment response field _processorInformation.transactionID_ in the reply message for either the original merchant-initiated payment in the series or the previous merchant-initiated payment in the series.  If the current payment request includes a token instead of an account number, the following time limits apply for the value of this field: - For a **resubmission**, the transaction ID must be less than 14 days old. - For a **delayed charge** or **reauthorization**, the transaction ID must be less than 30 days old.  **NOTE**: The value for this field does not correspond to any data in the TC 33 capture file5. This field is supported only for Visa transactions on CyberSource through VisaNet. .</param>
         /// <param name="OriginalAuthorizedAmount">Amount of the original authorization.  This field is supported only for Apple Pay, Google Pay, and Samsung Pay transactions with Discover on FDC Nashville Global and Chase Paymentech. .</param>
-        public Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction(string Reason = default(string), string PreviousTransactionId = default(string), string OriginalAuthorizedAmount = default(string))
+        /// <param name="AgreementId">An API to carry the agreement ID generated for recurring and unscheduled Card on file transaction. the merchant generates this per card holder or per payment agreement and shares the generated unique ID in the subsequent transactions. This can contain foreign/arabic character set also. Cybersource forwards this value to the Saudi Payment processor. .</param>
+        public Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction(string Reason = default(string), string PreviousTransactionId = default(string), string OriginalAuthorizedAmount = default(string), string AgreementId = default(string))
         {
             this.Reason = Reason;
             this.PreviousTransactionId = PreviousTransactionId;
             this.OriginalAuthorizedAmount = OriginalAuthorizedAmount;
+            this.AgreementId = AgreementId;
         }
         
         /// <summary>
@@ -65,6 +67,13 @@ namespace CyberSource.Model
         public string OriginalAuthorizedAmount { get; set; }
 
         /// <summary>
+        /// An API to carry the agreement ID generated for recurring and unscheduled Card on file transaction. the merchant generates this per card holder or per payment agreement and shares the generated unique ID in the subsequent transactions. This can contain foreign/arabic character set also. Cybersource forwards this value to the Saudi Payment processor. 
+        /// </summary>
+        /// <value>An API to carry the agreement ID generated for recurring and unscheduled Card on file transaction. the merchant generates this per card holder or per payment agreement and shares the generated unique ID in the subsequent transactions. This can contain foreign/arabic character set also. Cybersource forwards this value to the Saudi Payment processor. </value>
+        [DataMember(Name="agreementId", EmitDefaultValue=false)]
+        public string AgreementId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +84,7 @@ namespace CyberSource.Model
             if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
             if (PreviousTransactionId != null) sb.Append("  PreviousTransactionId: ").Append(PreviousTransactionId).Append("\n");
             if (OriginalAuthorizedAmount != null) sb.Append("  OriginalAuthorizedAmount: ").Append(OriginalAuthorizedAmount).Append("\n");
+            if (AgreementId != null) sb.Append("  AgreementId: ").Append(AgreementId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +135,11 @@ namespace CyberSource.Model
                     this.OriginalAuthorizedAmount == other.OriginalAuthorizedAmount ||
                     this.OriginalAuthorizedAmount != null &&
                     this.OriginalAuthorizedAmount.Equals(other.OriginalAuthorizedAmount)
+                ) && 
+                (
+                    this.AgreementId == other.AgreementId ||
+                    this.AgreementId != null &&
+                    this.AgreementId.Equals(other.AgreementId)
                 );
         }
 
@@ -145,6 +160,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PreviousTransactionId.GetHashCode();
                 if (this.OriginalAuthorizedAmount != null)
                     hash = hash * 59 + this.OriginalAuthorizedAmount.GetHashCode();
+                if (this.AgreementId != null)
+                    hash = hash * 59 + this.AgreementId.GetHashCode();
                 return hash;
             }
         }

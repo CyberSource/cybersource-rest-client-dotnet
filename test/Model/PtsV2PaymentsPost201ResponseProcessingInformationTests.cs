@@ -96,6 +96,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CaptureOptions'
         }
+        /// <summary>
+        /// Test the property 'AuthorizationOptions'
+        /// </summary>
+        [Test]
+        public void AuthorizationOptionsTest()
+        {
+            // TODO unit test for the property 'AuthorizationOptions'
+        }
+        /// <summary>
+        /// Test the property 'PurchaseOptions'
+        /// </summary>
+        [Test]
+        public void PurchaseOptionsTest()
+        {
+            // TODO unit test for the property 'PurchaseOptions'
+        }
 
     }
 

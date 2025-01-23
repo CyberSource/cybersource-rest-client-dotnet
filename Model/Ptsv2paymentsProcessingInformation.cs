@@ -71,7 +71,11 @@ namespace CyberSource.Model
         /// <param name="PaymentType">Identifier for the payment type. .</param>
         /// <param name="EnablerId">Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers. .</param>
         /// <param name="ProcessingInstruction">The instruction to process an order. - default value: &#39;NO_INSTRUCTION&#39; - &#39;ORDER_SAVED_EXPLICITLY&#39; .</param>
-        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), int? TransactionTimeout = default(int?), string IntentsId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), int? Timeout = default(int?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string), string PaymentType = default(string), string EnablerId = default(string), string ProcessingInstruction = default(string))
+        /// <param name="TransactionTypeIndicator">This field is used identify the type of payment transaction taking place. This field is applicable for MasterCard transactions only. Possible values: - 201- Mastercard Rebate - 202- rePower Load Value - 203- Gaming Re-pay - 204- General Person-to-Person - 205- General Transfer to Own Account - 206- Agent Cash Out - 207- Payment of Own Credit Card Bill - 208- Business Disbursement - 209- Government/Non-Profit Disbursement - 210- Rapid Merchant Settlement - 211- Cash in at ATM (Usage limited to specific countries) - 212- Cash in at Point of Sale (Usage limited to specific countries) - 213- General Business to Business Transfer - 214- Mastercard Merchant Presented QR - 215- Mastercard Merchant Presented QR Refund Payment - 216- Utility Payments (for Brazil domestic use only) - 217- Government Services (for Brazil domestic use only) - 218- Mobile phone top-ups (for Brazil domestic use only) - 219- Coupon booklet payments (for Brazil domestic use only) - 220- General Person-to-Person Transfer - 221- Person-to-Person Transfer to Card Account - 222- General Transfer to Own Account - 223- Agent Cash Out - 224- Payment of Own Credit Card Bill - 225- Business Disbursement - 226- Transfer to Own Staged Digital Wallet Account - 227- Transfer to Own Debit or Prepaid Account - 228- General Business-to-Business Transfer - 229- Installment-based repayment - 230- Mastercard ATM Cash Pick-Up Transaction - 231- Cryptocurrency - 232- High-risk Securities .</param>
+        /// <param name="PurposeOfPayment"> Possible values: - &#x60;16&#x60; :  High Risk Security  Other values can also be accommodated in future for different transactions.  Currently this field is only used in OCT, we could not find any existing valid values for the past 30 days in production. Issuer may decline invalid purpose of payment code with response code 93.  This field is also applicable for AFT transactions. For list of supported values, please refer to Developer Guide. .</param>
+        /// <param name="LanguageCode">Contains the ISO 639-2 defined language Code .</param>
+        /// <param name="OriginalPaymentId">This value is used for linking Authorization extension transaction to the original Authorization transaction  and for linking MIT (Merchant initiated transaction) with the respective CIT (Customer initiated transaction). .</param>
+        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), int? TransactionTimeout = default(int?), string IntentsId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), int? Timeout = default(int?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string), string PaymentType = default(string), string EnablerId = default(string), string ProcessingInstruction = default(string), string TransactionTypeIndicator = default(string), string PurposeOfPayment = default(string), string LanguageCode = default(string), string OriginalPaymentId = default(string))
         {
             this.ActionList = ActionList;
             this.EnableEscrowOption = EnableEscrowOption;
@@ -119,6 +123,10 @@ namespace CyberSource.Model
             this.PaymentType = PaymentType;
             this.EnablerId = EnablerId;
             this.ProcessingInstruction = ProcessingInstruction;
+            this.TransactionTypeIndicator = TransactionTypeIndicator;
+            this.PurposeOfPayment = PurposeOfPayment;
+            this.LanguageCode = LanguageCode;
+            this.OriginalPaymentId = OriginalPaymentId;
         }
         
         /// <summary>
@@ -380,6 +388,34 @@ namespace CyberSource.Model
         public string ProcessingInstruction { get; set; }
 
         /// <summary>
+        /// This field is used identify the type of payment transaction taking place. This field is applicable for MasterCard transactions only. Possible values: - 201- Mastercard Rebate - 202- rePower Load Value - 203- Gaming Re-pay - 204- General Person-to-Person - 205- General Transfer to Own Account - 206- Agent Cash Out - 207- Payment of Own Credit Card Bill - 208- Business Disbursement - 209- Government/Non-Profit Disbursement - 210- Rapid Merchant Settlement - 211- Cash in at ATM (Usage limited to specific countries) - 212- Cash in at Point of Sale (Usage limited to specific countries) - 213- General Business to Business Transfer - 214- Mastercard Merchant Presented QR - 215- Mastercard Merchant Presented QR Refund Payment - 216- Utility Payments (for Brazil domestic use only) - 217- Government Services (for Brazil domestic use only) - 218- Mobile phone top-ups (for Brazil domestic use only) - 219- Coupon booklet payments (for Brazil domestic use only) - 220- General Person-to-Person Transfer - 221- Person-to-Person Transfer to Card Account - 222- General Transfer to Own Account - 223- Agent Cash Out - 224- Payment of Own Credit Card Bill - 225- Business Disbursement - 226- Transfer to Own Staged Digital Wallet Account - 227- Transfer to Own Debit or Prepaid Account - 228- General Business-to-Business Transfer - 229- Installment-based repayment - 230- Mastercard ATM Cash Pick-Up Transaction - 231- Cryptocurrency - 232- High-risk Securities 
+        /// </summary>
+        /// <value>This field is used identify the type of payment transaction taking place. This field is applicable for MasterCard transactions only. Possible values: - 201- Mastercard Rebate - 202- rePower Load Value - 203- Gaming Re-pay - 204- General Person-to-Person - 205- General Transfer to Own Account - 206- Agent Cash Out - 207- Payment of Own Credit Card Bill - 208- Business Disbursement - 209- Government/Non-Profit Disbursement - 210- Rapid Merchant Settlement - 211- Cash in at ATM (Usage limited to specific countries) - 212- Cash in at Point of Sale (Usage limited to specific countries) - 213- General Business to Business Transfer - 214- Mastercard Merchant Presented QR - 215- Mastercard Merchant Presented QR Refund Payment - 216- Utility Payments (for Brazil domestic use only) - 217- Government Services (for Brazil domestic use only) - 218- Mobile phone top-ups (for Brazil domestic use only) - 219- Coupon booklet payments (for Brazil domestic use only) - 220- General Person-to-Person Transfer - 221- Person-to-Person Transfer to Card Account - 222- General Transfer to Own Account - 223- Agent Cash Out - 224- Payment of Own Credit Card Bill - 225- Business Disbursement - 226- Transfer to Own Staged Digital Wallet Account - 227- Transfer to Own Debit or Prepaid Account - 228- General Business-to-Business Transfer - 229- Installment-based repayment - 230- Mastercard ATM Cash Pick-Up Transaction - 231- Cryptocurrency - 232- High-risk Securities </value>
+        [DataMember(Name="transactionTypeIndicator", EmitDefaultValue=false)]
+        public string TransactionTypeIndicator { get; set; }
+
+        /// <summary>
+        ///  Possible values: - &#x60;16&#x60; :  High Risk Security  Other values can also be accommodated in future for different transactions.  Currently this field is only used in OCT, we could not find any existing valid values for the past 30 days in production. Issuer may decline invalid purpose of payment code with response code 93.  This field is also applicable for AFT transactions. For list of supported values, please refer to Developer Guide. 
+        /// </summary>
+        /// <value> Possible values: - &#x60;16&#x60; :  High Risk Security  Other values can also be accommodated in future for different transactions.  Currently this field is only used in OCT, we could not find any existing valid values for the past 30 days in production. Issuer may decline invalid purpose of payment code with response code 93.  This field is also applicable for AFT transactions. For list of supported values, please refer to Developer Guide. </value>
+        [DataMember(Name="purposeOfPayment", EmitDefaultValue=false)]
+        public string PurposeOfPayment { get; set; }
+
+        /// <summary>
+        /// Contains the ISO 639-2 defined language Code 
+        /// </summary>
+        /// <value>Contains the ISO 639-2 defined language Code </value>
+        [DataMember(Name="languageCode", EmitDefaultValue=false)]
+        public string LanguageCode { get; set; }
+
+        /// <summary>
+        /// This value is used for linking Authorization extension transaction to the original Authorization transaction  and for linking MIT (Merchant initiated transaction) with the respective CIT (Customer initiated transaction). 
+        /// </summary>
+        /// <value>This value is used for linking Authorization extension transaction to the original Authorization transaction  and for linking MIT (Merchant initiated transaction) with the respective CIT (Customer initiated transaction). </value>
+        [DataMember(Name="originalPaymentId", EmitDefaultValue=false)]
+        public string OriginalPaymentId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -425,6 +461,10 @@ namespace CyberSource.Model
             if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             if (EnablerId != null) sb.Append("  EnablerId: ").Append(EnablerId).Append("\n");
             if (ProcessingInstruction != null) sb.Append("  ProcessingInstruction: ").Append(ProcessingInstruction).Append("\n");
+            if (TransactionTypeIndicator != null) sb.Append("  TransactionTypeIndicator: ").Append(TransactionTypeIndicator).Append("\n");
+            if (PurposeOfPayment != null) sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
+            if (LanguageCode != null) sb.Append("  LanguageCode: ").Append(LanguageCode).Append("\n");
+            if (OriginalPaymentId != null) sb.Append("  OriginalPaymentId: ").Append(OriginalPaymentId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -650,6 +690,26 @@ namespace CyberSource.Model
                     this.ProcessingInstruction == other.ProcessingInstruction ||
                     this.ProcessingInstruction != null &&
                     this.ProcessingInstruction.Equals(other.ProcessingInstruction)
+                ) && 
+                (
+                    this.TransactionTypeIndicator == other.TransactionTypeIndicator ||
+                    this.TransactionTypeIndicator != null &&
+                    this.TransactionTypeIndicator.Equals(other.TransactionTypeIndicator)
+                ) && 
+                (
+                    this.PurposeOfPayment == other.PurposeOfPayment ||
+                    this.PurposeOfPayment != null &&
+                    this.PurposeOfPayment.Equals(other.PurposeOfPayment)
+                ) && 
+                (
+                    this.LanguageCode == other.LanguageCode ||
+                    this.LanguageCode != null &&
+                    this.LanguageCode.Equals(other.LanguageCode)
+                ) && 
+                (
+                    this.OriginalPaymentId == other.OriginalPaymentId ||
+                    this.OriginalPaymentId != null &&
+                    this.OriginalPaymentId.Equals(other.OriginalPaymentId)
                 );
         }
 
@@ -740,6 +800,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EnablerId.GetHashCode();
                 if (this.ProcessingInstruction != null)
                     hash = hash * 59 + this.ProcessingInstruction.GetHashCode();
+                if (this.TransactionTypeIndicator != null)
+                    hash = hash * 59 + this.TransactionTypeIndicator.GetHashCode();
+                if (this.PurposeOfPayment != null)
+                    hash = hash * 59 + this.PurposeOfPayment.GetHashCode();
+                if (this.LanguageCode != null)
+                    hash = hash * 59 + this.LanguageCode.GetHashCode();
+                if (this.OriginalPaymentId != null)
+                    hash = hash * 59 + this.OriginalPaymentId.GetHashCode();
                 return hash;
             }
         }

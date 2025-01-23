@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// The latest card details associated with the network token
+    /// Card object used to create a network token 
     /// </summary>
     [DataContract]
     public partial class Tmsv2TokenizedCardCard :  IEquatable<Tmsv2TokenizedCardCard>, IValidatableObject
@@ -33,31 +33,52 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2TokenizedCardCard" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public Tmsv2TokenizedCardCard()
+        /// <param name="Number">The customer&#39;s payment card number, also known as the Primary Account Number (PAN). .</param>
+        /// <param name="ExpirationMonth">Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. .</param>
+        /// <param name="ExpirationYear">Four-digit year in which the credit card expires.  Format: &#x60;YYYY&#x60;. .</param>
+        /// <param name="Type">The type of card(Card network). Possible Values: 001: visa .</param>
+        public Tmsv2TokenizedCardCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string))
         {
+            this.Number = Number;
+            this.ExpirationMonth = ExpirationMonth;
+            this.ExpirationYear = ExpirationYear;
+            this.Type = Type;
         }
         
         /// <summary>
-        /// The customer&#39;s latest payment card number suffix 
+        /// The customer&#39;s payment card number, also known as the Primary Account Number (PAN). 
         /// </summary>
-        /// <value>The customer&#39;s latest payment card number suffix </value>
+        /// <value>The customer&#39;s payment card number, also known as the Primary Account Number (PAN). </value>
+        [DataMember(Name="number", EmitDefaultValue=false)]
+        public string Number { get; set; }
+
+        /// <summary>
+        /// Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. 
+        /// </summary>
+        /// <value>Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. </value>
+        [DataMember(Name="expirationMonth", EmitDefaultValue=false)]
+        public string ExpirationMonth { get; set; }
+
+        /// <summary>
+        /// Four-digit year in which the credit card expires.  Format: &#x60;YYYY&#x60;. 
+        /// </summary>
+        /// <value>Four-digit year in which the credit card expires.  Format: &#x60;YYYY&#x60;. </value>
+        [DataMember(Name="expirationYear", EmitDefaultValue=false)]
+        public string ExpirationYear { get; set; }
+
+        /// <summary>
+        /// The type of card(Card network). Possible Values: 001: visa 
+        /// </summary>
+        /// <value>The type of card(Card network). Possible Values: 001: visa </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// The customer&#39;s latest payment card number suffix. 
+        /// </summary>
+        /// <value>The customer&#39;s latest payment card number suffix. </value>
         [DataMember(Name="suffix", EmitDefaultValue=false)]
         public string Suffix { get; private set; }
-
-        /// <summary>
-        ///  Two-digit month in which the customer&#39;s latest payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. 
-        /// </summary>
-        /// <value> Two-digit month in which the customer&#39;s latest payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. </value>
-        [DataMember(Name="expirationMonth", EmitDefaultValue=false)]
-        public string ExpirationMonth { get; private set; }
-
-        /// <summary>
-        /// Four-digit year in which the customer&#39;s latest payment card expires.  Format: &#x60;YYYY&#x60;. 
-        /// </summary>
-        /// <value>Four-digit year in which the customer&#39;s latest payment card expires.  Format: &#x60;YYYY&#x60;. </value>
-        [DataMember(Name="expirationYear", EmitDefaultValue=false)]
-        public string ExpirationYear { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,9 +88,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2TokenizedCardCard {\n");
-            if (Suffix != null) sb.Append("  Suffix: ").Append(Suffix).Append("\n");
+            if (Number != null) sb.Append("  Number: ").Append(Number).Append("\n");
             if (ExpirationMonth != null) sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
             if (ExpirationYear != null) sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Suffix != null) sb.Append("  Suffix: ").Append(Suffix).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,9 +130,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Suffix == other.Suffix ||
-                    this.Suffix != null &&
-                    this.Suffix.Equals(other.Suffix)
+                    this.Number == other.Number ||
+                    this.Number != null &&
+                    this.Number.Equals(other.Number)
                 ) && 
                 (
                     this.ExpirationMonth == other.ExpirationMonth ||
@@ -120,6 +143,16 @@ namespace CyberSource.Model
                     this.ExpirationYear == other.ExpirationYear ||
                     this.ExpirationYear != null &&
                     this.ExpirationYear.Equals(other.ExpirationYear)
+                ) && 
+                (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.Suffix == other.Suffix ||
+                    this.Suffix != null &&
+                    this.Suffix.Equals(other.Suffix)
                 );
         }
 
@@ -134,12 +167,16 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Suffix != null)
-                    hash = hash * 59 + this.Suffix.GetHashCode();
+                if (this.Number != null)
+                    hash = hash * 59 + this.Number.GetHashCode();
                 if (this.ExpirationMonth != null)
                     hash = hash * 59 + this.ExpirationMonth.GetHashCode();
                 if (this.ExpirationYear != null)
                     hash = hash * 59 + this.ExpirationYear.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Suffix != null)
+                    hash = hash * 59 + this.Suffix.GetHashCode();
                 return hash;
             }
         }

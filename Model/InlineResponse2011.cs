@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="PaymentAccountInformation">PaymentAccountInformation.</param>
         /// <param name="IssuerInformation">IssuerInformation.</param>
         /// <param name="PayoutInformation">PayoutInformation.</param>
-        public InlineResponse2011(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), InlineResponse2011PaymentAccountInformation PaymentAccountInformation = default(InlineResponse2011PaymentAccountInformation), InlineResponse2011IssuerInformation IssuerInformation = default(InlineResponse2011IssuerInformation), InlineResponse2011PayoutInformation PayoutInformation = default(InlineResponse2011PayoutInformation))
+        public InlineResponse2011(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), TmsBinLookupPaymentAccountInformation PaymentAccountInformation = default(TmsBinLookupPaymentAccountInformation), TmsBinLookupIssuerInformation IssuerInformation = default(TmsBinLookupIssuerInformation), InlineResponse2011PayoutInformation PayoutInformation = default(InlineResponse2011PayoutInformation))
         {
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
@@ -74,13 +74,13 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentAccountInformation
         /// </summary>
         [DataMember(Name="paymentAccountInformation", EmitDefaultValue=false)]
-        public InlineResponse2011PaymentAccountInformation PaymentAccountInformation { get; set; }
+        public TmsBinLookupPaymentAccountInformation PaymentAccountInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets IssuerInformation
         /// </summary>
         [DataMember(Name="issuerInformation", EmitDefaultValue=false)]
-        public InlineResponse2011IssuerInformation IssuerInformation { get; set; }
+        public TmsBinLookupIssuerInformation IssuerInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets PayoutInformation

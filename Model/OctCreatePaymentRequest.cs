@@ -40,7 +40,8 @@ namespace CyberSource.Model
         /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
-        public OctCreatePaymentRequest(Ptsv2payoutsClientReferenceInformation ClientReferenceInformation = default(Ptsv2payoutsClientReferenceInformation), Ptsv2payoutsOrderInformation OrderInformation = default(Ptsv2payoutsOrderInformation), Ptsv2payoutsMerchantInformation MerchantInformation = default(Ptsv2payoutsMerchantInformation), Ptsv2payoutsRecipientInformation RecipientInformation = default(Ptsv2payoutsRecipientInformation), Ptsv2payoutsSenderInformation SenderInformation = default(Ptsv2payoutsSenderInformation), Ptsv2payoutsProcessingInformation ProcessingInformation = default(Ptsv2payoutsProcessingInformation), Ptsv2payoutsPaymentInformation PaymentInformation = default(Ptsv2payoutsPaymentInformation))
+        /// <param name="AggregatorInformation">AggregatorInformation.</param>
+        public OctCreatePaymentRequest(Ptsv2payoutsClientReferenceInformation ClientReferenceInformation = default(Ptsv2payoutsClientReferenceInformation), Ptsv2payoutsOrderInformation OrderInformation = default(Ptsv2payoutsOrderInformation), Ptsv2payoutsMerchantInformation MerchantInformation = default(Ptsv2payoutsMerchantInformation), Ptsv2payoutsRecipientInformation RecipientInformation = default(Ptsv2payoutsRecipientInformation), Ptsv2payoutsSenderInformation SenderInformation = default(Ptsv2payoutsSenderInformation), Ptsv2payoutsProcessingInformation ProcessingInformation = default(Ptsv2payoutsProcessingInformation), Ptsv2payoutsPaymentInformation PaymentInformation = default(Ptsv2payoutsPaymentInformation), Ptsv2payoutsAggregatorInformation AggregatorInformation = default(Ptsv2payoutsAggregatorInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
@@ -49,6 +50,7 @@ namespace CyberSource.Model
             this.SenderInformation = SenderInformation;
             this.ProcessingInformation = ProcessingInformation;
             this.PaymentInformation = PaymentInformation;
+            this.AggregatorInformation = AggregatorInformation;
         }
         
         /// <summary>
@@ -94,6 +96,12 @@ namespace CyberSource.Model
         public Ptsv2payoutsPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets AggregatorInformation
+        /// </summary>
+        [DataMember(Name="aggregatorInformation", EmitDefaultValue=false)]
+        public Ptsv2payoutsAggregatorInformation AggregatorInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -108,6 +116,7 @@ namespace CyberSource.Model
             if (SenderInformation != null) sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            if (AggregatorInformation != null) sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -178,6 +187,11 @@ namespace CyberSource.Model
                     this.PaymentInformation == other.PaymentInformation ||
                     this.PaymentInformation != null &&
                     this.PaymentInformation.Equals(other.PaymentInformation)
+                ) && 
+                (
+                    this.AggregatorInformation == other.AggregatorInformation ||
+                    this.AggregatorInformation != null &&
+                    this.AggregatorInformation.Equals(other.AggregatorInformation)
                 );
         }
 
@@ -206,6 +220,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.PaymentInformation != null)
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
+                if (this.AggregatorInformation != null)
+                    hash = hash * 59 + this.AggregatorInformation.GetHashCode();
                 return hash;
             }
         }

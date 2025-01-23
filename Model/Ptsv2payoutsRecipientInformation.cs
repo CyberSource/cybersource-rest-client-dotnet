@@ -42,7 +42,12 @@ namespace CyberSource.Model
         /// <param name="Country">Recipient country code. Required only for FDCCompass..</param>
         /// <param name="PostalCode">Recipient postal code. Required only for FDCCompass..</param>
         /// <param name="PhoneNumber">Recipient phone number. Required only for FDCCompass..</param>
-        public Ptsv2payoutsRecipientInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string Country = default(string), string PostalCode = default(string), string PhoneNumber = default(string))
+        /// <param name="AliasName">Account owner alias name. .</param>
+        /// <param name="Nationality">Account Owner Nationality.</param>
+        /// <param name="CountryOfBirth">Account Owner Country of Birth.</param>
+        /// <param name="Occupation">Account Owner Occupation.</param>
+        /// <param name="Email">Account Owner email address.</param>
+        public Ptsv2payoutsRecipientInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string Country = default(string), string PostalCode = default(string), string PhoneNumber = default(string), string AliasName = default(string), string Nationality = default(string), string CountryOfBirth = default(string), string Occupation = default(string), string Email = default(string))
         {
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
@@ -53,6 +58,11 @@ namespace CyberSource.Model
             this.Country = Country;
             this.PostalCode = PostalCode;
             this.PhoneNumber = PhoneNumber;
+            this.AliasName = AliasName;
+            this.Nationality = Nationality;
+            this.CountryOfBirth = CountryOfBirth;
+            this.Occupation = Occupation;
+            this.Email = Email;
         }
         
         /// <summary>
@@ -119,6 +129,41 @@ namespace CyberSource.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
+        /// Account owner alias name. 
+        /// </summary>
+        /// <value>Account owner alias name. </value>
+        [DataMember(Name="aliasName", EmitDefaultValue=false)]
+        public string AliasName { get; set; }
+
+        /// <summary>
+        /// Account Owner Nationality
+        /// </summary>
+        /// <value>Account Owner Nationality</value>
+        [DataMember(Name="nationality", EmitDefaultValue=false)]
+        public string Nationality { get; set; }
+
+        /// <summary>
+        /// Account Owner Country of Birth
+        /// </summary>
+        /// <value>Account Owner Country of Birth</value>
+        [DataMember(Name="countryOfBirth", EmitDefaultValue=false)]
+        public string CountryOfBirth { get; set; }
+
+        /// <summary>
+        /// Account Owner Occupation
+        /// </summary>
+        /// <value>Account Owner Occupation</value>
+        [DataMember(Name="occupation", EmitDefaultValue=false)]
+        public string Occupation { get; set; }
+
+        /// <summary>
+        /// Account Owner email address
+        /// </summary>
+        /// <value>Account Owner email address</value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +180,11 @@ namespace CyberSource.Model
             if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
             if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (AliasName != null) sb.Append("  AliasName: ").Append(AliasName).Append("\n");
+            if (Nationality != null) sb.Append("  Nationality: ").Append(Nationality).Append("\n");
+            if (CountryOfBirth != null) sb.Append("  CountryOfBirth: ").Append(CountryOfBirth).Append("\n");
+            if (Occupation != null) sb.Append("  Occupation: ").Append(Occupation).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +265,31 @@ namespace CyberSource.Model
                     this.PhoneNumber == other.PhoneNumber ||
                     this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(other.PhoneNumber)
+                ) && 
+                (
+                    this.AliasName == other.AliasName ||
+                    this.AliasName != null &&
+                    this.AliasName.Equals(other.AliasName)
+                ) && 
+                (
+                    this.Nationality == other.Nationality ||
+                    this.Nationality != null &&
+                    this.Nationality.Equals(other.Nationality)
+                ) && 
+                (
+                    this.CountryOfBirth == other.CountryOfBirth ||
+                    this.CountryOfBirth != null &&
+                    this.CountryOfBirth.Equals(other.CountryOfBirth)
+                ) && 
+                (
+                    this.Occupation == other.Occupation ||
+                    this.Occupation != null &&
+                    this.Occupation.Equals(other.Occupation)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
                 );
         }
 
@@ -247,6 +322,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.PhoneNumber != null)
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
+                if (this.AliasName != null)
+                    hash = hash * 59 + this.AliasName.GetHashCode();
+                if (this.Nationality != null)
+                    hash = hash * 59 + this.Nationality.GetHashCode();
+                if (this.CountryOfBirth != null)
+                    hash = hash * 59 + this.CountryOfBirth.GetHashCode();
+                if (this.Occupation != null)
+                    hash = hash * 59 + this.Occupation.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
                 return hash;
             }
         }

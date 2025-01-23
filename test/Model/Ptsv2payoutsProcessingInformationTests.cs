@@ -128,6 +128,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'FundingOptions'
         }
+        /// <summary>
+        /// Test the property 'LanguageCode'
+        /// </summary>
+        [Test]
+        public void LanguageCodeTest()
+        {
+            // TODO unit test for the property 'LanguageCode'
+        }
+        /// <summary>
+        /// Test the property 'PurchaseOptions'
+        /// </summary>
+        [Test]
+        public void PurchaseOptionsTest()
+        {
+            // TODO unit test for the property 'PurchaseOptions'
+        }
 
     }
 

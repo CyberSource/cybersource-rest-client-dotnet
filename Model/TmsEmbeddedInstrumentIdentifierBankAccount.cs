@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TmsEmbeddedInstrumentIdentifierBankAccount" /> class.
         /// </summary>
         /// <param name="Number">Account number.  When processing encoded account numbers, use this field for the encoded account number. .</param>
-        /// <param name="RoutingNumber">Bank routing number. This is also called the transit number. .</param>
+        /// <param name="RoutingNumber">Bank routing number. This is also called the transit number.  # For details, see &#x60;ecp_rdfi&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) .</param>
         public TmsEmbeddedInstrumentIdentifierBankAccount(string Number = default(string), string RoutingNumber = default(string))
         {
             this.Number = Number;
@@ -49,9 +49,9 @@ namespace CyberSource.Model
         public string Number { get; set; }
 
         /// <summary>
-        /// Bank routing number. This is also called the transit number. 
+        /// Bank routing number. This is also called the transit number.  # For details, see &#x60;ecp_rdfi&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
         /// </summary>
-        /// <value>Bank routing number. This is also called the transit number. </value>
+        /// <value>Bank routing number. This is also called the transit number.  # For details, see &#x60;ecp_rdfi&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) </value>
         [DataMember(Name="routingNumber", EmitDefaultValue=false)]
         public string RoutingNumber { get; set; }
 

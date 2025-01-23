@@ -35,16 +35,18 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="TransactionId">Processor transaction ID.  This value identifies the transaction on a host system. This value is supported only for Moneris. It contains this information:   - Terminal used to process the transaction  - Shift during which the transaction took place  - Batch number  - Transaction number within the batch  You must store this value. If you give the customer a receipt, display this value on the receipt.  Example For the value 66012345001069003:   - Terminal ID &#x3D; 66012345  - Shift number &#x3D; 001  - Batch number &#x3D; 069  - Transaction number &#x3D; 003 .</param>
         /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;processorInformation.responseCategoryCode&#x60; field. String (3)  #### paypalgateway Processor generated ID for the itemized detail. .</param>
+        /// <param name="NetworkTransactionId">Same value as &#x60;processorInformation.transactionId&#x60;.</param>
         /// <param name="ResponseCategoryCode">Processor-defined response category code. The associated detail error code is in the &#x60;processorInformation.responseCode&#x60; or &#x60;issuerInformation.responseCode&#x60; field of the service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  #### Maximum length for processors   - Comercio Latino: 36  - All other processors: 3 .</param>
         /// <param name="ForwardedAcquirerCode">Name of the Japanese acquirer that processed the transaction. Returned only for JCN Gateway. Please contact the CyberSource Japan Support Group for more information. .</param>
         /// <param name="MasterCardServiceCode">Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 133-134 - Field: Mastercard Merchant on-behalf service. **Note** This field is returned only for CyberSource through VisaNet. .</param>
         /// <param name="MasterCardServiceReplyCode">Result of the Mastercard card-on-file token service. Mastercard provides this value to CyberSource.  Possible values:   - &#x60;C&#x60;: Service completed successfully.  - &#x60;F&#x60;: One of the following:    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 81 for an authorization or      authorization reversal.    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 01 for a tokenized request.    - Token requestor ID is missing or formatted incorrectly.  - &#x60;I&#x60;: One of the following:    - Invalid token requestor ID.    - Suspended or deactivated token.    - Invalid token (not in mapping table).  - &#x60;T&#x60;: Invalid combination of token requestor ID and token.  - &#x60;U&#x60;: Expired token.  - &#x60;W&#x60;: Primary account number (PAN) listed in electronic warning bulletin.  **Note** This field is returned only for **CyberSource through VisaNet**. .</param>
         /// <param name="ResponseDetails">This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. .</param>
         /// <param name="ProviderResponse">Processor response to the API request. .</param>
-        public PtsV2PaymentsReversalsPost201ResponseProcessorInformation(string TransactionId = default(string), string ResponseCode = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string ResponseDetails = default(string), string ProviderResponse = default(string))
+        public PtsV2PaymentsReversalsPost201ResponseProcessorInformation(string TransactionId = default(string), string ResponseCode = default(string), string NetworkTransactionId = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string ResponseDetails = default(string), string ProviderResponse = default(string))
         {
             this.TransactionId = TransactionId;
             this.ResponseCode = ResponseCode;
+            this.NetworkTransactionId = NetworkTransactionId;
             this.ResponseCategoryCode = ResponseCategoryCode;
             this.ForwardedAcquirerCode = ForwardedAcquirerCode;
             this.MasterCardServiceCode = MasterCardServiceCode;
@@ -66,6 +68,13 @@ namespace CyberSource.Model
         /// <value>For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;processorInformation.responseCategoryCode&#x60; field. String (3)  #### paypalgateway Processor generated ID for the itemized detail. </value>
         [DataMember(Name="responseCode", EmitDefaultValue=false)]
         public string ResponseCode { get; set; }
+
+        /// <summary>
+        /// Same value as &#x60;processorInformation.transactionId&#x60;
+        /// </summary>
+        /// <value>Same value as &#x60;processorInformation.transactionId&#x60;</value>
+        [DataMember(Name="networkTransactionId", EmitDefaultValue=false)]
+        public string NetworkTransactionId { get; set; }
 
         /// <summary>
         /// Processor-defined response category code. The associated detail error code is in the &#x60;processorInformation.responseCode&#x60; or &#x60;issuerInformation.responseCode&#x60; field of the service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  #### Maximum length for processors   - Comercio Latino: 36  - All other processors: 3 
@@ -119,6 +128,7 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsReversalsPost201ResponseProcessorInformation {\n");
             if (TransactionId != null) sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             if (ResponseCode != null) sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+            if (NetworkTransactionId != null) sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
             if (ResponseCategoryCode != null) sb.Append("  ResponseCategoryCode: ").Append(ResponseCategoryCode).Append("\n");
             if (ForwardedAcquirerCode != null) sb.Append("  ForwardedAcquirerCode: ").Append(ForwardedAcquirerCode).Append("\n");
             if (MasterCardServiceCode != null) sb.Append("  MasterCardServiceCode: ").Append(MasterCardServiceCode).Append("\n");
@@ -172,6 +182,11 @@ namespace CyberSource.Model
                     this.ResponseCode.Equals(other.ResponseCode)
                 ) && 
                 (
+                    this.NetworkTransactionId == other.NetworkTransactionId ||
+                    this.NetworkTransactionId != null &&
+                    this.NetworkTransactionId.Equals(other.NetworkTransactionId)
+                ) && 
+                (
                     this.ResponseCategoryCode == other.ResponseCategoryCode ||
                     this.ResponseCategoryCode != null &&
                     this.ResponseCategoryCode.Equals(other.ResponseCategoryCode)
@@ -218,6 +233,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionId.GetHashCode();
                 if (this.ResponseCode != null)
                     hash = hash * 59 + this.ResponseCode.GetHashCode();
+                if (this.NetworkTransactionId != null)
+                    hash = hash * 59 + this.NetworkTransactionId.GetHashCode();
                 if (this.ResponseCategoryCode != null)
                     hash = hash * 59 + this.ResponseCategoryCode.GetHashCode();
                 if (this.ForwardedAcquirerCode != null)

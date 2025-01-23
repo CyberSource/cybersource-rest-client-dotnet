@@ -368,6 +368,38 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ProcessingInstruction'
         }
+        /// <summary>
+        /// Test the property 'TransactionTypeIndicator'
+        /// </summary>
+        [Test]
+        public void TransactionTypeIndicatorTest()
+        {
+            // TODO unit test for the property 'TransactionTypeIndicator'
+        }
+        /// <summary>
+        /// Test the property 'PurposeOfPayment'
+        /// </summary>
+        [Test]
+        public void PurposeOfPaymentTest()
+        {
+            // TODO unit test for the property 'PurposeOfPayment'
+        }
+        /// <summary>
+        /// Test the property 'LanguageCode'
+        /// </summary>
+        [Test]
+        public void LanguageCodeTest()
+        {
+            // TODO unit test for the property 'LanguageCode'
+        }
+        /// <summary>
+        /// Test the property 'OriginalPaymentId'
+        /// </summary>
+        [Test]
+        public void OriginalPaymentIdTest()
+        {
+            // TODO unit test for the property 'OriginalPaymentId'
+        }
 
     }
 

@@ -46,7 +46,8 @@ namespace CyberSource.Model
         /// <param name="RecipientInformation">RecipientInformation.</param>
         /// <param name="IssuerInformation">IssuerInformation.</param>
         /// <param name="TokenInformation">TokenInformation.</param>
-        public PtsV2PayoutsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PayoutsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PayoutsPost201ResponseErrorInformation), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PayoutsPost201ResponseMerchantInformation MerchantInformation = default(PtsV2PayoutsPost201ResponseMerchantInformation), PtsV2PayoutsPost201ResponseOrderInformation OrderInformation = default(PtsV2PayoutsPost201ResponseOrderInformation), PtsV2PayoutsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PayoutsPost201ResponseProcessorInformation), PtsV2PayoutsPost201ResponseRecipientInformation RecipientInformation = default(PtsV2PayoutsPost201ResponseRecipientInformation), PtsV2PayoutsPost201ResponseIssuerInformation IssuerInformation = default(PtsV2PayoutsPost201ResponseIssuerInformation), PtsV2PaymentsPost201ResponseTokenInformation TokenInformation = default(PtsV2PaymentsPost201ResponseTokenInformation))
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
+        public PtsV2PayoutsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PayoutsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PayoutsPost201ResponseErrorInformation), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PayoutsPost201ResponseMerchantInformation MerchantInformation = default(PtsV2PayoutsPost201ResponseMerchantInformation), PtsV2PayoutsPost201ResponseOrderInformation OrderInformation = default(PtsV2PayoutsPost201ResponseOrderInformation), PtsV2PayoutsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PayoutsPost201ResponseProcessorInformation), PtsV2PayoutsPost201ResponseRecipientInformation RecipientInformation = default(PtsV2PayoutsPost201ResponseRecipientInformation), PtsV2PayoutsPost201ResponseIssuerInformation IssuerInformation = default(PtsV2PayoutsPost201ResponseIssuerInformation), PtsV2PaymentsPost201ResponseTokenInformation TokenInformation = default(PtsV2PaymentsPost201ResponseTokenInformation), PtsV2PayoutsPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2PayoutsPost201ResponseProcessingInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -61,6 +62,7 @@ namespace CyberSource.Model
             this.RecipientInformation = RecipientInformation;
             this.IssuerInformation = IssuerInformation;
             this.TokenInformation = TokenInformation;
+            this.ProcessingInformation = ProcessingInformation;
         }
         
         /// <summary>
@@ -146,6 +148,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseTokenInformation TokenInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ProcessingInformation
+        /// </summary>
+        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
+        public PtsV2PayoutsPost201ResponseProcessingInformation ProcessingInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -166,6 +174,7 @@ namespace CyberSource.Model
             if (RecipientInformation != null) sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
             if (IssuerInformation != null) sb.Append("  IssuerInformation: ").Append(IssuerInformation).Append("\n");
             if (TokenInformation != null) sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -266,6 +275,11 @@ namespace CyberSource.Model
                     this.TokenInformation == other.TokenInformation ||
                     this.TokenInformation != null &&
                     this.TokenInformation.Equals(other.TokenInformation)
+                ) && 
+                (
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
                 );
         }
 
@@ -306,6 +320,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.IssuerInformation.GetHashCode();
                 if (this.TokenInformation != null)
                     hash = hash * 59 + this.TokenInformation.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 return hash;
             }
         }

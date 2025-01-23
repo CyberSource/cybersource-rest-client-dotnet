@@ -208,6 +208,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'IdentificationNumber'
         }
+        /// <summary>
+        /// Test the property 'AliasName'
+        /// </summary>
+        [Test]
+        public void AliasNameTest()
+        {
+            // TODO unit test for the property 'AliasName'
+        }
 
     }
 

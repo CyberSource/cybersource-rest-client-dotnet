@@ -361,6 +361,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'DirectoryServerTransactionId'
         }
         /// <summary>
+        /// Test the property 'DataQualityIndicator'
+        /// </summary>
+        [Test]
+        public void DataQualityIndicatorTest()
+        {
+            // TODO unit test for the property 'DataQualityIndicator'
+        }
+        /// <summary>
         /// Test the property 'AuthenticationResult'
         /// </summary>
         [Test]

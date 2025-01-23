@@ -40,7 +40,11 @@ namespace CyberSource.Model
         /// <param name="Locality">The city or locality of the sender. This field is applicable for AFT transactions.  Only alpha numeric values are supported.  Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. .</param>
         /// <param name="AdministrativeArea">The state or province of the sender. This field is applicable for AFT transactions when the sender country is US or CA. Else it is optional.  Must be a two character value .</param>
         /// <param name="CountryCode">The country associated with the address of the sender. This field is applicable for AFT transactions.   Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) .</param>
-        public Ptsv2paymentsSenderInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string))
+        /// <param name="AliasName">Sender&#39;s alias name..</param>
+        /// <param name="ReferenceNumber">This field is applicable for AFT transactions.   Contains a transaction reference number provided by the Merchant. Only alpha numeric values are supported. .</param>
+        /// <param name="Account">Account.</param>
+        /// <param name="PostalCode">Postal code of sender. .</param>
+        public Ptsv2paymentsSenderInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string), string AliasName = default(string), string ReferenceNumber = default(string), Ptsv2paymentsSenderInformationAccount Account = default(Ptsv2paymentsSenderInformationAccount), string PostalCode = default(string))
         {
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
@@ -49,6 +53,10 @@ namespace CyberSource.Model
             this.Locality = Locality;
             this.AdministrativeArea = AdministrativeArea;
             this.CountryCode = CountryCode;
+            this.AliasName = AliasName;
+            this.ReferenceNumber = ReferenceNumber;
+            this.Account = Account;
+            this.PostalCode = PostalCode;
         }
         
         /// <summary>
@@ -101,6 +109,33 @@ namespace CyberSource.Model
         public string CountryCode { get; set; }
 
         /// <summary>
+        /// Sender&#39;s alias name.
+        /// </summary>
+        /// <value>Sender&#39;s alias name.</value>
+        [DataMember(Name="aliasName", EmitDefaultValue=false)]
+        public string AliasName { get; set; }
+
+        /// <summary>
+        /// This field is applicable for AFT transactions.   Contains a transaction reference number provided by the Merchant. Only alpha numeric values are supported. 
+        /// </summary>
+        /// <value>This field is applicable for AFT transactions.   Contains a transaction reference number provided by the Merchant. Only alpha numeric values are supported. </value>
+        [DataMember(Name="referenceNumber", EmitDefaultValue=false)]
+        public string ReferenceNumber { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Account
+        /// </summary>
+        [DataMember(Name="account", EmitDefaultValue=false)]
+        public Ptsv2paymentsSenderInformationAccount Account { get; set; }
+
+        /// <summary>
+        /// Postal code of sender. 
+        /// </summary>
+        /// <value>Postal code of sender. </value>
+        [DataMember(Name="postalCode", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +150,10 @@ namespace CyberSource.Model
             if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
             if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             if (CountryCode != null) sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
+            if (AliasName != null) sb.Append("  AliasName: ").Append(AliasName).Append("\n");
+            if (ReferenceNumber != null) sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
+            if (Account != null) sb.Append("  Account: ").Append(Account).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -185,6 +224,26 @@ namespace CyberSource.Model
                     this.CountryCode == other.CountryCode ||
                     this.CountryCode != null &&
                     this.CountryCode.Equals(other.CountryCode)
+                ) && 
+                (
+                    this.AliasName == other.AliasName ||
+                    this.AliasName != null &&
+                    this.AliasName.Equals(other.AliasName)
+                ) && 
+                (
+                    this.ReferenceNumber == other.ReferenceNumber ||
+                    this.ReferenceNumber != null &&
+                    this.ReferenceNumber.Equals(other.ReferenceNumber)
+                ) && 
+                (
+                    this.Account == other.Account ||
+                    this.Account != null &&
+                    this.Account.Equals(other.Account)
+                ) && 
+                (
+                    this.PostalCode == other.PostalCode ||
+                    this.PostalCode != null &&
+                    this.PostalCode.Equals(other.PostalCode)
                 );
         }
 
@@ -213,6 +272,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AdministrativeArea.GetHashCode();
                 if (this.CountryCode != null)
                     hash = hash * 59 + this.CountryCode.GetHashCode();
+                if (this.AliasName != null)
+                    hash = hash * 59 + this.AliasName.GetHashCode();
+                if (this.ReferenceNumber != null)
+                    hash = hash * 59 + this.ReferenceNumber.GetHashCode();
+                if (this.Account != null)
+                    hash = hash * 59 + this.Account.GetHashCode();
+                if (this.PostalCode != null)
+                    hash = hash * 59 + this.PostalCode.GetHashCode();
                 return hash;
             }
         }

@@ -35,10 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="IsElectronicBenefitsTransfer">Flag that indicates whether this transaction is an EBT transaction. Possible values: - &#x60;true&#x60; - &#x60;false&#x60;  #### PIN debit Required field for EBT and EBT voucher transactions that use PIN debit credit or PIN debit purchase; otherwise, not used. .</param>
         /// <param name="Type">Flag that indicates an EBT voucher transaction. Possible value: - &#x60;EBT_VOUCHER&#x60;: Indicates the PIN debit transaction is an EBT voucher. - &#x60;BUY&#x60; - &#x60;RENT&#x60; - &#x60;BOOK&#x60; - &#x60;SUBSCRIBE&#x60; - &#x60;DOWNLOAD&#x60; - &#x60;ORDER&#x60; - &#x60;CONTINUE&#x60;  #### PIN debit Required field for EBT voucher transactions that use PIN debit purchase; otherwise, not used. .</param>
-        public Ptsv2paymentsProcessingInformationPurchaseOptions(bool? IsElectronicBenefitsTransfer = default(bool?), string Type = default(string))
+        /// <param name="EligibilityIndicator">This field contains installment data defined by MasterCard. Possible values:   - Y &#x3D; eligible   - N &#x3D; not eligile .</param>
+        /// <param name="BenefitAmount">Workplace benefit amount..</param>
+        /// <param name="BenefitType">Workplace benefit type. Possible values: - 70 &#x3D; employee benefit - 4T &#x3D; transportation / transit - 52 &#x3D; general benefit - 53 &#x3D; meal voucher - 54 &#x3D; fuel - 55 &#x3D; ecological / sustainability - 58 &#x3D; philanthropy / patronage / consumption - 59 &#x3D; gift - 5S &#x3D; sport / culture - 5T &#x3D; book / education .</param>
+        public Ptsv2paymentsProcessingInformationPurchaseOptions(bool? IsElectronicBenefitsTransfer = default(bool?), string Type = default(string), string EligibilityIndicator = default(string), string BenefitAmount = default(string), string BenefitType = default(string))
         {
             this.IsElectronicBenefitsTransfer = IsElectronicBenefitsTransfer;
             this.Type = Type;
+            this.EligibilityIndicator = EligibilityIndicator;
+            this.BenefitAmount = BenefitAmount;
+            this.BenefitType = BenefitType;
         }
         
         /// <summary>
@@ -56,6 +62,27 @@ namespace CyberSource.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// This field contains installment data defined by MasterCard. Possible values:   - Y &#x3D; eligible   - N &#x3D; not eligile 
+        /// </summary>
+        /// <value>This field contains installment data defined by MasterCard. Possible values:   - Y &#x3D; eligible   - N &#x3D; not eligile </value>
+        [DataMember(Name="eligibilityIndicator", EmitDefaultValue=false)]
+        public string EligibilityIndicator { get; set; }
+
+        /// <summary>
+        /// Workplace benefit amount.
+        /// </summary>
+        /// <value>Workplace benefit amount.</value>
+        [DataMember(Name="benefitAmount", EmitDefaultValue=false)]
+        public string BenefitAmount { get; set; }
+
+        /// <summary>
+        /// Workplace benefit type. Possible values: - 70 &#x3D; employee benefit - 4T &#x3D; transportation / transit - 52 &#x3D; general benefit - 53 &#x3D; meal voucher - 54 &#x3D; fuel - 55 &#x3D; ecological / sustainability - 58 &#x3D; philanthropy / patronage / consumption - 59 &#x3D; gift - 5S &#x3D; sport / culture - 5T &#x3D; book / education 
+        /// </summary>
+        /// <value>Workplace benefit type. Possible values: - 70 &#x3D; employee benefit - 4T &#x3D; transportation / transit - 52 &#x3D; general benefit - 53 &#x3D; meal voucher - 54 &#x3D; fuel - 55 &#x3D; ecological / sustainability - 58 &#x3D; philanthropy / patronage / consumption - 59 &#x3D; gift - 5S &#x3D; sport / culture - 5T &#x3D; book / education </value>
+        [DataMember(Name="benefitType", EmitDefaultValue=false)]
+        public string BenefitType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +92,9 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsProcessingInformationPurchaseOptions {\n");
             if (IsElectronicBenefitsTransfer != null) sb.Append("  IsElectronicBenefitsTransfer: ").Append(IsElectronicBenefitsTransfer).Append("\n");
             if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (EligibilityIndicator != null) sb.Append("  EligibilityIndicator: ").Append(EligibilityIndicator).Append("\n");
+            if (BenefitAmount != null) sb.Append("  BenefitAmount: ").Append(BenefitAmount).Append("\n");
+            if (BenefitType != null) sb.Append("  BenefitType: ").Append(BenefitType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +140,21 @@ namespace CyberSource.Model
                     this.Type == other.Type ||
                     this.Type != null &&
                     this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.EligibilityIndicator == other.EligibilityIndicator ||
+                    this.EligibilityIndicator != null &&
+                    this.EligibilityIndicator.Equals(other.EligibilityIndicator)
+                ) && 
+                (
+                    this.BenefitAmount == other.BenefitAmount ||
+                    this.BenefitAmount != null &&
+                    this.BenefitAmount.Equals(other.BenefitAmount)
+                ) && 
+                (
+                    this.BenefitType == other.BenefitType ||
+                    this.BenefitType != null &&
+                    this.BenefitType.Equals(other.BenefitType)
                 );
         }
 
@@ -128,6 +173,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.IsElectronicBenefitsTransfer.GetHashCode();
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
+                if (this.EligibilityIndicator != null)
+                    hash = hash * 59 + this.EligibilityIndicator.GetHashCode();
+                if (this.BenefitAmount != null)
+                    hash = hash * 59 + this.BenefitAmount.GetHashCode();
+                if (this.BenefitType != null)
+                    hash = hash * 59 + this.BenefitType.GetHashCode();
                 return hash;
             }
         }

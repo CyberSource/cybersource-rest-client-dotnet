@@ -38,13 +38,17 @@ namespace CyberSource.Model
         /// <param name="CONSUMER_AUTHENTICATION">CONSUMER_AUTHENTICATION.</param>
         /// <param name="VALIDATE_CONSUMER_AUTHENTICATION">VALIDATE_CONSUMER_AUTHENTICATION.</param>
         /// <param name="WATCHLIST_SCREENING">WATCHLIST_SCREENING.</param>
-        public PtsV2PaymentsPost201ResponseEmbeddedActions(PtsV2PaymentsPost201ResponseEmbeddedActionsCAPTURE CAPTURE = default(PtsV2PaymentsPost201ResponseEmbeddedActionsCAPTURE), PtsV2PaymentsPost201ResponseEmbeddedActionsDECISION DECISION = default(PtsV2PaymentsPost201ResponseEmbeddedActionsDECISION), PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION CONSUMER_AUTHENTICATION = default(PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION), PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION VALIDATE_CONSUMER_AUTHENTICATION = default(PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION), PtsV2PaymentsPost201ResponseEmbeddedActionsWATCHLISTSCREENING WATCHLIST_SCREENING = default(PtsV2PaymentsPost201ResponseEmbeddedActionsWATCHLISTSCREENING))
+        /// <param name="TOKEN_CREATE">TOKEN_CREATE.</param>
+        /// <param name="TOKEN_UPDATE">TOKEN_UPDATE.</param>
+        public PtsV2PaymentsPost201ResponseEmbeddedActions(PtsV2PaymentsPost201ResponseEmbeddedActionsCAPTURE CAPTURE = default(PtsV2PaymentsPost201ResponseEmbeddedActionsCAPTURE), PtsV2PaymentsPost201ResponseEmbeddedActionsDECISION DECISION = default(PtsV2PaymentsPost201ResponseEmbeddedActionsDECISION), PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION CONSUMER_AUTHENTICATION = default(PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION), PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION VALIDATE_CONSUMER_AUTHENTICATION = default(PtsV2PaymentsPost201ResponseEmbeddedActionsCONSUMERAUTHENTICATION), PtsV2PaymentsPost201ResponseEmbeddedActionsWATCHLISTSCREENING WATCHLIST_SCREENING = default(PtsV2PaymentsPost201ResponseEmbeddedActionsWATCHLISTSCREENING), PtsV2PaymentsPost201ResponseEmbeddedActionsTOKENCREATE TOKEN_CREATE = default(PtsV2PaymentsPost201ResponseEmbeddedActionsTOKENCREATE), PtsV2PaymentsPost201ResponseEmbeddedActionsTOKENUPDATE TOKEN_UPDATE = default(PtsV2PaymentsPost201ResponseEmbeddedActionsTOKENUPDATE))
         {
             this.CAPTURE = CAPTURE;
             this.DECISION = DECISION;
             this.CONSUMER_AUTHENTICATION = CONSUMER_AUTHENTICATION;
             this.VALIDATE_CONSUMER_AUTHENTICATION = VALIDATE_CONSUMER_AUTHENTICATION;
             this.WATCHLIST_SCREENING = WATCHLIST_SCREENING;
+            this.TOKEN_CREATE = TOKEN_CREATE;
+            this.TOKEN_UPDATE = TOKEN_UPDATE;
         }
         
         /// <summary>
@@ -78,6 +82,18 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseEmbeddedActionsWATCHLISTSCREENING WATCHLIST_SCREENING { get; set; }
 
         /// <summary>
+        /// Gets or Sets TOKEN_CREATE
+        /// </summary>
+        [DataMember(Name="TOKEN_CREATE", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseEmbeddedActionsTOKENCREATE TOKEN_CREATE { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TOKEN_UPDATE
+        /// </summary>
+        [DataMember(Name="TOKEN_UPDATE", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseEmbeddedActionsTOKENUPDATE TOKEN_UPDATE { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +106,8 @@ namespace CyberSource.Model
             if (CONSUMER_AUTHENTICATION != null) sb.Append("  CONSUMER_AUTHENTICATION: ").Append(CONSUMER_AUTHENTICATION).Append("\n");
             if (VALIDATE_CONSUMER_AUTHENTICATION != null) sb.Append("  VALIDATE_CONSUMER_AUTHENTICATION: ").Append(VALIDATE_CONSUMER_AUTHENTICATION).Append("\n");
             if (WATCHLIST_SCREENING != null) sb.Append("  WATCHLIST_SCREENING: ").Append(WATCHLIST_SCREENING).Append("\n");
+            if (TOKEN_CREATE != null) sb.Append("  TOKEN_CREATE: ").Append(TOKEN_CREATE).Append("\n");
+            if (TOKEN_UPDATE != null) sb.Append("  TOKEN_UPDATE: ").Append(TOKEN_UPDATE).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +168,16 @@ namespace CyberSource.Model
                     this.WATCHLIST_SCREENING == other.WATCHLIST_SCREENING ||
                     this.WATCHLIST_SCREENING != null &&
                     this.WATCHLIST_SCREENING.Equals(other.WATCHLIST_SCREENING)
+                ) && 
+                (
+                    this.TOKEN_CREATE == other.TOKEN_CREATE ||
+                    this.TOKEN_CREATE != null &&
+                    this.TOKEN_CREATE.Equals(other.TOKEN_CREATE)
+                ) && 
+                (
+                    this.TOKEN_UPDATE == other.TOKEN_UPDATE ||
+                    this.TOKEN_UPDATE != null &&
+                    this.TOKEN_UPDATE.Equals(other.TOKEN_UPDATE)
                 );
         }
 
@@ -174,6 +202,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.VALIDATE_CONSUMER_AUTHENTICATION.GetHashCode();
                 if (this.WATCHLIST_SCREENING != null)
                     hash = hash * 59 + this.WATCHLIST_SCREENING.GetHashCode();
+                if (this.TOKEN_CREATE != null)
+                    hash = hash * 59 + this.TOKEN_CREATE.GetHashCode();
+                if (this.TOKEN_UPDATE != null)
+                    hash = hash * 59 + this.TOKEN_UPDATE.GetHashCode();
                 return hash;
             }
         }

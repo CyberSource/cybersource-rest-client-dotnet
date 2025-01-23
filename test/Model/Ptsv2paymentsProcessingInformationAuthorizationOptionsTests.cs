@@ -241,12 +241,44 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CardVerificationIndicator'
         }
         /// <summary>
+        /// Test the property 'TransactionMode'
+        /// </summary>
+        [Test]
+        public void TransactionModeTest()
+        {
+            // TODO unit test for the property 'TransactionMode'
+        }
+        /// <summary>
         /// Test the property 'AftIndicator'
         /// </summary>
         [Test]
         public void AftIndicatorTest()
         {
             // TODO unit test for the property 'AftIndicator'
+        }
+        /// <summary>
+        /// Test the property 'ServiceType'
+        /// </summary>
+        [Test]
+        public void ServiceTypeTest()
+        {
+            // TODO unit test for the property 'ServiceType'
+        }
+        /// <summary>
+        /// Test the property 'BalanceUpdate'
+        /// </summary>
+        [Test]
+        public void BalanceUpdateTest()
+        {
+            // TODO unit test for the property 'BalanceUpdate'
+        }
+        /// <summary>
+        /// Test the property 'MoneyLoad'
+        /// </summary>
+        [Test]
+        public void MoneyLoadTest()
+        {
+            // TODO unit test for the property 'MoneyLoad'
         }
 
     }

@@ -65,12 +65,12 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Suffix'
+        /// Test the property 'Number'
         /// </summary>
         [Test]
-        public void SuffixTest()
+        public void NumberTest()
         {
-            // TODO unit test for the property 'Suffix'
+            // TODO unit test for the property 'Number'
         }
         /// <summary>
         /// Test the property 'ExpirationMonth'
@@ -87,6 +87,22 @@ namespace CyberSource.Test
         public void ExpirationYearTest()
         {
             // TODO unit test for the property 'ExpirationYear'
+        }
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'Suffix'
+        /// </summary>
+        [Test]
+        public void SuffixTest()
+        {
+            // TODO unit test for the property 'Suffix'
         }
 
     }

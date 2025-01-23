@@ -41,7 +41,9 @@ namespace CyberSource.Model
         /// <param name="TransactionReason">Transaction reason code. .</param>
         /// <param name="PurposeOfPayment">This will send purpose of funds code for original credit transactions (OCTs). .</param>
         /// <param name="FundingOptions">FundingOptions.</param>
-        public Ptsv2payoutsProcessingInformation(string BusinessApplicationId = default(string), string NetworkRoutingOrder = default(string), string CommerceIndicator = default(string), string ReconciliationId = default(string), Ptsv2payoutsProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv2payoutsProcessingInformationPayoutsOptions), string TransactionReason = default(string), string PurposeOfPayment = default(string), Ptsv2payoutsProcessingInformationFundingOptions FundingOptions = default(Ptsv2payoutsProcessingInformationFundingOptions))
+        /// <param name="LanguageCode">Contains the ISO 639-2 defined language Code .</param>
+        /// <param name="PurchaseOptions">PurchaseOptions.</param>
+        public Ptsv2payoutsProcessingInformation(string BusinessApplicationId = default(string), string NetworkRoutingOrder = default(string), string CommerceIndicator = default(string), string ReconciliationId = default(string), Ptsv2payoutsProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv2payoutsProcessingInformationPayoutsOptions), string TransactionReason = default(string), string PurposeOfPayment = default(string), Ptsv2payoutsProcessingInformationFundingOptions FundingOptions = default(Ptsv2payoutsProcessingInformationFundingOptions), string LanguageCode = default(string), Ptsv2payoutsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2payoutsProcessingInformationPurchaseOptions))
         {
             this.BusinessApplicationId = BusinessApplicationId;
             this.NetworkRoutingOrder = NetworkRoutingOrder;
@@ -51,6 +53,8 @@ namespace CyberSource.Model
             this.TransactionReason = TransactionReason;
             this.PurposeOfPayment = PurposeOfPayment;
             this.FundingOptions = FundingOptions;
+            this.LanguageCode = LanguageCode;
+            this.PurchaseOptions = PurchaseOptions;
         }
         
         /// <summary>
@@ -108,6 +112,19 @@ namespace CyberSource.Model
         public Ptsv2payoutsProcessingInformationFundingOptions FundingOptions { get; set; }
 
         /// <summary>
+        /// Contains the ISO 639-2 defined language Code 
+        /// </summary>
+        /// <value>Contains the ISO 639-2 defined language Code </value>
+        [DataMember(Name="languageCode", EmitDefaultValue=false)]
+        public string LanguageCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PurchaseOptions
+        /// </summary>
+        [DataMember(Name="purchaseOptions", EmitDefaultValue=false)]
+        public Ptsv2payoutsProcessingInformationPurchaseOptions PurchaseOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,6 +140,8 @@ namespace CyberSource.Model
             if (TransactionReason != null) sb.Append("  TransactionReason: ").Append(TransactionReason).Append("\n");
             if (PurposeOfPayment != null) sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
             if (FundingOptions != null) sb.Append("  FundingOptions: ").Append(FundingOptions).Append("\n");
+            if (LanguageCode != null) sb.Append("  LanguageCode: ").Append(LanguageCode).Append("\n");
+            if (PurchaseOptions != null) sb.Append("  PurchaseOptions: ").Append(PurchaseOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -198,6 +217,16 @@ namespace CyberSource.Model
                     this.FundingOptions == other.FundingOptions ||
                     this.FundingOptions != null &&
                     this.FundingOptions.Equals(other.FundingOptions)
+                ) && 
+                (
+                    this.LanguageCode == other.LanguageCode ||
+                    this.LanguageCode != null &&
+                    this.LanguageCode.Equals(other.LanguageCode)
+                ) && 
+                (
+                    this.PurchaseOptions == other.PurchaseOptions ||
+                    this.PurchaseOptions != null &&
+                    this.PurchaseOptions.Equals(other.PurchaseOptions)
                 );
         }
 
@@ -228,6 +257,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PurposeOfPayment.GetHashCode();
                 if (this.FundingOptions != null)
                     hash = hash * 59 + this.FundingOptions.GetHashCode();
+                if (this.LanguageCode != null)
+                    hash = hash * 59 + this.LanguageCode.GetHashCode();
+                if (this.PurchaseOptions != null)
+                    hash = hash * 59 + this.PurchaseOptions.GetHashCode();
                 return hash;
             }
         }

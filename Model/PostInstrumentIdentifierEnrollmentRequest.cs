@@ -44,7 +44,8 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="BillTo">BillTo.</param>
         /// <param name="Metadata">Metadata.</param>
-        public PostInstrumentIdentifierEnrollmentRequest(TmsEmbeddedInstrumentIdentifierLinks Links = default(TmsEmbeddedInstrumentIdentifierLinks), string Id = default(string), string Type = default(string), Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation = default(Ptsv2paymentsTokenInformationTokenProvisioningInformation), TmsEmbeddedInstrumentIdentifierCard Card = default(TmsEmbeddedInstrumentIdentifierCard), TmsEmbeddedInstrumentIdentifierBankAccount BankAccount = default(TmsEmbeddedInstrumentIdentifierBankAccount), Tmsv2TokenizedCard TokenizedCard = default(Tmsv2TokenizedCard), TmsEmbeddedInstrumentIdentifierIssuer Issuer = default(TmsEmbeddedInstrumentIdentifierIssuer), TmsEmbeddedInstrumentIdentifierProcessingInformation ProcessingInformation = default(TmsEmbeddedInstrumentIdentifierProcessingInformation), TmsEmbeddedInstrumentIdentifierBillTo BillTo = default(TmsEmbeddedInstrumentIdentifierBillTo), TmsEmbeddedInstrumentIdentifierMetadata Metadata = default(TmsEmbeddedInstrumentIdentifierMetadata))
+        /// <param name="Embedded">Embedded.</param>
+        public PostInstrumentIdentifierEnrollmentRequest(TmsEmbeddedInstrumentIdentifierLinks Links = default(TmsEmbeddedInstrumentIdentifierLinks), string Id = default(string), string Type = default(string), Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation = default(Ptsv2paymentsTokenInformationTokenProvisioningInformation), TmsEmbeddedInstrumentIdentifierCard Card = default(TmsEmbeddedInstrumentIdentifierCard), TmsEmbeddedInstrumentIdentifierBankAccount BankAccount = default(TmsEmbeddedInstrumentIdentifierBankAccount), Tmsv2TokenizedCard TokenizedCard = default(Tmsv2TokenizedCard), TmsEmbeddedInstrumentIdentifierIssuer Issuer = default(TmsEmbeddedInstrumentIdentifierIssuer), TmsEmbeddedInstrumentIdentifierProcessingInformation ProcessingInformation = default(TmsEmbeddedInstrumentIdentifierProcessingInformation), TmsEmbeddedInstrumentIdentifierBillTo BillTo = default(TmsEmbeddedInstrumentIdentifierBillTo), TmsEmbeddedInstrumentIdentifierMetadata Metadata = default(TmsEmbeddedInstrumentIdentifierMetadata), TmsEmbeddedInstrumentIdentifierEmbedded Embedded = default(TmsEmbeddedInstrumentIdentifierEmbedded))
         {
             this.Links = Links;
             this.Id = Id;
@@ -57,6 +58,7 @@ namespace CyberSource.Model
             this.ProcessingInformation = ProcessingInformation;
             this.BillTo = BillTo;
             this.Metadata = Metadata;
+            this.Embedded = Embedded;
         }
         
         /// <summary>
@@ -142,6 +144,12 @@ namespace CyberSource.Model
         public TmsEmbeddedInstrumentIdentifierMetadata Metadata { get; set; }
 
         /// <summary>
+        /// Gets or Sets Embedded
+        /// </summary>
+        [DataMember(Name="_embedded", EmitDefaultValue=false)]
+        public TmsEmbeddedInstrumentIdentifierEmbedded Embedded { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -162,6 +170,7 @@ namespace CyberSource.Model
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             if (BillTo != null) sb.Append("  BillTo: ").Append(BillTo).Append("\n");
             if (Metadata != null) sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -262,6 +271,11 @@ namespace CyberSource.Model
                     this.Metadata == other.Metadata ||
                     this.Metadata != null &&
                     this.Metadata.Equals(other.Metadata)
+                ) && 
+                (
+                    this.Embedded == other.Embedded ||
+                    this.Embedded != null &&
+                    this.Embedded.Equals(other.Embedded)
                 );
         }
 
@@ -302,6 +316,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BillTo.GetHashCode();
                 if (this.Metadata != null)
                     hash = hash * 59 + this.Metadata.GetHashCode();
+                if (this.Embedded != null)
+                    hash = hash * 59 + this.Embedded.GetHashCode();
                 return hash;
             }
         }

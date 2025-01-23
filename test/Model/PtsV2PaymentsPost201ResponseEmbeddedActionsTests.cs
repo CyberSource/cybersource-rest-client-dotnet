@@ -104,6 +104,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'WATCHLIST_SCREENING'
         }
+        /// <summary>
+        /// Test the property 'TOKEN_CREATE'
+        /// </summary>
+        [Test]
+        public void TOKEN_CREATETest()
+        {
+            // TODO unit test for the property 'TOKEN_CREATE'
+        }
+        /// <summary>
+        /// Test the property 'TOKEN_UPDATE'
+        /// </summary>
+        [Test]
+        public void TOKEN_UPDATETest()
+        {
+            // TODO unit test for the property 'TOKEN_UPDATE'
+        }
 
     }
 
